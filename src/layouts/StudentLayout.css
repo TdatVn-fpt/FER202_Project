@@ -1,0 +1,30 @@
+/* ===== STUDENT LAYOUT ===== */
+.student-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.layout-container {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.layout-container .main-content {
+  flex: 1;
+  padding: var(--spacing-xl);
+  background-color: #ffffff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .layout-container {
+    flex-direction: column;
+  }
+
+  .layout-container .main-content {
+    padding: var(--spacing-base);
+  }
+}
