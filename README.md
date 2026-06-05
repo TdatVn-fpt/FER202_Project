@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# 🎓 IELTS Online Learning Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+  <img alt="React" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img alt="CSS3" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  <img alt="JSON Server" src="https://img.shields.io/badge/JSON_Server-339933?style=for-the-badge&logo=json&logoColor=white" />
+</div>
 
-## Available Scripts
+## 📌 Giới thiệu dự án (Introduction)
 
-In the project directory, you can run:
+Dự án **IELTS Online Learning** là một nền tảng web học tiếng Anh trực tuyến được phát triển trong khuôn khổ bài tập nhóm môn học **FER202 (Front-End with React)**.
+Hệ thống mang đến một môi trường học tập hiện đại cho học viên, cung cấp công cụ quản lý khóa học mạnh mẽ cho giáo viên và bảng điều khiển tổng quan cho quản trị viên (Admin).
 
-### `npm start`
+## ✨ Chức năng chính (Features)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 👨‍🎓 Dành cho Học viên (Student)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Khám phá, xem thông tin chi tiết và đăng ký các khóa học IELTS.
+- Tham gia học tập qua giao diện bài giảng trực quan (Lessons & Flashcards).
+- Làm bài kiểm tra, thi thử thực chiến (Quiz & Practice Tests).
+- Theo dõi tiến độ học tập và quản lý profile cá nhân.
 
-### `npm test`
+### 👨‍🏫 Dành cho Giáo viên (Teacher)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Bảng điều khiển (Dashboard) thống kê tình hình lớp học.
+- Đăng tải, chỉnh sửa và quản lý nội dung bài giảng, khóa học.
+- Quản lý ngân hàng câu hỏi và bài thi trắc nghiệm.
 
-### `npm run build`
+### 🛡️ Dành cho Quản trị viên (Admin)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Quản lý toàn bộ hệ thống tài khoản (Học viên, Giáo viên).
+- Phê duyệt các khóa học mới trước khi hiển thị (Approval System).
+- Theo dõi và thống kê các giao dịch mua khóa học.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Công nghệ sử dụng (Tech Stack)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Frontend:** ReactJS, React Router DOM, Thuần CSS (Vanilla CSS).
+- **Backend/Database (Mock):** JSON Server (Giả lập RESTful API).
+- **Quản lý source code:** Git & GitHub.
 
-### `npm run eject`
+## 🛠️ Hướng dẫn chạy dự án (Getting Started)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Làm theo các bước sau để chạy dự án trên máy tính của bạn:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Clone dự án về máy:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   git clone https://github.com/TdatVn-fpt/FER202_Project.git
+   cd FER202_Project/ielts-online-learning
+   ```
+2. **Cài đặt các thư viện cần thiết:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npm install
+   ```
+3. **Thiết lập biến môi trường:**
+   Tạo một file `.env` ở thư mục gốc (ngang hàng với `package.json`) và copy nội dung từ file `.env.example` sang nếu có.
+4. **Chạy Mock Database (JSON Server):**
+   *(Mở một terminal thứ nhất)*
 
-## Learn More
+   ```bash
+   npm run start:db  # Hoặc lệnh tương ứng bạn cài đặt để chạy file db.json
+   ```
+5. **Chạy ứng dụng React:**
+   *(Mở terminal thứ hai)*
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```bash
+   npm start
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   Ứng dụng sẽ tự động mở trên trình duyệt tại địa chỉ: `http://localhost:3000`
 
-### Code Splitting
+## 👥 Thành viên nhóm (Team Members)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| STT | Họ và Tên                 | Mã sinh viên | Vai trò           |
+| :-: | :--------------------------- | :------------- | :----------------- |
+|  1  | Nguyễn Tiến Đạt          | [Mã SV]       | Frontend Developer |
+|  2  | [Điền Tên Thành Viên 2] | [Mã SV]       | Frontend Developer |
+|  3  | [Điền Tên Thành Viên 3] | [Mã SV]       | Frontend Developer |
+|  4  | [Điền Tên Thành Viên 4] | [Mã SV]       | Frontend Developer |
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*Dự án được thực hiện nhằm mục đích học tập môn FER202 tại Đại học FPT.*
