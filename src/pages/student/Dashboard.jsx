@@ -1,27 +1,11 @@
 import React from 'react';
 
+// TODO: Phần Student Dashboard sẽ được code sau bởi thành viên phụ trách
 export default function Dashboard() {
   return (
-    <div className="student-dashboard">
-      <h1>Student Dashboard</h1>
-      <div className="stats-container">
-        <div className="stat-card">
-          <h3>Courses Enrolled</h3>
-          <p className="stat-value">3</p>
-        </div>
-        <div className="stat-card">
-          <h3>Progress</h3>
-          <p className="stat-value">65%</p>
-        </div>
-        <div className="stat-card">
-          <h3>Lessons Completed</h3>
-          <p className="stat-value">28</p>
-        </div>
-        <div className="stat-card">
-          <h3>Quiz Score</h3>
-          <p className="stat-value">8.5/10</p>
-        </div>
-      </div>
+    <div style={{ padding: '2rem', textAlign: 'center' }}>
+      <h2>Student Dashboard</h2>
+      <p style={{ color: '#5b616e' }}>Trang này sẽ được phát triển sau.</p>
     </div>
   );
 }

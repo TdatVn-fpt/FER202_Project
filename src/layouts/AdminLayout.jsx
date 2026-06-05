@@ -1,23 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from '../components/common/Header';
-import Navbar from '../components/common/Navbar';
-import Sidebar from '../components/common/Sidebar';
-import Footer from '../components/common/Footer';
-import './AdminLayout.css';
 
+// TODO: AdminLayout sẽ được hoàn thiện sau bởi thành viên phụ trách
 export default function AdminLayout() {
   return (
-    <div className="admin-layout">
-      <Header />
-      <Navbar />
-      <div className="layout-container">
-        <Sidebar />
-        <main className="main-content">
-          <Outlet />
-        </main>
-      </div>
-      <Footer />
+    <div className="admin-layout" style={{ minHeight: '100vh' }}>
+      <main style={{ padding: '2rem' }}>
+        <Outlet />
+      </main>
     </div>
   );
 }

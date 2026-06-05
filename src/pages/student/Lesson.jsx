@@ -1,23 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
+// TODO: Phần Lesson sẽ được code sau bởi thành viên phụ trách
 export default function Lesson() {
   const { id } = useParams();
-
   return (
-    <div className="lesson-page">
-      <h1>Lesson {id}</h1>
-      <div className="lesson-content">
-        <h2>Lesson Title</h2>
-        <p>Lesson content goes here</p>
-        <div className="video-placeholder">
-          <p>Video Player Placeholder</p>
-        </div>
-        <div className="lesson-actions">
-          <button className="btn-primary-sm">Mark as Complete</button>
-          <button className="btn-secondary-sm">Next Lesson</button>
-        </div>
-      </div>
+    <div style={{ padding: '2rem', textAlign: 'center' }}>
+      <h2>Lesson {id}</h2>
+      <p style={{ color: '#5b616e' }}>Trang này sẽ được phát triển sau.</p>
     </div>
   );
 }
