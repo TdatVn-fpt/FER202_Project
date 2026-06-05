@@ -7,15 +7,19 @@ export default function Header() {
     <header className="header">
       <div className="header-container">
         <Link to="/" className="header-logo">
-          <span className="logo-icon">📚</span>
+          <span className="brand-mark" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
           <span className="logo-text">IELTS Learning</span>
         </Link>
         <div className="header-actions">
           <button className="header-search-btn" aria-label="Search">
-            🔍
+            Search
           </button>
           <button className="header-globe-btn" aria-label="Language">
-            🌐
+            EN
           </button>
         </div>
       </div>

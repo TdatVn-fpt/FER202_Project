@@ -3,12 +3,16 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #ffffff;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(0, 82, 255, 0.08), transparent 28%),
+    radial-gradient(circle at 78% 22%, rgba(32, 183, 255, 0.08), transparent 26%),
+    #ffffff;
 }
 
 .main-content {
   flex: 1;
   width: 100%;
+  min-height: 40vh;
 }
 
 /* ===== GLOBAL STYLES ===== */

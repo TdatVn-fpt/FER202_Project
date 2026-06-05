@@ -2,7 +2,7 @@
 .footer {
   background-color: var(--canvas);
   border-top: 1px solid var(--hairline);
-  padding: var(--spacing-section) 0 0 0;
+  padding: 64px 0 0 0;
 }
 
 .footer-container {
@@ -80,9 +80,8 @@
   color: var(--primary);
 }
 
-.footer-logo-icon {
-  font-size: 24px;
-  line-height: 1;
+.footer-brand-mark {
+  flex: 0 0 28px;
 }
 
 .footer-logo-text {
