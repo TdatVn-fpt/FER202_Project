@@ -5,66 +5,61 @@ import './Navbar.css';
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <nav className="site-navbar">
+    <nav className="site-navbar" aria-label="Main navigation">
       <div className="site-navbar-container">
-        <Link to="/" className="site-navbar-brand" aria-label="IELTS Learning home">
+        <Link to="/" className="site-navbar-brand" aria-label="IELTSMaster home" onClick={closeMenu}>
           <span className="brand-mark" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span className="brand-cap"></span>
           </span>
-          <span className="site-navbar-logo-text">IELTS Learning</span>
+          <span className="site-navbar-logo-text">
+            IELTS<span>Master</span>
+          </span>
         </Link>
 
-        <button className="site-hamburger-menu" onClick={toggleMenu} aria-label="Menu">
+        <button
+          className="site-hamburger-menu"
+          type="button"
+          onClick={() => setIsMenuOpen((current) => !current)}
+          aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
+        >
           <span className={isMenuOpen ? 'open' : ''}></span>
           <span className={isMenuOpen ? 'open' : ''}></span>
           <span className={isMenuOpen ? 'open' : ''}></span>
         </button>
 
         <ul className={`site-nav-menu ${isMenuOpen ? 'active' : ''}`}>
-          <li className="site-nav-item">
-            <NavLink to="/" className={({ isActive }) => `site-nav-link ${isActive ? 'active' : ''}`} end>
-              Home
-            </NavLink>
-          </li>
-          <li className="site-nav-item">
-            <NavLink to="/courses" className={({ isActive }) => `site-nav-link ${isActive ? 'active' : ''}`}>
+          <li>
+            <NavLink to="/courses" className={({ isActive }) => `site-nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>
               Courses
             </NavLink>
           </li>
-          <li className="site-nav-item">
-            <a href="#features" className="site-nav-link">
-              Features
+          <li>
+            <a href="#practice-tests" className="site-nav-link" onClick={closeMenu}>
+              Practice Tests
             </a>
           </li>
-          <li className="site-nav-item">
-            <a href="#about" className="site-nav-link">
-              About
+          <li>
+            <a href="#question-bank" className="site-nav-link" onClick={closeMenu}>
+              Question Bank
             </a>
           </li>
-          <li className="site-nav-item">
-            <a href="#contact" className="site-nav-link">
-              Contact
-            </a>
+          <li>
+            <Link to="/learning/dashboard" className="site-nav-link" onClick={closeMenu}>
+              Dashboard
+            </Link>
           </li>
         </ul>
 
         <div className="site-nav-ctas">
-          <button className="site-nav-icon-button" aria-label="Search">
-            <span className="site-search-icon"></span>
-          </button>
-          <button className="site-language-button" aria-label="Change language">
-            <span>EN</span>
-            <span className="site-chevron"></span>
-          </button>
-          <Link to="/register" className="site-signup-button">
+          <Link to="/register" className="site-signup-link">
             Sign Up
+          </Link>
+          <Link to="/login" className="site-login-button">
+            Log In
           </Link>
         </div>
       </div>
