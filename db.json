@@ -1,25 +1,95 @@
 {
+  "roles": [
+    {
+      "id": 1,
+      "name": "student",
+      "label": "Student",
+      "permissions": ["course:view", "course:enroll", "lesson:learn", "quiz:take", "flashcard:learn", "dashboard:view"]
+    },
+    {
+      "id": 2,
+      "name": "teacher",
+      "label": "Teacher",
+      "permissions": ["course:create", "course:update", "lesson:manage", "test:manage", "approval:submit"]
+    },
+    {
+      "id": 3,
+      "name": "admin",
+      "label": "Admin",
+      "permissions": ["user:manage", "course:approve", "lesson:approve", "test:approve", "transaction:view"]
+    }
+  ],
   "users": [
     {
       "id": 1,
       "name": "Tien Dat",
+      "fullName": "Nguyen Tien Dat",
       "email": "ntiendat2108@gmail.com",
+      "password": "12345678",
       "role": "student",
-      "targetBand": 7.0,
-      "currentBand": 5.5
+      "avatar": "https://www.gravatar.com/avatar/?d=mp",
+      "isActive": true,
+      "status": "active",
+      "targetBand": 7,
+      "currentBand": 5.5,
+      "createdAt": "2026-06-01T08:00:00Z",
+      "updatedAt": "2026-06-07T08:00:00Z"
     },
     {
       "id": 2,
       "name": "IELTS Mentor",
+      "fullName": "IELTS Mentor",
       "email": "teacher@ieltslearning.com",
+      "password": "12345678",
       "role": "teacher",
-      "specialty": "Reading and Writing"
+      "avatar": "https://www.gravatar.com/avatar/?d=mp",
+      "isActive": true,
+      "status": "active",
+      "specialty": "Reading and Writing",
+      "createdAt": "2026-05-20T08:00:00Z",
+      "updatedAt": "2026-06-06T08:00:00Z"
     },
     {
       "id": 3,
       "name": "System Admin",
+      "fullName": "System Admin",
       "email": "admin@ieltslearning.com",
-      "role": "admin"
+      "password": "12345678",
+      "role": "admin",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp",
+      "isActive": true,
+      "status": "active",
+      "createdAt": "2026-05-15T08:00:00Z",
+      "updatedAt": "2026-06-06T08:00:00Z"
+    },
+    {
+      "id": 4,
+      "name": "Minh Anh",
+      "fullName": "Tran Minh Anh",
+      "email": "minhanh@student.com",
+      "password": "12345678",
+      "role": "student",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp",
+      "isActive": true,
+      "status": "active",
+      "targetBand": 6.5,
+      "currentBand": 5,
+      "createdAt": "2026-06-03T08:00:00Z",
+      "updatedAt": "2026-06-05T08:00:00Z"
+    },
+    {
+      "id": 5,
+      "name": "Listening Coach",
+      "fullName": "Mai Listening Coach",
+      "email": "listening.teacher@ieltslearning.com",
+      "password": "12345678",
+      "role": "teacher",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp",
+      "isActive": true,
+      "status": "active",
+      "specialty": "Listening and Speaking",
+      "createdAt": "2026-05-25T08:00:00Z",
+      "updatedAt": "2026-06-06T08:00:00Z"
     }
   ],
   "courses": [
@@ -31,7 +101,20 @@
       "description": "Build core vocabulary, scanning, skimming, and passage analysis skills.",
       "teacherId": 2,
       "price": 490000,
-      "durationWeeks": 6
+      "currency": "VND",
+      "durationWeeks": 6,
+      "thumbnail": "/images/courses/reading-foundation.jpg",
+      "syllabus": ["Skimming and Scanning", "Matching Headings", "True False Not Given"],
+      "status": "published",
+      "approvalStatus": "approved",
+      "isPremium": true,
+      "isActive": true,
+      "rating": 4.7,
+      "reviewCount": 28,
+      "enrolledCount": 120,
+      "createdAt": "2026-06-01T08:00:00Z",
+      "updatedAt": "2026-06-07T08:00:00Z",
+      "publishedAt": "2026-06-02T08:00:00Z"
     },
     {
       "id": 2,
@@ -39,9 +122,22 @@
       "skill": "Listening",
       "level": "Intermediate",
       "description": "Practice section-based listening strategies with transcript review.",
-      "teacherId": 2,
+      "teacherId": 5,
       "price": 590000,
-      "durationWeeks": 8
+      "currency": "VND",
+      "durationWeeks": 8,
+      "thumbnail": "/images/courses/listening-mastery.jpg",
+      "syllabus": ["Predicting Answers", "Map Labelling", "Multiple Choice Listening"],
+      "status": "published",
+      "approvalStatus": "approved",
+      "isPremium": true,
+      "isActive": true,
+      "rating": 4.8,
+      "reviewCount": 35,
+      "enrolledCount": 96,
+      "createdAt": "2026-06-01T09:00:00Z",
+      "updatedAt": "2026-06-07T08:00:00Z",
+      "publishedAt": "2026-06-02T09:00:00Z"
     },
     {
       "id": 3,
@@ -51,7 +147,20 @@
       "description": "Improve essay planning, coherence, grammar range, and lexical resource.",
       "teacherId": 2,
       "price": 790000,
-      "durationWeeks": 8
+      "currency": "VND",
+      "durationWeeks": 8,
+      "thumbnail": "/images/courses/writing-task-2.jpg",
+      "syllabus": ["Opinion Essay", "Discussion Essay", "Problem Solution Essay"],
+      "status": "published",
+      "approvalStatus": "approved",
+      "isPremium": true,
+      "isActive": true,
+      "rating": 4.9,
+      "reviewCount": 22,
+      "enrolledCount": 78,
+      "createdAt": "2026-06-02T08:00:00Z",
+      "updatedAt": "2026-06-07T08:00:00Z",
+      "publishedAt": "2026-06-03T08:00:00Z"
     },
     {
       "id": 4,
@@ -59,63 +168,175 @@
       "skill": "Speaking",
       "level": "Intermediate",
       "description": "Practice part 1, part 2, and part 3 answers with feedback.",
-      "teacherId": 2,
+      "teacherId": 5,
       "price": 690000,
-      "durationWeeks": 6
+      "currency": "VND",
+      "durationWeeks": 6,
+      "thumbnail": "/images/courses/speaking-confidence.jpg",
+      "syllabus": ["Part 1 Fluency", "Part 2 Cue Card", "Part 3 Discussion"],
+      "status": "pending",
+      "approvalStatus": "pending",
+      "isPremium": true,
+      "isActive": false,
+      "rating": 0,
+      "reviewCount": 0,
+      "enrolledCount": 0,
+      "createdAt": "2026-06-06T08:00:00Z",
+      "updatedAt": "2026-06-06T08:00:00Z",
+      "publishedAt": null
+    },
+    {
+      "id": 5,
+      "title": "Academic Vocabulary Builder",
+      "skill": "Vocabulary",
+      "level": "Beginner",
+      "description": "Learn high-frequency IELTS academic vocabulary by topic with flashcards.",
+      "teacherId": 2,
+      "price": 0,
+      "currency": "VND",
+      "durationWeeks": 4,
+      "thumbnail": "/images/courses/vocabulary-builder.jpg",
+      "syllabus": ["Environment", "Education", "Technology"],
+      "status": "draft",
+      "approvalStatus": "draft",
+      "isPremium": false,
+      "isActive": false,
+      "rating": 0,
+      "reviewCount": 0,
+      "enrolledCount": 0,
+      "createdAt": "2026-06-07T08:00:00Z",
+      "updatedAt": "2026-06-07T08:00:00Z",
+      "publishedAt": null
     }
   ],
   "lessons": [
     {
       "id": 1,
       "courseId": 1,
+      "teacherId": 2,
       "title": "Reading Lesson 1: Skimming for Main Ideas",
       "order": 1,
       "durationMinutes": 45,
-      "contentUrl": "/lessons/reading-skimming"
+      "contentUrl": "/lessons/reading-skimming",
+      "videoUrl": "https://example.com/videos/reading-skimming.mp4",
+      "content": "Learn how to skim a passage to identify the main idea quickly.",
+      "status": "published",
+      "approvalStatus": "approved",
+      "createdAt": "2026-06-01T10:00:00Z",
+      "updatedAt": "2026-06-05T10:00:00Z"
     },
     {
       "id": 2,
       "courseId": 1,
+      "teacherId": 2,
       "title": "Reading Lesson 2: Matching Headings",
       "order": 2,
       "durationMinutes": 50,
-      "contentUrl": "/lessons/reading-matching-headings"
+      "contentUrl": "/lessons/reading-matching-headings",
+      "videoUrl": "https://example.com/videos/matching-headings.mp4",
+      "content": "Practise identifying paragraph purpose and avoiding distractor headings.",
+      "status": "published",
+      "approvalStatus": "approved",
+      "createdAt": "2026-06-01T11:00:00Z",
+      "updatedAt": "2026-06-05T11:00:00Z"
     },
     {
       "id": 3,
       "courseId": 2,
+      "teacherId": 5,
       "title": "Listening Lesson 1: Predicting Answers",
       "order": 1,
       "durationMinutes": 40,
-      "contentUrl": "/lessons/listening-prediction"
+      "contentUrl": "/lessons/listening-prediction",
+      "videoUrl": "https://example.com/videos/listening-prediction.mp4",
+      "content": "Use question prompts to predict answer type before the audio begins.",
+      "status": "published",
+      "approvalStatus": "approved",
+      "createdAt": "2026-06-02T10:00:00Z",
+      "updatedAt": "2026-06-05T12:00:00Z"
     },
     {
       "id": 4,
       "courseId": 3,
+      "teacherId": 2,
       "title": "Writing Lesson 1: Opinion Essay Structure",
       "order": 1,
       "durationMinutes": 60,
-      "contentUrl": "/lessons/writing-opinion-essay"
+      "contentUrl": "/lessons/writing-opinion-essay",
+      "videoUrl": "https://example.com/videos/opinion-essay.mp4",
+      "content": "Build a clear introduction, two body paragraphs, and a concise conclusion.",
+      "status": "published",
+      "approvalStatus": "approved",
+      "createdAt": "2026-06-03T10:00:00Z",
+      "updatedAt": "2026-06-05T13:00:00Z"
+    },
+    {
+      "id": 5,
+      "courseId": 4,
+      "teacherId": 5,
+      "title": "Speaking Lesson 1: Part 2 Cue Card Planning",
+      "order": 1,
+      "durationMinutes": 45,
+      "contentUrl": "/lessons/speaking-cue-card",
+      "videoUrl": "https://example.com/videos/speaking-cue-card.mp4",
+      "content": "Plan a two-minute response with notes, examples, and linking phrases.",
+      "status": "pending",
+      "approvalStatus": "pending",
+      "createdAt": "2026-06-06T10:00:00Z",
+      "updatedAt": "2026-06-06T10:00:00Z"
     }
   ],
   "tests": [
     {
       "id": 1,
       "courseId": 1,
+      "teacherId": 2,
       "title": "Reading Foundation Mock Test",
+      "description": "A short IELTS Reading practice test for foundation learners.",
       "skill": "Reading",
-      "durationMinutes": 60,
-      "totalQuestions": 40,
-      "bandScale": "IELTS 0-9"
+      "level": "Beginner",
+      "durationMinutes": 30,
+      "totalQuestions": 4,
+      "type": "mini",
+      "bandScale": "IELTS 0-9",
+      "status": "published",
+      "approvalStatus": "approved",
+      "createdAt": "2026-06-02T08:00:00Z",
+      "updatedAt": "2026-06-06T08:00:00Z"
     },
     {
       "id": 2,
       "courseId": 2,
+      "teacherId": 5,
       "title": "Listening Section Practice Test",
+      "description": "A section-based listening practice test with IELTS-style questions.",
       "skill": "Listening",
+      "level": "Intermediate",
       "durationMinutes": 30,
-      "totalQuestions": 40,
-      "bandScale": "IELTS 0-9"
+      "totalQuestions": 4,
+      "type": "mini",
+      "bandScale": "IELTS 0-9",
+      "status": "published",
+      "approvalStatus": "approved",
+      "createdAt": "2026-06-02T09:00:00Z",
+      "updatedAt": "2026-06-06T09:00:00Z"
+    },
+    {
+      "id": 3,
+      "courseId": 3,
+      "teacherId": 2,
+      "title": "Writing Task 2 Strategy Quiz",
+      "description": "A quiz for checking essay structure and coherence knowledge.",
+      "skill": "Writing",
+      "level": "Advanced",
+      "durationMinutes": 20,
+      "totalQuestions": 4,
+      "type": "mini",
+      "bandScale": "IELTS 0-9",
+      "status": "draft",
+      "approvalStatus": "draft",
+      "createdAt": "2026-06-07T08:00:00Z",
+      "updatedAt": "2026-06-07T08:00:00Z"
     }
   ],
   "questions": [
@@ -125,8 +346,8 @@
       "type": "multiple-choice",
       "questionText": "What is the main purpose of paragraph 1?",
       "options": ["To introduce a problem", "To compare two theories", "To describe a process", "To reject an argument"],
-      "answer": "To introduce a problem",
-      "score": 1
+      "score": 1,
+      "order": 1
     },
     {
       "id": 2,
@@ -134,16 +355,169 @@
       "type": "true-false-not-given",
       "questionText": "The writer believes online learning is only useful for advanced students.",
       "options": ["True", "False", "Not Given"],
-      "answer": "False",
-      "score": 1
+      "score": 1,
+      "order": 2
     },
     {
       "id": 3,
+      "testId": 1,
+      "type": "multiple-choice",
+      "questionText": "Which reading technique helps locate names, dates, and numbers quickly?",
+      "options": ["Skimming", "Scanning", "Paraphrasing", "Summarising"],
+      "score": 1,
+      "order": 3
+    },
+    {
+      "id": 4,
+      "testId": 1,
+      "type": "fill-in-the-blank",
+      "questionText": "The passage recommends reading the ____ sentence first.",
+      "score": 1,
+      "order": 4
+    },
+    {
+      "id": 5,
       "testId": 2,
       "type": "fill-in-the-blank",
       "questionText": "The lecture begins at ____ in the main hall.",
+      "score": 1,
+      "order": 1
+    },
+    {
+      "id": 6,
+      "testId": 2,
+      "type": "multiple-choice",
+      "questionText": "Before listening, students should predict the answer based on:",
+      "options": ["The speaker's accent", "The question context", "The answer key", "The final score"],
+      "score": 1,
+      "order": 2
+    },
+    {
+      "id": 7,
+      "testId": 2,
+      "type": "true-false-not-given",
+      "questionText": "The speaker says students should ignore distractors completely.",
+      "options": ["True", "False", "Not Given"],
+      "score": 1,
+      "order": 3
+    },
+    {
+      "id": 8,
+      "testId": 2,
+      "type": "multiple-choice",
+      "questionText": "In map labelling, direction words usually help identify:",
+      "options": ["Locations", "Essay types", "Grammar rules", "Paragraph headings"],
+      "score": 1,
+      "order": 4
+    },
+    {
+      "id": 9,
+      "testId": 3,
+      "type": "multiple-choice",
+      "questionText": "A strong Task 2 body paragraph should usually focus on:",
+      "options": ["One main idea", "Four unrelated examples", "Only memorised phrases", "A new question"],
+      "score": 1,
+      "order": 1
+    },
+    {
+      "id": 10,
+      "testId": 3,
+      "type": "multiple-choice",
+      "questionText": "Coherence mainly means:",
+      "options": ["Clear organisation and connection of ideas", "Speaking loudly", "Writing more words", "Using rare words only"],
+      "score": 1,
+      "order": 2
+    },
+    {
+      "id": 11,
+      "testId": 3,
+      "type": "true-false-not-given",
+      "questionText": "The conclusion should introduce several new main ideas.",
+      "options": ["True", "False", "Not Given"],
+      "score": 1,
+      "order": 3
+    },
+    {
+      "id": 12,
+      "testId": 3,
+      "type": "fill-in-the-blank",
+      "questionText": "A thesis statement should answer the essay ____.",
+      "score": 1,
+      "order": 4
+    }
+  ],
+  "questionAnswers": [
+    {
+      "id": 1,
+      "questionId": 1,
+      "answer": "To introduce a problem",
+      "explanation": "Paragraph 1 introduces the issue before the passage gives detail."
+    },
+    {
+      "id": 2,
+      "questionId": 2,
+      "answer": "False",
+      "explanation": "The statement is contradicted by the writer's support for learners at multiple levels."
+    },
+    {
+      "id": 3,
+      "questionId": 3,
+      "answer": "Scanning",
+      "explanation": "Scanning is used to find specific information quickly."
+    },
+    {
+      "id": 4,
+      "questionId": 4,
+      "answer": "topic",
+      "explanation": "Topic sentences often reveal the main focus of a paragraph."
+    },
+    {
+      "id": 5,
+      "questionId": 5,
       "answer": "9:30",
-      "score": 1
+      "explanation": "The audio states that the lecture begins at 9:30 in the main hall."
+    },
+    {
+      "id": 6,
+      "questionId": 6,
+      "answer": "The question context",
+      "explanation": "Context helps predict answer type and meaning before listening."
+    },
+    {
+      "id": 7,
+      "questionId": 7,
+      "answer": "False",
+      "explanation": "Students should notice distractors and avoid selecting them too quickly."
+    },
+    {
+      "id": 8,
+      "questionId": 8,
+      "answer": "Locations",
+      "explanation": "Direction words guide listeners through positions on a map."
+    },
+    {
+      "id": 9,
+      "questionId": 9,
+      "answer": "One main idea",
+      "explanation": "A focused paragraph is easier to develop and score well for coherence."
+    },
+    {
+      "id": 10,
+      "questionId": 10,
+      "answer": "Clear organisation and connection of ideas",
+      "explanation": "Coherence is about how ideas progress and connect."
+    },
+    {
+      "id": 11,
+      "questionId": 11,
+      "answer": "False",
+      "explanation": "A conclusion should summarise the position, not introduce new main ideas."
+    },
+    {
+      "id": 12,
+      "questionId": 12,
+      "answer": "question",
+      "explanation": "The thesis statement should directly answer the essay question."
     }
   ],
   "enrollments": [
@@ -151,17 +525,301 @@
       "id": 1,
       "userId": 1,
       "courseId": 1,
+      "paymentId": 1,
       "status": "active",
-      "progress": 35,
-      "enrolledAt": "2026-06-01"
+      "progress": 50,
+      "enrolledAt": "2026-06-01T08:00:00Z",
+      "completedAt": null
     },
     {
       "id": 2,
       "userId": 1,
       "courseId": 2,
+      "paymentId": 2,
+      "status": "pending_payment",
+      "progress": 0,
+      "enrolledAt": "2026-06-01T09:00:00Z",
+      "completedAt": null
+    },
+    {
+      "id": 3,
+      "userId": 4,
+      "courseId": 1,
+      "paymentId": 3,
       "status": "active",
-      "progress": 12,
-      "enrolledAt": "2026-06-01"
+      "progress": 25,
+      "enrolledAt": "2026-06-05T08:00:00Z",
+      "completedAt": null
+    }
+  ],
+  "lessonProgress": [
+    {
+      "id": 1,
+      "userId": 1,
+      "courseId": 1,
+      "lessonId": 1,
+      "isCompleted": true,
+      "lastPositionSeconds": 2700,
+      "completedAt": "2026-06-03T08:00:00Z",
+      "updatedAt": "2026-06-03T08:00:00Z"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "courseId": 1,
+      "lessonId": 2,
+      "isCompleted": false,
+      "lastPositionSeconds": 900,
+      "completedAt": null,
+      "updatedAt": "2026-06-05T08:00:00Z"
+    },
+    {
+      "id": 3,
+      "userId": 4,
+      "courseId": 1,
+      "lessonId": 1,
+      "isCompleted": false,
+      "lastPositionSeconds": 1200,
+      "completedAt": null,
+      "updatedAt": "2026-06-06T08:00:00Z"
+    }
+  ],
+  "testAttempts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "testId": 1,
+      "status": "submitted",
+      "answers": [
+        { "questionId": 1, "selectedAnswer": "To introduce a problem", "isCorrect": true },
+        { "questionId": 2, "selectedAnswer": "False", "isCorrect": true },
+        { "questionId": 3, "selectedAnswer": "Skimming", "isCorrect": false },
+        { "questionId": 4, "selectedAnswer": "topic", "isCorrect": true }
+      ],
+      "totalQuestions": 4,
+      "correctAnswers": 3,
+      "scorePercent": 75,
+      "bandScore": 6.5,
+      "startedAt": "2026-06-04T08:00:00Z",
+      "submittedAt": "2026-06-04T08:28:00Z"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "testId": 2,
+      "status": "submitted",
+      "answers": [
+        { "questionId": 5, "selectedAnswer": "9:30", "isCorrect": true },
+        { "questionId": 6, "selectedAnswer": "The question context", "isCorrect": true },
+        { "questionId": 7, "selectedAnswer": "Not Given", "isCorrect": false },
+        { "questionId": 8, "selectedAnswer": "Locations", "isCorrect": true }
+      ],
+      "totalQuestions": 4,
+      "correctAnswers": 3,
+      "scorePercent": 75,
+      "bandScore": 6.5,
+      "startedAt": "2026-06-06T08:00:00Z",
+      "submittedAt": "2026-06-06T08:30:00Z"
+    }
+  ],
+  "results": [
+    {
+      "id": 1,
+      "attemptId": 1,
+      "userId": 1,
+      "testId": 1,
+      "skill": "Reading",
+      "scorePercent": 75,
+      "bandScore": 6.5,
+      "feedback": "Good control of main idea questions. Review scanning for specific details.",
+      "createdAt": "2026-06-04T08:28:00Z"
+    },
+    {
+      "id": 2,
+      "attemptId": 2,
+      "userId": 1,
+      "testId": 2,
+      "skill": "Listening",
+      "scorePercent": 75,
+      "bandScore": 6.5,
+      "feedback": "Strong prediction skills. Be careful with distractors.",
+      "createdAt": "2026-06-06T08:30:00Z"
+    }
+  ],
+  "learningHistory": [
+    {
+      "id": 1,
+      "userId": 1,
+      "type": "lesson_completed",
+      "courseId": 1,
+      "lessonId": 1,
+      "testId": null,
+      "message": "Completed Reading Lesson 1: Skimming for Main Ideas",
+      "createdAt": "2026-06-03T08:00:00Z"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "type": "test_submitted",
+      "courseId": 1,
+      "lessonId": null,
+      "testId": 1,
+      "message": "Submitted Reading Foundation Mock Test with band 6.5",
+      "createdAt": "2026-06-04T08:28:00Z"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "type": "payment_pending",
+      "courseId": 2,
+      "lessonId": null,
+      "testId": null,
+      "message": "Payment for IELTS Listening Mastery is pending.",
+      "createdAt": "2026-06-01T09:00:00Z"
+    }
+  ],
+  "flashcardDecks": [
+    {
+      "id": 1,
+      "title": "Environment Vocabulary",
+      "description": "High-frequency IELTS words for environment topics.",
+      "skill": "Vocabulary",
+      "level": "Intermediate",
+      "createdBy": 2,
+      "status": "published",
+      "createdAt": "2026-06-02T08:00:00Z",
+      "updatedAt": "2026-06-05T08:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Education Vocabulary",
+      "description": "Academic words and collocations for education essays.",
+      "skill": "Vocabulary",
+      "level": "Beginner",
+      "createdBy": 2,
+      "status": "published",
+      "createdAt": "2026-06-02T09:00:00Z",
+      "updatedAt": "2026-06-05T09:00:00Z"
+    }
+  ],
+  "flashcards": [
+    {
+      "id": 1,
+      "deckId": 1,
+      "word": "sustainable",
+      "pronunciation": "/səˈsteɪnəbl/",
+      "meaning": "bền vững",
+      "example": "Sustainable development is important for future generations.",
+      "category": "Environment",
+      "level": "Intermediate",
+      "createdAt": "2026-06-02T08:10:00Z",
+      "updatedAt": "2026-06-02T08:10:00Z"
+    },
+    {
+      "id": 2,
+      "deckId": 1,
+      "word": "biodiversity",
+      "pronunciation": "/ˌbaɪoʊdaɪˈvɜːrsəti/",
+      "meaning": "đa dạng sinh học",
+      "example": "Pollution can reduce biodiversity in coastal areas.",
+      "category": "Environment",
+      "level": "Advanced",
+      "createdAt": "2026-06-02T08:20:00Z",
+      "updatedAt": "2026-06-02T08:20:00Z"
+    },
+    {
+      "id": 3,
+      "deckId": 2,
+      "word": "curriculum",
+      "pronunciation": "/kəˈrɪkjələm/",
+      "meaning": "chương trình học",
+      "example": "Schools should update their curriculum regularly.",
+      "category": "Education",
+      "level": "Intermediate",
+      "createdAt": "2026-06-02T09:10:00Z",
+      "updatedAt": "2026-06-02T09:10:00Z"
+    },
+    {
+      "id": 4,
+      "deckId": 2,
+      "word": "literacy",
+      "pronunciation": "/ˈlɪtərəsi/",
+      "meaning": "khả năng đọc viết",
+      "example": "Digital literacy is essential in modern education.",
+      "category": "Education",
+      "level": "Beginner",
+      "createdAt": "2026-06-02T09:20:00Z",
+      "updatedAt": "2026-06-02T09:20:00Z"
+    }
+  ],
+  "flashcardProgress": [
+    {
+      "id": 1,
+      "userId": 1,
+      "flashcardId": 1,
+      "status": "known",
+      "reviewCount": 3,
+      "lastReviewedAt": "2026-06-05T08:00:00Z",
+      "nextReviewAt": "2026-06-12T08:00:00Z",
+      "updatedAt": "2026-06-05T08:00:00Z"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "flashcardId": 2,
+      "status": "review",
+      "reviewCount": 1,
+      "lastReviewedAt": "2026-06-05T08:10:00Z",
+      "nextReviewAt": "2026-06-07T08:10:00Z",
+      "updatedAt": "2026-06-05T08:10:00Z"
+    },
+    {
+      "id": 3,
+      "userId": 4,
+      "flashcardId": 3,
+      "status": "new",
+      "reviewCount": 0,
+      "lastReviewedAt": null,
+      "nextReviewAt": null,
+      "updatedAt": "2026-06-06T08:00:00Z"
+    }
+  ],
+  "approvalRequests": [
+    {
+      "id": 1,
+      "targetType": "course",
+      "targetId": 4,
+      "teacherId": 5,
+      "status": "pending",
+      "message": "Please review the Speaking Confidence course.",
+      "adminNote": "",
+      "createdAt": "2026-06-06T08:30:00Z",
+      "reviewedAt": null,
+      "reviewedBy": null
+    },
+    {
+      "id": 2,
+      "targetType": "lesson",
+      "targetId": 5,
+      "teacherId": 5,
+      "status": "pending",
+      "message": "First speaking lesson is ready for approval.",
+      "adminNote": "",
+      "createdAt": "2026-06-06T10:30:00Z",
+      "reviewedAt": null,
+      "reviewedBy": null
+    },
+    {
+      "id": 3,
+      "targetType": "course",
+      "targetId": 1,
+      "teacherId": 2,
+      "status": "approved",
+      "message": "Please approve Reading Foundation.",
+      "adminNote": "Approved for public discovery.",
+      "createdAt": "2026-06-01T12:00:00Z",
+      "reviewedAt": "2026-06-02T08:00:00Z",
+      "reviewedBy": 3
     }
   ],
   "payments": [
@@ -173,7 +831,9 @@
       "currency": "VND",
       "method": "bank-transfer",
       "status": "paid",
-      "paidAt": "2026-06-01"
+      "paidAt": "2026-06-01T08:00:00Z",
+      "createdAt": "2026-06-01T07:58:00Z",
+      "updatedAt": "2026-06-01T08:00:00Z"
     },
     {
       "id": 2,
@@ -183,7 +843,76 @@
       "currency": "VND",
       "method": "momo",
       "status": "pending",
-      "paidAt": null
+      "paidAt": null,
+      "createdAt": "2026-06-01T09:00:00Z",
+      "updatedAt": "2026-06-01T09:00:00Z"
+    },
+    {
+      "id": 3,
+      "userId": 4,
+      "courseId": 1,
+      "amount": 490000,
+      "currency": "VND",
+      "method": "mock",
+      "status": "paid",
+      "paidAt": "2026-06-05T08:00:00Z",
+      "createdAt": "2026-06-05T07:58:00Z",
+      "updatedAt": "2026-06-05T08:00:00Z"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "paymentId": 1,
+      "userId": 1,
+      "courseId": 1,
+      "amount": 490000,
+      "currency": "VND",
+      "type": "course_purchase",
+      "status": "success",
+      "createdAt": "2026-06-01T08:00:00Z"
+    },
+    {
+      "id": 2,
+      "paymentId": 2,
+      "userId": 1,
+      "courseId": 2,
+      "amount": 590000,
+      "currency": "VND",
+      "type": "course_purchase",
+      "status": "pending",
+      "createdAt": "2026-06-01T09:00:00Z"
+    },
+    {
+      "id": 3,
+      "paymentId": 3,
+      "userId": 4,
+      "courseId": 1,
+      "amount": 490000,
+      "currency": "VND",
+      "type": "course_purchase",
+      "status": "success",
+      "createdAt": "2026-06-05T08:00:00Z"
+    }
+  ],
+  "courseReviews": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "userId": 1,
+      "rating": 5,
+      "comment": "Clear lessons and useful reading strategies.",
+      "createdAt": "2026-06-06T08:00:00Z",
+      "updatedAt": "2026-06-06T08:00:00Z"
+    },
+    {
+      "id": 2,
+      "courseId": 2,
+      "userId": 1,
+      "rating": 4,
+      "comment": "Good listening practice, waiting for payment confirmation to continue.",
+      "createdAt": "2026-06-06T09:00:00Z",
+      "updatedAt": "2026-06-06T09:00:00Z"
     }
   ]
 }
