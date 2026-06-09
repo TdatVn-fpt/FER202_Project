@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
 
 // ===== GUEST / PUBLIC PAGES =====
 import Home from '../pages/guest/Home';
@@ -37,23 +38,29 @@ export default function AppRoutes() {
       </Route>
 
       {/* ===== STUDENT ROUTES (placeholder - phát triển sau) ===== */}
-      <Route element={<StudentLayout />}>
-        <Route path="/learning/dashboard" element={<StudentDashboard />} />
-        <Route path="/learning/courses" element={<MyCourses />} />
-        <Route path="/learning/lessons/:id" element={<Lesson />} />
-        <Route path="/learning/profile" element={<StudentProfile />} />
+      <Route element={<ProtectedRoute allowedRoles={['student']} />}>
+        <Route element={<StudentLayout />}>
+          <Route path="/learning/dashboard" element={<StudentDashboard />} />
+          <Route path="/learning/courses" element={<MyCourses />} />
+          <Route path="/learning/lessons/:id" element={<Lesson />} />
+          <Route path="/learning/profile" element={<StudentProfile />} />
+        </Route>
       </Route>
 
       {/* ===== TEACHER ROUTES (placeholder - phát triển sau) ===== */}
-      <Route element={<TeacherLayout />}>
-        <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
-        <Route path="/teacher/courses" element={<CourseManagement />} />
+      <Route element={<ProtectedRoute allowedRoles={['teacher']} />}>
+        <Route element={<TeacherLayout />}>
+          <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
+          <Route path="/teacher/courses" element={<CourseManagement />} />
+        </Route>
       </Route>
 
       {/* ===== ADMIN ROUTES (placeholder - phát triển sau) ===== */}
-      <Route element={<AdminLayout />}>
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/users" element={<UserManagement />} />
+      <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
+        <Route element={<AdminLayout />}>
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/users" element={<UserManagement />} />
+        </Route>
       </Route>
     </Routes>
   );
