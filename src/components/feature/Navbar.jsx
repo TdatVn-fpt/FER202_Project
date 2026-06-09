@@ -10,12 +10,10 @@ export default function Navbar() {
   return (
     <nav className="site-navbar" aria-label="Main navigation">
       <div className="site-navbar-container">
-        <Link to="/" className="site-navbar-brand" aria-label="IELTSMaster home" onClick={closeMenu}>
-          <span className="brand-mark" aria-hidden="true">
-            <span className="brand-cap"></span>
-          </span>
+        <Link to="/" className="site-navbar-brand" aria-label="British Council home" onClick={closeMenu}>
+          <span className="bc-logo-dots" aria-hidden="true"></span>
           <span className="site-navbar-logo-text">
-            IELTS<span>Master</span>
+            BRITISH<br />COUNCIL
           </span>
         </Link>
 
@@ -34,32 +32,32 @@ export default function Navbar() {
         <ul className={`site-nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <li>
             <NavLink to="/courses" className={({ isActive }) => `site-nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>
-              Courses
+              Free resources
             </NavLink>
           </li>
           <li>
             <a href="#practice-tests" className="site-nav-link" onClick={closeMenu}>
-              Practice Tests
+              Online courses
             </a>
           </li>
           <li>
             <a href="#question-bank" className="site-nav-link" onClick={closeMenu}>
-              Question Bank
+              IELTS preparation
             </a>
           </li>
           <li>
             <Link to="/learning/dashboard" className="site-nav-link" onClick={closeMenu}>
-              Dashboard
+              Level test
             </Link>
           </li>
         </ul>
 
         <div className="site-nav-ctas">
-          <Link to="/register" className="site-signup-link">
-            Sign Up
-          </Link>
           <Link to="/login" className="site-login-button">
             Log In
+          </Link>
+          <Link to="/register" className="site-signup-link">
+            Register
           </Link>
         </div>
       </div>
