@@ -36,6 +36,7 @@ Hệ thống mang đến một môi trường học tập hiện đại cho họ
 
 - **Frontend:** ReactJS, React Router DOM, **Bootstrap 5** (Hệ thống Grid và Component).
   > **⚠️ LƯU Ý CHO TEAM (FER202):** Tất cả các trang bắt buộc phải sử dụng class của Bootstrap (`container`, `row`, `col-*`, `card`, `btn`...) để dựng Layout. Hạn chế tối đa việc tự viết CSS `display: flex` hay `grid` thủ công để tránh bị trừ điểm form layout nhé!
+  >
 - **Backend/Database (Mock):** JSON Server (Giả lập RESTful API).
 - **Quản lý source code:** Git & GitHub.
 
