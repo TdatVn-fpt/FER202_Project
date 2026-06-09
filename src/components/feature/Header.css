@@ -88,41 +88,6 @@
   color: var(--primary);
 }
 
-.brand-mark {
-  position: relative;
-  display: inline-flex;
-  align-items: flex-end;
-  width: 28px;
-  height: 28px;
-}
-
-.brand-mark span {
-  position: absolute;
-  display: block;
-  width: 14px;
-  height: 18px;
-  border-radius: 4px;
-  box-shadow: 0 3px 10px rgba(0, 82, 255, 0.16);
-}
-
-.brand-mark span:nth-child(1) {
-  left: 0;
-  bottom: 8px;
-  background: #74e85b;
-}
-
-.brand-mark span:nth-child(2) {
-  left: 7px;
-  bottom: 4px;
-  background: #ff4f7b;
-}
-
-.brand-mark span:nth-child(3) {
-  left: 14px;
-  bottom: 0;
-  background: #20b7ff;
-}
-
 .logo-text {
   font-family: var(--font-display);
   font-weight: 600;

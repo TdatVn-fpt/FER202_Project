@@ -1,166 +1,171 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
-const stats = [
-  { icon: 'PQ', value: '25,000+', label: 'Practice Questions' },
-  { icon: 'EC', value: '120+', label: 'Expert Courses' },
-  { icon: 'MT', value: '250+', label: 'Mock Tests' },
-  { icon: 'LR', value: '4.8/5', label: 'Learner Rating' }
+const preparationOptions = [
+  {
+    eyebrow: 'Course • Online',
+    title: 'IELTS Coach online',
+    lead: 'Get the IELTS score you need with live classes, expert teachers and a clear learning plan.',
+    intro: 'Flexible learning:',
+    bullets: [
+      'Choose your class time and teacher',
+      'Join small online group or private classes',
+      'Practise with mock tests, webinars and exercises',
+      'Follow a structured plan to improve your IELTS score'
+    ],
+    bestFor: 'Best for structured learning and expert support.'
+  },
+  {
+    eyebrow: 'Online',
+    title: 'IELTS Ready Member',
+    lead: 'Free',
+    intro: 'Get started with your IELTS preparation using free official practice and study tools.',
+    bullets: [
+      'Practise with 6 full skill-based tests',
+      'Try a computer-delivered test experience',
+      'Learn with videos and expert tips'
+    ],
+    bestFor: 'Best for building confidence before taking a course'
+  },
+  {
+    eyebrow: 'Online',
+    title: 'IELTS Ready Premium',
+    lead: 'Free Included with IELTS test booking',
+    intro: 'Get full access to our premium IELTS preparation toolkit - free when you book your test.',
+    bullets: [
+      '40 practice tests for Listening and Reading',
+      'Mini-mock test with scores and AI feedback',
+      'Practice questions, model answers and online courses',
+      'Personal dashboard to track your progress'
+    ],
+    bestFor: 'Best for comprehensive preparation with premium resources'
+  }
 ];
 
-const featureCards = [
+const stats = [
+  { value: '90 years', label: 'of experience in teaching English language' },
+  { value: '4 m', label: 'Millions of IELTS tests are taken every year' },
+  { value: '12.500+', label: 'organisations and institutions recognise IELTS worldwide' },
+  { value: '140', label: 'countries offer IELTS testing in official test centres' }
+];
+
+const skills = [
   {
-    icon: '7+',
-    title: 'Band 7+ Courses',
-    text: 'Step-by-step learning paths for all four skills based on proven strategies and real exam patterns.',
-    link: 'Explore Courses'
+    title: 'Listening',
+    text: 'Assessment of your ability to understand spoken English, follow conversations and recognise key information and opinions.'
   },
   {
-    icon: 'AI',
-    title: 'Mock Test Simulator',
-    text: 'Take full-length IELTS tests in a real exam environment with detailed band scores and feedback.',
-    link: 'Start a Test'
+    title: 'Reading',
+    text: 'Assessment of your ability to understand main ideas, details and implied meaning across different types of texts.'
   },
   {
-    icon: 'SR',
-    title: 'Smart Review',
-    text: 'Review weak areas with targeted practice, performance insights, and smart flashcards to retain more.',
-    link: 'Improve Smarter'
+    title: 'Writing',
+    text: 'Assessment of your ability to organise ideas, respond appropriately and use a range of vocabulary and grammar accurately.'
+  },
+  {
+    title: 'Speaking',
+    text: 'Assessment of your ability to communicate clearly and fluently in a face-to-face or video call conversation.'
   }
 ];
 
 export default function Home() {
-  const homeRef = useRef(null);
-
-  useEffect(() => {
-    const root = homeRef.current;
-    if (!root) return undefined;
-
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const animatedItems = Array.from(root.querySelectorAll('[data-animate]'));
-
-    if (reduceMotion) {
-      animatedItems.forEach((item) => item.classList.add('is-visible'));
-      return undefined;
-    }
-
-    animatedItems.forEach((item, index) => {
-      item.style.setProperty('--reveal-delay', `${Math.min(index * 80, 520)}ms`);
-    });
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.16, rootMargin: '0px 0px -8% 0px' }
-    );
-
-    animatedItems.forEach((item) => observer.observe(item));
-
-    let cursorFrame = 0;
-
-    const handlePointerMove = (event) => {
-      window.cancelAnimationFrame(cursorFrame);
-      cursorFrame = window.requestAnimationFrame(() => {
-        root.style.setProperty('--cursor-x', `${event.clientX}px`);
-        root.style.setProperty('--cursor-y', `${event.clientY}px`);
-      });
-    };
-
-    root.addEventListener('pointermove', handlePointerMove);
-
-    return () => {
-      observer.disconnect();
-      root.removeEventListener('pointermove', handlePointerMove);
-      window.cancelAnimationFrame(cursorFrame);
-    };
-  }, []);
-
   return (
-    <div className="home-page guest-home" ref={homeRef}>
-      <div className="luxury-cursor" aria-hidden="true"></div>
-
-      <section className="master-hero">
-        <div className="master-container master-hero-grid">
-          <div className="master-hero-copy" data-animate="fade-up">
-            <span className="trust-pill">Trusted by 50,000+ IELTS learners</span>
-            <h1>
-              Master IELTS with <span>Structured Courses &amp; Real Practice Tests</span>
-            </h1>
-            <p>
-              Expert-designed courses, band-focused learning paths, extensive question banks,
-              realistic mock tests, and smart progress tracking all in one place.
-            </p>
-
-            <div className="master-actions">
-              <Link to="/courses" className="master-btn master-btn-primary">
-                Explore Courses <span aria-hidden="true">-&gt;</span>
-              </Link>
-              <a href="#practice-tests" className="master-btn master-btn-secondary">
-                <span className="play-icon" aria-hidden="true"></span>
-                Start Practice
-              </a>
-            </div>
-
-            <div className="hero-benefits" aria-label="IELTSMaster benefits">
-              <span>Band 7+ Strategies</span>
-              <span>Up-to-date Content</span>
-              <span>Learn at Your Pace</span>
-            </div>
-          </div>
-
-          <div className="blank-preview" data-animate="fade-left" aria-label="Empty image area">
-            <div className="blank-preview-inner"></div>
+    <div className="home-page bc-home">
+      <section className="bc-hero">
+        <div className="bc-hero-art" aria-hidden="true"></div>
+        <div className="bc-container">
+          <img
+            className="bc-hero-image"
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=85"
+            alt="Student preparing for IELTS online with headphones"
+          />
+          <div className="bc-hero-copy">
+            <h1>Prepare for IELTS with the co-creators of the test</h1>
+            <p>Get the score you need with expert support, trusted resources and flexible preparation options.</p>
+            <Link to="/courses" className="bc-button bc-button-primary">
+              Find your IELTS preparation
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="stats-section" data-animate="fade-up">
-        <div className="master-container stats-card">
-          {stats.map((item) => (
-            <article className="stat-item" key={item.label}>
-              <span className="stat-icon">{item.icon}</span>
-              <div>
-                <strong>{item.value}</strong>
-                <small>{item.label}</small>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+      <section className="bc-options" id="practice-tests">
+        <div className="bc-container">
+          <div className="bc-section-heading">
+            <h2>IELTS preparation options for every goal</h2>
+            <p>Choose the right preparation for your timeline and target score.</p>
+            <p>Study with expert teachers, practise real test tasks, and build the skills you need to succeed.</p>
+          </div>
 
-      <section className="feature-card-section" id="practice-tests">
-        <div className="master-container feature-card-grid">
-          {featureCards.map((card, index) => (
-            <article className="master-feature-card" key={card.title} data-animate="fade-up">
-              <span className={`feature-icon feature-icon-${index + 1}`}>{card.icon}</span>
-              <div>
-                <h2>{card.title}</h2>
-                <p>{card.text}</p>
-                <Link to={index === 0 ? '/courses' : '/register'}>
-                  {card.link} <span aria-hidden="true">-&gt;</span>
+          <div className="bc-option-grid">
+            {preparationOptions.map((option) => (
+              <article className="bc-option-card" key={option.title}>
+                <p className="bc-option-eyebrow">{option.eyebrow}</p>
+                <h3>{option.title}</h3>
+                <p className="bc-option-lead">{option.lead}</p>
+                <p>{option.intro}</p>
+                <ul>
+                  {option.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+                <p className="bc-option-best">{option.bestFor}</p>
+                <Link to="/courses" className="bc-button bc-button-small">
+                  Learn more
                 </Link>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="question-bank-section" id="question-bank">
-        <div className="master-container bank-panel" data-animate="fade-up">
-          <div>
-            <span className="trust-pill">Question Bank</span>
-            <h2>Luxury motion, clean cards, and smooth scrolling for focused IELTS study.</h2>
+      <section className="bc-stats">
+        <div className="bc-container">
+          <h2>IELTS is the leading English test for study, work or migration abroad</h2>
+          <div className="bc-stats-grid">
+            {stats.map((item) => (
+              <article className="bc-stat" key={item.value}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </article>
+            ))}
           </div>
-          <Link to="/register" className="master-btn master-btn-primary">
-            Build My Plan
-          </Link>
+        </div>
+      </section>
+
+      <section className="bc-skills" id="question-bank">
+        <div className="bc-container bc-skills-inner">
+          <div className="bc-section-heading">
+            <h2>Maximise your IELTS score in all four skills</h2>
+            <p>
+              The IELTS test assesses your ability in listening, reading, writing and speaking.
+              Prepare with targeted practice and expert support to perform at your best in each skill.
+            </p>
+          </div>
+
+          <div className="bc-skill-grid">
+            {skills.map((skill) => (
+              <article className="bc-skill-card" key={skill.title}>
+                <h3>{skill.title}</h3>
+                <p>{skill.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <p className="bc-skills-note">
+            Your preparation will focus on the skills you need most, based on your level and goals.
+            With expert guidance and targeted practice, you can build confidence and improve your IELTS performance.
+          </p>
+
+          <div className="bc-skill-actions">
+            <Link to="/courses" className="bc-button bc-button-primary">
+              Explore IELTS preparation
+            </Link>
+            <Link to="/register" className="bc-button bc-button-outline">
+              Check your English level
+            </Link>
+          </div>
         </div>
       </section>
     </div>
