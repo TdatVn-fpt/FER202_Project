@@ -1,0 +1,406 @@
+.online-page {
+  --online-purple: #6500c8;
+  --online-deep: #270052;
+  --online-soft: #dda5f6;
+  --online-pale: #f0e4fb;
+  background: #fff;
+  color: var(--online-deep);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.online-container {
+  width: min(100% - 32px, 1180px);
+  margin: 0 auto;
+}
+
+.online-hero {
+  padding: 32px 0 52px;
+}
+
+.online-hero-inner {
+  position: relative;
+}
+
+.online-hero-art {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 78%;
+  height: 185px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.25), transparent 24%),
+    linear-gradient(90deg, var(--online-purple), #d5a0f0);
+}
+
+.online-hero-image {
+  position: relative;
+  z-index: 1;
+  width: min(1040px, calc(100% - 92px));
+  height: 360px;
+  margin: 34px auto 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.online-hero-copy {
+  width: min(1040px, calc(100% - 92px));
+  margin: 26px auto 0;
+}
+
+.online-hero-copy h1,
+.online-section-heading h2,
+.online-quiz h2,
+.online-faq h2 {
+  margin: 0;
+  color: var(--online-deep);
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.online-hero-copy h1 {
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.online-hero-copy p {
+  max-width: 760px;
+  margin: 12px 0 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.online-courses-overview {
+  padding: 22px 0 0;
+}
+
+.online-section-heading {
+  text-align: center;
+}
+
+.online-section-heading h2 {
+  font-size: 30px;
+}
+
+.online-section-heading p {
+  margin: 18px 0 0;
+  color: #56406e;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.online-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(100%, 520px);
+  margin: 54px auto 0;
+  border-bottom: 2px solid #bfb1cd;
+}
+
+.online-tabs button {
+  min-height: 54px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: #fff;
+  color: var(--online-deep);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.online-tabs button.active {
+  background: var(--online-pale);
+  border-bottom-color: var(--online-purple);
+  color: var(--online-purple);
+}
+
+.online-course-band {
+  margin-top: 42px;
+  padding: 82px 0 78px;
+  background: var(--online-soft);
+}
+
+.online-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+  align-items: stretch;
+}
+
+.online-course-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 620px;
+  padding: 38px 32px 32px;
+  background: #fff;
+  box-shadow: 10px 10px 0 rgba(101, 0, 200, 0.65);
+}
+
+.online-popular {
+  position: absolute;
+  top: -42px;
+  left: 0;
+  padding: 12px 28px;
+  background: #fff323;
+  color: #1f1235;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.online-card-eyebrow {
+  margin: 0 0 22px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.online-card-eyebrow::first-letter {
+  text-transform: uppercase;
+}
+
+.online-course-card h3 {
+  margin: 0 0 22px;
+  color: var(--online-deep);
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.12;
+}
+
+.online-course-card p {
+  margin: 0 0 20px;
+  color: var(--online-deep);
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.online-course-card ul {
+  display: grid;
+  gap: 14px;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.online-course-card li {
+  position: relative;
+  padding-left: 34px;
+  color: var(--online-deep);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.online-course-card li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--online-purple);
+  content: '\2713';
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.online-course-note {
+  margin-top: auto;
+}
+
+.online-learn-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 148px;
+  min-height: 50px;
+  margin-top: 18px;
+  border-radius: 7px;
+  background: var(--online-purple);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.online-learn-button:hover {
+  color: #fff;
+  background: #4f009f;
+}
+
+.online-benefits {
+  padding: 72px 0 54px;
+}
+
+.online-benefit-list {
+  display: grid;
+  gap: 54px;
+  margin-top: 52px;
+}
+
+.online-benefit {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  align-items: center;
+  gap: 42px;
+}
+
+.online-benefit:nth-child(even) {
+  grid-template-columns: 360px minmax(0, 1fr);
+}
+
+.online-benefit:nth-child(even) img {
+  order: -1;
+}
+
+.online-benefit h3 {
+  margin: 0 0 14px;
+  color: var(--online-deep);
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.online-benefit p {
+  max-width: 520px;
+  margin: 0;
+  color: #4a345f;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.online-benefit img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.online-quiz {
+  padding: 54px 0;
+  background: var(--online-deep);
+  text-align: center;
+}
+
+.online-quiz h2 {
+  max-width: 760px;
+  margin: 0 auto 28px;
+  color: #fff;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.online-quiz a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 24px;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--online-purple);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.online-faq {
+  padding: 68px 0 78px;
+}
+
+.online-faq h2 {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.online-faq-list {
+  display: grid;
+  gap: 1px;
+}
+
+.online-faq details {
+  background: var(--online-purple);
+  color: #fff;
+}
+
+.online-faq summary {
+  position: relative;
+  padding: 18px 50px 18px 18px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 900;
+  list-style: none;
+}
+
+.online-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.online-faq summary::after {
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  content: '+';
+  transform: translateY(-50%);
+}
+
+.online-faq details[open] summary::after {
+  content: '-';
+}
+
+.online-faq details p {
+  margin: 0;
+  padding: 0 18px 18px;
+  color: #f4e8ff;
+  font-size: 14px;
+}
+
+@media (max-width: 980px) {
+  .online-hero-image,
+  .online-hero-copy {
+    width: 100%;
+  }
+
+  .online-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .online-course-card {
+    min-height: auto;
+  }
+
+  .online-benefit,
+  .online-benefit:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .online-benefit:nth-child(even) img {
+    order: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .online-hero {
+    padding-top: 20px;
+  }
+
+  .online-hero-art {
+    width: 92%;
+    height: 120px;
+  }
+
+  .online-hero-image {
+    height: 230px;
+    margin-top: 22px;
+  }
+
+  .online-tabs {
+    width: 100%;
+  }
+
+  .online-tabs button {
+    font-size: 13px;
+  }
+
+  .online-course-band {
+    padding: 62px 0;
+  }
+
+  .online-course-card {
+    padding: 30px 24px;
+  }
+}

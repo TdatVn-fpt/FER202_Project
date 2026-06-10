@@ -15,7 +15,7 @@ export default function Footer() {
         
         <div className="footer-fer202-links">
           <Link to="/">Home</Link>
-          <Link to="/courses">Courses</Link>
+          <Link to="/online-courses">Online courses</Link>
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
         </div>

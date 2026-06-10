@@ -1,30 +1,47 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { getDashboardPathByRole, loginWithGoogle } from '../../services/authService';
+import { getDashboardPathByRole, loginWithEmailAndPassword, loginWithGoogle } from '../../services/authService';
+import './Login.css';
 
 export default function Login() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const navigate = useNavigate();
   const location = useLocation();
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState('');
+  
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  const [showPassword, setShowPassword] = useState(false);
 
   const roleHint = useMemo(() => {
     const params = new URLSearchParams(location.search);
     return params.get('role') || 'student';
   }, [location.search]);
 
-  const handleGoogleLogin = async () => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setStatus('loading');
     setError('');
 
     try {
-      const user = await loginWithGoogle({ role: roleHint });
+      // Connect to json-server via loginWithEmailAndPassword
+      const user = await loginWithEmailAndPassword(formData.email, formData.password);
       const fallbackPath = getDashboardPathByRole(user.role);
       const redirectPath = location.state?.from?.pathname || fallbackPath;
 
       navigate(redirectPath, { replace: true });
     } catch (loginError) {
-      setError('Google login failed. Please try again.');
+      setError(loginError.message || 'Login failed. Please try again.');
       setStatus('error');
     }
   };
@@ -32,67 +49,91 @@ export default function Login() {
   const isLoading = status === 'loading';
 
   return (
-    <section className="bg-white py-5">
-      <div className="container py-5">
-        <div className="row justify-content-center text-center">
-          <div className="col-12 col-md-8 col-lg-5">
-            <Link to="/" className="d-inline-flex align-items-center gap-2 mb-4 text-decoration-none text-dark">
-              <span
-                className="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white fw-bold p-3 lh-1"
-                aria-hidden="true"
-              >
-                I
-              </span>
-              <span className="fs-4 fw-semibold">IELTSMaster</span>
-            </Link>
+    <div className="login-page-wrapper">
+      {/* Background Shapes */}
+      <div className="bg-shape shape-1"></div>
+      <div className="bg-shape shape-2"></div>
+      <div className="bg-shape shape-3"></div>
+      <div className="bg-shape shape-4"></div>
+      <div className="dot dot-1"></div>
+      <div className="dot dot-2"></div>
+      <div className="dot dot-3"></div>
 
-            <p className="mb-2 text-uppercase fw-semibold text-primary small">Auth user</p>
-            <h1 className="display-6 fw-semibold mb-3">Log in to your account</h1>
-            <p className="text-secondary mb-4">
-              Continue with Google to access your IELTS learning dashboard.
-            </p>
-
-            {error && (
-              <div className="alert alert-danger text-start" role="alert">
-                {error}
-              </div>
-            )}
-
-            <div className="border rounded-4 p-4 p-md-5 shadow-sm">
-              <button
-                type="button"
-                className="btn btn-primary btn-lg rounded-pill w-100 d-flex align-items-center justify-content-center gap-3"
-                onClick={handleGoogleLogin}
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <>
-                    <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                    <span>Connecting to Google...</span>
-                  </>
-                ) : (
-                  <>
-                    <span
-                      className="bg-white text-primary rounded-circle d-inline-flex align-items-center justify-content-center fw-bold px-2 py-1 lh-1"
-                    >
-                      G
-                    </span>
-                    <span>Continue with Google</span>
-                  </>
-                )}
-              </button>
-
-              <p className="small text-secondary mt-4 mb-0">
-                By continuing, you use Google authentication only. Email and password login are not available for this project.
-              </p>
-            </div>
-
-            <div className="mt-4 small text-secondary">
-              Demo roles: <code>?role=teacher</code> or <code>?role=admin</code>.
-            </div>
+      <div className="login-card">
+        <div className="login-brand">
+          <div className="brand-icon">
+            <div className="brand-dot"></div>
+            <div className="brand-dot"></div>
+            <div className="brand-dot"></div>
+            <div className="brand-dot"></div>
+          </div>
+          <div className="brand-text">
+            IELTS<br />MASTER
           </div>
         </div>
+
+        <h1>Sign in</h1>
+        <div className="login-card-line"></div>
+
+        <p className="login-subtitle">
+          If you don't have a <strong>IELTS Master account</strong> you can <Link to="/register">register</Link> now. It's quick, easy and free.
+        </p>
+
+        {error && (
+          <div style={{ color: 'red', fontSize: '0.85rem', marginBottom: '16px' }}>
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit}>
+          <div className="login-form-group">
+            <label htmlFor="email">Email address</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              className="login-input"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="login-form-group">
+            <label htmlFor="password">Password</label>
+            <div className="login-input-wrapper">
+              <input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                name="password"
+                className="login-input"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+              <button 
+                type="button" 
+                className="password-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? 'Hide' : 'Show'}
+              </button>
+            </div>
+          </div>
+
+          <div className="login-forgot-link">
+            If you've forgotten your password, you can <a href="#reset">reset</a> it.
+          </div>
+
+          <button type="submit" className="login-submit-btn" disabled={isLoading}>
+            {isLoading ? 'Signing in...' : 'Sign in'}
+          </button>
+
+          <div className="login-back-link">
+            If you're not ready, you can <Link to="/">go back</Link>.
+          </div>
+        </form>
       </div>
-    </section>
+    </div>
   );
 }

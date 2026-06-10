@@ -8,6 +8,7 @@ import Login from '../pages/guest/Login';
 import Register from '../pages/guest/Register';
 import CourseList from '../pages/guest/CourseList';
 import CourseDetail from '../pages/guest/CourseDetail';
+import OnlineCourses from '../pages/guest/OnlineCourses';
 
 // ===== PLACEHOLDER PAGES (sẽ phát triển sau) =====
 import StudentDashboard from '../pages/student/Dashboard';
@@ -34,6 +35,7 @@ export default function AppRoutes() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/courses" element={<CourseList />} />
+        <Route path="/online-courses" element={<OnlineCourses />} />
         <Route path="/courses/:id" element={<CourseDetail />} />
       </Route>
 
