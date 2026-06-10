@@ -67,6 +67,23 @@
       "targetBand": 6.5,
       "currentBand": 5,
       "createdAt": "2026-06-02T08:00:00Z"
+  "users": [
+    {
+      "id": 1,
+      "name": "Tien Dat",
+      "email": "ntiendat2108@gmail.com",
+      "role": "student",
+      "targetBand": 7.0,
+      "currentBand": 5.5
+    },
+    {
+      "id": "u-teacher-001",
+      "fullName": "IELTS Mentor",
+      "name": "IELTS Mentor",
+      "fullName": "IELTS Mentor",
+      "email": "teacher@ieltslearning.com",
+      "role": "teacher",
+      "specialty": "Reading and Writing"
     },
     {
       "id": "u-admin-001",
@@ -90,6 +107,7 @@
       "status": "active",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "createdAt": "2026-06-10T06:20:00.959Z"
+      "role": "admin"
     }
   ],
   "courses": [
@@ -117,6 +135,11 @@
     }
   ],
   "freeResources": [
+      "description": "Build core vocabulary, scanning, skimming, and passage analysis skills.",
+      "teacherId": 2,
+      "price": 490000,
+      "durationWeeks": 6
+    },
     {
       "id": "resource-001",
       "title": "The language clinic: Live Q&A session",
@@ -128,6 +151,27 @@
       "reviews": 79,
       "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80",
       "description": "Join our live event and ask our expert educator your questions about the English language and learning English."
+      "level": "Intermediate",
+      "description": "Practice section-based listening strategies with transcript review.",
+      "teacherId": 2,
+      "price": 590000,
+      "durationWeeks": 8
+    },
+    {
+      "id": "course-003",
+      "title": "IELTS Writing Task 2 Intensive",
+      "description": "Cải thiện lập luận, coherence, grammar range và lexical resource.",
+      "syllabus": [
+        "Opinion Essay",
+        "Discussion Essay",
+        "Problem Solution Essay"
+      ],
+      "skill": "Writing",
+      "level": "Advanced",
+      "description": "Improve essay planning, coherence, grammar range, and lexical resource.",
+      "teacherId": 2,
+      "price": 790000,
+      "durationWeeks": 8
     },
     {
       "id": "resource-002",
@@ -267,4 +311,134 @@
   "questions": [],
   "questionAnswers": [],
   "$schema": "./node_modules/json-server/schema.json"
+      "level": "Intermediate",
+      "description": "Practice part 1, part 2, and part 3 answers with feedback.",
+      "teacherId": 2,
+      "price": 690000,
+      "durationWeeks": 6
+    }
+  ],
+  "lessons": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "title": "Reading Lesson 1: Skimming for Main Ideas",
+      "order": 1,
+      "durationMinutes": 45,
+      "contentUrl": "/lessons/reading-skimming"
+    },
+    {
+      "id": 2,
+      "courseId": 1,
+      "title": "Reading Lesson 2: Matching Headings",
+      "order": 2,
+      "durationMinutes": 50,
+      "contentUrl": "/lessons/reading-matching-headings"
+    },
+    {
+      "id": 3,
+      "courseId": 2,
+      "title": "Listening Lesson 1: Predicting Answers",
+      "order": 1,
+      "durationMinutes": 40,
+      "contentUrl": "/lessons/listening-prediction"
+    },
+    {
+      "id": 4,
+      "courseId": 3,
+      "title": "Writing Lesson 1: Opinion Essay Structure",
+      "order": 1,
+      "durationMinutes": 60,
+      "contentUrl": "/lessons/writing-opinion-essay"
+    }
+  ],
+  "tests": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "title": "Reading Foundation Mock Test",
+      "skill": "Reading",
+      "durationMinutes": 60,
+      "totalQuestions": 40,
+      "bandScale": "IELTS 0-9"
+    },
+    {
+      "id": 2,
+      "courseId": 2,
+      "title": "Listening Section Practice Test",
+      "skill": "Listening",
+      "level": "Intermediate",
+      "durationMinutes": 30,
+      "totalQuestions": 40,
+      "bandScale": "IELTS 0-9"
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "testId": 1,
+      "type": "multiple-choice",
+      "questionText": "What is the main purpose of paragraph 1?",
+      "options": ["To introduce a problem", "To compare two theories", "To describe a process", "To reject an argument"],
+      "answer": "To introduce a problem",
+      "score": 1
+    },
+    {
+      "id": 2,
+      "testId": 1,
+      "type": "true-false-not-given",
+      "questionText": "The writer believes online learning is only useful for advanced students.",
+      "options": ["True", "False", "Not Given"],
+      "answer": "False",
+      "score": 1
+    },
+    {
+      "id": 3,
+      "testId": 2,
+      "type": "fill-in-the-blank",
+      "questionText": "The lecture begins at ____ in the main hall.",
+      "answer": "9:30",
+      "score": 1
+    }
+  ],
+  "enrollments": [
+    {
+      "id": 1,
+      "userId": 1,
+      "courseId": 1,
+      "status": "active",
+      "progress": 35,
+      "enrolledAt": "2026-06-01"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "courseId": 2,
+      "status": "active",
+      "progress": 12,
+      "enrolledAt": "2026-06-01"
+    }
+  ],
+  "payments": [
+    {
+      "id": "payment-001",
+      "userId": "u-student-001",
+      "courseId": "course-002",
+      "amount": 199000,
+      "currency": "VND",
+      "method": "bank-transfer",
+      "status": "paid",
+      "paidAt": "2026-06-01"
+    },
+    {
+      "id": "payment-002",
+      "userId": "u-student-001",
+      "courseId": "course-003",
+      "amount": 299000,
+      "currency": "VND",
+      "method": "momo",
+      "status": "pending",
+      "paidAt": null
+    }
+  ]
 }
