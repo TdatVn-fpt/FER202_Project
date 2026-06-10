@@ -1,4 +1,7 @@
+import axios from 'axios';
+
 const AUTH_STORAGE_KEY = 'ielts_auth_user';
+const API_URL = 'http://localhost:9999'; // Default port for json-server
 
 const ROLE_DASHBOARD_PATHS = {
   admin: '/admin/dashboard',
@@ -62,6 +65,59 @@ export async function loginWithGoogle(options = {}) {
   });
 
   return saveAuthUser(MOCK_GOOGLE_USERS[role]);
+}
+
+// Thêm hàm Login bằng Email & Password kết nối tới db.json qua json-server
+export async function loginWithEmailAndPassword(email, password) {
+  try {
+    // Tải toàn bộ user về và tự filter bằng JavaScript 
+    // để tránh lỗi cú pháp query của các phiên bản json-server khác nhau
+    const response = await axios.get(`${API_URL}/users`);
+    const allUsers = response.data;
+    
+    // Tìm user khớp email và mật khẩu
+    const matchedUser = allUsers.find(
+      u => u.email === email && String(u.password) === String(password)
+    );
+    
+    if (matchedUser) {
+      return saveAuthUser(matchedUser); // Lưu phiên đăng nhập
+    } else {
+      throw new Error("Invalid email or password");
+    }
+  } catch (error) {
+    throw new Error(error.response?.data?.message || error.message || "Login failed");
+  }
+}
+
+// Thêm hàm Register để lưu user mới vào db.json
+export async function registerNewUser(userData) {
+  try {
+    // 1. Kiểm tra email đã tồn tại chưa bằng cách kéo toàn bộ về kiểm tra thủ công
+    const checkRes = await axios.get(`${API_URL}/users`);
+    const allUsers = checkRes.data || [];
+    const emailExists = allUsers.some(u => u.email === userData.email);
+    
+    if (emailExists) {
+      throw new Error("Email is already registered");
+    }
+    
+    // 2. Định dạng dữ liệu user mới
+    const newUser = {
+      ...userData,
+      id: "u-student-" + new Date().getTime(),
+      role: 'student',
+      status: 'active',
+      avatar: 'https://www.gravatar.com/avatar/?d=mp',
+      createdAt: new Date().toISOString()
+    };
+    
+    // 3. Gửi request POST để lưu vào db.json
+    const response = await axios.post(`${API_URL}/users`, newUser);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || error.message || "Register failed");
+  }
 }
 
 export function logout() {
