@@ -29,6 +29,74 @@ export default function Navbar() {
     navigate('/');
   };
 
+  const renderMegaMenu = ({ title, description, buttonText, buttonTo, items, image, imageAlt }) => (
+    <div className="mega-menu">
+      <div className="mega-menu-content">
+        <div className="mega-menu-left">
+          <h2><Link to={buttonTo} onClick={closeMenu}>{title}</Link></h2>
+          {description && <p>{description}</p>}
+          <Link to={buttonTo} className="explore-btn" onClick={closeMenu}>{buttonText}</Link>
+        </div>
+        <div className="mega-menu-center">
+          <h3>In this section</h3>
+          <ul>
+            {items.map((item) => (
+              <li key={item.label}>
+                <Link to={item.to} onClick={closeMenu}>
+                  {item.label}{item.arrow && <span>&gt;</span>}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="mega-menu-right">
+          <img className="mega-menu-image" src={image} alt={imageAlt} />
+        </div>
+      </div>
+    </div>
+  );
+
+  const onlineCoursesMenu = {
+    title: 'Online courses',
+    description: "Learn English with an online course specially created by the British Council, the world's English teaching experts.",
+    buttonText: 'Explore all courses',
+    buttonTo: '/online-courses',
+    image: 'https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=1000&q=85',
+    imageAlt: 'Learner joining an online English class',
+    items: [
+      { label: 'Live classes', to: '/online-courses' },
+      { label: 'Personal tutoring', to: '/online-courses' },
+      { label: 'Self-Study course', to: '/online-courses' },
+      { label: 'Learning-style quiz', to: '/online-courses' }
+    ]
+  };
+
+  const ieltsPreparationMenu = {
+    title: 'IELTS preparation',
+    description: '',
+    buttonText: 'Find your IELTS preparation',
+    buttonTo: '/courses',
+    image: 'https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?auto=format&fit=crop&w=1000&q=85',
+    imageAlt: 'Student preparing for IELTS online',
+    items: [
+      { label: 'IELTS Coach', to: '/courses' }
+    ]
+  };
+
+  const levelTestMenu = {
+    title: 'Level test',
+    description: 'Find out more about the different CEFR English levels and take a free level test.',
+    buttonText: 'Take level test',
+    buttonTo: dashboardPath,
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=85',
+    imageAlt: 'English learners in a classroom',
+    items: [
+      { label: 'Take free level test', to: dashboardPath },
+      { label: 'Understand your English level', to: dashboardPath, arrow: true },
+      { label: 'Improve your English level', to: '/courses' }
+    ]
+  };
+
   return (
     <nav className="site-navbar" aria-label="Main navigation">
       <div className="site-navbar-container">
@@ -52,7 +120,7 @@ export default function Navbar() {
 
         <ul className={`site-nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <li className="nav-item-dropdown">
-            <NavLink to="/courses" className={({ isActive }) => `site-nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>
+            <NavLink to="/courses" className={({ isActive }) => `site-nav-link free-resources-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>
               Free resources <span className="nav-chevron"></span>
             </NavLink>
             <div className="mega-menu">
@@ -77,25 +145,32 @@ export default function Navbar() {
                   </ul>
                 </div>
                 <div className="mega-menu-right">
-                   <div className="mega-menu-image-placeholder"></div>
+                  <img
+                    className="mega-menu-image"
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85"
+                    alt="Student learning English online"
+                  />
                 </div>
               </div>
             </div>
           </li>
-          <li>
-            <a href="#practice-tests" className="site-nav-link" onClick={closeMenu}>
+          <li className="nav-item-dropdown">
+            <Link to="/online-courses" className="site-nav-link" onClick={closeMenu}>
               Online courses <span className="nav-chevron"></span>
-            </a>
+            </Link>
+            {renderMegaMenu(onlineCoursesMenu)}
           </li>
-          <li>
-            <a href="#question-bank" className="site-nav-link" onClick={closeMenu}>
+          <li className="nav-item-dropdown">
+            <Link to="/courses" className="site-nav-link" onClick={closeMenu}>
               IELTS preparation <span className="nav-chevron"></span>
-            </a>
+            </Link>
+            {renderMegaMenu(ieltsPreparationMenu)}
           </li>
-          <li>
+          <li className="nav-item-dropdown">
             <Link to={dashboardPath} className="site-nav-link" onClick={closeMenu}>
               Level test <span className="nav-chevron"></span>
             </Link>
+            {renderMegaMenu(levelTestMenu)}
           </li>
         </ul>
 
