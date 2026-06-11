@@ -14,6 +14,10 @@ import OnlineCourses from '../pages/guest/OnlineCourses';
 import StudentDashboard from '../pages/student/Dashboard';
 import MyCourses from '../pages/student/MyCourses';
 import Lesson from '../pages/student/Lesson';
+import TestListPage from '../pages/student/TestListPage';
+import TestDetailPage from '../pages/student/TestDetailPage';
+import TestSessionPage from '../pages/student/TestSessionPage';
+import TestReviewPage from '../pages/student/TestReviewPage';
 import StudentProfile from '../pages/student/Profile';
 import TeacherDashboard from '../pages/teacher/TeacherDashboard';
 import CourseManagement from '../pages/teacher/CourseManagement';
@@ -45,6 +49,10 @@ export default function AppRoutes() {
           <Route path="/learning/dashboard" element={<StudentDashboard />} />
           <Route path="/learning/courses" element={<MyCourses />} />
           <Route path="/learning/lessons/:id" element={<Lesson />} />
+          <Route path="/learning/tests" element={<TestListPage />} />
+          <Route path="/learning/tests/:id" element={<TestDetailPage />} />
+          <Route path="/learning/tests/attempt/:attemptId" element={<TestSessionPage />} />
+          <Route path="/learning/tests/review/:attemptId" element={<TestReviewPage />} />
           <Route path="/learning/profile" element={<StudentProfile />} />
         </Route>
       </Route>

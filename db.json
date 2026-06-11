@@ -67,20 +67,11 @@
       "targetBand": 6.5,
       "currentBand": 5,
       "createdAt": "2026-06-02T08:00:00Z"
-  "users": [
-    {
-      "id": 1,
-      "name": "Tien Dat",
-      "email": "ntiendat2108@gmail.com",
-      "role": "student",
-      "targetBand": 7.0,
-      "currentBand": 5.5
     },
     {
       "id": "u-teacher-001",
       "fullName": "IELTS Mentor",
       "name": "IELTS Mentor",
-      "fullName": "IELTS Mentor",
       "email": "teacher@ieltslearning.com",
       "role": "teacher",
       "specialty": "Reading and Writing"
@@ -107,7 +98,6 @@
       "status": "active",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "createdAt": "2026-06-10T06:20:00.959Z"
-      "role": "admin"
     }
   ],
   "courses": [
@@ -132,28 +122,13 @@
       "rating": 4.7,
       "durationWeeks": 6,
       "createdAt": "2026-06-01T08:00:00Z"
-    }
-  ],
-  "freeResources": [
-      "description": "Build core vocabulary, scanning, skimming, and passage analysis skills.",
-      "teacherId": 2,
-      "price": 490000,
-      "durationWeeks": 6
     },
     {
-      "id": "resource-001",
-      "title": "The language clinic: Live Q&A session",
-      "type": "Learning hub",
-      "level": "B1 Intermediate",
-      "skill": "Listening",
-      "date": "10 Jun 2026",
-      "rating": 4,
-      "reviews": 79,
-      "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80",
-      "description": "Join our live event and ask our expert educator your questions about the English language and learning English."
+      "id": "course-002",
+      "title": "IELTS Listening Advanced",
       "level": "Intermediate",
       "description": "Practice section-based listening strategies with transcript review.",
-      "teacherId": 2,
+      "teacherId": "u-teacher-001",
       "price": 590000,
       "durationWeeks": 8
     },
@@ -168,10 +143,23 @@
       ],
       "skill": "Writing",
       "level": "Advanced",
-      "description": "Improve essay planning, coherence, grammar range, and lexical resource.",
-      "teacherId": 2,
+      "teacherId": "u-teacher-001",
       "price": 790000,
       "durationWeeks": 8
+    }
+  ],
+  "freeResources": [
+    {
+      "id": "resource-001",
+      "title": "The language clinic: Live Q&A session",
+      "type": "Learning hub",
+      "level": "B1 Intermediate",
+      "skill": "Listening",
+      "date": "10 Jun 2026",
+      "rating": 4,
+      "reviews": 79,
+      "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80",
+      "description": "Join our live event and ask our expert educator your questions about the English language and learning English."
     },
     {
       "id": "resource-002",
@@ -306,21 +294,440 @@
       "description": "All around the world, millions of cups of tea and coffee are drunk every day."
     }
   ],
-  "lessons": [],
-  "tests": [],
-  "questions": [],
-  "questionAnswers": [],
-  "$schema": "./node_modules/json-server/schema.json"
-      "level": "Intermediate",
-      "description": "Practice part 1, part 2, and part 3 answers with feedback.",
-      "teacherId": 2,
-      "price": 690000,
-      "durationWeeks": 6
+  "attempts": [
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T14:51:04.818Z",
+      "status": "completed",
+      "id": "UbDEuPERnAI",
+      "completedAt": "2026-06-11T14:51:25.440Z",
+      "answers": {
+        "0": "To introduce a problem",
+        "1": "False"
+      }
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T14:51:59.471Z",
+      "status": "completed",
+      "id": "Sv0z__uqOqw",
+      "completedAt": "2026-06-11T14:52:11.159Z",
+      "answers": {
+        "0": "hi"
+      }
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T14:52:26.745Z",
+      "status": "completed",
+      "id": "YNK0KgI0nYo",
+      "completedAt": "2026-06-11T14:53:12.478Z",
+      "answers": {
+        "0": "To compare two theories",
+        "1": "True"
+      }
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T14:53:39.361Z",
+      "status": "in-progress",
+      "id": "JqlE6-tfXss"
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T14:53:53.749Z",
+      "status": "completed",
+      "id": "jQsZs77_PwU",
+      "completedAt": "2026-06-11T15:11:20.043Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:11:33.495Z",
+      "status": "completed",
+      "id": "nRRQwWUEZpM",
+      "completedAt": "2026-06-11T15:12:16.265Z",
+      "answers": {
+        "0": "It led to the development of new energy sources",
+        "1": "False",
+        "2": "False",
+        "3": "Widely criticized",
+        "4": "huuu"
+      }
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:12:33.303Z",
+      "status": "completed",
+      "id": "Wwrz9uqvI0U",
+      "completedAt": "2026-06-11T15:12:56.715Z",
+      "answers": {
+        "0": "It dramatically increased production capacity",
+        "1": "Not Given",
+        "2": "True",
+        "3": "Previously unseen or unmatched",
+        "4": "no"
+      }
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:19:10.395Z",
+      "status": "completed",
+      "id": "OEPJbvXrPZo",
+      "completedAt": "2026-06-11T15:19:16.161Z",
+      "answers": {
+        "0": "It caused widespread unemployment among craftspeople",
+        "3": "Widely criticized"
+      }
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:20:43.661Z",
+      "status": "completed",
+      "id": "NtpSQGr5X3k",
+      "completedAt": "2026-06-11T15:23:44.290Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:31:20.125Z",
+      "status": "completed",
+      "id": "JkUza5D6vKg",
+      "completedAt": "2026-06-11T15:31:24.797Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:31:41.470Z",
+      "status": "completed",
+      "id": "kKnVjh75JF0",
+      "completedAt": "2026-06-11T15:31:44.940Z",
+      "answers": {}
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T15:31:57.491Z",
+      "status": "completed",
+      "id": "oqDFQzpsMzo",
+      "completedAt": "2026-06-11T15:32:08.033Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:46:34.241Z",
+      "status": "in-progress",
+      "id": "XG80EW2cgDg"
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:56:16.344Z",
+      "status": "completed",
+      "id": "oLZghR813v8",
+      "completedAt": "2026-06-11T15:56:19.507Z",
+      "answers": {}
+    },
+    {
+      "testId": 3,
+      "startTime": "2026-06-11T15:56:39.097Z",
+      "status": "completed",
+      "id": "hOglT5jZ4mA",
+      "completedAt": "2026-06-11T15:56:56.493Z",
+      "answers": {}
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T15:57:08.786Z",
+      "status": "completed",
+      "id": "XsAZXghsWRw",
+      "completedAt": "2026-06-11T15:57:23.189Z",
+      "answers": {
+        "0": "[Đã ghi âm – 1s]"
+      }
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:00:58.231Z",
+      "status": "completed",
+      "id": "YBH7e51YKPk",
+      "completedAt": "2026-06-11T16:01:05.450Z",
+      "answers": {}
+    },
+    {
+      "testId": 3,
+      "startTime": "2026-06-11T16:01:22.859Z",
+      "status": "completed",
+      "id": "YX-yZBMKflc",
+      "completedAt": "2026-06-11T16:01:25.477Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T16:10:44.725Z",
+      "status": "completed",
+      "id": "VomKe2d9_Uw",
+      "completedAt": "2026-06-11T16:10:53.114Z",
+      "answers": {
+        "0": "It dramatically increased production capacity",
+        "1": "Not Given"
+      }
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T16:12:22.930Z",
+      "status": "completed",
+      "id": "ERTenTDFlwM",
+      "completedAt": "2026-06-11T16:12:26.740Z",
+      "answers": {}
+    },
+    {
+      "testId": 3,
+      "startTime": "2026-06-11T16:12:56.495Z",
+      "status": "completed",
+      "id": "IeQME3LYlQM",
+      "completedAt": "2026-06-11T16:13:24.100Z",
+      "answers": {
+        "0": "Hi from my point of view",
+        "1": "hillp"
+      }
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T16:13:38.464Z",
+      "status": "completed",
+      "id": "-2JIOHByRp8",
+      "completedAt": "2026-06-11T16:14:22.923Z",
+      "answers": {}
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:14:29.693Z",
+      "status": "completed",
+      "id": "V0FYHmyGS8k",
+      "completedAt": "2026-06-11T16:14:35.660Z",
+      "answers": {}
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:14:45.144Z",
+      "status": "completed",
+      "id": "1oVhbQOW_wc",
+      "completedAt": "2026-06-11T16:14:56.802Z",
+      "answers": {
+        "0": "[Đã ghi âm – 6s]"
+      }
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T16:16:47.250Z",
+      "status": "completed",
+      "id": "Z_rWLDkjqMI",
+      "completedAt": "2026-06-11T16:16:52.688Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T16:19:05.191Z",
+      "status": "completed",
+      "id": "ZaInMQcdX6w",
+      "completedAt": "2026-06-11T16:19:08.258Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T16:19:14.878Z",
+      "status": "completed",
+      "id": "vYIPBDFd6TM",
+      "completedAt": "2026-06-11T16:19:20.950Z",
+      "answers": {
+        "0": "It dramatically increased production capacity",
+        "1": "True"
+      }
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T16:19:55.460Z",
+      "status": "completed",
+      "id": "lZi1b-dwXk8",
+      "completedAt": "2026-06-11T16:26:34.664Z",
+      "answers": {
+        "0": "Hi"
+      }
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T16:26:46.102Z",
+      "status": "completed",
+      "id": "gct6ceK3IWY",
+      "completedAt": "2026-06-11T16:26:59.800Z",
+      "answers": {
+        "0": "It dramatically increased production capacity"
+      }
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T16:27:09.433Z",
+      "status": "completed",
+      "id": "p4mkD5WWQfQ",
+      "completedAt": "2026-06-11T16:27:13.812Z",
+      "answers": {
+        "0": "It caused widespread unemployment among craftspeople"
+      }
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T16:27:19.241Z",
+      "status": "completed",
+      "id": "jggm5D0dprA",
+      "completedAt": "2026-06-11T16:27:22.268Z",
+      "answers": {}
+    },
+    {
+      "testId": 3,
+      "startTime": "2026-06-11T16:27:27.210Z",
+      "status": "completed",
+      "id": "CRAIzF2LdAg",
+      "completedAt": "2026-06-11T16:27:32.682Z",
+      "answers": {}
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:28:32.960Z",
+      "status": "completed",
+      "id": "WCMi9oI9RD0",
+      "completedAt": "2026-06-11T16:28:44.400Z",
+      "answers": {}
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:28:51.431Z",
+      "status": "completed",
+      "id": "piZTc9m2njY",
+      "completedAt": "2026-06-11T16:28:59.328Z",
+      "answers": {}
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:29:04.469Z",
+      "status": "completed",
+      "id": "6gJ7nuWCu3A",
+      "completedAt": "2026-06-11T16:29:11.466Z",
+      "answers": {
+        "0": "[Đã ghi âm – 4s]"
+      }
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:29:28.978Z",
+      "status": "completed",
+      "id": "o82PTEIiw3U",
+      "completedAt": "2026-06-11T16:29:36.176Z",
+      "answers": {}
+    },
+    {
+      "testId": 3,
+      "startTime": "2026-06-11T16:29:46.980Z",
+      "status": "in-progress",
+      "id": "gsozDz42vuE"
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:29:54.656Z",
+      "status": "completed",
+      "id": "rsGl5lYuND8",
+      "completedAt": "2026-06-11T16:29:58.105Z",
+      "answers": {}
+    },
+    {
+      "testId": 3,
+      "startTime": "2026-06-11T16:32:57.880Z",
+      "status": "completed",
+      "id": "MyBizgZoG_Q",
+      "completedAt": "2026-06-11T16:33:13.135Z",
+      "answers": {
+        "0": "hybubbu",
+        "1": "ugbubugbb"
+      }
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:33:31.504Z",
+      "status": "completed",
+      "id": "ciZariH64MY",
+      "completedAt": "2026-06-11T16:33:38.615Z",
+      "answers": {
+        "0": "[Đã ghi âm – 0s]"
+      }
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T16:35:54.177Z",
+      "status": "completed",
+      "id": "ASs118sv3Qw",
+      "completedAt": "2026-06-11T16:35:58.563Z",
+      "answers": {}
+    }
+  ],
+  "_attempts_backup": [
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T14:35:42.484Z",
+      "status": "completed",
+      "id": "J_5qNFaz1HM",
+      "completedAt": "2026-06-11T14:35:42.534Z",
+      "answers": {}
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T14:35:53.536Z",
+      "status": "completed",
+      "id": "eGBHJGF6qbw",
+      "completedAt": "2026-06-11T14:35:58.967Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T14:43:14.705Z",
+      "status": "completed",
+      "id": "JhO7RTnl65I",
+      "completedAt": "2026-06-11T14:43:48.481Z",
+      "answers": {}
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T14:43:57.095Z",
+      "status": "completed",
+      "id": "Nj-L7xJs_s4",
+      "completedAt": "2026-06-11T14:43:57.121Z",
+      "answers": {}
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T14:44:00.657Z",
+      "status": "completed",
+      "id": "EK05QlfhypI",
+      "completedAt": "2026-06-11T14:44:17.070Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T14:44:21.003Z",
+      "status": "completed",
+      "id": "J0aSM3WlVco",
+      "completedAt": "2026-06-11T14:44:21.036Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T14:44:25.533Z",
+      "status": "completed",
+      "id": "-VQghscSkys",
+      "completedAt": "2026-06-11T14:44:34.710Z",
+      "answers": {}
     }
   ],
   "lessons": [
     {
-      "id": 1,
+      "id": "1",
       "courseId": 1,
       "title": "Reading Lesson 1: Skimming for Main Ideas",
       "order": 1,
@@ -328,7 +735,7 @@
       "contentUrl": "/lessons/reading-skimming"
     },
     {
-      "id": 2,
+      "id": "2",
       "courseId": 1,
       "title": "Reading Lesson 2: Matching Headings",
       "order": 2,
@@ -336,7 +743,7 @@
       "contentUrl": "/lessons/reading-matching-headings"
     },
     {
-      "id": 3,
+      "id": "3",
       "courseId": 2,
       "title": "Listening Lesson 1: Predicting Answers",
       "order": 1,
@@ -344,7 +751,7 @@
       "contentUrl": "/lessons/listening-prediction"
     },
     {
-      "id": 4,
+      "id": "4",
       "courseId": 3,
       "title": "Writing Lesson 1: Opinion Essay Structure",
       "order": 1,
@@ -354,56 +761,269 @@
   ],
   "tests": [
     {
-      "id": 1,
+      "id": "1",
       "courseId": 1,
-      "title": "Reading Foundation Mock Test",
+      "title": "IELTS Reading Practice Test 1",
       "skill": "Reading",
       "durationMinutes": 60,
-      "totalQuestions": 40,
-      "bandScale": "IELTS 0-9"
+      "totalQuestions": 5,
+      "bandScale": "IELTS 0-9",
+      "description": "Practice test based on an actual, recently released IELTS exam. Covers skimming, scanning, and comprehension strategies."
     },
     {
-      "id": 2,
+      "id": "2",
       "courseId": 2,
-      "title": "Listening Section Practice Test",
+      "title": "IELTS Listening Practice Test 1",
       "skill": "Listening",
       "level": "Intermediate",
       "durationMinutes": 30,
-      "totalQuestions": 40,
-      "bandScale": "IELTS 0-9"
+      "totalQuestions": 5,
+      "bandScale": "IELTS 0-9",
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+      "description": "Section 1: A conversation between two people. Listen carefully and answer ALL questions before moving on."
+    },
+    {
+      "id": "3",
+      "courseId": 3,
+      "title": "IELTS Writing Practice Test 1",
+      "skill": "Writing",
+      "durationMinutes": 60,
+      "totalQuestions": 2,
+      "bandScale": "IELTS 0-9",
+      "description": "Task 1 (20 min, 150+ words): Describe a visual. Task 2 (40 min, 250+ words): Write an argumentative essay."
+    },
+    {
+      "id": "4",
+      "courseId": 1,
+      "title": "IELTS Speaking Practice Test 1",
+      "skill": "Speaking",
+      "durationMinutes": 15,
+      "totalQuestions": 3,
+      "bandScale": "IELTS 0-9",
+      "description": "Three parts: Introduction & Interview (Part 1), Individual Long Turn (Part 2), Two-way Discussion (Part 3)."
     }
   ],
   "questions": [
     {
-      "id": 1,
+      "id": "1",
       "testId": 1,
       "type": "multiple-choice",
-      "questionText": "What is the main purpose of paragraph 1?",
-      "options": ["To introduce a problem", "To compare two theories", "To describe a process", "To reject an argument"],
-      "answer": "To introduce a problem",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "According to the passage, what was the PRIMARY effect of introducing machinery during the Industrial Revolution?",
+      "questionText": "According to the passage, what was the PRIMARY effect of introducing machinery during the Industrial Revolution?",
+      "options": [
+        "It caused widespread unemployment among craftspeople",
+        "It dramatically increased production capacity",
+        "It improved working conditions in factories",
+        "It led to the development of new energy sources"
+      ],
+      "answer": "It dramatically increased production capacity",
       "score": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "testId": 1,
       "type": "true-false-not-given",
-      "questionText": "The writer believes online learning is only useful for advanced students.",
-      "options": ["True", "False", "Not Given"],
-      "answer": "False",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "Social reformers successfully eliminated child labour during the Industrial Revolution.",
+      "questionText": "Social reformers successfully eliminated child labour during the Industrial Revolution.",
+      "options": [
+        "True",
+        "False",
+        "Not Given"
+      ],
+      "answer": "Not Given",
       "score": 1
     },
     {
-      "id": 3,
+      "id": "3",
+      "testId": 1,
+      "type": "true-false-not-given",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "Before the Industrial Revolution, manufacturing was primarily carried out in people's homes.",
+      "questionText": "Before the Industrial Revolution, manufacturing was primarily carried out in people's homes.",
+      "options": [
+        "True",
+        "False",
+        "Not Given"
+      ],
+      "answer": "True",
+      "score": 1
+    },
+    {
+      "id": "4",
+      "testId": 1,
+      "type": "multiple-choice",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "The word 'unprecedented' in the passage is closest in meaning to:",
+      "questionText": "The word 'unprecedented' in the passage is closest in meaning to:",
+      "options": [
+        "Relatively modest",
+        "Previously unseen or unmatched",
+        "Carefully planned",
+        "Widely criticised"
+      ],
+      "answer": "Previously unseen or unmatched",
+      "score": 1
+    },
+    {
+      "id": "5",
+      "testId": 1,
+      "type": "fill-in-the-blank",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "Factories drew workers from _______ areas into growing urban centres. (ONE WORD ONLY)",
+      "questionText": "Factories drew workers from _______ areas into growing urban centres. (ONE WORD ONLY)",
+      "answer": "rural",
+      "score": 1
+    },
+    {
+      "id": "6",
       "testId": 2,
       "type": "fill-in-the-blank",
-      "questionText": "The lecture begins at ____ in the main hall.",
-      "answer": "9:30",
+      "section": "Section 1",
+      "sectionInstruction": "Questions 1–5. Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+      "formContext": "RENTAL PROPERTY APPLICATION FORM\n\nApplicant Name: Sarah Johnson\nPhone number: ___Q1___ (mobile)\nEmail address: sarahjohnson@___Q2___.com\nCurrent address: 48 Beacon Street, Auckland\nEmployer: Auckland ___Q3___\nOccupation: Registered ___Q4___\nRental start date: ___Q5___",
+      "prompt": "The applicant's mobile phone number is: ________",
+      "questionText": "The applicant's mobile phone number is: ________",
+      "answer": "021 4567",
+      "score": 1
+    },
+    {
+      "id": "7",
+      "testId": 2,
+      "type": "fill-in-the-blank",
+      "section": "Section 1",
+      "sectionInstruction": "Questions 1–5. Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+      "formContext": "RENTAL PROPERTY APPLICATION FORM\n\nApplicant Name: Sarah Johnson\nPhone number: ___Q1___ (mobile)\nEmail address: sarahjohnson@___Q2___.com\nCurrent address: 48 Beacon Street, Auckland\nEmployer: Auckland ___Q3___\nOccupation: Registered ___Q4___\nRental start date: ___Q5___",
+      "prompt": "The email domain (after @) of the applicant is: ________",
+      "questionText": "The email domain (after @) of the applicant is: ________",
+      "answer": "gmail",
+      "score": 1
+    },
+    {
+      "id": "8",
+      "testId": 2,
+      "type": "fill-in-the-blank",
+      "section": "Section 1",
+      "sectionInstruction": "Questions 1–5. Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+      "prompt": "The applicant's employer is: Auckland ________",
+      "questionText": "The applicant's employer is: Auckland ________",
+      "answer": "Hospital",
+      "score": 1
+    },
+    {
+      "id": "9",
+      "testId": 2,
+      "type": "fill-in-the-blank",
+      "section": "Section 1",
+      "prompt": "The applicant's occupation is: Registered ________",
+      "questionText": "The applicant's occupation is: Registered ________",
+      "answer": "Nurse",
+      "score": 1
+    },
+    {
+      "id": "10",
+      "testId": 2,
+      "type": "fill-in-the-blank",
+      "section": "Section 1",
+      "prompt": "The preferred rental start date mentioned is: ________ February.",
+      "questionText": "The preferred rental start date mentioned is: ________ February.",
+      "answer": "8th",
+      "score": 1
+    },
+    {
+      "id": "11",
+      "testId": 3,
+      "type": "writing-task",
+      "taskNumber": 1,
+      "instruction": "You should spend about 20 minutes on this task.",
+      "prompt": "The diagram below shows how rainwater is collected for use as drinking water in an Australian town.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.\n\nWrite at least 150 words.",
+      "questionText": "Describe the rainwater collection process shown in the diagram.",
+      "diagramDescription": "[DIAGRAM: Shows a sequence — Rain falls on rooftop → Gutters collect water → Pipe leads to underground storage tank → Filter system → Tap/household supply. Labels: Roof catchment area, Downpipe, First-flush diverter, Underground cistern, UV filter, Distribution pump]",
+      "answer": "[Writing task — marked by teacher]",
+      "minWords": 150,
+      "score": 0
+    },
+    {
+      "id": "12",
+      "testId": 3,
+      "type": "writing-task",
+      "taskNumber": 2,
+      "instruction": "You should spend about 40 minutes on this task. Write about the following topic:",
+      "prompt": "In many countries, young people are spending more time on social media than they do in face-to-face social interactions.\n\nDo you think this is a positive or negative development?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
+      "questionText": "Write an essay about young people and social media use.",
+      "answer": "[Writing task — marked by teacher]",
+      "minWords": 250,
+      "score": 0
+    },
+    {
+      "id": "13",
+      "testId": 4,
+      "type": "speaking-part",
+      "part": 1,
+      "prompt": "Let's talk about your daily routine and work/study habits.",
+      "questionText": "Part 1 — Introduction & Interview",
+      "subPoints": [
+        "Can you describe a typical day for you?",
+        "Do you prefer to study/work in the morning or evening? Why?",
+        "What do you usually do to relax after a busy day?"
+      ],
+      "answer": "[Speaking — assessed by examiner]",
+      "score": 0
+    },
+    {
+      "id": "14",
+      "testId": 4,
+      "type": "speaking-part",
+      "part": 2,
+      "prompt": "Describe a book you have read that you found particularly interesting.",
+      "questionText": "Part 2 — Individual Long Turn",
+      "subPoints": [
+        "What the book was about",
+        "Why you chose to read it",
+        "What you found most interesting about it",
+        "Whether you would recommend it to others"
+      ],
+      "prepTime": 60,
+      "speakTime": 120,
+      "answer": "[Speaking — assessed by examiner]",
+      "score": 0
+    },
+    {
+      "id": "15",
+      "testId": 4,
+      "type": "speaking-part",
+      "part": 3,
+      "prompt": "Let's now discuss reading habits and books in society more broadly.",
+      "questionText": "Part 3 — Two-way Discussion",
+      "subPoints": [
+        "Do you think people read less now than in the past? Why or why not?",
+        "How has the internet affected people's reading habits?",
+        "What role should governments play in promoting reading among young people?"
+      ],
+      "answer": "[Speaking — assessed by examiner]",
+      "score": 0
+    },
+    {
+      "id": "99",
+      "testId": 2,
+      "type": "multiple-choice",
+      "section": "Section 1",
+      "prompt": "According to the conversation, why did Sarah choose this particular apartment?",
+      "questionText": "According to the conversation, why did Sarah choose this particular apartment?",
+      "options": [
+        "It is close to her workplace",
+        "It has a garden and parking space",
+        "The rent is cheaper than her current home",
+        "Her friend recommended it"
+      ],
+      "answer": "It is close to her workplace",
       "score": 1
     }
   ],
   "enrollments": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 1,
       "courseId": 1,
       "status": "active",
@@ -411,7 +1031,7 @@
       "enrolledAt": "2026-06-01"
     },
     {
-      "id": 2,
+      "id": "2",
       "userId": 1,
       "courseId": 2,
       "status": "active",
@@ -440,5 +1060,7 @@
       "status": "pending",
       "paidAt": null
     }
-  ]
+  ],
+  "Count": 16,
+  "$schema": "./node_modules/json-server/schema.json"
 }
