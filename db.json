@@ -67,23 +67,17 @@
       "targetBand": 6.5,
       "currentBand": 5,
       "createdAt": "2026-06-02T08:00:00Z"
-  "users": [
-    {
-      "id": 1,
-      "name": "Tien Dat",
-      "email": "ntiendat2108@gmail.com",
-      "role": "student",
-      "targetBand": 7.0,
-      "currentBand": 5.5
     },
     {
       "id": "u-teacher-001",
       "fullName": "IELTS Mentor",
       "name": "IELTS Mentor",
-      "fullName": "IELTS Mentor",
       "email": "teacher@ieltslearning.com",
+      "password": "12345678",
       "role": "teacher",
-      "specialty": "Reading and Writing"
+      "specialty": "Reading and Writing",
+      "status": "active",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp"
     },
     {
       "id": "u-admin-001",
@@ -97,17 +91,16 @@
       "createdAt": "2026-05-15T08:00:00Z"
     },
     {
+      "id": "lkroxHKp1rE",
       "email": "hello@gmail.com",
       "password": "123456",
-      "fullName": "",
-      "name": "",
-      "dateOfBirth": "2005-6-9",
-      "id": "lkroxHKp1rE",
+      "fullName": "New Student",
+      "name": "New Student",
+      "dateOfBirth": "2005-06-09",
       "role": "student",
       "status": "active",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "createdAt": "2026-06-10T06:20:00.959Z"
-      "role": "admin"
     }
   ],
   "courses": [
@@ -124,41 +117,15 @@
       "level": "Beginner",
       "price": 0,
       "isPremium": false,
-      "thumbnail": "/images/reading-foundation.jpg",
+      "thumbnail": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "approved",
+      "status": "pending",
       "enrolledCount": 120,
-      "students": 120,
-      "rating": 4.7,
       "durationWeeks": 6,
       "createdAt": "2026-06-01T08:00:00Z"
-    }
-  ],
-  "freeResources": [
-      "description": "Build core vocabulary, scanning, skimming, and passage analysis skills.",
-      "teacherId": 2,
-      "price": 490000,
-      "durationWeeks": 6
     },
     {
-      "id": "resource-001",
-      "title": "The language clinic: Live Q&A session",
-      "type": "Learning hub",
-      "level": "B1 Intermediate",
-      "skill": "Listening",
-      "date": "10 Jun 2026",
-      "rating": 4,
-      "reviews": 79,
-      "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80",
-      "description": "Join our live event and ask our expert educator your questions about the English language and learning English."
-      "level": "Intermediate",
-      "description": "Practice section-based listening strategies with transcript review.",
-      "teacherId": 2,
-      "price": 590000,
-      "durationWeeks": 8
-    },
-    {
-      "id": "course-003",
+      "id": "course-002",
       "title": "IELTS Writing Task 2 Intensive",
       "description": "Cải thiện lập luận, coherence, grammar range và lexical resource.",
       "syllabus": [
@@ -168,252 +135,149 @@
       ],
       "skill": "Writing",
       "level": "Advanced",
-      "description": "Improve essay planning, coherence, grammar range, and lexical resource.",
-      "teacherId": 2,
       "price": 790000,
-      "durationWeeks": 8
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
+      "enrolledCount": 45,
+      "durationWeeks": 8,
+      "createdAt": "2026-06-02T08:00:00Z"
     },
     {
-      "id": "resource-002",
-      "title": "Learn with the world's English experts",
-      "type": "Promotion",
-      "level": "C1 Advanced",
-      "skill": "Speaking",
-      "date": "10 Jun 2026",
-      "rating": 4.5,
-      "reviews": 68,
-      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80",
-      "description": "We help you gain confidence and improve your speaking, pronunciation and vocabulary."
-    },
-    {
-      "id": "resource-003",
-      "title": "Grammar lesson: Chat GPT and AI",
-      "type": "Grammar",
-      "level": "B1 Intermediate",
-      "skill": "Grammar",
-      "date": "11 Jun 2026",
-      "rating": 4,
-      "reviews": 112,
-      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80",
-      "description": "Watch a recording of our live event to support learners studying grammar, and talk about Chat GPT and AI."
-    },
-    {
-      "id": "resource-004",
-      "title": "Summer quiz: We're all going on a summer holiday!",
-      "type": "General English",
-      "level": "B1 Intermediate",
-      "skill": "Vocabulary",
-      "date": "23 Jul 2026",
-      "rating": 3.8,
-      "reviews": 103,
-      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
-      "description": "Watch a recording of our live event to support learners studying grammar and vocabulary with this fun summer quiz."
-    },
-    {
-      "id": "resource-005",
-      "title": "Vocabulary lesson: Let's get away from it all",
-      "type": "Vocabulary",
-      "level": "B1 Intermediate",
-      "skill": "Vocabulary",
-      "date": "01 Jul 2026",
-      "rating": 4,
-      "reviews": 115,
-      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80",
-      "description": "Watch a recording of our live event to support learners studying vocabulary, travelling and using useful holiday language."
-    },
-    {
-      "id": "resource-006",
-      "title": "Home sweet home",
-      "type": "Community discussions",
-      "level": "B1 Intermediate",
-      "skill": "Speaking",
-      "date": "30 May 2026",
-      "rating": 4.7,
-      "reviews": 37,
-      "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
-      "description": "There is no place like home! In this topic, write and talk about our homes."
-    },
-    {
-      "id": "resource-007",
-      "title": "Tell us about your home",
-      "type": "Community discussions",
-      "level": "B2 Upper intermediate",
-      "skill": "Writing",
-      "date": "20 May 2026",
-      "rating": 4.6,
-      "reviews": 76,
-      "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=80",
-      "description": "What's your home like? Practice describing your home by writing a comment or leaving a voice message."
-    },
-    {
-      "id": "resource-008",
-      "title": "My dream home",
-      "type": "Community discussions",
-      "level": "B1 Intermediate",
-      "skill": "Writing",
-      "date": "20 May 2026",
-      "rating": 4.5,
-      "reviews": 41,
-      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80",
-      "description": "What would your dream home be like? Read our ideas and then add your own."
-    },
-    {
-      "id": "resource-009",
-      "title": "Vocabulary about homes",
-      "type": "Vocabulary",
-      "level": "B1 Intermediate",
-      "skill": "Vocabulary",
-      "date": "20 May 2026",
-      "rating": 5,
-      "reviews": 19,
-      "image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80",
-      "description": "Practice vocabulary for parts of a house or flat with useful learning activities."
-    },
-    {
-      "id": "resource-010",
-      "title": "House or home?",
-      "type": "Grammar",
-      "level": "C1 Advanced",
-      "skill": "Grammar",
-      "date": "20 May 2026",
-      "rating": 4.5,
-      "reviews": 36,
-      "image": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80",
-      "description": "Do you know when to use house and when to use home? Learn the difference in context."
-    },
-    {
-      "id": "resource-011",
-      "title": "Reflection - home sweet home",
-      "type": "Community discussions",
-      "level": "B1 Intermediate",
-      "skill": "Writing",
-      "date": "4 May 2026",
-      "rating": 4.5,
-      "reviews": 60,
-      "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80",
-      "description": "Did you like this topic? What did you learn? Share your reflection with other learners."
-    },
-    {
-      "id": "resource-012",
-      "title": "Tea or coffee?",
-      "type": "Community discussions",
-      "level": "B1 Intermediate",
-      "skill": "Speaking",
-      "date": "29 Apr 2026",
-      "rating": 4,
-      "reviews": 61,
-      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80",
-      "description": "All around the world, millions of cups of tea and coffee are drunk every day."
-    }
-  ],
-  "lessons": [],
-  "tests": [],
-  "questions": [],
-  "questionAnswers": [],
-  "$schema": "./node_modules/json-server/schema.json"
+      "id": "course-003",
+      "title": "IELTS Listening Master",
+      "description": "Luyện tập chiến thuật nghe qua các dạng câu hỏi khác nhau.",
+      "syllabus": [
+        "Form completion",
+        "Multiple choice",
+        "Map labeling"
+      ],
+      "skill": "Listening",
       "level": "Intermediate",
-      "description": "Practice part 1, part 2, and part 3 answers with feedback.",
-      "teacherId": 2,
-      "price": 690000,
-      "durationWeeks": 6
+      "price": 590000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "status": "draft",
+      "enrolledCount": 0,
+      "durationWeeks": 6,
+      "createdAt": "2026-06-03T08:00:00Z"
     }
   ],
   "lessons": [
     {
-      "id": 1,
-      "courseId": 1,
+      "id": "lesson-001",
+      "courseId": "course-001",
       "title": "Reading Lesson 1: Skimming for Main Ideas",
       "order": 1,
       "durationMinutes": 45,
-      "contentUrl": "/lessons/reading-skimming"
+      "contentUrl": "https://example.com/skimming",
+      "teacherId": "u-teacher-001",
+      "audioUrl": ""
     },
     {
-      "id": 2,
-      "courseId": 1,
+      "id": "lesson-002",
+      "courseId": "course-001",
       "title": "Reading Lesson 2: Matching Headings",
       "order": 2,
       "durationMinutes": 50,
-      "contentUrl": "/lessons/reading-matching-headings"
+      "contentUrl": "https://example.com/matching-headings",
+      "teacherId": "u-teacher-001",
+      "audioUrl": ""
     },
     {
-      "id": 3,
-      "courseId": 2,
-      "title": "Listening Lesson 1: Predicting Answers",
-      "order": 1,
-      "durationMinutes": 40,
-      "contentUrl": "/lessons/listening-prediction"
-    },
-    {
-      "id": 4,
-      "courseId": 3,
+      "id": "lesson-003",
+      "courseId": "course-002",
       "title": "Writing Lesson 1: Opinion Essay Structure",
       "order": 1,
       "durationMinutes": 60,
-      "contentUrl": "/lessons/writing-opinion-essay"
+      "contentUrl": "https://example.com/opinion-essay",
+      "teacherId": "u-teacher-001",
+      "audioUrl": ""
     }
   ],
   "tests": [
     {
-      "id": 1,
-      "courseId": 1,
+      "id": "test-001",
+      "courseId": "course-001",
       "title": "Reading Foundation Mock Test",
       "skill": "Reading",
       "durationMinutes": 60,
       "totalQuestions": 40,
-      "bandScale": "IELTS 0-9"
+      "bandScale": "IELTS 0-9",
+      "teacherId": "u-teacher-001"
     },
     {
-      "id": 2,
-      "courseId": 2,
+      "id": "test-002",
+      "courseId": "course-002",
       "title": "Listening Section Practice Test",
       "skill": "Listening",
       "level": "Intermediate",
       "durationMinutes": 30,
       "totalQuestions": 40,
-      "bandScale": "IELTS 0-9"
+      "bandScale": "IELTS 0-9",
+      "teacherId": "u-teacher-001"
     }
   ],
   "questions": [
     {
-      "id": 1,
-      "testId": 1,
+      "id": "question-001",
+      "testId": "test-001",
       "type": "multiple-choice",
       "questionText": "What is the main purpose of paragraph 1?",
-      "options": ["To introduce a problem", "To compare two theories", "To describe a process", "To reject an argument"],
+      "options": [
+        "To introduce a problem",
+        "To compare two theories",
+        "To describe a process",
+        "To reject an argument"
+      ],
       "answer": "To introduce a problem",
       "score": 1
     },
     {
-      "id": 2,
-      "testId": 1,
+      "id": "question-002",
+      "testId": "test-001",
       "type": "true-false-not-given",
       "questionText": "The writer believes online learning is only useful for advanced students.",
-      "options": ["True", "False", "Not Given"],
+      "options": [
+        "True",
+        "False",
+        "Not Given"
+      ],
       "answer": "False",
       "score": 1
     },
     {
-      "id": 3,
-      "testId": 2,
-      "type": "fill-in-the-blank",
-      "questionText": "The lecture begins at ____ in the main hall.",
-      "answer": "9:30",
-      "score": 1
+      "testId": "test-001",
+      "type": "multiple-choice",
+      "questionText": "con vịt nào đi trước",
+      "options": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "answer": "b",
+      "explanation": "",
+      "score": 5,
+      "id": "-Q0BSSAKr1U"
     }
   ],
+  "questionAnswers": [],
   "enrollments": [
     {
-      "id": 1,
-      "userId": 1,
-      "courseId": 1,
+      "id": "enroll-001",
+      "userId": "u-student-001",
+      "courseId": "course-001",
       "status": "active",
       "progress": 35,
       "enrolledAt": "2026-06-01"
     },
     {
-      "id": 2,
-      "userId": 1,
-      "courseId": 2,
+      "id": "enroll-002",
+      "userId": "u-student-001",
+      "courseId": "course-002",
       "status": "active",
       "progress": 12,
       "enrolledAt": "2026-06-01"
@@ -424,21 +288,74 @@
       "id": "payment-001",
       "userId": "u-student-001",
       "courseId": "course-002",
-      "amount": 199000,
+      "amount": 790000,
       "currency": "VND",
       "method": "bank-transfer",
       "status": "paid",
-      "paidAt": "2026-06-01"
+      "paidAt": "2026-06-02"
     },
     {
       "id": "payment-002",
       "userId": "u-student-001",
       "courseId": "course-003",
-      "amount": 299000,
+      "amount": 590000,
       "currency": "VND",
       "method": "momo",
       "status": "pending",
       "paidAt": null
     }
-  ]
+  ],
+  "auditLogs": [
+    {
+      "action": "REVERT_COURSE_STATUS",
+      "userId": "u-teacher-001",
+      "details": {
+        "courseId": "course-001",
+        "reason": "New question added to approved course"
+      },
+      "timestamp": "2026-06-11T13:47:05.797Z",
+      "id": "M3eMi2kz2sw"
+    },
+    {
+      "action": "CREATE_QUESTION",
+      "userId": "u-teacher-001",
+      "details": {
+        "questionId": "-Q0BSSAKr1U",
+        "testId": "test-001"
+      },
+      "timestamp": "2026-06-11T13:47:05.809Z",
+      "id": "vKMEkT0LsoA"
+    }
+  ],
+  "approvalRequests": [],
+  "testAttempts": [
+    {
+      "id": "attempt-001",
+      "userId": "u-student-001",
+      "testId": "test-001",
+      "score": 36,
+      "totalQuestions": 40,
+      "bandScore": 8,
+      "createdAt": "2026-06-08T14:30:00Z"
+    },
+    {
+      "id": "attempt-002",
+      "userId": "u-student-002",
+      "testId": "test-001",
+      "score": 28,
+      "totalQuestions": 40,
+      "bandScore": 6.5,
+      "createdAt": "2026-06-09T09:15:00Z"
+    },
+    {
+      "id": "attempt-003",
+      "userId": "u-student-001",
+      "testId": "test-002",
+      "score": 32,
+      "totalQuestions": 40,
+      "bandScore": 7,
+      "createdAt": "2026-06-10T10:00:00Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

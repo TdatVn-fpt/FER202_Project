@@ -1,7 +1,7 @@
 # SPEC.md — Feature: Teacher Content Management (feat-teacher-content-management) — FULL SPECIFICATION
 
 Status: APPROVED | Updated
-Author: Senior React Frontend Assistant & Tech Lead | Date: 2026-06-11
+Author: Trieu Tai Dũng | Date: 2026-06-11
 Risk Level: Medium (Content Management & Mock Flows)
 Related Specs: [.sdd/constitution.md](file:///c:/Users/Admin/OneDrive/Desktop/FER202_project/FER202_Project/.sdd/constitution.md), [.sdd/shared_context.md](file:///c:/Users/Admin/OneDrive/Desktop/FER202_project/FER202_Project/.sdd/shared_context.md)
 
