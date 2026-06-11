@@ -14,19 +14,31 @@ export const getCourses = async (params = {}) => {
   try {
     const { page = 1, limit = 9, search = '', skill = '', level = '' } = params;
 
-    // Xây dựng query params cho JSON-server
+    // Xây dựng query params cho JSON-server v1
     const queryParams = new URLSearchParams();
     queryParams.append('_page', page);
-    queryParams.append('_limit', limit);
+    queryParams.append('_per_page', limit);
 
-    if (search) queryParams.append('q', search); // full-text search của json-server
+    if (search) queryParams.append('title_like', search); // search by title
     if (skill) queryParams.append('skill', skill);
     if (level) queryParams.append('level', level);
 
     const response = await api.get(`/courses?${queryParams.toString()}`);
 
+    // json-server v1: khi dùng _page, response.data là object { data: [], items, pages, ... }
+    // json-server v0: response.data là array trực tiếp
+    const result = response.data;
+    if (result && !Array.isArray(result) && Array.isArray(result.data)) {
+      // json-server v1 format
+      return {
+        data: result.data,
+        totalCount: result.items || 0
+      };
+    }
+
+    // Fallback: json-server v0 hoặc không có pagination
     return {
-      data: response.data,
+      data: Array.isArray(result) ? result : [],
       totalCount: parseInt(response.headers['x-total-count'] || '0', 10)
     };
   } catch (error) {

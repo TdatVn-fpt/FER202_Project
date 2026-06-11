@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // EARS[State-driven]: WHILE course data is loading or rendered, THE system SHALL display course preview information safely.
 const CourseCard = ({ course }) => {
@@ -65,6 +66,10 @@ const CourseCard = ({ course }) => {
             </span>
           )}
         </div>
+        
+        <Link to={`/learning/courses/${id}`} className="btn btn-primary w-100 mt-3 rounded-pill fw-semibold">
+          View Course
+        </Link>
       </div>
     </div>
   );

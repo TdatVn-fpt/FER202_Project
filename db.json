@@ -124,24 +124,139 @@
     {
       "id": "course-001",
       "title": "IELTS Reading Foundation",
-      "description": "Khóa học nền tảng Reading cho người mới bắt đầu.",
+      "description": "Khóa học nền tảng Reading cho người mới bắt đầu. Bạn sẽ học cách Skimming, Scanning và xử lý các dạng câu hỏi phổ biến nhất trong bài thi IELTS Reading.",
       "syllabus": [
         "Skimming and Scanning",
         "Matching Headings",
         "True False Not Given"
       ],
       "skill": "Reading",
-      "level": "Beginner",
+      "level": "Band 5.0+",
       "price": 0,
       "isPremium": false,
-      "thumbnail": "/images/reading-foundation.jpg",
+      "thumbnail": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
+      "teacherName": "IELTS Mentor",
       "status": "approved",
       "enrolledCount": 120,
-      "students": 120,
       "rating": 4.7,
       "durationWeeks": 6,
       "createdAt": "2026-06-01T08:00:00Z"
+    },
+    {
+      "id": "course-002",
+      "title": "IELTS Listening Mastery",
+      "description": "Nâng cao kỹ năng nghe với các bài luyện tập thực tế. Học cách bắt keywords, note-taking và xử lý accent đa dạng trong bài thi IELTS Listening.",
+      "syllabus": [
+        "Predicting Answers",
+        "Note Completion",
+        "Multiple Choice Strategies",
+        "Map & Diagram Labelling"
+      ],
+      "skill": "Listening",
+      "level": "Band 6.0+",
+      "price": 199000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "teacherName": "IELTS Mentor",
+      "status": "approved",
+      "enrolledCount": 85,
+      "rating": 4.5,
+      "durationWeeks": 8,
+      "createdAt": "2026-06-02T08:00:00Z"
+    },
+    {
+      "id": "course-003",
+      "title": "IELTS Writing Task 2 Intensive",
+      "description": "Improve essay planning, coherence, grammar range, and lexical resource. Khóa học chuyên sâu Writing Task 2 giúp bạn đạt band 7.0+.",
+      "syllabus": [
+        "Opinion Essay",
+        "Discussion Essay",
+        "Problem Solution Essay",
+        "Advantages & Disadvantages"
+      ],
+      "skill": "Writing",
+      "level": "Band 7.0+",
+      "price": 299000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "teacherName": "IELTS Mentor",
+      "status": "approved",
+      "enrolledCount": 64,
+      "rating": 4.8,
+      "durationWeeks": 8,
+      "createdAt": "2026-06-03T08:00:00Z"
+    },
+    {
+      "id": "course-004",
+      "title": "IELTS Speaking Confidence Builder",
+      "description": "Xây dựng sự tự tin khi nói tiếng Anh. Luyện tập Part 1, 2, 3 với các chủ đề phổ biến và mẹo ghi điểm cao.",
+      "syllabus": [
+        "Part 1: Introduction & Interview",
+        "Part 2: Long Turn (Cue Card)",
+        "Part 3: Discussion",
+        "Pronunciation & Fluency Tips"
+      ],
+      "skill": "Speaking",
+      "level": "Band 5.0+",
+      "price": 0,
+      "isPremium": false,
+      "thumbnail": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "teacherName": "IELTS Mentor",
+      "status": "approved",
+      "enrolledCount": 95,
+      "rating": 4.6,
+      "durationWeeks": 4,
+      "createdAt": "2026-06-04T08:00:00Z"
+    },
+    {
+      "id": "course-005",
+      "title": "IELTS Writing Task 1 - Academic",
+      "description": "Học cách mô tả biểu đồ, bảng số liệu, quy trình và bản đồ một cách chính xác và tự nhiên trong IELTS Academic Writing Task 1.",
+      "syllabus": [
+        "Bar Chart & Line Graph",
+        "Pie Chart & Table",
+        "Process Diagram",
+        "Map Description"
+      ],
+      "skill": "Writing",
+      "level": "Band 6.0+",
+      "price": 199000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "teacherName": "IELTS Mentor",
+      "status": "approved",
+      "enrolledCount": 52,
+      "rating": 4.4,
+      "durationWeeks": 6,
+      "createdAt": "2026-06-05T08:00:00Z"
+    },
+    {
+      "id": "course-006",
+      "title": "IELTS Reading Advanced Strategies",
+      "description": "Chiến lược nâng cao cho Reading band 7.0+. Xử lý passage dài, câu hỏi khó và quản lý thời gian hiệu quả.",
+      "syllabus": [
+        "Speed Reading Techniques",
+        "Paragraph Matching",
+        "Summary Completion",
+        "Multiple Choice Advanced"
+      ],
+      "skill": "Reading",
+      "level": "Band 7.0+",
+      "price": 349000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "teacherName": "IELTS Mentor",
+      "status": "approved",
+      "enrolledCount": 38,
+      "rating": 4.9,
+      "durationWeeks": 10,
+      "createdAt": "2026-06-06T08:00:00Z"
     }
   ],
   "freeResources": [
@@ -307,42 +422,74 @@
   ],
   "lessons": [
     {
-      "id": "1",
-      "courseId": 1,
-      "title": "Reading Lesson 1: Skimming for Main Ideas",
+      "id": "lesson-001",
+      "courseId": "course-001",
+      "title": "Skimming for Main Ideas",
       "order": 1,
       "durationMinutes": 45,
-      "contentUrl": "/lessons/reading-skimming"
+      "content": "Skimming is a reading technique that allows you to quickly get the main idea of a passage without reading every word.\n\n## Key Techniques:\n1. Read the title and headings first\n2. Look at the first and last sentence of each paragraph\n3. Pay attention to bold or italicized words\n4. Don't stop for unknown vocabulary\n\n## Practice Tips:\n- Set a timer for 2 minutes per passage\n- Focus on understanding the overall message\n- Practice with newspaper articles daily"
     },
     {
-      "id": "2",
-      "courseId": 1,
-      "title": "Reading Lesson 2: Matching Headings",
+      "id": "lesson-002",
+      "courseId": "course-001",
+      "title": "Matching Headings Strategy",
       "order": 2,
       "durationMinutes": 50,
-      "contentUrl": "/lessons/reading-matching-headings"
+      "content": "Matching Headings is one of the most common question types in IELTS Reading.\n\n## Step-by-step Approach:\n1. Read all the headings first\n2. Underline keywords in each heading\n3. Read the first two sentences of each paragraph\n4. Match the main idea, not individual words\n\n## Common Traps:\n- Headings that share vocabulary with the paragraph but have a different meaning\n- Distractors that are too specific or too general"
     },
     {
-      "id": "3",
-      "courseId": 2,
-      "title": "Listening Lesson 1: Predicting Answers",
+      "id": "lesson-003",
+      "courseId": "course-001",
+      "title": "True / False / Not Given",
+      "order": 3,
+      "durationMinutes": 55,
+      "content": "True/False/Not Given questions test your ability to identify whether information in the passage agrees with, contradicts, or is not mentioned.\n\n## Rules:\n- TRUE: The statement agrees with the information in the passage\n- FALSE: The statement contradicts the information\n- NOT GIVEN: There is no information about this in the passage\n\n## Strategy:\n1. Read the statement carefully\n2. Find the relevant section in the passage\n3. Compare word-by-word\n4. Don't use your own knowledge — only use what's in the text"
+    },
+    {
+      "id": "lesson-004",
+      "courseId": "course-002",
+      "title": "Predicting Answers Before Listening",
       "order": 1,
       "durationMinutes": 40,
-      "contentUrl": "/lessons/listening-prediction"
+      "content": "Prediction is a powerful technique that helps you focus during the listening test.\n\n## How to Predict:\n1. Use the time before each section to read the questions\n2. Underline keywords and think about what type of answer is needed\n3. Predict possible answers based on the context\n\n## Example:\nQ: The library is open from ____ to 5pm.\nPrediction: A time in the morning (e.g., 8am, 9am)"
     },
     {
-      "id": "4",
-      "courseId": 3,
-      "title": "Writing Lesson 1: Opinion Essay Structure",
+      "id": "lesson-005",
+      "courseId": "course-002",
+      "title": "Note Completion Techniques",
+      "order": 2,
+      "durationMinutes": 45,
+      "content": "Note completion requires you to fill in missing information from what you hear.\n\n## Key Tips:\n1. Check the word limit (e.g., NO MORE THAN TWO WORDS)\n2. Read the notes before listening to understand the topic\n3. Listen for synonyms — the audio often paraphrases\n4. Write exactly what you hear, don't change the form"
+    },
+    {
+      "id": "lesson-006",
+      "courseId": "course-003",
+      "title": "Opinion Essay Structure",
       "order": 1,
       "durationMinutes": 60,
-      "contentUrl": "/lessons/writing-opinion-essay"
+      "content": "An Opinion Essay asks you to give your personal opinion on a topic.\n\n## Structure:\n1. Introduction: Paraphrase the question + state your opinion\n2. Body Paragraph 1: Main reason + example\n3. Body Paragraph 2: Second reason + example\n4. Conclusion: Restate your opinion\n\n## Band 7+ Tips:\n- Use a range of linking words\n- Include specific examples\n- Avoid repeating the same vocabulary"
+    },
+    {
+      "id": "lesson-007",
+      "courseId": "course-004",
+      "title": "Part 1: Introduction & Interview",
+      "order": 1,
+      "durationMinutes": 30,
+      "content": "Part 1 of the IELTS Speaking test lasts 4-5 minutes.\n\n## Common Topics:\n- Work/Study\n- Hometown\n- Hobbies\n- Daily routine\n\n## Tips:\n- Give extended answers (2-3 sentences)\n- Don't give one-word answers\n- Use a variety of tenses\n- Speak naturally, don't memorize scripts"
+    },
+    {
+      "id": "lesson-008",
+      "courseId": "course-004",
+      "title": "Part 2: Long Turn (Cue Card)",
+      "order": 2,
+      "durationMinutes": 35,
+      "content": "In Part 2, you receive a topic card and have 1 minute to prepare, then speak for 1-2 minutes.\n\n## Strategy:\n1. Use the 1-minute preparation time wisely\n2. Make brief notes on the card\n3. Cover all bullet points on the card\n4. Add personal details and examples\n\n## Practice:\nRecord yourself speaking for 2 minutes on random topics daily."
     }
   ],
   "tests": [
     {
       "id": "1",
-      "courseId": 1,
+      "courseId": "course-001",
       "title": "Reading Foundation Mock Test",
       "skill": "Reading",
       "durationMinutes": 60,
@@ -351,7 +498,7 @@
     },
     {
       "id": "2",
-      "courseId": 2,
+      "courseId": "course-002",
       "title": "Listening Section Practice Test",
       "skill": "Listening",
       "level": "Intermediate",
@@ -399,20 +546,68 @@
   ],
   "enrollments": [
     {
-      "id": "1",
-      "userId": 1,
-      "courseId": 1,
+      "id": "enr-001",
+      "userId": "1",
+      "courseId": "course-001",
       "status": "active",
-      "progress": 35,
-      "enrolledAt": "2026-06-01"
+      "progress": 33,
+      "enrolledAt": "2026-06-01T08:00:00Z"
     },
     {
-      "id": "2",
-      "userId": 1,
-      "courseId": 2,
+      "id": "enr-002",
+      "userId": "1",
+      "courseId": "course-002",
       "status": "active",
-      "progress": 12,
-      "enrolledAt": "2026-06-01"
+      "progress": 50,
+      "enrolledAt": "2026-06-03T10:00:00Z"
+    },
+    {
+      "id": "enr-003",
+      "userId": "1",
+      "courseId": "course-004",
+      "status": "active",
+      "progress": 0,
+      "enrolledAt": "2026-06-05T14:00:00Z"
+    },
+    {
+      "userId": "1",
+      "courseId": "course-001",
+      "progress": 67,
+      "enrolledAt": "2026-06-11T15:12:27.615Z",
+      "id": "OUUnwU4JSfk",
+      "status": "active"
+    },
+    {
+      "userId": "1",
+      "courseId": "course-002",
+      "progress": 100,
+      "enrolledAt": "2026-06-11T15:12:57.459Z",
+      "id": "vjw1ZN5pbb4",
+      "status": "completed"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-001",
+      "progress": 100,
+      "enrolledAt": "2026-06-11T16:27:32.518Z",
+      "id": "1AzGHEpkf4o",
+      "status": "completed"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-002",
+      "progress": 100,
+      "enrolledAt": "2026-06-11T16:27:56.816Z",
+      "id": "j1bcgMcbDDs",
+      "status": "completed"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-003",
+      "progress": 100,
+      "enrolledAt": "2026-06-11T16:29:29.766Z",
+      "id": "6fwrWaq-w4o",
+      "status": "completed"
     }
   ],
   "payments": [
@@ -437,7 +632,155 @@
       "paidAt": null
     }
   ],
-  "lessonProgress": [],
-  "enrollments": [],
+  "lessonProgress": [
+    {
+      "id": "lp-001",
+      "userId": "u-student-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-02T10:30:00Z"
+    },
+    {
+      "id": "lp-002",
+      "userId": "u-student-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-04T11:00:00Z"
+    },
+    {
+      "id": "mfWgOinCTjo",
+      "userId": "u-student-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-11T15:12:36.310Z"
+    },
+    {
+      "id": "-JlrLCMtEfY",
+      "userId": "u-student-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-002",
+      "completed": true,
+      "completedAt": "2026-06-11T15:12:51.261Z"
+    },
+    {
+      "id": "itriD0s6XqU",
+      "userId": "u-student-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-11T15:16:54.104Z"
+    },
+    {
+      "id": "GyCwdvh6iDw",
+      "userId": "u-student-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-005",
+      "completed": true,
+      "completedAt": "2026-06-11T15:16:56.286Z"
+    },
+    {
+      "id": "jFbBZBYI4Dg",
+      "userId": "u-student-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:34.649Z"
+    },
+    {
+      "id": "OV1CfpeZuBg",
+      "userId": "u-student-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-002",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:35.311Z"
+    },
+    {
+      "id": "zhJ5yAUUjAc",
+      "userId": "u-student-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-003",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:36.245Z"
+    },
+    {
+      "id": "ukNT_6_qZ4M",
+      "userId": "u-student-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:58.620Z"
+    },
+    {
+      "id": "1BwFBCfVLXM",
+      "userId": "u-student-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-005",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:59.368Z"
+    },
+    {
+      "id": "uogipkfFA6Q",
+      "userId": "u-student-001",
+      "courseId": "course-003",
+      "lessonId": "lesson-006",
+      "completed": true,
+      "completedAt": "2026-06-11T16:29:31.387Z"
+    }
+  ],
+  "testAttempts": [
+    {
+      "id": "1",
+      "userId": "u-student-001",
+      "testId": "test-001",
+      "testTitle": "IELTS Mock Test - Full Reading",
+      "skill": "Reading",
+      "submittedAt": "2026-06-11T09:00:00Z",
+      "overallBandScore": 8,
+      "timeSpent": 3400
+    },
+    {
+      "id": "2",
+      "userId": "u-student-001",
+      "testId": "test-002",
+      "testTitle": "Listening Practice Mini",
+      "skill": "Listening",
+      "submittedAt": "2026-06-10T14:30:00Z",
+      "overallBandScore": 7.5,
+      "timeSpent": 1800
+    },
+    {
+      "id": "3",
+      "userId": "u-student-001",
+      "testId": "test-003",
+      "testTitle": "Writing Task 2",
+      "skill": "Writing",
+      "submittedAt": "2026-06-08T10:00:00Z",
+      "overallBandScore": 6.5,
+      "timeSpent": 2400
+    },
+    {
+      "id": "4",
+      "userId": "u-student-001",
+      "testId": "test-004",
+      "testTitle": "Speaking Part 1",
+      "skill": "Speaking",
+      "submittedAt": "2026-06-05T08:15:00Z",
+      "overallBandScore": 7,
+      "timeSpent": 600
+    },
+    {
+      "id": "5",
+      "userId": "u-student-001",
+      "testId": "test-005",
+      "testTitle": "IELTS Mastery Mock Test",
+      "skill": "Reading",
+      "submittedAt": "2026-06-01T10:00:00Z",
+      "overallBandScore": 6,
+      "timeSpent": 3600
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

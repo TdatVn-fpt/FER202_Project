@@ -15,7 +15,9 @@ import CourseListPage from '../pages/student/CourseListPage';
 import CourseDetailPage from '../pages/student/CourseDetailPage';
 import LessonPage from '../pages/student/LessonPage';
 import MyCoursesPage from '../pages/student/MyCoursesPage';
-import StudentDashboard from '../pages/student/Dashboard';
+import StudentDashboard from '../pages/student/DashboardPage';
+import LearningHistoryPage from '../pages/student/LearningHistoryPage';
+import AttemptDetailPage from '../pages/student/AttemptDetailPage';
 import StudentProfile from '../pages/student/Profile';
 import TeacherDashboard from '../pages/teacher/TeacherDashboard';
 import CourseManagement from '../pages/teacher/CourseManagement';
@@ -45,6 +47,8 @@ export default function AppRoutes() {
       <Route element={<ProtectedRoute allowedRoles={['student']} />}>
         <Route element={<StudentLayout />}>
           <Route path="/learning/dashboard" element={<StudentDashboard />} />
+          <Route path="/learning/history" element={<LearningHistoryPage />} />
+          <Route path="/learning/history/:attemptId" element={<AttemptDetailPage />} />
           {/* My Courses — danh sách khóa đang học */}
           <Route path="/learning/my-courses" element={<MyCoursesPage />} />
           {/* Course Catalog for students */}
