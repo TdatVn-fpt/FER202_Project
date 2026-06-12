@@ -24,11 +24,13 @@
     "zod": "^4.4.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"react-scripts start\" \"npm run server\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "json-server db.json -p 9999"
+    "server": "json-server --port 9999 db.json"
+  
   },
   "eslintConfig": {
     "extends": [
@@ -47,5 +49,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^react-router-dom$": "<rootDir>/src/__mocks__/react-router-dom.js"
+    }
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
   }
 }

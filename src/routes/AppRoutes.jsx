@@ -54,7 +54,7 @@ export default function AppRoutes() {
       </Route>
 
       <Route element={<ProtectedRoute allowedRoles={['teacher']} />}>
-        <Route element={<TeacherLayout />}>
+<Route element={<TeacherLayout />}>
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
           <Route path="/teacher/courses" element={<CourseManagement />} />
         </Route>
