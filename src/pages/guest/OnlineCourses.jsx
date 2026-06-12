@@ -39,7 +39,7 @@ const courseGroups = {
       eyebrow: 'Course  Online',
       title: 'Flexible English online course',
       intro: 'Our most popular course, with live, teacher-led classes and a clear learning plan.',
-      bullets: ['Choose your time, teacher and topic', 'Join online group or private classes 24/7', 'Webinars, exercises and AI speaking practice', 'Follow a structured course for steady progress'],
+      bullets: ['Choose your time, teacher and topic', 'Join online group or private classes 24/7', 'Webinars, exercises and speaking practice', 'Follow a structured course for steady progress'],
       note: 'Best for learners who want flexibility and live teacher support.',
       popular: true
     },

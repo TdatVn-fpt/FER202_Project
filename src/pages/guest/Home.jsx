@@ -35,7 +35,7 @@ const preparationOptions = [
     intro: 'Get full access to our premium IELTS preparation toolkit - free when you book your test.',
     bullets: [
       '40 practice tests for Listening and Reading',
-      'Mini-mock test with scores and AI feedback',
+      'Mini-mock test with scores',
       'Practice questions, model answers and online courses',
       'Personal dashboard to track your progress'
     ],
