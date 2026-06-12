@@ -2,7 +2,6 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 
-// ===== GUEST / PUBLIC PAGES =====
 import Home from '../pages/guest/Home';
 import Login from '../pages/guest/Login';
 import Register from '../pages/guest/Register';
@@ -10,7 +9,6 @@ import CourseList from '../pages/guest/CourseList';
 import CourseDetail from '../pages/guest/CourseDetail';
 import OnlineCourses from '../pages/guest/OnlineCourses';
 
-// ===== PLACEHOLDER PAGES (sẽ phát triển sau) =====
 import StudentDashboard from '../pages/student/Dashboard';
 import MyCourses from '../pages/student/MyCourses';
 import Lesson from '../pages/student/Lesson';
@@ -24,7 +22,6 @@ import CourseManagement from '../pages/teacher/CourseManagement';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import UserManagement from '../pages/admin/UserManagement';
 
-// ===== LAYOUTS =====
 import MainLayout from '../layouts/MainLayout';
 import StudentLayout from '../layouts/StudentLayout';
 import TeacherLayout from '../layouts/TeacherLayout';
@@ -33,7 +30,7 @@ import AdminLayout from '../layouts/AdminLayout';
 export default function AppRoutes() {
   return (
     <Routes>
-      {/* ===== GUEST / PUBLIC ROUTES (đang phát triển) ===== */}
+
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -43,7 +40,6 @@ export default function AppRoutes() {
         <Route path="/courses/:id" element={<CourseDetail />} />
       </Route>
 
-      {/* ===== STUDENT ROUTES (placeholder - phát triển sau) ===== */}
       <Route element={<ProtectedRoute allowedRoles={['student']} />}>
         <Route element={<StudentLayout />}>
           <Route path="/learning/dashboard" element={<StudentDashboard />} />
@@ -57,7 +53,6 @@ export default function AppRoutes() {
         </Route>
       </Route>
 
-      {/* ===== TEACHER ROUTES (placeholder - phát triển sau) ===== */}
       <Route element={<ProtectedRoute allowedRoles={['teacher']} />}>
 <Route element={<TeacherLayout />}>
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
@@ -65,7 +60,6 @@ export default function AppRoutes() {
         </Route>
       </Route>
 
-      {/* ===== ADMIN ROUTES (placeholder - phát triển sau) ===== */}
       <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
         <Route element={<AdminLayout />}>
           <Route path="/admin/dashboard" element={<AdminDashboard />} />

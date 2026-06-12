@@ -279,7 +279,7 @@ export default function TestReviewPage() {
             <div className="rounded-4 p-4 text-center h-100 d-flex flex-column justify-content-center" style={{ background:'#fff', boxShadow:'0 4px 20px rgba(0,0,0,0.06)', border:'1px solid #e2e8f0' }}>
               <div style={{ fontSize:40, fontWeight:900, color:'#334155' }}>4</div>
               <div style={{ fontSize:12, fontWeight:700, color:'#64748b', textTransform:'uppercase', letterSpacing:0.5 }}>Tiêu chí đánh giá</div>
-              <div style={{ fontSize:12, color:'#94a3b8' }}>Chưa có nhận xét</div>
+              <div style={{ fontSize:12, color:'#94a3b8' }}>Đang chờ giảng viên</div>
             </div>
           </div>
           <div className="col-12 col-md-4">
