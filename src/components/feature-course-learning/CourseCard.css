@@ -1,0 +1,46 @@
+.course-card-custom {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05) !important;
+}
+
+.course-card-custom:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.course-card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.course-card-img {
+  transition: transform 0.5s ease;
+}
+
+.course-card-custom:hover .course-card-img {
+  transform: scale(1.05);
+}
+
+.skill-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+}
+
+.skill-reading { background-color: #e0f2fe; color: #0369a1; }
+.skill-listening { background-color: #f3e8ff; color: #7e22ce; }
+.skill-writing { background-color: #ffedd5; color: #c2410c; }
+.skill-speaking { background-color: #ecfdf5; color: #047857; }
+.skill-general { background-color: #f1f5f9; color: #475569; }
+
+.price-tag {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.free-tag {
+  color: #16a34a;
+}

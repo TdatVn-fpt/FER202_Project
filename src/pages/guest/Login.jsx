@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { getDashboardPathByRole, loginWithEmailAndPassword, loginWithGoogle } from '../../services/authService';
+import { getDashboardPathByRole, loginWithEmailAndPassword } from '../../services/authService';
 import './Login.css';
 
 export default function Login() {
@@ -17,11 +17,6 @@ export default function Login() {
     password: ''
   });
   const [showPassword, setShowPassword] = useState(false);
-
-  const roleHint = useMemo(() => {
-    const params = new URLSearchParams(location.search);
-    return params.get('role') || 'student';
-  }, [location.search]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

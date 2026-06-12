@@ -6,7 +6,7 @@ const API_URL = 'http://localhost:9999'; // Default port for json-server
 const ROLE_DASHBOARD_PATHS = {
   admin: '/admin/dashboard',
   teacher: '/teacher/dashboard',
-  student: '/learning/dashboard',
+  student: '/learning/courses', // Redirect thẳng vào Course Catalog sau khi login
 };
 
 const MOCK_GOOGLE_USERS = {
