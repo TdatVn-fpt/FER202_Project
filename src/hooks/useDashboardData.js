@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 // Dùng tạm url localhost cho json-server. Trong project thực tế (T002) sẽ cấu hình qua axios instance.
-const API_URL = 'http://localhost:5000';
+const API_URL = 'http://localhost:9999';
 
 export const useDashboardData = (userId) => {
   const [data, setData] = useState({

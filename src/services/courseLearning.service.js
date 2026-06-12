@@ -14,35 +14,33 @@ export const getCourses = async (params = {}) => {
   try {
     const { page = 1, limit = 9, search = '', skill = '', level = '' } = params;
 
-    // Xây dựng query params cho JSON-server v1
+    // Lấy toàn bộ courses, lọc phía client để đảm bảo search hoạt động
     const queryParams = new URLSearchParams();
-    queryParams.append('_page', page);
-    queryParams.append('_per_page', limit);
-
-    if (search) queryParams.append('title_like', search); // search by title
     if (skill) queryParams.append('skill', skill);
     if (level) queryParams.append('level', level);
 
     const response = await api.get(`/courses?${queryParams.toString()}`);
+    let allCourses = Array.isArray(response.data)
+      ? response.data
+      : (response.data?.data || []);
 
-    // json-server v1: khi dùng _page, response.data là object { data: [], items, pages, ... }
-    // json-server v0: response.data là array trực tiếp
-    const result = response.data;
-    if (result && !Array.isArray(result) && Array.isArray(result.data)) {
-      // json-server v1 format
-      return {
-        data: result.data,
-        totalCount: result.items || 0
-      };
+    // Lọc theo search keyword (client-side) — case-insensitive
+    if (search) {
+      const keyword = search.toLowerCase();
+      allCourses = allCourses.filter(c =>
+        (c.title || '').toLowerCase().includes(keyword) ||
+        (c.description || '').toLowerCase().includes(keyword) ||
+        (c.skill || '').toLowerCase().includes(keyword)
+      );
     }
 
-    // Fallback: json-server v0 hoặc không có pagination
-    return {
-      data: Array.isArray(result) ? result : [],
-      totalCount: parseInt(response.headers['x-total-count'] || '0', 10)
-    };
+    // Phân trang client-side
+    const totalCount = allCourses.length;
+    const start = (page - 1) * limit;
+    const paged = allCourses.slice(start, start + limit);
+
+    return { data: paged, totalCount };
   } catch (error) {
-    // EARS[Unwanted]: IF the API call fails, THE system SHALL throw an error to be handled by the UI.
     throw new Error(error.response?.data?.message || 'Failed to fetch courses');
   }
 };

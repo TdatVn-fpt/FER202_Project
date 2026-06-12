@@ -6,7 +6,7 @@ import { useHistoryFilter } from '../../hooks/useHistoryFilter';
 import { getCurrentUser } from '../../services/authService';
 
 // URL giả lập JSON-Server
-const API_URL = 'http://localhost:5000';
+const API_URL = 'http://localhost:9999';
 
 const LearningHistoryPage = () => {
   const currentUser = getCurrentUser();
@@ -22,14 +22,22 @@ const LearningHistoryPage = () => {
     const fetchAttempts = async () => {
       try {
         setLoading(true);
-        // EARS[Event]: WHEN the Student navigates to the learning history, THE system SHALL fetch the full list.
-        const res = await axios.get(`${API_URL}/testAttempts?userId=${userId}`);
-        
-        // Sắp xếp thời gian giảm dần (mới nhất lên đầu bảng)
+
+        // Re-fetch user từ server theo email để lấy id mới nhất, tránh localStorage stale
+        let resolvedUserId = userId;
+        if (currentUser?.email) {
+          try {
+            const userRes = await axios.get(`${API_URL}/users?email=${encodeURIComponent(currentUser.email)}`);
+            if (userRes.data?.length > 0) {
+              resolvedUserId = userRes.data[0].id;
+            }
+          } catch (_) { /* dùng userId cũ nếu fetch lỗi */ }
+        }
+
+        const res = await axios.get(`${API_URL}/testAttempts?userId=${resolvedUserId}`);
         const sorted = (res.data || []).sort((a, b) => new Date(b.submittedAt) - new Date(a.submittedAt));
         setAttempts(sorted);
       } catch (err) {
-        // EARS[Unwanted]: If the fetch fails, THE system SHALL display an error message.
         setError('Failed to fetch learning history. Please try again later.');
       } finally {
         setLoading(false);

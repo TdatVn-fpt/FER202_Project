@@ -62,58 +62,83 @@ const CourseListPage = () => {
 
   return (
     <div className="container py-5">
-      <div className="row mb-4 align-items-center">
-        <div className="col-md-6 mb-3 mb-md-0">
-          <h2 className="fw-bold mb-0">Explore Courses</h2>
-          <p className="text-muted">Find the right IELTS course for your goal.</p>
+      {/* Page Header */}
+      <div className="row mb-5 align-items-center">
+        <div className="col-lg-6 mb-4 mb-lg-0">
+          <h2 className="fw-bolder text-dark mb-2" style={{ fontSize: '2.5rem', letterSpacing: '-1px' }}>
+            Explore Courses
+          </h2>
+          <p className="text-muted fs-5 mb-0">
+            Find the right IELTS course to achieve your target band score.
+          </p>
         </div>
-        <div className="col-md-6">
-          <form className="d-flex" onSubmit={handleSearchSubmit} data-testid="search-form">
-            <input 
-              type="text" 
-              className="form-control me-2 rounded-pill shadow-sm" 
-              placeholder="Search courses by title..." 
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              data-testid="search-input"
-            />
-            <button className="btn btn-primary rounded-pill px-4 shadow-sm" type="submit">
-              <i className="bi bi-search me-1"></i> Search
-            </button>
+        <div className="col-lg-6">
+          <form onSubmit={handleSearchSubmit} data-testid="search-form">
+            <div className="input-group input-group-lg shadow-sm rounded-pill overflow-hidden bg-white" style={{ border: '1px solid rgba(0,0,0,0.08)' }}>
+              <span className="input-group-text bg-transparent border-0 pe-2 ps-4 text-muted">
+                <i className="bi bi-search"></i>
+              </span>
+              <input 
+                type="text" 
+                className="form-control border-0 bg-transparent shadow-none px-2" 
+                placeholder="Search by course title..." 
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                data-testid="search-input"
+              />
+              <div className="d-flex align-items-center pe-1 py-1">
+                <button 
+                  className="btn btn-primary rounded-pill px-4 fw-semibold shadow-sm" 
+                  type="submit"
+                  style={{ zIndex: 10 }}
+                >
+                  Search
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
 
-      <div className="row mb-4 bg-light p-3 rounded-4 shadow-sm align-items-center">
-        <div className="col-md-auto fw-bold text-muted mb-2 mb-md-0">
-          <i className="bi bi-funnel-fill me-2"></i> Filters:
-        </div>
-        <div className="col-md-4 mb-2 mb-md-0">
-          <select 
-            className="form-select rounded-pill border-0 shadow-sm" 
-            value={skillFilter} 
-            onChange={handleFilterChange(setSkillFilter)}
-            data-testid="skill-filter"
-          >
-            <option value="">All Skills</option>
-            <option value="Writing">Writing</option>
-            <option value="Reading">Reading</option>
-            <option value="Speaking">Speaking</option>
-            <option value="Listening">Listening</option>
-          </select>
-        </div>
-        <div className="col-md-4">
-          <select 
-            className="form-select rounded-pill border-0 shadow-sm" 
-            value={levelFilter} 
-            onChange={handleFilterChange(setLevelFilter)}
-            data-testid="level-filter"
-          >
-            <option value="">All Levels</option>
-            <option value="Band 5.0+">Band 5.0+</option>
-            <option value="Band 6.0+">Band 6.0+</option>
-            <option value="Band 7.0+">Band 7.0+</option>
-          </select>
+      {/* Filters Section */}
+      <div className="row mb-5">
+        <div className="col-12">
+          <div className="bg-white p-3 rounded-pill shadow-sm d-flex flex-wrap flex-md-nowrap align-items-center gap-3 border" style={{ borderColor: 'rgba(0,0,0,0.05)' }}>
+            <div className="fw-bold text-muted px-3 text-uppercase" style={{ fontSize: '0.8rem', letterSpacing: '1px' }}>
+              <i className="bi bi-funnel-fill me-1"></i> Filters
+            </div>
+            
+            <div className="flex-grow-1">
+              <select 
+                className="form-select form-select-sm border-0 bg-light rounded-pill px-4 fw-medium text-dark" 
+                value={skillFilter} 
+                onChange={handleFilterChange(setSkillFilter)}
+                style={{ height: '42px', cursor: 'pointer' }}
+                data-testid="skill-filter"
+              >
+                <option value="">All Skills</option>
+                <option value="Writing">Writing</option>
+                <option value="Reading">Reading</option>
+                <option value="Speaking">Speaking</option>
+                <option value="Listening">Listening</option>
+              </select>
+            </div>
+            
+            <div className="flex-grow-1">
+              <select 
+                className="form-select form-select-sm border-0 bg-light rounded-pill px-4 fw-medium text-dark" 
+                value={levelFilter} 
+                onChange={handleFilterChange(setLevelFilter)}
+                style={{ height: '42px', cursor: 'pointer' }}
+                data-testid="level-filter"
+              >
+                <option value="">All Levels</option>
+                <option value="Band 5.0+">Band 5.0+</option>
+                <option value="Band 6.0+">Band 6.0+</option>
+                <option value="Band 7.0+">Band 7.0+</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
 

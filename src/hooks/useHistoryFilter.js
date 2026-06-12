@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 
 /**
  * useHistoryFilter Hook
@@ -14,9 +14,17 @@ export const useHistoryFilter = (initialAttempts = []) => {
     date: ''
   });
 
-  const handleFilterChange = (newFilters) => {
-    setFilters(newFilters);
-  };
+  const handleFilterChange = useCallback((newFilters) => {
+    setFilters(prev => {
+      // Ngăn chặn re-render nếu giá trị không thực sự thay đổi
+      if (prev.keyword === newFilters.keyword && 
+          prev.skill === newFilters.skill && 
+          prev.date === newFilters.date) {
+        return prev;
+      }
+      return newFilters;
+    });
+  }, []);
 
   const filteredAttempts = useMemo(() => {
     if (!Array.isArray(initialAttempts)) return [];

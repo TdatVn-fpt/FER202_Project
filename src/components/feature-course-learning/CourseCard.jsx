@@ -1,76 +1,93 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './CourseCard.css';
 
-// EARS[State-driven]: WHILE course data is loading or rendered, THE system SHALL display course preview information safely.
 const CourseCard = ({ course }) => {
-  if (!course) {
-    // EARS[Unwanted]: WHERE course object is null or undefined, THE system SHALL render a safe empty state or null to prevent crash.
-    return null;
-  }
+  if (!course) return null;
 
   const {
-    id,
-    title,
-    thumbnail,
-    teacherName, // Giả định component cha truyền vào sau khi join với users
-    teacherId,
-    skill,
-    level,
-    price,
-    isPremium,
-    enrolledCount,
-    rating
+    id, title, thumbnail, teacherName, teacherId, skill, level, price, enrolledCount, rating
   } = course;
 
-  // Xử lý Fallbacks cho các trường hợp thiếu dữ liệu (Unwanted cases)
   const displayThumbnail = thumbnail || 'https://via.placeholder.com/300x200?text=No+Thumbnail';
-  const displayTeacher = teacherName || teacherId || 'Unknown Teacher';
-  const displayPrice = (price === 0 || !price) ? 'Free' : `$${price}`;
+  const displayTeacher = teacherName || teacherId || 'IELTS Expert';
+  
+  // Format price
+  let displayPrice = 'Free';
+  if (price > 0) {
+    displayPrice = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
+  }
+
+  // Get skill color class
+  const skillClass = skill ? `skill-${skill.toLowerCase()}` : 'skill-general';
 
   return (
-    <div className="card h-100 shadow-sm rounded-4 border-0 overflow-hidden" data-testid={`course-card-${id || 'unknown'}`}>
-      {/* EARS[State-driven]: WHILE thumbnail is missing, THE system SHALL use a fallback image. */}
-      <img 
-        src={displayThumbnail} 
-        className="card-img-top" 
-        alt={title || 'Course thumbnail'} 
-        style={{ height: '180px', objectFit: 'cover' }}
-      />
-      <div className="card-body d-flex flex-column">
-        <div className="d-flex justify-content-between align-items-start mb-2">
-          {/* Badge Level */}
-          <span className="badge bg-secondary rounded-pill">{level || 'Beginner'}</span>
-          {/* Badge Price */}
-          <span className={`badge ${isPremium ? 'bg-warning text-dark' : 'bg-success'} rounded-pill`}>
-            {displayPrice}
-          </span>
-        </div>
+    <div className="card h-100 rounded-4 course-card-custom" data-testid={`course-card-${id || 'unknown'}`}>
+      <Link to={`/learning/courses/${id}`} className="text-decoration-none text-dark d-flex flex-column h-100">
         
-        <h5 className="card-title fw-bold text-truncate" title={title || 'Untitled Course'}>
-          {title || 'Untitled Course'}
-        </h5>
-        
-        <p className="card-text text-muted small mb-3">
-          <i className="bi bi-person-fill me-1"></i> {displayTeacher}
-          <br/>
-          <i className="bi bi-book-fill me-1"></i> {skill || 'General'}
-        </p>
-
-        <div className="mt-auto d-flex justify-content-between align-items-center">
-          <span className="text-muted small">
-            <i className="bi bi-people-fill me-1"></i> {enrolledCount || 0} enrolled
-          </span>
-          {rating && (
-            <span className="text-warning small fw-bold">
-              <i className="bi bi-star-fill me-1"></i> {rating}
+        {/* Thumbnail Wrapper */}
+        <div className="course-card-img-wrapper" style={{ borderTopLeftRadius: '1rem', borderTopRightRadius: '1rem' }}>
+          <img 
+            src={displayThumbnail} 
+            className="card-img-top course-card-img" 
+            alt={title} 
+            style={{ height: '200px', objectFit: 'cover' }}
+          />
+          {/* Top Badges overlay */}
+          <div className="position-absolute top-0 start-0 m-3 d-flex gap-2">
+            <span className={`badge rounded-pill skill-badge ${skillClass}`}>
+              {skill || 'General'}
             </span>
-          )}
+          </div>
+          <div className="position-absolute top-0 end-0 m-3">
+            <span className="badge bg-dark bg-opacity-75 rounded-pill px-3 py-2 fw-semibold">
+              <i className="bi bi-bullseye me-1 text-warning"></i> {level || 'Band 5.0+'}
+            </span>
+          </div>
         </div>
-        
-        <Link to={`/learning/courses/${id}`} className="btn btn-primary w-100 mt-3 rounded-pill fw-semibold">
-          View Course
-        </Link>
-      </div>
+
+        {/* Card Body */}
+        <div className="card-body d-flex flex-column p-4">
+          
+          <h5 className="card-title fw-bold mb-3 lh-base" style={{ fontSize: '1.15rem' }}>
+            {title || 'Untitled Course'}
+          </h5>
+          
+          <div className="d-flex align-items-center mb-4 mt-auto">
+            <div 
+              className="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center me-2"
+              style={{ width: '32px', height: '32px', fontSize: '0.8rem' }}
+            >
+              {displayTeacher.charAt(0).toUpperCase()}
+            </div>
+            <div>
+              <p className="mb-0 small fw-semibold text-muted" style={{ fontSize: '0.8rem' }}>Instructor</p>
+              <p className="mb-0 fw-semibold" style={{ fontSize: '0.9rem' }}>{displayTeacher}</p>
+            </div>
+          </div>
+
+          {/* Footer stats */}
+          <div className="pt-3 border-top d-flex justify-content-between align-items-center">
+            <div className="d-flex gap-3 text-muted small fw-medium">
+              <span>
+                <i className="bi bi-people-fill text-primary me-1"></i>
+                {enrolledCount || 0}
+              </span>
+              {rating && (
+                <span>
+                  <i className="bi bi-star-fill text-warning me-1"></i>
+                  {rating}
+                </span>
+              )}
+            </div>
+            
+            <div className={`price-tag ${price === 0 || !price ? 'free-tag' : ''}`}>
+              {displayPrice}
+            </div>
+          </div>
+
+        </div>
+      </Link>
     </div>
   );
 };
