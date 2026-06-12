@@ -56,31 +56,31 @@
       "createdAt": "2026-06-01T08:00:00Z"
     },
     {
-      "id": "u-student-002",
-      "fullName": "Tran Minh Anh",
-      "name": "Tran Minh Anh",
-      "email": "minhanh@student.com",
+      "id": "u-001",
+      "fullName": "Nguyen Duy Manh",
+      "name": "Nguyen Duy Manh",
+      "email": "manhnd@student.com",
       "password": "12345678",
       "role": "student",
-      "avatar": "https://www.gravatar.com/avatar/?d=mp",
+      "avatar": "data:image/jpeg;base64,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",
       "status": "active",
-      "targetBand": 6.5,
-      "currentBand": 5,
-      "createdAt": "2026-06-02T08:00:00Z"
-  "users": [
+      "targetBand": 7,
+      "currentBand": 6,
+      "createdAt": "2026-06-02T08:00:00Z",
+      "dateOfBirth": "2005-12-08"
+    },
     {
-      "id": 1,
+      "id": "1",
       "name": "Tien Dat",
       "email": "ntiendat2108@gmail.com",
       "role": "student",
-      "targetBand": 7.0,
+      "targetBand": 7,
       "currentBand": 5.5
     },
     {
       "id": "u-teacher-001",
       "fullName": "IELTS Mentor",
       "name": "IELTS Mentor",
-      "fullName": "IELTS Mentor",
       "email": "teacher@ieltslearning.com",
       "role": "teacher",
       "specialty": "Reading and Writing"
@@ -107,39 +107,161 @@
       "status": "active",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "createdAt": "2026-06-10T06:20:00.959Z"
-      "role": "admin"
+    },
+    {
+      "email": "vmbchannel9@gmail.com",
+      "password": "Manh2005@",
+      "fullName": "",
+      "name": "",
+      "dateOfBirth": "2005-8-12",
+      "id": "s_fzWrNH5hA",
+      "role": "student",
+      "status": "active",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp",
+      "createdAt": "2026-06-11T02:34:25.915Z"
     }
   ],
   "courses": [
     {
       "id": "course-001",
-      "title": "IELTS Reading Foundation",
-      "description": "Khóa học nền tảng Reading cho người mới bắt đầu.",
+      "title": "IELTS Reading: Essential Strategies",
+      "description": "Master core reading skills to achieve Band 6.5+. This comprehensive course covers Skimming, Scanning, and how to effectively tackle True/False/Not Given and Matching Headings questions under time pressure.",
       "syllabus": [
-        "Skimming and Scanning",
-        "Matching Headings",
-        "True False Not Given"
+        "Introduction to Skimming and Scanning",
+        "Mastering True/False/Not Given",
+        "Matching Headings like a Pro",
+        "Summary Completion & Flowcharts"
       ],
       "skill": "Reading",
-      "level": "Beginner",
+      "level": "Band 5.0 - 6.5",
       "price": 0,
       "isPremium": false,
-      "thumbnail": "/images/reading-foundation.jpg",
+      "thumbnail": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
+      "teacherName": "IELTS Mentor",
       "status": "approved",
       "enrolledCount": 120,
-      "students": 120,
       "rating": 4.7,
       "durationWeeks": 6,
       "createdAt": "2026-06-01T08:00:00Z"
+    },
+    {
+      "id": "course-002",
+      "title": "IELTS Listening: Score Booster",
+      "description": "Enhance your listening comprehension with authentic IELTS materials. Learn how to anticipate answers, deal with distractors, and understand diverse accents in Sections 3 & 4.",
+      "syllabus": [
+        "Section 1: Form Completion",
+        "Section 2: Map & Diagram Labelling",
+        "Section 3: Multiple Choice & Matching",
+        "Section 4: Academic Lecture Completion"
+      ],
+      "skill": "Listening",
+      "level": "Band 6.0 - 7.5+",
+      "price": 199000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "teacherName": "IELTS Mentor",
+      "status": "approved",
+      "enrolledCount": 85,
+      "rating": 4.5,
+      "durationWeeks": 8,
+      "createdAt": "2026-06-02T08:00:00Z"
+    },
+    {
+      "id": "course-003",
+      "title": "IELTS Writing Task 2: Advanced Essays",
+      "description": "A deep dive into IELTS Writing Task 2. Learn how to structure Band 7.0+ essays, develop complex arguments, and use advanced Lexical Resource and Grammatical Range.",
+      "syllabus": [
+        "Understanding the Band Descriptors",
+        "The Opinion Essay (Agree/Disagree)",
+        "Discussion & Double Question Essays",
+        "Advanced Cohesion and Coherence"
+      ],
+      "skill": "Writing",
+      "level": "Band 6.5 - 8.0",
+      "price": 299000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "teacherName": "IELTS Mentor",
+      "status": "approved",
+      "enrolledCount": 64,
+      "rating": 4.8,
+      "durationWeeks": 8,
+      "createdAt": "2026-06-03T08:00:00Z"
+    },
+    {
+      "id": "course-004",
+      "title": "IELTS Speaking: Fluency & Pronunciation",
+      "description": "Build immense confidence for the Speaking test. We cover idiomatic language, intonation, and how to deliver extended, coherent answers in Parts 2 and 3.",
+      "syllabus": [
+        "Part 1: Natural Responses & Expansion",
+        "Part 2: The 1-Minute Prep Strategy",
+        "Part 3: Developing Analytical Answers",
+        "Pronunciation: Word Stress & Linking"
+      ],
+      "skill": "Speaking",
+      "level": "Band 5.5 - 7.5",
+      "price": 0,
+      "isPremium": false,
+      "thumbnail": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "teacherName": "IELTS Mentor",
+      "status": "approved",
+      "enrolledCount": 95,
+      "rating": 4.6,
+      "durationWeeks": 4,
+      "createdAt": "2026-06-04T08:00:00Z"
+    },
+    {
+      "id": "course-005",
+      "title": "IELTS Academic Writing Task 1",
+      "description": "Step-by-step guide to summarizing visual data. Learn the essential vocabulary for trends, comparisons, processes, and maps to secure a high band score in Task 1.",
+      "syllabus": [
+        "Line Graphs & Bar Charts (Trends)",
+        "Pie Charts & Tables (Comparisons)",
+        "Describing Processes & Cycles",
+        "Comparing Maps (Past & Present)"
+      ],
+      "skill": "Writing",
+      "level": "Band 6.0+",
+      "price": 199000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "teacherName": "IELTS Mentor",
+      "status": "approved",
+      "enrolledCount": 52,
+      "rating": 4.4,
+      "durationWeeks": 6,
+      "createdAt": "2026-06-05T08:00:00Z"
+    },
+    {
+      "id": "course-006",
+      "title": "IELTS Reading: The 8.0+ Masterclass",
+      "description": "For high-achievers. Tackle the most difficult passages (Passage 3) with advanced techniques. Overcome distractors and tricky inference questions.",
+      "syllabus": [
+        "Deconstructing Complex Sentences",
+        "Identifying the Writer's Views/Claims",
+        "Advanced Multiple Choice Strategies",
+        "Time Management for Passage 3"
+      ],
+      "skill": "Reading",
+      "level": "Band 7.0 - 9.0",
+      "price": 349000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "teacherName": "IELTS Mentor",
+      "status": "approved",
+      "enrolledCount": 38,
+      "rating": 4.9,
+      "durationWeeks": 10,
+      "createdAt": "2026-06-06T08:00:00Z"
     }
   ],
   "freeResources": [
-      "description": "Build core vocabulary, scanning, skimming, and passage analysis skills.",
-      "teacherId": 2,
-      "price": 490000,
-      "durationWeeks": 6
-    },
     {
       "id": "resource-001",
       "title": "The language clinic: Live Q&A session",
@@ -151,16 +273,11 @@
       "reviews": 79,
       "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80",
       "description": "Join our live event and ask our expert educator your questions about the English language and learning English."
-      "level": "Intermediate",
-      "description": "Practice section-based listening strategies with transcript review.",
-      "teacherId": 2,
-      "price": 590000,
-      "durationWeeks": 8
     },
     {
       "id": "course-003",
       "title": "IELTS Writing Task 2 Intensive",
-      "description": "Cải thiện lập luận, coherence, grammar range và lexical resource.",
+      "description": "Improve essay planning, coherence, grammar range, and lexical resource.",
       "syllabus": [
         "Opinion Essay",
         "Discussion Essay",
@@ -168,7 +285,6 @@
       ],
       "skill": "Writing",
       "level": "Advanced",
-      "description": "Improve essay planning, coherence, grammar range, and lexical resource.",
       "teacherId": 2,
       "price": 790000,
       "durationWeeks": 8
@@ -306,56 +422,68 @@
       "description": "All around the world, millions of cups of tea and coffee are drunk every day."
     }
   ],
-  "lessons": [],
-  "tests": [],
-  "questions": [],
-  "questionAnswers": [],
-  "$schema": "./node_modules/json-server/schema.json"
-      "level": "Intermediate",
-      "description": "Practice part 1, part 2, and part 3 answers with feedback.",
-      "teacherId": 2,
-      "price": 690000,
-      "durationWeeks": 6
-    }
-  ],
   "lessons": [
     {
-      "id": 1,
-      "courseId": 1,
-      "title": "Reading Lesson 1: Skimming for Main Ideas",
+      "id": "lesson-001",
+      "courseId": "course-001",
+      "title": "Introduction to Skimming and Scanning",
       "order": 1,
       "durationMinutes": 45,
-      "contentUrl": "/lessons/reading-skimming"
+      "content": "Skimming and Scanning are foundational skills for IELTS Reading. You have exactly 60 minutes to read 3 long passages and answer 40 questions. You simply cannot read every word.\n\n## 1. Skimming (Reading for Gist)\nSkimming involves reading a text rapidly to get a general overview of the material. \n**How to Skim effectively:**\n- Read the Title and any Subtitles.\n- Read the First Paragraph carefully (this usually introduces the main topic).\n- Read the First Sentence of every subsequent paragraph (the topic sentence).\n- Look for repeated words, names, dates, or numbers.\n- Read the Final Paragraph (often contains the conclusion or summary).\n\n## 2. Scanning (Reading for Specific Information)\nScanning involves running your eyes quickly over the text to locate specific facts or keywords, without reading the text as a whole.\n**How to Scan effectively:**\n- Identify the **keywords** in the question first (e.g., proper nouns, dates, technical terms).\n- Visualize these keywords.\n- Move your eyes quickly across and down the text, looking *only* for these specific words or their synonyms.\n- Once you find the keyword, read the surrounding sentence carefully to find the answer.\n\n### Practical Exercise:\nTry to find the date **'1985'** in a news article as fast as you can. Notice how your brain ignores other words and only looks for numbers."
     },
     {
-      "id": 2,
-      "courseId": 1,
-      "title": "Reading Lesson 2: Matching Headings",
+      "id": "lesson-002",
+      "courseId": "course-001",
+      "title": "Mastering True/False/Not Given",
       "order": 2,
-      "durationMinutes": 50,
-      "contentUrl": "/lessons/reading-matching-headings"
+      "durationMinutes": 55,
+      "content": "True/False/Not Given (T/F/NG) questions are notoriously tricky. They test your ability to understand factual information.\n\n## The Definitions\n- **TRUE**: The statement agrees exactly with the information in the text.\n- **FALSE**: The statement contradicts or is the opposite of the information in the text.\n- **NOT GIVEN**: There is no information about this in the text, or it's impossible to know what the writer thinks about this based *only* on the text.\n\n## The 'Not Given' Trap\nThe most common mistake is using outside knowledge. Even if a fact is universally known to be True, if it is not explicitly stated in the text, the answer is NOT GIVEN.\n\n## Strategy Steps:\n1. **Read the statement first** and identify keywords (especially verbs and adjectives).\n2. **Scan the text** to locate the section where the keywords (or their synonyms) are discussed.\n3. **Read the text carefully**. Does it mean exactly the same thing?\n4. **Check for qualifiers**: Words like *some, all, always, never, mostly, exactly* can completely change the meaning. \n  *Example: Text says 'Some cats hate water.' Statement says 'All cats hate water.' The answer is FALSE.*\n\n### Pro Tip:\nQuestions usually follow the order of the text. If you find the answer to Question 1 in Paragraph 1, and the answer to Question 3 in Paragraph 3, Question 2's answer will almost certainly be in Paragraph 2."
     },
     {
-      "id": 3,
-      "courseId": 2,
-      "title": "Listening Lesson 1: Predicting Answers",
+      "id": "lesson-003",
+      "courseId": "course-003",
+      "title": "Understanding the Band Descriptors",
       "order": 1,
       "durationMinutes": 40,
-      "contentUrl": "/lessons/listening-prediction"
+      "content": "To score a Band 7.0 or higher in Writing Task 2, you must understand exactly how examiners mark your essay. The official public band descriptors evaluate four criteria, each worth 25% of your score.\n\n## 1. Task Response (TR)\n- Did you answer all parts of the prompt?\n- Is your position clear throughout the essay?\n- Are your main ideas extended and supported with relevant examples?\n*Band 7 requirement: Addresses all parts of the task, presents a clear position, and extends main ideas.*\n\n## 2. Coherence and Cohesion (CC)\n- Is the essay logically organized into paragraphs?\n- Is there a clear progression of ideas?\n- Do you use linking words appropriately (without overusing them)?\n*Band 7 requirement: Logically organizes information, clear progression throughout, uses a range of cohesive devices appropriately.*\n\n## 3. Lexical Resource (LR)\n- Do you use a wide range of vocabulary?\n- Do you use less common or idiomatic vocabulary accurately?\n- Are your collocations natural?\n*Band 7 requirement: Uses a sufficient range of vocabulary to allow some flexibility and precision, uses less common lexical items.*\n\n## 4. Grammatical Range and Accuracy (GRA)\n- Do you use a variety of complex sentence structures?\n- Are most of your sentences error-free?\n*Band 7 requirement: Uses a variety of complex structures, produces frequent error-free sentences.*\n\n### Action Plan:\nStop writing blindly. Before your next practice essay, read the prompt and spend 5 minutes planning your paragraphs to ensure a perfect Task Response."
     },
     {
-      "id": 4,
-      "courseId": 3,
-      "title": "Writing Lesson 1: Opinion Essay Structure",
-      "order": 1,
+      "id": "lesson-004",
+      "courseId": "course-003",
+      "title": "The Opinion Essay (Agree/Disagree)",
+      "order": 2,
       "durationMinutes": 60,
-      "contentUrl": "/lessons/writing-opinion-essay"
+      "content": "The Opinion essay is one of the most common Task 2 prompts. It will typically state a premise and ask: *To what extent do you agree or disagree?*\n\n## Recommended Structure (4 Paragraphs)\n\n### Paragraph 1: Introduction (2-3 sentences)\n- **Hook / Background:** Paraphrase the prompt.\n- **Thesis Statement:** Clearly state your opinion (e.g., 'I completely agree with this view because...').\n\n### Paragraph 2: Body Paragraph 1 (First Reason)\n- **Topic Sentence:** State your first main reason.\n- **Explanation:** Explain *why* this is true or *how* it happens.\n- **Example:** Provide a specific, real-world example.\n- **Result:** Conclude the paragraph by linking back to the topic.\n\n### Paragraph 3: Body Paragraph 2 (Second Reason)\n- **Topic Sentence:** State your second main reason.\n- **Explanation:** Expand on the idea.\n- **Example:** Give another specific example.\n\n### Paragraph 4: Conclusion (1-2 sentences)\n- **Restatement:** Summarize your main points and restate your opinion in different words.\n- *Never introduce new ideas in the conclusion!*\n\n## Useful Vocabulary:\n- *I firmly believe that...*\n- *It is undeniable that...*\n- *A prime example of this is...*\n- *Consequently...*"
+    },
+    {
+      "id": "lesson-005",
+      "courseId": "course-002",
+      "title": "Section 1: Form Completion Strategy",
+      "order": 1,
+      "durationMinutes": 45,
+      "content": "Section 1 of IELTS Listening is always a conversation between two people set in an everyday social context (e.g., booking a hotel, joining a club). The most common question type here is Form Completion.\n\n## Core Strategies:\n\n1. **Read the Instructions Carefully:**\nAlways check the word limit. 'NO MORE THAN TWO WORDS AND/OR A NUMBER' means exactly that. If the answer is 'red car' and you write 'a red car', you lose the mark.\n\n2. **Predict the Answers:**\nLook at the gaps before the audio starts. Ask yourself: \n- What type of word is missing? A noun, verb, or adjective?\n- What kind of information is it? A name, date, telephone number, or price?\n\n3. **Watch out for Spelling and Numbers:**\nSpeakers will often spell out names or addresses. You must know the English alphabet perfectly. (Be careful with A/E/I and G/J).\n\n4. **Beware of Distractors:**\nThe speakers will often give one piece of information, then correct themselves. \n*Example:* 'I'd like to book it for the 14th... Oh wait, my wife is busy then, let's make it the 16th.' The answer is 16th, not 14th.\n\n### Practice Drill:\nHave a friend spell 10 random names and read 10 random phone numbers to you while you write them down quickly."
+    },
+    {
+      "id": "lesson-006",
+      "courseId": "course-004",
+      "title": "Part 2: The 1-Minute Prep Strategy",
+      "order": 2,
+      "durationMinutes": 45,
+      "content": "In Speaking Part 2, you are given a cue card with a topic and 3-4 bullet points. You have exactly 1 minute to prepare, and you must speak for 1 to 2 minutes.\n\n## How to Use Your 1 Minute Effectively\nMany students waste this time writing full sentences. **Don't do this.** You will end up reading from the paper, which lowers your fluency and pronunciation scores.\n\n### The 'Keyword Map' Strategy:\n1. Divide your scratch paper into 4 quadrants (one for each bullet point).\n2. Write down 2-3 **Keywords** or **Collocations** for each quadrant.\n3. Think of one specific 'Story' or memory to tie it all together.\n\n## Structuring Your 2-Minute Talk:\n- **Introduction (15 sec):** 'I'd like to talk about a time when...'\n- **Past Details (30 sec):** Discuss the background. Use Past Continuous ('I was walking...') and Past Perfect ('I had never seen...').\n- **Core Description (45 sec):** Answer the main part of the prompt. Use descriptive adjectives.\n- **Conclusion / Feelings (30 sec):** 'Looking back, I felt incredibly...' This directly answers the final bullet point usually asking about your feelings.\n\n### Emergency Tactic:\nIf you run out of things to say at 1 minute 30 seconds, shift to the future or a hypothetical: *'If I had the chance to do it again, I would...'* or *'I hope to experience something similar in the future because...'*."
+    },
+    {
+      "id": "lesson-007",
+      "courseId": "course-005",
+      "title": "Line Graphs: Describing Trends",
+      "order": 1,
+      "durationMinutes": 50,
+      "content": "Academic Writing Task 1 requires you to write at least 150 words summarizing visual information. Line graphs are incredibly common and require specific vocabulary to describe changes over time.\n\n## The Essential Structure\n1. **Introduction:** Paraphrase the prompt. (e.g., 'The line graph illustrates the changes in...')\n2. **Overview:** Identify the 2 or 3 main trends. (e.g., 'Overall, it is clear that X increased significantly, while Y saw a dramatic decline.') *Never include specific numbers in the overview.*\n3. **Body Paragraph 1:** Detail the first main trend with data (years and numbers).\n4. **Body Paragraph 2:** Detail the remaining trends, comparing them to Paragraph 1 where relevant.\n\n## Crucial Vocabulary for Trends\n\n### Upward Trend:\n- Verbs: *increased, rose, climbed, surged, skyrocketed*\n- Nouns: *an increase, a rise, an upward trend*\n\n### Downward Trend:\n- Verbs: *decreased, fell, dropped, declined, plummeted*\n- Nouns: *a decrease, a fall, a drop*\n\n### Stability and Fluctuation:\n- *remained stable, leveled off, plateaued*\n- *fluctuated wildly, showed erratic changes*\n\n### Adjectives / Adverbs of Degree:\n- *significant / significantly*\n- *dramatic / dramatically*\n- *slight / slightly*\n- *gradual / gradually*\n\n**Example Sentence:**\n'The number of tourists *rose dramatically* from 1 million in 2000 to just under 4 million in 2010.'"
     }
   ],
   "tests": [
     {
-      "id": 1,
-      "courseId": 1,
+      "id": "1",
+      "courseId": "course-001",
       "title": "Reading Foundation Mock Test",
       "skill": "Reading",
       "durationMinutes": 60,
@@ -363,8 +491,8 @@
       "bandScale": "IELTS 0-9"
     },
     {
-      "id": 2,
-      "courseId": 2,
+      "id": "2",
+      "courseId": "course-002",
       "title": "Listening Section Practice Test",
       "skill": "Listening",
       "level": "Intermediate",
@@ -375,25 +503,34 @@
   ],
   "questions": [
     {
-      "id": 1,
+      "id": "1",
       "testId": 1,
       "type": "multiple-choice",
       "questionText": "What is the main purpose of paragraph 1?",
-      "options": ["To introduce a problem", "To compare two theories", "To describe a process", "To reject an argument"],
+      "options": [
+        "To introduce a problem",
+        "To compare two theories",
+        "To describe a process",
+        "To reject an argument"
+      ],
       "answer": "To introduce a problem",
       "score": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "testId": 1,
       "type": "true-false-not-given",
       "questionText": "The writer believes online learning is only useful for advanced students.",
-      "options": ["True", "False", "Not Given"],
+      "options": [
+        "True",
+        "False",
+        "Not Given"
+      ],
       "answer": "False",
       "score": 1
     },
     {
-      "id": 3,
+      "id": "3",
       "testId": 2,
       "type": "fill-in-the-blank",
       "questionText": "The lecture begins at ____ in the main hall.",
@@ -403,20 +540,89 @@
   ],
   "enrollments": [
     {
-      "id": 1,
-      "userId": 1,
-      "courseId": 1,
+      "id": "enr-001",
+      "userId": "1",
+      "courseId": "course-001",
       "status": "active",
-      "progress": 35,
-      "enrolledAt": "2026-06-01"
+      "progress": 33,
+      "enrolledAt": "2026-06-01T08:00:00Z"
     },
     {
-      "id": 2,
-      "userId": 1,
-      "courseId": 2,
+      "id": "enr-002",
+      "userId": "1",
+      "courseId": "course-002",
       "status": "active",
-      "progress": 12,
-      "enrolledAt": "2026-06-01"
+      "progress": 50,
+      "enrolledAt": "2026-06-03T10:00:00Z"
+    },
+    {
+      "id": "enr-003",
+      "userId": "1",
+      "courseId": "course-004",
+      "status": "active",
+      "progress": 0,
+      "enrolledAt": "2026-06-05T14:00:00Z"
+    },
+    {
+      "userId": "1",
+      "courseId": "course-001",
+      "progress": 67,
+      "enrolledAt": "2026-06-11T15:12:27.615Z",
+      "id": "OUUnwU4JSfk",
+      "status": "active"
+    },
+    {
+      "userId": "1",
+      "courseId": "course-002",
+      "progress": 100,
+      "enrolledAt": "2026-06-11T15:12:57.459Z",
+      "id": "vjw1ZN5pbb4",
+      "status": "completed"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-001",
+      "progress": 67,
+      "enrolledAt": "2026-06-11T16:27:32.518Z",
+      "id": "1AzGHEpkf4o",
+      "status": "active"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-002",
+      "progress": 100,
+      "enrolledAt": "2026-06-11T16:27:56.816Z",
+      "id": "j1bcgMcbDDs",
+      "status": "completed"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-003",
+      "progress": 100,
+      "enrolledAt": "2026-06-11T16:29:29.766Z",
+      "id": "6fwrWaq-w4o",
+      "status": "completed"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-004",
+      "progress": 0,
+      "enrolledAt": "2026-06-11T17:10:31.807Z",
+      "id": "KWhm_cPENnk"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-006",
+      "progress": 0,
+      "enrolledAt": "2026-06-12T00:49:18.565Z",
+      "id": "M7QjQGV3OPc"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-005",
+      "progress": 0,
+      "enrolledAt": "2026-06-12T01:01:58.539Z",
+      "id": "mG4aT2Sz4nk"
     }
   ],
   "payments": [
@@ -440,5 +646,756 @@
       "status": "pending",
       "paidAt": null
     }
-  ]
+  ],
+  "lessonProgress": [
+    {
+      "id": "lp-001",
+      "userId": "u-student-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-02T10:30:00Z"
+    },
+    {
+      "id": "lp-002",
+      "userId": "u-student-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-04T11:00:00Z"
+    },
+    {
+      "id": "mfWgOinCTjo",
+      "userId": "u-student-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-11T15:12:36.310Z"
+    },
+    {
+      "id": "-JlrLCMtEfY",
+      "userId": "u-student-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-002",
+      "completed": true,
+      "completedAt": "2026-06-11T15:12:51.261Z"
+    },
+    {
+      "id": "itriD0s6XqU",
+      "userId": "u-student-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-11T15:16:54.104Z"
+    },
+    {
+      "id": "GyCwdvh6iDw",
+      "userId": "u-student-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-005",
+      "completed": true,
+      "completedAt": "2026-06-11T15:16:56.286Z"
+    },
+    {
+      "id": "jFbBZBYI4Dg",
+      "userId": "u-student-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:34.649Z"
+    },
+    {
+      "id": "OV1CfpeZuBg",
+      "userId": "u-student-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-002",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:35.311Z"
+    },
+    {
+      "id": "zhJ5yAUUjAc",
+      "userId": "u-student-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-003",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:36.245Z"
+    },
+    {
+      "id": "ukNT_6_qZ4M",
+      "userId": "u-student-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:58.620Z"
+    },
+    {
+      "id": "1BwFBCfVLXM",
+      "userId": "u-student-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-005",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:59.368Z"
+    },
+    {
+      "id": "uogipkfFA6Q",
+      "userId": "u-student-001",
+      "courseId": "course-003",
+      "lessonId": "lesson-006",
+      "completed": true,
+      "completedAt": "2026-06-11T16:29:31.387Z"
+    },
+    {
+      "id": "qr80gvvjk",
+      "userId": "u-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-02T10:30:00Z"
+    },
+    {
+      "id": "w84tz6puj",
+      "userId": "u-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-04T11:00:00Z"
+    },
+    {
+      "id": "25wty9lks",
+      "userId": "u-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-11T15:12:36.310Z"
+    },
+    {
+      "id": "w1mppan9m",
+      "userId": "u-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-002",
+      "completed": true,
+      "completedAt": "2026-06-11T15:12:51.261Z"
+    },
+    {
+      "id": "sbg0zc4g6",
+      "userId": "u-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-11T15:16:54.104Z"
+    },
+    {
+      "id": "6xlfgn5vl",
+      "userId": "u-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-005",
+      "completed": true,
+      "completedAt": "2026-06-11T15:16:56.286Z"
+    },
+    {
+      "id": "24c2kojll",
+      "userId": "u-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:34.649Z"
+    },
+    {
+      "id": "1s3nc6rc4",
+      "userId": "u-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-002",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:35.311Z"
+    },
+    {
+      "id": "vu7kfa285",
+      "userId": "u-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-003",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:36.245Z"
+    },
+    {
+      "id": "tqmblqr66",
+      "userId": "u-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:58.620Z"
+    },
+    {
+      "id": "q9305x6ul",
+      "userId": "u-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-005",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:59.368Z"
+    },
+    {
+      "id": "t2nd1pakb",
+      "userId": "u-001",
+      "courseId": "course-003",
+      "lessonId": "lesson-006",
+      "completed": true,
+      "completedAt": "2026-06-11T16:29:31.387Z"
+    },
+    {
+      "id": "1ve3arl0k",
+      "userId": "1",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-02T10:30:00Z"
+    },
+    {
+      "id": "866lzx50y",
+      "userId": "1",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-04T11:00:00Z"
+    },
+    {
+      "id": "qtd2emf2k",
+      "userId": "1",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-11T15:12:36.310Z"
+    },
+    {
+      "id": "2jooc4ogr",
+      "userId": "1",
+      "courseId": "course-001",
+      "lessonId": "lesson-002",
+      "completed": true,
+      "completedAt": "2026-06-11T15:12:51.261Z"
+    },
+    {
+      "id": "wi9l2j9j9",
+      "userId": "1",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-11T15:16:54.104Z"
+    },
+    {
+      "id": "dpelqo7hv",
+      "userId": "1",
+      "courseId": "course-002",
+      "lessonId": "lesson-005",
+      "completed": true,
+      "completedAt": "2026-06-11T15:16:56.286Z"
+    },
+    {
+      "id": "g5wzsmdc1",
+      "userId": "1",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:34.649Z"
+    },
+    {
+      "id": "e7qyxihnl",
+      "userId": "1",
+      "courseId": "course-001",
+      "lessonId": "lesson-002",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:35.311Z"
+    },
+    {
+      "id": "iqa14kj9n",
+      "userId": "1",
+      "courseId": "course-001",
+      "lessonId": "lesson-003",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:36.245Z"
+    },
+    {
+      "id": "vkwafnvnk",
+      "userId": "1",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:58.620Z"
+    },
+    {
+      "id": "szzgygbaj",
+      "userId": "1",
+      "courseId": "course-002",
+      "lessonId": "lesson-005",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:59.368Z"
+    },
+    {
+      "id": "swkjepzf8",
+      "userId": "1",
+      "courseId": "course-003",
+      "lessonId": "lesson-006",
+      "completed": true,
+      "completedAt": "2026-06-11T16:29:31.387Z"
+    },
+    {
+      "id": "pzofdspmi",
+      "userId": "lkroxHKp1rE",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-02T10:30:00Z"
+    },
+    {
+      "id": "1auofg58f",
+      "userId": "lkroxHKp1rE",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-04T11:00:00Z"
+    },
+    {
+      "id": "yzt45lj3w",
+      "userId": "lkroxHKp1rE",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-11T15:12:36.310Z"
+    },
+    {
+      "id": "8y8ckrdru",
+      "userId": "lkroxHKp1rE",
+      "courseId": "course-001",
+      "lessonId": "lesson-002",
+      "completed": true,
+      "completedAt": "2026-06-11T15:12:51.261Z"
+    },
+    {
+      "id": "iaf8389hy",
+      "userId": "lkroxHKp1rE",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-11T15:16:54.104Z"
+    },
+    {
+      "id": "9v28lmwlo",
+      "userId": "lkroxHKp1rE",
+      "courseId": "course-002",
+      "lessonId": "lesson-005",
+      "completed": true,
+      "completedAt": "2026-06-11T15:16:56.286Z"
+    },
+    {
+      "id": "rtd44gtj0",
+      "userId": "lkroxHKp1rE",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:34.649Z"
+    },
+    {
+      "id": "83e2h9uf7",
+      "userId": "lkroxHKp1rE",
+      "courseId": "course-001",
+      "lessonId": "lesson-002",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:35.311Z"
+    },
+    {
+      "id": "1v39987yt",
+      "userId": "lkroxHKp1rE",
+      "courseId": "course-001",
+      "lessonId": "lesson-003",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:36.245Z"
+    },
+    {
+      "id": "108ptegst",
+      "userId": "lkroxHKp1rE",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:58.620Z"
+    },
+    {
+      "id": "972s04kir",
+      "userId": "lkroxHKp1rE",
+      "courseId": "course-002",
+      "lessonId": "lesson-005",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:59.368Z"
+    },
+    {
+      "id": "2sbdi22e1",
+      "userId": "lkroxHKp1rE",
+      "courseId": "course-003",
+      "lessonId": "lesson-006",
+      "completed": true,
+      "completedAt": "2026-06-11T16:29:31.387Z"
+    },
+    {
+      "id": "8ewvl04q8",
+      "userId": "s_fzWrNH5hA",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-02T10:30:00Z"
+    },
+    {
+      "id": "pc0pi13mq",
+      "userId": "s_fzWrNH5hA",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-04T11:00:00Z"
+    },
+    {
+      "id": "i7h34xvys",
+      "userId": "s_fzWrNH5hA",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-11T15:12:36.310Z"
+    },
+    {
+      "id": "wiw3w1ieo",
+      "userId": "s_fzWrNH5hA",
+      "courseId": "course-001",
+      "lessonId": "lesson-002",
+      "completed": true,
+      "completedAt": "2026-06-11T15:12:51.261Z"
+    },
+    {
+      "id": "zsmf4w1v3",
+      "userId": "s_fzWrNH5hA",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-11T15:16:54.104Z"
+    },
+    {
+      "id": "sdhlauql2",
+      "userId": "s_fzWrNH5hA",
+      "courseId": "course-002",
+      "lessonId": "lesson-005",
+      "completed": true,
+      "completedAt": "2026-06-11T15:16:56.286Z"
+    },
+    {
+      "id": "ntfvgw6j6",
+      "userId": "s_fzWrNH5hA",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:34.649Z"
+    },
+    {
+      "id": "f801fsihf",
+      "userId": "s_fzWrNH5hA",
+      "courseId": "course-001",
+      "lessonId": "lesson-002",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:35.311Z"
+    },
+    {
+      "id": "5od3pc282",
+      "userId": "s_fzWrNH5hA",
+      "courseId": "course-001",
+      "lessonId": "lesson-003",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:36.245Z"
+    },
+    {
+      "id": "xu8xyeoux",
+      "userId": "s_fzWrNH5hA",
+      "courseId": "course-002",
+      "lessonId": "lesson-004",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:58.620Z"
+    },
+    {
+      "id": "xfhkewqxg",
+      "userId": "s_fzWrNH5hA",
+      "courseId": "course-002",
+      "lessonId": "lesson-005",
+      "completed": true,
+      "completedAt": "2026-06-11T16:27:59.368Z"
+    },
+    {
+      "id": "6g3ehwfqs",
+      "userId": "s_fzWrNH5hA",
+      "courseId": "course-003",
+      "lessonId": "lesson-006",
+      "completed": true,
+      "completedAt": "2026-06-11T16:29:31.387Z"
+    },
+    {
+      "id": "xk8b6wXq0rQ",
+      "userId": "u-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-001",
+      "completed": true,
+      "completedAt": "2026-06-11T17:19:37.906Z"
+    },
+    {
+      "id": "4qx22p7sIvg",
+      "userId": "u-001",
+      "courseId": "course-001",
+      "lessonId": "lesson-002",
+      "completed": true,
+      "completedAt": "2026-06-11T17:19:38.555Z"
+    }
+  ],
+  "testAttempts": [
+    {
+      "id": "1",
+      "userId": "u-student-001",
+      "testId": "test-001",
+      "testTitle": "IELTS Mock Test - Full Reading",
+      "skill": "Reading",
+      "submittedAt": "2026-06-11T09:00:00Z",
+      "overallBandScore": 8,
+      "timeSpent": 3400
+    },
+    {
+      "id": "2",
+      "userId": "u-student-001",
+      "testId": "test-002",
+      "testTitle": "Listening Practice Mini",
+      "skill": "Listening",
+      "submittedAt": "2026-06-10T14:30:00Z",
+      "overallBandScore": 7.5,
+      "timeSpent": 1800
+    },
+    {
+      "id": "3",
+      "userId": "u-student-001",
+      "testId": "test-003",
+      "testTitle": "Writing Task 2",
+      "skill": "Writing",
+      "submittedAt": "2026-06-08T10:00:00Z",
+      "overallBandScore": 6.5,
+      "timeSpent": 2400
+    },
+    {
+      "id": "4",
+      "userId": "u-student-001",
+      "testId": "test-004",
+      "testTitle": "Speaking Part 1",
+      "skill": "Speaking",
+      "submittedAt": "2026-06-05T08:15:00Z",
+      "overallBandScore": 7,
+      "timeSpent": 600
+    },
+    {
+      "id": "5",
+      "userId": "u-student-001",
+      "testId": "test-005",
+      "testTitle": "IELTS Mastery Mock Test",
+      "skill": "Reading",
+      "submittedAt": "2026-06-01T10:00:00Z",
+      "overallBandScore": 6,
+      "timeSpent": 3600
+    },
+    {
+      "id": "eudim4w52",
+      "userId": "u-001",
+      "testId": "test-001",
+      "testTitle": "IELTS Mock Test - Full Reading",
+      "skill": "Reading",
+      "submittedAt": "2026-06-11T09:00:00Z",
+      "overallBandScore": 8,
+      "timeSpent": 3400
+    },
+    {
+      "id": "2hy4chy54",
+      "userId": "u-001",
+      "testId": "test-002",
+      "testTitle": "Listening Practice Mini",
+      "skill": "Listening",
+      "submittedAt": "2026-06-10T14:30:00Z",
+      "overallBandScore": 7.5,
+      "timeSpent": 1800
+    },
+    {
+      "id": "fte13l0o5",
+      "userId": "u-001",
+      "testId": "test-003",
+      "testTitle": "Writing Task 2",
+      "skill": "Writing",
+      "submittedAt": "2026-06-08T10:00:00Z",
+      "overallBandScore": 6.5,
+      "timeSpent": 2400
+    },
+    {
+      "id": "hec85pqfo",
+      "userId": "u-001",
+      "testId": "test-004",
+      "testTitle": "Speaking Part 1",
+      "skill": "Speaking",
+      "submittedAt": "2026-06-05T08:15:00Z",
+      "overallBandScore": 7,
+      "timeSpent": 600
+    },
+    {
+      "id": "qakvdprdx",
+      "userId": "u-001",
+      "testId": "test-005",
+      "testTitle": "IELTS Mastery Mock Test",
+      "skill": "Reading",
+      "submittedAt": "2026-06-01T10:00:00Z",
+      "overallBandScore": 6,
+      "timeSpent": 3600
+    },
+    {
+      "id": "1lpqnvl3u",
+      "userId": "1",
+      "testId": "test-001",
+      "testTitle": "IELTS Mock Test - Full Reading",
+      "skill": "Reading",
+      "submittedAt": "2026-06-11T09:00:00Z",
+      "overallBandScore": 8,
+      "timeSpent": 3400
+    },
+    {
+      "id": "whs0xblfm",
+      "userId": "1",
+      "testId": "test-002",
+      "testTitle": "Listening Practice Mini",
+      "skill": "Listening",
+      "submittedAt": "2026-06-10T14:30:00Z",
+      "overallBandScore": 7.5,
+      "timeSpent": 1800
+    },
+    {
+      "id": "qjl49rffy",
+      "userId": "1",
+      "testId": "test-003",
+      "testTitle": "Writing Task 2",
+      "skill": "Writing",
+      "submittedAt": "2026-06-08T10:00:00Z",
+      "overallBandScore": 6.5,
+      "timeSpent": 2400
+    },
+    {
+      "id": "5txxd9et1",
+      "userId": "1",
+      "testId": "test-004",
+      "testTitle": "Speaking Part 1",
+      "skill": "Speaking",
+      "submittedAt": "2026-06-05T08:15:00Z",
+      "overallBandScore": 7,
+      "timeSpent": 600
+    },
+    {
+      "id": "tc62hhbz0",
+      "userId": "1",
+      "testId": "test-005",
+      "testTitle": "IELTS Mastery Mock Test",
+      "skill": "Reading",
+      "submittedAt": "2026-06-01T10:00:00Z",
+      "overallBandScore": 6,
+      "timeSpent": 3600
+    },
+    {
+      "id": "0i23e9jmk",
+      "userId": "lkroxHKp1rE",
+      "testId": "test-001",
+      "testTitle": "IELTS Mock Test - Full Reading",
+      "skill": "Reading",
+      "submittedAt": "2026-06-11T09:00:00Z",
+      "overallBandScore": 8,
+      "timeSpent": 3400
+    },
+    {
+      "id": "74olljxcp",
+      "userId": "lkroxHKp1rE",
+      "testId": "test-002",
+      "testTitle": "Listening Practice Mini",
+      "skill": "Listening",
+      "submittedAt": "2026-06-10T14:30:00Z",
+      "overallBandScore": 7.5,
+      "timeSpent": 1800
+    },
+    {
+      "id": "rec75eja8",
+      "userId": "lkroxHKp1rE",
+      "testId": "test-003",
+      "testTitle": "Writing Task 2",
+      "skill": "Writing",
+      "submittedAt": "2026-06-08T10:00:00Z",
+      "overallBandScore": 6.5,
+      "timeSpent": 2400
+    },
+    {
+      "id": "tggjxhfbz",
+      "userId": "lkroxHKp1rE",
+      "testId": "test-004",
+      "testTitle": "Speaking Part 1",
+      "skill": "Speaking",
+      "submittedAt": "2026-06-05T08:15:00Z",
+      "overallBandScore": 7,
+      "timeSpent": 600
+    },
+    {
+      "id": "1dsv7tv1k",
+      "userId": "lkroxHKp1rE",
+      "testId": "test-005",
+      "testTitle": "IELTS Mastery Mock Test",
+      "skill": "Reading",
+      "submittedAt": "2026-06-01T10:00:00Z",
+      "overallBandScore": 6,
+      "timeSpent": 3600
+    },
+    {
+      "id": "egu65xgnz",
+      "userId": "s_fzWrNH5hA",
+      "testId": "test-001",
+      "testTitle": "IELTS Mock Test - Full Reading",
+      "skill": "Reading",
+      "submittedAt": "2026-06-11T09:00:00Z",
+      "overallBandScore": 8,
+      "timeSpent": 3400
+    },
+    {
+      "id": "6uf2unzkj",
+      "userId": "s_fzWrNH5hA",
+      "testId": "test-002",
+      "testTitle": "Listening Practice Mini",
+      "skill": "Listening",
+      "submittedAt": "2026-06-10T14:30:00Z",
+      "overallBandScore": 7.5,
+      "timeSpent": 1800
+    },
+    {
+      "id": "cx7z1dee0",
+      "userId": "s_fzWrNH5hA",
+      "testId": "test-003",
+      "testTitle": "Writing Task 2",
+      "skill": "Writing",
+      "submittedAt": "2026-06-08T10:00:00Z",
+      "overallBandScore": 6.5,
+      "timeSpent": 2400
+    },
+    {
+      "id": "d5a5nhdch",
+      "userId": "s_fzWrNH5hA",
+      "testId": "test-004",
+      "testTitle": "Speaking Part 1",
+      "skill": "Speaking",
+      "submittedAt": "2026-06-05T08:15:00Z",
+      "overallBandScore": 7,
+      "timeSpent": 600
+    },
+    {
+      "id": "flmj0xm82",
+      "userId": "s_fzWrNH5hA",
+      "testId": "test-005",
+      "testTitle": "IELTS Mastery Mock Test",
+      "skill": "Reading",
+      "submittedAt": "2026-06-01T10:00:00Z",
+      "overallBandScore": 6,
+      "timeSpent": 3600
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
