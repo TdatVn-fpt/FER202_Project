@@ -10,14 +10,14 @@ import CourseList from '../pages/guest/CourseList';
 import CourseDetail from '../pages/guest/CourseDetail';
 import OnlineCourses from '../pages/guest/OnlineCourses';
 
-// ===== STUDENT PAGES (feature-course-learning) =====
-import CourseListPage from '../pages/student/CourseListPage';
-import CourseDetailPage from '../pages/student/CourseDetailPage';
-import LessonPage from '../pages/student/LessonPage';
-import MyCoursesPage from '../pages/student/MyCoursesPage';
-import StudentDashboard from '../pages/student/DashboardPage';
-import LearningHistoryPage from '../pages/student/LearningHistoryPage';
-import AttemptDetailPage from '../pages/student/AttemptDetailPage';
+// ===== PLACEHOLDER PAGES (sẽ phát triển sau) =====
+import StudentDashboard from '../pages/student/Dashboard';
+import MyCourses from '../pages/student/MyCourses';
+import Lesson from '../pages/student/Lesson';
+import TestListPage from '../pages/student/TestListPage';
+import TestDetailPage from '../pages/student/TestDetailPage';
+import TestSessionPage from '../pages/student/TestSessionPage';
+import TestReviewPage from '../pages/student/TestReviewPage';
 import StudentProfile from '../pages/student/Profile';
 import TeacherDashboard from '../pages/teacher/TeacherDashboard';
 import CourseManagement from '../pages/teacher/CourseManagement';
@@ -43,28 +43,23 @@ export default function AppRoutes() {
         <Route path="/courses/:id" element={<CourseDetail />} />
       </Route>
 
-      {/* ===== STUDENT ROUTES (feature-course-learning) ===== */}
+      {/* ===== STUDENT ROUTES (placeholder - phát triển sau) ===== */}
       <Route element={<ProtectedRoute allowedRoles={['student']} />}>
         <Route element={<StudentLayout />}>
           <Route path="/learning/dashboard" element={<StudentDashboard />} />
-          <Route path="/learning/history" element={<LearningHistoryPage />} />
-          <Route path="/learning/history/:attemptId" element={<AttemptDetailPage />} />
-          {/* My Courses — danh sách khóa đang học */}
-          <Route path="/learning/my-courses" element={<MyCoursesPage />} />
-          {/* Course Catalog for students */}
-          <Route path="/learning/courses" element={<CourseListPage />} />
-          {/* Course Detail + Enroll */}
-          <Route path="/learning/courses/:id" element={<CourseDetailPage />} />
-          {/* Lesson Player */}
-          <Route path="/learning/courses/:courseId/lessons" element={<LessonPage />} />
-          <Route path="/learning/courses/:courseId/lessons/:lessonId" element={<LessonPage />} />
+          <Route path="/learning/courses" element={<MyCourses />} />
+          <Route path="/learning/lessons/:id" element={<Lesson />} />
+          <Route path="/learning/tests" element={<TestListPage />} />
+          <Route path="/learning/tests/:id" element={<TestDetailPage />} />
+          <Route path="/learning/tests/attempt/:attemptId" element={<TestSessionPage />} />
+          <Route path="/learning/tests/review/:attemptId" element={<TestReviewPage />} />
           <Route path="/learning/profile" element={<StudentProfile />} />
         </Route>
       </Route>
 
       {/* ===== TEACHER ROUTES (placeholder - phát triển sau) ===== */}
       <Route element={<ProtectedRoute allowedRoles={['teacher']} />}>
-        <Route element={<TeacherLayout />}>
+<Route element={<TeacherLayout />}>
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
           <Route path="/teacher/courses" element={<CourseManagement />} />
         </Route>

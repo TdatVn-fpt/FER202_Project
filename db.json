@@ -64,18 +64,9 @@
       "role": "student",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB61G-dq7NqM8aauLy9sA6jizp_6495Vgmxw&s",
       "status": "active",
-      "targetBand": 7,
-      "currentBand": 6,
-      "createdAt": "2026-06-02T08:00:00Z",
-      "dateOfBirth": "2005-12-08"
-    },
-    {
-      "id": "1",
-      "name": "Tien Dat",
-      "email": "ntiendat2108@gmail.com",
-      "role": "student",
-      "targetBand": 7,
-      "currentBand": 5.5
+      "targetBand": 6.5,
+      "currentBand": 5,
+      "createdAt": "2026-06-02T08:00:00Z"
     },
     {
       "id": "u-teacher-001",
@@ -107,18 +98,6 @@
       "status": "active",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "createdAt": "2026-06-10T06:20:00.959Z"
-    },
-    {
-      "email": "vmbchannel9@gmail.com",
-      "password": "Manh2005@",
-      "fullName": "",
-      "name": "",
-      "dateOfBirth": "2005-8-12",
-      "id": "s_fzWrNH5hA",
-      "role": "student",
-      "status": "active",
-      "avatar": "https://www.gravatar.com/avatar/?d=mp",
-      "createdAt": "2026-06-11T02:34:25.915Z"
     }
   ],
   "courses": [
@@ -145,6 +124,15 @@
       "durationWeeks": 6,
       "createdAt": "2026-06-01T08:00:00Z"
     },
+    {
+      "id": "course-002",
+      "title": "IELTS Listening Advanced",
+      "level": "Intermediate",
+      "description": "Practice section-based listening strategies with transcript review.",
+      "teacherId": "u-teacher-001",
+      "price": 590000,
+      "durationWeeks": 8
+
     {
       "id": "course-002",
       "title": "IELTS Listening: Score Booster",
@@ -285,9 +273,26 @@
       ],
       "skill": "Writing",
       "level": "Advanced",
+      "teacherId": "u-teacher-001",
+
       "teacherId": 2,
+
       "price": 790000,
       "durationWeeks": 8
+    }
+  ],
+  "freeResources": [
+    {
+      "id": "resource-001",
+      "title": "The language clinic: Live Q&A session",
+      "type": "Learning hub",
+      "level": "B1 Intermediate",
+      "skill": "Listening",
+      "date": "10 Jun 2026",
+      "rating": 4,
+      "reviews": 79,
+      "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80",
+      "description": "Join our live event and ask our expert educator your questions about the English language and learning English."
     },
     {
       "id": "resource-002",
@@ -422,7 +427,443 @@
       "description": "All around the world, millions of cups of tea and coffee are drunk every day."
     }
   ],
+  "attempts": [
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T14:51:04.818Z",
+      "status": "completed",
+      "id": "UbDEuPERnAI",
+      "completedAt": "2026-06-11T14:51:25.440Z",
+      "answers": {
+        "0": "To introduce a problem",
+        "1": "False"
+      }
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T14:51:59.471Z",
+      "status": "completed",
+      "id": "Sv0z__uqOqw",
+      "completedAt": "2026-06-11T14:52:11.159Z",
+      "answers": {
+        "0": "hi"
+      }
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T14:52:26.745Z",
+      "status": "completed",
+      "id": "YNK0KgI0nYo",
+      "completedAt": "2026-06-11T14:53:12.478Z",
+      "answers": {
+        "0": "To compare two theories",
+        "1": "True"
+      }
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T14:53:39.361Z",
+      "status": "in-progress",
+      "id": "JqlE6-tfXss"
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T14:53:53.749Z",
+      "status": "completed",
+      "id": "jQsZs77_PwU",
+      "completedAt": "2026-06-11T15:11:20.043Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:11:33.495Z",
+      "status": "completed",
+      "id": "nRRQwWUEZpM",
+      "completedAt": "2026-06-11T15:12:16.265Z",
+      "answers": {
+        "0": "It led to the development of new energy sources",
+        "1": "False",
+        "2": "False",
+        "3": "Widely criticized",
+        "4": "huuu"
+      }
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:12:33.303Z",
+      "status": "completed",
+      "id": "Wwrz9uqvI0U",
+      "completedAt": "2026-06-11T15:12:56.715Z",
+      "answers": {
+        "0": "It dramatically increased production capacity",
+        "1": "Not Given",
+        "2": "True",
+        "3": "Previously unseen or unmatched",
+        "4": "no"
+      }
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:19:10.395Z",
+      "status": "completed",
+      "id": "OEPJbvXrPZo",
+      "completedAt": "2026-06-11T15:19:16.161Z",
+      "answers": {
+        "0": "It caused widespread unemployment among craftspeople",
+        "3": "Widely criticized"
+      }
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:20:43.661Z",
+      "status": "completed",
+      "id": "NtpSQGr5X3k",
+      "completedAt": "2026-06-11T15:23:44.290Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:31:20.125Z",
+      "status": "completed",
+      "id": "JkUza5D6vKg",
+      "completedAt": "2026-06-11T15:31:24.797Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:31:41.470Z",
+      "status": "completed",
+      "id": "kKnVjh75JF0",
+      "completedAt": "2026-06-11T15:31:44.940Z",
+      "answers": {}
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T15:31:57.491Z",
+      "status": "completed",
+      "id": "oqDFQzpsMzo",
+      "completedAt": "2026-06-11T15:32:08.033Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:46:34.241Z",
+      "status": "in-progress",
+      "id": "XG80EW2cgDg"
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T15:56:16.344Z",
+      "status": "completed",
+      "id": "oLZghR813v8",
+      "completedAt": "2026-06-11T15:56:19.507Z",
+      "answers": {}
+    },
+    {
+      "testId": 3,
+      "startTime": "2026-06-11T15:56:39.097Z",
+      "status": "completed",
+      "id": "hOglT5jZ4mA",
+      "completedAt": "2026-06-11T15:56:56.493Z",
+      "answers": {}
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T15:57:08.786Z",
+      "status": "completed",
+      "id": "XsAZXghsWRw",
+      "completedAt": "2026-06-11T15:57:23.189Z",
+      "answers": {
+        "0": "[Đã ghi âm – 1s]"
+      }
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:00:58.231Z",
+      "status": "completed",
+      "id": "YBH7e51YKPk",
+      "completedAt": "2026-06-11T16:01:05.450Z",
+      "answers": {}
+    },
+    {
+      "testId": 3,
+      "startTime": "2026-06-11T16:01:22.859Z",
+      "status": "completed",
+      "id": "YX-yZBMKflc",
+      "completedAt": "2026-06-11T16:01:25.477Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T16:10:44.725Z",
+      "status": "completed",
+      "id": "VomKe2d9_Uw",
+      "completedAt": "2026-06-11T16:10:53.114Z",
+      "answers": {
+        "0": "It dramatically increased production capacity",
+        "1": "Not Given"
+      }
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T16:12:22.930Z",
+      "status": "completed",
+      "id": "ERTenTDFlwM",
+      "completedAt": "2026-06-11T16:12:26.740Z",
+      "answers": {}
+    },
+    {
+      "testId": 3,
+      "startTime": "2026-06-11T16:12:56.495Z",
+      "status": "completed",
+      "id": "IeQME3LYlQM",
+      "completedAt": "2026-06-11T16:13:24.100Z",
+      "answers": {
+        "0": "Hi from my point of view",
+        "1": "hillp"
+      }
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T16:13:38.464Z",
+      "status": "completed",
+      "id": "-2JIOHByRp8",
+      "completedAt": "2026-06-11T16:14:22.923Z",
+      "answers": {}
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:14:29.693Z",
+      "status": "completed",
+      "id": "V0FYHmyGS8k",
+      "completedAt": "2026-06-11T16:14:35.660Z",
+      "answers": {}
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:14:45.144Z",
+      "status": "completed",
+      "id": "1oVhbQOW_wc",
+      "completedAt": "2026-06-11T16:14:56.802Z",
+      "answers": {
+        "0": "[Đã ghi âm – 6s]"
+      }
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T16:16:47.250Z",
+      "status": "completed",
+      "id": "Z_rWLDkjqMI",
+      "completedAt": "2026-06-11T16:16:52.688Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T16:19:05.191Z",
+      "status": "completed",
+      "id": "ZaInMQcdX6w",
+      "completedAt": "2026-06-11T16:19:08.258Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T16:19:14.878Z",
+      "status": "completed",
+      "id": "vYIPBDFd6TM",
+      "completedAt": "2026-06-11T16:19:20.950Z",
+      "answers": {
+        "0": "It dramatically increased production capacity",
+        "1": "True"
+      }
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T16:19:55.460Z",
+      "status": "completed",
+      "id": "lZi1b-dwXk8",
+      "completedAt": "2026-06-11T16:26:34.664Z",
+      "answers": {
+        "0": "Hi"
+      }
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T16:26:46.102Z",
+      "status": "completed",
+      "id": "gct6ceK3IWY",
+      "completedAt": "2026-06-11T16:26:59.800Z",
+      "answers": {
+        "0": "It dramatically increased production capacity"
+      }
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T16:27:09.433Z",
+      "status": "completed",
+      "id": "p4mkD5WWQfQ",
+      "completedAt": "2026-06-11T16:27:13.812Z",
+      "answers": {
+        "0": "It caused widespread unemployment among craftspeople"
+      }
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T16:27:19.241Z",
+      "status": "completed",
+      "id": "jggm5D0dprA",
+      "completedAt": "2026-06-11T16:27:22.268Z",
+      "answers": {}
+    },
+    {
+      "testId": 3,
+      "startTime": "2026-06-11T16:27:27.210Z",
+      "status": "completed",
+      "id": "CRAIzF2LdAg",
+      "completedAt": "2026-06-11T16:27:32.682Z",
+      "answers": {}
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:28:32.960Z",
+      "status": "completed",
+      "id": "WCMi9oI9RD0",
+      "completedAt": "2026-06-11T16:28:44.400Z",
+      "answers": {}
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:28:51.431Z",
+      "status": "completed",
+      "id": "piZTc9m2njY",
+      "completedAt": "2026-06-11T16:28:59.328Z",
+      "answers": {}
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:29:04.469Z",
+      "status": "completed",
+      "id": "6gJ7nuWCu3A",
+      "completedAt": "2026-06-11T16:29:11.466Z",
+      "answers": {
+        "0": "[Đã ghi âm – 4s]"
+      }
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:29:28.978Z",
+      "status": "completed",
+      "id": "o82PTEIiw3U",
+      "completedAt": "2026-06-11T16:29:36.176Z",
+      "answers": {}
+    },
+    {
+      "testId": 3,
+      "startTime": "2026-06-11T16:29:46.980Z",
+      "status": "in-progress",
+      "id": "gsozDz42vuE"
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:29:54.656Z",
+      "status": "completed",
+      "id": "rsGl5lYuND8",
+      "completedAt": "2026-06-11T16:29:58.105Z",
+      "answers": {}
+    },
+    {
+      "testId": 3,
+      "startTime": "2026-06-11T16:32:57.880Z",
+      "status": "completed",
+      "id": "MyBizgZoG_Q",
+      "completedAt": "2026-06-11T16:33:13.135Z",
+      "answers": {
+        "0": "hybubbu",
+        "1": "ugbubugbb"
+      }
+    },
+    {
+      "testId": 4,
+      "startTime": "2026-06-11T16:33:31.504Z",
+      "status": "completed",
+      "id": "ciZariH64MY",
+      "completedAt": "2026-06-11T16:33:38.615Z",
+      "answers": {
+        "0": "[Đã ghi âm – 0s]"
+      }
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T16:35:54.177Z",
+      "status": "completed",
+      "id": "ASs118sv3Qw",
+      "completedAt": "2026-06-11T16:35:58.563Z",
+      "answers": {}
+    }
+  ],
+  "_attempts_backup": [
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T14:35:42.484Z",
+      "status": "completed",
+      "id": "J_5qNFaz1HM",
+      "completedAt": "2026-06-11T14:35:42.534Z",
+      "answers": {}
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T14:35:53.536Z",
+      "status": "completed",
+      "id": "eGBHJGF6qbw",
+      "completedAt": "2026-06-11T14:35:58.967Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T14:43:14.705Z",
+      "status": "completed",
+      "id": "JhO7RTnl65I",
+      "completedAt": "2026-06-11T14:43:48.481Z",
+      "answers": {}
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T14:43:57.095Z",
+      "status": "completed",
+      "id": "Nj-L7xJs_s4",
+      "completedAt": "2026-06-11T14:43:57.121Z",
+      "answers": {}
+    },
+    {
+      "testId": 2,
+      "startTime": "2026-06-11T14:44:00.657Z",
+      "status": "completed",
+      "id": "EK05QlfhypI",
+      "completedAt": "2026-06-11T14:44:17.070Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T14:44:21.003Z",
+      "status": "completed",
+      "id": "J0aSM3WlVco",
+      "completedAt": "2026-06-11T14:44:21.036Z",
+      "answers": {}
+    },
+    {
+      "testId": 1,
+      "startTime": "2026-06-11T14:44:25.533Z",
+      "status": "completed",
+      "id": "-VQghscSkys",
+      "completedAt": "2026-06-11T14:44:34.710Z",
+      "answers": {}
+    }
+  ],
   "lessons": [
+    {
+      "id": "1",
+      "courseId": 1,
+      "title": "Reading Lesson 1: Skimming for Main Ideas",
+      "lessons": [
     {
       "id": "lesson-001",
       "courseId": "course-001",
@@ -432,14 +873,22 @@
       "content": "Skimming and Scanning are foundational skills for IELTS Reading. You have exactly 60 minutes to read 3 long passages and answer 40 questions. You simply cannot read every word.\n\n## 1. Skimming (Reading for Gist)\nSkimming involves reading a text rapidly to get a general overview of the material. \n**How to Skim effectively:**\n- Read the Title and any Subtitles.\n- Read the First Paragraph carefully (this usually introduces the main topic).\n- Read the First Sentence of every subsequent paragraph (the topic sentence).\n- Look for repeated words, names, dates, or numbers.\n- Read the Final Paragraph (often contains the conclusion or summary).\n\n## 2. Scanning (Reading for Specific Information)\nScanning involves running your eyes quickly over the text to locate specific facts or keywords, without reading the text as a whole.\n**How to Scan effectively:**\n- Identify the **keywords** in the question first (e.g., proper nouns, dates, technical terms).\n- Visualize these keywords.\n- Move your eyes quickly across and down the text, looking *only* for these specific words or their synonyms.\n- Once you find the keyword, read the surrounding sentence carefully to find the answer.\n\n### Practical Exercise:\nTry to find the date **'1985'** in a news article as fast as you can. Notice how your brain ignores other words and only looks for numbers."
     },
     {
-      "id": "lesson-002",
+      "id": "2",
+      "courseId": 1,
+      "title": "Reading Lesson 2: Matching Headings",
+     "id": "lesson-002",
       "courseId": "course-001",
       "title": "Mastering True/False/Not Given",
+
       "order": 2,
       "durationMinutes": 55,
       "content": "True/False/Not Given (T/F/NG) questions are notoriously tricky. They test your ability to understand factual information.\n\n## The Definitions\n- **TRUE**: The statement agrees exactly with the information in the text.\n- **FALSE**: The statement contradicts or is the opposite of the information in the text.\n- **NOT GIVEN**: There is no information about this in the text, or it's impossible to know what the writer thinks about this based *only* on the text.\n\n## The 'Not Given' Trap\nThe most common mistake is using outside knowledge. Even if a fact is universally known to be True, if it is not explicitly stated in the text, the answer is NOT GIVEN.\n\n## Strategy Steps:\n1. **Read the statement first** and identify keywords (especially verbs and adjectives).\n2. **Scan the text** to locate the section where the keywords (or their synonyms) are discussed.\n3. **Read the text carefully**. Does it mean exactly the same thing?\n4. **Check for qualifiers**: Words like *some, all, always, never, mostly, exactly* can completely change the meaning. \n  *Example: Text says 'Some cats hate water.' Statement says 'All cats hate water.' The answer is FALSE.*\n\n### Pro Tip:\nQuestions usually follow the order of the text. If you find the answer to Question 1 in Paragraph 1, and the answer to Question 3 in Paragraph 3, Question 2's answer will almost certainly be in Paragraph 2."
     },
     {
+      "id": "3",
+      "courseId": 2,
+      "title": "Listening Lesson 1: Predicting Answers",
+
       "id": "lesson-003",
       "courseId": "course-003",
       "title": "Understanding the Band Descriptors",
@@ -448,6 +897,11 @@
       "content": "To score a Band 7.0 or higher in Writing Task 2, you must understand exactly how examiners mark your essay. The official public band descriptors evaluate four criteria, each worth 25% of your score.\n\n## 1. Task Response (TR)\n- Did you answer all parts of the prompt?\n- Is your position clear throughout the essay?\n- Are your main ideas extended and supported with relevant examples?\n*Band 7 requirement: Addresses all parts of the task, presents a clear position, and extends main ideas.*\n\n## 2. Coherence and Cohesion (CC)\n- Is the essay logically organized into paragraphs?\n- Is there a clear progression of ideas?\n- Do you use linking words appropriately (without overusing them)?\n*Band 7 requirement: Logically organizes information, clear progression throughout, uses a range of cohesive devices appropriately.*\n\n## 3. Lexical Resource (LR)\n- Do you use a wide range of vocabulary?\n- Do you use less common or idiomatic vocabulary accurately?\n- Are your collocations natural?\n*Band 7 requirement: Uses a sufficient range of vocabulary to allow some flexibility and precision, uses less common lexical items.*\n\n## 4. Grammatical Range and Accuracy (GRA)\n- Do you use a variety of complex sentence structures?\n- Are most of your sentences error-free?\n*Band 7 requirement: Uses a variety of complex structures, produces frequent error-free sentences.*\n\n### Action Plan:\nStop writing blindly. Before your next practice essay, read the prompt and spend 5 minutes planning your paragraphs to ensure a perfect Task Response."
     },
     {
+      "id": "4",
+      "courseId": 3,
+      "title": "Writing Lesson 1: Opinion Essay Structure",
+      "order": 1,
+
       "id": "lesson-004",
       "courseId": "course-003",
       "title": "The Opinion Essay (Agree/Disagree)",
@@ -483,22 +937,50 @@
   "tests": [
     {
       "id": "1",
-      "courseId": "course-001",
+
+      "courseId": 1,
+      "title": "IELTS Reading Practice Test 1",
+    "courseId": "course-001",
       "title": "Reading Foundation Mock Test",
-      "skill": "Reading",
+     "skill": "Reading",
       "durationMinutes": 60,
-      "totalQuestions": 40,
-      "bandScale": "IELTS 0-9"
+      "totalQuestions": 5,
+      "bandScale": "IELTS 0-9",
+      "description": "Practice test based on an actual, recently released IELTS exam. Covers skimming, scanning, and comprehension strategies."
     },
     {
       "id": "2",
+      "courseId": 2,
+      "title": "IELTS Listening Practice Test 1",
       "courseId": "course-002",
       "title": "Listening Section Practice Test",
-      "skill": "Listening",
+    "skill": "Listening",
       "level": "Intermediate",
       "durationMinutes": 30,
-      "totalQuestions": 40,
-      "bandScale": "IELTS 0-9"
+      "totalQuestions": 5,
+      "bandScale": "IELTS 0-9",
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+      "description": "Section 1: A conversation between two people. Listen carefully and answer ALL questions before moving on."
+    },
+    {
+      "id": "3",
+      "courseId": 3,
+      "title": "IELTS Writing Practice Test 1",
+      "skill": "Writing",
+      "durationMinutes": 60,
+      "totalQuestions": 2,
+      "bandScale": "IELTS 0-9",
+      "description": "Task 1 (20 min, 150+ words): Describe a visual. Task 2 (40 min, 250+ words): Write an argumentative essay."
+    },
+    {
+      "id": "4",
+      "courseId": 1,
+      "title": "IELTS Speaking Practice Test 1",
+      "skill": "Speaking",
+      "durationMinutes": 15,
+      "totalQuestions": 3,
+      "bandScale": "IELTS 0-9",
+      "description": "Three parts: Introduction & Interview (Part 1), Individual Long Turn (Part 2), Two-way Discussion (Part 3)."
     }
   ],
   "questions": [
@@ -506,6 +988,40 @@
       "id": "1",
       "testId": 1,
       "type": "multiple-choice",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "According to the passage, what was the PRIMARY effect of introducing machinery during the Industrial Revolution?",
+      "questionText": "According to the passage, what was the PRIMARY effect of introducing machinery during the Industrial Revolution?",
+      "options": [
+        "It caused widespread unemployment among craftspeople",
+        "It dramatically increased production capacity",
+        "It improved working conditions in factories",
+        "It led to the development of new energy sources"
+      ],
+      "answer": "It dramatically increased production capacity",
+      "score": 1
+    },
+    {
+      "id": "2",
+      "testId": 1,
+      "type": "true-false-not-given",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "Social reformers successfully eliminated child labour during the Industrial Revolution.",
+      "questionText": "Social reformers successfully eliminated child labour during the Industrial Revolution.",
+      "options": [
+        "True",
+        "False",
+        "Not Given"
+      ],
+      "answer": "Not Given",
+      "score": 1
+    },
+    {
+      "id": "3",
+      "testId": 1,
+      "type": "true-false-not-given",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "Before the Industrial Revolution, manufacturing was primarily carried out in people's homes.",
+      "questionText": "Before the Industrial Revolution, manufacturing was primarily carried out in people's homes.",
       "questionText": "What is the main purpose of paragraph 1?",
       "options": [
         "To introduce a problem",
@@ -526,31 +1042,193 @@
         "False",
         "Not Given"
       ],
-      "answer": "False",
+      "answer": "True",
       "score": 1
     },
     {
-      "id": "3",
+      "id": "4",
+      "testId": 1,
+      "type": "multiple-choice",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "The word 'unprecedented' in the passage is closest in meaning to:",
+      "questionText": "The word 'unprecedented' in the passage is closest in meaning to:",
+      "options": [
+        "Relatively modest",
+        "Previously unseen or unmatched",
+        "Carefully planned",
+        "Widely criticised"
+      ],
+      "answer": "Previously unseen or unmatched",
+      "score": 1
+    },
+    {
+      "id": "5",
+      "testId": 1,
+      "type": "fill-in-the-blank",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "Factories drew workers from _______ areas into growing urban centres. (ONE WORD ONLY)",
+      "questionText": "Factories drew workers from _______ areas into growing urban centres. (ONE WORD ONLY)",
+      "answer": "rural",
+      "score": 1
+    },
+    {
+      "id": "6",
       "testId": 2,
       "type": "fill-in-the-blank",
-      "questionText": "The lecture begins at ____ in the main hall.",
-      "answer": "9:30",
+      "section": "Section 1",
+      "sectionInstruction": "Questions 1–5. Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+      "formContext": "RENTAL PROPERTY APPLICATION FORM\n\nApplicant Name: Sarah Johnson\nPhone number: ___Q1___ (mobile)\nEmail address: sarahjohnson@___Q2___.com\nCurrent address: 48 Beacon Street, Auckland\nEmployer: Auckland ___Q3___\nOccupation: Registered ___Q4___\nRental start date: ___Q5___",
+      "prompt": "The applicant's mobile phone number is: ________",
+      "questionText": "The applicant's mobile phone number is: ________",
+      "answer": "021 4567",
+      "score": 1
+    },
+    {
+      "id": "7",
+      "testId": 2,
+      "type": "fill-in-the-blank",
+      "section": "Section 1",
+      "sectionInstruction": "Questions 1–5. Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+      "formContext": "RENTAL PROPERTY APPLICATION FORM\n\nApplicant Name: Sarah Johnson\nPhone number: ___Q1___ (mobile)\nEmail address: sarahjohnson@___Q2___.com\nCurrent address: 48 Beacon Street, Auckland\nEmployer: Auckland ___Q3___\nOccupation: Registered ___Q4___\nRental start date: ___Q5___",
+      "prompt": "The email domain (after @) of the applicant is: ________",
+      "questionText": "The email domain (after @) of the applicant is: ________",
+      "answer": "gmail",
+      "score": 1
+    },
+    {
+      "id": "8",
+      "testId": 2,
+      "type": "fill-in-the-blank",
+      "section": "Section 1",
+      "sectionInstruction": "Questions 1–5. Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+      "prompt": "The applicant's employer is: Auckland ________",
+      "questionText": "The applicant's employer is: Auckland ________",
+      "answer": "Hospital",
+      "score": 1
+    },
+    {
+      "id": "9",
+      "testId": 2,
+      "type": "fill-in-the-blank",
+      "section": "Section 1",
+      "prompt": "The applicant's occupation is: Registered ________",
+      "questionText": "The applicant's occupation is: Registered ________",
+      "answer": "Nurse",
+      "score": 1
+    },
+    {
+      "id": "10",
+      "testId": 2,
+      "type": "fill-in-the-blank",
+      "section": "Section 1",
+      "prompt": "The preferred rental start date mentioned is: ________ February.",
+      "questionText": "The preferred rental start date mentioned is: ________ February.",
+      "answer": "8th",
+      "score": 1
+    },
+    {
+      "id": "11",
+      "testId": 3,
+      "type": "writing-task",
+      "taskNumber": 1,
+      "instruction": "You should spend about 20 minutes on this task.",
+      "prompt": "The diagram below shows how rainwater is collected for use as drinking water in an Australian town.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.\n\nWrite at least 150 words.",
+      "questionText": "Describe the rainwater collection process shown in the diagram.",
+      "diagramDescription": "[DIAGRAM: Shows a sequence — Rain falls on rooftop → Gutters collect water → Pipe leads to underground storage tank → Filter system → Tap/household supply. Labels: Roof catchment area, Downpipe, First-flush diverter, Underground cistern, UV filter, Distribution pump]",
+      "answer": "[Writing task — marked by teacher]",
+      "minWords": 150,
+      "score": 0
+    },
+    {
+      "id": "12",
+      "testId": 3,
+      "type": "writing-task",
+      "taskNumber": 2,
+      "instruction": "You should spend about 40 minutes on this task. Write about the following topic:",
+      "prompt": "In many countries, young people are spending more time on social media than they do in face-to-face social interactions.\n\nDo you think this is a positive or negative development?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
+      "questionText": "Write an essay about young people and social media use.",
+      "answer": "[Writing task — marked by teacher]",
+      "minWords": 250,
+      "score": 0
+    },
+    {
+      "id": "13",
+      "testId": 4,
+      "type": "speaking-part",
+      "part": 1,
+      "prompt": "Let's talk about your daily routine and work/study habits.",
+      "questionText": "Part 1 — Introduction & Interview",
+      "subPoints": [
+        "Can you describe a typical day for you?",
+        "Do you prefer to study/work in the morning or evening? Why?",
+        "What do you usually do to relax after a busy day?"
+      ],
+      "answer": "[Speaking — assessed by examiner]",
+      "score": 0
+    },
+    {
+      "id": "14",
+      "testId": 4,
+      "type": "speaking-part",
+      "part": 2,
+      "prompt": "Describe a book you have read that you found particularly interesting.",
+      "questionText": "Part 2 — Individual Long Turn",
+      "subPoints": [
+        "What the book was about",
+        "Why you chose to read it",
+        "What you found most interesting about it",
+        "Whether you would recommend it to others"
+      ],
+      "prepTime": 60,
+      "speakTime": 120,
+      "answer": "[Speaking — assessed by examiner]",
+      "score": 0
+    },
+    {
+      "id": "15",
+      "testId": 4,
+      "type": "speaking-part",
+      "part": 3,
+      "prompt": "Let's now discuss reading habits and books in society more broadly.",
+      "questionText": "Part 3 — Two-way Discussion",
+      "subPoints": [
+        "Do you think people read less now than in the past? Why or why not?",
+        "How has the internet affected people's reading habits?",
+        "What role should governments play in promoting reading among young people?"
+      ],
+      "answer": "[Speaking — assessed by examiner]",
+      "score": 0
+    },
+    {
+      "id": "99",
+      "testId": 2,
+      "type": "multiple-choice",
+      "section": "Section 1",
+      "prompt": "According to the conversation, why did Sarah choose this particular apartment?",
+      "questionText": "According to the conversation, why did Sarah choose this particular apartment?",
+      "options": [
+        "It is close to her workplace",
+        "It has a garden and parking space",
+        "The rent is cheaper than her current home",
+        "Her friend recommended it"
+      ],
+      "answer": "It is close to her workplace",
       "score": 1
     }
   ],
   "enrollments": [
     {
-      "id": "enr-001",
-      "userId": "1",
-      "courseId": "course-001",
+      "id": "1",
+      "userId": 1,
+      "courseId": 1,
       "status": "active",
       "progress": 33,
       "enrolledAt": "2026-06-01T08:00:00Z"
     },
     {
-      "id": "enr-002",
-      "userId": "1",
-      "courseId": "course-002",
+      "id": "2",
+      "userId": 1,
+      "courseId": 2,
       "status": "active",
       "progress": 50,
       "enrolledAt": "2026-06-03T10:00:00Z"
@@ -647,755 +1325,6 @@
       "paidAt": null
     }
   ],
-  "lessonProgress": [
-    {
-      "id": "lp-001",
-      "userId": "u-student-001",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-02T10:30:00Z"
-    },
-    {
-      "id": "lp-002",
-      "userId": "u-student-001",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-04T11:00:00Z"
-    },
-    {
-      "id": "mfWgOinCTjo",
-      "userId": "u-student-001",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-11T15:12:36.310Z"
-    },
-    {
-      "id": "-JlrLCMtEfY",
-      "userId": "u-student-001",
-      "courseId": "course-001",
-      "lessonId": "lesson-002",
-      "completed": true,
-      "completedAt": "2026-06-11T15:12:51.261Z"
-    },
-    {
-      "id": "itriD0s6XqU",
-      "userId": "u-student-001",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-11T15:16:54.104Z"
-    },
-    {
-      "id": "GyCwdvh6iDw",
-      "userId": "u-student-001",
-      "courseId": "course-002",
-      "lessonId": "lesson-005",
-      "completed": true,
-      "completedAt": "2026-06-11T15:16:56.286Z"
-    },
-    {
-      "id": "jFbBZBYI4Dg",
-      "userId": "u-student-001",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:34.649Z"
-    },
-    {
-      "id": "OV1CfpeZuBg",
-      "userId": "u-student-001",
-      "courseId": "course-001",
-      "lessonId": "lesson-002",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:35.311Z"
-    },
-    {
-      "id": "zhJ5yAUUjAc",
-      "userId": "u-student-001",
-      "courseId": "course-001",
-      "lessonId": "lesson-003",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:36.245Z"
-    },
-    {
-      "id": "ukNT_6_qZ4M",
-      "userId": "u-student-001",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:58.620Z"
-    },
-    {
-      "id": "1BwFBCfVLXM",
-      "userId": "u-student-001",
-      "courseId": "course-002",
-      "lessonId": "lesson-005",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:59.368Z"
-    },
-    {
-      "id": "uogipkfFA6Q",
-      "userId": "u-student-001",
-      "courseId": "course-003",
-      "lessonId": "lesson-006",
-      "completed": true,
-      "completedAt": "2026-06-11T16:29:31.387Z"
-    },
-    {
-      "id": "qr80gvvjk",
-      "userId": "u-001",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-02T10:30:00Z"
-    },
-    {
-      "id": "w84tz6puj",
-      "userId": "u-001",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-04T11:00:00Z"
-    },
-    {
-      "id": "25wty9lks",
-      "userId": "u-001",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-11T15:12:36.310Z"
-    },
-    {
-      "id": "w1mppan9m",
-      "userId": "u-001",
-      "courseId": "course-001",
-      "lessonId": "lesson-002",
-      "completed": true,
-      "completedAt": "2026-06-11T15:12:51.261Z"
-    },
-    {
-      "id": "sbg0zc4g6",
-      "userId": "u-001",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-11T15:16:54.104Z"
-    },
-    {
-      "id": "6xlfgn5vl",
-      "userId": "u-001",
-      "courseId": "course-002",
-      "lessonId": "lesson-005",
-      "completed": true,
-      "completedAt": "2026-06-11T15:16:56.286Z"
-    },
-    {
-      "id": "24c2kojll",
-      "userId": "u-001",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:34.649Z"
-    },
-    {
-      "id": "1s3nc6rc4",
-      "userId": "u-001",
-      "courseId": "course-001",
-      "lessonId": "lesson-002",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:35.311Z"
-    },
-    {
-      "id": "vu7kfa285",
-      "userId": "u-001",
-      "courseId": "course-001",
-      "lessonId": "lesson-003",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:36.245Z"
-    },
-    {
-      "id": "tqmblqr66",
-      "userId": "u-001",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:58.620Z"
-    },
-    {
-      "id": "q9305x6ul",
-      "userId": "u-001",
-      "courseId": "course-002",
-      "lessonId": "lesson-005",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:59.368Z"
-    },
-    {
-      "id": "t2nd1pakb",
-      "userId": "u-001",
-      "courseId": "course-003",
-      "lessonId": "lesson-006",
-      "completed": true,
-      "completedAt": "2026-06-11T16:29:31.387Z"
-    },
-    {
-      "id": "1ve3arl0k",
-      "userId": "1",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-02T10:30:00Z"
-    },
-    {
-      "id": "866lzx50y",
-      "userId": "1",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-04T11:00:00Z"
-    },
-    {
-      "id": "qtd2emf2k",
-      "userId": "1",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-11T15:12:36.310Z"
-    },
-    {
-      "id": "2jooc4ogr",
-      "userId": "1",
-      "courseId": "course-001",
-      "lessonId": "lesson-002",
-      "completed": true,
-      "completedAt": "2026-06-11T15:12:51.261Z"
-    },
-    {
-      "id": "wi9l2j9j9",
-      "userId": "1",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-11T15:16:54.104Z"
-    },
-    {
-      "id": "dpelqo7hv",
-      "userId": "1",
-      "courseId": "course-002",
-      "lessonId": "lesson-005",
-      "completed": true,
-      "completedAt": "2026-06-11T15:16:56.286Z"
-    },
-    {
-      "id": "g5wzsmdc1",
-      "userId": "1",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:34.649Z"
-    },
-    {
-      "id": "e7qyxihnl",
-      "userId": "1",
-      "courseId": "course-001",
-      "lessonId": "lesson-002",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:35.311Z"
-    },
-    {
-      "id": "iqa14kj9n",
-      "userId": "1",
-      "courseId": "course-001",
-      "lessonId": "lesson-003",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:36.245Z"
-    },
-    {
-      "id": "vkwafnvnk",
-      "userId": "1",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:58.620Z"
-    },
-    {
-      "id": "szzgygbaj",
-      "userId": "1",
-      "courseId": "course-002",
-      "lessonId": "lesson-005",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:59.368Z"
-    },
-    {
-      "id": "swkjepzf8",
-      "userId": "1",
-      "courseId": "course-003",
-      "lessonId": "lesson-006",
-      "completed": true,
-      "completedAt": "2026-06-11T16:29:31.387Z"
-    },
-    {
-      "id": "pzofdspmi",
-      "userId": "lkroxHKp1rE",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-02T10:30:00Z"
-    },
-    {
-      "id": "1auofg58f",
-      "userId": "lkroxHKp1rE",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-04T11:00:00Z"
-    },
-    {
-      "id": "yzt45lj3w",
-      "userId": "lkroxHKp1rE",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-11T15:12:36.310Z"
-    },
-    {
-      "id": "8y8ckrdru",
-      "userId": "lkroxHKp1rE",
-      "courseId": "course-001",
-      "lessonId": "lesson-002",
-      "completed": true,
-      "completedAt": "2026-06-11T15:12:51.261Z"
-    },
-    {
-      "id": "iaf8389hy",
-      "userId": "lkroxHKp1rE",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-11T15:16:54.104Z"
-    },
-    {
-      "id": "9v28lmwlo",
-      "userId": "lkroxHKp1rE",
-      "courseId": "course-002",
-      "lessonId": "lesson-005",
-      "completed": true,
-      "completedAt": "2026-06-11T15:16:56.286Z"
-    },
-    {
-      "id": "rtd44gtj0",
-      "userId": "lkroxHKp1rE",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:34.649Z"
-    },
-    {
-      "id": "83e2h9uf7",
-      "userId": "lkroxHKp1rE",
-      "courseId": "course-001",
-      "lessonId": "lesson-002",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:35.311Z"
-    },
-    {
-      "id": "1v39987yt",
-      "userId": "lkroxHKp1rE",
-      "courseId": "course-001",
-      "lessonId": "lesson-003",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:36.245Z"
-    },
-    {
-      "id": "108ptegst",
-      "userId": "lkroxHKp1rE",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:58.620Z"
-    },
-    {
-      "id": "972s04kir",
-      "userId": "lkroxHKp1rE",
-      "courseId": "course-002",
-      "lessonId": "lesson-005",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:59.368Z"
-    },
-    {
-      "id": "2sbdi22e1",
-      "userId": "lkroxHKp1rE",
-      "courseId": "course-003",
-      "lessonId": "lesson-006",
-      "completed": true,
-      "completedAt": "2026-06-11T16:29:31.387Z"
-    },
-    {
-      "id": "8ewvl04q8",
-      "userId": "s_fzWrNH5hA",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-02T10:30:00Z"
-    },
-    {
-      "id": "pc0pi13mq",
-      "userId": "s_fzWrNH5hA",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-04T11:00:00Z"
-    },
-    {
-      "id": "i7h34xvys",
-      "userId": "s_fzWrNH5hA",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-11T15:12:36.310Z"
-    },
-    {
-      "id": "wiw3w1ieo",
-      "userId": "s_fzWrNH5hA",
-      "courseId": "course-001",
-      "lessonId": "lesson-002",
-      "completed": true,
-      "completedAt": "2026-06-11T15:12:51.261Z"
-    },
-    {
-      "id": "zsmf4w1v3",
-      "userId": "s_fzWrNH5hA",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-11T15:16:54.104Z"
-    },
-    {
-      "id": "sdhlauql2",
-      "userId": "s_fzWrNH5hA",
-      "courseId": "course-002",
-      "lessonId": "lesson-005",
-      "completed": true,
-      "completedAt": "2026-06-11T15:16:56.286Z"
-    },
-    {
-      "id": "ntfvgw6j6",
-      "userId": "s_fzWrNH5hA",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:34.649Z"
-    },
-    {
-      "id": "f801fsihf",
-      "userId": "s_fzWrNH5hA",
-      "courseId": "course-001",
-      "lessonId": "lesson-002",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:35.311Z"
-    },
-    {
-      "id": "5od3pc282",
-      "userId": "s_fzWrNH5hA",
-      "courseId": "course-001",
-      "lessonId": "lesson-003",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:36.245Z"
-    },
-    {
-      "id": "xu8xyeoux",
-      "userId": "s_fzWrNH5hA",
-      "courseId": "course-002",
-      "lessonId": "lesson-004",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:58.620Z"
-    },
-    {
-      "id": "xfhkewqxg",
-      "userId": "s_fzWrNH5hA",
-      "courseId": "course-002",
-      "lessonId": "lesson-005",
-      "completed": true,
-      "completedAt": "2026-06-11T16:27:59.368Z"
-    },
-    {
-      "id": "6g3ehwfqs",
-      "userId": "s_fzWrNH5hA",
-      "courseId": "course-003",
-      "lessonId": "lesson-006",
-      "completed": true,
-      "completedAt": "2026-06-11T16:29:31.387Z"
-    },
-    {
-      "id": "xk8b6wXq0rQ",
-      "userId": "u-001",
-      "courseId": "course-001",
-      "lessonId": "lesson-001",
-      "completed": true,
-      "completedAt": "2026-06-11T17:19:37.906Z"
-    },
-    {
-      "id": "4qx22p7sIvg",
-      "userId": "u-001",
-      "courseId": "course-001",
-      "lessonId": "lesson-002",
-      "completed": true,
-      "completedAt": "2026-06-11T17:19:38.555Z"
-    }
-  ],
-  "testAttempts": [
-    {
-      "id": "1",
-      "userId": "u-student-001",
-      "testId": "test-001",
-      "testTitle": "IELTS Mock Test - Full Reading",
-      "skill": "Reading",
-      "submittedAt": "2026-06-11T09:00:00Z",
-      "overallBandScore": 8,
-      "timeSpent": 3400
-    },
-    {
-      "id": "2",
-      "userId": "u-student-001",
-      "testId": "test-002",
-      "testTitle": "Listening Practice Mini",
-      "skill": "Listening",
-      "submittedAt": "2026-06-10T14:30:00Z",
-      "overallBandScore": 7.5,
-      "timeSpent": 1800
-    },
-    {
-      "id": "3",
-      "userId": "u-student-001",
-      "testId": "test-003",
-      "testTitle": "Writing Task 2",
-      "skill": "Writing",
-      "submittedAt": "2026-06-08T10:00:00Z",
-      "overallBandScore": 6.5,
-      "timeSpent": 2400
-    },
-    {
-      "id": "4",
-      "userId": "u-student-001",
-      "testId": "test-004",
-      "testTitle": "Speaking Part 1",
-      "skill": "Speaking",
-      "submittedAt": "2026-06-05T08:15:00Z",
-      "overallBandScore": 7,
-      "timeSpent": 600
-    },
-    {
-      "id": "5",
-      "userId": "u-student-001",
-      "testId": "test-005",
-      "testTitle": "IELTS Mastery Mock Test",
-      "skill": "Reading",
-      "submittedAt": "2026-06-01T10:00:00Z",
-      "overallBandScore": 6,
-      "timeSpent": 3600
-    },
-    {
-      "id": "eudim4w52",
-      "userId": "u-001",
-      "testId": "test-001",
-      "testTitle": "IELTS Mock Test - Full Reading",
-      "skill": "Reading",
-      "submittedAt": "2026-06-11T09:00:00Z",
-      "overallBandScore": 8,
-      "timeSpent": 3400
-    },
-    {
-      "id": "2hy4chy54",
-      "userId": "u-001",
-      "testId": "test-002",
-      "testTitle": "Listening Practice Mini",
-      "skill": "Listening",
-      "submittedAt": "2026-06-10T14:30:00Z",
-      "overallBandScore": 7.5,
-      "timeSpent": 1800
-    },
-    {
-      "id": "fte13l0o5",
-      "userId": "u-001",
-      "testId": "test-003",
-      "testTitle": "Writing Task 2",
-      "skill": "Writing",
-      "submittedAt": "2026-06-08T10:00:00Z",
-      "overallBandScore": 6.5,
-      "timeSpent": 2400
-    },
-    {
-      "id": "hec85pqfo",
-      "userId": "u-001",
-      "testId": "test-004",
-      "testTitle": "Speaking Part 1",
-      "skill": "Speaking",
-      "submittedAt": "2026-06-05T08:15:00Z",
-      "overallBandScore": 7,
-      "timeSpent": 600
-    },
-    {
-      "id": "qakvdprdx",
-      "userId": "u-001",
-      "testId": "test-005",
-      "testTitle": "IELTS Mastery Mock Test",
-      "skill": "Reading",
-      "submittedAt": "2026-06-01T10:00:00Z",
-      "overallBandScore": 6,
-      "timeSpent": 3600
-    },
-    {
-      "id": "1lpqnvl3u",
-      "userId": "1",
-      "testId": "test-001",
-      "testTitle": "IELTS Mock Test - Full Reading",
-      "skill": "Reading",
-      "submittedAt": "2026-06-11T09:00:00Z",
-      "overallBandScore": 8,
-      "timeSpent": 3400
-    },
-    {
-      "id": "whs0xblfm",
-      "userId": "1",
-      "testId": "test-002",
-      "testTitle": "Listening Practice Mini",
-      "skill": "Listening",
-      "submittedAt": "2026-06-10T14:30:00Z",
-      "overallBandScore": 7.5,
-      "timeSpent": 1800
-    },
-    {
-      "id": "qjl49rffy",
-      "userId": "1",
-      "testId": "test-003",
-      "testTitle": "Writing Task 2",
-      "skill": "Writing",
-      "submittedAt": "2026-06-08T10:00:00Z",
-      "overallBandScore": 6.5,
-      "timeSpent": 2400
-    },
-    {
-      "id": "5txxd9et1",
-      "userId": "1",
-      "testId": "test-004",
-      "testTitle": "Speaking Part 1",
-      "skill": "Speaking",
-      "submittedAt": "2026-06-05T08:15:00Z",
-      "overallBandScore": 7,
-      "timeSpent": 600
-    },
-    {
-      "id": "tc62hhbz0",
-      "userId": "1",
-      "testId": "test-005",
-      "testTitle": "IELTS Mastery Mock Test",
-      "skill": "Reading",
-      "submittedAt": "2026-06-01T10:00:00Z",
-      "overallBandScore": 6,
-      "timeSpent": 3600
-    },
-    {
-      "id": "0i23e9jmk",
-      "userId": "lkroxHKp1rE",
-      "testId": "test-001",
-      "testTitle": "IELTS Mock Test - Full Reading",
-      "skill": "Reading",
-      "submittedAt": "2026-06-11T09:00:00Z",
-      "overallBandScore": 8,
-      "timeSpent": 3400
-    },
-    {
-      "id": "74olljxcp",
-      "userId": "lkroxHKp1rE",
-      "testId": "test-002",
-      "testTitle": "Listening Practice Mini",
-      "skill": "Listening",
-      "submittedAt": "2026-06-10T14:30:00Z",
-      "overallBandScore": 7.5,
-      "timeSpent": 1800
-    },
-    {
-      "id": "rec75eja8",
-      "userId": "lkroxHKp1rE",
-      "testId": "test-003",
-      "testTitle": "Writing Task 2",
-      "skill": "Writing",
-      "submittedAt": "2026-06-08T10:00:00Z",
-      "overallBandScore": 6.5,
-      "timeSpent": 2400
-    },
-    {
-      "id": "tggjxhfbz",
-      "userId": "lkroxHKp1rE",
-      "testId": "test-004",
-      "testTitle": "Speaking Part 1",
-      "skill": "Speaking",
-      "submittedAt": "2026-06-05T08:15:00Z",
-      "overallBandScore": 7,
-      "timeSpent": 600
-    },
-    {
-      "id": "1dsv7tv1k",
-      "userId": "lkroxHKp1rE",
-      "testId": "test-005",
-      "testTitle": "IELTS Mastery Mock Test",
-      "skill": "Reading",
-      "submittedAt": "2026-06-01T10:00:00Z",
-      "overallBandScore": 6,
-      "timeSpent": 3600
-    },
-    {
-      "id": "egu65xgnz",
-      "userId": "s_fzWrNH5hA",
-      "testId": "test-001",
-      "testTitle": "IELTS Mock Test - Full Reading",
-      "skill": "Reading",
-      "submittedAt": "2026-06-11T09:00:00Z",
-      "overallBandScore": 8,
-      "timeSpent": 3400
-    },
-    {
-      "id": "6uf2unzkj",
-      "userId": "s_fzWrNH5hA",
-      "testId": "test-002",
-      "testTitle": "Listening Practice Mini",
-      "skill": "Listening",
-      "submittedAt": "2026-06-10T14:30:00Z",
-      "overallBandScore": 7.5,
-      "timeSpent": 1800
-    },
-    {
-      "id": "cx7z1dee0",
-      "userId": "s_fzWrNH5hA",
-      "testId": "test-003",
-      "testTitle": "Writing Task 2",
-      "skill": "Writing",
-      "submittedAt": "2026-06-08T10:00:00Z",
-      "overallBandScore": 6.5,
-      "timeSpent": 2400
-    },
-    {
-      "id": "d5a5nhdch",
-      "userId": "s_fzWrNH5hA",
-      "testId": "test-004",
-      "testTitle": "Speaking Part 1",
-      "skill": "Speaking",
-      "submittedAt": "2026-06-05T08:15:00Z",
-      "overallBandScore": 7,
-      "timeSpent": 600
-    },
-    {
-      "id": "flmj0xm82",
-      "userId": "s_fzWrNH5hA",
-      "testId": "test-005",
-      "testTitle": "IELTS Mastery Mock Test",
-      "skill": "Reading",
-      "submittedAt": "2026-06-01T10:00:00Z",
-      "overallBandScore": 6,
-      "timeSpent": 3600
-    }
-  ],
+  "Count": 16,
   "$schema": "./node_modules/json-server/schema.json"
 }
