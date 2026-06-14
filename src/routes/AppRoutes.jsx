@@ -9,6 +9,9 @@ import Register from '../pages/guest/Register';
 import CourseList from '../pages/guest/CourseList';
 import CourseDetail from '../pages/guest/CourseDetail';
 import OnlineCourses from '../pages/guest/OnlineCourses';
+import ResourceDetail from '../pages/guest/ResourceDetail';
+import SkillPractice from '../pages/guest/SkillPractice';
+import Checkout from '../pages/guest/Checkout';
 
 // ===== PLACEHOLDER PAGES (sẽ phát triển sau) =====
 import StudentDashboard from '../pages/student/Dashboard';
@@ -19,10 +22,12 @@ import TestDetailPage from '../pages/student/TestDetailPage';
 import TestSessionPage from '../pages/student/TestSessionPage';
 import TestReviewPage from '../pages/student/TestReviewPage';
 import StudentProfile from '../pages/student/Profile';
+import FlashcardDeck from '../pages/student/FlashcardDeck';
 import TeacherDashboard from '../pages/teacher/TeacherDashboard';
 import CourseManagement from '../pages/teacher/CourseManagement';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import UserManagement from '../pages/admin/UserManagement';
+import PaymentManagement from '../pages/admin/PaymentManagement';
 
 // ===== LAYOUTS =====
 import MainLayout from '../layouts/MainLayout';
@@ -39,8 +44,11 @@ export default function AppRoutes() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/courses" element={<CourseList />} />
+        <Route path="/resources/:id" element={<ResourceDetail />} />
+        <Route path="/skills" element={<SkillPractice />} />
         <Route path="/online-courses" element={<OnlineCourses />} />
         <Route path="/courses/:id" element={<CourseDetail />} />
+        <Route path="/checkout/:id" element={<Checkout />} />
       </Route>
 
       {/* ===== STUDENT ROUTES (placeholder - phát triển sau) ===== */}
@@ -54,6 +62,7 @@ export default function AppRoutes() {
           <Route path="/learning/tests/attempt/:attemptId" element={<TestSessionPage />} />
           <Route path="/learning/tests/review/:attemptId" element={<TestReviewPage />} />
           <Route path="/learning/profile" element={<StudentProfile />} />
+          <Route path="/learning/flashcards/:id" element={<FlashcardDeck />} />
         </Route>
       </Route>
 
@@ -70,6 +79,7 @@ export default function AppRoutes() {
         <Route element={<AdminLayout />}>
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/users" element={<UserManagement />} />
+          <Route path="/admin/payments" element={<PaymentManagement />} />
         </Route>
       </Route>
     </Routes>
