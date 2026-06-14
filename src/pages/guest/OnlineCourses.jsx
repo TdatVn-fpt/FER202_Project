@@ -1,228 +1,133 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getCourses } from '../../services/courseLearning.service';
+import { formatVnd } from '../../services/paymentService';
 import './OnlineCourses.css';
 
-const courseGroups = {
-  kids: [
-    {
-      eyebrow: 'Course  In person',
-      title: 'Learning with Timmy (2-6 years)',
-      intro: 'Fun English learning for young children:',
-      bullets: ['Play-based learning', 'Songs, stories and movement', 'Safe and supportive environment', 'Build early confidence in English'],
-      note: 'Best for children starting their English journey.'
-    },
-    {
-      eyebrow: 'Course  In person',
-      title: 'Primary Plus English (6-11 years)',
-      intro: 'Build strong English skills from an early age:',
-      bullets: ['Speaking, listening, reading and writing', 'Fun classroom activities', 'Clear learning pathway and progression', 'Regular feedback for parents'],
-      note: 'Best for primary learners who need structure and confidence.',
-      popular: true
-    },
-    {
-      eyebrow: 'Course  Online',
-      title: 'Secondary Plus English',
-      intro: 'Develop real-life English for teens:',
-      bullets: ['Interactive lessons', 'Project-based learning', 'Exam-ready skills', 'Confidence for school and life'],
-      note: 'Best for teens who want practical English skills.'
-    }
-  ],
-  adults: [
-    {
-      eyebrow: 'Course  Online',
-      title: 'English Self-Study',
-      intro: 'Learn on your own, at your pace, with a structured self-study course.',
-      bullets: ['Interactive online exercises', 'Clear learning path', 'Track your progress', 'Earn digital badges and certificates'],
-      note: 'Best for independent learners who prefer to study alone.'
-    },
-    {
-      eyebrow: 'Course  Online',
-      title: 'Flexible English online course',
-      intro: 'Our most popular course, with live, teacher-led classes and a clear learning plan.',
-      bullets: ['Choose your time, teacher and topic', 'Join online group or private classes 24/7', 'Webinars, exercises and speaking practice', 'Follow a structured course for steady progress'],
-      note: 'Best for learners who want flexibility and live teacher support.',
-      popular: true
-    },
-    {
-      eyebrow: 'Online',
-      title: 'Private English tutor',
-      intro: 'Improve your English with ad hoc one-to-one private lessons - no course, no long-term commitment.',
-      bullets: ['Choose your tutor and your time', 'Focus only on what you need', 'Bring your own topics and questions', 'Personalised tutoring without a fixed plan'],
-      note: 'Perfect if you are busy and need quick, focused support.'
-    }
-  ],
-  organisations: [
-    {
-      eyebrow: 'In person  Online',
-      title: 'English for business',
-      intro: 'Improve communication skills across your organisation:',
-      bullets: ['Workplace English for global teams', 'Business English and professional skills training', 'Flexible delivery: online or face-to-face', 'Tailored programmes aligned to business goals'],
-      note: 'Designed for companies that want confident, high-performing teams.'
-    },
-    {
-      eyebrow: 'In person  Online',
-      title: 'English for Government',
-      intro: 'Support national education and workforce development:',
-      bullets: ['Large-scale English language programmes', 'Customisable communication skills training', 'Targeted coaching from specialists', 'English assessment to identify needs'],
-      note: 'Best for public organisations and education partners.'
-    },
-    {
-      eyebrow: 'In person  Online',
-      title: 'English for Higher Education',
-      intro: 'Strengthen English skills across your institution:',
-      bullets: ['Training for academic staff and students', 'IELTS and international pathway preparation', 'Specialist courses for lectures and research', 'Academic English programmes for success'],
-      note: 'Ideal for universities and colleges supporting international growth.'
-    }
-  ]
-};
-
-const benefits = [
-  {
-    title: 'Learn with professional teachers',
-    text: 'Our specialist teachers are approved, experienced and ready to help you learn with confidence.',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=85'
-  },
-  {
-    title: 'Practice content',
-    text: 'Engage with expertly designed online activities to improve your language skills.',
-    image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=85'
-  },
-  {
-    title: 'Easy-to-use platform',
-    text: 'Use your learning platform to see progress clearly and continue learning at your own pace.',
-    image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=900&q=85'
-  },
-  {
-    title: 'Get certified results',
-    text: 'Achieve digital badges and certificates to help track and celebrate your progress.',
-    image: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=900&q=85'
-  }
-];
-
-const faqs = [
-  'Who is LearnEnglish for?',
-  'Can I use LearnEnglish for free?',
-  'Can I sign up for a free LearnEnglish account?',
-  'How do I study with LearnEnglish?',
-  'Can I take a test to check my English level?',
-  'Can I find learning materials for my English level?',
-  'Can I improve my speaking and pronunciation on LearnEnglish?',
-  'Can I track my progress on LearnEnglish?',
-  'Is LearnEnglish a course?',
-  'Do you offer online classes and courses?'
-];
+const SKILLS = ['Tất cả', 'Reading', 'Listening', 'Writing', 'Speaking'];
 
 export default function OnlineCourses() {
-  const [activeGroup, setActiveGroup] = useState('adults');
-  const groups = [
-    { id: 'kids', label: 'Kids and Teens' },
-    { id: 'adults', label: 'Adults' },
-    { id: 'organisations', label: 'Organisations' }
-  ];
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [skill, setSkill] = useState('Tất cả');
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    let ignore = false;
+
+    async function load() {
+      setLoading(true);
+      setError('');
+      try {
+        // Lấy tối đa 50 khóa, lọc phía client cho mượt
+        const { data } = await getCourses({ page: 1, limit: 50 });
+        if (!ignore) setCourses(Array.isArray(data) ? data : []);
+      } catch (err) {
+        if (!ignore) setError(err.message || 'Không tải được danh sách khóa học.');
+      } finally {
+        if (!ignore) setLoading(false);
+      }
+    }
+
+    load();
+    return () => { ignore = true; };
+  }, []);
+
+  const filtered = useMemo(() => {
+    return courses.filter((c) => {
+      const matchSkill = skill === 'Tất cả' || c.skill === skill;
+      const keyword = search.trim().toLowerCase();
+      const matchSearch =
+        !keyword ||
+        (c.title || '').toLowerCase().includes(keyword) ||
+        (c.description || '').toLowerCase().includes(keyword);
+      return matchSkill && matchSearch;
+    });
+  }, [courses, skill, search]);
 
   return (
-    <div className="online-page">
-      <section className="online-hero">
-        <div className="online-container online-hero-inner">
-          <div className="online-hero-art" aria-hidden="true"></div>
-          <img
-            className="online-hero-image"
-            src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=1300&q=85"
-            alt="Learner taking an online English class"
+    <div className="catalog-page">
+      {/* HERO */}
+      <header className="catalog-hero">
+        <div className="catalog-hero-inner">
+          <span className="catalog-eyebrow">Khóa học IELTS</span>
+          <h1>Chinh phục IELTS cùng lộ trình bài bản</h1>
+          <p>
+            Khóa học bám sát 4 kỹ năng, tích hợp flashcard từ vựng trọng tâm và
+            bài tập thực chiến. Chọn khóa phù hợp với mục tiêu band điểm của bạn.
+          </p>
+        </div>
+      </header>
+
+      {/* THANH LỌC */}
+      <div className="catalog-toolbar">
+        <div className="catalog-filters">
+          {SKILLS.map((s) => (
+            <button
+              key={s}
+              className={`catalog-chip ${skill === s ? 'active' : ''}`}
+              onClick={() => setSkill(s)}
+            >
+              {s}
+            </button>
+          ))}
+        </div>
+        <div className="catalog-search">
+          <input
+            type="text"
+            placeholder="Tìm khóa học theo tên..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
-          <div className="online-hero-copy">
-            <h1>Online courses</h1>
-            <p>
-              Learn English with an online course specially created by the British Council,
-              the world's English teaching experts.
-            </p>
-          </div>
         </div>
-      </section>
+      </div>
 
-      <section className="online-courses-overview">
-        <div className="online-container">
-          <div className="online-section-heading">
-            <h2>Our Courses</h2>
-            <p>Choose the perfect English course solution for your needs</p>
-          </div>
+      {/* DANH SÁCH */}
+      <main className="catalog-body">
+        {loading && <div className="catalog-state">Đang tải khóa học...</div>}
+        {error && !loading && <div className="catalog-state catalog-state-error">{error}</div>}
+        {!loading && !error && filtered.length === 0 && (
+          <div className="catalog-state">Không tìm thấy khóa học phù hợp.</div>
+        )}
 
-          <div className="online-tabs" role="tablist" aria-label="Course audiences">
-            {groups.map((group) => (
-              <button
-                key={group.id}
-                type="button"
-                className={activeGroup === group.id ? 'active' : ''}
-                onClick={() => setActiveGroup(group.id)}
-              >
-                {group.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="online-course-band">
-          <div className="online-container">
-            <div className="online-card-grid">
-              {courseGroups[activeGroup].map((course) => (
-                <article className="online-course-card" key={course.title}>
-                  {course.popular && <span className="online-popular">Most popular</span>}
-                  <p className="online-card-eyebrow">{course.eyebrow}</p>
-                  <h3>{course.title}</h3>
-                  <p>{course.intro}</p>
-                  <ul>
-                    {course.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
-                  </ul>
-                  <p className="online-course-note">{course.note}</p>
-                  <Link to="/register" className="online-learn-button">Learn more</Link>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="online-benefits">
-        <div className="online-container">
-          <div className="online-section-heading">
-            <h2>Why learn with us?</h2>
-            <p>Whatever your age, ability or ambition, we have a course to suit you</p>
-          </div>
-
-          <div className="online-benefit-list">
-            {benefits.map((benefit) => (
-              <article className="online-benefit" key={benefit.title}>
-                <div>
-                  <h3>{benefit.title}</h3>
-                  <p>{benefit.text}</p>
+        <div className="catalog-grid">
+          {filtered.map((course) => {
+            const isFree = !course.price || course.price === 0;
+            return (
+              <article className="catalog-card" key={course.id}>
+                <Link to={`/courses/${course.id}`} className="catalog-card-media">
+                  <img src={course.thumbnail} alt={course.title} loading="lazy" />
+                  <span className={`catalog-tag ${isFree ? 'free' : 'premium'}`}>
+                    {isFree ? 'Miễn phí' : 'Trả phí'}
+                  </span>
+                  <span className="catalog-skill-tag">{course.skill}</span>
+                </Link>
+                <div className="catalog-card-body">
+                  <div className="catalog-card-meta">
+                    <span>⭐ {course.rating}</span>
+                    <span>👥 {course.enrolledCount}</span>
+                    <span>🗓️ {course.durationWeeks} tuần</span>
+                  </div>
+                  <h3>
+                    <Link to={`/courses/${course.id}`}>{course.title}</Link>
+                  </h3>
+                  <p className="catalog-card-desc">{course.description}</p>
+                  <div className="catalog-card-foot">
+                    <span className="catalog-price">
+                      {isFree ? 'Miễn phí' : formatVnd(course.price)}
+                    </span>
+                    <Link to={`/courses/${course.id}`} className="catalog-btn">
+                      Xem chi tiết
+                    </Link>
+                  </div>
                 </div>
-                <img src={benefit.image} alt="" />
               </article>
-            ))}
-          </div>
+            );
+          })}
         </div>
-      </section>
-
-      <section className="online-quiz">
-        <div className="online-container">
-          <h2>Take our learning-style quiz to find the course that suits you the best</h2>
-          <Link to="/register">Take the quiz</Link>
-        </div>
-      </section>
-
-      <section className="online-faq">
-        <div className="online-container">
-          <h2>Answers to popular questions</h2>
-          <div className="online-faq-list">
-            {faqs.map((question) => (
-              <details key={question}>
-                <summary>{question}</summary>
-                <p>Explore our courses and free resources to find the option that matches your goals.</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      </main>
     </div>
   );
 }
