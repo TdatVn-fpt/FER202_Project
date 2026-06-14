@@ -73,8 +73,11 @@
       "fullName": "IELTS Mentor",
       "name": "IELTS Mentor",
       "email": "teacher@ieltslearning.com",
+      "password": "12345678",
       "role": "teacher",
-      "specialty": "Reading and Writing"
+      "specialty": "Reading and Writing",
+      "status": "active",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp"
     },
     {
       "id": "u-admin-001",
@@ -88,12 +91,12 @@
       "createdAt": "2026-05-15T08:00:00Z"
     },
     {
+      "id": "lkroxHKp1rE",
       "email": "hello@gmail.com",
       "password": "123456",
-      "fullName": "",
-      "name": "",
-      "dateOfBirth": "2005-6-9",
-      "id": "lkroxHKp1rE",
+      "fullName": "New Student",
+      "name": "New Student",
+      "dateOfBirth": "2005-06-09",
       "role": "student",
       "status": "active",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
@@ -115,12 +118,10 @@
       "level": "Band 5.0 - 6.5",
       "price": 0,
       "isPremium": false,
-      "thumbnail": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80",
+      "thumbnail": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "teacherName": "IELTS Mentor",
-      "status": "approved",
+      "status": "pending",
       "enrolledCount": 120,
-      "rating": 4.7,
       "durationWeeks": 6,
       "createdAt": "2026-06-01T08:00:00Z"
     },
@@ -152,67 +153,38 @@
       "title": "IELTS Writing Task 2: Advanced Essays",
       "description": "A deep dive into IELTS Writing Task 2. Learn how to structure Band 7.0+ essays, develop complex arguments, and use advanced Lexical Resource and Grammatical Range.",
       "syllabus": [
-        "Understanding the Band Descriptors",
-        "The Opinion Essay (Agree/Disagree)",
-        "Discussion & Double Question Essays",
-        "Advanced Cohesion and Coherence"
+        "Opinion Essay",
+        "Discussion Essay",
+        "Problem Solution Essay"
       ],
       "skill": "Writing",
-      "level": "Band 6.5 - 8.0",
-      "price": 299000,
+      "level": "Advanced",
+      "price": 790000,
       "isPremium": true,
       "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "teacherName": "IELTS Mentor",
       "status": "approved",
-      "enrolledCount": 64,
-      "rating": 4.8,
+      "enrolledCount": 45,
       "durationWeeks": 8,
-      "createdAt": "2026-06-03T08:00:00Z"
+      "createdAt": "2026-06-02T08:00:00Z"
     },
     {
-      "id": "course-004",
-      "title": "IELTS Speaking: Fluency & Pronunciation",
-      "description": "Build immense confidence for the Speaking test. We cover idiomatic language, intonation, and how to deliver extended, coherent answers in Parts 2 and 3.",
+      "id": "course-003",
+      "title": "IELTS Listening Master",
+      "description": "Luyện tập chiến thuật nghe qua các dạng câu hỏi khác nhau.",
       "syllabus": [
-        "Part 1: Natural Responses & Expansion",
-        "Part 2: The 1-Minute Prep Strategy",
-        "Part 3: Developing Analytical Answers",
-        "Pronunciation: Word Stress & Linking"
+        "Form completion",
+        "Multiple choice",
+        "Map labeling"
       ],
-      "skill": "Speaking",
-      "level": "Band 5.5 - 7.5",
-      "price": 0,
-      "isPremium": false,
-      "thumbnail": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "teacherName": "IELTS Mentor",
-      "status": "approved",
-      "enrolledCount": 95,
-      "rating": 4.6,
-      "durationWeeks": 4,
-      "createdAt": "2026-06-04T08:00:00Z"
-    },
-    {
-      "id": "course-005",
-      "title": "IELTS Academic Writing Task 1",
-      "description": "Step-by-step guide to summarizing visual data. Learn the essential vocabulary for trends, comparisons, processes, and maps to secure a high band score in Task 1.",
-      "syllabus": [
-        "Line Graphs & Bar Charts (Trends)",
-        "Pie Charts & Tables (Comparisons)",
-        "Describing Processes & Cycles",
-        "Comparing Maps (Past & Present)"
-      ],
-      "skill": "Writing",
-      "level": "Band 6.0+",
-      "price": 199000,
+      "skill": "Listening",
+      "level": "Intermediate",
+      "price": 590000,
       "isPremium": true,
-      "thumbnail": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80",
+      "thumbnail": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "teacherName": "IELTS Mentor",
-      "status": "approved",
-      "enrolledCount": 52,
-      "rating": 4.4,
+      "status": "draft",
+      "enrolledCount": 0,
       "durationWeeks": 6,
       "createdAt": "2026-06-05T08:00:00Z"
     },
@@ -830,15 +802,19 @@
       "title": "Introduction to Skimming and Scanning",
       "order": 1,
       "durationMinutes": 45,
-      "content": "Skimming and Scanning are foundational skills for IELTS Reading. You have exactly 60 minutes to read 3 long passages and answer 40 questions. You simply cannot read every word.\n\n## 1. Skimming (Reading for Gist)\nSkimming involves reading a text rapidly to get a general overview of the material. \n**How to Skim effectively:**\n- Read the Title and any Subtitles.\n- Read the First Paragraph carefully (this usually introduces the main topic).\n- Read the First Sentence of every subsequent paragraph (the topic sentence).\n- Look for repeated words, names, dates, or numbers.\n- Read the Final Paragraph (often contains the conclusion or summary).\n\n## 2. Scanning (Reading for Specific Information)\nScanning involves running your eyes quickly over the text to locate specific facts or keywords, without reading the text as a whole.\n**How to Scan effectively:**\n- Identify the **keywords** in the question first (e.g., proper nouns, dates, technical terms).\n- Visualize these keywords.\n- Move your eyes quickly across and down the text, looking *only* for these specific words or their synonyms.\n- Once you find the keyword, read the surrounding sentence carefully to find the answer.\n\n### Practical Exercise:\nTry to find the date **'1985'** in a news article as fast as you can. Notice how your brain ignores other words and only looks for numbers."
+      "contentUrl": "https://example.com/skimming",
+      "teacherId": "u-teacher-001",
+      "audioUrl": ""
     },
     {
       "id": "lesson-002",
       "courseId": "course-001",
       "title": "Mastering True/False/Not Given",
       "order": 2,
-      "durationMinutes": 55,
-      "content": "True/False/Not Given (T/F/NG) questions are notoriously tricky. They test your ability to understand factual information.\n\n## The Definitions\n- **TRUE**: The statement agrees exactly with the information in the text.\n- **FALSE**: The statement contradicts or is the opposite of the information in the text.\n- **NOT GIVEN**: There is no information about this in the text, or it's impossible to know what the writer thinks about this based *only* on the text.\n\n## The 'Not Given' Trap\nThe most common mistake is using outside knowledge. Even if a fact is universally known to be True, if it is not explicitly stated in the text, the answer is NOT GIVEN.\n\n## Strategy Steps:\n1. **Read the statement first** and identify keywords (especially verbs and adjectives).\n2. **Scan the text** to locate the section where the keywords (or their synonyms) are discussed.\n3. **Read the text carefully**. Does it mean exactly the same thing?\n4. **Check for qualifiers**: Words like *some, all, always, never, mostly, exactly* can completely change the meaning. \n  *Example: Text says 'Some cats hate water.' Statement says 'All cats hate water.' The answer is FALSE.*\n\n### Pro Tip:\nQuestions usually follow the order of the text. If you find the answer to Question 1 in Paragraph 1, and the answer to Question 3 in Paragraph 3, Question 2's answer will almost certainly be in Paragraph 2."
+      "durationMinutes": 50,
+      "contentUrl": "https://example.com/matching-headings",
+      "teacherId": "u-teacher-001",
+      "audioUrl": ""
     },
     {
       "id": "lesson-003",
@@ -854,33 +830,11 @@
       "title": "The Opinion Essay (Agree/Disagree)",
       "order": 2,
       "durationMinutes": 60,
-      "content": "The Opinion essay is one of the most common Task 2 prompts. It will typically state a premise and ask: *To what extent do you agree or disagree?*\n\n## Recommended Structure (4 Paragraphs)\n\n### Paragraph 1: Introduction (2-3 sentences)\n- **Hook / Background:** Paraphrase the prompt.\n- **Thesis Statement:** Clearly state your opinion (e.g., 'I completely agree with this view because...').\n\n### Paragraph 2: Body Paragraph 1 (First Reason)\n- **Topic Sentence:** State your first main reason.\n- **Explanation:** Explain *why* this is true or *how* it happens.\n- **Example:** Provide a specific, real-world example.\n- **Result:** Conclude the paragraph by linking back to the topic.\n\n### Paragraph 3: Body Paragraph 2 (Second Reason)\n- **Topic Sentence:** State your second main reason.\n- **Explanation:** Expand on the idea.\n- **Example:** Give another specific example.\n\n### Paragraph 4: Conclusion (1-2 sentences)\n- **Restatement:** Summarize your main points and restate your opinion in different words.\n- *Never introduce new ideas in the conclusion!*\n\n## Useful Vocabulary:\n- *I firmly believe that...*\n- *It is undeniable that...*\n- *A prime example of this is...*\n- *Consequently...*"
-    },
-    {
-      "id": "lesson-005",
-      "courseId": "course-002",
-      "title": "Section 1: Form Completion Strategy",
-      "order": 1,
-      "durationMinutes": 45,
-      "content": "Section 1 of IELTS Listening is always a conversation between two people set in an everyday social context (e.g., booking a hotel, joining a club). The most common question type here is Form Completion.\n\n## Core Strategies:\n\n1. **Read the Instructions Carefully:**\nAlways check the word limit. 'NO MORE THAN TWO WORDS AND/OR A NUMBER' means exactly that. If the answer is 'red car' and you write 'a red car', you lose the mark.\n\n2. **Predict the Answers:**\nLook at the gaps before the audio starts. Ask yourself: \n- What type of word is missing? A noun, verb, or adjective?\n- What kind of information is it? A name, date, telephone number, or price?\n\n3. **Watch out for Spelling and Numbers:**\nSpeakers will often spell out names or addresses. You must know the English alphabet perfectly. (Be careful with A/E/I and G/J).\n\n4. **Beware of Distractors:**\nThe speakers will often give one piece of information, then correct themselves. \n*Example:* 'I'd like to book it for the 14th... Oh wait, my wife is busy then, let's make it the 16th.' The answer is 16th, not 14th.\n\n### Practice Drill:\nHave a friend spell 10 random names and read 10 random phone numbers to you while you write them down quickly."
-    },
-    {
-      "id": "lesson-006",
-      "courseId": "course-004",
-      "title": "Part 2: The 1-Minute Prep Strategy",
-      "order": 2,
-      "durationMinutes": 45,
-      "content": "In Speaking Part 2, you are given a cue card with a topic and 3-4 bullet points. You have exactly 1 minute to prepare, and you must speak for 1 to 2 minutes.\n\n## How to Use Your 1 Minute Effectively\nMany students waste this time writing full sentences. **Don't do this.** You will end up reading from the paper, which lowers your fluency and pronunciation scores.\n\n### The 'Keyword Map' Strategy:\n1. Divide your scratch paper into 4 quadrants (one for each bullet point).\n2. Write down 2-3 **Keywords** or **Collocations** for each quadrant.\n3. Think of one specific 'Story' or memory to tie it all together.\n\n## Structuring Your 2-Minute Talk:\n- **Introduction (15 sec):** 'I'd like to talk about a time when...'\n- **Past Details (30 sec):** Discuss the background. Use Past Continuous ('I was walking...') and Past Perfect ('I had never seen...').\n- **Core Description (45 sec):** Answer the main part of the prompt. Use descriptive adjectives.\n- **Conclusion / Feelings (30 sec):** 'Looking back, I felt incredibly...' This directly answers the final bullet point usually asking about your feelings.\n\n### Emergency Tactic:\nIf you run out of things to say at 1 minute 30 seconds, shift to the future or a hypothetical: *'If I had the chance to do it again, I would...'* or *'I hope to experience something similar in the future because...'*."
-    },
-    {
-      "id": "lesson-007",
-      "courseId": "course-005",
-      "title": "Line Graphs: Describing Trends",
-      "order": 1,
-      "durationMinutes": 50,
-      "content": "Academic Writing Task 1 requires you to write at least 150 words summarizing visual information. Line graphs are incredibly common and require specific vocabulary to describe changes over time.\n\n## The Essential Structure\n1. **Introduction:** Paraphrase the prompt. (e.g., 'The line graph illustrates the changes in...')\n2. **Overview:** Identify the 2 or 3 main trends. (e.g., 'Overall, it is clear that X increased significantly, while Y saw a dramatic decline.') *Never include specific numbers in the overview.*\n3. **Body Paragraph 1:** Detail the first main trend with data (years and numbers).\n4. **Body Paragraph 2:** Detail the remaining trends, comparing them to Paragraph 1 where relevant.\n\n## Crucial Vocabulary for Trends\n\n### Upward Trend:\n- Verbs: *increased, rose, climbed, surged, skyrocketed*\n- Nouns: *an increase, a rise, an upward trend*\n\n### Downward Trend:\n- Verbs: *decreased, fell, dropped, declined, plummeted*\n- Nouns: *a decrease, a fall, a drop*\n\n### Stability and Fluctuation:\n- *remained stable, leveled off, plateaued*\n- *fluctuated wildly, showed erratic changes*\n\n### Adjectives / Adverbs of Degree:\n- *significant / significantly*\n- *dramatic / dramatically*\n- *slight / slightly*\n- *gradual / gradually*\n\n**Example Sentence:**\n'The number of tourists *rose dramatically* from 1 million in 2000 to just under 4 million in 2010.'"
+      "contentUrl": "https://example.com/opinion-essay",
+      "teacherId": "u-teacher-001",
+      "audioUrl": ""
     }
-  ],
+  ] } ],
   "tests": [
     {
       "id": "1",
@@ -888,9 +842,9 @@
       "title": "Reading Foundation Mock Test",
       "skill": "Reading",
       "durationMinutes": 60,
-      "totalQuestions": 5,
+      "totalQuestions": 40,
       "bandScale": "IELTS 0-9",
-      "description": "Practice test based on an actual, recently released IELTS exam. Covers skimming, scanning, and comprehension strategies."
+      "teacherId": "u-teacher-001"
     },
     {
       "id": "2",
@@ -899,36 +853,15 @@
       "skill": "Listening",
       "level": "Intermediate",
       "durationMinutes": 30,
-      "totalQuestions": 5,
+      "totalQuestions": 40,
       "bandScale": "IELTS 0-9",
-      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-      "description": "Section 1: A conversation between two people. Listen carefully and answer ALL questions before moving on."
-    },
-    {
-      "id": "3",
-      "courseId": 3,
-      "title": "IELTS Writing Practice Test 1",
-      "skill": "Writing",
-      "durationMinutes": 60,
-      "totalQuestions": 2,
-      "bandScale": "IELTS 0-9",
-      "description": "Task 1 (20 min, 150+ words): Describe a visual. Task 2 (40 min, 250+ words): Write an argumentative essay."
-    },
-    {
-      "id": "4",
-      "courseId": 1,
-      "title": "IELTS Speaking Practice Test 1",
-      "skill": "Speaking",
-      "durationMinutes": 15,
-      "totalQuestions": 3,
-      "bandScale": "IELTS 0-9",
-      "description": "Three parts: Introduction & Interview (Part 1), Individual Long Turn (Part 2), Two-way Discussion (Part 3)."
+      "teacherId": "u-teacher-001"
     }
   ],
   "questions": [
     {
-      "id": "1",
-      "testId": 1,
+      "id": "question-001",
+      "testId": "test-001",
       "type": "multiple-choice",
       "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
       "prompt": "According to the passage, what was the PRIMARY effect of introducing machinery during the Industrial Revolution?",
@@ -970,12 +903,18 @@
         "To describe a process",
         "To reject an argument"
       ],
+      "options": [
+        "To introduce a problem",
+        "To compare two theories",
+        "To describe a process",
+        "To reject an argument"
+      ],
       "answer": "To introduce a problem",
       "score": 1
     },
     {
-      "id": "2",
-      "testId": 1,
+      "id": "question-002",
+      "testId": "test-001",
       "type": "true-false-not-given",
       "questionText": "The writer believes online learning is only useful for advanced students.",
       "options": [
@@ -983,231 +922,38 @@
         "False",
         "Not Given"
       ],
-      "answer": "True",
+      "answer": "False",
       "score": 1
     },
     {
-      "id": "4",
-      "testId": 1,
+      "testId": "test-001",
       "type": "multiple-choice",
-      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
-      "prompt": "The word 'unprecedented' in the passage is closest in meaning to:",
-      "questionText": "The word 'unprecedented' in the passage is closest in meaning to:",
+      "questionText": "con vịt nào đi trước",
       "options": [
-        "Relatively modest",
-        "Previously unseen or unmatched",
-        "Carefully planned",
-        "Widely criticised"
+        "a",
+        "b",
+        "c",
+        "d"
       ],
-      "answer": "Previously unseen or unmatched",
-      "score": 1
-    },
-    {
-      "id": "5",
-      "testId": 1,
-      "type": "fill-in-the-blank",
-      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
-      "prompt": "Factories drew workers from _______ areas into growing urban centres. (ONE WORD ONLY)",
-      "questionText": "Factories drew workers from _______ areas into growing urban centres. (ONE WORD ONLY)",
-      "answer": "rural",
-      "score": 1
-    },
-    {
-      "id": "6",
-      "testId": 2,
-      "type": "fill-in-the-blank",
-      "section": "Section 1",
-      "sectionInstruction": "Questions 1–5. Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
-      "formContext": "RENTAL PROPERTY APPLICATION FORM\n\nApplicant Name: Sarah Johnson\nPhone number: ___Q1___ (mobile)\nEmail address: sarahjohnson@___Q2___.com\nCurrent address: 48 Beacon Street, Auckland\nEmployer: Auckland ___Q3___\nOccupation: Registered ___Q4___\nRental start date: ___Q5___",
-      "prompt": "The applicant's mobile phone number is: ________",
-      "questionText": "The applicant's mobile phone number is: ________",
-      "answer": "021 4567",
-      "score": 1
-    },
-    {
-      "id": "7",
-      "testId": 2,
-      "type": "fill-in-the-blank",
-      "section": "Section 1",
-      "sectionInstruction": "Questions 1–5. Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
-      "formContext": "RENTAL PROPERTY APPLICATION FORM\n\nApplicant Name: Sarah Johnson\nPhone number: ___Q1___ (mobile)\nEmail address: sarahjohnson@___Q2___.com\nCurrent address: 48 Beacon Street, Auckland\nEmployer: Auckland ___Q3___\nOccupation: Registered ___Q4___\nRental start date: ___Q5___",
-      "prompt": "The email domain (after @) of the applicant is: ________",
-      "questionText": "The email domain (after @) of the applicant is: ________",
-      "answer": "gmail",
-      "score": 1
-    },
-    {
-      "id": "8",
-      "testId": 2,
-      "type": "fill-in-the-blank",
-      "section": "Section 1",
-      "sectionInstruction": "Questions 1–5. Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
-      "prompt": "The applicant's employer is: Auckland ________",
-      "questionText": "The applicant's employer is: Auckland ________",
-      "answer": "Hospital",
-      "score": 1
-    },
-    {
-      "id": "9",
-      "testId": 2,
-      "type": "fill-in-the-blank",
-      "section": "Section 1",
-      "prompt": "The applicant's occupation is: Registered ________",
-      "questionText": "The applicant's occupation is: Registered ________",
-      "answer": "Nurse",
-      "score": 1
-    },
-    {
-      "id": "10",
-      "testId": 2,
-      "type": "fill-in-the-blank",
-      "section": "Section 1",
-      "prompt": "The preferred rental start date mentioned is: ________ February.",
-      "questionText": "The preferred rental start date mentioned is: ________ February.",
-      "answer": "8th",
-      "score": 1
-    },
-    {
-      "id": "11",
-      "testId": 3,
-      "type": "writing-task",
-      "taskNumber": 1,
-      "instruction": "You should spend about 20 minutes on this task.",
-      "prompt": "The diagram below shows how rainwater is collected for use as drinking water in an Australian town.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.\n\nWrite at least 150 words.",
-      "questionText": "Describe the rainwater collection process shown in the diagram.",
-      "diagramDescription": "[DIAGRAM: Shows a sequence — Rain falls on rooftop → Gutters collect water → Pipe leads to underground storage tank → Filter system → Tap/household supply. Labels: Roof catchment area, Downpipe, First-flush diverter, Underground cistern, UV filter, Distribution pump]",
-      "answer": "[Writing task — marked by teacher]",
-      "minWords": 150,
-      "score": 0
-    },
-    {
-      "id": "12",
-      "testId": 3,
-      "type": "writing-task",
-      "taskNumber": 2,
-      "instruction": "You should spend about 40 minutes on this task. Write about the following topic:",
-      "prompt": "In many countries, young people are spending more time on social media than they do in face-to-face social interactions.\n\nDo you think this is a positive or negative development?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-      "questionText": "Write an essay about young people and social media use.",
-      "answer": "[Writing task — marked by teacher]",
-      "minWords": 250,
-      "score": 0
-    },
-    {
-      "id": "13",
-      "testId": 4,
-      "type": "speaking-part",
-      "part": 1,
-      "prompt": "Let's talk about your daily routine and work/study habits.",
-      "questionText": "Part 1 — Introduction & Interview",
-      "subPoints": [
-        "Can you describe a typical day for you?",
-        "Do you prefer to study/work in the morning or evening? Why?",
-        "What do you usually do to relax after a busy day?"
-      ],
-      "answer": "[Speaking — assessed by examiner]",
-      "score": 0
-    },
-    {
-      "id": "14",
-      "testId": 4,
-      "type": "speaking-part",
-      "part": 2,
-      "prompt": "Describe a book you have read that you found particularly interesting.",
-      "questionText": "Part 2 — Individual Long Turn",
-      "subPoints": [
-        "What the book was about",
-        "Why you chose to read it",
-        "What you found most interesting about it",
-        "Whether you would recommend it to others"
-      ],
-      "prepTime": 60,
-      "speakTime": 120,
-      "answer": "[Speaking — assessed by examiner]",
-      "score": 0
-    },
-    {
-      "id": "15",
-      "testId": 4,
-      "type": "speaking-part",
-      "part": 3,
-      "prompt": "Let's now discuss reading habits and books in society more broadly.",
-      "questionText": "Part 3 — Two-way Discussion",
-      "subPoints": [
-        "Do you think people read less now than in the past? Why or why not?",
-        "How has the internet affected people's reading habits?",
-        "What role should governments play in promoting reading among young people?"
-      ],
-      "answer": "[Speaking — assessed by examiner]",
-      "score": 0
-    },
-    {
-      "id": "99",
-      "testId": 2,
-      "type": "multiple-choice",
-      "section": "Section 1",
-      "prompt": "According to the conversation, why did Sarah choose this particular apartment?",
-      "questionText": "According to the conversation, why did Sarah choose this particular apartment?",
-      "options": [
-        "It is close to her workplace",
-        "It has a garden and parking space",
-        "The rent is cheaper than her current home",
-        "Her friend recommended it"
-      ],
-      "answer": "It is close to her workplace",
-      "score": 1
+      "answer": "b",
+      "explanation": "",
+      "score": 5,
+      "id": "-Q0BSSAKr1U"
     }
   ],
+  "questionAnswers": [],
   "enrollments": [
     {
-      "id": "1",
-      "userId": 1,
-      "courseId": 1,
-      "status": "active",
-      "progress": 33,
-      "enrolledAt": "2026-06-01T08:00:00Z"
-    },
-    {
-      "id": "2",
-      "userId": 1,
-      "courseId": 2,
-      "status": "active",
-      "progress": 50,
-      "enrolledAt": "2026-06-03T10:00:00Z"
-    },
-    {
-      "id": "enr-003",
-      "userId": "1",
-      "courseId": "course-004",
-      "status": "active",
-      "progress": 0,
-      "enrolledAt": "2026-06-05T14:00:00Z"
-    },
-    {
-      "userId": "1",
+      "id": "enroll-001",
+      "userId": "u-student-001",
       "courseId": "course-001",
-      "progress": 67,
-      "enrolledAt": "2026-06-11T15:12:27.615Z",
-      "id": "OUUnwU4JSfk",
-      "status": "active"
+      "status": "active",
+      "progress": 35,
+      "enrolledAt": "2026-06-01"
     },
     {
-      "userId": "1",
-      "courseId": "course-002",
-      "progress": 100,
-      "enrolledAt": "2026-06-11T15:12:57.459Z",
-      "id": "vjw1ZN5pbb4",
-      "status": "completed"
-    },
-    {
-      "userId": "u-001",
-      "courseId": "course-001",
-      "progress": 67,
-      "enrolledAt": "2026-06-11T16:27:32.518Z",
-      "id": "1AzGHEpkf4o",
-      "status": "active"
-    },
-    {
-      "userId": "u-001",
+      "id": "enroll-002",
+      "userId": "u-student-001",
       "courseId": "course-002",
       "progress": 100,
       "enrolledAt": "2026-06-11T16:27:56.816Z",
@@ -1256,17 +1002,17 @@
       "id": "payment-001",
       "userId": "u-student-001",
       "courseId": "course-002",
-      "amount": 199000,
+      "amount": 790000,
       "currency": "VND",
       "method": "bank-transfer",
       "status": "paid",
-      "paidAt": "2026-06-01"
+      "paidAt": "2026-06-02"
     },
     {
       "id": "payment-002",
       "userId": "u-student-001",
       "courseId": "course-003",
-      "amount": 299000,
+      "amount": 590000,
       "currency": "VND",
       "method": "momo",
       "status": "pending",
@@ -1501,6 +1247,57 @@
       "topic": "Advanced Reading"
     }
   ],
-  "Count": 16,
+  "auditLogs": [
+    {
+      "action": "REVERT_COURSE_STATUS",
+      "userId": "u-teacher-001",
+      "details": {
+        "courseId": "course-001",
+        "reason": "New question added to approved course"
+      },
+      "timestamp": "2026-06-11T13:47:05.797Z",
+      "id": "M3eMi2kz2sw"
+    },
+    {
+      "action": "CREATE_QUESTION",
+      "userId": "u-teacher-001",
+      "details": {
+        "questionId": "-Q0BSSAKr1U",
+        "testId": "test-001"
+      },
+      "timestamp": "2026-06-11T13:47:05.809Z",
+      "id": "vKMEkT0LsoA"
+    }
+  ],
+  "approvalRequests": [],
+  "testAttempts": [
+    {
+      "id": "attempt-001",
+      "userId": "u-student-001",
+      "testId": "test-001",
+      "score": 36,
+      "totalQuestions": 40,
+      "bandScore": 8,
+      "createdAt": "2026-06-08T14:30:00Z"
+    },
+    {
+      "id": "attempt-002",
+      "userId": "u-student-002",
+      "testId": "test-001",
+      "score": 28,
+      "totalQuestions": 40,
+      "bandScore": 6.5,
+      "createdAt": "2026-06-09T09:15:00Z"
+    },
+    {
+      "id": "attempt-003",
+      "userId": "u-student-001",
+      "testId": "test-002",
+      "score": 32,
+      "totalQuestions": 40,
+      "bandScore": 7,
+      "createdAt": "2026-06-10T10:00:00Z"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
