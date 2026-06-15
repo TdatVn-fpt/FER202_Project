@@ -22,18 +22,13 @@ import TestReviewPage from '../pages/student/TestReviewPage';
 import StudentProfile from '../pages/student/Profile';
 import FlashcardDeck from '../pages/student/FlashcardDeck';
 import TeacherDashboard from '../pages/teacher/TeacherDashboard';
-import CourseManagement from '../pages/teacher/CourseManagement';
-import CourseCreatePage from '../pages/teacher/CourseCreatePage';
-import CourseEditPage from '../pages/teacher/CourseEditPage';
-import LessonListPage from '../pages/teacher/LessonListPage';
-import LessonCreatePage from '../pages/teacher/LessonCreatePage';
-import TestListPage from '../pages/teacher/TestListPage';
-import TestCreatePage from '../pages/teacher/TestCreatePage';
-import QuestionBankPage from '../pages/teacher/QuestionBankPage';
-import StudentTrackingPage from '../pages/teacher/StudentTrackingPage';
+import TeacherCourseManagement from '../pages/teacher/CourseManagement';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import UserManagement from '../pages/admin/UserManagement';
-import PaymentManagement from '../pages/admin/PaymentManagement';
+import AdminCourseManagement from '../pages/admin/CourseManagement';
+import LessonManagement from '../pages/admin/LessonManagement';
+import TestManagement from '../pages/admin/TestManagement';
+import TransactionList from '../pages/admin/TransactionList';
 
 import MainLayout from '../layouts/MainLayout';
 import StudentLayout from '../layouts/StudentLayout';
@@ -73,25 +68,19 @@ export default function AppRoutes() {
       <Route element={<ProtectedRoute allowedRoles={['teacher']} />}>
 <Route element={<TeacherLayout />}>
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
-          <Route path="/teacher/courses" element={<CourseManagement />} />
-          <Route path="/teacher/courses/create" element={<CourseCreatePage />} />
-          <Route path="/teacher/courses/:id/edit" element={<CourseEditPage />} />
-          <Route path="/teacher/lessons" element={<LessonListPage />} />
-          <Route path="/teacher/lessons/create" element={<LessonCreatePage />} />
-          <Route path="/teacher/lessons/:id/edit" element={<LessonCreatePage />} />
-          <Route path="/teacher/tests" element={<TestListPage />} />
-          <Route path="/teacher/tests/create" element={<TestCreatePage />} />
-          <Route path="/teacher/tests/:id/edit" element={<TestCreatePage />} />
-          <Route path="/teacher/tests/:id/questions" element={<QuestionBankPage />} />
-          <Route path="/teacher/students" element={<StudentTrackingPage />} />
+          <Route path="/teacher/courses" element={<TeacherCourseManagement />} />
         </Route>
       </Route>
 
+      {/* ===== ADMIN ROUTES ===== */}
       <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
         <Route element={<AdminLayout />}>
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/users" element={<UserManagement />} />
-          <Route path="/admin/payments" element={<PaymentManagement />} />
+          <Route path="/admin/courses" element={<AdminCourseManagement />} />
+          <Route path="/admin/lessons" element={<LessonManagement />} />
+          <Route path="/admin/tests" element={<TestManagement />} />
+          <Route path="/admin/transactions" element={<TransactionList />} />
         </Route>
       </Route>
     </Routes>

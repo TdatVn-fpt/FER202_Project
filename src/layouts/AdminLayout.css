@@ -1,1 +1,99 @@
-/* TODO: AdminLayout CSS sẽ được phát triển sau */
+/* src/layouts/AdminLayout.css */
+/* Theo chuẩn DESIGN.md: Coinbase Theme */
+
+.admin-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff;
+  /* {colors.canvas} */
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+@media (min-width: 768px) {
+  .admin-layout {
+    flex-direction: row;
+  }
+}
+
+.admin-sidebar {
+  background-color: #0a0b0d;
+  /* {colors.surface-dark} */
+  color: #ffffff;
+  /* {colors.on-dark} */
+  flex-direction: column;
+  padding: 1.5rem;
+  flex-shrink: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+@media (min-width: 768px) {
+  .admin-sidebar {
+    width: 250px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+  }
+}
+
+.admin-sidebar-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-nav-link {
+  color: #a3a3a3;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 100px;
+  /* {rounded.pill} */
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.admin-nav-link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.admin-nav-link.active {
+  color: #ffffff;
+  background-color: #0052ff;
+  /* Coinbase Blue */
+}
+
+.admin-logout-btn {
+  color: #ffffff;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1rem;
+  border-radius: 100px;
+  /* {rounded.pill} */
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.admin-logout-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.admin-main-content {
+  flex-grow: 1;
+  padding: 2rem;
+  background-color: #ffffff;
+  /* {colors.canvas} */
+  overflow-y: auto;
+  width: 100%;
+}

@@ -91,16 +91,16 @@
       "createdAt": "2026-05-15T08:00:00Z"
     },
     {
-      "id": "lkroxHKp1rE",
-      "email": "hello@gmail.com",
-      "password": "123456",
-      "fullName": "New Student",
-      "name": "New Student",
-      "dateOfBirth": "2005-06-09",
-      "role": "student",
+      "email": "kien030405@gmail.com",
+      "password": "12345678",
+      "fullName": "",
+      "name": "",
+      "dateOfBirth": "2007-12-20",
+      "id": "ydj-RqSNOgY",
+      "role": "admin",
       "status": "active",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
-      "createdAt": "2026-06-10T06:20:00.959Z"
+      "createdAt": "2026-06-11T03:17:42.250Z"
     }
   ],
   "courses": [
@@ -127,89 +127,69 @@
     },
     {
       "id": "course-002",
-      "title": "IELTS Listening: Score Booster",
-      "description": "Enhance your listening comprehension with authentic IELTS materials. Learn how to anticipate answers, deal with distractors, and understand diverse accents in Sections 3 & 4.",
+      "title": "IELTS Listening Advanced",
+      "description": "Nâng cao kỹ năng Listening với các bài tập thực tế.",
       "syllabus": [
-        "Section 1: Form Completion",
-        "Section 2: Map & Diagram Labelling",
-        "Section 3: Multiple Choice & Matching",
-        "Section 4: Academic Lecture Completion"
-      ],
-      "skill": "Listening",
-      "level": "Band 6.0 - 7.5+",
-      "price": 199000,
-      "isPremium": true,
-      "thumbnail": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "teacherName": "IELTS Mentor",
-      "status": "approved",
-      "enrolledCount": 85,
-      "rating": 4.5,
-      "durationWeeks": 8,
-      "createdAt": "2026-06-02T08:00:00Z"
-    },
-    {
-      "id": "course-003",
-      "title": "IELTS Writing Task 2: Advanced Essays",
-      "description": "A deep dive into IELTS Writing Task 2. Learn how to structure Band 7.0+ essays, develop complex arguments, and use advanced Lexical Resource and Grammatical Range.",
-      "syllabus": [
-        "Opinion Essay",
-        "Discussion Essay",
-        "Problem Solution Essay"
-      ],
-      "skill": "Writing",
-      "level": "Advanced",
-      "price": 790000,
-      "isPremium": true,
-      "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "status": "approved",
-      "enrolledCount": 45,
-      "durationWeeks": 8,
-      "createdAt": "2026-06-02T08:00:00Z"
-    },
-    {
-      "id": "course-003",
-      "title": "IELTS Listening Master",
-      "description": "Luyện tập chiến thuật nghe qua các dạng câu hỏi khác nhau.",
-      "syllabus": [
-        "Form completion",
-        "Multiple choice",
-        "Map labeling"
+        "Note Taking",
+        "Multiple Choice",
+        "Map Labelling"
       ],
       "skill": "Listening",
       "level": "Intermediate",
-      "price": 590000,
+      "price": 299000,
       "isPremium": true,
-      "thumbnail": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80",
+      "thumbnail": "/images/listening-advanced.jpg",
       "teacherId": "u-teacher-001",
-      "status": "draft",
-      "enrolledCount": 0,
-      "durationWeeks": 6,
-      "createdAt": "2026-06-05T08:00:00Z"
+      "status": "pending",
+      "enrolledCount": 85,
+      "students": 85,
+      "rating": 4.5,
+      "durationWeeks": 8,
+      "createdAt": "2026-06-03T08:00:00Z"
     },
     {
-      "id": "course-006",
-      "title": "IELTS Reading: The 8.0+ Masterclass",
-      "description": "For high-achievers. Tackle the most difficult passages (Passage 3) with advanced techniques. Overcome distractors and tricky inference questions.",
+      "id": "course-003",
+      "title": "IELTS Writing Task 2 Masterclass",
+      "description": "Chinh phục Writing Task 2 với chiến lược bài bản.",
       "syllabus": [
-        "Deconstructing Complex Sentences",
-        "Identifying the Writer's Views/Claims",
-        "Advanced Multiple Choice Strategies",
-        "Time Management for Passage 3"
+        "Essay Structure",
+        "Argument Development",
+        "Vocabulary for Writing"
       ],
-      "skill": "Reading",
-      "level": "Band 7.0 - 9.0",
-      "price": 349000,
+      "skill": "Writing",
+      "level": "Advanced",
+      "price": 499000,
       "isPremium": true,
-      "thumbnail": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+      "thumbnail": "/images/writing-masterclass.jpg",
       "teacherId": "u-teacher-001",
-      "teacherName": "IELTS Mentor",
-      "status": "approved",
-      "enrolledCount": 38,
-      "rating": 4.9,
+      "status": "pending",
+      "enrolledCount": 0,
+      "students": 0,
+      "rating": 0,
       "durationWeeks": 10,
-      "createdAt": "2026-06-06T08:00:00Z"
+      "createdAt": "2026-06-10T08:00:00Z"
+    },
+    {
+      "id": "course-004",
+      "title": "IELTS Speaking Confidence",
+      "description": "Luyện tập Speaking tự tin với phương pháp ILETS chuẩn.",
+      "syllabus": [
+        "Fluency Practice",
+        "Pronunciation",
+        "Part 2 Long Turn"
+      ],
+      "skill": "Speaking",
+      "level": "Intermediate",
+      "price": 199000,
+      "isPremium": true,
+      "thumbnail": "/images/speaking.jpg",
+      "teacherId": "u-teacher-001",
+      "status": "rejected",
+      "enrolledCount": 0,
+      "students": 0,
+      "rating": 0,
+      "durationWeeks": 6,
+      "createdAt": "2026-06-08T08:00:00Z"
     }
   ],
   "freeResources": [
@@ -224,644 +204,89 @@
       "reviews": 79,
       "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80",
       "description": "Join our live event and ask our expert educator your questions about the English language and learning English."
-    },
-    {
-      "id": "resource-002",
-      "title": "Learn with the world's English experts",
-      "type": "Promotion",
-      "level": "C1 Advanced",
-      "skill": "Speaking",
-      "date": "10 Jun 2026",
-      "rating": 4.5,
-      "reviews": 68,
-      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80",
-      "description": "We help you gain confidence and improve your speaking, pronunciation and vocabulary."
-    },
-    {
-      "id": "resource-003",
-      "title": "Grammar lesson: Chat GPT and AI",
-      "type": "Grammar",
-      "level": "B1 Intermediate",
-      "skill": "Grammar",
-      "date": "11 Jun 2026",
-      "rating": 4,
-      "reviews": 112,
-      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80",
-      "description": "Watch a recording of our live event to support learners studying grammar, and talk about Chat GPT and AI."
-    },
-    {
-      "id": "resource-004",
-      "title": "Summer quiz: We're all going on a summer holiday!",
-      "type": "General English",
-      "level": "B1 Intermediate",
-      "skill": "Vocabulary",
-      "date": "23 Jul 2026",
-      "rating": 3.8,
-      "reviews": 103,
-      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
-      "description": "Watch a recording of our live event to support learners studying grammar and vocabulary with this fun summer quiz."
-    },
-    {
-      "id": "resource-005",
-      "title": "Vocabulary lesson: Let's get away from it all",
-      "type": "Vocabulary",
-      "level": "B1 Intermediate",
-      "skill": "Vocabulary",
-      "date": "01 Jul 2026",
-      "rating": 4,
-      "reviews": 115,
-      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80",
-      "description": "Watch a recording of our live event to support learners studying vocabulary, travelling and using useful holiday language."
-    },
-    {
-      "id": "resource-006",
-      "title": "Home sweet home",
-      "type": "Community discussions",
-      "level": "B1 Intermediate",
-      "skill": "Speaking",
-      "date": "30 May 2026",
-      "rating": 4.7,
-      "reviews": 37,
-      "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
-      "description": "There is no place like home! In this topic, write and talk about our homes."
-    },
-    {
-      "id": "resource-007",
-      "title": "Tell us about your home",
-      "type": "Community discussions",
-      "level": "B2 Upper intermediate",
-      "skill": "Writing",
-      "date": "20 May 2026",
-      "rating": 4.6,
-      "reviews": 76,
-      "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=80",
-      "description": "What's your home like? Practice describing your home by writing a comment or leaving a voice message."
-    },
-    {
-      "id": "resource-008",
-      "title": "My dream home",
-      "type": "Community discussions",
-      "level": "B1 Intermediate",
-      "skill": "Writing",
-      "date": "20 May 2026",
-      "rating": 4.5,
-      "reviews": 41,
-      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80",
-      "description": "What would your dream home be like? Read our ideas and then add your own."
-    },
-    {
-      "id": "resource-009",
-      "title": "Vocabulary about homes",
-      "type": "Vocabulary",
-      "level": "B1 Intermediate",
-      "skill": "Vocabulary",
-      "date": "20 May 2026",
-      "rating": 5,
-      "reviews": 19,
-      "image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80",
-      "description": "Practice vocabulary for parts of a house or flat with useful learning activities."
-    },
-    {
-      "id": "resource-010",
-      "title": "House or home?",
-      "type": "Grammar",
-      "level": "C1 Advanced",
-      "skill": "Grammar",
-      "date": "20 May 2026",
-      "rating": 4.5,
-      "reviews": 36,
-      "image": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80",
-      "description": "Do you know when to use house and when to use home? Learn the difference in context."
-    },
-    {
-      "id": "resource-011",
-      "title": "Reflection - home sweet home",
-      "type": "Community discussions",
-      "level": "B1 Intermediate",
-      "skill": "Writing",
-      "date": "4 May 2026",
-      "rating": 4.5,
-      "reviews": 60,
-      "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80",
-      "description": "Did you like this topic? What did you learn? Share your reflection with other learners."
-    },
-    {
-      "id": "resource-012",
-      "title": "Tea or coffee?",
-      "type": "Community discussions",
-      "level": "B1 Intermediate",
-      "skill": "Speaking",
-      "date": "29 Apr 2026",
-      "rating": 4,
-      "reviews": 61,
-      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80",
-      "description": "All around the world, millions of cups of tea and coffee are drunk every day."
-    }
-  ],
-  "attempts": [
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T14:51:04.818Z",
-      "status": "completed",
-      "id": "UbDEuPERnAI",
-      "completedAt": "2026-06-11T14:51:25.440Z",
-      "answers": {
-        "0": "To introduce a problem",
-        "1": "False"
-      }
-    },
-    {
-      "testId": 2,
-      "startTime": "2026-06-11T14:51:59.471Z",
-      "status": "completed",
-      "id": "Sv0z__uqOqw",
-      "completedAt": "2026-06-11T14:52:11.159Z",
-      "answers": {
-        "0": "hi"
-      }
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T14:52:26.745Z",
-      "status": "completed",
-      "id": "YNK0KgI0nYo",
-      "completedAt": "2026-06-11T14:53:12.478Z",
-      "answers": {
-        "0": "To compare two theories",
-        "1": "True"
-      }
-    },
-    {
-      "testId": 2,
-      "startTime": "2026-06-11T14:53:39.361Z",
-      "status": "in-progress",
-      "id": "JqlE6-tfXss"
-    },
-    {
-      "testId": 2,
-      "startTime": "2026-06-11T14:53:53.749Z",
-      "status": "completed",
-      "id": "jQsZs77_PwU",
-      "completedAt": "2026-06-11T15:11:20.043Z",
-      "answers": {}
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T15:11:33.495Z",
-      "status": "completed",
-      "id": "nRRQwWUEZpM",
-      "completedAt": "2026-06-11T15:12:16.265Z",
-      "answers": {
-        "0": "It led to the development of new energy sources",
-        "1": "False",
-        "2": "False",
-        "3": "Widely criticized",
-        "4": "huuu"
-      }
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T15:12:33.303Z",
-      "status": "completed",
-      "id": "Wwrz9uqvI0U",
-      "completedAt": "2026-06-11T15:12:56.715Z",
-      "answers": {
-        "0": "It dramatically increased production capacity",
-        "1": "Not Given",
-        "2": "True",
-        "3": "Previously unseen or unmatched",
-        "4": "no"
-      }
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T15:19:10.395Z",
-      "status": "completed",
-      "id": "OEPJbvXrPZo",
-      "completedAt": "2026-06-11T15:19:16.161Z",
-      "answers": {
-        "0": "It caused widespread unemployment among craftspeople",
-        "3": "Widely criticized"
-      }
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T15:20:43.661Z",
-      "status": "completed",
-      "id": "NtpSQGr5X3k",
-      "completedAt": "2026-06-11T15:23:44.290Z",
-      "answers": {}
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T15:31:20.125Z",
-      "status": "completed",
-      "id": "JkUza5D6vKg",
-      "completedAt": "2026-06-11T15:31:24.797Z",
-      "answers": {}
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T15:31:41.470Z",
-      "status": "completed",
-      "id": "kKnVjh75JF0",
-      "completedAt": "2026-06-11T15:31:44.940Z",
-      "answers": {}
-    },
-    {
-      "testId": 2,
-      "startTime": "2026-06-11T15:31:57.491Z",
-      "status": "completed",
-      "id": "oqDFQzpsMzo",
-      "completedAt": "2026-06-11T15:32:08.033Z",
-      "answers": {}
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T15:46:34.241Z",
-      "status": "in-progress",
-      "id": "XG80EW2cgDg"
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T15:56:16.344Z",
-      "status": "completed",
-      "id": "oLZghR813v8",
-      "completedAt": "2026-06-11T15:56:19.507Z",
-      "answers": {}
-    },
-    {
-      "testId": 3,
-      "startTime": "2026-06-11T15:56:39.097Z",
-      "status": "completed",
-      "id": "hOglT5jZ4mA",
-      "completedAt": "2026-06-11T15:56:56.493Z",
-      "answers": {}
-    },
-    {
-      "testId": 4,
-      "startTime": "2026-06-11T15:57:08.786Z",
-      "status": "completed",
-      "id": "XsAZXghsWRw",
-      "completedAt": "2026-06-11T15:57:23.189Z",
-      "answers": {
-        "0": "[Đã ghi âm – 1s]"
-      }
-    },
-    {
-      "testId": 4,
-      "startTime": "2026-06-11T16:00:58.231Z",
-      "status": "completed",
-      "id": "YBH7e51YKPk",
-      "completedAt": "2026-06-11T16:01:05.450Z",
-      "answers": {}
-    },
-    {
-      "testId": 3,
-      "startTime": "2026-06-11T16:01:22.859Z",
-      "status": "completed",
-      "id": "YX-yZBMKflc",
-      "completedAt": "2026-06-11T16:01:25.477Z",
-      "answers": {}
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T16:10:44.725Z",
-      "status": "completed",
-      "id": "VomKe2d9_Uw",
-      "completedAt": "2026-06-11T16:10:53.114Z",
-      "answers": {
-        "0": "It dramatically increased production capacity",
-        "1": "Not Given"
-      }
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T16:12:22.930Z",
-      "status": "completed",
-      "id": "ERTenTDFlwM",
-      "completedAt": "2026-06-11T16:12:26.740Z",
-      "answers": {}
-    },
-    {
-      "testId": 3,
-      "startTime": "2026-06-11T16:12:56.495Z",
-      "status": "completed",
-      "id": "IeQME3LYlQM",
-      "completedAt": "2026-06-11T16:13:24.100Z",
-      "answers": {
-        "0": "Hi from my point of view",
-        "1": "hillp"
-      }
-    },
-    {
-      "testId": 2,
-      "startTime": "2026-06-11T16:13:38.464Z",
-      "status": "completed",
-      "id": "-2JIOHByRp8",
-      "completedAt": "2026-06-11T16:14:22.923Z",
-      "answers": {}
-    },
-    {
-      "testId": 4,
-      "startTime": "2026-06-11T16:14:29.693Z",
-      "status": "completed",
-      "id": "V0FYHmyGS8k",
-      "completedAt": "2026-06-11T16:14:35.660Z",
-      "answers": {}
-    },
-    {
-      "testId": 4,
-      "startTime": "2026-06-11T16:14:45.144Z",
-      "status": "completed",
-      "id": "1oVhbQOW_wc",
-      "completedAt": "2026-06-11T16:14:56.802Z",
-      "answers": {
-        "0": "[Đã ghi âm – 6s]"
-      }
-    },
-    {
-      "testId": 2,
-      "startTime": "2026-06-11T16:16:47.250Z",
-      "status": "completed",
-      "id": "Z_rWLDkjqMI",
-      "completedAt": "2026-06-11T16:16:52.688Z",
-      "answers": {}
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T16:19:05.191Z",
-      "status": "completed",
-      "id": "ZaInMQcdX6w",
-      "completedAt": "2026-06-11T16:19:08.258Z",
-      "answers": {}
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T16:19:14.878Z",
-      "status": "completed",
-      "id": "vYIPBDFd6TM",
-      "completedAt": "2026-06-11T16:19:20.950Z",
-      "answers": {
-        "0": "It dramatically increased production capacity",
-        "1": "True"
-      }
-    },
-    {
-      "testId": 2,
-      "startTime": "2026-06-11T16:19:55.460Z",
-      "status": "completed",
-      "id": "lZi1b-dwXk8",
-      "completedAt": "2026-06-11T16:26:34.664Z",
-      "answers": {
-        "0": "Hi"
-      }
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T16:26:46.102Z",
-      "status": "completed",
-      "id": "gct6ceK3IWY",
-      "completedAt": "2026-06-11T16:26:59.800Z",
-      "answers": {
-        "0": "It dramatically increased production capacity"
-      }
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T16:27:09.433Z",
-      "status": "completed",
-      "id": "p4mkD5WWQfQ",
-      "completedAt": "2026-06-11T16:27:13.812Z",
-      "answers": {
-        "0": "It caused widespread unemployment among craftspeople"
-      }
-    },
-    {
-      "testId": 2,
-      "startTime": "2026-06-11T16:27:19.241Z",
-      "status": "completed",
-      "id": "jggm5D0dprA",
-      "completedAt": "2026-06-11T16:27:22.268Z",
-      "answers": {}
-    },
-    {
-      "testId": 3,
-      "startTime": "2026-06-11T16:27:27.210Z",
-      "status": "completed",
-      "id": "CRAIzF2LdAg",
-      "completedAt": "2026-06-11T16:27:32.682Z",
-      "answers": {}
-    },
-    {
-      "testId": 4,
-      "startTime": "2026-06-11T16:28:32.960Z",
-      "status": "completed",
-      "id": "WCMi9oI9RD0",
-      "completedAt": "2026-06-11T16:28:44.400Z",
-      "answers": {}
-    },
-    {
-      "testId": 4,
-      "startTime": "2026-06-11T16:28:51.431Z",
-      "status": "completed",
-      "id": "piZTc9m2njY",
-      "completedAt": "2026-06-11T16:28:59.328Z",
-      "answers": {}
-    },
-    {
-      "testId": 4,
-      "startTime": "2026-06-11T16:29:04.469Z",
-      "status": "completed",
-      "id": "6gJ7nuWCu3A",
-      "completedAt": "2026-06-11T16:29:11.466Z",
-      "answers": {
-        "0": "[Đã ghi âm – 4s]"
-      }
-    },
-    {
-      "testId": 4,
-      "startTime": "2026-06-11T16:29:28.978Z",
-      "status": "completed",
-      "id": "o82PTEIiw3U",
-      "completedAt": "2026-06-11T16:29:36.176Z",
-      "answers": {}
-    },
-    {
-      "testId": 3,
-      "startTime": "2026-06-11T16:29:46.980Z",
-      "status": "in-progress",
-      "id": "gsozDz42vuE"
-    },
-    {
-      "testId": 4,
-      "startTime": "2026-06-11T16:29:54.656Z",
-      "status": "completed",
-      "id": "rsGl5lYuND8",
-      "completedAt": "2026-06-11T16:29:58.105Z",
-      "answers": {}
-    },
-    {
-      "testId": 3,
-      "startTime": "2026-06-11T16:32:57.880Z",
-      "status": "completed",
-      "id": "MyBizgZoG_Q",
-      "completedAt": "2026-06-11T16:33:13.135Z",
-      "answers": {
-        "0": "hybubbu",
-        "1": "ugbubugbb"
-      }
-    },
-    {
-      "testId": 4,
-      "startTime": "2026-06-11T16:33:31.504Z",
-      "status": "completed",
-      "id": "ciZariH64MY",
-      "completedAt": "2026-06-11T16:33:38.615Z",
-      "answers": {
-        "0": "[Đã ghi âm – 0s]"
-      }
-    },
-    {
-      "testId": 2,
-      "startTime": "2026-06-11T16:35:54.177Z",
-      "status": "completed",
-      "id": "ASs118sv3Qw",
-      "completedAt": "2026-06-11T16:35:58.563Z",
-      "answers": {}
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-12T09:07:58.275Z",
-      "status": "in-progress",
-      "id": "od_skgT0wkQ"
-    }
-  ],
-  "_attempts_backup": [
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T14:35:42.484Z",
-      "status": "completed",
-      "id": "J_5qNFaz1HM",
-      "completedAt": "2026-06-11T14:35:42.534Z",
-      "answers": {}
-    },
-    {
-      "testId": 2,
-      "startTime": "2026-06-11T14:35:53.536Z",
-      "status": "completed",
-      "id": "eGBHJGF6qbw",
-      "completedAt": "2026-06-11T14:35:58.967Z",
-      "answers": {}
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T14:43:14.705Z",
-      "status": "completed",
-      "id": "JhO7RTnl65I",
-      "completedAt": "2026-06-11T14:43:48.481Z",
-      "answers": {}
-    },
-    {
-      "testId": 2,
-      "startTime": "2026-06-11T14:43:57.095Z",
-      "status": "completed",
-      "id": "Nj-L7xJs_s4",
-      "completedAt": "2026-06-11T14:43:57.121Z",
-      "answers": {}
-    },
-    {
-      "testId": 2,
-      "startTime": "2026-06-11T14:44:00.657Z",
-      "status": "completed",
-      "id": "EK05QlfhypI",
-      "completedAt": "2026-06-11T14:44:17.070Z",
-      "answers": {}
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T14:44:21.003Z",
-      "status": "completed",
-      "id": "J0aSM3WlVco",
-      "completedAt": "2026-06-11T14:44:21.036Z",
-      "answers": {}
-    },
-    {
-      "testId": 1,
-      "startTime": "2026-06-11T14:44:25.533Z",
-      "status": "completed",
-      "id": "-VQghscSkys",
-      "completedAt": "2026-06-11T14:44:34.710Z",
-      "answers": {}
     }
   ],
   "lessons": [
     {
       "id": "lesson-001",
       "courseId": "course-001",
-      "title": "Introduction to Skimming and Scanning",
+      "title": "Reading Lesson 1: Skimming for Main Ideas",
       "order": 1,
       "durationMinutes": 45,
-      "contentUrl": "https://example.com/skimming",
-      "teacherId": "u-teacher-001",
-      "audioUrl": ""
+      "contentUrl": "/lessons/reading-skimming",
+      "status": "published",
+      "createdAt": "2026-06-01T09:00:00Z"
     },
     {
       "id": "lesson-002",
       "courseId": "course-001",
-      "title": "Mastering True/False/Not Given",
+      "title": "Reading Lesson 2: Scanning for Details",
       "order": 2,
-      "durationMinutes": 50,
-      "contentUrl": "https://example.com/matching-headings",
-      "teacherId": "u-teacher-001",
-      "audioUrl": ""
+      "durationMinutes": 40,
+      "contentUrl": "/lessons/reading-scanning",
+      "status": "published",
+      "createdAt": "2026-06-02T09:00:00Z"
     },
     {
       "id": "lesson-003",
-      "courseId": "course-003",
-      "title": "Understanding the Band Descriptors",
+      "courseId": "course-002",
+      "title": "Listening Lesson 1: Note Taking Strategy",
       "order": 1,
-      "durationMinutes": 40,
-      "content": "To score a Band 7.0 or higher in Writing Task 2, you must understand exactly how examiners mark your essay. The official public band descriptors evaluate four criteria, each worth 25% of your score.\n\n## 1. Task Response (TR)\n- Did you answer all parts of the prompt?\n- Is your position clear throughout the essay?\n- Are your main ideas extended and supported with relevant examples?\n*Band 7 requirement: Addresses all parts of the task, presents a clear position, and extends main ideas.*\n\n## 2. Coherence and Cohesion (CC)\n- Is the essay logically organized into paragraphs?\n- Is there a clear progression of ideas?\n- Do you use linking words appropriately (without overusing them)?\n*Band 7 requirement: Logically organizes information, clear progression throughout, uses a range of cohesive devices appropriately.*\n\n## 3. Lexical Resource (LR)\n- Do you use a wide range of vocabulary?\n- Do you use less common or idiomatic vocabulary accurately?\n- Are your collocations natural?\n*Band 7 requirement: Uses a sufficient range of vocabulary to allow some flexibility and precision, uses less common lexical items.*\n\n## 4. Grammatical Range and Accuracy (GRA)\n- Do you use a variety of complex sentence structures?\n- Are most of your sentences error-free?\n*Band 7 requirement: Uses a variety of complex structures, produces frequent error-free sentences.*\n\n### Action Plan:\nStop writing blindly. Before your next practice essay, read the prompt and spend 5 minutes planning your paragraphs to ensure a perfect Task Response."
+      "durationMinutes": 50,
+      "contentUrl": "/lessons/listening-note-taking",
+      "status": "published",
+      "createdAt": "2026-06-03T09:00:00Z"
     },
     {
       "id": "lesson-004",
       "courseId": "course-003",
-      "title": "The Opinion Essay (Agree/Disagree)",
-      "order": 2,
+      "title": "Writing Task 2: Introduction Paragraphs",
+      "order": 1,
       "durationMinutes": 60,
-      "contentUrl": "https://example.com/opinion-essay",
-      "teacherId": "u-teacher-001",
-      "audioUrl": ""
+      "contentUrl": "/lessons/writing-intro",
+      "status": "draft",
+      "createdAt": "2026-06-10T09:00:00Z"
     }
   ] } ],
   "tests": [
     {
-      "id": "1",
+      "id": "test-001",
       "courseId": "course-001",
       "title": "Reading Foundation Mock Test",
       "skill": "Reading",
       "durationMinutes": 60,
       "totalQuestions": 40,
       "bandScale": "IELTS 0-9",
-      "teacherId": "u-teacher-001"
+      "status": "published",
+      "createdAt": "2026-06-01T10:00:00Z"
     },
     {
-      "id": "2",
+      "id": "test-002",
       "courseId": "course-002",
-      "title": "Listening Section Practice Test",
+      "title": "Listening Skills Practice Test",
       "skill": "Listening",
-      "level": "Intermediate",
-      "durationMinutes": 30,
-      "totalQuestions": 40,
+      "durationMinutes": 40,
+      "totalQuestions": 30,
       "bandScale": "IELTS 0-9",
-      "teacherId": "u-teacher-001"
+      "status": "published",
+      "createdAt": "2026-06-03T10:00:00Z"
+    },
+    {
+      "id": "test-003",
+      "courseId": "course-003",
+      "title": "Writing Task 2 Practice Assessment",
+      "skill": "Writing",
+      "durationMinutes": 40,
+      "totalQuestions": 1,
+      "bandScale": "IELTS 0-9",
+      "status": "draft",
+      "createdAt": "2026-06-10T10:00:00Z"
     }
   ],
   "questions": [
     {
-      "id": "question-001",
-      "testId": "test-001",
+      "id": "1",
+      "testId": 1,
       "type": "multiple-choice",
       "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
       "prompt": "According to the passage, what was the PRIMARY effect of introducing machinery during the Industrial Revolution?",
@@ -903,98 +328,19 @@
         "To describe a process",
         "To reject an argument"
       ],
-      "options": [
-        "To introduce a problem",
-        "To compare two theories",
-        "To describe a process",
-        "To reject an argument"
-      ],
       "answer": "To introduce a problem",
       "score": 1
-    },
-    {
-      "id": "question-002",
-      "testId": "test-001",
-      "type": "true-false-not-given",
-      "questionText": "The writer believes online learning is only useful for advanced students.",
-      "options": [
-        "True",
-        "False",
-        "Not Given"
-      ],
-      "answer": "False",
-      "score": 1
-    },
-    {
-      "testId": "test-001",
-      "type": "multiple-choice",
-      "questionText": "con vịt nào đi trước",
-      "options": [
-        "a",
-        "b",
-        "c",
-        "d"
-      ],
-      "answer": "b",
-      "explanation": "",
-      "score": 5,
-      "id": "-Q0BSSAKr1U"
     }
   ],
   "questionAnswers": [],
   "enrollments": [
     {
-      "id": "enroll-001",
-      "userId": "u-student-001",
-      "courseId": "course-001",
+      "id": "1",
+      "userId": 1,
+      "courseId": 1,
       "status": "active",
       "progress": 35,
       "enrolledAt": "2026-06-01"
-    },
-    {
-      "id": "enroll-002",
-      "userId": "u-student-001",
-      "courseId": "course-002",
-      "progress": 100,
-      "enrolledAt": "2026-06-11T16:27:56.816Z",
-      "id": "j1bcgMcbDDs",
-      "status": "completed"
-    },
-    {
-      "userId": "u-001",
-      "courseId": "course-003",
-      "progress": 100,
-      "enrolledAt": "2026-06-11T16:29:29.766Z",
-      "id": "6fwrWaq-w4o",
-      "status": "completed"
-    },
-    {
-      "userId": "u-001",
-      "courseId": "course-004",
-      "progress": 0,
-      "enrolledAt": "2026-06-11T17:10:31.807Z",
-      "id": "KWhm_cPENnk"
-    },
-    {
-      "userId": "u-001",
-      "courseId": "course-006",
-      "progress": 0,
-      "enrolledAt": "2026-06-12T00:49:18.565Z",
-      "id": "M7QjQGV3OPc"
-    },
-    {
-      "userId": "u-001",
-      "courseId": "course-005",
-      "progress": 0,
-      "enrolledAt": "2026-06-12T01:01:58.539Z",
-      "id": "mG4aT2Sz4nk"
-    },
-    {
-      "userId": "u-student-001",
-      "courseId": "course-003",
-      "progress": 0,
-      "enrolledAt": "2026-06-14T17:42:13.246Z",
-      "id": "8Jwu8KXfydU"
     }
   ],
   "payments": [
@@ -1002,301 +348,219 @@
       "id": "payment-001",
       "userId": "u-student-001",
       "courseId": "course-002",
-      "amount": 790000,
+      "amount": 299000,
       "currency": "VND",
       "method": "bank-transfer",
       "status": "paid",
-      "paidAt": "2026-06-02"
-    },
-    {
-      "id": "payment-002",
-      "userId": "u-student-001",
-      "courseId": "course-003",
-      "amount": 590000,
-      "currency": "VND",
-      "method": "momo",
-      "status": "pending",
-      "paidAt": null
-    },
-    {
-      "userId": "u-student-001",
-      "courseId": "course-003",
-      "amount": 299000,
-      "currency": "VND",
-      "method": "vietqr",
-      "transferContent": "IELTS course-003 -001",
-      "status": "paid",
-      "paidAt": "2026-06-14T17:42:13.226Z",
-      "id": "iFYjL4N87qE"
-    },
-    {
-      "userId": "u-student-001",
-      "courseId": "course-005",
-      "amount": 199000,
-      "currency": "VND",
-      "method": "vietqr",
-      "transferContent": "IELTS course-005 -001",
-      "status": "pending",
-      "createdAt": "2026-06-14T17:57:34.586Z",
-      "paidAt": null,
-      "reviewedAt": null,
-      "reviewedBy": null,
-      "rejectReason": null,
-      "id": "gj8T8KYVuNQ"
+      "paidAt": "2026-06-01T10:00:00Z"
     }
   ],
-  "flashcards": [
+  "transactions": [
     {
-      "id": "fc-001",
-      "courseId": "course-001",
-      "term": "Skim",
-      "phonetic": "/skɪm/",
-      "partOfSpeech": "verb",
-      "meaning": "Đọc lướt để nắm ý chính của đoạn văn một cách nhanh chóng.",
-      "example": "Skim the passage first to understand its general topic before reading in detail.",
-      "topic": "Reading Skills"
-    },
-    {
-      "id": "fc-002",
-      "courseId": "course-001",
-      "term": "Scan",
-      "phonetic": "/skæn/",
-      "partOfSpeech": "verb",
-      "meaning": "Đọc quét để tìm thông tin cụ thể như số liệu, tên riêng, ngày tháng.",
-      "example": "Scan the text to locate keywords such as names and dates.",
-      "topic": "Reading Skills"
-    },
-    {
-      "id": "fc-003",
-      "courseId": "course-001",
-      "term": "Paraphrase",
-      "phonetic": "/ˈpærəfreɪz/",
-      "partOfSpeech": "verb",
-      "meaning": "Diễn đạt lại nội dung bằng từ ngữ khác mà vẫn giữ nguyên nghĩa.",
-      "example": "Questions often paraphrase the words used in the reading passage.",
-      "topic": "Reading Skills"
-    },
-    {
-      "id": "fc-004",
-      "courseId": "course-001",
-      "term": "Infer",
-      "phonetic": "/ɪnˈfɜːr/",
-      "partOfSpeech": "verb",
-      "meaning": "Suy luận ý nghĩa không được nói trực tiếp dựa trên thông tin có sẵn.",
-      "example": "You must infer the writer's opinion from the tone of the passage.",
-      "topic": "Reading Skills"
-    },
-    {
-      "id": "fc-005",
-      "courseId": "course-001",
-      "term": "Heading",
-      "phonetic": "/ˈhedɪŋ/",
-      "partOfSpeech": "noun",
-      "meaning": "Tiêu đề tóm tắt nội dung chính của một đoạn văn.",
-      "example": "Match each heading to the correct paragraph.",
-      "topic": "Reading Skills"
-    },
-    {
-      "id": "fc-006",
+      "id": "txn-001",
+      "userId": "u-student-001",
+      "userName": "Nguyen Tien Dat",
       "courseId": "course-002",
-      "term": "Distractor",
-      "phonetic": "/dɪˈstræktər/",
-      "partOfSpeech": "noun",
-      "meaning": "Thông tin gây nhiễu nhằm đánh lừa thí sinh chọn đáp án sai.",
-      "example": "Be careful of distractors that mention a wrong number first.",
-      "topic": "Listening Skills"
+      "courseTitle": "IELTS Listening Advanced",
+      "amount": 299000,
+      "currency": "VND",
+      "method": "bank-transfer",
+      "status": "completed",
+      "createdAt": "2026-06-01T10:00:00Z"
     },
     {
-      "id": "fc-007",
+      "id": "txn-002",
+      "userId": "u-student-002",
+      "userName": "Tran Minh Anh",
       "courseId": "course-002",
-      "term": "Anticipate",
-      "phonetic": "/ænˈtɪsɪpeɪt/",
-      "partOfSpeech": "verb",
-      "meaning": "Dự đoán trước câu trả lời có thể nghe được dựa vào câu hỏi.",
-      "example": "Read the questions to anticipate the kind of answer you need.",
-      "topic": "Listening Skills"
+      "courseTitle": "IELTS Listening Advanced",
+      "amount": 299000,
+      "currency": "VND",
+      "method": "momo",
+      "status": "completed",
+      "createdAt": "2026-06-03T14:00:00Z"
     },
     {
-      "id": "fc-008",
-      "courseId": "course-002",
-      "term": "Accent",
-      "phonetic": "/ˈæksent/",
-      "partOfSpeech": "noun",
-      "meaning": "Giọng địa phương đặc trưng trong cách phát âm tiếng Anh.",
-      "example": "IELTS Listening includes British, Australian and American accents.",
-      "topic": "Listening Skills"
-    },
-    {
-      "id": "fc-009",
-      "courseId": "course-002",
-      "term": "Form completion",
-      "phonetic": "/fɔːrm kəmˈpliːʃn/",
-      "partOfSpeech": "noun phrase",
-      "meaning": "Dạng bài điền thông tin vào biểu mẫu trong phần nghe.",
-      "example": "Section 1 is usually a form completion about personal details.",
-      "topic": "Listening Skills"
-    },
-    {
-      "id": "fc-010",
-      "courseId": "course-003",
-      "term": "Cohesion",
-      "phonetic": "/kəʊˈhiːʒn/",
-      "partOfSpeech": "noun",
-      "meaning": "Sự liên kết mạch lạc giữa các câu và đoạn trong bài viết.",
-      "example": "Linking words improve the cohesion of your essay.",
-      "topic": "Writing Task 2"
-    },
-    {
-      "id": "fc-011",
-      "courseId": "course-003",
-      "term": "Counter-argument",
-      "phonetic": "/ˈkaʊntərˌɑːrɡjumənt/",
-      "partOfSpeech": "noun",
-      "meaning": "Lập luận phản biện trình bày quan điểm trái ngược.",
-      "example": "A strong essay addresses the counter-argument before refuting it.",
-      "topic": "Writing Task 2"
-    },
-    {
-      "id": "fc-012",
-      "courseId": "course-003",
-      "term": "Lexical resource",
-      "phonetic": "/ˈleksɪkl ˈriːsɔːrs/",
-      "partOfSpeech": "noun phrase",
-      "meaning": "Vốn từ vựng và khả năng sử dụng từ chính xác, đa dạng.",
-      "example": "Lexical resource is one of the four IELTS Writing criteria.",
-      "topic": "Writing Task 2"
-    },
-    {
-      "id": "fc-013",
+      "id": "txn-003",
+      "userId": "u-student-001",
+      "userName": "Nguyen Tien Dat",
       "courseId": "course-004",
-      "term": "Fluency",
-      "phonetic": "/ˈfluːənsi/",
-      "partOfSpeech": "noun",
-      "meaning": "Khả năng nói trôi chảy, liền mạch mà không ngập ngừng nhiều.",
-      "example": "Speaking without long pauses shows good fluency.",
-      "topic": "Speaking Skills"
+      "courseTitle": "IELTS Speaking Confidence",
+      "amount": 199000,
+      "currency": "VND",
+      "method": "vnpay",
+      "status": "pending",
+      "createdAt": "2026-06-08T09:30:00Z"
     },
     {
-      "id": "fc-014",
-      "courseId": "course-004",
-      "term": "Intonation",
-      "phonetic": "/ˌɪntəˈneɪʃn/",
-      "partOfSpeech": "noun",
-      "meaning": "Ngữ điệu lên xuống của giọng nói khi giao tiếp.",
-      "example": "Natural intonation makes your speech sound more engaging.",
-      "topic": "Speaking Skills"
+      "id": "txn-004",
+      "userId": "u-student-002",
+      "userName": "Tran Minh Anh",
+      "courseId": "course-003",
+      "courseTitle": "IELTS Writing Task 2 Masterclass",
+      "amount": 499000,
+      "currency": "VND",
+      "method": "bank-transfer",
+      "status": "failed",
+      "createdAt": "2026-06-10T16:00:00Z"
     },
     {
-      "id": "fc-015",
-      "courseId": "course-004",
-      "term": "Collocation",
-      "phonetic": "/ˌkɒləˈkeɪʃn/",
-      "partOfSpeech": "noun",
-      "meaning": "Cụm từ thường đi cùng nhau một cách tự nhiên trong tiếng Anh.",
-      "example": "Using collocations like 'make a decision' sounds natural.",
-      "topic": "Speaking Skills"
-    },
-    {
-      "id": "fc-016",
-      "courseId": "course-005",
-      "term": "Trend",
-      "phonetic": "/trend/",
-      "partOfSpeech": "noun",
-      "meaning": "Xu hướng thay đổi của số liệu theo thời gian.",
-      "example": "Describe the overall trend before giving specific figures.",
-      "topic": "Writing Task 1"
-    },
-    {
-      "id": "fc-017",
-      "courseId": "course-005",
-      "term": "Fluctuate",
-      "phonetic": "/ˈflʌktʃueɪt/",
-      "partOfSpeech": "verb",
-      "meaning": "Dao động lên xuống thất thường (dùng mô tả biểu đồ).",
-      "example": "Sales fluctuated between 2010 and 2015.",
-      "topic": "Writing Task 1"
-    },
-    {
-      "id": "fc-018",
-      "courseId": "course-005",
-      "term": "Peak",
-      "phonetic": "/piːk/",
-      "partOfSpeech": "noun / verb",
-      "meaning": "Đỉnh điểm, mức cao nhất của số liệu.",
-      "example": "The number of visitors peaked in July.",
-      "topic": "Writing Task 1"
-    },
-    {
-      "id": "fc-019",
-      "courseId": "course-006",
-      "term": "Deconstruct",
-      "phonetic": "/ˌdiːkənˈstrʌkt/",
-      "partOfSpeech": "verb",
-      "meaning": "Phân tích, tách nhỏ câu phức để hiểu nghĩa.",
-      "example": "Deconstruct complex sentences to find the main subject and verb.",
-      "topic": "Advanced Reading"
-    },
-    {
-      "id": "fc-020",
-      "courseId": "course-006",
-      "term": "Claim",
-      "phonetic": "/kleɪm/",
-      "partOfSpeech": "noun / verb",
-      "meaning": "Nhận định, tuyên bố của tác giả cần được nhận diện.",
-      "example": "Identify the writer's claims to answer Yes/No/Not Given questions.",
-      "topic": "Advanced Reading"
+      "id": "txn-005",
+      "userId": "u-student-001",
+      "userName": "Nguyen Tien Dat",
+      "courseId": "course-003",
+      "courseTitle": "IELTS Writing Task 2 Masterclass",
+      "amount": 499000,
+      "currency": "VND",
+      "method": "momo",
+      "status": "completed",
+      "createdAt": "2026-06-11T08:00:00Z"
     }
   ],
   "auditLogs": [
     {
-      "action": "REVERT_COURSE_STATUS",
-      "userId": "u-teacher-001",
-      "details": {
-        "courseId": "course-001",
-        "reason": "New question added to approved course"
+      "id": "log-001",
+      "actorId": "u-admin-001",
+      "action": "CHANGE_USER_STATUS",
+      "targetType": "user",
+      "targetId": "u-student-002",
+      "oldValue": {
+        "status": "active"
       },
-      "timestamp": "2026-06-11T13:47:05.797Z",
-      "id": "M3eMi2kz2sw"
+      "newValue": {
+        "status": "locked"
+      },
+      "createdAt": "2026-06-09T08:00:00Z"
     },
     {
-      "action": "CREATE_QUESTION",
-      "userId": "u-teacher-001",
-      "details": {
-        "questionId": "-Q0BSSAKr1U",
-        "testId": "test-001"
+      "id": "log-002",
+      "actorId": "u-admin-001",
+      "action": "CHANGE_USER_ROLE",
+      "targetType": "user",
+      "targetId": "u-student-001",
+      "oldValue": {
+        "role": "student"
       },
-      "timestamp": "2026-06-11T13:47:05.809Z",
-      "id": "vKMEkT0LsoA"
+      "newValue": {
+        "role": "teacher"
+      },
+      "createdAt": "2026-06-09T09:00:00Z"
+    },
+    {
+      "id": "log-003",
+      "actorId": "u-admin-001",
+      "action": "APPROVE_CONTENT",
+      "targetType": "course",
+      "targetId": "course-001",
+      "createdAt": "2026-06-09T10:00:00Z"
+    },
+    {
+      "id": "log-004",
+      "actorId": "u-admin-002",
+      "action": "REJECT_CONTENT",
+      "targetType": "lesson",
+      "targetId": "lesson-002",
+      "createdAt": "2026-06-10T11:00:00Z"
+    },
+    {
+      "id": "log-005",
+      "actorId": "u-admin-001",
+      "action": "DELETE_USER",
+      "targetType": "user",
+      "targetId": "u-student-003",
+      "createdAt": "2026-06-10T12:00:00Z"
+    },
+    {
+      "id": "log-006",
+      "actorId": "u-admin-002",
+      "action": "APPROVE_CONTENT",
+      "targetType": "test",
+      "targetId": "test-001",
+      "createdAt": "2026-06-10T13:00:00Z"
+    },
+    {
+      "id": "log-007",
+      "actorId": "u-admin-001",
+      "action": "CHANGE_USER_STATUS",
+      "targetType": "user",
+      "targetId": "u-student-002",
+      "oldValue": {
+        "status": "locked"
+      },
+      "newValue": {
+        "status": "active"
+      },
+      "createdAt": "2026-06-10T14:00:00Z"
+    },
+    {
+      "id": "log-008",
+      "actorId": "u-admin-001",
+      "action": "APPROVE_CONTENT",
+      "targetType": "course",
+      "targetId": "course-002",
+      "createdAt": "2026-06-10T15:00:00Z"
+    },
+    {
+      "id": "log-009",
+      "actorId": "u-admin-002",
+      "action": "REJECT_CONTENT",
+      "targetType": "course",
+      "targetId": "course-003",
+      "createdAt": "2026-06-10T16:00:00Z"
+    },
+    {
+      "id": "log-010",
+      "actorId": "u-admin-001",
+      "action": "CHANGE_USER_STATUS",
+      "targetType": "user",
+      "targetId": "u-student-004",
+      "oldValue": {
+        "status": "active"
+      },
+      "newValue": {
+        "status": "banned"
+      },
+      "createdAt": "2026-06-10T17:00:00Z"
+    },
+    {
+      "id": "log-011",
+      "actorId": "u-admin-001",
+      "action": "APPROVE_CONTENT",
+      "targetType": "lesson",
+      "targetId": "lesson-003",
+      "createdAt": "2026-06-11T09:00:00Z"
+    },
+    {
+      "id": "log-012",
+      "actorId": "u-admin-002",
+      "action": "CHANGE_USER_ROLE",
+      "targetType": "user",
+      "targetId": "u-student-002",
+      "oldValue": {
+        "role": "student"
+      },
+      "newValue": {
+        "role": "teacher"
+      },
+      "createdAt": "2026-06-11T10:00:00Z"
     }
   ],
-  "approvalRequests": [],
-  "testAttempts": [
+  "approvalRequests": [
     {
-      "id": "attempt-001",
-      "userId": "u-student-001",
-      "testId": "test-001",
-      "score": 36,
-      "totalQuestions": 40,
-      "bandScore": 8,
-      "createdAt": "2026-06-08T14:30:00Z"
-    },
-    {
-      "id": "attempt-002",
-      "userId": "u-student-002",
-      "testId": "test-001",
-      "score": 28,
-      "totalQuestions": 40,
-      "bandScore": 6.5,
-      "createdAt": "2026-06-09T09:15:00Z"
-    },
-    {
-      "id": "attempt-003",
-      "userId": "u-student-001",
-      "testId": "test-002",
-      "score": 32,
-      "totalQuestions": 40,
-      "bandScore": 7,
+      "id": "req-001",
+      "targetType": "course",
+      "targetId": "course-002",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
       "createdAt": "2026-06-10T10:00:00Z"
+    },
+    {
+      "id": "req-002",
+      "targetType": "lesson",
+      "targetId": "lesson-004",
+      "teacherId": "u-teacher-001",
+      "status": "pending",
+      "createdAt": "2026-06-11T08:30:00Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
