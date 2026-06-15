@@ -56,6 +56,10 @@ describe('UserManagement Page', () => {
     fireEvent.click(filterBtn);
     
     expect(getUsers).toHaveBeenCalledWith(expect.objectContaining({ q: 'Student' }));
+
+    await waitFor(() => {
+      expect(screen.getByText('Student 1')).toBeInTheDocument();
+    });
   });
 
   it('should disable manage button for current admin (Error Case / Unwanted Pattern)', async () => {
@@ -89,6 +93,11 @@ describe('UserManagement Page', () => {
     await waitFor(() => {
       expect(updateUserRole).toHaveBeenCalledWith('u-student-001', 'teacher');
     });
+
+    // Wait for the re-fetch to complete
+    await waitFor(() => {
+      expect(getUsers).toHaveBeenCalledTimes(2);
+    });
   });
 
   it('should open confirm modal and call update status (Happy Path ADM-USER-04)', async () => {
@@ -110,6 +119,11 @@ describe('UserManagement Page', () => {
     await waitFor(() => {
       expect(updateUserStatus).toHaveBeenCalledWith('u-student-001', 'locked', expect.any(String));
     });
+
+    // Wait for the re-fetch to complete
+    await waitFor(() => {
+      expect(getUsers).toHaveBeenCalledTimes(2);
+    });
   });
 
   it('should call delete API (Happy Path ADM-USER-05)', async () => {
@@ -130,6 +144,11 @@ describe('UserManagement Page', () => {
     
     await waitFor(() => {
       expect(deleteUser).toHaveBeenCalledWith('u-student-001');
+    });
+
+    // Wait for the re-fetch to complete
+    await waitFor(() => {
+      expect(getUsers).toHaveBeenCalledTimes(2);
     });
   });
 });

@@ -16,9 +16,13 @@ import MyCourses from '../pages/student/MyCourses';
 import Lesson from '../pages/student/Lesson';
 import StudentProfile from '../pages/student/Profile';
 import TeacherDashboard from '../pages/teacher/TeacherDashboard';
-import CourseManagement from '../pages/teacher/CourseManagement';
+import TeacherCourseManagement from '../pages/teacher/CourseManagement';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import UserManagement from '../pages/admin/UserManagement';
+import AdminCourseManagement from '../pages/admin/CourseManagement';
+import LessonManagement from '../pages/admin/LessonManagement';
+import TestManagement from '../pages/admin/TestManagement';
+import TransactionList from '../pages/admin/TransactionList';
 
 // ===== LAYOUTS =====
 import MainLayout from '../layouts/MainLayout';
@@ -53,15 +57,19 @@ export default function AppRoutes() {
       <Route element={<ProtectedRoute allowedRoles={['teacher']} />}>
         <Route element={<TeacherLayout />}>
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
-          <Route path="/teacher/courses" element={<CourseManagement />} />
+          <Route path="/teacher/courses" element={<TeacherCourseManagement />} />
         </Route>
       </Route>
 
-      {/* ===== ADMIN ROUTES (placeholder - phát triển sau) ===== */}
+      {/* ===== ADMIN ROUTES ===== */}
       <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
         <Route element={<AdminLayout />}>
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/users" element={<UserManagement />} />
+          <Route path="/admin/courses" element={<AdminCourseManagement />} />
+          <Route path="/admin/lessons" element={<LessonManagement />} />
+          <Route path="/admin/tests" element={<TestManagement />} />
+          <Route path="/admin/transactions" element={<TransactionList />} />
         </Route>
       </Route>
     </Routes>

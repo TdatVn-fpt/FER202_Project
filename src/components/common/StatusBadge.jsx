@@ -12,7 +12,7 @@ const StatusBadge = ({ status, className = '' }) => {
     if (!statusStr) {
       return { color: 'bg-secondary', label: 'unknown' };
     }
-    
+
     switch (statusStr.toLowerCase()) {
       case 'active':
       case 'approved':

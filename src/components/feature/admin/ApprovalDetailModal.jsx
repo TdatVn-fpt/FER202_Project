@@ -33,10 +33,10 @@ const ApprovalDetailModal = ({ request, isOpen, onClose, onActionSuccess }) => {
       // Get admin ID from local storage
       const authUserStr = localStorage.getItem('ielts_auth_user');
       const authUser = authUserStr ? JSON.parse(authUserStr) : {};
-      const adminId = authUser.id || 'u-admin-001'; 
-      
+      const adminId = authUser.id || 'u-admin-001';
+
       await approveRequest(request.id, request.targetType, request.targetId, adminId);
-      
+
       onActionSuccess('approve');
     } catch (err) {
       // EARS[Unwanted]: WHERE an invalid approval action is attempted or API fails, THE system SHALL report an error.
@@ -64,9 +64,9 @@ const ApprovalDetailModal = ({ request, isOpen, onClose, onActionSuccess }) => {
       const authUserStr = localStorage.getItem('ielts_auth_user');
       const authUser = authUserStr ? JSON.parse(authUserStr) : {};
       const adminId = authUser.id || 'u-admin-001';
-      
+
       await rejectRequest(request.id, request.targetType, request.targetId, adminId, adminNote);
-      
+
       onActionSuccess('reject');
     } catch (err) {
       setError(err.response?.data?.message || err.message || 'Failed to reject request.');
@@ -86,10 +86,10 @@ const ApprovalDetailModal = ({ request, isOpen, onClose, onActionSuccess }) => {
       <Modal.Header closeButton={!loading}>
         <Modal.Title className="text-primary">Review Content Request</Modal.Title>
       </Modal.Header>
-      
+
       <Modal.Body>
         {error && <Alert variant="danger">{error}</Alert>}
-        
+
         <div className="mb-4">
           <h5 className="mb-3">Request Information</h5>
           <table className="table table-bordered">
@@ -131,9 +131,9 @@ const ApprovalDetailModal = ({ request, isOpen, onClose, onActionSuccess }) => {
           <div className="mb-3 animate__animated animate__fadeIn">
             <Form.Group>
               <Form.Label className="fw-bold text-danger">Reason for Rejection <span className="text-danger">*</span></Form.Label>
-              <Form.Control 
-                as="textarea" 
-                rows={3} 
+              <Form.Control
+                as="textarea"
+                rows={3}
                 value={adminNote}
                 onChange={(e) => setAdminNote(e.target.value)}
                 placeholder="Explain why this content is rejected..."
@@ -144,12 +144,12 @@ const ApprovalDetailModal = ({ request, isOpen, onClose, onActionSuccess }) => {
           </div>
         )}
       </Modal.Body>
-      
+
       <Modal.Footer>
         <Button variant="secondary" className="rounded-pill px-4" onClick={handleClose} disabled={loading}>
           Cancel
         </Button>
-        
+
         {!rejectMode ? (
           <>
             <Button variant="danger" className="rounded-pill px-4" onClick={handleReject} disabled={loading}>

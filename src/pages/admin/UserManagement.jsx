@@ -32,10 +32,23 @@ const UserManagement = () => {
       setLoading(true);
       setError(null);
       // EARS[Event]: WHEN Admin fetches the user list, THE system SHALL support filtering
-      const response = await getUsers({ ...filters, _page: page, _limit: 10 });
-      const data = response?.data || response;
-      setUsers(Array.isArray(data) ? data : []);
-      setTotalUsers(response?.headers?.['x-total-count'] || data?.length || 0);
+      const params = { _page: page, _per_page: 10 };
+      if (filters.q) params.q = filters.q;
+      if (filters.role) params.role = filters.role;
+      if (filters.status) params.status = filters.status;
+      
+      const response = await getUsers(params);
+      const resData = response?.data || response;
+      
+      // json-server v1+ returns { items: N, data: [...] } when using pagination
+      if (resData && typeof resData === 'object' && !Array.isArray(resData) && resData.data) {
+        setUsers(Array.isArray(resData.data) ? resData.data : []);
+        setTotalUsers(resData.items !== undefined ? resData.items : (resData.data.length || 0));
+      } else {
+        // fallback for older json-server
+        setUsers(Array.isArray(resData) ? resData : []);
+        setTotalUsers(response?.headers?.['x-total-count'] || resData?.length || 0);
+      }
     } catch (err) {
       setError('Failed to fetch users. Please try again later.');
     } finally {

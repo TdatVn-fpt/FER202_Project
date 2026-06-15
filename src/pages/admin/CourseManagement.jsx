@@ -1,0 +1,269 @@
+/**
+ * CourseManagement.jsx — Admin: Quản lý toàn bộ Courses
+ * Route: /admin/courses
+ *
+ * Traceability Matrix:
+ * - ADM-CONTENT: Admin quản lý toàn bộ courses
+ * - PLAN §2.2: Component dùng Bootstrap 5, PascalCase
+ * - SPEC §6: Courses collection với status: pending/approved/rejected
+ */
+
+import React, { useState, useEffect, useCallback } from 'react';
+import { Table, Form, Button, Badge, Spinner, Alert, Dropdown } from 'react-bootstrap';
+import ConfirmModal from '../../components/common/ConfirmModal';
+import { getCourses, updateCourse, deleteCourse } from '../../services/adminService';
+
+// EARS[Ubiquitous]: THE system SHALL display course management page at /admin/courses
+const CourseManagement = () => {
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [filters, setFilters] = useState({ skill: '', status: '', q: '' });
+
+  const [confirmModal, setConfirmModal] = useState({
+    isOpen: false,
+    title: '',
+    message: '',
+    variant: 'danger',
+    actionData: null,
+    actionType: '',
+  });
+
+  // EARS[Event]: WHEN Admin loads CourseManagement, THE system SHALL fetch all courses
+  const fetchCourses = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const params = {};
+      if (filters.skill) params.skill = filters.skill;
+      if (filters.status) params.status = filters.status;
+      if (filters.q) params.q = filters.q;
+      const data = await getCourses(params);
+      setCourses(Array.isArray(data) ? data : []);
+    } catch (err) {
+      setError('Không thể tải danh sách khóa học. Vui lòng thử lại.');
+    } finally {
+      setLoading(false);
+    }
+  }, [filters]);
+
+  useEffect(() => {
+    fetchCourses();
+  }, [fetchCourses]);
+
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters(prev => ({ ...prev, [name]: value }));
+  };
+
+  const openConfirmModal = (actionType, course, newValue = null) => {
+    let title = '';
+    let message = '';
+    let variant = 'danger';
+
+    if (actionType === 'status') {
+      title = 'Thay đổi trạng thái khóa học';
+      message = `Bạn có chắc muốn chuyển "${course.title}" sang trạng thái "${newValue}"?`;
+      variant = newValue === 'approved' ? 'warning' : 'danger';
+    } else if (actionType === 'delete') {
+      title = 'Xóa khóa học';
+      message = `Bạn có chắc muốn xóa vĩnh viễn khóa học "${course.title}"? Hành động này không thể hoàn tác.`;
+      variant = 'danger';
+    }
+
+    setConfirmModal({ isOpen: true, title, message, variant, actionData: { courseId: course.id, newValue }, actionType });
+  };
+
+  const handleConfirmAction = async () => {
+    const { actionType, actionData } = confirmModal;
+    const { courseId, newValue } = actionData;
+
+    try {
+      setConfirmModal(prev => ({ ...prev, isOpen: false }));
+      setLoading(true);
+
+      if (actionType === 'status') {
+        // EARS[Event]: WHEN Admin changes course status, THE system SHALL patch courses.status
+        await updateCourse(courseId, { status: newValue });
+      } else if (actionType === 'delete') {
+        // EARS[Event]: WHEN Admin deletes a course, THE system SHALL remove it from the database
+        await deleteCourse(courseId);
+      }
+
+      fetchCourses();
+    } catch (err) {
+      setError(`Hành động thất bại: ${err.message}`);
+      setLoading(false);
+    }
+  };
+
+  const getStatusVariant = (status) => {
+    switch (status) {
+      case 'approved': return 'success';
+      case 'pending': return 'warning';
+      case 'rejected': return 'danger';
+      default: return 'secondary';
+    }
+  };
+
+  const formatPrice = (price) => {
+    if (!price || price === 0) return 'Miễn phí';
+    return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
+  };
+
+  return (
+    <div className="container-fluid py-4">
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h2 className="fw-bold mb-1">Course Management</h2>
+          <p className="text-muted mb-0">Quản lý toàn bộ khóa học trong hệ thống</p>
+        </div>
+        <Badge bg="primary" className="fs-6 px-3 py-2">{courses.length} Khóa học</Badge>
+      </div>
+
+      {error && <Alert variant="danger" onClose={() => setError(null)} dismissible>{error}</Alert>}
+
+      {/* Filter Bar */}
+      <div className="card border-0 shadow-sm rounded-4 mb-4">
+        <div className="card-body">
+          <Form className="row g-3 align-items-end">
+            <div className="col-md-4">
+              <Form.Control
+                type="text"
+                placeholder="Tìm kiếm theo tên khóa học..."
+                name="q"
+                value={filters.q}
+                onChange={handleFilterChange}
+                className="rounded-pill"
+                id="course-search-input"
+              />
+            </div>
+            <div className="col-md-3">
+              <Form.Select name="skill" value={filters.skill} onChange={handleFilterChange} className="rounded-pill" id="course-skill-filter">
+                <option value="">Tất cả kỹ năng</option>
+                <option value="Reading">Reading</option>
+                <option value="Listening">Listening</option>
+                <option value="Writing">Writing</option>
+                <option value="Speaking">Speaking</option>
+              </Form.Select>
+            </div>
+            <div className="col-md-3">
+              <Form.Select name="status" value={filters.status} onChange={handleFilterChange} className="rounded-pill" id="course-status-filter">
+                <option value="">Tất cả trạng thái</option>
+                <option value="approved">Approved</option>
+                <option value="pending">Pending</option>
+                <option value="rejected">Rejected</option>
+              </Form.Select>
+            </div>
+            <div className="col-md-2">
+              <Button variant="primary" className="w-100 rounded-pill" onClick={fetchCourses} id="course-filter-btn">
+                Lọc
+              </Button>
+            </div>
+          </Form>
+        </div>
+      </div>
+
+      {/* Table */}
+      <div className="card border-0 shadow-sm rounded-4">
+        <div className="card-body p-0 table-responsive">
+          <Table hover className="mb-0 align-middle">
+            <thead className="table-light">
+              <tr>
+                <th className="ps-4">Tên khóa học</th>
+                <th>Kỹ năng</th>
+                <th>Cấp độ</th>
+                <th>Học viên</th>
+                <th>Giá</th>
+                <th>Trạng thái</th>
+                <th>Ngày tạo</th>
+                <th className="text-end pe-4">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              {loading ? (
+                <tr>
+                  <td colSpan="8" className="text-center py-5">
+                    <Spinner animation="border" variant="primary" />
+                  </td>
+                </tr>
+              ) : courses.length === 0 ? (
+                <tr>
+                  <td colSpan="8" className="text-center py-5 text-muted">
+                    <i className="bi bi-inbox fs-1 d-block mb-2 opacity-50"></i>
+                    Không có khóa học nào phù hợp với bộ lọc.
+                  </td>
+                </tr>
+              ) : (
+                courses.map(course => (
+                  <tr key={course.id}>
+                    <td className="ps-4">
+                      <div className="fw-medium">{course.title}</div>
+                      <small className="text-muted">{course.id}</small>
+                    </td>
+                    <td>
+                      <Badge bg="info" text="dark" className="rounded-pill">{course.skill}</Badge>
+                    </td>
+                    <td className="text-muted">{course.level}</td>
+                    <td>{course.enrolledCount ?? 0}</td>
+                    <td>{formatPrice(course.price)}</td>
+                    <td>
+                      <Badge bg={getStatusVariant(course.status)} className="rounded-pill text-capitalize">
+                        {course.status}
+                      </Badge>
+                    </td>
+                    <td className="text-muted">
+                      {course.createdAt ? new Date(course.createdAt).toLocaleDateString('vi-VN') : 'N/A'}
+                    </td>
+                    <td className="text-end pe-4">
+                      <Dropdown align="end">
+                        <Dropdown.Toggle variant="light" size="sm" className="rounded-pill border-0" id={`course-action-${course.id}`}>
+                          Quản lý
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu className="shadow-sm border-0">
+                          <Dropdown.Header>Thay đổi trạng thái</Dropdown.Header>
+                          {/* EARS[Event]: WHEN Admin approves course, THE system SHALL update status to approved */}
+                          {course.status !== 'approved' && (
+                            <Dropdown.Item className="text-success" onClick={() => openConfirmModal('status', course, 'approved')}>
+                              ✓ Approve
+                            </Dropdown.Item>
+                          )}
+                          {course.status !== 'rejected' && (
+                            <Dropdown.Item className="text-danger" onClick={() => openConfirmModal('status', course, 'rejected')}>
+                              ✗ Reject
+                            </Dropdown.Item>
+                          )}
+                          {course.status !== 'pending' && (
+                            <Dropdown.Item className="text-warning" onClick={() => openConfirmModal('status', course, 'pending')}>
+                              ⏳ Set Pending
+                            </Dropdown.Item>
+                          )}
+                          <Dropdown.Divider />
+                          {/* EARS[Unwanted]: WHERE Admin deletes a course, THE system SHALL ask for confirmation */}
+                          <Dropdown.Item className="text-danger fw-bold" onClick={() => openConfirmModal('delete', course)}>
+                            🗑 Xóa khóa học
+                          </Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </Table>
+        </div>
+      </div>
+
+      <ConfirmModal
+        isOpen={confirmModal.isOpen}
+        title={confirmModal.title}
+        message={confirmModal.message}
+        variant={confirmModal.variant}
+        onConfirm={handleConfirmAction}
+        onClose={() => setConfirmModal(prev => ({ ...prev, isOpen: false }))}
+      />
+    </div>
+  );
+};
+
+export default CourseManagement;
