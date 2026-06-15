@@ -56,13 +56,13 @@
       "createdAt": "2026-06-01T08:00:00Z"
     },
     {
-      "id": "u-student-002",
-      "fullName": "Tran Minh Anh",
-      "name": "Tran Minh Anh",
-      "email": "minhanh@student.com",
+      "id": "u-001",
+      "fullName": "Nguyen Duy Manh",
+      "name": "Nguyen Duy Manh",
+      "email": "manhnd@student.com",
       "password": "12345678",
       "role": "student",
-      "avatar": "https://www.gravatar.com/avatar/?d=mp",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB61G-dq7NqM8aauLy9sA6jizp_6495Vgmxw&s",
       "status": "active",
       "targetBand": 6.5,
       "currentBand": 5,
@@ -73,8 +73,11 @@
       "fullName": "IELTS Mentor",
       "name": "IELTS Mentor",
       "email": "teacher@ieltslearning.com",
+      "password": "12345678",
       "role": "teacher",
-      "specialty": "Reading and Writing"
+      "specialty": "Reading and Writing",
+      "status": "active",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp"
     },
     {
       "id": "u-admin-001",
@@ -103,23 +106,22 @@
   "courses": [
     {
       "id": "course-001",
-      "title": "IELTS Reading Foundation",
-      "description": "Khóa học nền tảng Reading cho người mới bắt đầu.",
+      "title": "IELTS Reading: Essential Strategies",
+      "description": "Master core reading skills to achieve Band 6.5+. This comprehensive course covers Skimming, Scanning, and how to effectively tackle True/False/Not Given and Matching Headings questions under time pressure.",
       "syllabus": [
-        "Skimming and Scanning",
-        "Matching Headings",
-        "True False Not Given"
+        "Introduction to Skimming and Scanning",
+        "Mastering True/False/Not Given",
+        "Matching Headings like a Pro",
+        "Summary Completion & Flowcharts"
       ],
       "skill": "Reading",
-      "level": "Beginner",
+      "level": "Band 5.0 - 6.5",
       "price": 0,
       "isPremium": false,
-      "thumbnail": "/images/reading-foundation.jpg",
+      "thumbnail": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "approved",
+      "status": "pending",
       "enrolledCount": 120,
-      "students": 120,
-      "rating": 4.7,
       "durationWeeks": 6,
       "createdAt": "2026-06-01T08:00:00Z"
     },
@@ -245,7 +247,7 @@
       "status": "draft",
       "createdAt": "2026-06-10T09:00:00Z"
     }
-  ],
+  ] } ],
   "tests": [
     {
       "id": "test-001",
@@ -286,6 +288,39 @@
       "id": "1",
       "testId": 1,
       "type": "multiple-choice",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "According to the passage, what was the PRIMARY effect of introducing machinery during the Industrial Revolution?",
+      "questionText": "According to the passage, what was the PRIMARY effect of introducing machinery during the Industrial Revolution?",
+      "options": [
+        "It caused widespread unemployment among craftspeople",
+        "It dramatically increased production capacity",
+        "It improved working conditions in factories",
+        "It led to the development of new energy sources"
+      ],
+      "answer": "It dramatically increased production capacity",
+      "score": 1
+    },
+    {
+      "id": "2",
+      "testId": 1,
+      "type": "true-false-not-given",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "Social reformers successfully eliminated child labour during the Industrial Revolution.",
+      "questionText": "Social reformers successfully eliminated child labour during the Industrial Revolution.",
+      "options": [
+        "True",
+        "False",
+        "Not Given"
+      ],
+      "answer": "Not Given",
+      "score": 1
+    },
+    {
+      "id": "3",
+      "testId": 1,
+      "type": "true-false-not-given",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "Before the Industrial Revolution, manufacturing was primarily carried out in people's homes.",
       "questionText": "What is the main purpose of paragraph 1?",
       "options": [
         "To introduce a problem",
@@ -297,6 +332,7 @@
       "score": 1
     }
   ],
+  "questionAnswers": [],
   "enrollments": [
     {
       "id": "1",

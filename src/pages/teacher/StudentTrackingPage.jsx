@@ -1,0 +1,350 @@
+import React, { useState, useEffect } from 'react';
+import { Container, Col, Card, Form, Table, Button, Modal, Spinner, Alert, ProgressBar, Tabs, Tab } from 'react-bootstrap';
+import { getCurrentUser } from '../../services/authService';
+import { teacherCourseService } from '../../services/teacherCourseService';
+import { teacherStudentService } from '../../services/teacherStudentService';
+import { teacherTestService } from '../../services/teacherTestService';
+
+// EARS[Ubiquitous]: The StudentTrackingPage component shall list and filter student progress and attempts for courses owned by the teacher
+export default function StudentTrackingPage() {
+  const [enrollments, setEnrollments] = useState([]);
+  const [students, setStudents] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [tests, setTests] = useState([]);
+  const [testAttempts, setTestAttempts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Filters
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCourseId, setSelectedCourseId] = useState('');
+
+  // Modal Details
+  const [showDetailModal, setShowDetailModal] = useState(false);
+  const [selectedEnrollment, setSelectedEnrollment] = useState(null);
+  const [selectedStudent, setSelectedStudent] = useState(null);
+
+  const currentUser = getCurrentUser();
+  const teacherId = currentUser?.id || 'u-teacher-001';
+
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      setError(null);
+      try {
+        const [coursesData, enrollmentsData, studentsData, testsData, attemptsData] = await Promise.all([
+          teacherCourseService.getCourses(teacherId),
+          teacherStudentService.getEnrollments(),
+          teacherStudentService.getStudents(),
+          teacherTestService.getTests(teacherId),
+          teacherStudentService.getTestAttempts()
+        ]);
+
+        setCourses(coursesData);
+        setEnrollments(enrollmentsData);
+        setStudents(studentsData);
+        setTests(testsData);
+        setTestAttempts(attemptsData);
+      } catch (err) {
+        // EARS[Unwanted]: WHERE server connections fail, THE system SHALL display an error message
+        setError('Không thể tải dữ liệu tiến trình học viên. Vui lòng thử lại sau.');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, [teacherId]);
+
+  // Joins client-side: Filter enrollments belonging to this teacher's courses
+  const teacherCourseIds = courses.map(c => c.id);
+  
+  const studentProgressList = enrollments
+    .filter(enroll => teacherCourseIds.includes(enroll.courseId))
+    .map(enroll => {
+      const student = students.find(s => s.id === enroll.userId);
+      const course = courses.find(c => c.id === enroll.courseId);
+      return {
+        id: enroll.id,
+        enrollment: enroll,
+        student: student || { fullName: 'Học viên ẩn danh', email: 'N/A' },
+        course: course || { title: 'Khóa học ẩn' }
+      };
+    });
+
+  // Filter based on query and course select
+  const filteredList = studentProgressList.filter(item => {
+    const matchSearch = item.student.fullName.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                        item.student.email.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchCourse = selectedCourseId ? item.enrollment.courseId === selectedCourseId : true;
+    return matchSearch && matchCourse;
+  });
+
+  const handleOpenDetail = (item) => {
+    setSelectedEnrollment(item.enrollment);
+    setSelectedStudent(item.student);
+    setShowDetailModal(true);
+  };
+
+  const handleCloseDetail = () => {
+    setShowDetailModal(false);
+    setSelectedEnrollment(null);
+    setSelectedStudent(null);
+  };
+
+  // Get test attempts belonging to the selected student and course
+  const getSelectedStudentTestAttempts = () => {
+    if (!selectedStudent || !selectedEnrollment) return [];
+    
+    // Get tests inside this course
+    const courseTests = tests.filter(t => t.courseId === selectedEnrollment.courseId);
+    
+    return courseTests.map(test => {
+      // Find attempts by this student for this test
+      const attempts = testAttempts.filter(
+        att => att.testId === test.id && att.userId === selectedStudent.id
+      );
+      return {
+        test,
+        attempts: attempts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // Sort newest first
+      };
+    });
+  };
+
+  return (
+    <Container fluid className="py-4">
+      {/* Header */}
+      <div className="mb-4">
+        <h2 className="fw-bold text-dark">Theo dõi Tiến trình Học viên</h2>
+        <p className="text-secondary mb-0">Giám sát mức độ hoàn thành bài giảng và kết quả làm đề thi thử của học viên.</p>
+      </div>
+
+      {error && <Alert variant="danger" className="mb-4">{error}</Alert>}
+
+      {/* Filter bar */}
+      <Card className="border-0 shadow-sm p-4 mb-4 bg-white rounded-3">
+        <Form className="row g-3">
+          <Col md={8}>
+            <Form.Group controlId="studentSearch">
+              <Form.Label className="fw-semibold text-secondary">Tìm học viên</Form.Label>
+              <Form.Control 
+                type="text" 
+                placeholder="Tìm theo tên học viên hoặc email..." 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="border-gray shadow-none"
+              />
+            </Form.Group>
+          </Col>
+          <Col md={4}>
+            <Form.Group controlId="courseFilter">
+              <Form.Label className="fw-semibold text-secondary">Lọc theo khóa học</Form.Label>
+              <Form.Select 
+                value={selectedCourseId}
+                onChange={(e) => setSelectedCourseId(e.target.value)}
+                className="border-gray shadow-none"
+              >
+                <option value="">Tất cả khóa học</option>
+                {courses.map(course => (
+                  <option key={course.id} value={course.id}>{course.title}</option>
+                ))}
+              </Form.Select>
+            </Form.Group>
+          </Col>
+        </Form>
+      </Card>
+
+      {/* Table grid */}
+      {loading ? (
+        <div className="d-flex justify-content-center align-items-center py-5">
+          <Spinner animation="border" variant="primary" className="me-2" />
+          <span className="text-secondary fw-semibold">Đang tải tiến trình học viên...</span>
+        </div>
+      ) : filteredList.length === 0 ? (
+        <Card className="border-0 shadow-sm text-center py-5 rounded-3">
+          <Card.Body>
+            <i className="bi bi-people text-muted fs-1 mb-3"></i>
+            <h5 className="fw-semibold text-secondary">Không tìm thấy học viên nào</h5>
+            <p className="text-muted small">Thay đổi bộ lọc tìm kiếm hoặc kiểm tra lại danh sách đăng ký học viên.</p>
+          </Card.Body>
+        </Card>
+      ) : (
+        <Card className="border-0 shadow-sm rounded-3 overflow-hidden bg-white">
+          <Table responsive hover className="align-middle mb-0 text-secondary table-nowrap">
+            <thead className="bg-light text-dark fw-bold">
+              <tr>
+                <th className="px-4 py-3">Tên học viên</th>
+                <th className="py-3">Email</th>
+                <th className="py-3">Khóa học đăng ký</th>
+                <th className="py-3" style={{ width: '250px' }}>Tiến độ bài học</th>
+                <th className="py-3">Trạng thái</th>
+                <th className="px-4 py-3 text-end" style={{ width: '150px' }}>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredList.map(item => (
+                <tr key={item.id} className="border-top border-light">
+                  <td className="px-4 py-3 fw-bold text-dark">
+                    {item.student.fullName}
+                  </td>
+                  <td className="py-3 small">
+                    {item.student.email}
+                  </td>
+                  <td className="py-3 fw-medium text-secondary small">
+                    {item.course.title}
+                  </td>
+                  <td className="py-3">
+                    <div className="d-flex align-items-center gap-2">
+                      <ProgressBar 
+                        now={item.enrollment.progress} 
+                        variant={item.enrollment.progress === 100 ? 'success' : 'primary'}
+                        className="flex-grow-1" 
+                        style={{ height: '8px' }}
+                      />
+                      <span className="small fw-bold text-dark">{item.enrollment.progress}%</span>
+                    </div>
+                  </td>
+                  <td className="py-3">
+                    <span className={`badge rounded-pill ${
+                      item.enrollment.status === 'active' ? 'bg-success text-success-50 bg-opacity-10 border border-success border-opacity-25' :
+                      'bg-secondary text-secondary-50 bg-opacity-10 border border-secondary border-opacity-25'
+                    }`}>
+                      {item.enrollment.status === 'active' ? 'Đang học' : 'Tạm dừng'}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 text-end">
+                    <Button 
+                      variant="outline-primary"
+                      onClick={() => handleOpenDetail(item)}
+                      className="px-3 py-1.5 rounded-pill fw-semibold small shadow-none"
+                    >
+                      <i className="bi bi-eye"></i> Chi tiết
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </Card>
+      )}
+
+      {/* Details modal */}
+      <Modal show={showDetailModal} onHide={handleCloseDetail} size="lg" centered>
+        <Modal.Header closeButton className="border-0 bg-light">
+          <Modal.Title className="fw-bold text-dark">Chi tiết học tập học viên</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="p-4">
+          <div className="d-flex align-items-center gap-3 mb-4 p-3 bg-secondary-subtle bg-opacity-10 rounded-3 border border-light-subtle">
+            <div className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold text-uppercase fs-4" style={{ width: '50px', height: '50px' }}>
+              {selectedStudent?.fullName?.charAt(0)}
+            </div>
+            <div>
+              <h5 className="fw-bold text-dark mb-0">{selectedStudent?.fullName}</h5>
+              <span className="text-secondary small">{selectedStudent?.email}</span>
+            </div>
+          </div>
+
+          <Tabs defaultActiveKey="lessons" className="mb-4 border-bottom">
+            {/* Lesson Completion Progress Tab */}
+            <Tab eventKey="lessons" title="Tiến độ bài học">
+              <div className="py-2">
+                <h6 className="fw-bold text-secondary mb-3">Mức độ hoàn thành bài giảng</h6>
+                <div className="d-flex align-items-center gap-3 mb-4">
+                  <ProgressBar 
+                    now={selectedEnrollment?.progress || 0} 
+                    variant={selectedEnrollment?.progress === 100 ? 'success' : 'primary'}
+                    className="flex-grow-1"
+                    style={{ height: '15px' }}
+                  />
+                  <span className="fs-5 fw-bold text-dark">{selectedEnrollment?.progress || 0}%</span>
+                </div>
+                <div className="row g-3">
+                  <Col sm={6}>
+                    <Card className="border border-light-subtle rounded-3 p-3 shadow-xs bg-light">
+                      <div className="text-muted small mb-1">Ngày đăng ký học</div>
+                      <div className="fw-bold text-dark">{selectedEnrollment?.enrolledAt || 'N/A'}</div>
+                    </Card>
+                  </Col>
+                  <Col sm={6}>
+                    <Card className="border border-light-subtle rounded-3 p-3 shadow-xs bg-light">
+                      <div className="text-muted small mb-1">Trạng thái tài khoản khóa học</div>
+                      <div className="fw-bold text-success text-capitalize">{selectedEnrollment?.status || 'N/A'}</div>
+                    </Card>
+                  </Col>
+                </div>
+              </div>
+            </Tab>
+
+            {/* Test Results Attempts History Tab */}
+            <Tab eventKey="tests" title="Kết quả thi thử">
+              <div className="py-2">
+                <h6 className="fw-bold text-secondary mb-3">Điểm số bài kiểm tra luyện tập</h6>
+                
+                {getSelectedStudentTestAttempts().length === 0 ? (
+                  <div className="text-center py-4">
+                    <i className="bi bi-file-earmark-bar-graph text-muted fs-3 mb-2 d-block"></i>
+                    <span className="text-muted small">Khóa học này chưa được phân bổ bài kiểm tra nào.</span>
+                  </div>
+                ) : (
+                  <Table responsive hover className="align-middle mb-0 text-secondary table-nowrap small border">
+                    <thead className="bg-light text-dark fw-semibold">
+                      <tr>
+                        <th className="py-2.5 px-3">Tên bài kiểm tra</th>
+                        <th className="py-2.5 px-3">Kỹ năng</th>
+                        <th className="py-2.5 px-3">Thời điểm làm bài</th>
+                        <th className="py-2.5 px-3 text-center">Tỷ lệ đúng</th>
+                        <th className="py-2.5 px-3 text-end">Điểm số (Band)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {getSelectedStudentTestAttempts().map(({ test, attempts }) => {
+                        if (attempts.length === 0) {
+                          return (
+                            <tr key={test.id} className="border-top border-light">
+                              <td className="py-2.5 px-3 fw-bold text-dark">{test.title}</td>
+                              <td className="py-2.5 px-3">{test.skill}</td>
+                              <td className="py-2.5 px-3 text-muted italic" colSpan="3">
+                                Chưa làm bài
+                              </td>
+                            </tr>
+                          );
+                        }
+
+                        // Display the most recent attempt
+                        const latestAttempt = attempts[0];
+                        return (
+                          <tr key={test.id} className="border-top border-light">
+                            <td className="py-2.5 px-3 fw-bold text-dark">{test.title}</td>
+                            <td className="py-2.5 px-3">
+                              <span className="badge bg-secondary-subtle text-secondary px-2 py-0.5 rounded-3">
+                                {test.skill}
+                              </span>
+                            </td>
+                            <td className="py-2.5 px-3 small">
+                              {new Date(latestAttempt.createdAt).toLocaleDateString('vi-VN')} {new Date(latestAttempt.createdAt).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}
+                            </td>
+                            <td className="py-2.5 px-3 text-center fw-semibold">
+                              {latestAttempt.score} / {latestAttempt.totalQuestions}
+                            </td>
+                            <td className="py-2.5 px-3 text-end fw-bold text-primary">
+                              Band {latestAttempt.bandScore || 'N/A'}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </Table>
+                )}
+              </div>
+            </Tab>
+          </Tabs>
+        </Modal.Body>
+        <Modal.Footer className="border-0 pt-0">
+          <Button variant="secondary" onClick={handleCloseDetail} className="rounded-pill px-4 fw-semibold">
+            Đóng lại
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </Container>
+  );
+}

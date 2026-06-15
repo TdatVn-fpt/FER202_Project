@@ -1,47 +1,40 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { getDashboardPathByRole, loginWithEmailAndPassword, loginWithGoogle } from '../../services/authService';
+import { Container, Row, Col, Card, Form, Button, Alert, InputGroup, Spinner } from 'react-bootstrap';
+import { getDashboardPathByRole, loginWithEmailAndPassword } from '../../services/authService';
 import './Login.css';
 
 export default function Login() {
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = 'Đăng nhập | IELTS Master';
   }, []);
+
   const navigate = useNavigate();
   const location = useLocation();
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState('');
-  
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
-
-  const roleHint = useMemo(() => {
-    const params = new URLSearchParams(location.search);
-    return params.get('role') || 'student';
-  }, [location.search]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
     setError('');
-
     try {
-      // Connect to json-server via loginWithEmailAndPassword
       const user = await loginWithEmailAndPassword(formData.email, formData.password);
       const fallbackPath = getDashboardPathByRole(user.role);
       const redirectPath = location.state?.from?.pathname || fallbackPath;
-
       navigate(redirectPath, { replace: true });
     } catch (loginError) {
-      setError(loginError.message || 'Login failed. Please try again.');
+      setError(loginError.message === 'Invalid email or password'
+        ? 'Email hoặc mật khẩu không đúng. Vui lòng thử lại.'
+        : (loginError.message || 'Đăng nhập thất bại. Vui lòng thử lại.'));
       setStatus('error');
     }
   };
@@ -49,91 +42,100 @@ export default function Login() {
   const isLoading = status === 'loading';
 
   return (
-    <div className="login-page-wrapper">
-      {/* Background Shapes */}
-      <div className="bg-shape shape-1"></div>
-      <div className="bg-shape shape-2"></div>
-      <div className="bg-shape shape-3"></div>
-      <div className="bg-shape shape-4"></div>
-      <div className="dot dot-1"></div>
-      <div className="dot dot-2"></div>
-      <div className="dot dot-3"></div>
+    <div className="auth-page d-flex align-items-center">
+      <Container>
+        <Row className="justify-content-center">
+          <Col xs={12} md={10} lg={9} xl={8}>
+            <Card className="border-0 shadow-lg overflow-hidden auth-card">
+              <Row className="g-0">
+                {/* Cột thương hiệu */}
+                <Col md={5} className="auth-brand d-none d-md-flex flex-column justify-content-between p-4 text-white">
+                  <div className="fw-bold fs-4">IELTS<span className="text-warning">Master</span></div>
+                  <div>
+                    <h2 className="h3 fw-bold mb-3">Chào mừng trở lại 👋</h2>
+                    <p className="mb-0 opacity-75">
+                      Đăng nhập để tiếp tục hành trình chinh phục IELTS của bạn với lộ trình cá nhân hóa,
+                      flashcard và bài luyện 4 kỹ năng.
+                    </p>
+                  </div>
+                  <ul className="list-unstyled small mb-0 opacity-75">
+                    <li className="mb-2">✓ Theo dõi tiến độ học tập</li>
+                    <li className="mb-2">✓ Kho tài nguyên miễn phí</li>
+                    <li>✓ Luyện đề bám sát thực tế</li>
+                  </ul>
+                </Col>
 
-      <div className="login-card">
-        <div className="login-brand">
-          <div className="brand-icon">
-            <div className="brand-dot"></div>
-            <div className="brand-dot"></div>
-            <div className="brand-dot"></div>
-            <div className="brand-dot"></div>
-          </div>
-          <div className="brand-text">
-            IELTS<br />MASTER
-          </div>
-        </div>
+                {/* Cột form */}
+                <Col md={7} className="p-4 p-md-5">
+                  <h1 className="h3 fw-bold mb-1">Đăng nhập</h1>
+                  <p className="text-muted mb-4">
+                    Chưa có tài khoản? <Link to="/register" className="fw-semibold text-decoration-none">Đăng ký miễn phí</Link>
+                  </p>
 
-        <h1>Sign in</h1>
-        <div className="login-card-line"></div>
+                  {error && <Alert variant="danger" className="py-2 small">{error}</Alert>}
 
-        <p className="login-subtitle">
-          If you don't have a <strong>IELTS Master account</strong> you can <Link to="/register">register</Link> now. It's quick, easy and free.
-        </p>
+                  <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3" controlId="loginEmail">
+                      <Form.Label className="fw-semibold small">Địa chỉ email</Form.Label>
+                      <Form.Control
+                        type="email"
+                        name="email"
+                        placeholder="ban@email.com"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        size="lg"
+                      />
+                    </Form.Group>
 
-        {error && (
-          <div style={{ color: 'red', fontSize: '0.85rem', marginBottom: '16px' }}>
-            {error}
-          </div>
-        )}
+                    <Form.Group className="mb-2" controlId="loginPassword">
+                      <Form.Label className="fw-semibold small">Mật khẩu</Form.Label>
+                      <InputGroup>
+                        <Form.Control
+                          type={showPassword ? 'text' : 'password'}
+                          name="password"
+                          placeholder="Nhập mật khẩu"
+                          value={formData.password}
+                          onChange={handleChange}
+                          required
+                          size="lg"
+                        />
+                        <Button
+                          variant="outline-secondary"
+                          type="button"
+                          onClick={() => setShowPassword((s) => !s)}
+                        >
+                          {showPassword ? 'Ẩn' : 'Hiện'}
+                        </Button>
+                      </InputGroup>
+                    </Form.Group>
 
-        <form onSubmit={handleSubmit}>
-          <div className="login-form-group">
-            <label htmlFor="email">Email address</label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              className="login-input"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
+                    <div className="d-flex justify-content-end mb-4">
+                      <a href="#reset" className="small text-decoration-none">Quên mật khẩu?</a>
+                    </div>
 
-          <div className="login-form-group">
-            <label htmlFor="password">Password</label>
-            <div className="login-input-wrapper">
-              <input
-                id="password"
-                type={showPassword ? "text" : "password"}
-                name="password"
-                className="login-input"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
-              <button 
-                type="button" 
-                className="password-toggle"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? 'Hide' : 'Show'}
-              </button>
-            </div>
-          </div>
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      size="lg"
+                      className="w-100 fw-semibold mb-3"
+                      disabled={isLoading}
+                    >
+                      {isLoading ? (
+                        <><Spinner as="span" animation="border" size="sm" className="me-2" />Đang đăng nhập...</>
+                      ) : 'Đăng nhập'}
+                    </Button>
 
-          <div className="login-forgot-link">
-            If you've forgotten your password, you can <a href="#reset">reset</a> it.
-          </div>
-
-          <button type="submit" className="login-submit-btn" disabled={isLoading}>
-            {isLoading ? 'Signing in...' : 'Sign in'}
-          </button>
-
-          <div className="login-back-link">
-            If you're not ready, you can <Link to="/">go back</Link>.
-          </div>
-        </form>
-      </div>
+                    <div className="text-center">
+                      <Link to="/" className="small text-muted text-decoration-none">← Quay lại trang chủ</Link>
+                    </div>
+                  </Form>
+                </Col>
+              </Row>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
