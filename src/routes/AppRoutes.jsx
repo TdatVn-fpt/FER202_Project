@@ -20,7 +20,8 @@ import TestDetailPage from '../pages/student/TestDetailPage';
 import TestSessionPage from '../pages/student/TestSessionPage';
 import TestReviewPage from '../pages/student/TestReviewPage';
 import StudentProfile from '../pages/student/Profile';
-import FlashcardDeck from '../pages/student/FlashcardDeck';
+import FlashcardListPage from '../pages/student/FlashcardListPage';
+import FlashcardStudyPage from '../pages/student/FlashcardStudyPage';
 import TeacherDashboard from '../pages/teacher/TeacherDashboard';
 import TeacherCourseManagement from '../pages/teacher/CourseManagement';
 import AdminDashboard from '../pages/admin/AdminDashboard';
@@ -61,7 +62,8 @@ export default function AppRoutes() {
           <Route path="/learning/tests/attempt/:attemptId" element={<TestSessionPage />} />
           <Route path="/learning/tests/review/:attemptId" element={<TestReviewPage />} />
           <Route path="/learning/profile" element={<StudentProfile />} />
-          <Route path="/learning/flashcards/:id" element={<FlashcardDeck />} />
+          <Route path="/learning/flashcards" element={<FlashcardListPage />} />
+          <Route path="/learning/flashcards/:deckId" element={<FlashcardStudyPage />} />
         </Route>
       </Route>
 
