@@ -1,0 +1,57 @@
+/* FlipCard.css - Custom 3D Transform for FlipCard Component */
+
+.flip-card-container {
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  perspective: 1000px; /* Provides the 3D depth */
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform-style: preserve-3d; /* Required for 3D flip */
+}
+
+/* Apply flip rotation */
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back side when facing away */
+  border: 1px solid #dee1e6; /* hairline from DESIGN.md */
+  border-radius: 0.75rem; /* Bootstrap rounded-4 approx */
+  background-color: #ffffff; /* canvas */
+}
+
+.flip-card-front {
+  color: #0a0b0d; /* ink / body-strong */
+}
+
+.flip-card-back {
+  background-color: #f7f7f7; /* surface-soft */
+  transform: rotateY(180deg);
+}
+
+/* Typography styles based on DESIGN.md */
+.text-body-strong {
+  color: #0a0b0d;
+}
+
+.text-muted-soft {
+  color: #a8acb3;
+}
+
+.text-primary-custom {
+  color: #0052ff;
+}

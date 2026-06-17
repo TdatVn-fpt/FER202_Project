@@ -247,7 +247,7 @@
       "status": "draft",
       "createdAt": "2026-06-10T09:00:00Z"
     }
-  ] } ],
+  ],
   "tests": [
     {
       "id": "test-001",
@@ -561,6 +561,237 @@
       "teacherId": "u-teacher-001",
       "status": "pending",
       "createdAt": "2026-06-11T08:30:00Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-001",
+      "name": "Environment",
+      "description": "IELTS vocabulary for climate, ecology, and sustainability topics."
+    },
+    {
+      "id": "cat-002",
+      "name": "Technology",
+      "description": "IELTS vocabulary for innovation, digital life, and automation topics."
+    },
+    {
+      "id": "cat-003",
+      "name": "Education",
+      "description": "IELTS vocabulary for learning, universities, and academic development."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "flashcard-001",
+      "categoryId": "cat-001",
+      "word": "Biodiversity",
+      "meaning": "The variety of plant and animal life in a particular habitat."
+    },
+    {
+      "id": "flashcard-002",
+      "categoryId": "cat-001",
+      "word": "Conservation",
+      "meaning": "The protection of nature and natural resources."
+    },
+    {
+      "id": "flashcard-003",
+      "categoryId": "cat-001",
+      "word": "Deforestation",
+      "meaning": "The removal of trees from a forested area."
+    },
+    {
+      "id": "flashcard-004",
+      "categoryId": "cat-001",
+      "word": "Ecosystem",
+      "meaning": "A community of living things interacting with their environment."
+    },
+    {
+      "id": "flashcard-005",
+      "categoryId": "cat-001",
+      "word": "Emissions",
+      "meaning": "Gases or substances released into the air."
+    },
+    {
+      "id": "flashcard-006",
+      "categoryId": "cat-001",
+      "word": "Habitat",
+      "meaning": "The natural home of an animal, plant, or organism."
+    },
+    {
+      "id": "flashcard-007",
+      "categoryId": "cat-001",
+      "word": "Pollutant",
+      "meaning": "A substance that contaminates air, water, or soil."
+    },
+    {
+      "id": "flashcard-008",
+      "categoryId": "cat-001",
+      "word": "Renewable",
+      "meaning": "Able to be replaced naturally and used again."
+    },
+    {
+      "id": "flashcard-009",
+      "categoryId": "cat-001",
+      "word": "Sustainable",
+      "meaning": "Able to continue without damaging future resources."
+    },
+    {
+      "id": "flashcard-010",
+      "categoryId": "cat-001",
+      "word": "Waste management",
+      "meaning": "The process of collecting, treating, and reducing waste."
+    },
+    {
+      "id": "flashcard-011",
+      "categoryId": "cat-002",
+      "word": "Automation",
+      "meaning": "The use of technology to perform tasks without human effort."
+    },
+    {
+      "id": "flashcard-012",
+      "categoryId": "cat-002",
+      "word": "Breakthrough",
+      "meaning": "An important discovery or development."
+    },
+    {
+      "id": "flashcard-013",
+      "categoryId": "cat-002",
+      "word": "Cybersecurity",
+      "meaning": "Protection of computer systems and data from digital attacks."
+    },
+    {
+      "id": "flashcard-014",
+      "categoryId": "cat-002",
+      "word": "Data-driven",
+      "meaning": "Guided by the analysis of data."
+    },
+    {
+      "id": "flashcard-015",
+      "categoryId": "cat-002",
+      "word": "Disruptive",
+      "meaning": "Changing an industry or market in a major way."
+    },
+    {
+      "id": "flashcard-016",
+      "categoryId": "cat-002",
+      "word": "Innovation",
+      "meaning": "The creation or use of new ideas, methods, or products."
+    },
+    {
+      "id": "flashcard-017",
+      "categoryId": "cat-002",
+      "word": "Obsolete",
+      "meaning": "No longer useful because something newer exists."
+    },
+    {
+      "id": "flashcard-018",
+      "categoryId": "cat-002",
+      "word": "Privacy",
+      "meaning": "The right to keep personal information protected."
+    },
+    {
+      "id": "flashcard-019",
+      "categoryId": "cat-002",
+      "word": "Scalable",
+      "meaning": "Able to grow or handle more demand effectively."
+    },
+    {
+      "id": "flashcard-020",
+      "categoryId": "cat-002",
+      "word": "Virtual",
+      "meaning": "Existing or happening through computer technology."
+    },
+    {
+      "id": "flashcard-021",
+      "categoryId": "cat-003",
+      "word": "Curriculum",
+      "meaning": "The subjects and content taught in a course or school."
+    },
+    {
+      "id": "flashcard-022",
+      "categoryId": "cat-003",
+      "word": "Enrollment",
+      "meaning": "The act of joining a school, course, or program."
+    },
+    {
+      "id": "flashcard-023",
+      "categoryId": "cat-003",
+      "word": "Literacy",
+      "meaning": "The ability to read and write."
+    },
+    {
+      "id": "flashcard-024",
+      "categoryId": "cat-003",
+      "word": "Mentor",
+      "meaning": "An experienced person who guides and supports learners."
+    },
+    {
+      "id": "flashcard-025",
+      "categoryId": "cat-003",
+      "word": "Scholarship",
+      "meaning": "Financial support given to a student for study."
+    },
+    {
+      "id": "flashcard-026",
+      "categoryId": "cat-003",
+      "word": "Self-directed",
+      "meaning": "Managed or guided by the learner independently."
+    },
+    {
+      "id": "flashcard-027",
+      "categoryId": "cat-003",
+      "word": "Tuition",
+      "meaning": "Money paid for education or instruction."
+    },
+    {
+      "id": "flashcard-028",
+      "categoryId": "cat-003",
+      "word": "Vocational",
+      "meaning": "Related to training for a particular job or career."
+    },
+    {
+      "id": "flashcard-029",
+      "categoryId": "cat-003",
+      "word": "Assessment",
+      "meaning": "A method of judging a learner's knowledge or skill."
+    },
+    {
+      "id": "flashcard-030",
+      "categoryId": "cat-003",
+      "word": "Lifelong learning",
+      "meaning": "Continuing to learn throughout one's life."
+    }
+  ],
+  "flashcardProgress": [
+    {
+      "id": "fp-001",
+      "userId": "u-student-001",
+      "flashcardId": "flashcard-001",
+      "status": "known"
+    },
+    {
+      "id": "fp-002",
+      "userId": "u-student-001",
+      "flashcardId": "flashcard-012",
+      "status": "review"
+    },
+    {
+      "userId": "u-student-001",
+      "flashcardId": "flashcard-002",
+      "status": "review",
+      "id": "IY5AZTz8UXQ"
+    },
+    {
+      "userId": "u-student-001",
+      "flashcardId": "flashcard-003",
+      "status": "known",
+      "id": "o6DP2lEmdQ8"
+    },
+    {
+      "userId": "u-student-001",
+      "flashcardId": "flashcard-004",
+      "status": "review",
+      "id": "bv4ZUTqRnEI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
