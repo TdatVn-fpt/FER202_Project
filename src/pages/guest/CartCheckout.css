@@ -1,0 +1,25 @@
+.checkout-page {
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+.checkout-page img {
+  max-width: 100%;
+}
+
+.wishlist-summary-card {
+  min-height: 240px;
+}
+
+.wishlist-course-card {
+  border-radius: 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.wishlist-course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.wishlist-course-card .course-actions button {
+  min-width: 120px;
+}

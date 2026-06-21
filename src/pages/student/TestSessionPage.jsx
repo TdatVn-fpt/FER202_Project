@@ -86,7 +86,7 @@ export default function TestSessionPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const attemptRes = await axios.get(`${API_URL}/attempts/${attemptId}`);
+        const attemptRes = await axios.get(`${API_URL}/testAttempts/${attemptId}`);
         const attemptData = attemptRes.data;
         setAttempt(attemptData);
         if (attemptData.status === 'completed') {
@@ -96,8 +96,12 @@ export default function TestSessionPage() {
         const testRes = await axios.get(`${API_URL}/tests/${attemptData.testId}`);
         const testData = testRes.data;
         setTestInfo(testData);
-        const questionsRes = await axios.get(`${API_URL}/questions?testId=${attemptData.testId}`);
-        setQuestions(questionsRes.data);
+        const questionsRes = await axios.get(`${API_URL}/questions`);
+        const rawQuestions = questionsRes.data || [];
+        const filteredQuestions = rawQuestions.filter(q => {
+          return String(q.testId) === String(testData.id) || String(q.testId) === String(attemptData.testId);
+        });
+        setQuestions(filteredQuestions);
         const startTime = new Date(attemptData.startTime).getTime();
         const durationMs = (testData.durationMinutes || 60) * 60 * 1000;
         setExpireAt(startTime + durationMs);
@@ -124,7 +128,7 @@ export default function TestSessionPage() {
     if (isSubmitting) return;
     setIsSubmitting(true);
     try {
-      await axios.patch(`${API_URL}/attempts/${attemptId}`, {
+      await axios.patch(`${API_URL}/testAttempts/${attemptId}`, {
         status: 'completed', completedAt: new Date().toISOString(), answers,
       });
       navigate(`/learning/tests/review/${attemptId}`);

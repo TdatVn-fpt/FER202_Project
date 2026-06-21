@@ -210,7 +210,7 @@ const LessonPage = () => {
               )}
 
               {isLastLesson ? (
-                <button className="action-btn action-btn-finish" onClick={() => navigate('/learning/my-courses')} data-testid="btn-finish-course">
+                <button className="action-btn action-btn-finish" onClick={() => navigate('/learning/courses')} data-testid="btn-finish-course">
                   <i className="bi bi-trophy-fill"></i> Finish Course
                 </button>
               ) : (

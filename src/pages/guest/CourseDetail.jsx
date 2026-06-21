@@ -5,6 +5,8 @@ import { getCourseById, getEnrollment, createEnrollment } from '../../services/c
 import { getFlashcardCount } from '../../services/flashcardService';
 import { getPaidPayment, getLatestPayment, formatVnd, PAYMENT_STATUS } from '../../services/paymentService';
 import { getCurrentUser } from '../../services/authService';
+import { addToCart, isInCart, subscribeCartChanges } from '../../services/cartService';
+import { isInWishlist, addToWishlist, removeFromWishlist, subscribeWishlistChanges } from '../../services/wishlistService';
 import './CourseDetail.css';
 
 export default function CourseDetail() {
@@ -20,6 +22,8 @@ export default function CourseDetail() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [enrolling, setEnrolling] = useState(false);
+  const [inCart, setInCart] = useState(false);
+  const [wishlistAdded, setWishlistAdded] = useState(isInWishlist(courseId));
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -61,6 +65,22 @@ export default function CourseDetail() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [courseId]);
 
+  useEffect(() => {
+    setWishlistAdded(isInWishlist(courseId));
+    setInCart(isInCart(courseId));
+
+    const handleWishlistUpdate = () => setWishlistAdded(isInWishlist(courseId));
+    const handleCartUpdate = () => setInCart(isInCart(courseId));
+
+    const unsubscribeWishlist = subscribeWishlistChanges(handleWishlistUpdate);
+    const unsubscribeCart = subscribeCartChanges(handleCartUpdate);
+
+    return () => {
+      unsubscribeWishlist();
+      unsubscribeCart();
+    };
+  }, [courseId]);
+
   const isFree = !course?.price || course.price === 0;
   const canAccess = isFree || enrolled || hasPaid;
 
@@ -88,6 +108,30 @@ export default function CourseDetail() {
       return;
     }
     navigate(`/checkout/${courseId}`);
+  };
+
+  const handleAddToCart = () => {
+    if (!user) {
+      navigate('/login', { state: { from: { pathname: `/courses/${courseId}` } } });
+      return;
+    }
+    addToCart(courseId);
+    setInCart(true);
+    navigate('/checkout');
+  };
+
+  const handleToggleWishlist = () => {
+    if (!user) {
+      navigate('/login', { state: { from: { pathname: `/courses/${courseId}` } } });
+      return;
+    }
+    if (wishlistAdded) {
+      removeFromWishlist(courseId);
+      setWishlistAdded(false);
+    } else {
+      addToWishlist(courseId);
+      setWishlistAdded(true);
+    }
   };
 
   const handleOpenFlashcards = () => {
@@ -246,6 +290,36 @@ export default function CourseDetail() {
                 </Button>
 
                 {error && <Alert variant="danger" className="small py-2">{error}</Alert>}
+
+                {!canAccess && !isFree && (
+                  <>
+                    <Button
+                      variant={inCart ? 'outline-secondary' : 'primary'}
+                      className="w-100 fw-semibold mb-2"
+                      onClick={handleAddToCart}
+                      disabled={inCart}
+                    >
+                      {inCart ? 'Đã thêm vào giỏ hàng' : 'Thêm vào giỏ hàng'}
+                    </Button>
+                    <Button
+                      variant={wishlistAdded ? 'success' : 'outline-secondary'}
+                      className="w-100 mb-3"
+                      onClick={handleToggleWishlist}
+                    >
+                      {wishlistAdded ? 'Đã lưu yêu thích' : 'Lưu vào yêu thích'}
+                    </Button>
+                  </>
+                )}
+
+                {canAccess && (
+                  <Button
+                    variant={wishlistAdded ? 'success' : 'outline-secondary'}
+                    className="w-100 mb-3"
+                    onClick={handleToggleWishlist}
+                  >
+                    {wishlistAdded ? 'Đã lưu yêu thích' : 'Lưu vào yêu thích'}
+                  </Button>
+                )}
 
                 <ListGroup variant="flush" className="cd-perks">
                   <ListGroup.Item className="px-0 border-0 py-1">✓ Truy cập trọn đời</ListGroup.Item>

@@ -11,10 +11,16 @@ import OnlineCourses from '../pages/guest/OnlineCourses';
 import ResourceDetail from '../pages/guest/ResourceDetail';
 import SkillPractice from '../pages/guest/SkillPractice';
 import Checkout from '../pages/guest/Checkout';
+import CartCheckout from '../pages/guest/CartCheckout';
+import WishlistPage from '../pages/guest/WishlistPage';
 
-import StudentDashboard from '../pages/student/Dashboard';
-import MyCourses from '../pages/student/MyCourses';
-import Lesson from '../pages/student/Lesson';
+import StudentDashboard from '../pages/student/DashboardPage';
+import StudentHomePage from '../pages/student/StudentHomePage';
+import MyCoursesPage from '../pages/student/MyCoursesPage';
+import CourseListPage from '../pages/student/CourseListPage';
+import CourseDetailPage from '../pages/student/CourseDetailPage';
+import LessonPage from '../pages/student/LessonPage';
+import LearningHistoryPage from '../pages/student/LearningHistoryPage';
 import TestListPage from '../pages/student/TestListPage';
 import TestDetailPage from '../pages/student/TestDetailPage';
 import TestSessionPage from '../pages/student/TestSessionPage';
@@ -24,6 +30,14 @@ import FlashcardListPage from '../pages/student/FlashcardListPage';
 import FlashcardStudyPage from '../pages/student/FlashcardStudyPage';
 import TeacherDashboard from '../pages/teacher/TeacherDashboard';
 import TeacherCourseManagement from '../pages/teacher/CourseManagement';
+import CourseCreatePage from '../pages/teacher/CourseCreatePage';
+import CourseEditPage from '../pages/teacher/CourseEditPage';
+import LessonListPage from '../pages/teacher/LessonListPage';
+import LessonCreatePage from '../pages/teacher/LessonCreatePage';
+import TeacherTestListPage from '../pages/teacher/TestListPage';
+import TestCreatePage from '../pages/teacher/TestCreatePage';
+import StudentTrackingPage from '../pages/teacher/StudentTrackingPage';
+import QuestionBankPage from '../pages/teacher/QuestionBankPage';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import UserManagement from '../pages/admin/UserManagement';
 import AdminCourseManagement from '../pages/admin/CourseManagement';
@@ -50,13 +64,20 @@ export default function AppRoutes() {
         <Route path="/online-courses" element={<OnlineCourses />} />
         <Route path="/courses/:id" element={<CourseDetail />} />
         <Route path="/checkout/:id" element={<Checkout />} />
+        <Route path="/checkout" element={<CartCheckout />} />
+        <Route path="/wishlist" element={<WishlistPage />} />
       </Route>
 
       <Route element={<ProtectedRoute allowedRoles={['student']} />}>
         <Route element={<StudentLayout />}>
+          <Route path="/learning" element={<StudentHomePage />} />
           <Route path="/learning/dashboard" element={<StudentDashboard />} />
-          <Route path="/learning/courses" element={<MyCourses />} />
-          <Route path="/learning/lessons/:id" element={<Lesson />} />
+          <Route path="/learning/courses" element={<CourseListPage />} />
+          <Route path="/learning/my-courses" element={<MyCoursesPage />} />
+          <Route path="/learning/history" element={<LearningHistoryPage />} />
+          <Route path="/learning/courses/:id" element={<CourseDetailPage />} />
+          <Route path="/learning/courses/:courseId/lessons" element={<LessonPage />} />
+          <Route path="/learning/courses/:courseId/lessons/:lessonId" element={<LessonPage />} />
           <Route path="/learning/tests" element={<TestListPage />} />
           <Route path="/learning/tests/:id" element={<TestDetailPage />} />
           <Route path="/learning/tests/attempt/:attemptId" element={<TestSessionPage />} />
@@ -68,9 +89,19 @@ export default function AppRoutes() {
       </Route>
 
       <Route element={<ProtectedRoute allowedRoles={['teacher']} />}>
-<Route element={<TeacherLayout />}>
+        <Route element={<TeacherLayout />}>
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
           <Route path="/teacher/courses" element={<TeacherCourseManagement />} />
+          <Route path="/teacher/courses/create" element={<CourseCreatePage />} />
+          <Route path="/teacher/courses/:id/edit" element={<CourseEditPage />} />
+          <Route path="/teacher/lessons" element={<LessonListPage />} />
+          <Route path="/teacher/lessons/create" element={<LessonCreatePage />} />
+          <Route path="/teacher/lessons/:id/edit" element={<LessonCreatePage />} />
+          <Route path="/teacher/tests" element={<TeacherTestListPage />} />
+          <Route path="/teacher/tests/create" element={<TestCreatePage />} />
+          <Route path="/teacher/tests/:id/edit" element={<TestCreatePage />} />
+          <Route path="/teacher/students" element={<StudentTrackingPage />} />
+          <Route path="/teacher/questions" element={<QuestionBankPage />} />
         </Route>
       </Route>
 
