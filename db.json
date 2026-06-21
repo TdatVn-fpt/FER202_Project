@@ -138,7 +138,7 @@
       "level": "Intermediate",
       "price": 299000,
       "isPremium": true,
-      "thumbnail": "/images/listening-advanced.jpg",
+      "thumbnail": "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
       "status": "pending",
       "enrolledCount": 85,
@@ -160,7 +160,7 @@
       "level": "Advanced",
       "price": 499000,
       "isPremium": true,
-      "thumbnail": "/images/writing-masterclass.jpg",
+      "thumbnail": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
       "status": "pending",
       "enrolledCount": 0,
@@ -182,7 +182,7 @@
       "level": "Intermediate",
       "price": 199000,
       "isPremium": true,
-      "thumbnail": "/images/speaking.jpg",
+      "thumbnail": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
       "status": "rejected",
       "enrolledCount": 0,
@@ -341,6 +341,36 @@
       "status": "active",
       "progress": 35,
       "enrolledAt": "2026-06-01"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-001",
+      "progress": 50,
+      "enrolledAt": "2026-06-21T09:45:56.480Z",
+      "id": "NYrti839-l8",
+      "status": "active"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-002",
+      "progress": 100,
+      "enrolledAt": "2026-06-21T10:22:02.823Z",
+      "id": "ySsTPaPlmmU",
+      "status": "completed"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-003",
+      "progress": 0,
+      "enrolledAt": "2026-06-21T10:27:06.120Z",
+      "id": "cb51wNV__9c"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-004",
+      "progress": 0,
+      "enrolledAt": "2026-06-21T10:46:41.099Z",
+      "id": "7SFfx-Z-jhg"
     }
   ],
   "payments": [
@@ -353,6 +383,51 @@
       "method": "bank-transfer",
       "status": "paid",
       "paidAt": "2026-06-01T10:00:00Z"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-002",
+      "amount": 299000,
+      "currency": "VND",
+      "method": "vietqr",
+      "transferContent": "IELTS course-002 -001",
+      "status": "pending",
+      "createdAt": "2026-06-21T11:13:42.691Z",
+      "paidAt": null,
+      "reviewedAt": null,
+      "reviewedBy": null,
+      "rejectReason": null,
+      "id": "nwoBoRNZIKE"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-003",
+      "amount": 499000,
+      "currency": "VND",
+      "method": "vietqr",
+      "transferContent": "IELTS course-003 -001",
+      "status": "pending",
+      "createdAt": "2026-06-21T11:55:26.658Z",
+      "paidAt": null,
+      "reviewedAt": null,
+      "reviewedBy": null,
+      "rejectReason": null,
+      "id": "bxJrniBlUOo"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-004",
+      "amount": 199000,
+      "currency": "VND",
+      "method": "vietqr",
+      "transferContent": "IELTS course-004 -001",
+      "status": "pending",
+      "createdAt": "2026-06-21T13:37:22.389Z",
+      "paidAt": null,
+      "reviewedAt": null,
+      "reviewedBy": null,
+      "rejectReason": null,
+      "id": "AqsxV97xKcY"
     }
   ],
   "transactions": [
@@ -792,6 +867,135 @@
       "flashcardId": "flashcard-004",
       "status": "review",
       "id": "bv4ZUTqRnEI"
+    },
+    {
+      "userId": "u-001",
+      "flashcardId": "flashcard-001",
+      "status": "review",
+      "id": "DoR1rAaBnoM"
+    },
+    {
+      "userId": "u-001",
+      "flashcardId": "flashcard-002",
+      "status": "known",
+      "id": "HGYXxMXDIeg"
+    },
+    {
+      "userId": "u-001",
+      "flashcardId": "flashcard-003",
+      "status": "known",
+      "id": "f4NqX9L52e8"
+    },
+    {
+      "userId": "u-001",
+      "flashcardId": "flashcard-004",
+      "status": "review",
+      "id": "ZvZdhFZFi48"
+    }
+  ],
+  "lessonProgress": [
+    {
+      "id": "lp-001",
+      "userId": "u-001",
+      "lessonId": "lesson-001",
+      "courseId": "course-001",
+      "status": "completed",
+      "completedAt": "2026-06-21T09:46:01.194Z",
+      "completed": true
+    },
+    {
+      "id": "lp-002",
+      "userId": "u-001",
+      "lessonId": "lesson-002",
+      "courseId": "course-001",
+      "status": "completed",
+      "completedAt": "2026-06-21T10:00:00Z"
+    },
+    {
+      "id": "DVR-A0XuyLs",
+      "userId": "u-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-003",
+      "completed": true,
+      "completedAt": "2026-06-21T10:22:06.692Z"
+    }
+  ],
+  "testAttempts": [
+    {
+      "id": "ta-001",
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "score": 7,
+      "overallBandScore": 7,
+      "timeSpent": 3600,
+      "submittedAt": "2026-06-21T09:30:00Z"
+    },
+    {
+      "id": "ta-002",
+      "userId": "u-001",
+      "testId": "test-002",
+      "skill": "Listening",
+      "score": 6.5,
+      "overallBandScore": 6.5,
+      "timeSpent": 3000,
+      "submittedAt": "2026-06-21T10:15:00Z"
+    },
+    {
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-21T10:20:08.110Z",
+      "status": "in-progress",
+      "id": "hhYsVN-Ll1k"
+    },
+    {
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-21T10:20:13.658Z",
+      "status": "in-progress",
+      "id": "2gsMQqvo5Mk"
+    },
+    {
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-21T10:20:33.434Z",
+      "status": "in-progress",
+      "id": "6Zi3ucSWsQw"
+    },
+    {
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-21T10:23:15.171Z",
+      "status": "in-progress",
+      "id": "3PLRvpFiGb0"
+    },
+    {
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-21T10:23:18.649Z",
+      "status": "in-progress",
+      "id": "ACLb9AxNPOY"
+    },
+    {
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-21T10:23:23.793Z",
+      "status": "in-progress",
+      "id": "f8N1x6Pgc74"
+    },
+    {
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-21T12:43:59.470Z",
+      "status": "in-progress",
+      "id": "QpyhYEHDDpE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

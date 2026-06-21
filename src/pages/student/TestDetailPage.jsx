@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import { getCurrentUser } from '../../services/authService';
 
 const API_URL = 'http://localhost:9999';
 
@@ -45,12 +46,15 @@ export default function TestDetailPage() {
   const handleStartTest = async () => {
     setIsCreatingAttempt(true);
     try {
+      const currentUser = getCurrentUser();
       const payload = {
-        testId: parseInt(id) || id,
+        userId: currentUser?.id,
+        testId: id,
+        skill: testDetail?.skill,
         startTime: new Date().toISOString(),
         status: 'in-progress',
       };
-      const response = await axios.post(`${API_URL}/attempts`, payload);
+      const response = await axios.post(`${API_URL}/testAttempts`, payload);
       navigate(`/learning/tests/attempt/${response.data.id}`);
     } catch (err) {
       alert('Không thể bắt đầu bài thi. Vui lòng thử lại sau.');

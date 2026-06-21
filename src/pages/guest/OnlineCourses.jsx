@@ -95,10 +95,19 @@ export default function OnlineCourses() {
         <div className="catalog-grid">
           {filtered.map((course) => {
             const isFree = !course.price || course.price === 0;
+            const thumbnailSrc = course.thumbnail || 'https://via.placeholder.com/600x380?text=Course';
             return (
               <article className="catalog-card" key={course.id}>
                 <Link to={`/courses/${course.id}`} className="catalog-card-media">
-                  <img src={course.thumbnail} alt={course.title} loading="lazy" />
+                  <img
+                    src={thumbnailSrc}
+                    alt={course.title}
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = 'https://via.placeholder.com/600x380?text=Course';
+                    }}
+                  />
                   <span className={`catalog-tag ${isFree ? 'free' : 'premium'}`}>
                     {isFree ? 'Miễn phí' : 'Trả phí'}
                   </span>
