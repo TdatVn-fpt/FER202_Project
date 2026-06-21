@@ -1,511 +1,153 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Row, Col, Card, Button, Badge, Form, InputGroup } from 'react-bootstrap';
+import { freeResources, RESOURCE_SKILLS } from '../../data/freeResources';
 import './CourseList.css';
-import './Home.css'; // Import Home.css for bc-* styles
 
-const preparationOptions = [
-  {
-    eyebrow: 'Course • Online',
-    title: 'IELTS Coach online',
-    lead: 'Get the IELTS score you need with live classes, expert teachers and a clear learning plan.',
-    intro: 'Flexible learning:',
-    bullets: [
-      'Choose your class time and teacher',
-      'Join small online group or private classes',
-      'Practise with mock tests, webinars and exercises',
-      'Follow a structured plan to improve your IELTS score'
-    ],
-    bestFor: 'Best for structured learning and expert support.'
-  },
-  {
-    eyebrow: 'Online',
-    title: 'IELTS Ready Member',
-    lead: 'Free',
-    intro: 'Get started with your IELTS preparation using free official practice and study tools.',
-    bullets: [
-      'Practise with 6 full skill-based tests',
-      'Try a computer-delivered test experience',
-      'Learn with videos and expert tips'
-    ],
-    bestFor: 'Best for building confidence before taking a course'
-  },
-  {
-    eyebrow: 'Online',
-    title: 'IELTS Ready Premium',
-    lead: 'Free Included with IELTS test booking',
-    intro: 'Get full access to our premium IELTS preparation toolkit - free when you book your test.',
-    bullets: [
-      '40 practice tests for Listening and Reading',
-      'Mini-mock test with scores and AI feedback',
-      'Practice questions, model answers and online courses',
-      'Personal dashboard to track your progress'
-    ],
-    bestFor: 'Best for comprehensive preparation with premium resources'
-  }
-];
-
-const stats = [
-  { value: '90 years', label: 'of experience in teaching English language' },
-  { value: '4 m', label: 'Millions of IELTS tests are taken every year' },
-  { value: '12.500+', label: 'organisations and institutions recognise IELTS worldwide' },
-  { value: '140', label: 'countries offer IELTS testing in official test centres' }
-];
-
-const skills = [
-  {
-    title: 'Listening',
-    text: 'Assessment of your ability to understand spoken English, follow conversations and recognise key information and opinions.'
-  },
-  {
-    title: 'Reading',
-    text: 'Assessment of your ability to understand main ideas, details and implied meaning across different types of texts.'
-  },
-  {
-    title: 'Writing',
-    text: 'Assessment of your ability to organise ideas, respond appropriately and use a range of vocabulary and grammar accurately.'
-  },
-  {
-    title: 'Speaking',
-    text: 'Assessment of your ability to communicate clearly and fluently in a face-to-face or video call conversation.'
-  }
-];
+const skillVariant = {
+  Reading: 'primary',
+  Listening: 'info',
+  Writing: 'success',
+  Speaking: 'warning',
+  Vocabulary: 'secondary',
+  Grammar: 'danger',
+};
 
 export default function CourseList() {
-  const fallbackResources = useMemo(() => ([
-    {
-      id: 'resource-001',
-      title: 'The language clinic: Live Q&A session',
-      type: 'Learning hub',
-      level: 'B1 Intermediate',
-      skill: 'Listening',
-      date: '10 Jun 2026',
-      rating: 4,
-      reviews: 79,
-      image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80',
-      description: 'Join our live event and ask our expert educator your questions about the English language and learning English.'
-    },
-    {
-      id: 'resource-002',
-      title: "Learn with the world's English experts",
-      type: 'Promotion',
-      level: 'C1 Advanced',
-      skill: 'Speaking',
-      date: '10 Jun 2026',
-      rating: 4.5,
-      reviews: 68,
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80',
-      description: 'We help you gain confidence and improve your speaking, pronunciation and vocabulary.'
-    },
-    {
-      id: 'resource-003',
-      title: 'Grammar lesson: Chat GPT and AI',
-      type: 'Grammar',
-      level: 'B1 Intermediate',
-      skill: 'Grammar',
-      date: '11 Jun 2026',
-      rating: 4,
-      reviews: 112,
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80',
-      description: 'Watch a recording of our live event to support learners studying grammar, and talk about Chat GPT and AI.'
-    },
-    {
-      id: 'resource-004',
-      title: "Summer quiz: We're all going on a summer holiday!",
-      type: 'General English',
-      level: 'B1 Intermediate',
-      skill: 'Vocabulary',
-      date: '23 Jul 2026',
-      rating: 3.8,
-      reviews: 103,
-      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80',
-      description: 'Watch a recording of our live event to support learners studying grammar and vocabulary with this fun summer quiz.'
-    },
-    {
-      id: 'resource-005',
-      title: "Vocabulary lesson: Let's get away from it all",
-      type: 'Vocabulary',
-      level: 'B1 Intermediate',
-      skill: 'Vocabulary',
-      date: '01 Jul 2026',
-      rating: 4,
-      reviews: 115,
-      image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80',
-      description: 'Watch a recording of our live event to support learners studying vocabulary, travelling and using useful holiday language.'
-    },
-    {
-      id: 'resource-006',
-      title: 'Home sweet home',
-      type: 'Community discussions',
-      level: 'B1 Intermediate',
-      skill: 'Speaking',
-      date: '30 May 2026',
-      rating: 4.7,
-      reviews: 37,
-      image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80',
-      description: 'There is no place like home! In this topic, write and talk about our homes.'
-    },
-    {
-      id: 'resource-007',
-      title: 'Tell us about your home',
-      type: 'Community discussions',
-      level: 'B2 Upper intermediate',
-      skill: 'Writing',
-      date: '20 May 2026',
-      rating: 4.6,
-      reviews: 76,
-      image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=80',
-      description: "What's your home like? Practice describing your home by writing a comment or leaving a voice message."
-    },
-    {
-      id: 'resource-008',
-      title: 'My dream home',
-      type: 'Community discussions',
-      level: 'B1 Intermediate',
-      skill: 'Writing',
-      date: '20 May 2026',
-      rating: 4.5,
-      reviews: 41,
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80',
-      description: 'What would your dream home be like? Read our ideas and then add your own.'
-    },
-    {
-      id: 'resource-009',
-      title: 'Vocabulary about homes',
-      type: 'Vocabulary',
-      level: 'B1 Intermediate',
-      skill: 'Vocabulary',
-      date: '20 May 2026',
-      rating: 5,
-      reviews: 19,
-      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80',
-      description: 'Practice vocabulary for parts of a house or flat with useful learning activities.'
-    },
-    {
-      id: 'resource-010',
-      title: 'House or home?',
-      type: 'Grammar',
-      level: 'C1 Advanced',
-      skill: 'Grammar',
-      date: '20 May 2026',
-      rating: 4.5,
-      reviews: 36,
-      image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80',
-      description: 'Do you know when to use house and when to use home? Learn the difference in context.'
-    },
-    {
-      id: 'resource-011',
-      title: 'Reflection - home sweet home',
-      type: 'Community discussions',
-      level: 'B1 Intermediate',
-      skill: 'Writing',
-      date: '4 May 2026',
-      rating: 4.5,
-      reviews: 60,
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80',
-      description: 'Did you like this topic? What did you learn? Share your reflection with other learners.'
-    },
-    {
-      id: 'resource-012',
-      title: 'Tea or coffee?',
-      type: 'Community discussions',
-      level: 'B1 Intermediate',
-      skill: 'Speaking',
-      date: '29 Apr 2026',
-      rating: 4,
-      reviews: 61,
-      image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80',
-      description: 'All around the world, millions of cups of tea and coffee are drunk every day.'
-    }
-  ]), []);
-
-  const [resources, setResources] = useState(fallbackResources);
-  const [visibleCount, setVisibleCount] = useState(12);
-  const [filters, setFilters] = useState({
-    level: '',
-    skill: '',
-    type: '',
-    topic: ''
-  });
+  const [skill, setSkill] = useState('Tất cả');
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
-    let ignore = false;
+    window.scrollTo(0, 0);
+  }, []);
 
-    fetch('http://localhost:3001/freeResources')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Unable to load resources');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (!ignore && Array.isArray(data) && data.length > 0) {
-          setResources(data);
-        }
-      })
-      .catch(() => {
-        if (!ignore) {
-          setResources(fallbackResources);
-        }
-      });
-
-    return () => {
-      ignore = true;
-    };
-  }, [fallbackResources]);
-
-  const filteredResources = resources.filter((resource) => (
-    Object.entries(filters).every(([key, value]) => {
-      if (!value) {
-        return true;
-      }
-
-      const sourceValue = key === 'topic'
-        ? `${resource.title} ${resource.description}`
-        : resource[key];
-
-      return sourceValue?.toLowerCase().includes(value.toLowerCase());
-    })
-  ));
-
-  const resourcesToShow = filteredResources.slice(0, visibleCount);
-  const categoryTabs = ['Learning hub', 'Listening', 'Reading', 'Writing', 'Speaking', 'Grammar', 'Vocabulary', 'Business English', 'General English'];
-  const levelOptions = ['A1 Beginner', 'A2 Pre-intermediate', 'B1 Intermediate', 'B2 Upper intermediate', 'C1 Advanced'];
-  const skillOptions = ['Listening', 'Reading', 'Writing', 'Speaking', 'Grammar', 'Vocabulary'];
-  const typeOptions = ['Learning hub', 'Community discussions', 'Grammar', 'Vocabulary', 'Promotion', 'General English'];
-
-  const renderStars = (rating) => (
-    Array.from({ length: 5 }, (_, index) => (
-      <span key={index} className={index < Math.round(rating) ? 'active' : ''}>*</span>
-    ))
-  );
-
-  const handleFilterChange = (event) => {
-    const { name, value } = event.target;
-    setVisibleCount(12);
-    setFilters((current) => ({ ...current, [name]: value }));
-  };
+  const filtered = useMemo(() => {
+    const keyword = search.trim().toLowerCase();
+    return freeResources.filter((item) => {
+      const matchSkill = skill === 'Tất cả' || item.skill === skill;
+      const matchSearch =
+        !keyword ||
+        item.title.toLowerCase().includes(keyword) ||
+        item.excerpt.toLowerCase().includes(keyword);
+      return matchSkill && matchSearch;
+    });
+  }, [skill, search]);
 
   return (
-    <div className="free-resources-page">
-      <section className="resources-hero">
-        <div className="resources-hero-band" aria-hidden="true"></div>
-        <div className="resources-container resources-hero-inner">
-          <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=85"
-            alt="Learner using a tablet"
-            className="resources-hero-image"
-          />
-        </div>
-      </section>
-
-      <section className="resources-main">
-        <div className="resources-container">
-          <div className="resources-intro">
-            <h1>Personalised resources for you</h1>
-            <p>Register to unlock the full resource library and save your favourite materials for easy access any time.</p>
-            <Link to="/register" className="resources-register-button">Register now</Link>
-          </div>
-
-          <div className="resources-tabs" aria-label="Resource categories">
-            {categoryTabs.map((tab) => (
-              <button
-                key={tab}
-                type="button"
-                className={filters.type === tab ? 'active' : ''}
-                onClick={() => {
-                  setVisibleCount(12);
-                  setFilters((current) => ({ ...current, type: current.type === tab ? '' : tab }));
-                }}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-
-          <form className="resources-filters">
-            <label>
-              <span>Level</span>
-              <select name="level" value={filters.level} onChange={handleFilterChange}>
-                <option value="">-Any-</option>
-                {levelOptions.map((level) => <option key={level} value={level}>{level}</option>)}
-              </select>
-            </label>
-
-            <label>
-              <span>Skill</span>
-              <select name="skill" value={filters.skill} onChange={handleFilterChange}>
-                <option value="">-Any-</option>
-                {skillOptions.map((skill) => <option key={skill} value={skill}>{skill}</option>)}
-              </select>
-            </label>
-
-            <label>
-              <span>Type</span>
-              <select name="type" value={filters.type} onChange={handleFilterChange}>
-                <option value="">-Any-</option>
-                {typeOptions.map((type) => <option key={type} value={type}>{type}</option>)}
-              </select>
-            </label>
-
-            <label>
-              <span>Topics</span>
-              <select name="topic" value={filters.topic} onChange={handleFilterChange}>
-                <option value="">-Any-</option>
-                <option value="home">Homes</option>
-                <option value="grammar">Grammar</option>
-                <option value="holiday">Travel and holidays</option>
-                <option value="coffee">Food and drink</option>
-              </select>
-            </label>
-          </form>
-
-          <button type="button" className="find-level-button">Find your level</button>
-
-          <div className="resource-grid">
-            {resourcesToShow.map((resource) => (
-              <article className="resource-card" key={resource.id}>
-                <div className="resource-image-wrap">
-                  {resource.type === 'Promotion' && <span className="resource-badge">Promotion</span>}
-                  <img src={resource.image} alt="" />
-                </div>
-                <div className="resource-card-body">
-                  <Link to="/courses" className="resource-title">{resource.title}</Link>
-                  <p className="resource-description">{resource.description}</p>
-                  <p className="resource-meta">{resource.type}</p>
-                  <p className="resource-level">Level: <strong>{resource.level}</strong></p>
-                  <p className="resource-skill">{resource.skill}</p>
-                  <div className="resource-rating" aria-label={`${resource.rating} out of 5 stars`}>
-                    {renderStars(resource.rating)}
-                  </div>
-                  <p className="resource-average">Average: {resource.rating} <span>({resource.reviews} votes)</span></p>
-                  <p className="resource-date">{resource.date}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          {resourcesToShow.length === 0 && (
-            <p className="resources-empty">No resources match these filters.</p>
-          )}
-
-          {visibleCount < filteredResources.length && (
-            <div className="resources-load-wrap">
-              <button type="button" className="resources-load-button" onClick={() => setVisibleCount((count) => count + 4)}>
-                Load more
-              </button>
-            </div>
-          )}
-        </div>
-      </section>
-
-      <div className="bc-home" style={{ minHeight: 'auto' }}>
-        <section className="bc-options" id="practice-tests">
-          <div className="bc-container">
-            <div className="bc-section-heading">
-              <h2>IELTS preparation options for every goal</h2>
-              <p>Choose the right preparation for your timeline and target score.</p>
-              <p>Study with expert teachers, practise real test tasks, and build the skills you need to succeed.</p>
-            </div>
-
-            <div className="bc-option-grid">
-              {preparationOptions.map((option) => (
-                <article className="bc-option-card" key={option.title}>
-                  <p className="bc-option-eyebrow">{option.eyebrow}</p>
-                  <h3>{option.title}</h3>
-                  <p className="bc-option-lead">{option.lead}</p>
-                  <p>{option.intro}</p>
-                  <ul>
-                    {option.bullets.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
-                    ))}
-                  </ul>
-                  <p className="bc-option-best">{option.bestFor}</p>
-                  <Link to="/courses" className="bc-button bc-button-small">
-                    Learn more
-                  </Link>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bc-stats">
-          <div className="bc-container">
-            <h2>IELTS is the leading English test for study, work or migration abroad</h2>
-            <div className="bc-stats-grid">
-              {stats.map((item) => (
-                <article className="bc-stat" key={item.value}>
-                  <strong>{item.value}</strong>
-                  <span>{item.label}</span>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bc-skills" id="question-bank">
-          <div className="bc-container bc-skills-inner">
-            <div className="bc-section-heading">
-              <h2>Maximise your IELTS score in all four skills</h2>
-              <p>
-                The IELTS test assesses your ability in listening, reading, writing and speaking.
-                Prepare with targeted practice and expert support to perform at your best in each skill.
+    <div className="resource-page bg-light">
+      {/* HERO */}
+      <header className="resource-hero text-white">
+        <Container className="py-5">
+          <Row className="justify-content-center text-center">
+            <Col lg={8}>
+              <Badge bg="light" text="dark" className="mb-3 px-3 py-2 rounded-pill text-uppercase">
+                Miễn phí 100%
+              </Badge>
+              <h1 className="display-5 fw-bold mb-3">Tài nguyên luyện thi IELTS miễn phí</h1>
+              <p className="fs-5 mb-0 text-white-50">
+                Tổng hợp bài hướng dẫn, mẹo làm bài và từ vựng cho cả 4 kỹ năng. Đọc thoải mái
+                không cần đăng nhập, sẵn sàng cho lộ trình IELTS của bạn.
               </p>
-            </div>
+            </Col>
+          </Row>
+        </Container>
+      </header>
 
-            <div className="bc-skill-grid">
-              {skills.map((skill) => (
-                <article className="bc-skill-card" key={skill.title}>
-                  <h3>{skill.title}</h3>
-                  <p>{skill.text}</p>
-                </article>
+      <Container className="pb-5">
+        {/* TOOLBAR */}
+        <Card className="resource-toolbar border-0 shadow-sm">
+          <Card.Body className="d-flex flex-wrap gap-3 align-items-center justify-content-between">
+            <div className="d-flex flex-wrap gap-2">
+              {RESOURCE_SKILLS.map((s) => (
+                <Button
+                  key={s}
+                  size="sm"
+                  variant={skill === s ? 'primary' : 'outline-secondary'}
+                  className="rounded-pill px-3"
+                  onClick={() => setSkill(s)}
+                >
+                  {s}
+                </Button>
               ))}
             </div>
+            <InputGroup className="resource-search">
+              <InputGroup.Text className="bg-white border-end-0">🔍</InputGroup.Text>
+              <Form.Control
+                className="border-start-0"
+                placeholder="Tìm bài viết theo từ khóa..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </InputGroup>
+          </Card.Body>
+        </Card>
 
-            <p className="bc-skills-note">
-              Your preparation will focus on the skills you need most, based on your level and goals.
-              With expert guidance and targeted practice, you can build confidence and improve your IELTS performance.
+        {/* GRID */}
+        {filtered.length === 0 ? (
+          <p className="text-center text-muted py-5 mb-0">Không tìm thấy tài nguyên phù hợp.</p>
+        ) : (
+          <Row className="g-4 mt-1">
+            {filtered.map((item) => (
+              <Col key={item.id} md={6} lg={4}>
+                <Card className="resource-card h-100 border-0 shadow-sm">
+                  <Link to={`/resources/${item.id}`} className="resource-card-media">
+                    <Card.Img variant="top" src={item.image} alt={item.title} loading="lazy" />
+                    <Badge
+                      bg={skillVariant[item.skill] || 'primary'}
+                      className="resource-card-skill"
+                    >
+                      {item.skill}
+                    </Badge>
+                  </Link>
+                  <Card.Body className="d-flex flex-column">
+                    <div className="d-flex align-items-center gap-2 small text-muted mb-2">
+                      <span>{item.type}</span>
+                      <span>•</span>
+                      <span>⏱ {item.readingTime} phút đọc</span>
+                    </div>
+                    <Card.Title as="h3" className="fs-5 fw-bold mb-2">
+                      <Link to={`/resources/${item.id}`} className="resource-card-title">
+                        {item.title}
+                      </Link>
+                    </Card.Title>
+                    <Card.Text className="text-muted small flex-grow-1">{item.excerpt}</Card.Text>
+                    <div className="d-flex align-items-center justify-content-between mt-2">
+                      <span className="small text-muted">{item.level}</span>
+                      <Button
+                        as={Link}
+                        to={`/resources/${item.id}`}
+                        variant="outline-primary"
+                        size="sm"
+                        className="rounded-pill px-3"
+                      >
+                        Đọc bài →
+                      </Button>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        )}
+
+        {/* CTA */}
+        <Card className="resource-cta border-0 text-white text-center mt-5">
+          <Card.Body className="py-5">
+            <h2 className="fw-bold mb-2">Muốn luyện tập có lộ trình bài bản?</h2>
+            <p className="mb-4 text-white-50">
+              Khám phá khu luyện 4 kỹ năng tương tác hoặc các khóa học có giảng viên kèm cặp.
             </p>
-
-            <div className="bc-skill-actions">
-              <Link to="/courses" className="bc-button bc-button-primary">
-                Explore IELTS preparation
-              </Link>
-              <Link to="/register" className="bc-button bc-button-outline">
-                Check your English level
-              </Link>
+            <div className="d-flex gap-3 justify-content-center flex-wrap">
+              <Button as={Link} to="/skills" variant="light" className="fw-semibold px-4">
+                Luyện 4 kỹ năng
+              </Button>
+              <Button as={Link} to="/online-courses" variant="outline-light" className="fw-semibold px-4">
+                Xem khóa học
+              </Button>
             </div>
-          </div>
-        </section>
-      </div>
-
-      <section className="online-courses-strip">
-        <div className="resources-container">
-          <h2>Online courses</h2>
-          <div className="online-course-grid">
-            <Link to="/courses">
-              <span className="course-icon">L</span>
-              <strong>Live classes</strong>
-              <small>Group and one-to-one classes with expert teachers.</small>
-            </Link>
-            <Link to="/courses">
-              <span className="course-icon">S</span>
-              <strong>Self-study</strong>
-              <small>Learn English in your own time, at your own pace.</small>
-            </Link>
-            <Link to="/courses">
-              <span className="course-icon">P</span>
-              <strong>Personal tutoring</strong>
-              <small>One-to-one sessions focused on a personal plan.</small>
-            </Link>
-            <Link to="/courses">
-              <span className="course-icon">I</span>
-              <strong>IELTS preparation</strong>
-              <small>Get the score you need with private and group classes.</small>
-            </Link>
-          </div>
-        </div>
-      </section>
+          </Card.Body>
+        </Card>
+      </Container>
     </div>
   );
 }
