@@ -114,6 +114,36 @@
       "status": "active",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "createdAt": "2026-06-11T03:17:42.250Z"
+    },
+    {
+      "id": "google-teacher-1",
+      "fullName": "IELTS Mentor",
+      "name": "IELTS Mentor",
+      "email": "teacher@ieltslearning.com",
+      "password": "12345678",
+      "role": "teacher",
+      "status": "active",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp"
+    },
+    {
+      "id": "google-student-1",
+      "fullName": "Tien Dat",
+      "name": "Tien Dat",
+      "email": "ntiendat2108@gmail.com",
+      "password": "12345678",
+      "role": "student",
+      "status": "active",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp"
+    },
+    {
+      "id": "google-admin-1",
+      "fullName": "System Admin",
+      "name": "System Admin",
+      "email": "admin@ieltslearning.com",
+      "password": "12345678",
+      "role": "admin",
+      "status": "active",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp"
     }
   ],
   "courses": [
@@ -203,21 +233,6 @@
       "rating": 0,
       "durationWeeks": 6,
       "createdAt": "2026-06-08T08:00:00Z"
-    },
-    {
-      "title": "Band 4-5",
-      "description": "Chào các bạn",
-      "skill": "Reading",
-      "level": "Intermediate",
-      "price": 10,
-      "durationWeeks": 4,
-      "thumbnail": "",
-      "teacherId": "u-student-001",
-      "status": "draft",
-      "enrolledCount": 0,
-      "isPremium": true,
-      "createdAt": "2026-06-23T13:17:25.930Z",
-      "id": "sLnce3Irw3g"
     }
   ],
   "freeResources": [
@@ -847,6 +862,15 @@
       "requireLoginAfterLimit": true,
       "createdAt": "2026-06-23T15:09:00.000Z",
       "updatedAt": "2026-06-23T15:09:00.000Z"
+    },
+    {
+      "courseId": "course-008",
+      "title": "Advanced Writing Review",
+      "skill": "Writing",
+      "durationMinutes": 60,
+      "totalQuestions": 1,
+      "status": "published",
+      "id": "Mx539GlgPjQ"
     }
   ],
   "questions": [
@@ -1393,6 +1417,54 @@
       },
       "timestamp": "2026-06-23T14:21:24.601Z",
       "id": "VI-1Pch6iSY"
+    },
+    {
+      "id": "log-013",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-23T15:00:00.000Z"
+    },
+    {
+      "id": "log-014",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-23T15:00:00.000Z"
+    },
+    {
+      "id": "log-015",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-23T15:00:00.000Z"
+    },
+    {
+      "id": "log-016",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-008",
+      "createdAt": "2026-06-23T15:00:00.000Z"
+    },
+    {
+      "id": "log-017",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-231",
+      "createdAt": "2026-06-23T17:07:46.692Z"
+    },
+    {
+      "id": "log-018",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-232",
+      "createdAt": "2026-06-23T17:08:15.404Z"
     }
   ],
   "approvalRequests": [
@@ -1411,6 +1483,38 @@
       "teacherId": "u-teacher-001",
       "status": "pending",
       "createdAt": "2026-06-11T08:30:00Z"
+    },
+    {
+      "id": "req-003",
+      "targetType": "course",
+      "targetId": "course-005",
+      "teacherId": "u-teacher-001",
+      "status": "pending",
+      "createdAt": "2026-06-23T16:32:41.048Z"
+    },
+    {
+      "id": "req-004",
+      "targetType": "course",
+      "targetId": "course-006",
+      "teacherId": "u-teacher-001",
+      "status": "pending",
+      "createdAt": "2026-06-23T16:34:09.939Z"
+    },
+    {
+      "id": "req-005",
+      "targetType": "course",
+      "targetId": "course-007",
+      "teacherId": "u-teacher-001",
+      "status": "pending",
+      "createdAt": "2026-06-23T16:35:29.072Z"
+    },
+    {
+      "id": "req-006",
+      "targetType": "course",
+      "targetId": "course-008",
+      "teacherId": "u-teacher-001",
+      "status": "pending",
+      "createdAt": "2026-06-23T16:35:49.491Z"
     }
   ],
   "categories": [
@@ -1434,180 +1538,210 @@
     {
       "id": "flashcard-001",
       "categoryId": "cat-001",
+      "courseId": "course-001",
       "word": "Biodiversity",
       "meaning": "The variety of plant and animal life in a particular habitat."
     },
     {
       "id": "flashcard-002",
       "categoryId": "cat-001",
+      "courseId": "course-001",
       "word": "Conservation",
       "meaning": "The protection of nature and natural resources."
     },
     {
       "id": "flashcard-003",
       "categoryId": "cat-001",
+      "courseId": "course-001",
       "word": "Deforestation",
       "meaning": "The removal of trees from a forested area."
     },
     {
       "id": "flashcard-004",
       "categoryId": "cat-001",
+      "courseId": "course-001",
       "word": "Ecosystem",
       "meaning": "A community of living things interacting with their environment."
     },
     {
       "id": "flashcard-005",
       "categoryId": "cat-001",
+      "courseId": "course-001",
       "word": "Emissions",
       "meaning": "Gases or substances released into the air."
     },
     {
       "id": "flashcard-006",
       "categoryId": "cat-001",
+      "courseId": "course-001",
       "word": "Habitat",
       "meaning": "The natural home of an animal, plant, or organism."
     },
     {
       "id": "flashcard-007",
       "categoryId": "cat-001",
+      "courseId": "course-001",
       "word": "Pollutant",
       "meaning": "A substance that contaminates air, water, or soil."
     },
     {
       "id": "flashcard-008",
       "categoryId": "cat-001",
+      "courseId": "course-001",
       "word": "Renewable",
       "meaning": "Able to be replaced naturally and used again."
     },
     {
       "id": "flashcard-009",
       "categoryId": "cat-001",
+      "courseId": "course-001",
       "word": "Sustainable",
       "meaning": "Able to continue without damaging future resources."
     },
     {
       "id": "flashcard-010",
       "categoryId": "cat-001",
+      "courseId": "course-001",
       "word": "Waste management",
       "meaning": "The process of collecting, treating, and reducing waste."
     },
     {
       "id": "flashcard-011",
       "categoryId": "cat-002",
+      "courseId": "course-002",
       "word": "Automation",
       "meaning": "The use of technology to perform tasks without human effort."
     },
     {
       "id": "flashcard-012",
       "categoryId": "cat-002",
+      "courseId": "course-002",
       "word": "Breakthrough",
       "meaning": "An important discovery or development."
     },
     {
       "id": "flashcard-013",
       "categoryId": "cat-002",
+      "courseId": "course-002",
       "word": "Cybersecurity",
       "meaning": "Protection of computer systems and data from digital attacks."
     },
     {
       "id": "flashcard-014",
       "categoryId": "cat-002",
+      "courseId": "course-002",
       "word": "Data-driven",
       "meaning": "Guided by the analysis of data."
     },
     {
       "id": "flashcard-015",
       "categoryId": "cat-002",
+      "courseId": "course-002",
       "word": "Disruptive",
       "meaning": "Changing an industry or market in a major way."
     },
     {
       "id": "flashcard-016",
       "categoryId": "cat-002",
+      "courseId": "course-002",
       "word": "Innovation",
       "meaning": "The creation or use of new ideas, methods, or products."
     },
     {
       "id": "flashcard-017",
       "categoryId": "cat-002",
+      "courseId": "course-002",
       "word": "Obsolete",
       "meaning": "No longer useful because something newer exists."
     },
     {
       "id": "flashcard-018",
       "categoryId": "cat-002",
+      "courseId": "course-002",
       "word": "Privacy",
       "meaning": "The right to keep personal information protected."
     },
     {
       "id": "flashcard-019",
       "categoryId": "cat-002",
+      "courseId": "course-002",
       "word": "Scalable",
       "meaning": "Able to grow or handle more demand effectively."
     },
     {
       "id": "flashcard-020",
       "categoryId": "cat-002",
+      "courseId": "course-002",
       "word": "Virtual",
       "meaning": "Existing or happening through computer technology."
     },
     {
       "id": "flashcard-021",
       "categoryId": "cat-003",
+      "courseId": "course-003",
       "word": "Curriculum",
       "meaning": "The subjects and content taught in a course or school."
     },
     {
       "id": "flashcard-022",
       "categoryId": "cat-003",
+      "courseId": "course-003",
       "word": "Enrollment",
       "meaning": "The act of joining a school, course, or program."
     },
     {
       "id": "flashcard-023",
       "categoryId": "cat-003",
+      "courseId": "course-003",
       "word": "Literacy",
       "meaning": "The ability to read and write."
     },
     {
       "id": "flashcard-024",
       "categoryId": "cat-003",
+      "courseId": "course-003",
       "word": "Mentor",
       "meaning": "An experienced person who guides and supports learners."
     },
     {
       "id": "flashcard-025",
       "categoryId": "cat-003",
+      "courseId": "course-003",
       "word": "Scholarship",
       "meaning": "Financial support given to a student for study."
     },
     {
       "id": "flashcard-026",
       "categoryId": "cat-003",
+      "courseId": "course-003",
       "word": "Self-directed",
       "meaning": "Managed or guided by the learner independently."
     },
     {
       "id": "flashcard-027",
       "categoryId": "cat-003",
+      "courseId": "course-003",
       "word": "Tuition",
       "meaning": "Money paid for education or instruction."
     },
     {
       "id": "flashcard-028",
       "categoryId": "cat-003",
+      "courseId": "course-003",
       "word": "Vocational",
       "meaning": "Related to training for a particular job or career."
     },
     {
       "id": "flashcard-029",
       "categoryId": "cat-003",
+      "courseId": "course-003",
       "word": "Assessment",
       "meaning": "A method of judging a learner's knowledge or skill."
     },
     {
       "id": "flashcard-030",
       "categoryId": "cat-003",
+      "courseId": "course-003",
       "word": "Lifelong learning",
       "meaning": "Continuing to learn throughout one's life."
     }
@@ -1666,6 +1800,48 @@
       "flashcardId": "flashcard-004",
       "status": "review",
       "id": "ZvZdhFZFi48"
+    },
+    {
+      "id": "fp-003",
+      "userId": "student-test-trial",
+      "flashcardId": "flashcard-001",
+      "status": "review",
+      "createdAt": "2026-06-23T16:34:10.093Z"
+    },
+    {
+      "id": "fp-004",
+      "userId": "student-test-trial",
+      "flashcardId": "flashcard-002",
+      "status": "review",
+      "createdAt": "2026-06-23T16:34:10.103Z"
+    },
+    {
+      "id": "fp-005",
+      "userId": "student-test-trial",
+      "flashcardId": "flashcard-003",
+      "status": "review",
+      "createdAt": "2026-06-23T16:34:10.114Z"
+    },
+    {
+      "id": "fp-006",
+      "userId": "student-1782232549608",
+      "flashcardId": "flashcard-001",
+      "status": "review",
+      "createdAt": "2026-06-23T16:35:49.631Z"
+    },
+    {
+      "id": "fp-007",
+      "userId": "student-1782232549608",
+      "flashcardId": "flashcard-002",
+      "status": "review",
+      "createdAt": "2026-06-23T16:35:49.636Z"
+    },
+    {
+      "id": "fp-008",
+      "userId": "student-1782232549608",
+      "flashcardId": "flashcard-003",
+      "status": "review",
+      "createdAt": "2026-06-23T16:35:49.640Z"
     }
   ],
   "lessonProgress": [
@@ -1812,6 +1988,116 @@
       "status": "in-progress",
       "answers": {},
       "id": "VVV4JmPSuNs"
+    },
+    {
+      "id": "ta-003",
+      "userId": "student-test-trial",
+      "guestId": null,
+      "testId": "test-001",
+      "skill": "Reading",
+      "status": "in-progress",
+      "startTime": "2026-06-23T16:34:10.059Z",
+      "createdAt": "2026-06-23T16:34:10.060Z"
+    },
+    {
+      "id": "ta-004",
+      "userId": "student-test-trial",
+      "guestId": null,
+      "testId": "test-001",
+      "skill": "Reading",
+      "status": "in-progress",
+      "startTime": "2026-06-23T16:34:10.068Z",
+      "createdAt": "2026-06-23T16:34:10.068Z"
+    },
+    {
+      "id": "ta-005",
+      "userId": "student-test-trial",
+      "guestId": null,
+      "testId": "test-001",
+      "skill": "Reading",
+      "status": "in-progress",
+      "startTime": "2026-06-23T16:34:10.079Z",
+      "createdAt": "2026-06-23T16:34:10.079Z"
+    },
+    {
+      "id": "ta-006",
+      "userId": "student-1782232549608",
+      "guestId": null,
+      "testId": "test-001",
+      "skill": "Reading",
+      "status": "in-progress",
+      "startTime": "2026-06-23T16:35:49.610Z",
+      "createdAt": "2026-06-23T16:35:49.610Z"
+    },
+    {
+      "id": "ta-007",
+      "userId": "student-1782232549608",
+      "guestId": null,
+      "testId": "test-001",
+      "skill": "Reading",
+      "status": "in-progress",
+      "startTime": "2026-06-23T16:35:49.616Z",
+      "createdAt": "2026-06-23T16:35:49.616Z"
+    },
+    {
+      "id": "ta-008",
+      "userId": "student-1782232549608",
+      "guestId": null,
+      "testId": "test-001",
+      "skill": "Reading",
+      "status": "in-progress",
+      "startTime": "2026-06-23T16:35:49.623Z",
+      "createdAt": "2026-06-23T16:35:49.623Z"
+    },
+    {
+      "id": "ta-009",
+      "userId": "student-1782232549608",
+      "guestId": null,
+      "testId": "Mx539GlgPjQ",
+      "skill": "Writing",
+      "status": "in-progress",
+      "startTime": "2026-06-23T16:35:49.651Z",
+      "createdAt": "2026-06-23T16:35:49.651Z"
+    },
+    {
+      "id": "ta-010",
+      "userId": "student-1782232549608",
+      "guestId": null,
+      "testId": "Mx539GlgPjQ",
+      "skill": "Writing",
+      "status": "in-progress",
+      "startTime": "2026-06-23T16:35:49.656Z",
+      "createdAt": "2026-06-23T16:35:49.656Z"
+    },
+    {
+      "id": "ta-011",
+      "userId": "student-1782232549608",
+      "guestId": null,
+      "testId": "Mx539GlgPjQ",
+      "skill": "Writing",
+      "status": "in-progress",
+      "startTime": "2026-06-23T16:35:49.662Z",
+      "createdAt": "2026-06-23T16:35:49.662Z"
+    },
+    {
+      "id": "ta-012",
+      "userId": "student-1782232549608",
+      "guestId": null,
+      "testId": "Mx539GlgPjQ",
+      "skill": "Writing",
+      "status": "in-progress",
+      "startTime": "2026-06-23T16:35:49.666Z",
+      "createdAt": "2026-06-23T16:35:49.666Z"
+    },
+    {
+      "id": "ta-013",
+      "userId": "student-1782232549608",
+      "guestId": null,
+      "testId": "Mx539GlgPjQ",
+      "skill": "Writing",
+      "status": "in-progress",
+      "startTime": "2026-06-23T16:35:49.671Z",
+      "createdAt": "2026-06-23T16:35:49.671Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
