@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { getCourseById, getEnrollment, createEnrollment } from '../../services/courseLearning.service';
 import { getCurrentUser } from '../../services/authService';
 import { getPaidPayment, getLatestPayment, PAYMENT_STATUS } from '../../services/paymentService';
 import { addToCart, isInCart, subscribeCartChanges } from '../../services/cartService';
 import { isInWishlist, addToWishlist, removeFromWishlist, subscribeWishlistChanges } from '../../services/wishlistService';
+import { testService } from '../../services/testService';
 import './CourseDetailPage.css';
 
 const WHAT_YOU_LEARN = [
@@ -35,13 +36,16 @@ const CourseDetailPage = () => {
   const { id: courseId } = useParams();
   const navigate = useNavigate();
   const storedUser = getCurrentUser();
+  const storedUserId = storedUser?.id;
+  const storedUserEmail = storedUser?.email;
 
   const [course, setCourse] = useState(null);
-  const [enrollment, setEnrollment] = useState(null);
+  const [, setEnrollment] = useState(null);
   const [hasPaid, setHasPaid] = useState(false);
   const [paymentPending, setPaymentPending] = useState(false);
   const [inCart, setInCart] = useState(false);
   const [wishlistAdded, setWishlistAdded] = useState(false);
+  const [courseTests, setCourseTests] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isEnrolling, setIsEnrolling] = useState(false);
   const [error, setError] = useState(null);
@@ -52,17 +56,21 @@ const CourseDetailPage = () => {
       setError(null);
       try {
         // Re-fetch user id from server to avoid stale localStorage
-        let currentUserId = storedUser?.id || 'u-001';
-        if (storedUser?.email) {
+        let currentUserId = storedUserId || 'u-001';
+        if (storedUserEmail) {
           try {
-            const res = await fetch(`http://localhost:9999/users?email=${encodeURIComponent(storedUser.email)}`);
+            const res = await fetch(`http://localhost:9999/users?email=${encodeURIComponent(storedUserEmail)}`);
             const data = await res.json();
             if (data?.length > 0) currentUserId = data[0].id;
           } catch (_) {}
         }
 
-        const courseData = await getCourseById(courseId);
+        const [courseData, testsData] = await Promise.all([
+          getCourseById(courseId),
+          testService.getTestsByCourse(courseId).catch(() => []),
+        ]);
         setCourse(courseData);
+        setCourseTests(testsData);
         if (courseData) {
           const enrollmentData = await getEnrollment(currentUserId, courseId);
           setEnrollment(enrollmentData);
@@ -88,7 +96,7 @@ const CourseDetailPage = () => {
       }
     };
     if (courseId) fetchCourseData();
-  }, [courseId]);
+  }, [courseId, storedUserEmail, storedUserId]);
 
   useEffect(() => {
     const handleCart = () => setInCart(isInCart(courseId));
@@ -109,10 +117,10 @@ const CourseDetailPage = () => {
 
     setIsEnrolling(true);
     try {
-      let currentUserId = storedUser?.id || 'u-001';
-      if (storedUser?.email) {
+      let currentUserId = storedUserId || 'u-001';
+      if (storedUserEmail) {
         try {
-          const res = await fetch(`http://localhost:9999/users?email=${encodeURIComponent(storedUser.email)}`);
+          const res = await fetch(`http://localhost:9999/users?email=${encodeURIComponent(storedUserEmail)}`);
           const data = await res.json();
           if (data?.length > 0) currentUserId = data[0].id;
         } catch (_) {}
@@ -287,6 +295,56 @@ const CourseDetailPage = () => {
                   ))}
                 </div>
               </div>
+
+              {courseTests.length > 0 && (
+                <div className="bg-white p-4 rounded-4 shadow-sm mb-5" style={{ border: '1px solid #e2e8f0' }}>
+                  <div className="d-flex align-items-center justify-content-between gap-3 flex-wrap mb-3">
+                    <div>
+                      <h2 className="section-title mb-1">Course tests</h2>
+                      <p className="text-muted mb-0" style={{ fontSize: '0.92rem' }}>
+                        Practice tests assigned by your tutor for this course.
+                      </p>
+                    </div>
+                    <span className="badge bg-primary rounded-pill px-3 py-2">{courseTests.length} tests</span>
+                  </div>
+
+                  <div className="d-flex flex-column gap-3">
+                    {courseTests.map((test) => (
+                      <div
+                        key={test.id}
+                        className="d-flex align-items-center justify-content-between gap-3 flex-wrap rounded-3 p-3"
+                        style={{ background: '#f8fafc', border: '1px solid #e2e8f0' }}
+                      >
+                        <div className="d-flex align-items-center gap-3">
+                          <div
+                            className="rounded-3 d-flex align-items-center justify-content-center"
+                            style={{ width: 42, height: 42, background: '#eff6ff', color: '#2563eb', flexShrink: 0 }}
+                          >
+                            <i className="bi bi-clipboard2-check-fill" />
+                          </div>
+                          <div>
+                            <div className="fw-bold text-dark">{test.title}</div>
+                            <div className="text-muted small">
+                              {test.skill} - {test.durationMinutes} minutes - {test.totalQuestions} questions
+                            </div>
+                          </div>
+                        </div>
+
+                        {courseAccess ? (
+                          <Link to={`/learning/tests/${test.id}`} className="btn btn-sm btn-primary rounded-pill px-3">
+                            Start test
+                          </Link>
+                        ) : (
+                          <span className="badge text-bg-light border rounded-pill px-3 py-2">
+                            <i className="bi bi-lock-fill me-1" />
+                            Buy course to unlock
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
             </div>
 
