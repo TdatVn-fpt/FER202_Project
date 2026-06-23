@@ -66,6 +66,9 @@ export default function AppRoutes() {
         <Route path="/checkout/:id" element={<Checkout />} />
         <Route path="/checkout" element={<CartCheckout />} />
         <Route path="/wishlist" element={<WishlistPage />} />
+        <Route path="/free-tests/:id" element={<TestDetailPage />} />
+        <Route path="/free-tests/attempt/:attemptId" element={<TestSessionPage />} />
+        <Route path="/free-tests/review/:attemptId" element={<TestReviewPage />} />
       </Route>
 
       <Route element={<ProtectedRoute allowedRoles={['student']} />}>
@@ -100,6 +103,7 @@ export default function AppRoutes() {
           <Route path="/teacher/tests" element={<TeacherTestListPage />} />
           <Route path="/teacher/tests/create" element={<TestCreatePage />} />
           <Route path="/teacher/tests/:id/edit" element={<TestCreatePage />} />
+          <Route path="/teacher/tests/:id/questions" element={<QuestionBankPage />} />
           <Route path="/teacher/students" element={<StudentTrackingPage />} />
           <Route path="/teacher/questions" element={<QuestionBankPage />} />
         </Route>
