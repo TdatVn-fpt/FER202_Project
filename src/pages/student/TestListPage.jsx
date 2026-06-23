@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-
-const API_URL = 'http://localhost:9999';
+import { testService } from '../../services/testService';
 
 const SKILL_CONFIG = {
   Reading:   { color: '#0ea5e9', bg: '#e0f2fe', icon: '📖', gradient: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)' },
@@ -23,8 +21,8 @@ export default function TestListPage() {
   useEffect(() => {
     const fetchTests = async () => {
       try {
-        const response = await axios.get(`${API_URL}/tests`);
-        setTests(response.data);
+        const data = await testService.getPublishedTests();
+        setTests(data);
       } catch (err) {
         setError(err.message || 'Lỗi khi tải danh sách bài thi.');
       } finally {
