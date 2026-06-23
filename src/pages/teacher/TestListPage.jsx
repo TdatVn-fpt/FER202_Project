@@ -1,33 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Col, Card, Button, Form, Table, Modal, Spinner, Alert } from 'react-bootstrap';
+import { Alert, Badge, Button, Card, Col, Form, Modal, Spinner, Table } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { getCurrentUser } from '../../services/authService';
 import { teacherCourseService } from '../../services/teacherCourseService';
 import { teacherTestService } from '../../services/teacherTestService';
 import { teacherQuestionService } from '../../services/teacherQuestionService';
 import { auditLogService } from '../../services/auditLogService';
+import { matchesTestId } from '../../utils/testModel';
 
-// EARS[Ubiquitous]: The TestListPage component shall list and filter tests owned by the logged-in teacher
 export default function TestListPage() {
+  const currentUser = getCurrentUser();
+  const teacherId = currentUser?.id || 'u-teacher-001';
+
   const [tests, setTests] = useState([]);
   const [courses, setCourses] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // Filter states
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCourseId, setSelectedCourseId] = useState('');
   const [selectedSkill, setSelectedSkill] = useState('');
-
-  // Delete modal states
+  const [selectedMode, setSelectedMode] = useState('');
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [testToDelete, setTestToDelete] = useState(null);
-  const [deleting, setDeleting] = useState(false);
-
-  const currentUser = getCurrentUser();
-  const teacherId = currentUser?.id || 'u-teacher-001';
+  const [showAssignModal, setShowAssignModal] = useState(false);
+  const [testToAssign, setTestToAssign] = useState(null);
+  const [assignCourseId, setAssignCourseId] = useState('');
+  const [working, setWorking] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -38,32 +38,56 @@ export default function TestListPage() {
     setLoading(true);
     setError(null);
     try {
-      // Fetch teacher courses and tests
       const [coursesData, testsData] = await Promise.all([
         teacherCourseService.getCourses(teacherId),
-        teacherTestService.getTests(teacherId)
+        teacherTestService.getTests(teacherId),
       ]);
       setCourses(coursesData);
       setTests(testsData);
 
-      // Fetch all questions to count questions per test on client-side
-      // JSON-Server relationship matching
-      const allQuestions = await Promise.all(
-        testsData.map(test => teacherQuestionService.getQuestions(test.id))
+      const questionGroups = await Promise.all(
+        testsData.map((test) => teacherQuestionService.getQuestions(test.id))
       );
-      setQuestions(allQuestions.flat());
+      setQuestions(questionGroups.flat());
     } catch (err) {
-      // EARS[Unwanted]: WHERE server connections fail, THE system SHALL display an error message
-      setError('Không thể kết nối đến máy chủ để tải dữ liệu.');
+      setError('Không thể kết nối đến máy chủ để tải danh sách đề thi.');
     } finally {
       setLoading(false);
     }
   };
 
+  const getCourseTitle = useCallback((courseId) => {
+    if (!courseId) return 'Chưa gán khóa học';
+    const course = courses.find((item) => String(item.id) === String(courseId));
+    return course ? course.title : 'Khóa học không xác định';
+  }, [courses]);
+
+  const isTestLocked = (courseId) => {
+    const course = courses.find((item) => String(item.id) === String(courseId));
+    return course?.status === 'pending';
+  };
+
+  const getQuestionsCount = (testId) => {
+    return questions.filter((question) => matchesTestId(question.testId, testId)).length;
+  };
+
+  const filteredTests = useMemo(() => {
+    const keyword = searchQuery.trim().toLowerCase();
+    return tests.filter((test) => {
+      const matchSearch = !keyword || test.title?.toLowerCase().includes(keyword);
+      const matchCourse = selectedCourseId ? String(test.courseId) === String(selectedCourseId) : true;
+      const matchSkill = selectedSkill ? test.skill === selectedSkill : true;
+      const matchMode = selectedMode ? test.testMode === selectedMode : true;
+      return matchSearch && matchCourse && matchSkill && matchMode;
+    }).sort((a, b) => {
+      const courseCompare = getCourseTitle(a.courseId).localeCompare(getCourseTitle(b.courseId));
+      if (courseCompare !== 0) return courseCompare;
+      return String(a.title).localeCompare(String(b.title));
+    });
+  }, [tests, searchQuery, selectedCourseId, selectedSkill, selectedMode, getCourseTitle]);
+
   const handleDeleteClick = (test) => {
-    const matchedCourse = courses.find(c => c.id === test.courseId);
-    // EARS[Unwanted]: Chặn xóa nếu khóa học chứa đề thi đang ở trạng thái pending
-    if (matchedCourse?.status === 'pending') {
+    if (isTestLocked(test.courseId)) {
       toast.error('Không thể xóa đề thi thuộc khóa học đang chờ duyệt.');
       return;
     }
@@ -73,288 +97,300 @@ export default function TestListPage() {
 
   const handleConfirmDelete = async () => {
     if (!testToDelete) return;
-    setDeleting(true);
+    setWorking(true);
     try {
-      // EARS[Ubiquitous]: Khi xóa bài test, hệ thống PHẢI tự động cascade xóa các câu hỏi thuộc bài test đó
-      const relatedQuestions = questions.filter(q => q.testId === testToDelete.id);
-      
-      // Cascade delete questions
-      for (const q of relatedQuestions) {
-        await teacherQuestionService.deleteQuestion(q.id);
-        await auditLogService.logAction(
-          'DELETE_QUESTION',
-          { questionId: q.id, testId: testToDelete.id },
-          teacherId
-        );
+      const relatedQuestions = questions.filter((question) => matchesTestId(question.testId, testToDelete.id));
+      for (const question of relatedQuestions) {
+        await teacherQuestionService.deleteQuestion(question.id);
+        await auditLogService.logAction('DELETE_QUESTION', { questionId: question.id, testId: testToDelete.id }, teacherId);
       }
-
-      // Delete the test itself
       await teacherTestService.deleteTest(testToDelete.id);
-      
-      // EARS[Ubiquitous]: Mọi thao tác thay đổi dữ liệu PHẢI gửi kèm request ghi nhận lịch sử hoạt động vào auditLogs
       await auditLogService.logAction(
         'DELETE_TEST',
         { testId: testToDelete.id, title: testToDelete.title, courseId: testToDelete.courseId },
         teacherId
       );
-
-      // Refresh list
-      setTests(tests.filter(t => t.id !== testToDelete.id));
-      setQuestions(questions.filter(q => q.testId !== testToDelete.id));
-      toast.success('Xóa đề thi và các câu hỏi liên quan thành công!');
+      setTests((prev) => prev.filter((item) => item.id !== testToDelete.id));
+      setQuestions((prev) => prev.filter((item) => !matchesTestId(item.testId, testToDelete.id)));
+      toast.success('Đã xóa đề thi và câu hỏi liên quan.');
       setShowDeleteModal(false);
       setTestToDelete(null);
     } catch (err) {
-      toast.error('Xóa đề thi thất bại. Vui lòng thử lại sau.');
+      toast.error('Xóa đề thi thất bại.');
     } finally {
-      setDeleting(false);
+      setWorking(false);
     }
   };
 
-  // Helper to map course name
-  const getCourseTitle = (courseId) => {
-    const course = courses.find(c => c.id === courseId);
-    return course ? course.title : 'Khóa học không xác định';
-  };
-
-  // Helper to check if a test is locked due to pending course status
-  const isTestLocked = (courseId) => {
-    const course = courses.find(c => c.id === courseId);
-    return course?.status === 'pending';
-  };
-
-  // Helper to get number of questions for a test
-  const getQuestionsCount = (testId) => {
-    return questions.filter(q => q.testId === testId).length;
-  };
-
-  // Filtering
-  const filteredTests = tests.filter(test => {
-    const matchSearch = test.title.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchCourse = selectedCourseId ? test.courseId === selectedCourseId : true;
-    const matchSkill = selectedSkill ? test.skill === selectedSkill : true;
-    return matchSearch && matchCourse && matchSkill;
-  });
-
-  // Sort tests: group by course title, then sort by test title ascending
-  const sortedTests = [...filteredTests].sort((a, b) => {
-    const titleA = getCourseTitle(a.courseId);
-    const titleB = getCourseTitle(b.courseId);
-    if (titleA !== titleB) {
-      return titleA.localeCompare(titleB);
+  const handleTogglePublish = async (test) => {
+    setWorking(true);
+    try {
+      const nextStatus = test.status === 'published' ? 'draft' : 'published';
+      const updated = await teacherTestService.updateTest(test.id, { status: nextStatus, updatedAt: new Date().toISOString() });
+      await auditLogService.logAction(
+        nextStatus === 'published' ? 'PUBLISH_TEST' : 'UNPUBLISH_TEST',
+        { testId: test.id, title: test.title },
+        teacherId
+      );
+      setTests((prev) => prev.map((item) => item.id === test.id ? { ...item, ...updated } : item));
+      toast.success(nextStatus === 'published' ? 'Đã publish test.' : 'Đã chuyển test về draft.');
+    } catch (err) {
+      toast.error('Không thể cập nhật trạng thái test.');
+    } finally {
+      setWorking(false);
     }
-    return a.title.localeCompare(b.title);
-  });
+  };
+
+  const openAssignModal = (test) => {
+    setTestToAssign(test);
+    setAssignCourseId(test.courseId || '');
+    setShowAssignModal(true);
+  };
+
+  const handleAssignCourse = async () => {
+    if (!testToAssign) return;
+    setWorking(true);
+    try {
+      const payload = assignCourseId
+        ? { testMode: 'course', courseId: assignCourseId, updatedAt: new Date().toISOString() }
+        : { testMode: 'free', courseId: '', updatedAt: new Date().toISOString() };
+      const updated = await teacherTestService.updateTest(testToAssign.id, payload);
+      await auditLogService.logAction(
+        'ASSIGN_TEST_COURSE',
+        { testId: testToAssign.id, courseId: assignCourseId || null },
+        teacherId
+      );
+      setTests((prev) => prev.map((item) => item.id === testToAssign.id ? { ...item, ...updated } : item));
+      toast.success(assignCourseId ? 'Đã gán test vào khóa học.' : 'Đã chuyển test sang Free.');
+      setShowAssignModal(false);
+      setTestToAssign(null);
+    } catch (err) {
+      toast.error('Gán khóa học thất bại.');
+    } finally {
+      setWorking(false);
+    }
+  };
 
   return (
-    <Container fluid className="py-4">
-      {/* Header */}
+    <div className="container-fluid py-4 test-management-page">
+      <style>
+        {`
+          .test-management-page {
+            animation: testPageEnter 220ms ease both;
+          }
+
+          .test-filter-card,
+          .test-table-card {
+            animation: testPanelEnter 260ms ease both;
+            transition: transform 180ms ease, box-shadow 180ms ease;
+          }
+
+          .test-filter-card:hover,
+          .test-table-card:hover {
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1) !important;
+          }
+
+          .test-management-row {
+            transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+          }
+
+          .test-management-row:hover {
+            transform: translateY(-2px);
+            background: #f8fafc;
+            box-shadow: inset 4px 0 0 #0d6efd;
+          }
+
+          .test-table-card .btn,
+          .test-filter-card .form-control,
+          .test-filter-card .form-select {
+            transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+          }
+
+          .test-table-card .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+          }
+
+          .test-filter-card .form-control:focus,
+          .test-filter-card .form-select:focus {
+            border-color: #86b7fe;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.12);
+          }
+
+          @keyframes testPageEnter {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+
+          @keyframes testPanelEnter {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `}
+      </style>
       <div className="d-flex justify-content-between align-items-center mb-4">
         <div>
-          <h2 className="fw-bold text-dark">Quản lý Đề thi & Câu hỏi</h2>
-          <p className="text-secondary mb-0">Theo dõi, chỉnh sửa các đề thi thực hành IELTS của học sinh.</p>
+          <h2 className="fw-bold text-dark">IELTS Test Builder</h2>
+          <p className="text-secondary mb-0">Tạo free test, course test, publish và gán test vào khóa học.</p>
         </div>
-        <Button 
-          as={Link}
-          to="/teacher/tests/create"
-          variant="primary" 
-          className="d-flex align-items-center gap-2 px-4 py-2 shadow-sm rounded-pill fw-semibold"
-        >
-          <i className="bi bi-plus-lg"></i> Thêm đề thi mới
+        <Button as={Link} to="/teacher/tests/create" variant="primary" className="rounded-pill px-4 fw-semibold">
+          Thêm test mới
         </Button>
       </div>
 
-      {error && <Alert variant="danger" className="mb-4">{error}</Alert>}
+      {error && <Alert variant="danger">{error}</Alert>}
 
-      {/* Filter Bar */}
-      <Card className="border-0 shadow-sm p-4 mb-4 bg-white rounded-3">
+      <Card className="test-filter-card border-0 shadow-sm p-4 mb-4">
         <Form className="row g-3">
-          <Col md={6}>
-            <Form.Group controlId="search">
-              <Form.Label className="fw-semibold text-secondary">Tìm kiếm đề thi</Form.Label>
-              <Form.Control 
-                type="text" 
-                placeholder="Nhập tiêu đề đề thi..." 
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="border-gray shadow-none"
-              />
-            </Form.Group>
+          <Col md={4}>
+            <Form.Label>Tìm test</Form.Label>
+            <Form.Control value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Nhập tiêu đề..." />
           </Col>
           <Col md={3}>
-            <Form.Group controlId="courseFilter">
-              <Form.Label className="fw-semibold text-secondary">Lọc theo khóa học</Form.Label>
-              <Form.Select 
-                value={selectedCourseId}
-                onChange={(e) => setSelectedCourseId(e.target.value)}
-                className="border-gray shadow-none"
-              >
-                <option value="">Tất cả khóa học</option>
-                {courses.map(course => (
-                  <option key={course.id} value={course.id}>{course.title} ({course.status})</option>
-                ))}
-              </Form.Select>
-            </Form.Group>
+            <Form.Label>Khóa học</Form.Label>
+            <Form.Select value={selectedCourseId} onChange={(e) => setSelectedCourseId(e.target.value)}>
+              <option value="">Tất cả khóa học</option>
+              {courses.map((course) => (
+                <option key={course.id} value={course.id}>{course.title}</option>
+              ))}
+            </Form.Select>
+          </Col>
+          <Col md={2}>
+            <Form.Label>Kỹ năng</Form.Label>
+            <Form.Select value={selectedSkill} onChange={(e) => setSelectedSkill(e.target.value)}>
+              <option value="">Tất cả</option>
+              <option value="Reading">Reading</option>
+              <option value="Listening">Listening</option>
+              <option value="Writing">Writing</option>
+              <option value="Speaking">Speaking</option>
+            </Form.Select>
           </Col>
           <Col md={3}>
-            <Form.Group controlId="skillFilter">
-              <Form.Label className="fw-semibold text-secondary">Lọc theo kỹ năng</Form.Label>
-              <Form.Select 
-                value={selectedSkill}
-                onChange={(e) => setSelectedSkill(e.target.value)}
-                className="border-gray shadow-none"
-              >
-                <option value="">Tất cả kỹ năng</option>
-                <option value="Listening">Listening</option>
-                <option value="Reading">Reading</option>
-                <option value="Writing">Writing</option>
-                <option value="Speaking">Speaking</option>
-              </Form.Select>
-            </Form.Group>
+            <Form.Label>Mode</Form.Label>
+            <Form.Select value={selectedMode} onChange={(e) => setSelectedMode(e.target.value)}>
+              <option value="">Tất cả</option>
+              <option value="free">Free</option>
+              <option value="course">Course</option>
+            </Form.Select>
           </Col>
         </Form>
       </Card>
 
-      {/* Tests Table */}
       {loading ? (
-        <div className="d-flex justify-content-center align-items-center py-5">
-          <Spinner animation="border" variant="primary" className="me-2" />
-          <span className="text-secondary fw-semibold">Đang tải danh sách đề thi...</span>
+        <div className="text-center py-5">
+          <Spinner animation="border" variant="primary" />
+          <p className="mt-2 text-muted">Đang tải danh sách test...</p>
         </div>
-      ) : sortedTests.length === 0 ? (
-        <Card className="border-0 shadow-sm text-center py-5 rounded-3">
-          <Card.Body>
-            <i className="bi bi-file-earmark-check text-muted fs-1 mb-3"></i>
-            <h5 className="fw-semibold text-secondary">Không tìm thấy đề thi nào</h5>
-            <p className="text-muted small">Hãy tạo đề thi mới hoặc thay đổi bộ lọc tìm kiếm phía trên.</p>
-          </Card.Body>
-        </Card>
       ) : (
-        <Card className="border-0 shadow-sm rounded-3 overflow-hidden bg-white">
-          <Table responsive hover className="align-middle mb-0 text-secondary table-nowrap">
-            <thead className="bg-light text-dark fw-bold">
+        <Card className="test-table-card border-0 shadow-sm overflow-hidden">
+          <Table responsive hover className="align-middle mb-0">
+            <thead className="bg-light">
               <tr>
-                <th className="px-4 py-3">Tiêu đề đề thi</th>
-                <th className="py-3">Khóa học</th>
-                <th className="py-3">Kỹ năng</th>
-                <th className="py-3">Thời gian</th>
-                <th className="py-3">Số câu hỏi</th>
-                <th className="py-3">Thang điểm</th>
-                <th className="px-4 py-3 text-end" style={{ width: '220px' }}>Thao tác</th>
+                <th className="px-4 py-3">Test</th>
+                <th>Kỹ năng</th>
+                <th>Mode</th>
+                <th>Khóa học</th>
+                <th>Status</th>
+                <th>Lượt</th>
+                <th>Câu hỏi</th>
+                <th className="text-end px-4">Thao tác</th>
               </tr>
             </thead>
             <tbody>
-              {sortedTests.map(test => {
+              {filteredTests.map((test) => {
                 const locked = isTestLocked(test.courseId);
-                const actualQuestionsCount = getQuestionsCount(test.id);
                 return (
-                  <tr key={test.id} className="border-top border-light">
-                    <td className="px-4 py-3 fw-bold text-dark">
-                      {test.title}
+                  <tr key={test.id} className="test-management-row">
+                    <td className="px-4">
+                      <div className="fw-bold text-dark">{test.title}</div>
+                      <div className="small text-muted">{test.durationMinutes} phút · {test.bandScale}</div>
                     </td>
-                    <td className="py-3 small">
-                      {getCourseTitle(test.courseId)}
+                    <td><Badge bg="secondary">{test.skill}</Badge></td>
+                    <td>
+                      <Badge bg={test.testMode === 'free' ? 'success' : 'primary'}>
+                        {test.testMode === 'free' ? 'Free' : 'Course'}
+                      </Badge>
+                      {test.isFreePreview && <Badge bg="warning" text="dark" className="ms-1">Preview</Badge>}
                     </td>
-                    <td className="py-3">
-                      <span className="badge bg-secondary-subtle text-secondary border border-secondary-subtle px-2 py-1 small rounded-3">
-                        {test.skill}
-                      </span>
+                    <td className="small">{getCourseTitle(test.courseId)}</td>
+                    <td>
+                      <Badge bg={test.status === 'published' ? 'success' : 'secondary'}>
+                        {test.status}
+                      </Badge>
                     </td>
-                    <td className="py-3">
-                      {test.durationMinutes} phút
+                    <td>{test.attemptLimit ? `${test.attemptLimit} lần` : 'Không giới hạn'}</td>
+                    <td>
+                      <span className="fw-semibold text-primary">{getQuestionsCount(test.id)}</span> / {test.totalQuestions}
                     </td>
-                    <td className="py-3">
-                      <span className="fw-semibold text-primary">{actualQuestionsCount}</span> / {test.totalQuestions || 40} câu
-                    </td>
-                    <td className="py-3 text-truncate small">
-                      {test.bandScale || 'IELTS 0-9'}
-                    </td>
-                    <td className="px-4 py-3 text-end">
-                      <div className="d-flex gap-2 justify-content-end">
-                        <Button 
-                          as={Link}
-                          to={`/teacher/tests/${test.id}/questions`}
-                          variant="outline-primary"
-                          className="py-1 px-2.5 rounded-3 d-inline-flex align-items-center gap-1.5 fw-semibold small"
-                          title="Quản lý câu hỏi"
-                        >
-                          <i className="bi bi-list-task"></i> Câu hỏi
-                        </Button>
-
-                        {/* EARS[State-driven]: TRONG KHI khóa học đang pending, vô hiệu hóa nút Edit/Delete */}
-                        {locked ? (
-                          <>
-                            <Button 
-                              variant="outline-secondary"
-                              disabled
-                              className="py-1.5 px-2.5 rounded-circle d-inline-flex align-items-center justify-content-center border-0 shadow-none text-muted"
-                              title="Khóa học đang chờ duyệt, không thể sửa đề thi"
-                            >
-                              <i className="bi bi-pencil-square"></i>
-                            </Button>
-                            <Button 
-                              variant="outline-danger"
-                              disabled
-                              className="py-1.5 px-2.5 rounded-circle d-inline-flex align-items-center justify-content-center border-0 shadow-none text-muted"
-                              title="Khóa học đang chờ duyệt, không thể xóa đề thi"
-                            >
-                              <i className="bi bi-trash"></i>
-                            </Button>
-                          </>
-                        ) : (
-                          <>
-                            <Button 
-                              as={Link}
-                              to={`/teacher/tests/${test.id}/edit`}
-                              variant="outline-secondary"
-                              className="py-1.5 px-2.5 rounded-circle d-inline-flex align-items-center justify-content-center border-0"
-                              title="Sửa thông tin"
-                            >
-                              <i className="bi bi-pencil-square"></i>
-                            </Button>
-                            <Button 
-                              variant="outline-danger"
-                              onClick={() => handleDeleteClick(test)}
-                              className="py-1.5 px-2.5 rounded-circle d-inline-flex align-items-center justify-content-center border-0"
-                              title="Xóa đề thi"
-                            >
-                              <i className="bi bi-trash"></i>
-                            </Button>
-                          </>
+                    <td className="text-end px-4">
+                      <div className="d-flex gap-2 justify-content-end flex-wrap">
+                        {test.skill !== 'Writing' && (
+                          <Button as={Link} to={`/teacher/tests/${test.id}/questions`} size="sm" variant="outline-primary">
+                            Câu hỏi
+                          </Button>
                         )}
+                        <Button as={Link} to={`/teacher/tests/${test.id}/edit`} size="sm" variant="outline-secondary" disabled={locked}>
+                          Sửa
+                        </Button>
+                        <Button size="sm" variant="outline-info" onClick={() => openAssignModal(test)} disabled={working}>
+                          Gán
+                        </Button>
+                        <Button size="sm" variant={test.status === 'published' ? 'outline-warning' : 'outline-success'} onClick={() => handleTogglePublish(test)} disabled={working}>
+                          {test.status === 'published' ? 'Draft' : 'Publish'}
+                        </Button>
+                        <Button size="sm" variant="outline-danger" onClick={() => handleDeleteClick(test)} disabled={locked || working}>
+                          Xóa
+                        </Button>
                       </div>
                     </td>
                   </tr>
                 );
               })}
+              {filteredTests.length === 0 && (
+                <tr>
+                  <td colSpan={8} className="text-center py-5 text-muted">Không tìm thấy test phù hợp.</td>
+                </tr>
+              )}
             </tbody>
           </Table>
         </Card>
       )}
 
-      {/* Delete Confirmation Modal */}
       <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)} centered>
         <Modal.Header closeButton className="border-0">
-          <Modal.Title className="fw-bold text-dark">Xác nhận xóa đề thi</Modal.Title>
+          <Modal.Title className="fw-bold">Xác nhận xóa test</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="py-3">
-          Bạn có chắc chắn muốn xóa đề thi <strong className="text-danger">"{testToDelete?.title}"</strong> không?
-          Hành động này sẽ <strong>xóa toàn bộ câu hỏi liên kết</strong> thuộc đề thi này và không thể hoàn tác.
+        <Modal.Body>
+          Xóa <strong>{testToDelete?.title}</strong> và toàn bộ câu hỏi liên quan?
         </Modal.Body>
         <Modal.Footer className="border-0">
-          <Button variant="light" onClick={() => setShowDeleteModal(false)} className="fw-semibold px-3 rounded-pill">
-            Hủy bỏ
-          </Button>
-          <Button 
-            variant="danger" 
-            onClick={handleConfirmDelete} 
-            disabled={deleting}
-            className="fw-semibold px-4 rounded-pill shadow-sm"
-          >
-            {deleting ? 'Đang xóa...' : 'Xác nhận xóa'}
+          <Button variant="light" onClick={() => setShowDeleteModal(false)}>Hủy</Button>
+          <Button variant="danger" onClick={handleConfirmDelete} disabled={working}>
+            {working ? 'Đang xóa...' : 'Xóa'}
           </Button>
         </Modal.Footer>
       </Modal>
-    </Container>
+
+      <Modal show={showAssignModal} onHide={() => setShowAssignModal(false)} centered>
+        <Modal.Header closeButton className="border-0">
+          <Modal.Title className="fw-bold">Gán test vào khóa học</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form.Label>Khóa học</Form.Label>
+          <Form.Select value={assignCourseId} onChange={(e) => setAssignCourseId(e.target.value)}>
+            <option value="">Không gán - chuyển thành Free test</option>
+            {courses.map((course) => (
+              <option key={course.id} value={course.id}>{course.title} ({course.status})</option>
+            ))}
+          </Form.Select>
+        </Modal.Body>
+        <Modal.Footer className="border-0">
+          <Button variant="light" onClick={() => setShowAssignModal(false)}>Hủy</Button>
+          <Button variant="primary" onClick={handleAssignCourse} disabled={working}>
+            {working ? 'Đang lưu...' : 'Lưu'}
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
   );
 }
