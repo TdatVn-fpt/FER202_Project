@@ -209,7 +209,7 @@ export default function TestReviewPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const attemptRes = await axios.get(`${API_URL}/attempts/${attemptId}`);
+const attemptRes = await axios.get(`${API_URL}/testAttempts/${attemptId}`);
         const attemptData = attemptRes.data;
         setAttempt(attemptData);
 
