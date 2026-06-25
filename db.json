@@ -233,6 +233,66 @@
       "rating": 0,
       "durationWeeks": 6,
       "createdAt": "2026-06-08T08:00:00Z"
+    },
+    {
+      "title": " IELTS Listening Foundation (Dành cho người mới bắt đầu)",
+      "description": " Khóa học nền tảng giúp học viên làm quen với các format câu hỏi cơ bản trong bài thi IELTS Listening như Multiple Choice và Form Completion. Bao gồm 10 bài nghe thực tế tốc độ chậm.",
+      "skill": "Listening",
+      "level": "Beginner",
+      "price": 0,
+      "durationWeeks": 4,
+      "thumbnail": "https://images.unsplash.com/photo-1599687267812-35c05ff70ee9?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-student-004",
+      "status": "draft",
+      "enrolledCount": 0,
+      "isPremium": false,
+      "createdAt": "2026-06-25T11:38:28.004Z",
+      "id": "9w8htVkjNaI"
+    },
+    {
+      "title": "Master IELTS Writing Task 2 - Band 7.0+",
+      "description": "Khóa học nâng cao cung cấp bộ template cấu trúc bài viết, cách triển khai ý tưởng (brainstorming) và từ vựng học thuật ăn điểm cho phần thi Writing Task 2. Chấm chữa 5 bài Essay.",
+      "skill": "Writing",
+      "level": "Advanced",
+      "price": 1500000,
+      "durationWeeks": 8,
+      "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead27d8?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-student-004",
+      "status": "draft",
+      "enrolledCount": 0,
+      "isPremium": true,
+      "createdAt": "2026-06-25T11:39:43.263Z",
+      "id": "6juKyo6dXkU"
+    },
+    {
+      "title": "IELTS Reading: Skimming & Scanning Techniques",
+      "description": "Tập trung rèn luyện hai kỹ năng quan trọng nhất trong IELTS Reading: Đọc lướt tìm ý chính và đọc quét tìm từ khóa. Bao gồm 15 bài Test mô phỏng từ kho đề Cambridge.",
+      "skill": "Reading",
+      "level": "Intermediate",
+      "price": 990000,
+      "durationWeeks": 6,
+      "thumbnail": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-student-004",
+      "status": "draft",
+      "enrolledCount": 0,
+      "isPremium": true,
+      "createdAt": "2026-06-25T11:40:22.465Z",
+      "id": "WBXqCYd2cPQ"
+    },
+    {
+      "title": "Confident IELTS Speaking Part 1 & 2",
+      "description": "Khóa học giúp phá vỡ rào cản ngôn ngữ, luyện phản xạ nói tự nhiên, chữa ngọng và điều chỉnh phát âm (Pronunciation). Bao gồm tài liệu từ vựng theo 20 chủ đề thường gặp nhất.",
+      "skill": "Speaking",
+      "level": "Intermediate",
+      "price": 1200000,
+      "durationWeeks": 5,
+      "thumbnail": "https://images.unsplash.com/photo-1589149098258-3e9102ca6651?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-student-004",
+      "status": "draft",
+      "enrolledCount": 0,
+      "isPremium": true,
+      "createdAt": "2026-06-25T11:41:03.486Z",
+      "id": "eZfx0_P3YIU"
     }
   ],
   "freeResources": [
@@ -1517,6 +1577,104 @@
       },
       "timestamp": "2026-06-23T14:39:11.815Z",
       "id": "7sxNSTc3fvQ"
+    },
+    {
+      "id": "log-013",
+      "actorId": "u-student-004",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-25T11:14:19.308Z"
+    },
+    {
+      "action": "CREATE_COURSE",
+      "userId": "u-student-004",
+      "details": {
+        "courseId": "AG4QlLukoho",
+        "title": "sdgfsdf"
+      },
+      "timestamp": "2026-06-25T11:26:36.539Z",
+      "id": "YvZ0HR9nTa4"
+    },
+    {
+      "action": "UPDATE_COURSE",
+      "userId": "u-student-004",
+      "details": {
+        "courseId": "AG4QlLukoho",
+        "changes": {
+          "title": "sdgfsdf",
+          "description": "sfdsdfsdfsdfsdfdfdf",
+          "skill": "Reading",
+          "level": "Beginner",
+          "price": 10,
+          "durationWeeks": 4,
+          "thumbnail": "",
+          "status": "draft",
+          "isPremium": true
+        }
+      },
+      "timestamp": "2026-06-25T11:26:51.899Z",
+      "id": "7rw3T1a6q10"
+    },
+    {
+      "action": "UPDATE_COURSE",
+      "userId": "u-student-004",
+      "details": {
+        "courseId": "course-005",
+        "changes": {
+          "title": "Chào các bạn",
+          "description": "àioisdfsdef",
+          "skill": "Writing",
+          "level": "Advanced",
+          "price": 2324,
+          "durationWeeks": 1,
+          "thumbnail": "https://khokhoahoc.org/wp-content/uploads/2024/05/Thiet-ke-chua-co-ten-11.png",
+          "status": "draft",
+          "isPremium": true
+        }
+      },
+      "timestamp": "2026-06-25T11:34:23.828Z",
+      "id": "mntXng_yF1I"
+    },
+    {
+      "action": "CREATE_COURSE",
+      "userId": "u-student-004",
+      "details": {
+        "courseId": "9w8htVkjNaI",
+        "title": " IELTS Listening Foundation (Dành cho người mới bắt đầu)"
+      },
+      "timestamp": "2026-06-25T11:38:28.013Z",
+      "id": "fb_ouKDnLFI"
+    },
+    {
+      "action": "CREATE_COURSE",
+      "userId": "u-student-004",
+      "details": {
+        "courseId": "6juKyo6dXkU",
+        "title": "Master IELTS Writing Task 2 - Band 7.0+"
+      },
+      "timestamp": "2026-06-25T11:39:43.275Z",
+      "id": "YsmNVYhpSzM"
+    },
+    {
+      "action": "CREATE_COURSE",
+      "userId": "u-student-004",
+      "details": {
+        "courseId": "WBXqCYd2cPQ",
+        "title": "IELTS Reading: Skimming & Scanning Techniques"
+      },
+      "timestamp": "2026-06-25T11:40:22.472Z",
+      "id": "EwHSDP7Wdiw"
+    },
+    {
+      "action": "CREATE_COURSE",
+      "userId": "u-student-004",
+      "details": {
+        "courseId": "eZfx0_P3YIU",
+        "title": "Confident IELTS Speaking Part 1 & 2"
+      },
+      "timestamp": "2026-06-25T11:41:03.494Z",
+      "id": "a85Ausowi0c"
     }
   ],
   "approvalRequests": [
