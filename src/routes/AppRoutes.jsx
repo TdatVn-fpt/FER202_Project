@@ -38,6 +38,8 @@ import TeacherTestListPage from '../pages/teacher/TestListPage';
 import TestCreatePage from '../pages/teacher/TestCreatePage';
 import StudentTrackingPage from '../pages/teacher/StudentTrackingPage';
 import QuestionBankPage from '../pages/teacher/QuestionBankPage';
+import LibraryResourceListPage from '../pages/teacher/LibraryResourceListPage';
+import LibraryResourceCreatePage from '../pages/teacher/LibraryResourceCreatePage';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import UserManagement from '../pages/admin/UserManagement';
 import AdminCourseManagement from '../pages/admin/CourseManagement';
@@ -106,6 +108,8 @@ export default function AppRoutes() {
           <Route path="/teacher/tests/:id/questions" element={<QuestionBankPage />} />
           <Route path="/teacher/students" element={<StudentTrackingPage />} />
           <Route path="/teacher/questions" element={<QuestionBankPage />} />
+          <Route path="/teacher/library" element={<LibraryResourceListPage />} />
+          <Route path="/teacher/library/create" element={<LibraryResourceCreatePage />} />
         </Route>
       </Route>
 

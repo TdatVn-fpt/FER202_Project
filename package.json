@@ -39,9 +39,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "^react-router-dom$": "<rootDir>/node_modules/react-router-dom/dist/index.js",
-      "^react-router$": "<rootDir>/node_modules/react-router/dist/development/index.js",
-      "^react-router/dom$": "<rootDir>/node_modules/react-router/dist/development/dom-export.js"
+      "^react-router-dom$": "<rootDir>/src/__mocks__/react-router-dom.js"
     }
   },
   "browserslist": {
@@ -55,11 +53,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "^react-router-dom$": "<rootDir>/src/__mocks__/react-router-dom.js"
-    }
   },
   "devDependencies": {
     "concurrently": "^10.0.3"
