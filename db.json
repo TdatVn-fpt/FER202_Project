@@ -394,7 +394,7 @@
       "skill": "Reading",
       "testMode": "free",
       "courseId": "",
-      "status": "draft",
+      "status": "published",
       "practiceMode": "exam",
       "attemptLimit": 3,
       "durationMinutes": 60,
@@ -427,7 +427,7 @@
       },
       "requireLoginAfterLimit": true,
       "createdAt": "2026-06-23T15:00:00.000Z",
-      "updatedAt": "2026-06-23T15:00:00.000Z"
+      "updatedAt": "2026-06-23T14:39:06.474Z"
     },
     {
       "id": "sample-test-002",
@@ -437,7 +437,7 @@
       "skill": "Listening",
       "testMode": "free",
       "courseId": "",
-      "status": "draft",
+      "status": "published",
       "practiceMode": "exam",
       "attemptLimit": 3,
       "durationMinutes": 40,
@@ -479,7 +479,7 @@
       },
       "requireLoginAfterLimit": true,
       "createdAt": "2026-06-23T15:01:00.000Z",
-      "updatedAt": "2026-06-23T15:01:00.000Z"
+      "updatedAt": "2026-06-23T14:38:10.868Z"
     },
     {
       "id": "sample-test-003",
@@ -489,7 +489,7 @@
       "skill": "Writing",
       "testMode": "free",
       "courseId": "",
-      "status": "draft",
+      "status": "published",
       "practiceMode": "exam",
       "attemptLimit": 3,
       "durationMinutes": 60,
@@ -511,7 +511,7 @@
       },
       "requireLoginAfterLimit": true,
       "createdAt": "2026-06-23T15:02:00.000Z",
-      "updatedAt": "2026-06-23T15:02:00.000Z"
+      "updatedAt": "2026-06-23T14:39:11.762Z"
     },
     {
       "id": "sample-test-004",
@@ -521,7 +521,7 @@
       "skill": "Speaking",
       "testMode": "free",
       "courseId": "",
-      "status": "draft",
+      "status": "published",
       "practiceMode": "exam",
       "attemptLimit": 3,
       "durationMinutes": 15,
@@ -575,7 +575,7 @@
       },
       "requireLoginAfterLimit": true,
       "createdAt": "2026-06-23T15:03:00.000Z",
-      "updatedAt": "2026-06-23T15:03:00.000Z"
+      "updatedAt": "2026-06-23T14:39:08.051Z"
     },
     {
       "id": "sample-test-005",
@@ -585,7 +585,7 @@
       "skill": "Reading",
       "testMode": "course",
       "courseId": "",
-      "status": "draft",
+      "status": "published",
       "practiceMode": "practice",
       "attemptLimit": 0,
       "durationMinutes": 60,
@@ -618,7 +618,7 @@
       },
       "requireLoginAfterLimit": false,
       "createdAt": "2026-06-23T15:04:00.000Z",
-      "updatedAt": "2026-06-23T15:04:00.000Z"
+      "updatedAt": "2026-06-23T14:37:29.976Z"
     },
     {
       "id": "sample-test-006",
@@ -628,7 +628,7 @@
       "skill": "Listening",
       "testMode": "course",
       "courseId": "",
-      "status": "draft",
+      "status": "published",
       "practiceMode": "practice",
       "attemptLimit": 0,
       "durationMinutes": 40,
@@ -670,7 +670,7 @@
       },
       "requireLoginAfterLimit": false,
       "createdAt": "2026-06-23T15:05:00.000Z",
-      "updatedAt": "2026-06-23T15:05:00.000Z"
+      "updatedAt": "2026-06-23T14:37:28.000Z"
     },
     {
       "id": "sample-test-007",
@@ -680,7 +680,7 @@
       "skill": "Writing",
       "testMode": "course",
       "courseId": "",
-      "status": "draft",
+      "status": "published",
       "practiceMode": "exam",
       "attemptLimit": 0,
       "durationMinutes": 60,
@@ -702,7 +702,7 @@
       },
       "requireLoginAfterLimit": false,
       "createdAt": "2026-06-23T15:06:00.000Z",
-      "updatedAt": "2026-06-23T15:06:00.000Z"
+      "updatedAt": "2026-06-23T14:38:45.735Z"
     },
     {
       "id": "sample-test-008",
@@ -712,7 +712,7 @@
       "skill": "Speaking",
       "testMode": "course",
       "courseId": "",
-      "status": "draft",
+      "status": "published",
       "practiceMode": "exam",
       "attemptLimit": 0,
       "durationMinutes": 15,
@@ -766,7 +766,7 @@
       },
       "requireLoginAfterLimit": false,
       "createdAt": "2026-06-23T15:07:00.000Z",
-      "updatedAt": "2026-06-23T15:07:00.000Z"
+      "updatedAt": "2026-06-23T14:37:32.440Z"
     },
     {
       "id": "sample-test-009",
@@ -776,7 +776,7 @@
       "skill": "Reading",
       "testMode": "free",
       "courseId": "",
-      "status": "draft",
+      "status": "published",
       "practiceMode": "practice",
       "attemptLimit": 3,
       "durationMinutes": 25,
@@ -809,7 +809,7 @@
       },
       "requireLoginAfterLimit": true,
       "createdAt": "2026-06-23T15:08:00.000Z",
-      "updatedAt": "2026-06-23T15:08:00.000Z"
+      "updatedAt": "2026-06-23T14:38:42.159Z"
     },
     {
       "id": "sample-test-010",
@@ -819,7 +819,7 @@
       "skill": "Listening",
       "testMode": "free",
       "courseId": "",
-      "status": "draft",
+      "status": "published",
       "practiceMode": "practice",
       "attemptLimit": 3,
       "durationMinutes": 20,
@@ -1419,52 +1419,104 @@
       "id": "VI-1Pch6iSY"
     },
     {
-      "id": "log-013",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_COURSE",
-      "targetType": "course",
-      "targetId": "course-005",
-      "createdAt": "2026-06-23T15:00:00.000Z"
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-006",
+        "title": "Course Listening Mock - Map Labelling"
+      },
+      "timestamp": "2026-06-23T14:37:28.053Z",
+      "id": "QMVValLdZnU"
     },
     {
-      "id": "log-014",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_COURSE",
-      "targetType": "course",
-      "targetId": "course-006",
-      "createdAt": "2026-06-23T15:00:00.000Z"
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-005",
+        "title": "Course Reading Mock - Matching Headings"
+      },
+      "timestamp": "2026-06-23T14:37:30.026Z",
+      "id": "wikpmJH0Klk"
     },
     {
-      "id": "log-015",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_COURSE",
-      "targetType": "course",
-      "targetId": "course-007",
-      "createdAt": "2026-06-23T15:00:00.000Z"
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-008",
+        "title": "Course Speaking Mock - Technology"
+      },
+      "timestamp": "2026-06-23T14:37:32.492Z",
+      "id": "-daz6a8_LVQ"
     },
     {
-      "id": "log-016",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_COURSE",
-      "targetType": "course",
-      "targetId": "course-008",
-      "createdAt": "2026-06-23T15:00:00.000Z"
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-010",
+        "title": "Listening Mini Review - Form Completion"
+      },
+      "timestamp": "2026-06-23T14:38:09.318Z",
+      "id": "uRvIIFCmXf8"
     },
     {
-      "id": "log-017",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_COURSE",
-      "targetType": "course",
-      "targetId": "course-231",
-      "createdAt": "2026-06-23T17:07:46.692Z"
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-002",
+        "title": "Listening Section Practice - Campus Enquiry"
+      },
+      "timestamp": "2026-06-23T14:38:10.921Z",
+      "id": "VAf28Zd_oJ4"
     },
     {
-      "id": "log-018",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_COURSE",
-      "targetType": "course",
-      "targetId": "course-232",
-      "createdAt": "2026-06-23T17:08:15.404Z"
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-009",
+        "title": "Reading Mini Review - True False Not Given"
+      },
+      "timestamp": "2026-06-23T14:38:42.210Z",
+      "id": "BIF7SPRhEGE"
+    },
+    {
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-007",
+        "title": "Course Writing Mock - Process Diagram"
+      },
+      "timestamp": "2026-06-23T14:38:45.787Z",
+      "id": "21MW_9GMRHw"
+    },
+    {
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-001",
+        "title": "Reading Diagnostic - Skimming & Scanning"
+      },
+      "timestamp": "2026-06-23T14:39:06.528Z",
+      "id": "dXkXj_0GnlQ"
+    },
+    {
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-004",
+        "title": "Speaking Mock - Work and Study"
+      },
+      "timestamp": "2026-06-23T14:39:08.106Z",
+      "id": "aIZM5V2RoP4"
+    },
+    {
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-003",
+        "title": "Writing Full Test - Charts and Opinion Essay"
+      },
+      "timestamp": "2026-06-23T14:39:11.815Z",
+      "id": "7sxNSTc3fvQ"
     }
   ],
   "approvalRequests": [
@@ -1990,114 +2042,119 @@
       "id": "VVV4JmPSuNs"
     },
     {
-      "id": "ta-003",
-      "userId": "student-test-trial",
-      "guestId": null,
-      "testId": "test-001",
-      "skill": "Reading",
+      "userId": null,
+      "guestId": "guest-1782224533119-sm0alj",
+      "testId": "sample-test-002",
+      "skill": "Listening",
+      "startTime": "2026-06-23T14:38:16.702Z",
+      "expiredAt": "2026-06-23T15:18:16.702Z",
       "status": "in-progress",
-      "startTime": "2026-06-23T16:34:10.059Z",
-      "createdAt": "2026-06-23T16:34:10.060Z"
+      "answers": {},
+      "id": "CTQSZrxsLmI"
     },
     {
-      "id": "ta-004",
-      "userId": "student-test-trial",
-      "guestId": null,
-      "testId": "test-001",
-      "skill": "Reading",
+      "userId": null,
+      "guestId": "guest-1782224533119-sm0alj",
+      "testId": "sample-test-010",
+      "skill": "Listening",
+      "startTime": "2026-06-23T14:38:31.166Z",
+      "expiredAt": "2026-06-23T14:58:31.166Z",
       "status": "in-progress",
-      "startTime": "2026-06-23T16:34:10.068Z",
-      "createdAt": "2026-06-23T16:34:10.068Z"
+      "answers": {},
+      "id": "l02K8nUkWwY"
     },
     {
-      "id": "ta-005",
-      "userId": "student-test-trial",
-      "guestId": null,
-      "testId": "test-001",
+      "userId": null,
+      "guestId": "guest-1782224533119-sm0alj",
+      "testId": "sample-test-001",
       "skill": "Reading",
+      "startTime": "2026-06-23T14:39:19.908Z",
+      "expiredAt": "2026-06-23T15:39:19.908Z",
       "status": "in-progress",
-      "startTime": "2026-06-23T16:34:10.079Z",
-      "createdAt": "2026-06-23T16:34:10.079Z"
+      "answers": {},
+      "id": "Yw2Siplk1rU"
     },
     {
-      "id": "ta-006",
-      "userId": "student-1782232549608",
-      "guestId": null,
-      "testId": "test-001",
-      "skill": "Reading",
+      "userId": null,
+      "guestId": "guest-1782224533119-sm0alj",
+      "testId": "sample-test-004",
+      "skill": "Speaking",
+      "startTime": "2026-06-23T14:39:29.701Z",
+      "expiredAt": "2026-06-23T14:54:29.701Z",
       "status": "in-progress",
-      "startTime": "2026-06-23T16:35:49.610Z",
-      "createdAt": "2026-06-23T16:35:49.610Z"
+      "answers": {},
+      "id": "o0hGI7YEbRU"
     },
     {
-      "id": "ta-007",
-      "userId": "student-1782232549608",
-      "guestId": null,
-      "testId": "test-001",
-      "skill": "Reading",
-      "status": "in-progress",
-      "startTime": "2026-06-23T16:35:49.616Z",
-      "createdAt": "2026-06-23T16:35:49.616Z"
-    },
-    {
-      "id": "ta-008",
-      "userId": "student-1782232549608",
-      "guestId": null,
-      "testId": "test-001",
-      "skill": "Reading",
-      "status": "in-progress",
-      "startTime": "2026-06-23T16:35:49.623Z",
-      "createdAt": "2026-06-23T16:35:49.623Z"
-    },
-    {
-      "id": "ta-009",
-      "userId": "student-1782232549608",
-      "guestId": null,
-      "testId": "Mx539GlgPjQ",
+      "userId": null,
+      "guestId": "guest-1782224533119-sm0alj",
+      "testId": "sample-test-003",
       "skill": "Writing",
+      "startTime": "2026-06-24T07:55:40.819Z",
+      "expiredAt": "2026-06-24T08:55:40.819Z",
       "status": "in-progress",
-      "startTime": "2026-06-23T16:35:49.651Z",
-      "createdAt": "2026-06-23T16:35:49.651Z"
+      "answers": {},
+      "id": "PSm0RSeBAtA"
     },
     {
-      "id": "ta-010",
-      "userId": "student-1782232549608",
-      "guestId": null,
-      "testId": "Mx539GlgPjQ",
-      "skill": "Writing",
-      "status": "in-progress",
-      "startTime": "2026-06-23T16:35:49.656Z",
-      "createdAt": "2026-06-23T16:35:49.656Z"
+      "userId": null,
+      "guestId": "guest-1782224533119-sm0alj",
+      "testId": "sample-test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-25T04:47:13.056Z",
+      "expiredAt": "2026-06-25T05:47:13.056Z",
+      "status": "completed",
+      "answers": {
+        "sample-q-001": "It removes all private vehicles",
+        "sample-q-002": "Not Given"
+      },
+      "id": "OfliM9X954k",
+      "completedAt": "2026-06-25T04:47:26.623Z",
+      "submittedAt": "2026-06-25T04:47:26.622Z",
+      "correctCount": 0,
+      "totalScore": 2,
+      "score": 0,
+      "overallBandScore": 0
+    }
+  ],
+  "library_resources": [
+    {
+      "title": "IELTS Reading Strategies Guide 2026",
+      "description": "A comprehensive guide covering all reading question types including True/False/Not Given, Matching Headings, and Summary Completion.",
+      "resourceType": "pdf",
+      "skill": "Reading",
+      "level": "Advanced",
+      "fileUrl": "/uploads/valid-ielts-reading.pdf",
+      "fileName": "valid-ielts-reading.pdf",
+      "fileSize": 109,
+      "externalUrl": "",
+      "thumbnailUrl": "",
+      "tags": "reading, strategies, band7",
+      "visibility": "public",
+      "teacherId": "u-student-004",
+      "status": "published",
+      "downloadCount": 0,
+      "createdAt": "2026-06-25T01:13:08.150Z",
+      "id": "xMzGccz-Azk"
     },
     {
-      "id": "ta-011",
-      "userId": "student-1782232549608",
-      "guestId": null,
-      "testId": "Mx539GlgPjQ",
+      "title": "Cambridge IELTS Writing Task 2 Samples",
+      "description": "External link to a collection of high-scoring IELTS Writing Task 2 sample essays from Cambridge.",
+      "resourceType": "link",
       "skill": "Writing",
-      "status": "in-progress",
-      "startTime": "2026-06-23T16:35:49.662Z",
-      "createdAt": "2026-06-23T16:35:49.662Z"
-    },
-    {
-      "id": "ta-012",
-      "userId": "student-1782232549608",
-      "guestId": null,
-      "testId": "Mx539GlgPjQ",
-      "skill": "Writing",
-      "status": "in-progress",
-      "startTime": "2026-06-23T16:35:49.666Z",
-      "createdAt": "2026-06-23T16:35:49.666Z"
-    },
-    {
-      "id": "ta-013",
-      "userId": "student-1782232549608",
-      "guestId": null,
-      "testId": "Mx539GlgPjQ",
-      "skill": "Writing",
-      "status": "in-progress",
-      "startTime": "2026-06-23T16:35:49.671Z",
-      "createdAt": "2026-06-23T16:35:49.671Z"
+      "level": "Advanced",
+      "fileUrl": "",
+      "fileName": "",
+      "fileSize": 0,
+      "externalUrl": "https://www.cambridgeenglish.org/ielts/writing-samples",
+      "thumbnailUrl": "",
+      "tags": "",
+      "visibility": "public",
+      "teacherId": "u-student-004",
+      "status": "published",
+      "downloadCount": 0,
+      "createdAt": "2026-06-25T01:14:01.311Z",
+      "id": "jZCFAdfhr2c"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
