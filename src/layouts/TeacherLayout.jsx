@@ -65,6 +65,12 @@ export default function TeacherLayout() {
           >
             <i className="bi bi-people"></i> Quản lý Học viên
           </NavLink>
+          <NavLink 
+            to="/teacher/flashcards" 
+            className={({ isActive }) => `nav-link d-flex align-items-center gap-3 py-2.5 px-3 rounded-3 text-white transition-all ${isActive ? 'bg-primary active' : 'hover-bg-secondary'}`}
+          >
+            <i className="bi bi-card-text"></i> Quản lý Flashcard
+          </NavLink>
         </nav>
 
         {/* Nút đăng xuất ở dưới cùng */}

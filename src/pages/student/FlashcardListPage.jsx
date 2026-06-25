@@ -21,7 +21,7 @@ const buildDecks = (categories, flashcards) => {
 
   return safeCategories.map((category) => {
     const categoryId = category?.id || '';
-    const cards = safeFlashcards.filter((card) => card?.categoryId === categoryId);
+    const cards = safeFlashcards.filter((card) => card?.deckId === categoryId);
 
     return {
       id: categoryId,
@@ -50,7 +50,7 @@ const FlashcardListPage = () => {
       try {
         // EARS[Event]: WHEN a Student navigates to `/learning/flashcards`, THE system SHALL load available flashcard decks.
         const [categoryResponse, flashcardResponse] = await Promise.all([
-          api.get('/categories'),
+          api.get('/flashcardDecks?status=published'),
           api.get('/flashcards')
         ]);
 

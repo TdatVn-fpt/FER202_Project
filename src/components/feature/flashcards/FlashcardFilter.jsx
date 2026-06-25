@@ -40,7 +40,7 @@ const FlashcardFilter = ({ categories, selectedCategoryId, onSelectCategory }) =
             <option value="all">All Categories</option>
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
-                {category.name}
+                {category.name || category.title || 'Untitled deck'}
               </option>
             ))}
           </>

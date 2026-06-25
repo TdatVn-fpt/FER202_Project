@@ -38,6 +38,8 @@ import TeacherTestListPage from '../pages/teacher/TestListPage';
 import TestCreatePage from '../pages/teacher/TestCreatePage';
 import StudentTrackingPage from '../pages/teacher/StudentTrackingPage';
 import QuestionBankPage from '../pages/teacher/QuestionBankPage';
+import FlashcardManagementPage from '../pages/teacher/FlashcardManagementPage';
+import FlashcardDeckDetail from '../pages/teacher/FlashcardDeckDetail';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import UserManagement from '../pages/admin/UserManagement';
 import AdminCourseManagement from '../pages/admin/CourseManagement';
@@ -71,7 +73,7 @@ export default function AppRoutes() {
         <Route path="/free-tests/review/:attemptId" element={<TestReviewPage />} />
       </Route>
 
-      <Route element={<ProtectedRoute allowedRoles={['student']} />}>
+      <Route element={<ProtectedRoute allowedRoles={['student', 'teacher', 'admin']} />}>
         <Route element={<StudentLayout />}>
           <Route path="/learning" element={<StudentHomePage />} />
           <Route path="/learning/dashboard" element={<StudentDashboard />} />
@@ -106,6 +108,8 @@ export default function AppRoutes() {
           <Route path="/teacher/tests/:id/questions" element={<QuestionBankPage />} />
           <Route path="/teacher/students" element={<StudentTrackingPage />} />
           <Route path="/teacher/questions" element={<QuestionBankPage />} />
+          <Route path="/teacher/flashcards" element={<FlashcardManagementPage />} />
+          <Route path="/teacher/flashcards/:deckId" element={<FlashcardDeckDetail />} />
         </Route>
       </Route>
 
