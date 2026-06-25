@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Container, Card, Form, Button, Row, Col, Spinner } from 'react-bootstrap';
+import { Container, Card, Form, Button, Row, Col, Spinner, Alert } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { getCurrentUser } from '../../services/authService';
 import { teacherCourseService } from '../../services/teacherCourseService';
@@ -28,10 +28,11 @@ const courseSchema = z.object({
 export default function CourseCreatePage() {
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
+  const [isPreviewMode, setIsPreviewMode] = useState(false);
   const currentUser = getCurrentUser();
   const teacherId = currentUser?.id || 'u-teacher-001';
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm({
+  const { register, handleSubmit, watch, trigger, getValues, formState: { errors } } = useForm({
     resolver: zodResolver(courseSchema),
     defaultValues: {
       title: '',
@@ -45,6 +46,14 @@ export default function CourseCreatePage() {
   });
 
   const priceValue = watch('price');
+
+  const handlePreview = async () => {
+    const isValid = await trigger();
+    if (isValid) {
+      setIsPreviewMode(true);
+      window.scrollTo(0, 0);
+    }
+  };
 
   const onSubmit = async (data) => {
     setSubmitting(true);
@@ -71,11 +80,169 @@ export default function CourseCreatePage() {
       toast.success('Tạo khóa học nháp thành công!');
       navigate('/teacher/courses');
     } catch (error) {
-      toast.error('Tạo khóa học thất bại. Vui lòng thử lại sau.');
+      const errorMsg = error.response?.data?.message || error.message || 'Tạo khóa học thất bại. Vui lòng thử lại sau.';
+      toast.error(errorMsg);
     } finally {
       setSubmitting(false);
     }
   };
+
+  if (isPreviewMode) {
+    const values = getValues();
+    return (
+      <Container className="py-5" style={{ maxWidth: '1000px' }}>
+        {/* Preview Alert Banner */}
+        <Alert variant="warning" className="d-flex align-items-center gap-3 border-0 shadow-sm mb-4 rounded-3 py-3">
+          <i className="bi bi-eye-fill fs-4 text-warning"></i>
+          <div>
+            <h6 className="mb-1 fw-bold text-dark-emphasis">Chế độ xem trước (Preview Mode)</h6>
+            <p className="mb-0 text-secondary" style={{ fontSize: '13.5px' }}>
+              Dưới đây là giao diện chi tiết khóa học được mô phỏng theo góc nhìn của học viên. Hãy kiểm tra kỹ trước khi xác nhận lưu bản nháp.
+            </p>
+          </div>
+        </Alert>
+
+        {/* Hero Section */}
+        <div className="text-white p-4 p-md-5 rounded-4 mb-4 shadow" style={{ background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)' }}>
+          <div className="d-flex gap-2 flex-wrap mb-4">
+            <span className="badge px-3 py-2 rounded-pill fw-semibold text-uppercase" style={{ background: 'rgba(255, 255, 255, 0.15)', color: '#fff', fontSize: '11px', letterSpacing: '0.5px' }}>
+              <i className="bi bi-book-fill me-1"></i>{values.skill}
+            </span>
+            <span className="badge px-3 py-2 rounded-pill fw-semibold text-uppercase" style={{ background: 'rgba(255, 255, 255, 0.15)', color: '#fff', fontSize: '11px', letterSpacing: '0.5px' }}>
+              <i className="bi bi-bullseye me-1"></i>{values.level}
+            </span>
+            {Number(values.price) === 0 && (
+              <span className="badge bg-success px-3 py-2 rounded-pill fw-semibold text-uppercase" style={{ fontSize: '11px', letterSpacing: '0.5px' }}>
+                <i className="bi bi-gift-fill me-1"></i>Miễn phí
+              </span>
+            )}
+          </div>
+          <h1 className="fw-bold mb-4" style={{ fontSize: '2.5rem', lineHeight: '1.2' }}>{values.title}</h1>
+          <div className="d-flex align-items-center gap-4 text-white-50 flex-wrap" style={{ fontSize: '14px' }}>
+            <div className="d-flex align-items-center gap-2">
+              <i className="bi bi-clock-fill"></i> Thời lượng: <strong>{values.durationWeeks} tuần</strong>
+            </div>
+            <div className="d-flex align-items-center gap-2">
+              <i className="bi bi-people-fill"></i> Học viên: <strong>0</strong>
+            </div>
+            <div className="d-flex align-items-center gap-2">
+              <i className="bi bi-person-badge-fill"></i> Giảng viên: <strong>{currentUser?.fullName || 'IELTS Mentor'}</strong>
+            </div>
+          </div>
+        </div>
+
+        {/* Content Body */}
+        <Row className="g-4">
+          <Col lg={8}>
+            {/* What you'll learn */}
+            <Card className="border-0 shadow-sm p-4 mb-4 rounded-4 bg-white">
+              <h4 className="fw-bold text-dark mb-4 pb-2 border-bottom border-light">Bạn sẽ học được gì?</h4>
+              <Row className="g-3">
+                <Col md={6} className="d-flex align-items-start gap-2.5">
+                  <i className="bi bi-check2-circle text-primary fs-5 mt-0.5 me-2"></i>
+                  <span className="text-secondary small">Nắm vững các kỹ năng và phương pháp làm bài thi IELTS theo chuẩn {values.skill}.</span>
+                </Col>
+                <Col md={6} className="d-flex align-items-start gap-2.5">
+                  <i className="bi bi-check2-circle text-primary fs-5 mt-0.5 me-2"></i>
+                  <span className="text-secondary small">Cải thiện band điểm mục tiêu của trình độ {values.level}.</span>
+                </Col>
+                <Col md={6} className="d-flex align-items-start gap-2.5">
+                  <i className="bi bi-check2-circle text-primary fs-5 mt-0.5 me-2"></i>
+                  <span className="text-secondary small">Các mẹo quản lý thời gian thi thực tế để đạt kết quả tốt nhất.</span>
+                </Col>
+                <Col md={6} className="d-flex align-items-start gap-2.5">
+                  <i className="bi bi-check2-circle text-primary fs-5 mt-0.5 me-2"></i>
+                  <span className="text-secondary small">Hệ thống từ vựng và chủ điểm ngữ pháp cốt lõi.</span>
+                </Col>
+              </Row>
+            </Card>
+
+            {/* Description */}
+            <Card className="border-0 shadow-sm p-4 mb-4 rounded-4 bg-white">
+              <h4 className="fw-bold text-dark mb-4 pb-2 border-bottom border-light">Giới thiệu khóa học</h4>
+              <div className="text-secondary lh-lg" style={{ whiteSpace: 'pre-wrap', fontSize: '15px' }}>
+                {values.description}
+              </div>
+            </Card>
+
+            {/* Syllabus mockup */}
+            <Card className="border-0 shadow-sm p-4 mb-4 rounded-4 bg-white">
+              <h4 className="fw-bold text-dark mb-3 pb-2 border-bottom border-light">Nội dung học tập</h4>
+              <div className="alert alert-light border border-dashed rounded-3 text-center py-4 mb-0 bg-light-subtle">
+                <i className="bi bi-folder-symlink fs-2 text-secondary d-block mb-2"></i>
+                <span className="text-muted small">Syllabus hiện chưa có bài học. Bạn có thể xây dựng các bài học (Lessons) cho khóa học này từ trang Quản lý Bài học sau khi lưu bản nháp.</span>
+              </div>
+            </Card>
+          </Col>
+
+          <Col lg={4}>
+            {/* Payment card */}
+            <Card className="border-0 shadow-sm p-4 rounded-4 bg-white sticky-top" style={{ top: '24px' }}>
+              <div className="thumbnail-wrapper rounded-3 mb-4 overflow-hidden shadow-sm" style={{ height: '180px' }}>
+                <img 
+                  src={values.thumbnail || 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80'} 
+                  alt={values.title} 
+                  className="w-100 h-100 object-fit-cover"
+                />
+              </div>
+              <div className="fs-3 fw-bold text-primary mb-3">
+                {Number(values.price) === 0 
+                  ? 'Miễn phí' 
+                  : new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(values.price)
+                }
+              </div>
+
+              <Button variant="primary" className="w-100 py-2.5 rounded-pill fw-semibold mb-3 shadow-none" disabled>
+                <i className="bi bi-rocket-takeoff-fill me-2"></i>{Number(values.price) === 0 ? 'Tham gia khóa học' : 'Mua khóa học ngay'}
+              </Button>
+
+              <div className="text-secondary" style={{ fontSize: '12px', lineHeight: '1.5' }}>
+                {Number(values.price) === 0 ? (
+                  <div className="d-flex gap-2">
+                    <i className="bi bi-info-circle-fill text-success fs-6 mt-0.5"></i>
+                    <span><strong>Giới hạn dùng thử:</strong> Khóa học miễn phí này đi kèm tối đa 3 lượt làm bài kiểm tra và 3 lượt học flashcard cho học viên.</span>
+                  </div>
+                ) : (
+                  <div className="d-flex gap-2">
+                    <i className="bi bi-check-circle-fill text-primary fs-6 mt-0.5"></i>
+                    <span><strong>Quyền lợi Premium:</strong> Học viên sau khi mua sẽ được học vĩnh viễn, truy cập đầy đủ bài thi và flashcards không giới hạn.</span>
+                  </div>
+                )}
+              </div>
+            </Card>
+          </Col>
+        </Row>
+
+        {/* Footer actions */}
+        <div className="d-flex justify-content-between align-items-center mt-5 pt-4 border-top border-light">
+          <Button 
+            variant="outline-secondary" 
+            onClick={() => setIsPreviewMode(false)}
+            className="px-4 py-2 rounded-pill fw-semibold text-secondary"
+            disabled={submitting}
+          >
+            <i className="bi bi-arrow-left me-2"></i> Quay lại chỉnh sửa
+          </Button>
+          <Button 
+            onClick={handleSubmit(onSubmit)}
+            variant="success" 
+            className="px-4 py-2 rounded-pill fw-semibold d-flex align-items-center gap-2"
+            disabled={submitting}
+          >
+            {submitting ? (
+              <>
+                <Spinner size="sm" animation="border" /> Đang tạo...
+              </>
+            ) : (
+              <>
+                <i className="bi bi-check-circle-fill"></i> Xác nhận & Lưu bản nháp
+              </>
+            )}
+          </Button>
+        </div>
+      </Container>
+    );
+  }
 
   return (
     <Container className="py-5" style={{ maxWidth: '800px' }}>
@@ -241,6 +408,15 @@ export default function CourseCreatePage() {
               disabled={submitting}
             >
               Hủy bỏ
+            </Button>
+            <Button 
+              type="button" 
+              variant="outline-primary" 
+              className="px-4 py-2 rounded-pill fw-semibold d-flex align-items-center gap-2"
+              onClick={handlePreview}
+              disabled={submitting}
+            >
+              <i className="bi bi-eye"></i> Xem trước
             </Button>
             <Button 
               type="submit" 
