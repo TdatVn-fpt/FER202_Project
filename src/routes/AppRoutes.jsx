@@ -40,6 +40,8 @@ import StudentTrackingPage from '../pages/teacher/StudentTrackingPage';
 import QuestionBankPage from '../pages/teacher/QuestionBankPage';
 import FlashcardManagementPage from '../pages/teacher/FlashcardManagementPage';
 import FlashcardDeckDetail from '../pages/teacher/FlashcardDeckDetail';
+import LibraryResourceListPage from '../pages/teacher/LibraryResourceListPage';
+import LibraryResourceCreatePage from '../pages/teacher/LibraryResourceCreatePage';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import UserManagement from '../pages/admin/UserManagement';
 import AdminCourseManagement from '../pages/admin/CourseManagement';
@@ -110,6 +112,8 @@ export default function AppRoutes() {
           <Route path="/teacher/questions" element={<QuestionBankPage />} />
           <Route path="/teacher/flashcards" element={<FlashcardManagementPage />} />
           <Route path="/teacher/flashcards/:deckId" element={<FlashcardDeckDetail />} />
+          <Route path="/teacher/library" element={<LibraryResourceListPage />} />
+          <Route path="/teacher/library/create" element={<LibraryResourceCreatePage />} />
         </Route>
       </Route>
 

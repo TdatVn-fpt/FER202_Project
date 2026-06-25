@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.17.0",
     "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
     "json-server": "^1.0.0-beta.15",
     "react": "^19.2.6",
     "react-bootstrap": "^2.10.10",
@@ -29,7 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --port 9999 db.json"
+    "server": "node server.js"
   },
   "eslintConfig": {
     "extends": [
@@ -39,9 +40,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "^react-router-dom$": "<rootDir>/node_modules/react-router-dom/dist/index.js",
-      "^react-router$": "<rootDir>/node_modules/react-router/dist/development/index.js",
-      "^react-router/dom$": "<rootDir>/node_modules/react-router/dist/development/dom-export.js"
+      "^react-router-dom$": "<rootDir>/src/__mocks__/react-router-dom.js"
     }
   },
   "browserslist": {
@@ -55,11 +54,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "^react-router-dom$": "<rootDir>/src/__mocks__/react-router-dom.js"
-    }
   },
   "devDependencies": {
     "concurrently": "^10.0.3"
