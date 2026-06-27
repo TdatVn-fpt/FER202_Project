@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { Alert, Button, Card, Col, Container, Form, Row, Spinner } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { getCurrentUser } from '../../services/authService';
@@ -40,6 +40,8 @@ const createInitialDraft = (teacherId) => ({
 
 export default function TestCreatePage() {
   const { id } = useParams();
+  const [searchParams] = useSearchParams();
+  const queryCourseId = searchParams.get('courseId') || '';
   const navigate = useNavigate();
   const currentUser = getCurrentUser();
   const teacherId = currentUser?.id || 'u-teacher-001';
@@ -63,33 +65,40 @@ export default function TestCreatePage() {
         const coursesData = await teacherCourseService.getCourses(teacherId);
         setCourses(coursesData);
 
-        if (id) {
-          const [testData, questionData] = await Promise.all([
-            teacherTestService.getTestById(id),
-            teacherQuestionService.getQuestions(id),
-          ]);
+          if (id) {
+            const [testData, questionData] = await Promise.all([
+              teacherTestService.getTestById(id),
+              teacherQuestionService.getQuestions(id),
+            ]);
 
-          if (testData.teacherId && testData.teacherId !== teacherId) {
-            setIsUnauthorized(true);
-            setLoading(false);
-            return;
+            if (testData.teacherId && testData.teacherId !== teacherId) {
+              setIsUnauthorized(true);
+              setLoading(false);
+              return;
+            }
+
+            setDraft({
+              ...normalizeTest(testData),
+              teacherId: testData.teacherId || teacherId,
+            });
+            setQuestions(questionData);
+          } else if (queryCourseId) {
+            setDraft(prev => ({
+              ...prev,
+              testMode: 'course',
+              courseId: queryCourseId,
+              attemptLimit: 0
+            }));
           }
-
-          setDraft({
-            ...normalizeTest(testData),
-            teacherId: testData.teacherId || teacherId,
-          });
-          setQuestions(questionData);
+        } catch (error) {
+          toast.error('Không thể tải dữ liệu đề thi.');
+        } finally {
+          setLoading(false);
         }
-      } catch (error) {
-        toast.error('Không thể tải dữ liệu đề thi.');
-      } finally {
-        setLoading(false);
       }
-    }
 
-    loadData();
-  }, [id, teacherId]);
+      loadData();
+    }, [id, teacherId, queryCourseId]);
 
   const updateDraft = (patch) => {
     setDraft((prev) => ({ ...prev, ...patch }));
@@ -308,6 +317,7 @@ export default function TestCreatePage() {
                     <Form.Label>Mode hiển thị</Form.Label>
                     <Form.Select
                       value={draft.testMode}
+                      disabled={!!queryCourseId}
                       onChange={(e) => {
                         const testMode = e.target.value;
                         updateDraft({
@@ -337,10 +347,14 @@ export default function TestCreatePage() {
                       onChange={(e) => updateDraft({ attemptLimit: Number(e.target.value) })}
                     />
                   </Col>
-                  {draft.testMode === 'course' && (
+                  {(draft.testMode === 'course' || !!queryCourseId) && (
                     <Col md={8}>
                       <Form.Label>Gán vào khóa học</Form.Label>
-                      <Form.Select value={draft.courseId || ''} onChange={(e) => updateDraft({ courseId: e.target.value })}>
+                      <Form.Select 
+                        value={draft.courseId || ''} 
+                        disabled={!!queryCourseId}
+                        onChange={(e) => updateDraft({ courseId: e.target.value })}
+                      >
                         <option value="">Chưa gán khóa học</option>
                         {courses.map((course) => (
                           <option key={course.id} value={course.id}>

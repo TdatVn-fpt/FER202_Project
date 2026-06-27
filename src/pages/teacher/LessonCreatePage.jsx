@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, Link, useParams } from 'react-router-dom';
+import { useNavigate, Link, useParams, useSearchParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -21,8 +21,18 @@ const lessonSchema = z.object({
   })
 });
 
+const getYouTubeId = (url) => {
+  if (!url) return null;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+};
+
 export default function LessonCreatePage() {
   const { id } = useParams();
+  const [searchParams] = useSearchParams();
+  const queryCourseId = searchParams.get('courseId') || '';
+
   const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -46,6 +56,8 @@ export default function LessonCreatePage() {
   });
 
   const selectedCourseId = watch('courseId');
+  const contentUrlValue = watch('contentUrl') || '';
+  const audioUrlValue = watch('audioUrl') || '';
 
   // Load courses and/or existing lesson details
   useEffect(() => {
@@ -80,6 +92,16 @@ export default function LessonCreatePage() {
           if (parentCourse) {
             setTargetCourseStatus(parentCourse.status);
           }
+        } else if (queryCourseId) {
+          // Create mode: preselect courseId from query parameter
+          reset({
+            courseId: queryCourseId,
+            title: '',
+            order: 1,
+            durationMinutes: 30,
+            contentUrl: '',
+            audioUrl: ''
+          });
         }
       } catch (error) {
         toast.error('Không thể tải dữ liệu giáo trình.');
@@ -342,6 +364,56 @@ export default function LessonCreatePage() {
                 <Form.Text className="text-muted small">Cung cấp đường dẫn tệp âm thanh định dạng .mp3 cho các bài tập hoặc bài học Listening.</Form.Text>
               </Form.Group>
             </Col>
+
+            {/* Live Preview Section */}
+            {(contentUrlValue || audioUrlValue) && (
+              <Col xs={12} className="mt-4">
+                <Card className="border border-light-subtle rounded-3 bg-light p-3">
+                  <h6 className="fw-bold text-dark mb-3 d-flex align-items-center gap-2">
+                    <i className="bi bi-play-btn-fill text-primary"></i> Xem trước bài giảng (Live Preview)
+                  </h6>
+                  
+                  {contentUrlValue && (
+                    <div className="mb-3">
+                      <span className="d-block text-secondary small fw-semibold mb-2">Nội dung bài học:</span>
+                      {getYouTubeId(contentUrlValue) ? (
+                        <div className="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
+                          <iframe
+                            src={`https://www.youtube.com/embed/${getYouTubeId(contentUrlValue)}`}
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          ></iframe>
+                        </div>
+                      ) : (
+                        <div className="p-3 bg-white border rounded text-secondary d-flex align-items-center gap-2">
+                          <i className="bi bi-link-45deg fs-4 text-primary"></i>
+                          <div className="overflow-hidden">
+                            <div className="small fw-semibold text-truncate" style={{ maxWidth: '100%' }}>{contentUrlValue}</div>
+                            <a href={contentUrlValue} target="_blank" rel="noopener noreferrer" className="small text-decoration-none d-inline-flex align-items-center gap-1 mt-1">
+                              Mở liên kết mới <i className="bi bi-box-arrow-up-right"></i>
+                            </a>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {audioUrlValue && (
+                    <div>
+                      <span className="d-block text-secondary small fw-semibold mb-2">Tệp âm thanh listening:</span>
+                      <div className="p-3 bg-white border rounded d-flex flex-column gap-2 shadow-sm">
+                        <div className="d-flex align-items-center gap-2 text-success">
+                          <i className="bi bi-music-note-beamed fs-4"></i>
+                          <span className="small fw-semibold text-truncate" style={{ maxWidth: '100%' }}>{audioUrlValue}</span>
+                        </div>
+                        <audio src={audioUrlValue} controls className="w-100 mt-2" />
+                      </div>
+                    </div>
+                  )}
+                </Card>
+              </Col>
+            )}
           </Row>
 
           {/* Form Actions */}

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Modal, Button, Form } from 'react-bootstrap';
+import toast from 'react-hot-toast';
 import FlashcardDeck from '../../components/feature/flashcards/FlashcardDeck';
 import FlashcardLearn from './FlashcardLearn';
 import FlashcardTest from './FlashcardTest';
@@ -32,6 +34,14 @@ const FlashcardStudyPage = () => {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [isPremium, setIsPremium] = useState(false);
+
+  // Student Add Word States
+  const [showAddWordModal, setShowAddWordModal] = useState(false);
+  const [newWord, setNewWord] = useState('');
+  const [newMeaning, setNewMeaning] = useState('');
+  const [newExample, setNewExample] = useState('');
+  const [savingCard, setSavingCard] = useState(false);
   
   // Quizlet Modes: 'flashcards', 'learn', 'test'
   const [activeMode, setActiveMode] = useState('flashcards');
@@ -57,8 +67,18 @@ const FlashcardStudyPage = () => {
 
         if (!isMounted) return;
 
-        setDeck(deckResponse.data || null);
+        const deckData = deckResponse.data || null;
+        setDeck(deckData);
         setCards(normalizeArray(cardResponse.data));
+
+        if (deckData && deckData.courseId) {
+          try {
+            const courseRes = await api.get(`/courses/${deckData.courseId}`);
+            setIsPremium(!!courseRes.data?.isPremium);
+          } catch (cErr) {
+            console.error('Error fetching course:', cErr);
+          }
+        }
       } catch (requestError) {
         if (!isMounted) return;
         setError(requestError?.response?.status === 404
@@ -82,6 +102,39 @@ const FlashcardStudyPage = () => {
     if ('speechSynthesis' in window) {
       const utterance = new SpeechSynthesisUtterance(text);
       window.speechSynthesis.speak(utterance);
+    }
+  };
+
+  const handleCreateCard = async (e) => {
+    e.preventDefault();
+    if (!newWord.trim() || !newMeaning.trim()) {
+      toast.error('Vui lòng điền đầy đủ Thuật ngữ và Định nghĩa.');
+      return;
+    }
+    setSavingCard(true);
+    try {
+      const payload = {
+        deckId: activeDeckId,
+        word: newWord.trim(),
+        meaning: newMeaning.trim(),
+        example: newExample.trim(),
+        teacherId: deck?.teacherId || 'u-teacher-001',
+        createdAt: new Date().toISOString()
+      };
+      
+      const res = await api.post('/flashcards', payload);
+      setCards([...cards, res.data]);
+      
+      setNewWord('');
+      setNewMeaning('');
+      setNewExample('');
+      setShowAddWordModal(false);
+      
+      toast.success('Thêm từ vựng thành công!');
+    } catch (err) {
+      toast.error('Thêm từ vựng thất bại.');
+    } finally {
+      setSavingCard(false);
     }
   };
 
@@ -113,9 +166,21 @@ const FlashcardStudyPage = () => {
         {/* Header */}
       <div className="d-flex justify-content-between align-items-start mb-4">
         <h1 className="h3 mb-0 fw-bold">{getDeckName(deck)}</h1>
-        <button type="button" className="btn btn-outline-secondary rounded-pill" onClick={() => navigate('/learning/flashcards')}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="me-1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Đóng
-        </button>
+        <div className="d-flex gap-2">
+          {isPremium && (
+            <button 
+              type="button" 
+              className="btn btn-warning rounded-pill fw-semibold shadow-sm d-flex align-items-center gap-2" 
+              onClick={() => setShowAddWordModal(true)}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+              Thêm từ của bạn
+            </button>
+          )}
+          <button type="button" className="btn btn-outline-secondary rounded-pill d-flex align-items-center" onClick={() => navigate('/learning/flashcards')}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="me-1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Đóng
+          </button>
+        </div>
       </div>
 
       {/* Quizlet Modes Top Bar */}
@@ -145,7 +210,16 @@ const FlashcardStudyPage = () => {
         <section className="card border-0 shadow-sm text-center p-5">
           <div className="card-body">
             <h2 className="h5 mb-2">Chưa có flashcard để hiển thị.</h2>
-            <p className="text-muted mb-0">Bộ từ vựng này đang trống.</p>
+            <p className="text-muted mb-3">Bộ từ vựng này đang trống.</p>
+            {isPremium && (
+              <button 
+                type="button" 
+                className="btn btn-warning rounded-pill fw-semibold px-4" 
+                onClick={() => setShowAddWordModal(true)}
+              >
+                Thêm từ vựng đầu tiên
+              </button>
+            )}
           </div>
         </section>
       ) : (
@@ -197,6 +271,58 @@ const FlashcardStudyPage = () => {
           )}
         </>
       )}
+
+      {/* Student Add Custom Card Modal */}
+      <Modal show={showAddWordModal} onHide={() => setShowAddWordModal(false)} centered>
+        <Modal.Header closeButton className="border-0">
+          <Modal.Title className="fw-bold">Thêm từ vựng mới của bạn</Modal.Title>
+        </Modal.Header>
+        <Form onSubmit={handleCreateCard}>
+          <Modal.Body className="py-2">
+            <Form.Group className="mb-3" controlId="newWord">
+              <Form.Label className="fw-semibold text-secondary">Thuật ngữ / Từ vựng <span className="text-danger">*</span></Form.Label>
+              <Form.Control 
+                type="text" 
+                placeholder="Ví dụ: Paradigm shift" 
+                required 
+                value={newWord}
+                onChange={(e) => setNewWord(e.target.value)}
+                className="py-2.5 px-3 border-gray"
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="newMeaning">
+              <Form.Label className="fw-semibold text-secondary">Định nghĩa / Nghĩa <span className="text-danger">*</span></Form.Label>
+              <Form.Control 
+                type="text" 
+                placeholder="Ví dụ: Sự thay đổi về nhận thức, mô hình" 
+                required 
+                value={newMeaning}
+                onChange={(e) => setNewMeaning(e.target.value)}
+                className="py-2.5 px-3 border-gray"
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="newExample">
+              <Form.Label className="fw-semibold text-secondary">Ví dụ minh họa</Form.Label>
+              <Form.Control 
+                as="textarea" 
+                rows={2} 
+                placeholder="Ví dụ: The internet caused a paradigm shift in shopping." 
+                value={newExample}
+                onChange={(e) => setNewExample(e.target.value)}
+                className="py-2.5 px-3 border-gray"
+              />
+            </Form.Group>
+          </Modal.Body>
+          <Modal.Footer className="border-0 pt-0">
+            <Button variant="light" onClick={() => setShowAddWordModal(false)} className="rounded-pill px-3 fw-semibold">
+              Hủy
+            </Button>
+            <Button variant="warning" type="submit" disabled={savingCard} className="rounded-pill px-4 fw-semibold shadow-sm">
+              {savingCard ? 'Đang lưu...' : 'Thêm từ'}
+            </Button>
+          </Modal.Footer>
+        </Form>
+      </Modal>
       </main>
     </div>
   );

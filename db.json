@@ -213,28 +213,6 @@
       "createdAt": "2026-06-10T08:00:00Z"
     },
     {
-      "id": "course-004",
-      "title": "IELTS Speaking Confidence",
-      "description": "Luyện tập Speaking tự tin với phương pháp ILETS chuẩn.",
-      "syllabus": [
-        "Fluency Practice",
-        "Pronunciation",
-        "Part 2 Long Turn"
-      ],
-      "skill": "Speaking",
-      "level": "Intermediate",
-      "price": 199000,
-      "isPremium": true,
-      "thumbnail": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "status": "rejected",
-      "enrolledCount": 0,
-      "students": 0,
-      "rating": 0,
-      "durationWeeks": 6,
-      "createdAt": "2026-06-08T08:00:00Z"
-    },
-    {
       "title": " IELTS Listening Foundation (Dành cho người mới bắt đầu)",
       "description": " Khóa học nền tảng giúp học viên làm quen với các format câu hỏi cơ bản trong bài thi IELTS Listening như Multiple Choice và Form Completion. Bao gồm 10 bài nghe thực tế tốc độ chậm.",
       "skill": "Listening",
@@ -293,6 +271,22 @@
       "isPremium": true,
       "createdAt": "2026-06-25T11:41:03.486Z",
       "id": "eZfx0_P3YIU"
+    },
+    {
+      "id": "course-004",
+      "title": "aaaaaaaaaaaaaaa",
+      "description": "aaaaaaaaaaaaaaaaaaaaaa",
+      "syllabus": [],
+      "skill": "Reading",
+      "level": "Beginner",
+      "price": 10000000,
+      "isPremium": true,
+      "thumbnail": "",
+      "teacherId": "u-teacher-001",
+      "status": "draft",
+      "enrolledCount": 0,
+      "durationWeeks": 4,
+      "createdAt": "2026-06-27T13:39:39.567Z"
     }
   ],
   "freeResources": [
@@ -318,7 +312,8 @@
       "durationMinutes": 45,
       "contentUrl": "/lessons/reading-skimming",
       "status": "published",
-      "createdAt": "2026-06-01T09:00:00Z"
+      "createdAt": "2026-06-01T09:00:00Z",
+      "teacherId": "u-teacher-001"
     },
     {
       "id": "lesson-002",
@@ -328,7 +323,8 @@
       "durationMinutes": 40,
       "contentUrl": "/lessons/reading-scanning",
       "status": "published",
-      "createdAt": "2026-06-02T09:00:00Z"
+      "createdAt": "2026-06-02T09:00:00Z",
+      "teacherId": "u-teacher-001"
     },
     {
       "id": "lesson-003",
@@ -338,7 +334,8 @@
       "durationMinutes": 50,
       "contentUrl": "/lessons/listening-note-taking",
       "status": "published",
-      "createdAt": "2026-06-03T09:00:00Z"
+      "createdAt": "2026-06-03T09:00:00Z",
+      "teacherId": "u-teacher-001"
     },
     {
       "id": "lesson-004",
@@ -348,7 +345,20 @@
       "durationMinutes": 60,
       "contentUrl": "/lessons/writing-intro",
       "status": "draft",
-      "createdAt": "2026-06-10T09:00:00Z"
+      "createdAt": "2026-06-10T09:00:00Z",
+      "teacherId": "u-teacher-001"
+    },
+    {
+      "id": "lesson-006",
+      "courseId": "course-004",
+      "title": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=IevmdO16GuE",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-27T13:41:47.182Z"
     }
   ],
   "tests": [
@@ -931,6 +941,126 @@
       "totalQuestions": 1,
       "status": "published",
       "id": "Mx539GlgPjQ"
+    },
+    {
+      "title": "aaaaaaaaaaaaaaaaa",
+      "description": "aaaaaaa",
+      "skill": "Speaking",
+      "testMode": "free",
+      "courseId": "",
+      "isFreePreview": false,
+      "status": "published",
+      "practiceMode": "exam",
+      "attemptLimit": 3,
+      "requireLoginAfterLimit": true,
+      "durationMinutes": 15,
+      "totalQuestions": 3,
+      "bandScale": "IELTS 0-9",
+      "teacherId": "u-teacher-001",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction & Interview",
+            "questions": [
+              {
+                "id": "sp-q-1",
+                "text": "aaaaaaaaaaa",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "aaaaaaaaaaa",
+            "bulletPrompts": [
+              "",
+              "aaaaaaaaaaaaa",
+              ""
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "sp-q-2",
+                "text": "aaaaaaaaaaa",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "updatedAt": "2026-06-27T14:07:41.613Z",
+      "createdAt": "2026-06-27T13:59:36.597Z",
+      "id": "buL7b65wJZ8"
+    },
+    {
+      "title": "aaaaaaaaaaaaaaaaaaaaaa",
+      "description": "aaaaaaaaaaaaaaaaaaa",
+      "skill": "Speaking",
+      "testMode": "course",
+      "courseId": "course-004",
+      "isFreePreview": false,
+      "status": "published",
+      "practiceMode": "exam",
+      "attemptLimit": 3,
+      "requireLoginAfterLimit": true,
+      "durationMinutes": 15,
+      "totalQuestions": 3,
+      "bandScale": "IELTS 0-9",
+      "teacherId": "u-teacher-001",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction & Interview",
+            "questions": [
+              {
+                "id": "sp-q-1",
+                "text": "aaaaaaaaaaaaaaaaaaaaaa",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "",
+            "bulletPrompts": [
+              "",
+              "",
+              ""
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "sp-q-2",
+                "text": "",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "updatedAt": "2026-06-27T14:07:39.164Z",
+      "createdAt": "2026-06-27T14:07:01.921Z",
+      "id": "I8hqTxITOmg"
     }
   ],
   "questions": [
@@ -1147,6 +1277,86 @@
       "answer": "Student ID",
       "explanation": "Sample form completion context.",
       "score": 1
+    },
+    {
+      "testId": "buL7b65wJZ8",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 2,
+      "questionText": "aaaaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "2ouNupd0TlI"
+    },
+    {
+      "testId": "buL7b65wJZ8",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 3,
+      "questionText": "aaaaaaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "m_ZFZqycNbE"
+    },
+    {
+      "testId": "buL7b65wJZ8",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 4,
+      "questionText": "aaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "6-9WwI0nOC4"
+    },
+    {
+      "testId": "buL7b65wJZ8",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 5,
+      "questionText": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "UrtyZ30M1uA"
+    },
+    {
+      "testId": "I8hqTxITOmg",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 1,
+      "questionText": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "oZFWf8J1egM"
     }
   ],
   "questionAnswers": [],
@@ -1184,7 +1394,7 @@
     },
     {
       "userId": "u-001",
-      "courseId": "course-004",
+      "courseId": null,
       "progress": 0,
       "enrolledAt": "2026-06-21T10:46:41.099Z",
       "id": "7SFfx-Z-jhg"
@@ -1233,7 +1443,7 @@
     },
     {
       "userId": "u-001",
-      "courseId": "course-004",
+      "courseId": null,
       "amount": 199000,
       "currency": "VND",
       "method": "vietqr",
@@ -1276,7 +1486,7 @@
       "id": "txn-003",
       "userId": "u-student-001",
       "userName": "Nguyen Tien Dat",
-      "courseId": "course-004",
+      "courseId": null,
       "courseTitle": "IELTS Speaking Confidence",
       "amount": 199000,
       "currency": "VND",
@@ -1675,6 +1885,206 @@
       },
       "timestamp": "2026-06-25T11:41:03.494Z",
       "id": "a85Ausowi0c"
+    },
+    {
+      "id": "log-014",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-27T12:37:06.518Z"
+    },
+    {
+      "id": "log-015",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-004",
+      "createdAt": "2026-06-27T12:47:51.608Z"
+    },
+    {
+      "id": "log-016",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-004",
+      "createdAt": "2026-06-27T12:48:27.280Z"
+    },
+    {
+      "id": "log-017",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-004",
+      "createdAt": "2026-06-27T13:25:25.038Z"
+    },
+    {
+      "id": "log-018",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-004",
+      "createdAt": "2026-06-27T13:25:35.149Z"
+    },
+    {
+      "id": "log-019",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-004",
+      "createdAt": "2026-06-27T13:39:39.577Z"
+    },
+    {
+      "id": "log-020",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-004",
+      "createdAt": "2026-06-27T13:40:02.779Z"
+    },
+    {
+      "id": "log-021",
+      "actorId": "u-teacher-001",
+      "action": "DELETE_LESSON",
+      "targetType": "course",
+      "targetId": "course-004",
+      "createdAt": "2026-06-27T13:40:08.136Z"
+    },
+    {
+      "id": "log-022",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-004",
+      "createdAt": "2026-06-27T13:40:53.706Z"
+    },
+    {
+      "id": "log-023",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-004",
+      "createdAt": "2026-06-27T13:41:47.189Z"
+    },
+    {
+      "id": "log-024",
+      "actorId": "u-teacher-001",
+      "action": "DELETE_LESSON",
+      "targetType": "course",
+      "targetId": "course-004",
+      "createdAt": "2026-06-27T13:41:50.891Z"
+    },
+    {
+      "id": "log-025",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-004",
+      "createdAt": "2026-06-27T13:41:53.438Z"
+    },
+    {
+      "id": "log-026",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_TEST",
+      "targetType": "unknown",
+      "targetId": "unknown",
+      "createdAt": "2026-06-27T13:59:36.613Z"
+    },
+    {
+      "id": "log-027",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_QUESTION",
+      "targetType": "unknown",
+      "targetId": "unknown",
+      "createdAt": "2026-06-27T13:59:52.766Z"
+    },
+    {
+      "id": "log-028",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_QUESTION",
+      "targetType": "unknown",
+      "targetId": "unknown",
+      "createdAt": "2026-06-27T14:00:15.597Z"
+    },
+    {
+      "id": "log-029",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_QUESTION",
+      "targetType": "unknown",
+      "targetId": "unknown",
+      "createdAt": "2026-06-27T14:00:21.998Z"
+    },
+    {
+      "id": "log-030",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_QUESTION",
+      "targetType": "unknown",
+      "targetId": "unknown",
+      "createdAt": "2026-06-27T14:00:24.857Z"
+    },
+    {
+      "id": "log-031",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_QUESTION",
+      "targetType": "unknown",
+      "targetId": "unknown",
+      "createdAt": "2026-06-27T14:00:28.168Z"
+    },
+    {
+      "id": "log-032",
+      "actorId": "u-teacher-001",
+      "action": "DELETE_QUESTION",
+      "targetType": "unknown",
+      "targetId": "unknown",
+      "createdAt": "2026-06-27T14:00:42.493Z"
+    },
+    {
+      "id": "log-033",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_TEST",
+      "targetType": "unknown",
+      "targetId": "unknown",
+      "createdAt": "2026-06-27T14:07:01.933Z"
+    },
+    {
+      "id": "log-034",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_QUESTION",
+      "targetType": "unknown",
+      "targetId": "unknown",
+      "createdAt": "2026-06-27T14:07:14.042Z"
+    },
+    {
+      "id": "log-035",
+      "actorId": "u-teacher-001",
+      "action": "ASSIGN_TEST_COURSE",
+      "targetType": "course",
+      "targetId": "course-004",
+      "createdAt": "2026-06-27T14:07:33.032Z"
+    },
+    {
+      "id": "log-036",
+      "actorId": "u-teacher-001",
+      "action": "ASSIGN_TEST_COURSE",
+      "targetType": "course",
+      "targetId": "course-004",
+      "createdAt": "2026-06-27T14:07:36.568Z"
+    },
+    {
+      "id": "log-037",
+      "actorId": "u-teacher-001",
+      "action": "PUBLISH_TEST",
+      "targetType": "unknown",
+      "targetId": "unknown",
+      "createdAt": "2026-06-27T14:07:39.176Z"
+    },
+    {
+      "id": "log-038",
+      "actorId": "u-teacher-001",
+      "action": "PUBLISH_TEST",
+      "targetType": "unknown",
+      "targetId": "unknown",
+      "createdAt": "2026-06-27T14:07:41.626Z"
     }
   ],
   "approvalRequests": [
@@ -2569,6 +2979,116 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": ""
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "PASRRXxocj0"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "PCdvH21o0N8"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "2IablHH21F4"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "5mbS21C1TFc"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "yMx_gJjffys"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "1Zw8jpnG1Xc"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "KjUIAin5aJM"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "uysv8sVARDg"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "WXbBK3ok7rQ"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "Ntd0u-poWGY"
     }
   ],
   "flashcardProgress": [
@@ -2766,10 +3286,11 @@
       "title": "IELTS Reading: Academic Vocabulary",
       "description": "Từ vựng cốt lõi thường xuyên xuất hiện trong phần thi Reading học thuật.",
       "teacherId": "u-teacher-001",
-      "deckMode": "free",
-      "courseId": "",
-      "status": "active",
-      "createdAt": "2026-06-20T10:00:00Z"
+      "deckMode": "premium",
+      "courseId": "course-002",
+      "status": "published",
+      "createdAt": "2026-06-20T10:00:00Z",
+      "updatedAt": "2026-06-27T14:08:55.357Z"
     },
     {
       "id": "TCOYggEc8dw",
@@ -2812,6 +3333,17 @@
       "courseId": "",
       "status": "published",
       "createdAt": "2026-06-25T10:00:00Z"
+    },
+    {
+      "title": "aaaaaaaaaaaaaaa",
+      "description": "",
+      "deckMode": "course",
+      "courseId": "course-004",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-27T14:08:26.240Z",
+      "id": "cMRVjk0UR68",
+      "updatedAt": "2026-06-27T14:09:59.870Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
