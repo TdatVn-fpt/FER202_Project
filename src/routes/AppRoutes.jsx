@@ -33,6 +33,7 @@ import TeacherCourseManagement from '../pages/teacher/CourseManagement';
 import CourseCreatePage from '../pages/teacher/CourseCreatePage';
 import CourseEditPage from '../pages/teacher/CourseEditPage';
 import LessonListPage from '../pages/teacher/LessonListPage';
+import CourseDetailBuilder from '../pages/teacher/CourseDetailBuilder';
 import LessonCreatePage from '../pages/teacher/LessonCreatePage';
 import TeacherTestListPage from '../pages/teacher/TestListPage';
 import TestCreatePage from '../pages/teacher/TestCreatePage';
@@ -100,6 +101,7 @@ export default function AppRoutes() {
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
           <Route path="/teacher/courses" element={<TeacherCourseManagement />} />
           <Route path="/teacher/courses/create" element={<CourseCreatePage />} />
+          <Route path="/teacher/courses/:id" element={<CourseDetailBuilder />} />
           <Route path="/teacher/courses/:id/edit" element={<CourseEditPage />} />
           <Route path="/teacher/lessons" element={<LessonListPage />} />
           <Route path="/teacher/lessons/create" element={<LessonCreatePage />} />

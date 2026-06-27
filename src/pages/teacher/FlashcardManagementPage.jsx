@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Alert, Badge, Button, Card, Col, Form, Modal, Spinner, Table } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { getCurrentUser } from '../../services/authService';
@@ -12,6 +12,8 @@ import * as z from 'zod';
 const deckSchema = z.object({
   title: z.string().min(1, 'Tiêu đề không được để trống').max(100, 'Tiêu đề tối đa 100 ký tự'),
   description: z.string().max(500, 'Mô tả tối đa 500 ký tự').optional(),
+  deckMode: z.string().default('free'),
+  courseId: z.string().optional().default(''),
 });
 
 export default function FlashcardManagementPage() {
@@ -40,16 +42,27 @@ export default function FlashcardManagementPage() {
   const [assignCourseId, setAssignCourseId] = useState('');
   const [assignDeckMode, setAssignDeckMode] = useState('free');
   
+  const [searchParams] = useSearchParams();
+  const queryCourseId = searchParams.get('courseId') || '';
   const [working, setWorking] = useState(false);
 
   const {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors }
   } = useForm({
-    resolver: zodResolver(deckSchema)
+    resolver: zodResolver(deckSchema),
+    defaultValues: {
+      title: '',
+      description: '',
+      deckMode: 'free',
+      courseId: ''
+    }
   });
+
+  const formDeckMode = watch('deckMode') || 'free';
 
   useEffect(() => {
     fetchData();
@@ -89,6 +102,21 @@ export default function FlashcardManagementPage() {
     return course ? course.title : 'Khóa học không xác định';
   }, [courses]);
 
+  useEffect(() => {
+    if (queryCourseId && courses.length > 0) {
+      if (!editingDeck && !showFormModal) {
+        setEditingDeck(null);
+        reset({ 
+          title: '', 
+          description: '', 
+          deckMode: 'course', 
+          courseId: queryCourseId 
+        });
+        setShowFormModal(true);
+      }
+    }
+  }, [queryCourseId, courses, reset, editingDeck, showFormModal]);
+
   const filteredDecks = useMemo(() => {
     const keyword = searchQuery.trim().toLowerCase();
     return decks.filter((deck) => {
@@ -105,13 +133,18 @@ export default function FlashcardManagementPage() {
   // --- Form Handlers ---
   const handleOpenCreateModal = () => {
     setEditingDeck(null);
-    reset({ title: '', description: '' });
+    reset({ title: '', description: '', deckMode: 'free', courseId: '' });
     setShowFormModal(true);
   };
 
   const handleOpenEditModal = (deck) => {
     setEditingDeck(deck);
-    reset({ title: deck.title, description: deck.description || '' });
+    reset({ 
+      title: deck.title, 
+      description: deck.description || '',
+      deckMode: deck.deckMode || 'free',
+      courseId: deck.courseId || ''
+    });
     setShowFormModal(true);
   };
 
@@ -122,22 +155,30 @@ export default function FlashcardManagementPage() {
   };
 
   const onSubmitForm = async (data) => {
+    const { title, description, deckMode, courseId } = data;
+    if ((deckMode === 'course' || deckMode === 'premium') && !courseId) {
+      toast.error('Vui lòng chọn khóa học liên kết.');
+      return;
+    }
     setWorking(true);
     try {
       if (editingDeck) {
-        const updatedDeck = await teacherFlashcardService.updateDeck(editingDeck.id, data);
+        const payload = {
+          ...data,
+          courseId: deckMode === 'free' ? '' : courseId
+        };
+        const updatedDeck = await teacherFlashcardService.updateDeck(editingDeck.id, payload);
         setDecks(decks.map(d => d.id === editingDeck.id ? { ...d, ...updatedDeck } : d));
         toast.success('Đã cập nhật bộ từ vựng.');
       } else {
-        const newDeckData = {
+        const payload = {
           ...data,
+          courseId: deckMode === 'free' ? '' : courseId,
           teacherId,
-          deckMode: 'free',
-          courseId: '',
           status: 'draft',
           createdAt: new Date().toISOString()
         };
-        const newDeck = await teacherFlashcardService.createDeck(newDeckData);
+        const newDeck = await teacherFlashcardService.createDeck(payload);
         setDecks([...decks, newDeck]);
         setCardsCount({ ...cardsCount, [newDeck.id]: 0 });
         toast.success('Đã tạo bộ từ vựng mới.');
@@ -507,7 +548,7 @@ export default function FlashcardManagementPage() {
               <Form.Label className="fw-semibold">Mô tả</Form.Label>
               <Form.Control
                 as="textarea"
-                rows={3}
+                rows={2}
                 placeholder="Nhập mô tả ngắn gọn (không bắt buộc)..."
                 {...register('description')}
                 isInvalid={!!errors.description}
@@ -517,6 +558,35 @@ export default function FlashcardManagementPage() {
                 {errors.description?.message}
               </Form.Control.Feedback>
             </Form.Group>
+
+            <Form.Group className="mb-3" controlId="deckMode">
+              <Form.Label className="fw-semibold">Chế độ học phần</Form.Label>
+              <Form.Select
+                {...register('deckMode')}
+                disabled={!!queryCourseId}
+                className="shadow-none border-gray py-2"
+              >
+                <option value="free">Free - Công khai, không giới hạn</option>
+                <option value="course">Course - Chỉ dành cho học viên của khóa học</option>
+                <option value="premium">Premium - Chỉ dành cho tài khoản Premium</option>
+              </Form.Select>
+            </Form.Group>
+
+            {(formDeckMode === 'course' || formDeckMode === 'premium') && (
+              <Form.Group className="mb-3" controlId="deckCourseId">
+                <Form.Label className="fw-semibold">Khóa học liên kết <span className="text-danger">*</span></Form.Label>
+                <Form.Select
+                  {...register('courseId')}
+                  disabled={!!queryCourseId}
+                  className="shadow-none border-gray py-2"
+                >
+                  <option value="">-- Chọn khóa học --</option>
+                  {courses.map((course) => (
+                    <option key={course.id} value={course.id}>{course.title}</option>
+                  ))}
+                </Form.Select>
+              </Form.Group>
+            )}
           </Modal.Body>
           <Modal.Footer className="border-0">
             <Button variant="light" onClick={handleCloseFormModal} className="fw-semibold px-4 rounded-pill">
