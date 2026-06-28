@@ -293,6 +293,22 @@
       "isPremium": true,
       "createdAt": "2026-06-25T11:41:03.486Z",
       "id": "eZfx0_P3YIU"
+    },
+    {
+      "id": "course-005",
+      "title": "IELTS Reading Beginner Course",
+      "description": "This course helps students improve IELTS reading skills from band 4 to 6.\nskill: Reading",
+      "syllabus": [],
+      "skill": "Reading",
+      "level": "Beginner",
+      "price": 0,
+      "isPremium": false,
+      "thumbnail": "httpabc",
+      "teacherId": "u-student-004",
+      "status": "draft",
+      "enrolledCount": 0,
+      "durationWeeks": 4,
+      "createdAt": "2026-06-28T10:07:55.776Z"
     }
   ],
   "freeResources": [
@@ -1675,6 +1691,62 @@
       },
       "timestamp": "2026-06-25T11:41:03.494Z",
       "id": "a85Ausowi0c"
+    },
+    {
+      "id": "log-014",
+      "actorId": "u-student-004",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:07:55.781Z"
+    },
+    {
+      "id": "log-015",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:08:55.425Z"
+    },
+    {
+      "id": "log-016",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:12:53.612Z"
+    },
+    {
+      "id": "log-017",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:13:37.566Z"
+    },
+    {
+      "id": "log-018",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:14:31.155Z"
+    },
+    {
+      "id": "log-019",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:17:09.428Z"
+    },
+    {
+      "id": "log-020",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:18:00.577Z"
     }
   ],
   "approvalRequests": [
