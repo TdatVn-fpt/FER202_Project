@@ -33,11 +33,14 @@ import TeacherCourseManagement from '../pages/teacher/CourseManagement';
 import CourseCreatePage from '../pages/teacher/CourseCreatePage';
 import CourseEditPage from '../pages/teacher/CourseEditPage';
 import LessonListPage from '../pages/teacher/LessonListPage';
+import CourseDetailBuilder from '../pages/teacher/CourseDetailBuilder';
 import LessonCreatePage from '../pages/teacher/LessonCreatePage';
 import TeacherTestListPage from '../pages/teacher/TestListPage';
 import TestCreatePage from '../pages/teacher/TestCreatePage';
 import StudentTrackingPage from '../pages/teacher/StudentTrackingPage';
 import QuestionBankPage from '../pages/teacher/QuestionBankPage';
+import FlashcardManagementPage from '../pages/teacher/FlashcardManagementPage';
+import FlashcardDeckDetail from '../pages/teacher/FlashcardDeckDetail';
 import LibraryResourceListPage from '../pages/teacher/LibraryResourceListPage';
 import LibraryResourceCreatePage from '../pages/teacher/LibraryResourceCreatePage';
 import AdminDashboard from '../pages/admin/AdminDashboard';
@@ -73,7 +76,7 @@ export default function AppRoutes() {
         <Route path="/free-tests/review/:attemptId" element={<TestReviewPage />} />
       </Route>
 
-      <Route element={<ProtectedRoute allowedRoles={['student']} />}>
+      <Route element={<ProtectedRoute allowedRoles={['student', 'teacher', 'admin']} />}>
         <Route element={<StudentLayout />}>
           <Route path="/learning" element={<StudentHomePage />} />
           <Route path="/learning/dashboard" element={<StudentDashboard />} />
@@ -98,6 +101,7 @@ export default function AppRoutes() {
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
           <Route path="/teacher/courses" element={<TeacherCourseManagement />} />
           <Route path="/teacher/courses/create" element={<CourseCreatePage />} />
+          <Route path="/teacher/courses/:id" element={<CourseDetailBuilder />} />
           <Route path="/teacher/courses/:id/edit" element={<CourseEditPage />} />
           <Route path="/teacher/lessons" element={<LessonListPage />} />
           <Route path="/teacher/lessons/create" element={<LessonCreatePage />} />
@@ -108,6 +112,8 @@ export default function AppRoutes() {
           <Route path="/teacher/tests/:id/questions" element={<QuestionBankPage />} />
           <Route path="/teacher/students" element={<StudentTrackingPage />} />
           <Route path="/teacher/questions" element={<QuestionBankPage />} />
+          <Route path="/teacher/flashcards" element={<FlashcardManagementPage />} />
+          <Route path="/teacher/flashcards/:deckId" element={<FlashcardDeckDetail />} />
           <Route path="/teacher/library" element={<LibraryResourceListPage />} />
           <Route path="/teacher/library/create" element={<LibraryResourceCreatePage />} />
         </Route>

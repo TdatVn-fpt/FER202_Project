@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { Container, Col, Card, Button, Form, Table, Modal, Spinner, Alert } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { getCurrentUser } from '../../services/authService';
@@ -7,7 +7,18 @@ import { teacherCourseService } from '../../services/teacherCourseService';
 import { teacherLessonService } from '../../services/teacherLessonService';
 import { auditLogService } from '../../services/auditLogService';
 
+const getYouTubeId = (url) => {
+  if (!url) return null;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+};
+
 export default function LessonListPage() {
+  const { id } = useParams();
+  const [searchParams] = useSearchParams();
+  const queryCourseId = searchParams.get('courseId') || '';
+
   const [lessons, setLessons] = useState([]);
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,10 +28,27 @@ export default function LessonListPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCourseId, setSelectedCourseId] = useState('');
 
+  // Pre-select course based on path parameter or search parameter
+  useEffect(() => {
+    const initialCourseId = id || queryCourseId;
+    if (initialCourseId) {
+      setSelectedCourseId(initialCourseId);
+    }
+  }, [id, queryCourseId]);
+
   // Delete modal states
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [lessonToDelete, setLessonToDelete] = useState(null);
   const [deleting, setDeleting] = useState(false);
+
+  // Preview modal states
+  const [showPreviewModal, setShowPreviewModal] = useState(false);
+  const [lessonToPreview, setLessonToPreview] = useState(null);
+
+  const handlePreviewClick = (lesson) => {
+    setLessonToPreview(lesson);
+    setShowPreviewModal(true);
+  };
 
   const currentUser = getCurrentUser();
   const teacherId = currentUser?.id || 'u-teacher-001';
@@ -122,7 +150,7 @@ export default function LessonListPage() {
         </div>
         <Button 
           as={Link}
-          to="/teacher/lessons/create"
+          to={selectedCourseId ? `/teacher/lessons/create?courseId=${selectedCourseId}` : "/teacher/lessons/create"}
           variant="primary" 
           className="d-flex align-items-center gap-2 px-4 py-2 shadow-sm rounded-pill fw-semibold"
         >
@@ -220,6 +248,14 @@ export default function LessonListPage() {
                     </td>
                     <td className="px-4 py-3 text-end">
                       <div className="d-flex gap-2 justify-content-end">
+                        <Button 
+                          variant="outline-primary"
+                          onClick={() => handlePreviewClick(lesson)}
+                          className="py-1.5 px-2.5 rounded-circle d-inline-flex align-items-center justify-content-center border-0"
+                          title="Xem trước bài giảng"
+                        >
+                          <i className="bi bi-eye"></i>
+                        </Button>
                         {/* EARS[State-driven]: TRONG KHI khóa học đang pending, vô hiệu hóa nút Edit/Delete */}
                         {locked ? (
                           <>
@@ -291,6 +327,73 @@ export default function LessonListPage() {
             className="fw-semibold px-4 rounded-pill shadow-sm"
           >
             {deleting ? 'Đang xóa...' : 'Xác nhận xóa'}
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Lesson Preview Modal */}
+      <Modal show={showPreviewModal} onHide={() => setShowPreviewModal(false)} size="lg" centered>
+        <Modal.Header closeButton className="border-0 pb-0">
+          <Modal.Title className="fw-bold text-dark">
+            <span className="text-primary small d-block mb-1">Xem trước bài giảng</span>
+            {lessonToPreview?.title}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="py-4">
+          <div className="mb-3 d-flex flex-wrap gap-3 text-secondary small bg-light p-2.5 rounded-3">
+            <div>
+              <strong>Khóa học:</strong> {lessonToPreview && getCourseTitle(lessonToPreview.courseId)}
+            </div>
+            <div>
+              <strong>Thứ tự:</strong> Bài giảng số {lessonToPreview?.order}
+            </div>
+            <div>
+              <strong>Thời lượng:</strong> {lessonToPreview?.durationMinutes} phút
+            </div>
+          </div>
+
+          {lessonToPreview?.contentUrl && (
+            <div className="mb-4">
+              <h6 className="fw-bold text-dark mb-2">Nội dung bài học:</h6>
+              {getYouTubeId(lessonToPreview.contentUrl) ? (
+                <div className="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${getYouTubeId(lessonToPreview.contentUrl)}`}
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              ) : (
+                <div className="p-3 bg-light border rounded text-secondary d-flex align-items-center gap-2">
+                  <i className="bi bi-link-45deg fs-4 text-primary"></i>
+                  <div className="overflow-hidden">
+                    <div className="small fw-semibold text-truncate">{lessonToPreview.contentUrl}</div>
+                    <a href={lessonToPreview.contentUrl} target="_blank" rel="noopener noreferrer" className="small text-decoration-none d-inline-flex align-items-center gap-1 mt-1">
+                      Mở liên kết mới <i className="bi bi-box-arrow-up-right"></i>
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {lessonToPreview?.audioUrl && (
+            <div>
+              <h6 className="fw-bold text-dark mb-2">Tệp âm thanh listening:</h6>
+              <div className="p-3 bg-light border rounded d-flex flex-column gap-2 shadow-sm">
+                <div className="d-flex align-items-center gap-2 text-success">
+                  <i className="bi bi-music-note-beamed fs-4"></i>
+                  <span className="small fw-semibold text-truncate">{lessonToPreview.audioUrl}</span>
+                </div>
+                <audio src={lessonToPreview.audioUrl} controls className="w-100 mt-2" />
+              </div>
+            </div>
+          )}
+        </Modal.Body>
+        <Modal.Footer className="border-0 pt-0">
+          <Button variant="secondary" onClick={() => setShowPreviewModal(false)} className="fw-semibold px-4 rounded-pill">
+            Đóng
           </Button>
         </Modal.Footer>
       </Modal>

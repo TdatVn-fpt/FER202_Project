@@ -238,25 +238,8 @@
       if (flashcard && flashcard.courseId) {
         const course = db.data.courses.find(c => c.id === flashcard.courseId);
 
-        // AC-12: Limit Free Course to 3 flashcard progress saves
-        if (course && !course.isPremium) {
-          // Find all flashcards in this course
-          const courseCards = db.data.flashcards.filter(fc => fc.courseId === course.id);
-          const cardIds = courseCards.map(fc => fc.id);
-
-          // Count student progress entries in this course
-          const count = db.data.flashcardProgress.filter(prog => 
-            prog.userId === userId && 
-            cardIds.includes(prog.flashcardId)
-          ).length;
-
-          if (count >= 3) {
-            console.log(`[Trial Limits] Blocked Flashcard Progress for user: ${userId} on course: ${course.id}`);
-            return res.status(403).json({
-              message: 'Bạn đã sử dụng hết 3 lượt học Flashcard miễn phí của khóa học này. Vui lòng nâng cấp lên khóa học Premium để tiếp tục.'
-            });
-          }
-        }
+        // AC-12: Flashcards are unlimited for both free and premium courses
+        // No limits check needed here anymore.
       }
     }
 
@@ -275,6 +258,259 @@
 
     console.log(`[Flashcard Progress] Saved Progress: ${nextFpId} for user: ${userId}`);
     res.status(201).json(newProgress);
+  });
+
+  // --- 6. GET /lessons (Filter by teacherId or courseId) ---
+  server.get('/lessons', async (req, res, next) => {
+    const url = new URL(req.url, `http://localhost:${PORT}`);
+    const teacherId = url.searchParams.get('teacherId');
+    const courseId = url.searchParams.get('courseId');
+
+    await db.read();
+
+    if (teacherId) {
+      // Find all courses taught by this teacher
+      const teacherCourses = db.data.courses.filter(c => c.teacherId === teacherId);
+      const courseIds = teacherCourses.map(c => c.id);
+
+      // Return lessons that belong to these courses OR directly have teacherId
+      const filtered = db.data.lessons.filter(l => 
+        courseIds.includes(l.courseId) || l.teacherId === teacherId
+      );
+
+      // If courseId filter is also specified, narrow it down
+      if (courseId) {
+        return res.json(filtered.filter(l => l.courseId === courseId));
+      }
+      return res.json(filtered);
+    }
+
+    next();
+  });
+
+  // --- 7. POST /lessons (Create Lesson) ---
+  server.post('/lessons', bodyParser, async (req, res) => {
+    const { courseId, title, order, durationMinutes, contentUrl, audioUrl, teacherId } = req.body;
+
+    await db.read();
+
+    // 1. Validation
+    if (!courseId) {
+      return res.status(400).json({ message: 'Khóa học liên kết không được để trống.' });
+    }
+    if (!title || title.trim().length < 5) {
+      return res.status(400).json({ message: 'Tiêu đề bài học phải có ít nhất 5 ký tự.' });
+    }
+    if (order === undefined || isNaN(parseInt(order, 10)) || parseInt(order, 10) < 1) {
+      return res.status(400).json({ message: 'Số thứ tự bài giảng phải là số nguyên dương >= 1.' });
+    }
+    if (durationMinutes === undefined || isNaN(parseInt(durationMinutes, 10)) || parseInt(durationMinutes, 10) < 1) {
+      return res.status(400).json({ message: 'Thời lượng bài giảng phải là số nguyên dương >= 1.' });
+    }
+    if (!contentUrl || contentUrl.trim().length === 0) {
+      return res.status(400).json({ message: 'Đường dẫn nội dung bài học không được để trống.' });
+    }
+
+    // 2. Check course existence and ownership
+    const course = db.data.courses.find(c => c.id === courseId);
+    if (!course) {
+      return res.status(404).json({ message: 'Khóa học liên kết không tồn tại.' });
+    }
+    if (teacherId && course.teacherId !== teacherId) {
+      return res.status(403).json({ message: 'Bạn không có quyền thêm bài giảng vào khóa học này.' });
+    }
+
+    // 3. EARS[Unwanted]: Chặn thêm/chỉnh sửa nếu khóa học đang pending
+    if (course.status === 'pending') {
+      return res.status(400).json({ message: 'Khóa học đang chờ duyệt. Không thể thêm bài học mới.' });
+    }
+
+    // 4. Auto-revert to pending if approved
+    if (course.status === 'approved') {
+      course.status = 'pending';
+      console.log(`[Revert Course Status] Reverting course ${courseId} to pending due to new lesson creation`);
+      
+      const existingReq = db.data.approvalRequests.find(r => 
+        r.targetId === courseId && 
+        r.targetType === 'course' && 
+        r.status === 'pending'
+      );
+      if (!existingReq) {
+        const nextReqId = generateNextId('approvalRequests', 'req-');
+        const approvalReq = {
+          id: nextReqId,
+          targetType: 'course',
+          targetId: courseId,
+          teacherId: course.teacherId,
+          status: 'pending',
+          createdAt: new Date().toISOString()
+        };
+        db.data.approvalRequests.push(approvalReq);
+      }
+    }
+
+    // 5. Generate sequential ID
+    const newLessonId = generateNextId('lessons', 'lesson-');
+    const newLesson = {
+      id: newLessonId,
+      courseId,
+      title,
+      order: parseInt(order, 10),
+      durationMinutes: parseInt(durationMinutes, 10),
+      contentUrl,
+      audioUrl: audioUrl || '',
+      teacherId: teacherId || course.teacherId,
+      status: req.body.status || 'published',
+      createdAt: new Date().toISOString()
+    };
+
+    db.data.lessons.push(newLesson);
+    await db.write();
+
+    console.log(`[Lesson Creation] Created Lesson: ${newLessonId} in course ${courseId}`);
+    res.status(201).json(newLesson);
+  });
+
+  // --- 8. PATCH /lessons/:id (Update Lesson) ---
+  server.patch('/lessons/:id', bodyParser, async (req, res, next) => {
+    const lessonId = req.params.id;
+    const { title, order, durationMinutes, contentUrl, audioUrl, teacherId } = req.body;
+
+    await db.read();
+
+    const lessonIndex = db.data.lessons.findIndex(l => l.id === lessonId);
+    if (lessonIndex === -1) {
+      return res.status(404).json({ message: 'Bài giảng không tồn tại.' });
+    }
+
+    const originalLesson = db.data.lessons[lessonIndex];
+    const course = db.data.courses.find(c => c.id === originalLesson.courseId);
+
+    if (!course) {
+      return res.status(404).json({ message: 'Khóa học liên kết không tồn tại.' });
+    }
+
+    // Check ownership
+    if (teacherId && course.teacherId !== teacherId) {
+      return res.status(403).json({ message: 'Bạn không có quyền chỉnh sửa bài giảng của khóa học này.' });
+    }
+
+    // EARS[Unwanted]: Chặn sửa nếu khóa học đang pending
+    if (course.status === 'pending') {
+      return res.status(400).json({ message: 'Khóa học đang chờ duyệt. Không thể chỉnh sửa bài giảng.' });
+    }
+
+    // Validation
+    if (title !== undefined && title.trim().length < 5) {
+      return res.status(400).json({ message: 'Tiêu đề bài học phải có ít nhất 5 ký tự.' });
+    }
+    if (order !== undefined && (isNaN(parseInt(order, 10)) || parseInt(order, 10) < 1)) {
+      return res.status(400).json({ message: 'Số thứ tự bài giảng phải là số nguyên dương >= 1.' });
+    }
+    if (durationMinutes !== undefined && (isNaN(parseInt(durationMinutes, 10)) || parseInt(durationMinutes, 10) < 1)) {
+      return res.status(400).json({ message: 'Thời lượng bài giảng phải là số nguyên dương >= 1.' });
+    }
+
+    // Auto-revert to pending if approved
+    if (course.status === 'approved') {
+      course.status = 'pending';
+      console.log(`[Revert Course Status] Reverting course ${course.id} to pending due to lesson modification`);
+      
+      const existingReq = db.data.approvalRequests.find(r => 
+        r.targetId === course.id && 
+        r.targetType === 'course' && 
+        r.status === 'pending'
+      );
+      if (!existingReq) {
+        const nextReqId = generateNextId('approvalRequests', 'req-');
+        const approvalReq = {
+          id: nextReqId,
+          targetType: 'course',
+          targetId: course.id,
+          teacherId: course.teacherId,
+          status: 'pending',
+          createdAt: new Date().toISOString()
+        };
+        db.data.approvalRequests.push(approvalReq);
+      }
+    }
+
+    // Update lesson
+    const updatedLesson = {
+      ...originalLesson,
+      ...req.body,
+      id: lessonId,
+      order: order !== undefined ? parseInt(order, 10) : originalLesson.order,
+      durationMinutes: durationMinutes !== undefined ? parseInt(durationMinutes, 10) : originalLesson.durationMinutes
+    };
+
+    db.data.lessons[lessonIndex] = updatedLesson;
+    await db.write();
+
+    console.log(`[Lesson Update] Updated Lesson: ${lessonId}`);
+    res.json(updatedLesson);
+  });
+
+  // --- 9. DELETE /lessons/:id (Delete Lesson) ---
+  server.delete('/lessons/:id', async (req, res) => {
+    const lessonId = req.params.id;
+    const url = new URL(req.url, `http://localhost:${PORT}`);
+    const teacherId = url.searchParams.get('teacherId');
+
+    await db.read();
+
+    const lessonIndex = db.data.lessons.findIndex(l => l.id === lessonId);
+    if (lessonIndex === -1) {
+      return res.status(404).json({ message: 'Bài giảng không tồn tại.' });
+    }
+
+    const lesson = db.data.lessons[lessonIndex];
+    const course = db.data.courses.find(c => c.id === lesson.courseId);
+
+    if (!course) {
+      return res.status(404).json({ message: 'Khóa học liên kết không tồn tại.' });
+    }
+
+    // Check ownership if teacherId is provided
+    if (teacherId && course.teacherId !== teacherId) {
+      return res.status(403).json({ message: 'Bạn không có quyền xóa bài giảng của khóa học này.' });
+    }
+
+    // EARS[Unwanted]: Chặn xóa nếu khóa học đang pending
+    if (course.status === 'pending') {
+      return res.status(400).json({ message: 'Khóa học đang chờ duyệt. Không thể xóa bài giảng.' });
+    }
+
+    // Auto-revert to pending if approved
+    if (course.status === 'approved') {
+      course.status = 'pending';
+      console.log(`[Revert Course Status] Reverting course ${course.id} to pending due to lesson deletion`);
+      
+      const existingReq = db.data.approvalRequests.find(r => 
+        r.targetId === course.id && 
+        r.targetType === 'course' && 
+        r.status === 'pending'
+      );
+      if (!existingReq) {
+        const nextReqId = generateNextId('approvalRequests', 'req-');
+        const approvalReq = {
+          id: nextReqId,
+          targetType: 'course',
+          targetId: course.id,
+          teacherId: course.teacherId,
+          status: 'pending',
+          createdAt: new Date().toISOString()
+        };
+        db.data.approvalRequests.push(approvalReq);
+      }
+    }
+
+    // Remove lesson
+    db.data.lessons.splice(lessonIndex, 1);
+    await db.write();
+
+    console.log(`[Lesson Deletion] Deleted Lesson: ${lessonId}`);
+    res.json({ message: 'Xóa bài giảng thành công.' });
   });
 
   // Mount main json-server app

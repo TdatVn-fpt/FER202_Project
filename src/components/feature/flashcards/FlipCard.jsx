@@ -3,34 +3,64 @@ import './FlipCard.css';
 
 /**
  * FlipCard Component
- * Dumb component that renders a 3D flipping card.
- * @param {string} frontText - Text to display on the front.
- * @param {string} backText - Text to display on the back.
- * @param {boolean} isFlipped - State indicating if the card is flipped.
- * @param {function} onFlip - Callback when the card is clicked.
+ * Dumb component that renders a 3D flipping card (Quizlet style).
  */
 const FlipCard = ({ frontText, backText, isFlipped, onFlip }) => {
-  // EARS[Ubiquitous]: THE system SHALL support front-side and back-side flashcard views.
-  
-  // EARS[Unwanted]: WHERE flashcard data is incomplete, THE system SHALL display fallback values instead of undefined content.
   const displayFront = frontText || "Front Content Missing";
   const displayBack = backText || "Back Content Missing";
 
+  const handleSpeak = (e, text) => {
+    e.stopPropagation(); // Ngăn không cho thẻ bị lật khi click vào icon loa
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      // Có thể chỉnh ngôn ngữ ở đây, ví dụ: utterance.lang = 'en-US';
+      window.speechSynthesis.speak(utterance);
+    } else {
+      alert("Trình duyệt của bạn không hỗ trợ tính năng đọc văn bản.");
+    }
+  };
+
+  const handleStar = (e) => {
+    e.stopPropagation(); // Ngăn không cho thẻ bị lật khi click vào icon sao
+    // TODO: Implement star logic
+  };
+
   return (
-    // EARS[Event]: WHEN a Student clicks a flashcard, THE system SHALL flip the card.
     <div className="flip-card-container" onClick={onFlip} role="button" aria-pressed={isFlipped}>
       <div className={`flip-card-inner ${isFlipped ? 'flipped' : ''}`}>
         
         {/* Front Side */}
-        <div className="flip-card-front card shadow-sm d-flex justify-content-center align-items-center text-center p-4">
-          <h3 className="m-0 text-body-strong">{displayFront}</h3>
-          <span className="text-muted-soft position-absolute bottom-0 mb-3 small">Click to flip</span>
+        <div className="flip-card-front">
+          <div className="card-header-icons justify-content-end">
+            <div className="action-icons">
+              <button className="icon-btn volume-btn me-3" onClick={(e) => handleSpeak(e, displayFront)} title="Nghe từ vựng">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+              </button>
+            </div>
+          </div>
+          <div className="card-content">
+            <h3>{displayFront}</h3>
+          </div>
+          <div className="card-footer-text">
+            {/* Click to flip - quizlet doesn't always show this, but we can keep it subtle */}
+          </div>
         </div>
 
         {/* Back Side */}
-        <div className="flip-card-back card shadow-sm d-flex justify-content-center align-items-center text-center p-4">
-          <h3 className="m-0 text-primary-custom">{displayBack}</h3>
-          <span className="text-muted-soft position-absolute bottom-0 mb-3 small">Click to flip</span>
+        <div className="flip-card-back">
+          <div className="card-header-icons justify-content-end">
+            <div className="action-icons">
+              <button className="icon-btn volume-btn me-3" onClick={(e) => handleSpeak(e, displayBack)} title="Nghe định nghĩa">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+              </button>
+            </div>
+          </div>
+          <div className="card-content">
+            <h3>{displayBack}</h3>
+          </div>
+          <div className="card-footer-text">
+            {/* Can leave empty */}
+          </div>
         </div>
 
       </div>

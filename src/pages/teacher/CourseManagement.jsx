@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Button, Form, Badge, Modal, Spinner, Alert } from 'react-bootstrap';
 import { getCurrentUser } from '../../services/authService';
 import { teacherCourseService } from '../../services/teacherCourseService';
 
 export default function CourseManagement() {
+  const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -19,6 +20,9 @@ export default function CourseManagement() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [courseToDelete, setCourseToDelete] = useState(null);
   const [deleting, setDeleting] = useState(false);
+
+  // State Modal cảnh báo giới hạn thao tác
+  const [restrictionModal, setRestrictionModal] = useState({ show: false, title: '', message: '' });
 
   const currentUser = getCurrentUser();
   // EARS[Ubiquitous]: THE system SHALL restrict courses list to only the teacher's owned courses.
@@ -52,10 +56,34 @@ export default function CourseManagement() {
     return matchSearch && matchSkill && matchLevel && matchStatus;
   });
 
+  const handleEditClick = (course) => {
+    if (course.status === 'pending') {
+      setRestrictionModal({
+        show: true,
+        title: 'Thao tác bị giới hạn',
+        message: `Khóa học "${course.title}" đang trong quá trình chờ phê duyệt nên tạm thời bị khóa chỉnh sửa.`
+      });
+      return;
+    }
+    navigate(`/teacher/courses/${course.id}/edit`);
+  };
+
   const handleDeleteClick = (course) => {
     // EARS[Unwanted]: WHERE course is approved or pending, THE system SHALL prevent deletion.
-    if (course.status === 'approved' || course.status === 'pending') {
-      alert('Không thể xóa khóa học đã được duyệt hoặc đang chờ phê duyệt.');
+    if (course.status === 'approved') {
+      setRestrictionModal({
+        show: true,
+        title: 'Thao tác bị giới hạn',
+        message: `Khóa học "${course.title}" đã được quản trị viên phê duyệt. Không thể xóa khóa học đã xuất bản.`
+      });
+      return;
+    }
+    if (course.status === 'pending') {
+      setRestrictionModal({
+        show: true,
+        title: 'Thao tác bị giới hạn',
+        message: `Khóa học "${course.title}" đang trong quá trình chờ phê duyệt. Không thể xóa khi đang kiểm duyệt.`
+      });
       return;
     }
     setCourseToDelete(course);
@@ -252,11 +280,9 @@ export default function CourseManagement() {
                       
                       {/* EARS[Unwanted]: WHERE course is pending, THE system SHALL disable the edit button to lock changes. */}
                       <Button 
-                        as={Link}
-                        to={`/teacher/courses/${course.id}/edit`}
+                        onClick={() => handleEditClick(course)}
                         variant="outline-secondary"
-                        disabled={course.status === 'pending'}
-                        className="py-2 px-3 rounded-circle d-flex align-items-center justify-content-center"
+                        className={`py-2 px-3 rounded-circle d-flex align-items-center justify-content-center ${(course.status === 'pending') ? 'opacity-75' : ''}`}
                         title={course.status === 'pending' ? 'Khóa học đang chờ duyệt, không thể sửa' : 'Sửa thông tin'}
                       >
                         <i className="bi bi-pencil-square"></i>
@@ -265,9 +291,8 @@ export default function CourseManagement() {
                       {/* EARS[Unwanted]: WHERE course is approved or pending, THE system SHALL disable/prevent deletion. */}
                       <Button 
                         variant="outline-danger"
-                        disabled={course.status === 'approved' || course.status === 'pending'}
                         onClick={() => handleDeleteClick(course)}
-                        className="py-2 px-3 rounded-circle d-flex align-items-center justify-content-center"
+                        className={`py-2 px-3 rounded-circle d-flex align-items-center justify-content-center ${(course.status === 'approved' || course.status === 'pending') ? 'opacity-75' : ''}`}
                         title={course.status === 'approved' || course.status === 'pending' ? 'Không thể xóa khóa học đã duyệt hoặc chờ duyệt' : 'Xóa khóa học'}
                       >
                         <i className="bi bi-trash"></i>
@@ -303,6 +328,33 @@ export default function CourseManagement() {
             className="fw-semibold px-4 rounded-pill shadow-sm"
           >
             {deleting ? 'Đang xóa...' : 'Xác nhận xóa'}
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Modal Cảnh báo Giới hạn Thao tác */}
+      <Modal 
+        show={restrictionModal.show} 
+        onHide={() => setRestrictionModal({ ...restrictionModal, show: false })} 
+        centered
+        size="md"
+      >
+        <Modal.Header closeButton className="border-0 bg-warning bg-opacity-10">
+          <Modal.Title className="fw-bold text-warning d-flex align-items-center gap-2">
+            <i className="bi bi-exclamation-triangle-fill"></i> {restrictionModal.title}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="py-4 px-4 text-center">
+          <div className="text-dark fw-semibold fs-5 mb-3">{restrictionModal.message}</div>
+          <p className="text-secondary small mb-0">Theo quy định nghiệp vụ của hệ thống, các khóa học đang chờ duyệt hoặc đã xuất bản sẽ tạm thời bị khóa các tính năng chỉnh sửa và xóa để đảm bảo tính ổn định của dữ liệu.</p>
+        </Modal.Body>
+        <Modal.Footer className="border-0 justify-content-center">
+          <Button 
+            variant="warning" 
+            onClick={() => setRestrictionModal({ ...restrictionModal, show: false })} 
+            className="fw-semibold px-4 rounded-pill shadow-sm text-dark border-0"
+          >
+            Đã hiểu
           </Button>
         </Modal.Footer>
       </Modal>
