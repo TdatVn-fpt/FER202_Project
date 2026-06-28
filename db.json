@@ -273,20 +273,20 @@
       "id": "eZfx0_P3YIU"
     },
     {
-      "id": "course-004",
-      "title": "aaaaaaaaaaaaaaa",
-      "description": "aaaaaaaaaaaaaaaaaaaaaa",
+      "id": "course-005",
+      "title": "IELTS Reading Beginner Course",
+      "description": "This course helps students improve IELTS reading skills from band 4 to 6.\nskill: Reading",
       "syllabus": [],
       "skill": "Reading",
       "level": "Beginner",
-      "price": 10000000,
-      "isPremium": true,
-      "thumbnail": "",
-      "teacherId": "u-teacher-001",
+      "price": 0,
+      "isPremium": false,
+      "thumbnail": "httpabc",
+      "teacherId": "u-student-004",
       "status": "draft",
       "enrolledCount": 0,
       "durationWeeks": 4,
-      "createdAt": "2026-06-27T13:39:39.567Z"
+      "createdAt": "2026-06-28T10:07:55.776Z"
     }
   ],
   "freeResources": [
@@ -1888,203 +1888,59 @@
     },
     {
       "id": "log-014",
-      "actorId": "u-teacher-001",
+      "actorId": "u-student-004",
       "action": "CREATE_COURSE",
       "targetType": "course",
       "targetId": "course-005",
-      "createdAt": "2026-06-27T12:37:06.518Z"
+      "createdAt": "2026-06-28T10:07:55.781Z"
     },
     {
       "id": "log-015",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_COURSE",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
       "targetType": "course",
-      "targetId": "course-004",
-      "createdAt": "2026-06-27T12:47:51.608Z"
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:08:55.425Z"
     },
     {
       "id": "log-016",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_COURSE",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
       "targetType": "course",
-      "targetId": "course-004",
-      "createdAt": "2026-06-27T12:48:27.280Z"
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:12:53.612Z"
     },
     {
       "id": "log-017",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_COURSE",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
       "targetType": "course",
-      "targetId": "course-004",
-      "createdAt": "2026-06-27T13:25:25.038Z"
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:13:37.566Z"
     },
     {
       "id": "log-018",
-      "actorId": "u-teacher-001",
+      "actorId": "u-student-004",
       "action": "UPDATE_COURSE",
       "targetType": "course",
-      "targetId": "course-004",
-      "createdAt": "2026-06-27T13:25:35.149Z"
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:14:31.155Z"
     },
     {
       "id": "log-019",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_COURSE",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
       "targetType": "course",
-      "targetId": "course-004",
-      "createdAt": "2026-06-27T13:39:39.577Z"
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:17:09.428Z"
     },
     {
       "id": "log-020",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_LESSON",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
       "targetType": "course",
-      "targetId": "course-004",
-      "createdAt": "2026-06-27T13:40:02.779Z"
-    },
-    {
-      "id": "log-021",
-      "actorId": "u-teacher-001",
-      "action": "DELETE_LESSON",
-      "targetType": "course",
-      "targetId": "course-004",
-      "createdAt": "2026-06-27T13:40:08.136Z"
-    },
-    {
-      "id": "log-022",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-004",
-      "createdAt": "2026-06-27T13:40:53.706Z"
-    },
-    {
-      "id": "log-023",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-004",
-      "createdAt": "2026-06-27T13:41:47.189Z"
-    },
-    {
-      "id": "log-024",
-      "actorId": "u-teacher-001",
-      "action": "DELETE_LESSON",
-      "targetType": "course",
-      "targetId": "course-004",
-      "createdAt": "2026-06-27T13:41:50.891Z"
-    },
-    {
-      "id": "log-025",
-      "actorId": "u-teacher-001",
-      "action": "UPDATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-004",
-      "createdAt": "2026-06-27T13:41:53.438Z"
-    },
-    {
-      "id": "log-026",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_TEST",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-06-27T13:59:36.613Z"
-    },
-    {
-      "id": "log-027",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_QUESTION",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-06-27T13:59:52.766Z"
-    },
-    {
-      "id": "log-028",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_QUESTION",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-06-27T14:00:15.597Z"
-    },
-    {
-      "id": "log-029",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_QUESTION",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-06-27T14:00:21.998Z"
-    },
-    {
-      "id": "log-030",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_QUESTION",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-06-27T14:00:24.857Z"
-    },
-    {
-      "id": "log-031",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_QUESTION",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-06-27T14:00:28.168Z"
-    },
-    {
-      "id": "log-032",
-      "actorId": "u-teacher-001",
-      "action": "DELETE_QUESTION",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-06-27T14:00:42.493Z"
-    },
-    {
-      "id": "log-033",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_TEST",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-06-27T14:07:01.933Z"
-    },
-    {
-      "id": "log-034",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_QUESTION",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-06-27T14:07:14.042Z"
-    },
-    {
-      "id": "log-035",
-      "actorId": "u-teacher-001",
-      "action": "ASSIGN_TEST_COURSE",
-      "targetType": "course",
-      "targetId": "course-004",
-      "createdAt": "2026-06-27T14:07:33.032Z"
-    },
-    {
-      "id": "log-036",
-      "actorId": "u-teacher-001",
-      "action": "ASSIGN_TEST_COURSE",
-      "targetType": "course",
-      "targetId": "course-004",
-      "createdAt": "2026-06-27T14:07:36.568Z"
-    },
-    {
-      "id": "log-037",
-      "actorId": "u-teacher-001",
-      "action": "PUBLISH_TEST",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-06-27T14:07:39.176Z"
-    },
-    {
-      "id": "log-038",
-      "actorId": "u-teacher-001",
-      "action": "PUBLISH_TEST",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-06-27T14:07:41.626Z"
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:18:00.577Z"
     }
   ],
   "approvalRequests": [
