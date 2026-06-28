@@ -14,9 +14,10 @@ export default function TeacherLayout() {
 
   return (
     <div className="d-flex" style={{ minHeight: '100vh', backgroundColor: '#f8f9fa' }}>
-      
+
       {/* Sidebar - Cố định ở bên trái */}
-      <div className="bg-dark text-white p-3 d-flex flex-column shadow" style={{ width: '260px', zIndex: 1000 }}>
+      <div className="bg-dark text-white p-3 d-flex flex-column shadow" style={{ width: '260px', minWidth: '260px', flexShrink: 0, zIndex: 1000 }}>
+
         <div className="text-center py-3 border-bottom border-secondary mb-4">
           <h4 className="fw-bold mb-0 text-primary">IELTS Center</h4>
           <span className="text-muted small fw-medium">Teacher Portal</span>
@@ -35,48 +36,56 @@ export default function TeacherLayout() {
 
         {/* Danh sách link điều hướng */}
         <nav className="nav flex-column nav-pills flex-grow-1 gap-2">
-          <NavLink 
-            to="/teacher/dashboard" 
+          <NavLink
+            to="/teacher/dashboard"
             className={({ isActive }) => `nav-link d-flex align-items-center gap-3 py-2.5 px-3 rounded-3 text-white transition-all ${isActive ? 'bg-primary active' : 'hover-bg-secondary'}`}
           >
             <i className="bi bi-speedometer2"></i> Dashboard
           </NavLink>
-          <NavLink 
-            to="/teacher/courses" 
+          <NavLink
+            to="/teacher/courses"
             className={({ isActive }) => `nav-link d-flex align-items-center gap-3 py-2.5 px-3 rounded-3 text-white transition-all ${isActive ? 'bg-primary active' : 'hover-bg-secondary'}`}
           >
             <i className="bi bi-book"></i> Quản lý Khóa học
           </NavLink>
-          <NavLink 
-            to="/teacher/lessons" 
+          <NavLink
+            to="/teacher/lessons"
             className={({ isActive }) => `nav-link d-flex align-items-center gap-3 py-2.5 px-3 rounded-3 text-white transition-all ${isActive ? 'bg-primary active' : 'hover-bg-secondary'}`}
           >
             <i className="bi bi-journal-text"></i> Quản lý Bài học
           </NavLink>
-          <NavLink 
-            to="/teacher/tests" 
+          <NavLink
+            to="/teacher/tests"
             className={({ isActive }) => `nav-link d-flex align-items-center gap-3 py-2.5 px-3 rounded-3 text-white transition-all ${isActive ? 'bg-primary active' : 'hover-bg-secondary'}`}
           >
             <i className="bi bi-patch-question"></i> Quản lý Đề thi
           </NavLink>
-          <NavLink 
-            to="/teacher/students" 
+          <NavLink
+            to="/teacher/students"
             className={({ isActive }) => `nav-link d-flex align-items-center gap-3 py-2.5 px-3 rounded-3 text-white transition-all ${isActive ? 'bg-primary active' : 'hover-bg-secondary'}`}
           >
             <i className="bi bi-people"></i> Quản lý Học viên
           </NavLink>
-          <NavLink 
-            to="/teacher/library" 
+          <NavLink
+            to="/teacher/flashcards"
+            className={({ isActive }) => `nav-link d-flex align-items-center gap-3 py-2.5 px-3 rounded-3 text-white transition-all ${isActive ? 'bg-primary active' : 'hover-bg-secondary'}`}
+          >
+            <i className="bi bi-card-text"></i> Quản lý Flashcard
+          </NavLink>
+
+          <NavLink
+            to="/teacher/library"
             className={({ isActive }) => `nav-link d-flex align-items-center gap-3 py-2.5 px-3 rounded-3 text-white transition-all ${isActive ? 'bg-primary active' : 'hover-bg-secondary'}`}
           >
             <i className="bi bi-collection"></i> Thư viện Tài nguyên
           </NavLink>
+
         </nav>
 
         {/* Nút đăng xuất ở dưới cùng */}
         <div className="pt-3 border-top border-secondary">
-          <Button 
-            variant="outline-danger" 
+          <Button
+            variant="outline-danger"
             onClick={handleLogout}
             className="w-100 d-flex align-items-center justify-content-center gap-2 py-2 rounded-3 fw-semibold border-0 hover-bg-danger text-danger"
           >
