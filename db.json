@@ -48,7 +48,7 @@
       "name": "Nguyen Tien Dat",
       "email": "ntiendat2108@gmail.com",
       "password": "12345678",
-      "role": "student",
+      "role": "admin",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "status": "active",
       "targetBand": 7,
@@ -136,7 +136,7 @@
       ],
       "skill": "Listening",
       "level": "Intermediate",
-      "price": 299000,
+      "price": 289000,
       "isPremium": true,
       "thumbnail": "/images/listening-advanced.jpg",
       "teacherId": "u-teacher-001",
@@ -247,7 +247,7 @@
       "status": "draft",
       "createdAt": "2026-06-10T09:00:00Z"
     }
-  ] } ],
+  ],
   "tests": [
     {
       "id": "test-001",
@@ -353,6 +353,21 @@
       "method": "bank-transfer",
       "status": "paid",
       "paidAt": "2026-06-01T10:00:00Z"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-002",
+      "amount": 299000,
+      "currency": "VND",
+      "method": "vietqr",
+      "transferContent": "IELTS course-002 -001",
+      "status": "pending",
+      "createdAt": "2026-06-15T05:04:15.553Z",
+      "paidAt": null,
+      "reviewedAt": null,
+      "reviewedBy": null,
+      "rejectReason": null,
+      "id": "0fhmWlAguog"
     }
   ],
   "transactions": [
@@ -389,7 +404,7 @@
       "amount": 199000,
       "currency": "VND",
       "method": "vnpay",
-      "status": "pending",
+      "status": "completed",
       "createdAt": "2026-06-08T09:30:00Z"
     },
     {

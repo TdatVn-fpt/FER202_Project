@@ -204,4 +204,10 @@ export const getTransactions = async (params) => {
   }
 };
 
+// EARS[Event]: WHEN Admin updates a transaction, THE system SHALL patch the transaction record
+export const updateTransaction = async (transactionId, data) => {
+  requireAdminAuth();
+  const response = await axios.patch(`${API_URL}/transactions/${transactionId}`, data);
+  return response.data;
+};
 
