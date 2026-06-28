@@ -32,6 +32,10 @@ const CourseCard = ({ course }) => {
             className="card-img-top course-card-img" 
             alt={title} 
             style={{ height: '200px', objectFit: 'cover' }}
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = 'https://via.placeholder.com/300x200?text=No+Thumbnail';
+            }}
           />
           {/* Top Badges overlay */}
           <div className="position-absolute top-0 start-0 m-3 d-flex gap-2">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Form, Button, Alert, InputGroup, Spinner } from 'react-bootstrap';
 import { getDashboardPathByRole, loginWithEmailAndPassword } from '../../services/authService';
+import { getEnrollmentsByUser } from '../../services/courseLearning.service';
 import './Login.css';
 
 export default function Login() {

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { getCourseById, getEnrollment, createEnrollment } from '../../services/courseLearning.service';
 import { getCurrentUser } from '../../services/authService';
+import { getPaidPayment, getLatestPayment, PAYMENT_STATUS } from '../../services/paymentService';
+import { addToCart, isInCart, subscribeCartChanges } from '../../services/cartService';
+import { isInWishlist, addToWishlist, removeFromWishlist, subscribeWishlistChanges } from '../../services/wishlistService';
+import { testService } from '../../services/testService';
 import './CourseDetailPage.css';
 
 const WHAT_YOU_LEARN = [
@@ -32,9 +36,16 @@ const CourseDetailPage = () => {
   const { id: courseId } = useParams();
   const navigate = useNavigate();
   const storedUser = getCurrentUser();
+  const storedUserId = storedUser?.id;
+  const storedUserEmail = storedUser?.email;
 
   const [course, setCourse] = useState(null);
-  const [enrollment, setEnrollment] = useState(null);
+  const [, setEnrollment] = useState(null);
+  const [hasPaid, setHasPaid] = useState(false);
+  const [paymentPending, setPaymentPending] = useState(false);
+  const [inCart, setInCart] = useState(false);
+  const [wishlistAdded, setWishlistAdded] = useState(false);
+  const [courseTests, setCourseTests] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isEnrolling, setIsEnrolling] = useState(false);
   const [error, setError] = useState(null);
@@ -45,20 +56,38 @@ const CourseDetailPage = () => {
       setError(null);
       try {
         // Re-fetch user id from server to avoid stale localStorage
-        let currentUserId = storedUser?.id || 'u-001';
-        if (storedUser?.email) {
+        let currentUserId = storedUserId || 'u-001';
+        if (storedUserEmail) {
           try {
-            const res = await fetch(`http://localhost:9999/users?email=${encodeURIComponent(storedUser.email)}`);
+            const res = await fetch(`http://localhost:9999/users?email=${encodeURIComponent(storedUserEmail)}`);
             const data = await res.json();
             if (data?.length > 0) currentUserId = data[0].id;
           } catch (_) {}
         }
 
-        const courseData = await getCourseById(courseId);
+        const [courseData, testsData] = await Promise.all([
+          getCourseById(courseId),
+          testService.getTestsByCourse(courseId).catch(() => []),
+        ]);
         setCourse(courseData);
+        setCourseTests(testsData);
         if (courseData) {
           const enrollmentData = await getEnrollment(currentUserId, courseId);
           setEnrollment(enrollmentData);
+          if (!courseData.price || courseData.price === 0) {
+            setHasPaid(true);
+            setPaymentPending(false);
+          } else {
+            const [paidPayment, latestPayment] = await Promise.all([
+              getPaidPayment(currentUserId, courseId).catch(() => null),
+              getLatestPayment(currentUserId, courseId).catch(() => null),
+            ]);
+            setHasPaid(Boolean(paidPayment));
+            setPaymentPending(latestPayment?.status === PAYMENT_STATUS.PENDING);
+          }
+            // sync cart/wishlist initial state
+            setInCart(isInCart(courseId));
+            setWishlistAdded(isInWishlist(courseId));
         }
       } catch (err) {
         setError(err.message || 'An error occurred while fetching course details.');
@@ -67,15 +96,31 @@ const CourseDetailPage = () => {
       }
     };
     if (courseId) fetchCourseData();
+  }, [courseId, storedUserEmail, storedUserId]);
+
+  useEffect(() => {
+    const handleCart = () => setInCart(isInCart(courseId));
+    const handleWishlist = () => setWishlistAdded(isInWishlist(courseId));
+    const unsubCart = subscribeCartChanges(handleCart);
+    const unsubWishlist = subscribeWishlistChanges(handleWishlist);
+    return () => {
+      unsubCart();
+      unsubWishlist();
+    };
   }, [courseId]);
 
   const handleEnroll = async () => {
+    if (!course || course.price > 0) {
+      navigate(`/checkout/${courseId}`);
+      return;
+    }
+
     setIsEnrolling(true);
     try {
-      let currentUserId = storedUser?.id || 'u-001';
-      if (storedUser?.email) {
+      let currentUserId = storedUserId || 'u-001';
+      if (storedUserEmail) {
         try {
-          const res = await fetch(`http://localhost:9999/users?email=${encodeURIComponent(storedUser.email)}`);
+          const res = await fetch(`http://localhost:9999/users?email=${encodeURIComponent(storedUserEmail)}`);
           const data = await res.json();
           if (data?.length > 0) currentUserId = data[0].id;
         } catch (_) {}
@@ -91,6 +136,9 @@ const CourseDetailPage = () => {
 
   const handleContinue = () => navigate(`/learning/courses/${courseId}/lessons`);
 
+  const isFree = course?.price === 0 || !course?.price;
+  const courseAccess = isFree || hasPaid;
+
   if (isLoading) {
     return (
       <div className="container py-5 text-center" data-testid="loading-spinner">
@@ -100,7 +148,6 @@ const CourseDetailPage = () => {
       </div>
     );
   }
-
   if (error) {
     return (
       <div className="container py-5">
@@ -125,7 +172,6 @@ const CourseDetailPage = () => {
   }
 
   const skillStyle = skillColorMap[course.skill] || { bg: '#f1f5f9', text: '#475569' };
-  const isFree = course.price === 0 || !course.price;
   const displayPrice = isFree ? 'Free' : new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(course.price);
 
   return (
@@ -250,6 +296,56 @@ const CourseDetailPage = () => {
                 </div>
               </div>
 
+              {courseTests.length > 0 && (
+                <div className="bg-white p-4 rounded-4 shadow-sm mb-5" style={{ border: '1px solid #e2e8f0' }}>
+                  <div className="d-flex align-items-center justify-content-between gap-3 flex-wrap mb-3">
+                    <div>
+                      <h2 className="section-title mb-1">Course tests</h2>
+                      <p className="text-muted mb-0" style={{ fontSize: '0.92rem' }}>
+                        Practice tests assigned by your tutor for this course.
+                      </p>
+                    </div>
+                    <span className="badge bg-primary rounded-pill px-3 py-2">{courseTests.length} tests</span>
+                  </div>
+
+                  <div className="d-flex flex-column gap-3">
+                    {courseTests.map((test) => (
+                      <div
+                        key={test.id}
+                        className="d-flex align-items-center justify-content-between gap-3 flex-wrap rounded-3 p-3"
+                        style={{ background: '#f8fafc', border: '1px solid #e2e8f0' }}
+                      >
+                        <div className="d-flex align-items-center gap-3">
+                          <div
+                            className="rounded-3 d-flex align-items-center justify-content-center"
+                            style={{ width: 42, height: 42, background: '#eff6ff', color: '#2563eb', flexShrink: 0 }}
+                          >
+                            <i className="bi bi-clipboard2-check-fill" />
+                          </div>
+                          <div>
+                            <div className="fw-bold text-dark">{test.title}</div>
+                            <div className="text-muted small">
+                              {test.skill} - {test.durationMinutes} minutes - {test.totalQuestions} questions
+                            </div>
+                          </div>
+                        </div>
+
+                        {courseAccess ? (
+                          <Link to={`/learning/tests/${test.id}`} className="btn btn-sm btn-primary rounded-pill px-3">
+                            Start test
+                          </Link>
+                        ) : (
+                          <span className="badge text-bg-light border rounded-pill px-3 py-2">
+                            <i className="bi bi-lock-fill me-1" />
+                            Buy course to unlock
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
             </div>
 
             {/* Right Sidebar */}
@@ -259,17 +355,57 @@ const CourseDetailPage = () => {
                 <div className="p-4">
                   <div className={`price-display mb-3 ${isFree ? 'free' : ''}`}>{displayPrice}</div>
 
-                  {enrollment ? (
+                  {courseAccess ? (
                     <button className="cta-btn cta-btn-success mb-3" onClick={handleContinue} data-testid="btn-continue-learning">
                       <i className="bi bi-play-circle-fill me-2"></i>Continue Learning
+                    </button>
+                  ) : paymentPending ? (
+                    <button className="cta-btn cta-btn-warning mb-3" onClick={() => navigate(`/checkout/${courseId}`)}>
+                      <i className="bi bi-hourglass-split me-2"></i>Waiting for Payment Confirmation
                     </button>
                   ) : (
                     <button className="cta-btn cta-btn-primary mb-3" onClick={handleEnroll} disabled={isEnrolling} data-testid="btn-join-course">
                       {isEnrolling ? (
                         <><span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Processing...</>
                       ) : (
-                        <><i className="bi bi-rocket-takeoff-fill me-2"></i>{isFree ? 'Enroll for Free' : 'Join Course'}</>
+                        <><i className="bi bi-rocket-takeoff-fill me-2"></i>{isFree ? 'Enroll for Free' : 'Buy Course'}</>
                       )}
+                    </button>
+                  )}
+
+                  {/* Cart & Wishlist actions for paid courses */}
+                  {!courseAccess && !isFree && (
+                    <>
+                      <button
+                        className={`btn ${inCart ? 'btn-outline-secondary' : 'btn-primary'} w-100 fw-semibold mb-2`}
+                        onClick={() => { if (!inCart) { addToCart(courseId); setInCart(true); navigate('/checkout'); } }}
+                        disabled={inCart}
+                      >
+                        {inCart ? 'Đã thêm vào giỏ hàng' : 'Thêm vào giỏ hàng'}
+                      </button>
+                      <button
+                        className={`btn ${wishlistAdded ? 'btn-success' : 'btn-outline-secondary'} w-100 mb-3`}
+                        onClick={() => {
+                          if (wishlistAdded) removeFromWishlist(courseId);
+                          else addToWishlist(courseId);
+                          setWishlistAdded(!wishlistAdded);
+                        }}
+                      >
+                        {wishlistAdded ? 'Đã lưu yêu thích' : 'Lưu vào yêu thích'}
+                      </button>
+                    </>
+                  )}
+
+                  {courseAccess && (
+                    <button
+                      className={`btn ${wishlistAdded ? 'btn-success' : 'btn-outline-secondary'} w-100 mb-3`}
+                      onClick={() => {
+                        if (wishlistAdded) removeFromWishlist(courseId);
+                        else addToWishlist(courseId);
+                        setWishlistAdded(!wishlistAdded);
+                      }}
+                    >
+                      {wishlistAdded ? 'Đã lưu yêu thích' : 'Lưu vào yêu thích'}
                     </button>
                   )}
 

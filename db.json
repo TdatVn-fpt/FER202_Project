@@ -56,6 +56,19 @@
       "createdAt": "2026-06-01T08:00:00Z"
     },
     {
+      "id": "u-student-004",
+      "fullName": "Nguyen Tien Dat",
+      "name": "Nguyen Tien Dat",
+      "email": "tiendatwork1.12@gmail.com",
+      "password": "12345678",
+      "role": "teacher",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp",
+      "status": "active",
+      "targetBand": 7,
+      "currentBand": 5.5,
+      "createdAt": "2026-06-01T08:00:00Z"
+    },
+    {
       "id": "u-001",
       "fullName": "Nguyen Duy Manh",
       "name": "Nguyen Duy Manh",
@@ -101,6 +114,36 @@
       "status": "active",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "createdAt": "2026-06-11T03:17:42.250Z"
+    },
+    {
+      "id": "google-teacher-1",
+      "fullName": "IELTS Mentor",
+      "name": "IELTS Mentor",
+      "email": "teacher@ieltslearning.com",
+      "password": "12345678",
+      "role": "teacher",
+      "status": "active",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp"
+    },
+    {
+      "id": "google-student-1",
+      "fullName": "Tien Dat",
+      "name": "Tien Dat",
+      "email": "ntiendat2108@gmail.com",
+      "password": "12345678",
+      "role": "student",
+      "status": "active",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp"
+    },
+    {
+      "id": "google-admin-1",
+      "fullName": "System Admin",
+      "name": "System Admin",
+      "email": "admin@ieltslearning.com",
+      "password": "12345678",
+      "role": "admin",
+      "status": "active",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp"
     }
   ],
   "courses": [
@@ -138,7 +181,7 @@
       "level": "Intermediate",
       "price": 289000,
       "isPremium": true,
-      "thumbnail": "/images/listening-advanced.jpg",
+      "thumbnail": "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
       "status": "pending",
       "enrolledCount": 85,
@@ -160,7 +203,7 @@
       "level": "Advanced",
       "price": 499000,
       "isPremium": true,
-      "thumbnail": "/images/writing-masterclass.jpg",
+      "thumbnail": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
       "status": "pending",
       "enrolledCount": 0,
@@ -170,26 +213,80 @@
       "createdAt": "2026-06-10T08:00:00Z"
     },
     {
-      "id": "course-004",
-      "title": "IELTS Speaking Confidence",
-      "description": "Luyện tập Speaking tự tin với phương pháp ILETS chuẩn.",
-      "syllabus": [
-        "Fluency Practice",
-        "Pronunciation",
-        "Part 2 Long Turn"
-      ],
+      "title": " IELTS Listening Foundation (Dành cho người mới bắt đầu)",
+      "description": " Khóa học nền tảng giúp học viên làm quen với các format câu hỏi cơ bản trong bài thi IELTS Listening như Multiple Choice và Form Completion. Bao gồm 10 bài nghe thực tế tốc độ chậm.",
+      "skill": "Listening",
+      "level": "Beginner",
+      "price": 0,
+      "durationWeeks": 4,
+      "thumbnail": "https://images.unsplash.com/photo-1599687267812-35c05ff70ee9?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-student-004",
+      "status": "draft",
+      "enrolledCount": 0,
+      "isPremium": false,
+      "createdAt": "2026-06-25T11:38:28.004Z",
+      "id": "9w8htVkjNaI"
+    },
+    {
+      "title": "Master IELTS Writing Task 2 - Band 7.0+",
+      "description": "Khóa học nâng cao cung cấp bộ template cấu trúc bài viết, cách triển khai ý tưởng (brainstorming) và từ vựng học thuật ăn điểm cho phần thi Writing Task 2. Chấm chữa 5 bài Essay.",
+      "skill": "Writing",
+      "level": "Advanced",
+      "price": 1500000,
+      "durationWeeks": 8,
+      "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead27d8?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-student-004",
+      "status": "draft",
+      "enrolledCount": 0,
+      "isPremium": true,
+      "createdAt": "2026-06-25T11:39:43.263Z",
+      "id": "6juKyo6dXkU"
+    },
+    {
+      "title": "IELTS Reading: Skimming & Scanning Techniques",
+      "description": "Tập trung rèn luyện hai kỹ năng quan trọng nhất trong IELTS Reading: Đọc lướt tìm ý chính và đọc quét tìm từ khóa. Bao gồm 15 bài Test mô phỏng từ kho đề Cambridge.",
+      "skill": "Reading",
+      "level": "Intermediate",
+      "price": 990000,
+      "durationWeeks": 6,
+      "thumbnail": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-student-004",
+      "status": "draft",
+      "enrolledCount": 0,
+      "isPremium": true,
+      "createdAt": "2026-06-25T11:40:22.465Z",
+      "id": "WBXqCYd2cPQ"
+    },
+    {
+      "title": "Confident IELTS Speaking Part 1 & 2",
+      "description": "Khóa học giúp phá vỡ rào cản ngôn ngữ, luyện phản xạ nói tự nhiên, chữa ngọng và điều chỉnh phát âm (Pronunciation). Bao gồm tài liệu từ vựng theo 20 chủ đề thường gặp nhất.",
       "skill": "Speaking",
       "level": "Intermediate",
-      "price": 199000,
-      "isPremium": true,
-      "thumbnail": "/images/speaking.jpg",
-      "teacherId": "u-teacher-001",
-      "status": "rejected",
+      "price": 1200000,
+      "durationWeeks": 5,
+      "thumbnail": "https://images.unsplash.com/photo-1589149098258-3e9102ca6651?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-student-004",
+      "status": "draft",
       "enrolledCount": 0,
-      "students": 0,
-      "rating": 0,
-      "durationWeeks": 6,
-      "createdAt": "2026-06-08T08:00:00Z"
+      "isPremium": true,
+      "createdAt": "2026-06-25T11:41:03.486Z",
+      "id": "eZfx0_P3YIU"
+    },
+    {
+      "id": "course-005",
+      "title": "IELTS Reading Beginner Course",
+      "description": "This course helps students improve IELTS reading skills from band 4 to 6.\nskill: Reading",
+      "syllabus": [],
+      "skill": "Reading",
+      "level": "Beginner",
+      "price": 0,
+      "isPremium": false,
+      "thumbnail": "httpabc",
+      "teacherId": "u-student-004",
+      "status": "draft",
+      "enrolledCount": 0,
+      "durationWeeks": 4,
+      "createdAt": "2026-06-28T10:07:55.776Z"
     }
   ],
   "freeResources": [
@@ -215,7 +312,8 @@
       "durationMinutes": 45,
       "contentUrl": "/lessons/reading-skimming",
       "status": "published",
-      "createdAt": "2026-06-01T09:00:00Z"
+      "createdAt": "2026-06-01T09:00:00Z",
+      "teacherId": "u-teacher-001"
     },
     {
       "id": "lesson-002",
@@ -225,7 +323,8 @@
       "durationMinutes": 40,
       "contentUrl": "/lessons/reading-scanning",
       "status": "published",
-      "createdAt": "2026-06-02T09:00:00Z"
+      "createdAt": "2026-06-02T09:00:00Z",
+      "teacherId": "u-teacher-001"
     },
     {
       "id": "lesson-003",
@@ -235,7 +334,8 @@
       "durationMinutes": 50,
       "contentUrl": "/lessons/listening-note-taking",
       "status": "published",
-      "createdAt": "2026-06-03T09:00:00Z"
+      "createdAt": "2026-06-03T09:00:00Z",
+      "teacherId": "u-teacher-001"
     },
     {
       "id": "lesson-004",
@@ -245,7 +345,20 @@
       "durationMinutes": 60,
       "contentUrl": "/lessons/writing-intro",
       "status": "draft",
-      "createdAt": "2026-06-10T09:00:00Z"
+      "createdAt": "2026-06-10T09:00:00Z",
+      "teacherId": "u-teacher-001"
+    },
+    {
+      "id": "lesson-006",
+      "courseId": "course-004",
+      "title": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=IevmdO16GuE",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-27T13:41:47.182Z"
     }
   ],
   "tests": [
@@ -281,6 +394,673 @@
       "bandScale": "IELTS 0-9",
       "status": "draft",
       "createdAt": "2026-06-10T10:00:00Z"
+    },
+    {
+      "courseId": "sLnce3Irw3g",
+      "title": "Chào các bạn",
+      "skill": "Reading",
+      "durationMinutes": 40,
+      "totalQuestions": 40,
+      "bandScale": "TOEIC 0-990",
+      "teacherId": "u-student-001",
+      "id": "2GcMtr7u18M"
+    },
+    {
+      "title": "IELTS READING TEST",
+      "description": "Đây là bài giảng miễn phí",
+      "skill": "Reading",
+      "testMode": "free",
+      "courseId": "",
+      "isFreePreview": false,
+      "status": "published",
+      "practiceMode": "practice",
+      "attemptLimit": 3,
+      "requireLoginAfterLimit": true,
+      "durationMinutes": 60,
+      "totalQuestions": 40,
+      "bandScale": "IELTS 0-9",
+      "teacherId": "u-student-004",
+      "testConfig": {
+        "passages": [
+          {
+            "id": "passage-1",
+            "title": "Passage 1",
+            "content": "Test",
+            "imageUrl": "",
+            "order": 1
+          },
+          {
+            "id": "passage-2",
+            "title": "Passage 2",
+            "content": "fsdfsdf",
+            "imageUrl": "vsdfd",
+            "order": 2
+          },
+          {
+            "id": "passage-3",
+            "title": "Passage 3",
+            "content": "sdfsdf",
+            "imageUrl": "sdfd",
+            "order": 3
+          },
+          {
+            "id": "passage-4",
+            "title": "Passage 4",
+            "content": "",
+            "imageUrl": "",
+            "order": 4
+          }
+        ]
+      },
+      "updatedAt": "2026-06-23T14:20:09.479Z",
+      "createdAt": "2026-06-23T14:20:09.479Z",
+      "id": "Cg33iHPXL2M"
+    },
+    {
+      "id": "sample-test-001",
+      "teacherId": "u-student-004",
+      "title": "Reading Diagnostic - Skimming & Scanning",
+      "description": "Draft sample Reading test for checking passage/question mapping.",
+      "skill": "Reading",
+      "testMode": "free",
+      "courseId": "",
+      "status": "published",
+      "practiceMode": "exam",
+      "attemptLimit": 3,
+      "durationMinutes": 60,
+      "totalQuestions": 40,
+      "bandScale": "IELTS 0-9",
+      "testConfig": {
+        "passages": [
+          {
+            "id": "passage-1",
+            "title": "Passage 1 - Urban Transport",
+            "content": "Public transport systems shape how people move through modern cities. Reliable buses and trains reduce congestion, lower pollution, and make education and work more accessible. However, service frequency and ticket prices still affect whether residents choose public transport over private vehicles.",
+            "imageUrl": "",
+            "order": 1
+          },
+          {
+            "id": "passage-2",
+            "title": "Passage 2",
+            "content": "",
+            "imageUrl": "",
+            "order": 2
+          },
+          {
+            "id": "passage-3",
+            "title": "Passage 3",
+            "content": "",
+            "imageUrl": "",
+            "order": 3
+          }
+        ]
+      },
+      "requireLoginAfterLimit": true,
+      "createdAt": "2026-06-23T15:00:00.000Z",
+      "updatedAt": "2026-06-23T14:39:06.474Z"
+    },
+    {
+      "id": "sample-test-002",
+      "teacherId": "u-student-004",
+      "title": "Listening Section Practice - Campus Enquiry",
+      "description": "Draft Listening test with 4 IELTS-style sections and replay policy.",
+      "skill": "Listening",
+      "testMode": "free",
+      "courseId": "",
+      "status": "published",
+      "practiceMode": "exam",
+      "attemptLimit": 3,
+      "durationMinutes": 40,
+      "totalQuestions": 40,
+      "bandScale": "IELTS 0-9",
+      "testConfig": {
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "audioPolicy": "allow-replay",
+        "sections": [
+          {
+            "id": "section-1",
+            "title": "Section 1",
+            "instruction": "Listen and answer questions for Section 1.",
+            "audioUrl": "",
+            "order": 1
+          },
+          {
+            "id": "section-2",
+            "title": "Section 2",
+            "instruction": "Listen and answer questions for Section 2.",
+            "audioUrl": "",
+            "order": 2
+          },
+          {
+            "id": "section-3",
+            "title": "Section 3",
+            "instruction": "Listen and answer questions for Section 3.",
+            "audioUrl": "",
+            "order": 3
+          },
+          {
+            "id": "section-4",
+            "title": "Section 4",
+            "instruction": "Listen and answer questions for Section 4.",
+            "audioUrl": "",
+            "order": 4
+          }
+        ]
+      },
+      "requireLoginAfterLimit": true,
+      "createdAt": "2026-06-23T15:01:00.000Z",
+      "updatedAt": "2026-06-23T14:38:10.868Z"
+    },
+    {
+      "id": "sample-test-003",
+      "teacherId": "u-student-004",
+      "title": "Writing Full Test - Charts and Opinion Essay",
+      "description": "Draft Writing test with Task 1 and Task 2 prompts.",
+      "skill": "Writing",
+      "testMode": "free",
+      "courseId": "",
+      "status": "published",
+      "practiceMode": "exam",
+      "attemptLimit": 3,
+      "durationMinutes": 60,
+      "totalQuestions": 2,
+      "bandScale": "IELTS 0-9",
+      "testConfig": {
+        "task1": {
+          "id": "task-1",
+          "prompt": "The chart shows changes in household energy use in one country from 2000 to 2020. Summarise the main features and make comparisons where relevant.",
+          "imageUrl": "",
+          "minimumWords": 150
+        },
+        "task2": {
+          "id": "task-2",
+          "prompt": "Some people think universities should focus on practical skills, while others believe academic knowledge is more important. Discuss both views and give your opinion.",
+          "minimumWords": 250
+        },
+        "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
+      },
+      "requireLoginAfterLimit": true,
+      "createdAt": "2026-06-23T15:02:00.000Z",
+      "updatedAt": "2026-06-23T14:39:11.762Z"
+    },
+    {
+      "id": "sample-test-004",
+      "teacherId": "u-student-004",
+      "title": "Speaking Mock - Work and Study",
+      "description": "Draft Speaking test covering Part 1, Part 2 cue card, and Part 3 discussion.",
+      "skill": "Speaking",
+      "testMode": "free",
+      "courseId": "",
+      "status": "published",
+      "practiceMode": "exam",
+      "attemptLimit": 3,
+      "durationMinutes": 15,
+      "totalQuestions": 4,
+      "bandScale": "IELTS 0-9",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction & Interview",
+            "questions": [
+              {
+                "id": "work-study-p1-q1",
+                "text": "Do you work or are you a student?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "work-study-p1-q2",
+                "text": "What do you usually do in your free time?",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "Describe a useful skill you would like to learn.",
+            "bulletPrompts": [
+              "what the skill is",
+              "how you would learn it",
+              "why it would be useful"
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "work-study-p3-q1",
+                "text": "Why is lifelong learning important today?",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "requireLoginAfterLimit": true,
+      "createdAt": "2026-06-23T15:03:00.000Z",
+      "updatedAt": "2026-06-23T14:39:08.051Z"
+    },
+    {
+      "id": "sample-test-005",
+      "teacherId": "u-student-004",
+      "title": "Course Reading Mock - Matching Headings",
+      "description": "Course-mode sample. Use this to test assigning a Reading test into a paid course later.",
+      "skill": "Reading",
+      "testMode": "course",
+      "courseId": "",
+      "status": "published",
+      "practiceMode": "practice",
+      "attemptLimit": 0,
+      "durationMinutes": 60,
+      "totalQuestions": 40,
+      "bandScale": "IELTS 0-9",
+      "testConfig": {
+        "passages": [
+          {
+            "id": "passage-1",
+            "title": "Passage 1 - Sleep and Study",
+            "content": "Researchers have found that sleep affects concentration, memory, and emotional control. Students who sleep consistently often perform better on tasks that require planning and problem solving than those who study late into the night.",
+            "imageUrl": "",
+            "order": 1
+          },
+          {
+            "id": "passage-2",
+            "title": "Passage 2",
+            "content": "",
+            "imageUrl": "",
+            "order": 2
+          },
+          {
+            "id": "passage-3",
+            "title": "Passage 3",
+            "content": "",
+            "imageUrl": "",
+            "order": 3
+          }
+        ]
+      },
+      "requireLoginAfterLimit": false,
+      "createdAt": "2026-06-23T15:04:00.000Z",
+      "updatedAt": "2026-06-23T14:37:29.976Z"
+    },
+    {
+      "id": "sample-test-006",
+      "teacherId": "u-student-004",
+      "title": "Course Listening Mock - Map Labelling",
+      "description": "Course-mode Listening sample for testing question references by section.",
+      "skill": "Listening",
+      "testMode": "course",
+      "courseId": "",
+      "status": "published",
+      "practiceMode": "practice",
+      "attemptLimit": 0,
+      "durationMinutes": 40,
+      "totalQuestions": 40,
+      "bandScale": "IELTS 0-9",
+      "testConfig": {
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "audioPolicy": "allow-replay",
+        "sections": [
+          {
+            "id": "section-1",
+            "title": "Section 1",
+            "instruction": "Listen and answer questions for Section 1.",
+            "audioUrl": "",
+            "order": 1
+          },
+          {
+            "id": "section-2",
+            "title": "Section 2",
+            "instruction": "Listen and answer questions for Section 2.",
+            "audioUrl": "",
+            "order": 2
+          },
+          {
+            "id": "section-3",
+            "title": "Section 3",
+            "instruction": "Listen and answer questions for Section 3.",
+            "audioUrl": "",
+            "order": 3
+          },
+          {
+            "id": "section-4",
+            "title": "Section 4",
+            "instruction": "Listen and answer questions for Section 4.",
+            "audioUrl": "",
+            "order": 4
+          }
+        ]
+      },
+      "requireLoginAfterLimit": false,
+      "createdAt": "2026-06-23T15:05:00.000Z",
+      "updatedAt": "2026-06-23T14:37:28.000Z"
+    },
+    {
+      "id": "sample-test-007",
+      "teacherId": "u-student-004",
+      "title": "Course Writing Mock - Process Diagram",
+      "description": "Course-mode Writing sample for long-form manual marking.",
+      "skill": "Writing",
+      "testMode": "course",
+      "courseId": "",
+      "status": "published",
+      "practiceMode": "exam",
+      "attemptLimit": 0,
+      "durationMinutes": 60,
+      "totalQuestions": 2,
+      "bandScale": "IELTS 0-9",
+      "testConfig": {
+        "task1": {
+          "id": "task-1",
+          "prompt": "The diagram illustrates the process of recycling plastic bottles. Summarise the information by selecting and reporting the main stages.",
+          "imageUrl": "",
+          "minimumWords": 150
+        },
+        "task2": {
+          "id": "task-2",
+          "prompt": "In many countries, people are working longer hours than before. What are the reasons for this, and what effects does it have on society?",
+          "minimumWords": 250
+        },
+        "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
+      },
+      "requireLoginAfterLimit": false,
+      "createdAt": "2026-06-23T15:06:00.000Z",
+      "updatedAt": "2026-06-23T14:38:45.735Z"
+    },
+    {
+      "id": "sample-test-008",
+      "teacherId": "u-student-004",
+      "title": "Course Speaking Mock - Technology",
+      "description": "Course-mode Speaking sample with a technology cue card.",
+      "skill": "Speaking",
+      "testMode": "course",
+      "courseId": "",
+      "status": "published",
+      "practiceMode": "exam",
+      "attemptLimit": 0,
+      "durationMinutes": 15,
+      "totalQuestions": 4,
+      "bandScale": "IELTS 0-9",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction & Interview",
+            "questions": [
+              {
+                "id": "technology-p1-q1",
+                "text": "Do you work or are you a student?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "technology-p1-q2",
+                "text": "What do you usually do in your free time?",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "Describe a useful skill you would like to learn.",
+            "bulletPrompts": [
+              "what the skill is",
+              "how you would learn it",
+              "why it would be useful"
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "technology-p3-q1",
+                "text": "Why is lifelong learning important today?",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "requireLoginAfterLimit": false,
+      "createdAt": "2026-06-23T15:07:00.000Z",
+      "updatedAt": "2026-06-23T14:37:32.440Z"
+    },
+    {
+      "id": "sample-test-009",
+      "teacherId": "u-student-004",
+      "title": "Reading Mini Review - True False Not Given",
+      "description": "Short draft test for reviewing objective scoring and explanations.",
+      "skill": "Reading",
+      "testMode": "free",
+      "courseId": "",
+      "status": "published",
+      "practiceMode": "practice",
+      "attemptLimit": 3,
+      "durationMinutes": 25,
+      "totalQuestions": 10,
+      "bandScale": "IELTS 0-9",
+      "testConfig": {
+        "passages": [
+          {
+            "id": "passage-1",
+            "title": "Passage 1 - Community Libraries",
+            "content": "Community libraries now offer more than books. Many provide language clubs, digital training, and quiet study rooms. These services are especially useful for learners who do not have reliable internet access at home.",
+            "imageUrl": "",
+            "order": 1
+          },
+          {
+            "id": "passage-2",
+            "title": "Passage 2",
+            "content": "",
+            "imageUrl": "",
+            "order": 2
+          },
+          {
+            "id": "passage-3",
+            "title": "Passage 3",
+            "content": "",
+            "imageUrl": "",
+            "order": 3
+          }
+        ]
+      },
+      "requireLoginAfterLimit": true,
+      "createdAt": "2026-06-23T15:08:00.000Z",
+      "updatedAt": "2026-06-23T14:38:42.159Z"
+    },
+    {
+      "id": "sample-test-010",
+      "teacherId": "u-student-004",
+      "title": "Listening Mini Review - Form Completion",
+      "description": "Short draft Listening test for checking fill-in-the-blank answer storage.",
+      "skill": "Listening",
+      "testMode": "free",
+      "courseId": "",
+      "status": "published",
+      "practiceMode": "practice",
+      "attemptLimit": 3,
+      "durationMinutes": 20,
+      "totalQuestions": 10,
+      "bandScale": "IELTS 0-9",
+      "testConfig": {
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "audioPolicy": "allow-replay",
+        "sections": [
+          {
+            "id": "section-1",
+            "title": "Section 1",
+            "instruction": "Listen and answer questions for Section 1.",
+            "audioUrl": "",
+            "order": 1
+          },
+          {
+            "id": "section-2",
+            "title": "Section 2",
+            "instruction": "Listen and answer questions for Section 2.",
+            "audioUrl": "",
+            "order": 2
+          },
+          {
+            "id": "section-3",
+            "title": "Section 3",
+            "instruction": "Listen and answer questions for Section 3.",
+            "audioUrl": "",
+            "order": 3
+          },
+          {
+            "id": "section-4",
+            "title": "Section 4",
+            "instruction": "Listen and answer questions for Section 4.",
+            "audioUrl": "",
+            "order": 4
+          }
+        ]
+      },
+      "requireLoginAfterLimit": true,
+      "createdAt": "2026-06-23T15:09:00.000Z",
+      "updatedAt": "2026-06-23T15:09:00.000Z"
+    },
+    {
+      "courseId": "course-008",
+      "title": "Advanced Writing Review",
+      "skill": "Writing",
+      "durationMinutes": 60,
+      "totalQuestions": 1,
+      "status": "published",
+      "id": "Mx539GlgPjQ"
+    },
+    {
+      "title": "aaaaaaaaaaaaaaaaa",
+      "description": "aaaaaaa",
+      "skill": "Speaking",
+      "testMode": "free",
+      "courseId": "",
+      "isFreePreview": false,
+      "status": "published",
+      "practiceMode": "exam",
+      "attemptLimit": 3,
+      "requireLoginAfterLimit": true,
+      "durationMinutes": 15,
+      "totalQuestions": 3,
+      "bandScale": "IELTS 0-9",
+      "teacherId": "u-teacher-001",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction & Interview",
+            "questions": [
+              {
+                "id": "sp-q-1",
+                "text": "aaaaaaaaaaa",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "aaaaaaaaaaa",
+            "bulletPrompts": [
+              "",
+              "aaaaaaaaaaaaa",
+              ""
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "sp-q-2",
+                "text": "aaaaaaaaaaa",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "updatedAt": "2026-06-27T14:07:41.613Z",
+      "createdAt": "2026-06-27T13:59:36.597Z",
+      "id": "buL7b65wJZ8"
+    },
+    {
+      "title": "aaaaaaaaaaaaaaaaaaaaaa",
+      "description": "aaaaaaaaaaaaaaaaaaa",
+      "skill": "Speaking",
+      "testMode": "course",
+      "courseId": "course-004",
+      "isFreePreview": false,
+      "status": "published",
+      "practiceMode": "exam",
+      "attemptLimit": 3,
+      "requireLoginAfterLimit": true,
+      "durationMinutes": 15,
+      "totalQuestions": 3,
+      "bandScale": "IELTS 0-9",
+      "teacherId": "u-teacher-001",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction & Interview",
+            "questions": [
+              {
+                "id": "sp-q-1",
+                "text": "aaaaaaaaaaaaaaaaaaaaaa",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "",
+            "bulletPrompts": [
+              "",
+              "",
+              ""
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "sp-q-2",
+                "text": "",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "updatedAt": "2026-06-27T14:07:39.164Z",
+      "createdAt": "2026-06-27T14:07:01.921Z",
+      "id": "I8hqTxITOmg"
     }
   ],
   "questions": [
@@ -330,6 +1110,253 @@
       ],
       "answer": "To introduce a problem",
       "score": 1
+    },
+    {
+      "testId": "Cg33iHPXL2M",
+      "skill": "Reading",
+      "referenceId": "passage-1",
+      "referenceType": "passage",
+      "type": "multiple-choice",
+      "order": 1,
+      "questionText": "Chào mừng các bạn",
+      "prompt": "Chào mừng các bạn",
+      "options": [
+        "sdfsdf",
+        "sdfsdf",
+        "dsfsd",
+        "fsfd"
+      ],
+      "answer": "sdfsdf",
+      "explanation": "sdfsdfsd",
+      "score": 1,
+      "passage": "Test",
+      "id": "R4nfGnV3VM4"
+    },
+    {
+      "id": "sample-q-001",
+      "testId": "sample-test-001",
+      "skill": "Reading",
+      "referenceId": "passage-1",
+      "referenceType": "passage",
+      "type": "multiple-choice",
+      "order": 1,
+      "questionText": "What is one benefit of reliable public transport?",
+      "prompt": "What is one benefit of reliable public transport?",
+      "options": [
+        "It reduces congestion",
+        "It removes all private vehicles",
+        "It increases ticket prices",
+        "It closes schools"
+      ],
+      "answer": "It reduces congestion",
+      "explanation": "The passage says reliable buses and trains reduce congestion.",
+      "score": 1
+    },
+    {
+      "id": "sample-q-002",
+      "testId": "sample-test-001",
+      "skill": "Reading",
+      "referenceId": "passage-1",
+      "referenceType": "passage",
+      "type": "true-false-not-given",
+      "order": 2,
+      "questionText": "Ticket prices can influence public transport use.",
+      "prompt": "Ticket prices can influence public transport use.",
+      "options": [
+        "True",
+        "False",
+        "Not Given"
+      ],
+      "answer": "True",
+      "explanation": "The final sentence mentions ticket prices affect whether residents choose public transport.",
+      "score": 1
+    },
+    {
+      "id": "sample-q-003",
+      "testId": "sample-test-002",
+      "skill": "Listening",
+      "referenceId": "section-1",
+      "referenceType": "section",
+      "type": "multiple-choice",
+      "order": 1,
+      "questionText": "What should the student confirm first?",
+      "prompt": "What should the student confirm first?",
+      "options": [
+        "The appointment time",
+        "The weather forecast",
+        "The bus colour",
+        "The library password"
+      ],
+      "answer": "The appointment time",
+      "explanation": "Sample question for section-based Listening.",
+      "score": 1
+    },
+    {
+      "id": "sample-q-004",
+      "testId": "sample-test-002",
+      "skill": "Listening",
+      "referenceId": "section-1",
+      "referenceType": "section",
+      "type": "fill-in-the-blank",
+      "order": 2,
+      "questionText": "The meeting starts at ____.",
+      "prompt": "The meeting starts at ____.",
+      "answer": "nine",
+      "explanation": "Sample fill-in answer.",
+      "score": 1
+    },
+    {
+      "id": "sample-q-005",
+      "testId": "sample-test-005",
+      "skill": "Reading",
+      "referenceId": "passage-1",
+      "referenceType": "passage",
+      "type": "multiple-choice",
+      "order": 1,
+      "questionText": "What does sleep affect according to the passage?",
+      "prompt": "What does sleep affect according to the passage?",
+      "options": [
+        "Memory",
+        "Weather",
+        "Ticket prices",
+        "Food costs"
+      ],
+      "answer": "Memory",
+      "explanation": "The passage mentions concentration, memory, and emotional control.",
+      "score": 1
+    },
+    {
+      "id": "sample-q-006",
+      "testId": "sample-test-006",
+      "skill": "Listening",
+      "referenceId": "section-1",
+      "referenceType": "section",
+      "type": "fill-in-the-blank",
+      "order": 1,
+      "questionText": "Write the room number: ____.",
+      "prompt": "Write the room number: ____.",
+      "answer": "204",
+      "explanation": "Sample map/form completion question.",
+      "score": 1
+    },
+    {
+      "id": "sample-q-007",
+      "testId": "sample-test-009",
+      "skill": "Reading",
+      "referenceId": "passage-1",
+      "referenceType": "passage",
+      "type": "true-false-not-given",
+      "order": 1,
+      "questionText": "Community libraries can provide digital training.",
+      "prompt": "Community libraries can provide digital training.",
+      "options": [
+        "True",
+        "False",
+        "Not Given"
+      ],
+      "answer": "True",
+      "explanation": "The passage says many libraries provide digital training.",
+      "score": 1
+    },
+    {
+      "id": "sample-q-008",
+      "testId": "sample-test-010",
+      "skill": "Listening",
+      "referenceId": "section-1",
+      "referenceType": "section",
+      "type": "multiple-choice",
+      "order": 1,
+      "questionText": "Which item is required for registration?",
+      "prompt": "Which item is required for registration?",
+      "options": [
+        "Student ID",
+        "A bike lock",
+        "A camera",
+        "A map"
+      ],
+      "answer": "Student ID",
+      "explanation": "Sample form completion context.",
+      "score": 1
+    },
+    {
+      "testId": "buL7b65wJZ8",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 2,
+      "questionText": "aaaaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "2ouNupd0TlI"
+    },
+    {
+      "testId": "buL7b65wJZ8",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 3,
+      "questionText": "aaaaaaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "m_ZFZqycNbE"
+    },
+    {
+      "testId": "buL7b65wJZ8",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 4,
+      "questionText": "aaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "6-9WwI0nOC4"
+    },
+    {
+      "testId": "buL7b65wJZ8",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 5,
+      "questionText": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "UrtyZ30M1uA"
+    },
+    {
+      "testId": "I8hqTxITOmg",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 1,
+      "questionText": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "oZFWf8J1egM"
     }
   ],
   "questionAnswers": [],
@@ -341,6 +1368,36 @@
       "status": "active",
       "progress": 35,
       "enrolledAt": "2026-06-01"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-001",
+      "progress": 50,
+      "enrolledAt": "2026-06-21T09:45:56.480Z",
+      "id": "NYrti839-l8",
+      "status": "active"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-002",
+      "progress": 100,
+      "enrolledAt": "2026-06-21T10:22:02.823Z",
+      "id": "ySsTPaPlmmU",
+      "status": "completed"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-003",
+      "progress": 0,
+      "enrolledAt": "2026-06-21T10:27:06.120Z",
+      "id": "cb51wNV__9c"
+    },
+    {
+      "userId": "u-001",
+      "courseId": null,
+      "progress": 0,
+      "enrolledAt": "2026-06-21T10:46:41.099Z",
+      "id": "7SFfx-Z-jhg"
     }
   ],
   "payments": [
@@ -362,12 +1419,42 @@
       "method": "vietqr",
       "transferContent": "IELTS course-002 -001",
       "status": "pending",
-      "createdAt": "2026-06-15T05:04:15.553Z",
+      "createdAt": "2026-06-21T11:13:42.691Z",
       "paidAt": null,
       "reviewedAt": null,
       "reviewedBy": null,
       "rejectReason": null,
-      "id": "0fhmWlAguog"
+      "id": "nwoBoRNZIKE"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-003",
+      "amount": 499000,
+      "currency": "VND",
+      "method": "vietqr",
+      "transferContent": "IELTS course-003 -001",
+      "status": "pending",
+      "createdAt": "2026-06-21T11:55:26.658Z",
+      "paidAt": null,
+      "reviewedAt": null,
+      "reviewedBy": null,
+      "rejectReason": null,
+      "id": "bxJrniBlUOo"
+    },
+    {
+      "userId": "u-001",
+      "courseId": null,
+      "amount": 199000,
+      "currency": "VND",
+      "method": "vietqr",
+      "transferContent": "IELTS course-004 -001",
+      "status": "pending",
+      "createdAt": "2026-06-21T13:37:22.389Z",
+      "paidAt": null,
+      "reviewedAt": null,
+      "reviewedBy": null,
+      "rejectReason": null,
+      "id": "AqsxV97xKcY"
     }
   ],
   "transactions": [
@@ -399,7 +1486,7 @@
       "id": "txn-003",
       "userId": "u-student-001",
       "userName": "Nguyen Tien Dat",
-      "courseId": "course-004",
+      "courseId": null,
       "courseTitle": "IELTS Speaking Confidence",
       "amount": 199000,
       "currency": "VND",
@@ -558,6 +1645,302 @@
         "role": "teacher"
       },
       "createdAt": "2026-06-11T10:00:00Z"
+    },
+    {
+      "action": "CREATE_COURSE",
+      "userId": "u-student-001",
+      "details": {
+        "courseId": "sLnce3Irw3g",
+        "title": "Band 4-5"
+      },
+      "timestamp": "2026-06-23T13:17:25.939Z",
+      "id": "bnhW-zPbI44"
+    },
+    {
+      "action": "CREATE_TEST",
+      "userId": "u-student-001",
+      "details": {
+        "testId": "2GcMtr7u18M",
+        "title": "Chào các bạn",
+        "courseId": "sLnce3Irw3g"
+      },
+      "timestamp": "2026-06-23T13:18:08.186Z",
+      "id": "zx757u7oXKQ"
+    },
+    {
+      "action": "CREATE_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "Cg33iHPXL2M",
+        "title": "IELTS READING TEST",
+        "courseId": ""
+      },
+      "timestamp": "2026-06-23T14:20:09.499Z",
+      "id": "yY8TELtsxwo"
+    },
+    {
+      "action": "CREATE_QUESTION",
+      "userId": "u-student-004",
+      "details": {
+        "questionId": "R4nfGnV3VM4",
+        "testId": "Cg33iHPXL2M"
+      },
+      "timestamp": "2026-06-23T14:21:24.601Z",
+      "id": "VI-1Pch6iSY"
+    },
+    {
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-006",
+        "title": "Course Listening Mock - Map Labelling"
+      },
+      "timestamp": "2026-06-23T14:37:28.053Z",
+      "id": "QMVValLdZnU"
+    },
+    {
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-005",
+        "title": "Course Reading Mock - Matching Headings"
+      },
+      "timestamp": "2026-06-23T14:37:30.026Z",
+      "id": "wikpmJH0Klk"
+    },
+    {
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-008",
+        "title": "Course Speaking Mock - Technology"
+      },
+      "timestamp": "2026-06-23T14:37:32.492Z",
+      "id": "-daz6a8_LVQ"
+    },
+    {
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-010",
+        "title": "Listening Mini Review - Form Completion"
+      },
+      "timestamp": "2026-06-23T14:38:09.318Z",
+      "id": "uRvIIFCmXf8"
+    },
+    {
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-002",
+        "title": "Listening Section Practice - Campus Enquiry"
+      },
+      "timestamp": "2026-06-23T14:38:10.921Z",
+      "id": "VAf28Zd_oJ4"
+    },
+    {
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-009",
+        "title": "Reading Mini Review - True False Not Given"
+      },
+      "timestamp": "2026-06-23T14:38:42.210Z",
+      "id": "BIF7SPRhEGE"
+    },
+    {
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-007",
+        "title": "Course Writing Mock - Process Diagram"
+      },
+      "timestamp": "2026-06-23T14:38:45.787Z",
+      "id": "21MW_9GMRHw"
+    },
+    {
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-001",
+        "title": "Reading Diagnostic - Skimming & Scanning"
+      },
+      "timestamp": "2026-06-23T14:39:06.528Z",
+      "id": "dXkXj_0GnlQ"
+    },
+    {
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-004",
+        "title": "Speaking Mock - Work and Study"
+      },
+      "timestamp": "2026-06-23T14:39:08.106Z",
+      "id": "aIZM5V2RoP4"
+    },
+    {
+      "action": "PUBLISH_TEST",
+      "userId": "u-student-004",
+      "details": {
+        "testId": "sample-test-003",
+        "title": "Writing Full Test - Charts and Opinion Essay"
+      },
+      "timestamp": "2026-06-23T14:39:11.815Z",
+      "id": "7sxNSTc3fvQ"
+    },
+    {
+      "id": "log-013",
+      "actorId": "u-student-004",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-25T11:14:19.308Z"
+    },
+    {
+      "action": "CREATE_COURSE",
+      "userId": "u-student-004",
+      "details": {
+        "courseId": "AG4QlLukoho",
+        "title": "sdgfsdf"
+      },
+      "timestamp": "2026-06-25T11:26:36.539Z",
+      "id": "YvZ0HR9nTa4"
+    },
+    {
+      "action": "UPDATE_COURSE",
+      "userId": "u-student-004",
+      "details": {
+        "courseId": "AG4QlLukoho",
+        "changes": {
+          "title": "sdgfsdf",
+          "description": "sfdsdfsdfsdfsdfdfdf",
+          "skill": "Reading",
+          "level": "Beginner",
+          "price": 10,
+          "durationWeeks": 4,
+          "thumbnail": "",
+          "status": "draft",
+          "isPremium": true
+        }
+      },
+      "timestamp": "2026-06-25T11:26:51.899Z",
+      "id": "7rw3T1a6q10"
+    },
+    {
+      "action": "UPDATE_COURSE",
+      "userId": "u-student-004",
+      "details": {
+        "courseId": "course-005",
+        "changes": {
+          "title": "Chào các bạn",
+          "description": "àioisdfsdef",
+          "skill": "Writing",
+          "level": "Advanced",
+          "price": 2324,
+          "durationWeeks": 1,
+          "thumbnail": "https://khokhoahoc.org/wp-content/uploads/2024/05/Thiet-ke-chua-co-ten-11.png",
+          "status": "draft",
+          "isPremium": true
+        }
+      },
+      "timestamp": "2026-06-25T11:34:23.828Z",
+      "id": "mntXng_yF1I"
+    },
+    {
+      "action": "CREATE_COURSE",
+      "userId": "u-student-004",
+      "details": {
+        "courseId": "9w8htVkjNaI",
+        "title": " IELTS Listening Foundation (Dành cho người mới bắt đầu)"
+      },
+      "timestamp": "2026-06-25T11:38:28.013Z",
+      "id": "fb_ouKDnLFI"
+    },
+    {
+      "action": "CREATE_COURSE",
+      "userId": "u-student-004",
+      "details": {
+        "courseId": "6juKyo6dXkU",
+        "title": "Master IELTS Writing Task 2 - Band 7.0+"
+      },
+      "timestamp": "2026-06-25T11:39:43.275Z",
+      "id": "YsmNVYhpSzM"
+    },
+    {
+      "action": "CREATE_COURSE",
+      "userId": "u-student-004",
+      "details": {
+        "courseId": "WBXqCYd2cPQ",
+        "title": "IELTS Reading: Skimming & Scanning Techniques"
+      },
+      "timestamp": "2026-06-25T11:40:22.472Z",
+      "id": "EwHSDP7Wdiw"
+    },
+    {
+      "action": "CREATE_COURSE",
+      "userId": "u-student-004",
+      "details": {
+        "courseId": "eZfx0_P3YIU",
+        "title": "Confident IELTS Speaking Part 1 & 2"
+      },
+      "timestamp": "2026-06-25T11:41:03.494Z",
+      "id": "a85Ausowi0c"
+    },
+    {
+      "id": "log-014",
+      "actorId": "u-student-004",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:07:55.781Z"
+    },
+    {
+      "id": "log-015",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:08:55.425Z"
+    },
+    {
+      "id": "log-016",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:12:53.612Z"
+    },
+    {
+      "id": "log-017",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:13:37.566Z"
+    },
+    {
+      "id": "log-018",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:14:31.155Z"
+    },
+    {
+      "id": "log-019",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:17:09.428Z"
+    },
+    {
+      "id": "log-020",
+      "actorId": "u-student-004",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-005",
+      "createdAt": "2026-06-28T10:18:00.577Z"
     }
   ],
   "approvalRequests": [
@@ -576,6 +1959,1247 @@
       "teacherId": "u-teacher-001",
       "status": "pending",
       "createdAt": "2026-06-11T08:30:00Z"
+    },
+    {
+      "id": "req-003",
+      "targetType": "course",
+      "targetId": "course-005",
+      "teacherId": "u-teacher-001",
+      "status": "pending",
+      "createdAt": "2026-06-23T16:32:41.048Z"
+    },
+    {
+      "id": "req-004",
+      "targetType": "course",
+      "targetId": "course-006",
+      "teacherId": "u-teacher-001",
+      "status": "pending",
+      "createdAt": "2026-06-23T16:34:09.939Z"
+    },
+    {
+      "id": "req-005",
+      "targetType": "course",
+      "targetId": "course-007",
+      "teacherId": "u-teacher-001",
+      "status": "pending",
+      "createdAt": "2026-06-23T16:35:29.072Z"
+    },
+    {
+      "id": "req-006",
+      "targetType": "course",
+      "targetId": "course-008",
+      "teacherId": "u-teacher-001",
+      "status": "pending",
+      "createdAt": "2026-06-23T16:35:49.491Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-001",
+      "name": "Environment",
+      "description": "IELTS vocabulary for climate, ecology, and sustainability topics."
+    },
+    {
+      "id": "cat-002",
+      "name": "Technology",
+      "description": "IELTS vocabulary for innovation, digital life, and automation topics."
+    },
+    {
+      "id": "cat-003",
+      "name": "Education",
+      "description": "IELTS vocabulary for learning, universities, and academic development."
+    }
+  ],
+  "flashcards": [
+    {
+      "deckId": "deck-1",
+      "word": "Deteriorate",
+      "meaning": "Trở nên tệ hơn, suy giảm",
+      "pronunciation": "/dɪˈtɪəriəreɪt/",
+      "example": "The political situation in the region has deteriorated rapidly.",
+      "id": "card-g13643b0e",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-1",
+      "word": "Implement",
+      "meaning": "Thực hiện, tiến hành",
+      "pronunciation": "/ˈɪmplɪment/",
+      "example": "The changes to the national health system will be implemented next year.",
+      "id": "card-h5z3mix4o",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-1",
+      "word": "Substantial",
+      "meaning": "Đáng kể, quan trọng",
+      "pronunciation": "/səbˈstænʃl/",
+      "example": "There was a substantial increase in the number of applications.",
+      "id": "card-3motuhu3y",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-1",
+      "word": "Prevalent",
+      "meaning": "Phổ biến, thịnh hành",
+      "pronunciation": "/ˈprevələnt/",
+      "example": "These diseases are more prevalent among young children.",
+      "id": "card-k6smrfkf6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-1",
+      "word": "Mitigate",
+      "meaning": "Làm dịu đi, giảm nhẹ",
+      "pronunciation": "/ˈmɪtɪɡeɪt/",
+      "example": "Action is required to mitigate the effect of global warming.",
+      "id": "card-1d7sgrxpi",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Deforestation",
+      "meaning": "Nạn phá rừng, sự tàn phá rừng",
+      "pronunciation": "/ˌdiːˌfɒrɪˈsteɪʃn/",
+      "example": "Deforestation is destroying large areas of tropical rain forest.",
+      "id": "card-gl531r9xk",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Biodiversity",
+      "meaning": "Đa dạng sinh học",
+      "pronunciation": "/ˌbaɪəʊdaɪˈvɜːsəti/",
+      "example": "The mining project threatens one of the world’s richest areas of biodiversity.",
+      "id": "card-bpontq6dd",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Emission",
+      "meaning": "Sự thải ra, khí thải (độc hại)",
+      "pronunciation": "/ɪˈmɪʃn/",
+      "example": "The government has pledged to cut carbon emissions by 20%.",
+      "id": "card-zbeetcceg",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Sustainable",
+      "meaning": "Bền vững, không gây hại môi trường",
+      "pronunciation": "/səˈsteɪnəbl/",
+      "example": "An ecologically sustainable farming system is needed.",
+      "id": "card-mhwypxc4h",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Habitat",
+      "meaning": "Môi trường sống tự nhiên",
+      "pronunciation": "/ˈhæbɪtæt/",
+      "example": "The panda is threatened by the disappearance of its natural habitat.",
+      "id": "card-ju509d0t7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Accommodate",
+      "meaning": "Cung cấp chỗ ở, đáp ứng",
+      "pronunciation": "/əˈkɒmədeɪt/",
+      "example": "The hotel can accommodate up to 500 guests.",
+      "id": "card-xyxb5udl3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Luggage",
+      "meaning": "Hành lý",
+      "pronunciation": "/ˈlʌɡɪdʒ/",
+      "example": "Never leave your luggage unattended.",
+      "id": "card-w0wgcpu70",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Fascinating",
+      "meaning": "Vô cùng thú vị, hấp dẫn",
+      "pronunciation": "/ˈfæsɪneɪtɪŋ/",
+      "example": "It’s a fascinating city with a lot of history.",
+      "id": "card-jl2fxr3al",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Enthusiastic",
+      "meaning": "Nhiệt tình, hào hứng",
+      "pronunciation": "/ɪnˌθjuːziˈæstɪk/",
+      "example": "You don’t seem very enthusiastic about the party.",
+      "id": "card-eiyhfnc2a",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Determine",
+      "meaning": "Xác định, quyết định",
+      "pronunciation": "/dɪˈtɜːmɪn/",
+      "example": "Upbringing plays an important part in determining a person’s character.",
+      "id": "card-3nf9hxvmt",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Bring up",
+      "meaning": "Đề cập tới, nhắc tới",
+      "pronunciation": "/brɪŋ ʌp/",
+      "example": "Don’t bring up the subject of money.",
+      "id": "card-xwm0bbkvl",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Call off",
+      "meaning": "Hủy bỏ",
+      "pronunciation": "/kɔːl ɒf/",
+      "example": "The match was called off because of bad weather.",
+      "id": "card-x07bfk8zl",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Look forward to",
+      "meaning": "Mong đợi, háo hức",
+      "pronunciation": "/lʊk ˈfɔːwəd tu/",
+      "example": "I am looking forward to meeting you.",
+      "id": "card-47nbvfpcs",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Put off",
+      "meaning": "Trì hoãn",
+      "pronunciation": "/pʊt ɒf/",
+      "example": "Never put off until tomorrow what you can do today.",
+      "id": "card-k780hvba0",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Turn down",
+      "meaning": "Từ chối (lời mời, đề nghị)",
+      "pronunciation": "/tɜːn daʊn/",
+      "example": "He turned down the job offer.",
+      "id": "card-o4nqe06ag",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "Once in a blue moon",
+      "meaning": "Rất hiếm khi",
+      "pronunciation": "/wʌns ɪn ə bluː muːn/",
+      "example": "I go to the cinema once in a blue moon.",
+      "id": "card-ef90nl7x9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "Piece of cake",
+      "meaning": "Rất dễ dàng",
+      "pronunciation": "/piːs əv keɪk/",
+      "example": "The exam was a piece of cake.",
+      "id": "card-73wdnl0az",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "Under the weather",
+      "meaning": "Cảm thấy không khỏe",
+      "pronunciation": "/ˈʌndə ðə ˈweðə/",
+      "example": "I’m feeling a bit under the weather today.",
+      "id": "card-jhwbk33yw",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "Break the ice",
+      "meaning": "Phá vỡ sự ngại ngùng (khi mới gặp)",
+      "pronunciation": "/breɪk ði aɪs/",
+      "example": "Jim told a joke to break the ice.",
+      "id": "card-d76w6i00a",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "Cost an arm and a leg",
+      "meaning": "Rất đắt đỏ",
+      "pronunciation": "/kɒst ən ɑːm ənd ə leɡ/",
+      "example": "This car cost an arm and a leg.",
+      "id": "card-rb0rbr55o",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-1",
+      "word": "Ambiguous",
+      "meaning": "Mơ hồ, không rõ ràng",
+      "pronunciation": "/æmˈbɪɡjuəs/",
+      "example": "His role has always been ambiguous.",
+      "id": "card-1krv4hsz3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-1",
+      "word": "Comprehend",
+      "meaning": "Hiểu, lĩnh hội",
+      "pronunciation": "/ˌkɒmprɪˈhend/",
+      "example": "He stood staring at the dead body, unable to comprehend.",
+      "id": "card-qo2di4ybk",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-1",
+      "word": "Contradict",
+      "meaning": "Mâu thuẫn, trái ngược",
+      "pronunciation": "/ˌkɒntrəˈdɪkt/",
+      "example": "All evening her husband contradicted everything she said.",
+      "id": "card-e6emn12ys",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-1",
+      "word": "Evaluate",
+      "meaning": "Đánh giá",
+      "pronunciation": "/ɪˈvæljueɪt/",
+      "example": "Our research attempts to evaluate the effectiveness of the different drugs.",
+      "id": "card-ppyi6qau2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-1",
+      "word": "Incorporate",
+      "meaning": "Sát nhập, kết hợp",
+      "pronunciation": "/ɪnˈkɔːpəreɪt/",
+      "example": "The new car design incorporates all the latest safety features.",
+      "id": "card-4q3af1exv",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-1",
+      "word": "Legislate",
+      "meaning": "Lập pháp, ban hành luật",
+      "pronunciation": "/ˈledʒɪsleɪt/",
+      "example": "They promised to legislate against cigarette advertising.",
+      "id": "card-51pzkhm4o",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-1",
+      "word": "Paradigm",
+      "meaning": "Mô hình, kiểu mẫu",
+      "pronunciation": "/ˈpærədaɪm/",
+      "example": "The war was a paradigm of the destructive side of human nature.",
+      "id": "card-cq6lt4wvp",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-1",
+      "word": "Qualitative",
+      "meaning": "Định tính, chất lượng",
+      "pronunciation": "/ˈkwɒlɪtətɪv/",
+      "example": "There are qualitative differences between the two products.",
+      "id": "card-7r0f3mbrr",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-1",
+      "word": "Supplement",
+      "meaning": "Phần bổ sung",
+      "pronunciation": "/ˈsʌplɪmənt/",
+      "example": "He supplements his income by working in a bar at night.",
+      "id": "card-8emb7r45z",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-1",
+      "word": "Valid",
+      "meaning": "Hợp lệ, có giá trị",
+      "pronunciation": "/ˈvælɪd/",
+      "example": "Do you have a valid passport?",
+      "id": "card-30flpxhrg",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Ecosystem",
+      "meaning": "Hệ sinh thái",
+      "pronunciation": "/ˈiːkəʊsɪstəm/",
+      "example": "Pollution can have disastrous effects on the delicately balanced ecosystem.",
+      "id": "card-brj2s79rj",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Conservation",
+      "meaning": "Sự bảo tồn",
+      "pronunciation": "/ˌkɒnsəˈveɪʃn/",
+      "example": "Energy conservation reduces your fuel bills and helps the environment.",
+      "id": "card-wxlcr0evz",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Extinct",
+      "meaning": "Tuyệt chủng",
+      "pronunciation": "/ɪkˈstɪŋkt/",
+      "example": "There is concern that the giant panda will soon become extinct.",
+      "id": "card-3l55hwgft",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Renewable",
+      "meaning": "Có thể tái tạo",
+      "pronunciation": "/rɪˈnjuːəbl/",
+      "example": "Renewable sources of energy such as wind and solar power.",
+      "id": "card-9t4oq0ylc",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Pollution",
+      "meaning": "Sự ô nhiễm",
+      "pronunciation": "/pəˈluːʃn/",
+      "example": "The manifesto includes tough measures to tackle road congestion and environmental pollution.",
+      "id": "card-cqr1kp938",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Global Warming",
+      "meaning": "Sự nóng lên toàn cầu",
+      "pronunciation": "/ˌɡləʊbl ˈwɔːmɪŋ/",
+      "example": "The effects of global warming are already being felt.",
+      "id": "card-91wr9l077",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Carbon Footprint",
+      "meaning": "Lượng khí thải carbon",
+      "pronunciation": "/ˌkɑːbən ˈfʊtprɪnt/",
+      "example": "Companies are measuring their carbon footprints.",
+      "id": "card-3c9y7zfbe",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Endangered",
+      "meaning": "Gặp nguy hiểm",
+      "pronunciation": "/ɪnˈdeɪndʒəd/",
+      "example": "The sea turtle is an endangered species.",
+      "id": "card-5rlsd0c0r",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Fossil Fuel",
+      "meaning": "Nhiên liệu hóa thạch",
+      "pronunciation": "/ˈfɒsl fjuːəl/",
+      "example": "Carbon dioxide is produced by the burning of fossil fuels.",
+      "id": "card-zhbpnkjdi",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "TCOYggEc8dw",
+      "word": "Vegetation",
+      "meaning": "Thảm thực vật",
+      "pronunciation": "/ˌvedʒəˈteɪʃn/",
+      "example": "The railway track is heavily overgrown with vegetation.",
+      "id": "card-a4pyn9fvu",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Advantage",
+      "meaning": "Lợi thế, ưu điểm",
+      "pronunciation": "/ədˈvɑːntɪdʒ/",
+      "example": "It gives you an unfair advantage.",
+      "id": "card-l5luw0um4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Brilliant",
+      "meaning": "Xuất sắc, tuyệt vời",
+      "pronunciation": "/ˈbrɪliənt/",
+      "example": "What a brilliant idea!",
+      "id": "card-7be8snsd9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Celebrate",
+      "meaning": "Ăn mừng",
+      "pronunciation": "/ˈselɪbreɪt/",
+      "example": "We celebrated our 25th wedding anniversary in Florence.",
+      "id": "card-cyjyrw7e6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Destination",
+      "meaning": "Điểm đến",
+      "pronunciation": "/ˌdestɪˈneɪʃn/",
+      "example": "Our luggage was checked all the way through to our final destination.",
+      "id": "card-vtdgj78xc",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Excellent",
+      "meaning": "Xuất sắc, hoàn hảo",
+      "pronunciation": "/ˈeksələnt/",
+      "example": "The food was excellent.",
+      "id": "card-flmahxeys",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Frequent",
+      "meaning": "Thường xuyên",
+      "pronunciation": "/ˈfriːkwənt/",
+      "example": "He is a frequent visitor to this country.",
+      "id": "card-y9y9lo7tb",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Guarantee",
+      "meaning": "Đảm bảo, bảo hành",
+      "pronunciation": "/ˌɡærənˈtiː/",
+      "example": "We cannot guarantee that our flights will never be delayed.",
+      "id": "card-kex59igo4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Hesitate",
+      "meaning": "Do dự, ngập ngừng",
+      "pronunciation": "/ˈhezɪteɪt/",
+      "example": "She hesitated before replying.",
+      "id": "card-6iv96905s",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Inspire",
+      "meaning": "Truyền cảm hứng",
+      "pronunciation": "/ɪnˈspaɪə(r)/",
+      "example": "The actors inspired the kids with their enthusiasm.",
+      "id": "card-b80jqxza4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "aPZwGTPgqN0",
+      "word": "Journey",
+      "meaning": "Chuyến đi, hành trình",
+      "pronunciation": "/ˈdʒɜːni/",
+      "example": "They went on a long train journey across India.",
+      "id": "card-mm6ogw6yu",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Give up",
+      "meaning": "Từ bỏ",
+      "pronunciation": "/ɡɪv ʌp/",
+      "example": "She didn’t give up work when she had the baby.",
+      "id": "card-o3guget3f",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Look after",
+      "meaning": "Chăm sóc",
+      "pronunciation": "/lʊk ˈɑːftə(r)/",
+      "example": "Who’s going to look after the children while you’re away?",
+      "id": "card-rwvg0gu75",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Set up",
+      "meaning": "Thành lập, thiết lập",
+      "pronunciation": "/set ʌp/",
+      "example": "She wants to repay the committee for the help she received when setting up in business.",
+      "id": "card-sren7jw3d",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Take off",
+      "meaning": "Cất cánh, cởi ra",
+      "pronunciation": "/teɪk ɒf/",
+      "example": "The plane took off an hour late.",
+      "id": "card-dx46z6szt",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Work out",
+      "meaning": "Tìm ra giải pháp, tập thể dục",
+      "pronunciation": "/wɜːk aʊt/",
+      "example": "I work out regularly to keep fit.",
+      "id": "card-h5o5u06on",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Bring about",
+      "meaning": "Gây ra, mang lại",
+      "pronunciation": "/brɪŋ əˈbaʊt/",
+      "example": "What brought about the change in his attitude?",
+      "id": "card-sz58ka2en",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Carry out",
+      "meaning": "Thực hiện, tiến hành",
+      "pronunciation": "/ˈkæri aʊt/",
+      "example": "Extensive tests have been carried out on the patient.",
+      "id": "card-jmhgc6rjs",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Find out",
+      "meaning": "Tìm ra, phát hiện ra",
+      "pronunciation": "/faɪnd aʊt/",
+      "example": "We found out later that we had been at the same school.",
+      "id": "card-wpsxyqe1a",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Go on",
+      "meaning": "Tiếp tục",
+      "pronunciation": "/ɡəʊ ɒn/",
+      "example": "Please go on with what you’re doing and don’t let us interrupt you.",
+      "id": "card-a7abb25av",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-4",
+      "word": "Make up",
+      "meaning": "Bịa đặt, trang điểm, tạo thành",
+      "pronunciation": "/meɪk ʌp/",
+      "example": "He made up some excuse about his daughter being sick.",
+      "id": "card-n8i254abt",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "Bite the bullet",
+      "meaning": "Cắn răng chịu đựng",
+      "pronunciation": "/baɪt ðə ˈbʊlɪt/",
+      "example": "I hate going to the dentist, but I’ll just have to bite the bullet.",
+      "id": "card-zdwjbgw9h",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "Call it a day",
+      "meaning": "Kết thúc công việc (trong ngày)",
+      "pronunciation": "/kɔːl ɪt ə deɪ/",
+      "example": "After 14 hours of working, we decided to call it a day.",
+      "id": "card-i5sxghnq9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "Hit the nail on the head",
+      "meaning": "Nói trúng phóc, hoàn toàn chính xác",
+      "pronunciation": "/hɪt ðə neɪl ɒn ðə hed/",
+      "example": "You hit the nail on the head there, David.",
+      "id": "card-orhsa3gxn",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "Let the cat out of the bag",
+      "meaning": "Vô tình tiết lộ bí mật",
+      "pronunciation": "/let ðə kæt aʊt əv ðə bæɡ/",
+      "example": "I wanted it to be a surprise, but my sister let the cat out of the bag.",
+      "id": "card-2o28g079b",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "Spill the beans",
+      "meaning": "Tiết lộ sự thật, bí mật",
+      "pronunciation": "/spɪl ðə biːnz/",
+      "example": "Come on, spill the beans! What did he say?",
+      "id": "card-h3przbhs6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "Take with a grain of salt",
+      "meaning": "Không hoàn toàn tin tưởng",
+      "pronunciation": "/teɪk wɪð ə ɡreɪn əv sɔːlt/",
+      "example": "You have to take everything she says with a grain of salt.",
+      "id": "card-bzrzl8kq8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "Through thick and thin",
+      "meaning": "Bất chấp khó khăn",
+      "pronunciation": "/θruː θɪk ənd θɪn/",
+      "example": "She has stuck with me through thick and thin.",
+      "id": "card-i15imcmiq",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "Under the weather",
+      "meaning": "Cảm thấy không khỏe",
+      "pronunciation": "/ˈʌndə ðə ˈweðə/",
+      "example": "I’m feeling a bit under the weather today.",
+      "id": "card-sn2j62wml",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "Wrap your head around",
+      "meaning": "Hiểu được điều gì đó phức tạp",
+      "pronunciation": "/ræp jɔː(r) hed əˈraʊnd/",
+      "example": "I just couldn’t wrap my head around what had happened.",
+      "id": "card-gqwzy45ej",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "deck-5",
+      "word": "A blessing in disguise",
+      "meaning": "Trong cái rủi có cái may",
+      "pronunciation": "/ə ˈblesɪŋ ɪn dɪsˈɡaɪz/",
+      "example": "Losing that job was a blessing in disguise really.",
+      "id": "card-pacu3tg3m",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "PASRRXxocj0"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "PCdvH21o0N8"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "2IablHH21F4"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "5mbS21C1TFc"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "yMx_gJjffys"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "1Zw8jpnG1Xc"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "KjUIAin5aJM"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "uysv8sVARDg"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "WXbBK3ok7rQ"
+    },
+    {
+      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pronunciation": "",
+      "example": "",
+      "deckId": "cMRVjk0UR68",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "id": "Ntd0u-poWGY"
+    }
+  ],
+  "flashcardProgress": [
+    {
+      "userId": "u-student-004",
+      "flashcardId": "Yhu4aQnZ-6g",
+      "status": "known",
+      "id": "sMEgtczPuH4"
+    },
+    {
+      "userId": "u-student-004",
+      "flashcardId": "XrIkDIlIHEw",
+      "status": "review",
+      "id": "HV_SHZ_fPgo"
+    },
+    {
+      "userId": "u-student-004",
+      "flashcardId": "K_KTiE-n9Y4",
+      "status": "known",
+      "id": "r6qFQzvlUAo"
+    },
+    {
+      "userId": "u-student-004",
+      "flashcardId": "WFzD-pdl1L8",
+      "status": "review",
+      "id": "UcpFkfiwUSQ"
+    }
+  ],
+  "lessonProgress": [
+    {
+      "id": "lp-001",
+      "userId": "u-001",
+      "lessonId": "lesson-001",
+      "courseId": "course-001",
+      "status": "completed",
+      "completedAt": "2026-06-21T09:46:01.194Z",
+      "completed": true
+    },
+    {
+      "id": "lp-002",
+      "userId": "u-001",
+      "lessonId": "lesson-002",
+      "courseId": "course-001",
+      "status": "completed",
+      "completedAt": "2026-06-21T10:00:00Z"
+    },
+    {
+      "id": "DVR-A0XuyLs",
+      "userId": "u-001",
+      "courseId": "course-002",
+      "lessonId": "lesson-003",
+      "completed": true,
+      "completedAt": "2026-06-21T10:22:06.692Z"
+    }
+  ],
+  "testAttempts": [
+    {
+      "id": "ta-001",
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "score": 7,
+      "overallBandScore": 7,
+      "timeSpent": 3600,
+      "submittedAt": "2026-06-21T09:30:00Z"
+    },
+    {
+      "id": "ta-002",
+      "userId": "u-001",
+      "testId": "test-002",
+      "skill": "Listening",
+      "score": 6.5,
+      "overallBandScore": 6.5,
+      "timeSpent": 3000,
+      "submittedAt": "2026-06-21T10:15:00Z"
+    },
+    {
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-21T10:20:08.110Z",
+      "status": "in-progress",
+      "id": "hhYsVN-Ll1k"
+    },
+    {
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-21T10:20:13.658Z",
+      "status": "in-progress",
+      "id": "2gsMQqvo5Mk"
+    },
+    {
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-21T10:20:33.434Z",
+      "status": "in-progress",
+      "id": "6Zi3ucSWsQw"
+    },
+    {
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-21T10:23:15.171Z",
+      "status": "in-progress",
+      "id": "3PLRvpFiGb0"
+    },
+    {
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-21T10:23:18.649Z",
+      "status": "in-progress",
+      "id": "ACLb9AxNPOY"
+    },
+    {
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-21T10:23:23.793Z",
+      "status": "in-progress",
+      "id": "f8N1x6Pgc74"
+    },
+    {
+      "userId": "u-001",
+      "testId": "test-001",
+      "skill": "Reading",
+      "startTime": "2026-06-21T12:43:59.470Z",
+      "status": "in-progress",
+      "id": "QpyhYEHDDpE"
+    },
+    {
+      "userId": null,
+      "guestId": "guest-1782224533119-sm0alj",
+      "testId": "free-reading-001",
+      "skill": "Reading",
+      "startTime": "2026-06-23T14:22:14.629Z",
+      "expiredAt": "2026-06-23T14:42:14.629Z",
+      "status": "in-progress",
+      "answers": {},
+      "id": "5c2RQgGJKY8"
+    },
+    {
+      "userId": null,
+      "guestId": "guest-1782224533119-sm0alj",
+      "testId": "Cg33iHPXL2M",
+      "skill": "Reading",
+      "startTime": "2026-06-23T14:22:20.701Z",
+      "expiredAt": "2026-06-23T15:22:20.701Z",
+      "status": "completed",
+      "answers": {
+        "R4nfGnV3VM4": "fsfd"
+      },
+      "id": "RDJSQOr_N0k",
+      "completedAt": "2026-06-23T14:22:30.384Z",
+      "submittedAt": "2026-06-23T14:22:30.383Z",
+      "correctCount": 0,
+      "totalScore": 1,
+      "score": 0,
+      "overallBandScore": 0
+    },
+    {
+      "userId": null,
+      "guestId": "guest-1782224533119-sm0alj",
+      "testId": "Cg33iHPXL2M",
+      "skill": "Reading",
+      "startTime": "2026-06-23T14:31:41.794Z",
+      "expiredAt": "2026-06-23T15:31:41.794Z",
+      "status": "in-progress",
+      "answers": {},
+      "id": "VVV4JmPSuNs"
+    },
+    {
+      "userId": "u-student-004",
+      "guestId": null,
+      "testId": "Cg33iHPXL2M",
+      "skill": "Reading",
+      "startTime": "2026-06-24T12:10:38.434Z",
+      "expiredAt": "2026-06-24T13:10:38.434Z",
+      "status": "completed",
+      "answers": {},
+      "id": "lL7tEpE_O2M",
+      "completedAt": "2026-06-24T12:10:45.273Z",
+      "submittedAt": "2026-06-24T12:10:45.273Z",
+      "correctCount": 0,
+      "totalScore": 1,
+      "score": 0,
+      "overallBandScore": 0
+    }
+  ],
+  "flashcardDecks": [
+    {
+      "id": "deck-1",
+      "title": "IELTS Reading: Academic Vocabulary",
+      "description": "Từ vựng cốt lõi thường xuyên xuất hiện trong phần thi Reading học thuật.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "premium",
+      "courseId": "course-002",
+      "status": "published",
+      "createdAt": "2026-06-20T10:00:00Z",
+      "updatedAt": "2026-06-27T14:08:55.357Z"
+    },
+    {
+      "id": "TCOYggEc8dw",
+      "title": "IELTS Environment & Nature",
+      "description": "Từ vựng chuyên đề Môi trường và Thiên nhiên (Thường gặp trong Task 2 & Speaking Part 3)",
+      "teacherId": "u-student-004",
+      "deckMode": "free",
+      "courseId": "",
+      "status": "published",
+      "createdAt": "2026-06-23T16:45:26.265Z",
+      "updatedAt": "2026-06-24T11:54:25.968Z"
+    },
+    {
+      "id": "aPZwGTPgqN0",
+      "title": "PET B1 Preliminary Essential Words",
+      "description": "Bộ từ vựng cơ bản đạt chuẩn B1 dành cho kỳ thi PET Cambridge.",
+      "teacherId": "u-student-004",
+      "deckMode": "free",
+      "courseId": "",
+      "status": "published",
+      "createdAt": "2026-06-24T11:56:57.611Z",
+      "updatedAt": "2026-06-24T12:08:33.985Z"
+    },
+    {
+      "id": "deck-4",
+      "title": "Common Phrasal Verbs",
+      "description": "10 Phrasal Verbs thông dụng nhất giúp ăn điểm từ vựng trong bài Speaking.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "free",
+      "courseId": "",
+      "status": "published",
+      "createdAt": "2026-06-25T10:00:00Z"
+    },
+    {
+      "id": "deck-5",
+      "title": "Idioms for IELTS Speaking",
+      "description": "Các thành ngữ (Idioms) phổ biến giúp nâng band điểm Speaking lên 7.0+.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "free",
+      "courseId": "",
+      "status": "published",
+      "createdAt": "2026-06-25T10:00:00Z"
+    },
+    {
+      "title": "aaaaaaaaaaaaaaa",
+      "description": "",
+      "deckMode": "course",
+      "courseId": "course-004",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-27T14:08:26.240Z",
+      "id": "cMRVjk0UR68",
+      "updatedAt": "2026-06-27T14:09:59.870Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

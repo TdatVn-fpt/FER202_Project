@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:9999';
+const API_URL = process.env.REACT_APP_DASHBOARD_API_URL || 'http://localhost:5000';
 
 /**
  * dashboardApi.js
