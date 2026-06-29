@@ -289,22 +289,6 @@
       "createdAt": "2026-06-28T10:07:55.776Z"
     },
     {
-      "id": "course-006",
-      "title": "aaaaaaaaaaaa",
-      "description": "aaaaaaaaaaaaaaaaaaaaa",
-      "syllabus": [],
-      "skill": "Reading",
-      "level": "Beginner",
-      "price": 1000000,
-      "isPremium": true,
-      "thumbnail": "",
-      "teacherId": "u-teacher-001",
-      "status": "draft",
-      "enrolledCount": 0,
-      "durationWeeks": 4,
-      "createdAt": "2026-06-28T13:54:31.813Z"
-    },
-    {
       "id": "course-007",
       "title": "IELTS Reading Foundation 3.0 - 4.5",
       "description": "Khóa học cung cấp kiến thức nền tảng cho kỹ năng IELTS Reading, phù hợp với học viên trình độ Beginner. Nội dung tập trung vào cách đọc hiểu bài IELTS, nhận diện từ khóa, skimming, scanning, xử lý câu hỏi True/False/Not Given, Matching, Multiple Choice và Gap Fill. Sau khóa học, học viên có thể nắm vững phương pháp làm bài cơ bản và cải thiện tốc độ đọc hiểu.",
@@ -319,6 +303,90 @@
       "enrolledCount": 0,
       "durationWeeks": 4,
       "createdAt": "2026-06-28T14:02:31.641Z"
+    },
+    {
+      "id": "course-008",
+      "title": "IELTS Speaking: Band 7.5+ Masterclass",
+      "description": "Succeed in your IELTS Speaking test with our advanced masterclass. Focuses on fluency, pronunciation, range of vocabulary, and coherent structuring of Parts 1, 2, and 3.",
+      "syllabus": [
+        "Part 1: Conversational Starters & Fluency Tips",
+        "Part 2: Structuring Your 2-Minute Talk",
+        "Part 3: Mastering Abstract Questions",
+        "Avoiding Common Vocabulary & Pronunciation Pitfalls"
+      ],
+      "skill": "Speaking",
+      "level": "Advanced",
+      "price": 590000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
+      "enrolledCount": 42,
+      "durationWeeks": 6,
+      "createdAt": "2026-06-25T08:00:00Z"
+    },
+    {
+      "id": "course-009",
+      "title": "IELTS Writing Task 1: Academic Report Guide",
+      "description": "Learn how to summarize and describe visual information (bar charts, line graphs, pie charts, tables, diagrams, maps) systematically to score Band 7.0+ in Task 1.",
+      "syllabus": [
+        "Overview Writing & Structured Paragraphing",
+        "Describing Trends, Percentages, and Comparisons",
+        "Grammar Structures for Graph Description",
+        "Step-by-Step Map & Process Diagrams Walkthrough"
+      ],
+      "skill": "Writing",
+      "level": "Intermediate",
+      "price": 350000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead27d8?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
+      "enrolledCount": 58,
+      "durationWeeks": 4,
+      "createdAt": "2026-06-26T08:00:00Z"
+    },
+    {
+      "id": "course-010",
+      "title": "IELTS Listening: High-Score Strategies",
+      "description": "Develop your active listening skills and build strategies for all 4 sections. Learn how to handle distractors, identify key synonyms, and complete sentences accurately.",
+      "syllabus": [
+        "Form & Note Completion Techniques",
+        "Mastering Multiple Choice & Matching Questions",
+        "Map & Diagram Labeling Decoded",
+        "Academic Lectures & Section 4 Strategies"
+      ],
+      "skill": "Listening",
+      "level": "Intermediate",
+      "price": 0,
+      "isPremium": false,
+      "thumbnail": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
+      "enrolledCount": 95,
+      "durationWeeks": 5,
+      "createdAt": "2026-06-27T08:00:00Z"
+    },
+    {
+      "id": "course-011",
+      "title": "IELTS Reading: Speed & Accuracy Booster",
+      "description": "Tackle long academic texts with confidence. Master time management strategies, learn skimming and scanning, and avoid traps in True/False/Not Given and List of Headings.",
+      "syllabus": [
+        "Time Management & Active Reading Techniques",
+        "Deconstruct True, False, Not Given Questions",
+        "Cracking Matching Headings & Features",
+        "Completing Summaries & Sentence Completions"
+      ],
+      "skill": "Reading",
+      "level": "Advanced",
+      "price": 490000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
+      "enrolledCount": 71,
+      "durationWeeks": 6,
+      "createdAt": "2026-06-28T08:00:00Z"
     }
   ],
   "freeResources": [
@@ -381,30 +449,6 @@
       "teacherId": "u-teacher-001"
     },
     {
-      "id": "lesson-006",
-      "courseId": "course-004",
-      "title": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "order": 1,
-      "durationMinutes": 30,
-      "contentUrl": "https://www.youtube.com/watch?v=IevmdO16GuE",
-      "audioUrl": "",
-      "teacherId": "u-teacher-001",
-      "status": "published",
-      "createdAt": "2026-06-27T13:41:47.182Z"
-    },
-    {
-      "id": "lesson-007",
-      "courseId": "course-006",
-      "title": "reading ielts ",
-      "order": 1,
-      "durationMinutes": 30,
-      "contentUrl": "https://www.youtube.com/watch?v=a0fOt81glvA",
-      "audioUrl": "",
-      "teacherId": "u-teacher-001",
-      "status": "published",
-      "createdAt": "2026-06-28T13:56:19.303Z"
-    },
-    {
       "id": "lesson-008",
       "courseId": "course-007",
       "title": "Reading lesson 1",
@@ -415,6 +459,54 @@
       "teacherId": "u-teacher-001",
       "status": "published",
       "createdAt": "2026-06-28T14:03:08.180Z"
+    },
+    {
+      "id": "lesson-009",
+      "courseId": "course-008",
+      "title": "Speaking Lesson 1: Fluency & Coherence in Part 1",
+      "order": 1,
+      "durationMinutes": 40,
+      "contentUrl": "https://www.youtube.com/watch?v=sRFEVurxO2c",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-25T09:00:00Z"
+    },
+    {
+      "id": "lesson-010",
+      "courseId": "course-009",
+      "title": "Writing Lesson 1: Writing a High-Scoring Overview",
+      "order": 1,
+      "durationMinutes": 50,
+      "contentUrl": "https://www.youtube.com/watch?v=P_7ZfVfJgq8",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-26T09:00:00Z"
+    },
+    {
+      "id": "lesson-011",
+      "courseId": "course-010",
+      "title": "Listening Lesson 1: Form Completion Distractors",
+      "order": 1,
+      "durationMinutes": 35,
+      "contentUrl": "https://www.youtube.com/watch?v=IevmdO16GuE",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-27T09:00:00Z"
+    },
+    {
+      "id": "lesson-012",
+      "courseId": "course-011",
+      "title": "Reading Lesson 1: Smart Skimming & Keyword Scanning",
+      "order": 1,
+      "durationMinutes": 45,
+      "contentUrl": "https://www.youtube.com/watch?v=a0fOt81glvA",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-28T09:00:00Z"
     }
   ],
   "tests": [
@@ -3260,6 +3352,101 @@
       "totalScore": 1,
       "score": 0,
       "overallBandScore": 0
+    },
+    {
+      "id": "ta-003",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "2GcMtr7u18M",
+      "skill": "Reading",
+      "status": "in-progress",
+      "startTime": "2026-06-29T10:15:54.604Z",
+      "createdAt": "2026-06-29T10:15:54.606Z"
+    },
+    {
+      "id": "ta-004",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "test-002",
+      "skill": "Listening",
+      "status": "in-progress",
+      "startTime": "2026-06-29T10:16:02.667Z",
+      "createdAt": "2026-06-29T10:16:02.673Z"
+    },
+    {
+      "id": "ta-005",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "sample-test-004",
+      "skill": "Speaking",
+      "status": "in-progress",
+      "startTime": "2026-06-29T10:16:24.189Z",
+      "createdAt": "2026-06-29T10:16:24.196Z"
+    },
+    {
+      "id": "ta-006",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "sample-test-007",
+      "skill": "Writing",
+      "status": "completed",
+      "startTime": "2026-06-29T10:16:38.786Z",
+      "createdAt": "2026-06-29T10:16:38.788Z",
+      "completedAt": "2026-06-29T10:16:41.902Z",
+      "answers": {},
+      "submittedAt": "2026-06-29T10:16:41.902Z",
+      "gradingStatus": "pending"
+    },
+    {
+      "id": "ta-007",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "sample-test-007",
+      "skill": "Writing",
+      "status": "completed",
+      "startTime": "2026-06-29T10:26:37.669Z",
+      "createdAt": "2026-06-29T10:26:37.673Z",
+      "completedAt": "2026-06-29T10:26:47.690Z",
+      "answers": {
+        "task1": "sdafsadfsadfafsd",
+        "task2": "fsdaadfsafdsdfsadfsadádfsdaffsadfsadfssfdasfda"
+      },
+      "submittedAt": "2026-06-29T10:26:47.689Z",
+      "gradingStatus": "pending"
+    },
+    {
+      "id": "ta-008",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "Mx539GlgPjQ",
+      "skill": "Writing",
+      "status": "completed",
+      "startTime": "2026-06-29T10:27:17.315Z",
+      "createdAt": "2026-06-29T10:27:17.319Z",
+      "completedAt": "2026-06-29T10:27:22.015Z",
+      "answers": {
+        "task1": "ffffffffffffffffff",
+        "task2": "fffffffffffffffffffffff"
+      },
+      "submittedAt": "2026-06-29T10:27:22.015Z",
+      "gradingStatus": "pending"
+    },
+    {
+      "id": "ta-009",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "Mx539GlgPjQ",
+      "skill": "Writing",
+      "status": "completed",
+      "startTime": "2026-06-29T10:44:18.540Z",
+      "createdAt": "2026-06-29T10:44:18.544Z",
+      "completedAt": "2026-06-29T10:44:28.216Z",
+      "answers": {
+        "task1": "ddddddd",
+        "task2": "ddddddddd"
+      },
+      "submittedAt": "2026-06-29T10:44:28.216Z",
+      "gradingStatus": "pending"
     }
   ],
   "flashcardDecks": [

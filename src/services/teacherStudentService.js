@@ -15,5 +15,13 @@ export const teacherStudentService = {
   getTestAttempts: async () => {
     const response = await axios.get(`${API_URL}/testAttempts`);
     return response.data;
+  },
+  gradeAttempt: async (attemptId, gradeData) => {
+    const response = await axios.patch(`${API_URL}/testAttempts/${attemptId}`, {
+      ...gradeData,
+      gradingStatus: 'graded',
+      status: 'completed'
+    });
+    return response.data;
   }
 };

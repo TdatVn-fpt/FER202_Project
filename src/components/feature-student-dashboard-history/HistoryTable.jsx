@@ -65,15 +65,21 @@ const HistoryTable = ({ attempts }) => {
                   <small className="text-muted">{attempt.skill}</small>
                 </td>
                 <td>
-                  <span className="badge text-white rounded-pill px-3 py-2" style={{ backgroundColor: '#0052ff' }}>
-                    {attempt.overallBandScore || attempt.score || 'N/A'}
-                  </span>
+                  {attempt.gradingStatus === 'pending' ? (
+                    <span className="badge bg-warning text-dark rounded-pill px-3 py-2">
+                      Chờ chấm
+                    </span>
+                  ) : (
+                    <span className="badge text-white rounded-pill px-3 py-2" style={{ backgroundColor: '#0052ff' }}>
+                      Band {attempt.bandScore || attempt.overallBandScore || 'N/A'}
+                    </span>
+                  )}
                 </td>
-                <td className="text-muted">{Math.round(attempt.timeSpent / 60)}</td>
+                <td className="text-muted">{Math.round((attempt.timeSpent || 0) / 60) || '-'}</td>
                 <td className="text-end pe-4">
                   <button 
                     className="btn btn-sm btn-outline-primary fw-bold px-3"
-                    onClick={() => navigate(`/learning/history/${attempt.id}`)}
+                    onClick={() => navigate(`/learning/tests/review/${attempt.id}`)}
                     data-testid={`btn-view-${attempt.id}`}
                   >
                     View
