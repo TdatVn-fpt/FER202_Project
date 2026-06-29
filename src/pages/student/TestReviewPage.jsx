@@ -292,6 +292,34 @@ export default function TestReviewPage() {
               </div>
             </div>
           </div>
+        ) : (attempt.gradingStatus === 'graded' || attempt.bandScore !== null) ? (
+          <div className="row g-3 mb-5">
+            <div className="col-12 col-md-3">
+              <div className="rounded-4 p-4 text-center h-100 bg-white shadow-sm" style={{ border: '2px solid #10b981' }}>
+                <div style={{ fontSize: 40, fontWeight: 900, color: '#10b981' }}>
+                  {Number(attempt.bandScore || 0).toFixed(1)}
+                </div>
+                <div className="text-muted small text-uppercase fw-bold">Band Score</div>
+              </div>
+            </div>
+            <div className="col-12 col-md-6">
+              <div className="rounded-4 p-4 h-100 bg-white shadow-sm" style={{ borderLeft: '4px solid #8b5cf6' }}>
+                <div className="fw-bold text-dark mb-1" style={{ fontSize: '0.9rem' }}>
+                  <i className="bi bi-chat-left-text me-2 text-primary"></i>Nhận xét từ giáo viên:
+                </div>
+                <div className="text-secondary small lh-base" style={{ whiteSpace: 'pre-wrap' }}>
+                  {attempt.feedback || 'Không có nhận xét chi tiết.'}
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-md-3">
+              <div className="rounded-4 p-4 text-center h-100 shadow-sm" style={{ background: sk.bg, border: `1px solid ${sk.color}40` }}>
+                <i className="bi bi-patch-check-fill" style={{ fontSize: 36, color: '#10b981' }} />
+                <div className="fw-bold mt-2" style={{ color: '#10b981' }}>Đã chấm</div>
+                <div className="text-muted small">{normalizedTest.skill}</div>
+              </div>
+            </div>
+          </div>
         ) : (
           <div className="row g-3 mb-5">
             <div className="col-12 col-md-4">
