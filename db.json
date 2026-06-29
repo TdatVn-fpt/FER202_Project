@@ -287,6 +287,38 @@
       "enrolledCount": 0,
       "durationWeeks": 4,
       "createdAt": "2026-06-28T10:07:55.776Z"
+    },
+    {
+      "id": "course-006",
+      "title": "aaaaaaaaaaaa",
+      "description": "aaaaaaaaaaaaaaaaaaaaa",
+      "syllabus": [],
+      "skill": "Reading",
+      "level": "Beginner",
+      "price": 1000000,
+      "isPremium": true,
+      "thumbnail": "",
+      "teacherId": "u-teacher-001",
+      "status": "draft",
+      "enrolledCount": 0,
+      "durationWeeks": 4,
+      "createdAt": "2026-06-28T13:54:31.813Z"
+    },
+    {
+      "id": "course-007",
+      "title": "IELTS Reading Foundation 3.0 - 4.5",
+      "description": "Khóa học cung cấp kiến thức nền tảng cho kỹ năng IELTS Reading, phù hợp với học viên trình độ Beginner. Nội dung tập trung vào cách đọc hiểu bài IELTS, nhận diện từ khóa, skimming, scanning, xử lý câu hỏi True/False/Not Given, Matching, Multiple Choice và Gap Fill. Sau khóa học, học viên có thể nắm vững phương pháp làm bài cơ bản và cải thiện tốc độ đọc hiểu.",
+      "syllabus": [],
+      "skill": "Reading",
+      "level": "Beginner",
+      "price": 1000,
+      "isPremium": true,
+      "thumbnail": "https://www.google.com/imgres?q=reading%20ielts&imgurl=http%3A%2F%2Fgdcenglish.edu.vn%2Fwp-content%2Fuploads%2F2023%2F04%2FIELTS-Mock-Test-Reading.png&imgrefurl=https%3A%2F%2Fgdcenglish.edu.vn%2F6-tips-chinh-phuc-ielts-reading-hieu-qua%2F&docid=8h_de61zDxiMDM&tbnid=V8XT3amcUVl93M&vet=12ahUKEwjjuNfTjKqVAxWnjK8BHefWHVsQnPAOegQIJBAB..i&w=1200&h=628&hcb=2&ved=2ahUKEwjjuNfTjKqVAxWnjK8BHefWHVsQnPAOegQIJBAB",
+      "teacherId": "u-teacher-001",
+      "status": "pending",
+      "enrolledCount": 0,
+      "durationWeeks": 4,
+      "createdAt": "2026-06-28T14:02:31.641Z"
     }
   ],
   "freeResources": [
@@ -359,6 +391,30 @@
       "teacherId": "u-teacher-001",
       "status": "published",
       "createdAt": "2026-06-27T13:41:47.182Z"
+    },
+    {
+      "id": "lesson-007",
+      "courseId": "course-006",
+      "title": "reading ielts ",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=a0fOt81glvA",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-28T13:56:19.303Z"
+    },
+    {
+      "id": "lesson-008",
+      "courseId": "course-007",
+      "title": "Reading lesson 1",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=a0fOt81glvA",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-28T14:03:08.180Z"
     }
   ],
   "tests": [
@@ -1007,7 +1063,7 @@
       "description": "aaaaaaaaaaaaaaaaaaa",
       "skill": "Speaking",
       "testMode": "course",
-      "courseId": "course-004",
+      "courseId": "course-007",
       "isFreePreview": false,
       "status": "published",
       "practiceMode": "exam",
@@ -1058,7 +1114,7 @@
           }
         ]
       },
-      "updatedAt": "2026-06-27T14:07:39.164Z",
+      "updatedAt": "2026-06-28T14:04:58.424Z",
       "createdAt": "2026-06-27T14:07:01.921Z",
       "id": "I8hqTxITOmg"
     }
@@ -1398,6 +1454,13 @@
       "progress": 0,
       "enrolledAt": "2026-06-21T10:46:41.099Z",
       "id": "7SFfx-Z-jhg"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-007",
+      "progress": 0,
+      "enrolledAt": "2026-06-29T04:48:52.259Z",
+      "id": "WHA_Q9JK1Xc"
     }
   ],
   "payments": [
@@ -1455,6 +1518,21 @@
       "reviewedBy": null,
       "rejectReason": null,
       "id": "AqsxV97xKcY"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-007",
+      "amount": 1000,
+      "currency": "VND",
+      "method": "vietqr",
+      "transferContent": "IELTS course-007 -001",
+      "status": "paid",
+      "createdAt": "2026-06-29T04:43:17.419Z",
+      "paidAt": "2026-06-29T04:48:52.233Z",
+      "reviewedAt": "2026-06-29T04:48:52.233Z",
+      "reviewedBy": "admin",
+      "rejectReason": null,
+      "id": "HmihBvmiryA"
     }
   ],
   "transactions": [
@@ -1941,6 +2019,54 @@
       "targetType": "course",
       "targetId": "course-005",
       "createdAt": "2026-06-28T10:18:00.577Z"
+    },
+    {
+      "id": "log-021",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T13:54:31.824Z"
+    },
+    {
+      "id": "log-022",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T13:56:19.317Z"
+    },
+    {
+      "id": "log-023",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-28T14:02:31.649Z"
+    },
+    {
+      "id": "log-024",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-28T14:03:08.188Z"
+    },
+    {
+      "id": "log-025",
+      "actorId": "u-teacher-001",
+      "action": "ASSIGN_TEST_COURSE",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-28T14:04:58.441Z"
+    },
+    {
+      "id": "log-026",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-29T04:41:50.169Z"
     }
   ],
   "approvalRequests": [
@@ -3194,12 +3320,22 @@
       "title": "aaaaaaaaaaaaaaa",
       "description": "",
       "deckMode": "course",
-      "courseId": "course-004",
+      "courseId": "course-007",
       "teacherId": "u-teacher-001",
       "status": "published",
       "createdAt": "2026-06-27T14:08:26.240Z",
       "id": "cMRVjk0UR68",
-      "updatedAt": "2026-06-27T14:09:59.870Z"
+      "updatedAt": "2026-06-28T14:05:52.246Z"
+    },
+    {
+      "title": "aaaaaaaaa",
+      "description": "sssssssssss",
+      "deckMode": "free",
+      "courseId": "",
+      "teacherId": "u-teacher-001",
+      "status": "draft",
+      "createdAt": "2026-06-28T13:58:44.821Z",
+      "id": "HA3rzM39Jeg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -30,7 +30,13 @@ export default function Login() {
     try {
       const user = await loginWithEmailAndPassword(formData.email, formData.password);
       const fallbackPath = getDashboardPathByRole(user.role);
-      const redirectPath = location.state?.from?.pathname || fallbackPath;
+      let redirectPath = location.state?.from?.pathname || fallbackPath;
+      
+      // Force redirect to dashboard for non-student roles or if redirecting to guest homepage
+      if (user.role !== 'student' || redirectPath === '/') {
+        redirectPath = fallbackPath;
+      }
+      
       navigate(redirectPath, { replace: true });
     } catch (loginError) {
       setError(loginError.message === 'Invalid email or password'
