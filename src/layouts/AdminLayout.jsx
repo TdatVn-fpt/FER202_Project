@@ -79,11 +79,11 @@ export default function AdminLayout() {
             📝 Tests
           </NavLink>
           <NavLink
-            to="/admin/transactions"
+            to="/admin/payments"
             className={({ isActive }) => `admin-nav-link ${isActive ? 'active' : ''}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            💳 Transactions
+            💳 Payments
           </NavLink>
         </nav>
 

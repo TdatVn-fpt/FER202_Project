@@ -48,7 +48,7 @@ import UserManagement from '../pages/admin/UserManagement';
 import AdminCourseManagement from '../pages/admin/CourseManagement';
 import LessonManagement from '../pages/admin/LessonManagement';
 import TestManagement from '../pages/admin/TestManagement';
-import TransactionList from '../pages/admin/TransactionList';
+import PaymentManagement from '../pages/admin/PaymentManagement';
 
 import MainLayout from '../layouts/MainLayout';
 import StudentLayout from '../layouts/StudentLayout';
@@ -127,7 +127,7 @@ export default function AppRoutes() {
           <Route path="/admin/courses" element={<AdminCourseManagement />} />
           <Route path="/admin/lessons" element={<LessonManagement />} />
           <Route path="/admin/tests" element={<TestManagement />} />
-          <Route path="/admin/transactions" element={<TransactionList />} />
+          <Route path="/admin/payments" element={<PaymentManagement />} />
         </Route>
       </Route>
     </Routes>
