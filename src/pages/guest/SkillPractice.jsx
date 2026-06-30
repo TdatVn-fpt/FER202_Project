@@ -1,339 +1,282 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, Card, Button, Badge, ProgressBar, Alert } from 'react-bootstrap';
+import { Alert, Badge, Button, Card, Col, Container, Row, Spinner } from 'react-bootstrap';
+import { testService } from '../../services/testService';
 import './SkillPractice.css';
-
-// ============================================================
-// LUYỆN 4 KỸ NĂNG (GUEST) — trang tương tác không cần đăng nhập
-// Gồm: tổng quan 4 kỹ năng + bài Reading mini-quiz tự chấm điểm.
-// ============================================================
 
 const SKILLS = [
   {
-    key: 'listening',
-    name: 'Listening',
-    icon: '🎧',
-    variant: 'info',
-    time: '~30 phút',
-    parts: '4 phần • 40 câu',
-    desc: 'Nghe hội thoại và độc thoại từ đời sống tới học thuật, điền thông tin và chọn đáp án.',
-    tips: [
-      'Đọc trước câu hỏi để dự đoán dạng thông tin cần nghe.',
-      'Luôn nghĩ tới từ đồng nghĩa, audio hiếm khi đọc đúng từ trong câu hỏi.',
-      'Đáp án được sửa lời thì lấy thông tin nói sau cùng.',
-    ],
-    resourceId: 'listening-keywords',
-  },
-  {
     key: 'reading',
     name: 'Reading',
-    icon: '📖',
+    icon: 'bi-book',
     variant: 'primary',
-    time: '60 phút',
-    parts: '3 đoạn • 40 câu',
-    desc: 'Đọc hiểu văn bản học thuật, xử lý các dạng True/False/Not Given, Matching Headings...',
-    tips: [
-      'Skim lấy ý chính trước, scan tìm chi tiết sau.',
-      'Gạch chân từ khóa và để ý các từ chỉ định lượng (all, some, never).',
-      'Phân bổ thời gian đều cho 3 đoạn, đừng sa lầy một câu.',
-    ],
-    resourceId: 'reading-skimming-scanning',
+    time: '60 minutes',
+    parts: '3 passages - 40 questions',
+    desc: 'Academic reading passages with matching, completion, multiple choice, and True/False/Not Given.',
+    tips: ['Skim the whole passage first.', 'Scan names, dates, and numbers.', 'Watch absolute words such as all, never, always.'],
+  },
+  {
+    key: 'listening',
+    name: 'Listening',
+    icon: 'bi-headphones',
+    variant: 'info',
+    time: '30-40 minutes',
+    parts: '4 sections - 40 questions',
+    desc: 'Playable IELTS audio with form completion, map labelling, short answer, and multiple choice.',
+    tips: ['Preview the question type.', 'Listen for synonyms.', 'Use the final corrected answer if speakers self-correct.'],
   },
   {
     key: 'writing',
     name: 'Writing',
-    icon: '✍️',
+    icon: 'bi-pencil-square',
     variant: 'success',
-    time: '60 phút',
-    parts: '2 bài (Task 1 & 2)',
-    desc: 'Mô tả biểu đồ/quy trình (Task 1) và viết bài luận quan điểm 250 từ (Task 2).',
-    tips: [
-      'Dành 40 phút cho Task 2 vì chiếm trọng số điểm cao hơn.',
-      'Viết dàn bài 4 đoạn rõ ràng theo công thức PEEL.',
-      'Chừa 5 phút cuối để soát lỗi ngữ pháp và chính tả.',
-    ],
-    resourceId: 'writing-task2-structure',
+    time: '60 minutes',
+    parts: 'Task 1 + Task 2',
+    desc: 'Academic Task 1 visual report plus Task 2 essay with IELTS band criteria.',
+    tips: ['Spend more time on Task 2.', 'Plan before writing.', 'Check grammar and cohesion in the final minutes.'],
   },
   {
     key: 'speaking',
     name: 'Speaking',
-    icon: '🗣️',
+    icon: 'bi-mic',
     variant: 'warning',
-    time: '11-14 phút',
-    parts: '3 phần phỏng vấn',
-    desc: 'Phỏng vấn trực tiếp với giám khảo: giới thiệu bản thân, nói theo chủ đề và thảo luận.',
-    tips: [
-      'Part 1 trả lời 2-3 câu theo Answer + Reason + Example.',
-      'Dùng cụm câu giờ tự nhiên thay vì im lặng.',
-      'Giám khảo chấm độ trôi chảy, không chấm bạn nói thật hay bịa.',
-    ],
-    resourceId: 'speaking-part1-fluency',
+    time: '11-14 minutes',
+    parts: '3 interview parts',
+    desc: 'Part 1 interview, Part 2 cue card, and Part 3 extended discussion prompts.',
+    tips: ['Answer then extend with a reason.', 'Use natural linking phrases.', 'For Part 2, cover every cue-card bullet.'],
   },
 ];
 
-// Bài đọc mẫu + câu hỏi cho mini-quiz Reading
-const READING_PASSAGE = {
+const MINI_PASSAGE = {
   title: 'The Benefits of Reading Habits',
   paragraphs: [
-    'Reading regularly has been shown to improve vocabulary and concentration. People who read for at least 30 minutes a day tend to have a wider range of words at their disposal, which helps them express ideas more clearly in both speaking and writing.',
-    'Beyond language skills, reading also reduces stress. A study at the University of Sussex found that just six minutes of reading can lower stress levels by up to 68 percent, making it more effective than listening to music or going for a walk.',
-    'However, the benefits depend on the type of material. Reading challenging texts builds critical thinking, while reading only light content mainly provides entertainment. Experts therefore recommend a balanced reading diet that mixes both.',
+    'Reading regularly has been shown to improve vocabulary and concentration. People who read for at least 30 minutes a day tend to have a wider range of words at their disposal.',
+    'A study at the University of Sussex found that just six minutes of reading can lower stress levels by up to 68 percent, making it more effective than listening to music.',
+    'Experts recommend a balanced reading diet that mixes challenging texts with lighter material.',
   ],
 };
 
-const QUESTIONS = [
-  {
-    id: 'q1',
-    statement: 'Reading for 30 minutes a day can widen a person\'s vocabulary.',
-    options: ['TRUE', 'FALSE', 'NOT GIVEN'],
-    answer: 'TRUE',
-    explain: 'Đoạn 1 nói người đọc ít nhất 30 phút mỗi ngày có vốn từ rộng hơn.',
-  },
-  {
-    id: 'q2',
-    statement: 'Reading is more effective at reducing stress than listening to music.',
-    options: ['TRUE', 'FALSE', 'NOT GIVEN'],
-    answer: 'TRUE',
-    explain: 'Đoạn 2 nói đọc sách hiệu quả hơn nghe nhạc hay đi dạo trong việc giảm stress.',
-  },
-  {
-    id: 'q3',
-    statement: 'The University of Sussex study lasted six months.',
-    options: ['TRUE', 'FALSE', 'NOT GIVEN'],
-    answer: 'NOT GIVEN',
-    explain: 'Bài chỉ nhắc "6 phút đọc" giúp giảm stress, không nói nghiên cứu kéo dài bao lâu.',
-  },
-  {
-    id: 'q4',
-    statement: 'Experts suggest reading only light and entertaining content.',
-    options: ['TRUE', 'FALSE', 'NOT GIVEN'],
-    answer: 'FALSE',
-    explain: 'Đoạn 3 khuyên đọc cân bằng cả nội dung khó lẫn nhẹ nhàng, không chỉ nội dung giải trí.',
-  },
+const MINI_QUESTIONS = [
+  { id: 'q1', statement: "Reading for 30 minutes a day can widen a person's vocabulary.", answer: 'TRUE' },
+  { id: 'q2', statement: 'Reading is more effective at reducing stress than listening to music.', answer: 'TRUE' },
+  { id: 'q3', statement: 'The University of Sussex study lasted six months.', answer: 'NOT GIVEN' },
+  { id: 'q4', statement: 'Experts suggest reading only light and entertaining content.', answer: 'FALSE' },
 ];
 
 export default function SkillPractice() {
   const [activeSkill, setActiveSkill] = useState('reading');
   const [answers, setAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [approvedTests, setApprovedTests] = useState([]);
+  const [loadingTests, setLoadingTests] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    testService.getFreeTests()
+      .then((data) => setApprovedTests(data))
+      .catch(() => setApprovedTests([]))
+      .finally(() => setLoadingTests(false));
   }, []);
 
+  const selected = SKILLS.find((skill) => skill.key === activeSkill) || SKILLS[0];
+  const filteredTests = approvedTests.filter((test) => String(test.skill || '').toLowerCase() === activeSkill);
   const score = useMemo(
-    () => QUESTIONS.filter((q) => answers[q.id] === q.answer).length,
+    () => MINI_QUESTIONS.filter((question) => answers[question.id] === question.answer).length,
     [answers]
   );
-
-  const selected = SKILLS.find((s) => s.key === activeSkill) || SKILLS[1];
-
-  const handleSelect = (qId, option) => {
-    if (submitted) return;
-    setAnswers((prev) => ({ ...prev, [qId]: option }));
-  };
-
-  const handleSubmit = () => setSubmitted(true);
-  const handleReset = () => {
-    setAnswers({});
-    setSubmitted(false);
-  };
-
-  const allAnswered = QUESTIONS.every((q) => answers[q.id]);
+  const allAnswered = MINI_QUESTIONS.every((question) => answers[question.id]);
 
   return (
-    <div className="skills-page bg-light">
-      {/* HERO */}
-      <header className="skills-hero text-white">
+    <div className="skills-page">
+      <header className="skills-hero">
         <Container className="py-5">
-          <Row className="justify-content-center text-center">
+          <Row className="align-items-end g-4">
             <Col lg={8}>
               <Badge bg="light" text="dark" className="mb-3 px-3 py-2 rounded-pill text-uppercase">
-                Luyện tập tương tác
+                Approved IELTS practice
               </Badge>
-              <h1 className="display-5 fw-bold mb-3">Luyện 4 kỹ năng IELTS</h1>
-              <p className="fs-5 mb-0 text-white-50">
-                Hiểu cấu trúc bài thi, nắm chiến lược cốt lõi và thử ngay một bài Reading
-                tự chấm điểm, hoàn toàn miễn phí và không cần đăng nhập.
+              <h1 className="skills-title fw-bold mb-3">IELTS Skill Studio</h1>
+              <p className="skills-subtitle mb-0">
+                Hoc vien chi thay cac de da duoc admin chap nhan. Moi de ben duoi duoc tao tu tutor workflow va dang published.
               </p>
+            </Col>
+            <Col lg={4}>
+              <div className="skills-hero-panel">
+                <div className="small text-uppercase text-secondary fw-bold">Live approved tests</div>
+                <div className="display-6 fw-bold">{approvedTests.length}</div>
+                <div className="text-secondary small">Linked from Teacher Test Builder</div>
+              </div>
             </Col>
           </Row>
         </Container>
       </header>
 
       <Container className="py-5">
-        {/* TỔNG QUAN 4 KỸ NĂNG */}
-        <h2 className="h3 fw-bold text-center mb-4">Tổng quan bài thi</h2>
-        <Row className="g-4">
-          {SKILLS.map((s) => (
-            <Col key={s.key} sm={6} lg={3}>
+        <Row className="g-4 mb-4">
+          {SKILLS.map((skill) => (
+            <Col key={skill.key} sm={6} lg={3}>
               <Card
-                className={`skill-card h-100 border-0 shadow-sm ${activeSkill === s.key ? 'skill-card-active' : ''}`}
                 role="button"
-                onClick={() => setActiveSkill(s.key)}
+                className={`skill-card h-100 ${activeSkill === skill.key ? 'skill-card-active' : ''}`}
+                onClick={() => {
+                  setActiveSkill(skill.key);
+                  setSubmitted(false);
+                  setAnswers({});
+                }}
               >
-                <Card.Body className="text-center d-flex flex-column">
-                  <div className={`skill-icon bg-${s.variant}-subtle text-${s.variant} mx-auto mb-3`}>
-                    <span>{s.icon}</span>
+                <Card.Body>
+                  <div className={`skill-icon bg-${skill.variant}-subtle text-${skill.variant} mb-4`}>
+                    <i className={`bi ${skill.icon}`} />
                   </div>
-                  <Card.Title as="h3" className="fs-5 fw-bold mb-1">{s.name}</Card.Title>
-                  <div className="small text-muted mb-2">{s.time} • {s.parts}</div>
-                  <Card.Text className="small text-body-secondary flex-grow-1">{s.desc}</Card.Text>
-                  <span className={`small fw-semibold text-${s.variant}`}>
-                    {activeSkill === s.key ? 'Đang xem mẹo ↓' : 'Xem mẹo làm bài'}
-                  </span>
+                  <div className="small text-uppercase text-secondary fw-bold mb-1">{skill.time}</div>
+                  <h3 className="fs-5 fw-bold mb-2">{skill.name}</h3>
+                  <p className="text-secondary small mb-3">{skill.desc}</p>
+                  <div className="small fw-semibold">{skill.parts}</div>
                 </Card.Body>
               </Card>
             </Col>
           ))}
         </Row>
 
-        {/* MẸO CHO KỸ NĂNG ĐANG CHỌN */}
-        <Card className="border-0 shadow-sm mt-4">
+        <Card className="skill-focus-card border-0 mb-5">
           <Card.Body className="p-4">
-            <div className="d-flex align-items-center gap-3 mb-3">
-              <span className="fs-3">{selected.icon}</span>
-              <div>
-                <h3 className="h5 fw-bold mb-0">Chiến lược cho {selected.name}</h3>
-                <span className="small text-muted">{selected.time} • {selected.parts}</span>
-              </div>
-            </div>
-            <Row className="g-3">
-              {selected.tips.map((tip, i) => (
-                <Col md={4} key={i}>
-                  <div className="skill-tip h-100">
-                    <span className={`skill-tip-num bg-${selected.variant}`}>{i + 1}</span>
-                    <p className="mb-0 small">{tip}</p>
+            <Row className="g-4 align-items-center">
+              <Col lg={5}>
+                <div className="d-flex align-items-center gap-3">
+                  <span className={`skill-inline-icon bg-${selected.variant}-subtle text-${selected.variant}`}>
+                    <i className={`bi ${selected.icon}`} />
+                  </span>
+                  <div>
+                    <div className="small text-uppercase text-secondary fw-bold">Current skill</div>
+                    <h2 className="h4 fw-bold mb-0">{selected.name}</h2>
                   </div>
-                </Col>
-              ))}
+                </div>
+              </Col>
+              <Col lg={7}>
+                <Row className="g-3">
+                  {selected.tips.map((tip, index) => (
+                    <Col md={4} key={tip}>
+                      <div className="skill-tip h-100">
+                        <span className={`skill-tip-num bg-${selected.variant}`}>{index + 1}</span>
+                        <p className="mb-0 small">{tip}</p>
+                      </div>
+                    </Col>
+                  ))}
+                </Row>
+              </Col>
             </Row>
-            <div className="mt-3">
-              <Button
-                as={Link}
-                to={`/resources/${selected.resourceId}`}
-                variant={`outline-${selected.variant}`}
-                size="sm"
-                className="rounded-pill px-3"
-              >
-                Đọc hướng dẫn chi tiết {selected.name} →
-              </Button>
-            </div>
           </Card.Body>
         </Card>
 
-        {/* MINI-QUIZ READING */}
-        <div className="mt-5">
-          <div className="text-center mb-4">
-            <Badge bg="primary" className="mb-2 px-3 py-2">Thử sức ngay</Badge>
-            <h2 className="h3 fw-bold mb-1">Bài luyện Reading: True / False / Not Given</h2>
-            <p className="text-muted mb-0">Đọc đoạn văn rồi chọn đáp án cho 4 nhận định. Hệ thống sẽ tự chấm điểm.</p>
+        <section className="mb-5">
+          <div className="d-flex justify-content-between align-items-end gap-3 flex-wrap mb-4">
+            <div>
+              <Badge bg="success" className="mb-2 px-3 py-2 rounded-pill">Admin approved</Badge>
+              <h2 className="h3 fw-bold mb-1">De tutor tao da duoc duyet: {selected.name}</h2>
+              <p className="text-secondary mb-0">Teacher tao de, admin approve, hoc vien nhin thay tai day.</p>
+            </div>
+            <Button as={Link} to="/free-tests" variant="outline-dark" className="rounded-pill px-4">
+              View all tests
+            </Button>
           </div>
 
           <Row className="g-4">
-            {/* PASSAGE */}
-            <Col lg={6}>
-              <Card className="border-0 shadow-sm h-100">
-                <Card.Body className="p-4">
-                  <h3 className="h5 fw-bold mb-3">{READING_PASSAGE.title}</h3>
-                  {READING_PASSAGE.paragraphs.map((p, i) => (
-                    <p key={i} className="text-body-secondary">{p}</p>
-                  ))}
-                </Card.Body>
-              </Card>
-            </Col>
+            {loadingTests ? (
+              <Col xs={12} className="text-center py-5">
+                <Spinner animation="border" variant={selected.variant} />
+              </Col>
+            ) : filteredTests.length === 0 ? (
+              <Col xs={12}>
+                <Alert variant="info" className="text-center border-0 shadow-sm">
+                  Chua co de published cho ky nang nay. Hay gui de tu Teacher Test Builder va admin approve.
+                </Alert>
+              </Col>
+            ) : (
+              filteredTests.map((test, index) => (
+                <Col md={6} xl={4} key={test.id}>
+                  <Card className="approved-test-card h-100" style={{ '--test-index': index }}>
+                    <Card.Body className="d-flex flex-column">
+                      <div className="d-flex justify-content-between align-items-start gap-3 mb-3">
+                        <Badge bg={selected.variant}>{test.skill}</Badge>
+                        <Badge bg="success">Published</Badge>
+                      </div>
+                      <Card.Title as="h3" className="fs-5 fw-bold">{test.title}</Card.Title>
+                      <p className="text-secondary small flex-grow-1">{test.description || 'IELTS practice test created by tutor and approved by admin.'}</p>
+                      <div className="approved-meta mb-3">
+                        <span><i className="bi bi-clock me-1" />{test.durationMinutes} min</span>
+                        <span><i className="bi bi-list-check me-1" />{test.totalQuestions} questions</span>
+                      </div>
+                      <Button as={Link} to={`/free-tests/${test.id}`} variant={selected.variant} className="w-100 fw-semibold">
+                        Lam bai ngay
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))
+            )}
+          </Row>
+        </section>
 
-            {/* QUESTIONS */}
-            <Col lg={6}>
-              <Card className="border-0 shadow-sm h-100">
-                <Card.Body className="p-4">
-                  {QUESTIONS.map((q, idx) => {
-                    const userAns = answers[q.id];
-                    const isCorrect = userAns === q.answer;
-                    return (
-                      <div key={q.id} className="quiz-item mb-4">
+        {activeSkill === 'reading' && (
+          <section className="mini-quiz-section">
+            <div className="text-center mb-4">
+              <Badge bg="primary" className="mb-2 px-3 py-2">Quick check</Badge>
+              <h2 className="h3 fw-bold mb-1">Reading mini quiz: True / False / Not Given</h2>
+            </div>
+            <Row className="g-4">
+              <Col lg={6}>
+                <Card className="border-0 shadow-sm h-100">
+                  <Card.Body className="p-4">
+                    <h3 className="h5 fw-bold mb-3">{MINI_PASSAGE.title}</h3>
+                    {MINI_PASSAGE.paragraphs.map((paragraph) => (
+                      <p key={paragraph} className="text-secondary">{paragraph}</p>
+                    ))}
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col lg={6}>
+                <Card className="border-0 shadow-sm h-100">
+                  <Card.Body className="p-4">
+                    {MINI_QUESTIONS.map((question, index) => (
+                      <div key={question.id} className="quiz-item mb-4">
                         <p className="fw-semibold mb-2">
-                          <span className="text-primary me-1">{idx + 1}.</span>{q.statement}
+                          <span className="text-primary me-1">{index + 1}.</span>{question.statement}
                         </p>
                         <div className="d-flex flex-wrap gap-2">
-                          {q.options.map((opt) => {
-                            let variant = 'outline-secondary';
-                            if (submitted) {
-                              if (opt === q.answer) variant = 'success';
-                              else if (opt === userAns) variant = 'danger';
-                            } else if (userAns === opt) {
-                              variant = 'primary';
-                            }
+                          {['TRUE', 'FALSE', 'NOT GIVEN'].map((option) => {
+                            const selectedAnswer = answers[question.id] === option;
+                            const correct = submitted && option === question.answer;
+                            const wrong = submitted && selectedAnswer && option !== question.answer;
                             return (
                               <Button
-                                key={opt}
+                                key={option}
                                 size="sm"
-                                variant={variant}
+                                variant={correct ? 'success' : wrong ? 'danger' : selectedAnswer ? 'primary' : 'outline-secondary'}
                                 className="rounded-pill px-3"
-                                onClick={() => handleSelect(q.id, opt)}
+                                onClick={() => !submitted && setAnswers((prev) => ({ ...prev, [question.id]: option }))}
                               >
-                                {opt}
+                                {option}
                               </Button>
                             );
                           })}
                         </div>
-                        {submitted && (
-                          <p className={`small mt-2 mb-0 ${isCorrect ? 'text-success' : 'text-danger'}`}>
-                            {isCorrect ? '✓ Chính xác. ' : '✗ Chưa đúng. '}{q.explain}
-                          </p>
-                        )}
                       </div>
-                    );
-                  })}
-
-                  {!submitted ? (
-                    <Button
-                      variant="primary"
-                      className="w-100 fw-semibold"
-                      disabled={!allAnswered}
-                      onClick={handleSubmit}
-                    >
-                      {allAnswered ? 'Nộp bài & xem kết quả' : 'Hãy trả lời tất cả câu hỏi'}
-                    </Button>
-                  ) : (
-                    <div>
-                      <Alert variant={score >= 3 ? 'success' : 'warning'} className="mb-3">
-                        <strong>Kết quả: {score}/{QUESTIONS.length} câu đúng.</strong>{' '}
-                        {score >= 3 ? 'Làm tốt lắm! Bạn đã nắm được dạng bài này.' : 'Đừng nản, hãy đọc lại hướng dẫn và thử lại nhé.'}
-                      </Alert>
-                      <ProgressBar
-                        now={(score / QUESTIONS.length) * 100}
-                        variant={score >= 3 ? 'success' : 'warning'}
-                        className="mb-3"
-                      />
-                      <Button variant="outline-primary" className="w-100" onClick={handleReset}>
-                        Làm lại
+                    ))}
+                    {!submitted ? (
+                      <Button className="w-100 fw-semibold" disabled={!allAnswered} onClick={() => setSubmitted(true)}>
+                        {allAnswered ? 'Submit mini quiz' : 'Answer all questions'}
                       </Button>
-                    </div>
-                  )}
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </div>
-
-        {/* CTA */}
-        <Card className="skills-cta border-0 text-white text-center mt-5">
-          <Card.Body className="py-5">
-            <h2 className="fw-bold mb-2">Sẵn sàng luyện tập nghiêm túc?</h2>
-            <p className="mb-4 text-white-50">
-              Đăng ký để mở khóa flashcard từ vựng, bài test chấm điểm tự động và lộ trình theo dõi tiến độ.
-            </p>
-            <div className="d-flex gap-3 justify-content-center flex-wrap">
-              <Button as={Link} to="/register" variant="light" className="fw-semibold px-4">
-                Tạo tài khoản miễn phí
-              </Button>
-              <Button as={Link} to="/online-courses" variant="outline-light" className="fw-semibold px-4">
-                Xem khóa học có giảng viên
-              </Button>
-            </div>
-          </Card.Body>
-        </Card>
+                    ) : (
+                      <Alert variant={score >= 3 ? 'success' : 'warning'} className="mb-0">
+                        Result: <strong>{score}/{MINI_QUESTIONS.length}</strong>
+                      </Alert>
+                    )}
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+          </section>
+        )}
       </Container>
     </div>
   );
