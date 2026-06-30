@@ -289,20 +289,104 @@
       "createdAt": "2026-06-28T10:07:55.776Z"
     },
     {
-      "id": "course-004",
-      "title": "aaaaaaaaaaaaaaa",
-      "description": "aaaaaaaaaaaaaaaaaaaaaa",
+      "id": "course-007",
+      "title": "IELTS Reading Foundation 3.0 - 4.5",
+      "description": "Khóa học cung cấp kiến thức nền tảng cho kỹ năng IELTS Reading, phù hợp với học viên trình độ Beginner. Nội dung tập trung vào cách đọc hiểu bài IELTS, nhận diện từ khóa, skimming, scanning, xử lý câu hỏi True/False/Not Given, Matching, Multiple Choice và Gap Fill. Sau khóa học, học viên có thể nắm vững phương pháp làm bài cơ bản và cải thiện tốc độ đọc hiểu.",
       "syllabus": [],
       "skill": "Reading",
       "level": "Beginner",
-      "price": 10000000,
+      "price": 1000,
       "isPremium": true,
-      "thumbnail": "",
+      "thumbnail": "https://www.google.com/imgres?q=reading%20ielts&imgurl=http%3A%2F%2Fgdcenglish.edu.vn%2Fwp-content%2Fuploads%2F2023%2F04%2FIELTS-Mock-Test-Reading.png&imgrefurl=https%3A%2F%2Fgdcenglish.edu.vn%2F6-tips-chinh-phuc-ielts-reading-hieu-qua%2F&docid=8h_de61zDxiMDM&tbnid=V8XT3amcUVl93M&vet=12ahUKEwjjuNfTjKqVAxWnjK8BHefWHVsQnPAOegQIJBAB..i&w=1200&h=628&hcb=2&ved=2ahUKEwjjuNfTjKqVAxWnjK8BHefWHVsQnPAOegQIJBAB",
       "teacherId": "u-teacher-001",
-      "status": "draft",
+      "status": "pending",
       "enrolledCount": 0,
       "durationWeeks": 4,
-      "createdAt": "2026-06-27T13:39:39.567Z"
+      "createdAt": "2026-06-28T14:02:31.641Z"
+    },
+    {
+      "id": "course-008",
+      "title": "IELTS Speaking: Band 7.5+ Masterclass",
+      "description": "Succeed in your IELTS Speaking test with our advanced masterclass. Focuses on fluency, pronunciation, range of vocabulary, and coherent structuring of Parts 1, 2, and 3.",
+      "syllabus": [
+        "Part 1: Conversational Starters & Fluency Tips",
+        "Part 2: Structuring Your 2-Minute Talk",
+        "Part 3: Mastering Abstract Questions",
+        "Avoiding Common Vocabulary & Pronunciation Pitfalls"
+      ],
+      "skill": "Speaking",
+      "level": "Advanced",
+      "price": 590000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
+      "enrolledCount": 42,
+      "durationWeeks": 6,
+      "createdAt": "2026-06-25T08:00:00Z"
+    },
+    {
+      "id": "course-009",
+      "title": "IELTS Writing Task 1: Academic Report Guide",
+      "description": "Learn how to summarize and describe visual information (bar charts, line graphs, pie charts, tables, diagrams, maps) systematically to score Band 7.0+ in Task 1.",
+      "syllabus": [
+        "Overview Writing & Structured Paragraphing",
+        "Describing Trends, Percentages, and Comparisons",
+        "Grammar Structures for Graph Description",
+        "Step-by-Step Map & Process Diagrams Walkthrough"
+      ],
+      "skill": "Writing",
+      "level": "Intermediate",
+      "price": 350000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead27d8?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
+      "enrolledCount": 58,
+      "durationWeeks": 4,
+      "createdAt": "2026-06-26T08:00:00Z"
+    },
+    {
+      "id": "course-010",
+      "title": "IELTS Listening: High-Score Strategies",
+      "description": "Develop your active listening skills and build strategies for all 4 sections. Learn how to handle distractors, identify key synonyms, and complete sentences accurately.",
+      "syllabus": [
+        "Form & Note Completion Techniques",
+        "Mastering Multiple Choice & Matching Questions",
+        "Map & Diagram Labeling Decoded",
+        "Academic Lectures & Section 4 Strategies"
+      ],
+      "skill": "Listening",
+      "level": "Intermediate",
+      "price": 0,
+      "isPremium": false,
+      "thumbnail": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
+      "enrolledCount": 95,
+      "durationWeeks": 5,
+      "createdAt": "2026-06-27T08:00:00Z"
+    },
+    {
+      "id": "course-011",
+      "title": "IELTS Reading: Speed & Accuracy Booster",
+      "description": "Tackle long academic texts with confidence. Master time management strategies, learn skimming and scanning, and avoid traps in True/False/Not Given and List of Headings.",
+      "syllabus": [
+        "Time Management & Active Reading Techniques",
+        "Deconstruct True, False, Not Given Questions",
+        "Cracking Matching Headings & Features",
+        "Completing Summaries & Sentence Completions"
+      ],
+      "skill": "Reading",
+      "level": "Advanced",
+      "price": 490000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
+      "enrolledCount": 71,
+      "durationWeeks": 6,
+      "createdAt": "2026-06-28T08:00:00Z"
     }
   ],
   "freeResources": [
@@ -365,16 +449,64 @@
       "teacherId": "u-teacher-001"
     },
     {
-      "id": "lesson-006",
-      "courseId": "course-004",
-      "title": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "id": "lesson-008",
+      "courseId": "course-007",
+      "title": "Reading lesson 1",
       "order": 1,
       "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=a0fOt81glvA",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-28T14:03:08.180Z"
+    },
+    {
+      "id": "lesson-009",
+      "courseId": "course-008",
+      "title": "Speaking Lesson 1: Fluency & Coherence in Part 1",
+      "order": 1,
+      "durationMinutes": 40,
+      "contentUrl": "https://www.youtube.com/watch?v=sRFEVurxO2c",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-25T09:00:00Z"
+    },
+    {
+      "id": "lesson-010",
+      "courseId": "course-009",
+      "title": "Writing Lesson 1: Writing a High-Scoring Overview",
+      "order": 1,
+      "durationMinutes": 50,
+      "contentUrl": "https://www.youtube.com/watch?v=P_7ZfVfJgq8",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-26T09:00:00Z"
+    },
+    {
+      "id": "lesson-011",
+      "courseId": "course-010",
+      "title": "Listening Lesson 1: Form Completion Distractors",
+      "order": 1,
+      "durationMinutes": 35,
       "contentUrl": "https://www.youtube.com/watch?v=IevmdO16GuE",
       "audioUrl": "",
       "teacherId": "u-teacher-001",
       "status": "published",
-      "createdAt": "2026-06-27T13:41:47.182Z"
+      "createdAt": "2026-06-27T09:00:00Z"
+    },
+    {
+      "id": "lesson-012",
+      "courseId": "course-011",
+      "title": "Reading Lesson 1: Smart Skimming & Keyword Scanning",
+      "order": 1,
+      "durationMinutes": 45,
+      "contentUrl": "https://www.youtube.com/watch?v=a0fOt81glvA",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-28T09:00:00Z"
     }
   ],
   "tests": [
@@ -1413,7 +1545,37 @@
                 "id": "sp-4",
                 "text": "How has technology changed the way students learn?",
                 "answerSeconds": 60
-              },
+              }
+            ]
+          }
+        ]
+      },
+      "updatedAt": "2026-06-27T14:07:41.613Z",
+      "createdAt": "2026-06-27T13:59:36.597Z",
+      "id": "buL7b65wJZ8"
+    },
+    {
+      "title": "aaaaaaaaaaaaaaaaaaaaaa",
+      "description": "aaaaaaaaaaaaaaaaaaa",
+      "skill": "Speaking",
+      "testMode": "course",
+      "courseId": "course-007",
+      "isFreePreview": false,
+      "status": "published",
+      "practiceMode": "exam",
+      "attemptLimit": 3,
+      "requireLoginAfterLimit": true,
+      "durationMinutes": 15,
+      "totalQuestions": 3,
+      "bandScale": "IELTS 0-9",
+      "teacherId": "u-teacher-001",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction & Interview",
+            "questions": [
               {
                 "id": "sp-5",
                 "text": "Should schools limit the use of digital devices?",
@@ -1432,7 +1594,306 @@
             ]
           }
         ]
-      }
+      },
+      "updatedAt": "2026-06-28T14:04:58.424Z",
+      "createdAt": "2026-06-27T14:07:01.921Z",
+      "id": "I8hqTxITOmg"
+    }
+  ],
+  "questions": [
+    {
+      "id": "1",
+      "testId": 1,
+      "type": "multiple-choice",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "According to the passage, what was the PRIMARY effect of introducing machinery during the Industrial Revolution?",
+      "questionText": "According to the passage, what was the PRIMARY effect of introducing machinery during the Industrial Revolution?",
+      "options": [
+        "It caused widespread unemployment among craftspeople",
+        "It dramatically increased production capacity",
+        "It improved working conditions in factories",
+        "It led to the development of new energy sources"
+      ],
+      "answer": "It dramatically increased production capacity",
+      "score": 1
+    },
+    {
+      "id": "2",
+      "testId": 1,
+      "type": "true-false-not-given",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "Social reformers successfully eliminated child labour during the Industrial Revolution.",
+      "questionText": "Social reformers successfully eliminated child labour during the Industrial Revolution.",
+      "options": [
+        "True",
+        "False",
+        "Not Given"
+      ],
+      "answer": "Not Given",
+      "score": 1
+    },
+    {
+      "id": "3",
+      "testId": 1,
+      "type": "true-false-not-given",
+      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
+      "prompt": "Before the Industrial Revolution, manufacturing was primarily carried out in people's homes.",
+      "questionText": "What is the main purpose of paragraph 1?",
+      "options": [
+        "To introduce a problem",
+        "To compare two theories",
+        "To describe a process",
+        "To reject an argument"
+      ],
+      "answer": "To introduce a problem",
+      "score": 1
+    },
+    {
+      "testId": "Cg33iHPXL2M",
+      "skill": "Reading",
+      "referenceId": "passage-1",
+      "referenceType": "passage",
+      "type": "multiple-choice",
+      "order": 1,
+      "questionText": "Chào mừng các bạn",
+      "prompt": "Chào mừng các bạn",
+      "options": [
+        "sdfsdf",
+        "sdfsdf",
+        "dsfsd",
+        "fsfd"
+      ],
+      "answer": "sdfsdf",
+      "explanation": "sdfsdfsd",
+      "score": 1,
+      "passage": "Test",
+      "id": "R4nfGnV3VM4"
+    },
+    {
+      "id": "sample-q-001",
+      "testId": "sample-test-001",
+      "skill": "Reading",
+      "referenceId": "passage-1",
+      "referenceType": "passage",
+      "type": "multiple-choice",
+      "order": 1,
+      "questionText": "What is one benefit of reliable public transport?",
+      "prompt": "What is one benefit of reliable public transport?",
+      "options": [
+        "It reduces congestion",
+        "It removes all private vehicles",
+        "It increases ticket prices",
+        "It closes schools"
+      ],
+      "answer": "It reduces congestion",
+      "explanation": "The passage says reliable buses and trains reduce congestion.",
+      "score": 1
+    },
+    {
+      "id": "sample-q-002",
+      "testId": "sample-test-001",
+      "skill": "Reading",
+      "referenceId": "passage-1",
+      "referenceType": "passage",
+      "type": "true-false-not-given",
+      "order": 2,
+      "questionText": "Ticket prices can influence public transport use.",
+      "prompt": "Ticket prices can influence public transport use.",
+      "options": [
+        "True",
+        "False",
+        "Not Given"
+      ],
+      "answer": "True",
+      "explanation": "The final sentence mentions ticket prices affect whether residents choose public transport.",
+      "score": 1
+    },
+    {
+      "id": "sample-q-003",
+      "testId": "sample-test-002",
+      "skill": "Listening",
+      "referenceId": "section-1",
+      "referenceType": "section",
+      "type": "multiple-choice",
+      "order": 1,
+      "questionText": "What should the student confirm first?",
+      "prompt": "What should the student confirm first?",
+      "options": [
+        "The appointment time",
+        "The weather forecast",
+        "The bus colour",
+        "The library password"
+      ],
+      "answer": "The appointment time",
+      "explanation": "Sample question for section-based Listening.",
+      "score": 1
+    },
+    {
+      "id": "sample-q-004",
+      "testId": "sample-test-002",
+      "skill": "Listening",
+      "referenceId": "section-1",
+      "referenceType": "section",
+      "type": "fill-in-the-blank",
+      "order": 2,
+      "questionText": "The meeting starts at ____.",
+      "prompt": "The meeting starts at ____.",
+      "answer": "nine",
+      "explanation": "Sample fill-in answer.",
+      "score": 1
+    },
+    {
+      "id": "sample-q-005",
+      "testId": "sample-test-005",
+      "skill": "Reading",
+      "referenceId": "passage-1",
+      "referenceType": "passage",
+      "type": "multiple-choice",
+      "order": 1,
+      "questionText": "What does sleep affect according to the passage?",
+      "prompt": "What does sleep affect according to the passage?",
+      "options": [
+        "Memory",
+        "Weather",
+        "Ticket prices",
+        "Food costs"
+      ],
+      "answer": "Memory",
+      "explanation": "The passage mentions concentration, memory, and emotional control.",
+      "score": 1
+    },
+    {
+      "id": "sample-q-006",
+      "testId": "sample-test-006",
+      "skill": "Listening",
+      "referenceId": "section-1",
+      "referenceType": "section",
+      "type": "fill-in-the-blank",
+      "order": 1,
+      "questionText": "Write the room number: ____.",
+      "prompt": "Write the room number: ____.",
+      "answer": "204",
+      "explanation": "Sample map/form completion question.",
+      "score": 1
+    },
+    {
+      "id": "sample-q-007",
+      "testId": "sample-test-009",
+      "skill": "Reading",
+      "referenceId": "passage-1",
+      "referenceType": "passage",
+      "type": "true-false-not-given",
+      "order": 1,
+      "questionText": "Community libraries can provide digital training.",
+      "prompt": "Community libraries can provide digital training.",
+      "options": [
+        "True",
+        "False",
+        "Not Given"
+      ],
+      "answer": "True",
+      "explanation": "The passage says many libraries provide digital training.",
+      "score": 1
+    },
+    {
+      "id": "sample-q-008",
+      "testId": "sample-test-010",
+      "skill": "Listening",
+      "referenceId": "section-1",
+      "referenceType": "section",
+      "type": "multiple-choice",
+      "order": 1,
+      "questionText": "Which item is required for registration?",
+      "prompt": "Which item is required for registration?",
+      "options": [
+        "Student ID",
+        "A bike lock",
+        "A camera",
+        "A map"
+      ],
+      "answer": "Student ID",
+      "explanation": "Sample form completion context.",
+      "score": 1
+    },
+    {
+      "testId": "buL7b65wJZ8",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 2,
+      "questionText": "aaaaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "2ouNupd0TlI"
+    },
+    {
+      "testId": "buL7b65wJZ8",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 3,
+      "questionText": "aaaaaaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "m_ZFZqycNbE"
+    },
+    {
+      "testId": "buL7b65wJZ8",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 4,
+      "questionText": "aaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "6-9WwI0nOC4"
+    },
+    {
+      "testId": "buL7b65wJZ8",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 5,
+      "questionText": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "UrtyZ30M1uA"
+    },
+    {
+      "testId": "I8hqTxITOmg",
+      "skill": "Speaking",
+      "referenceId": "speaking-part-1",
+      "referenceType": "part",
+      "type": "speaking-part",
+      "order": 1,
+      "questionText": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "prompt": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "options": [],
+      "answer": "",
+      "explanation": "",
+      "score": 1,
+      "part": 1,
+      "id": "oZFWf8J1egM"
     }
   ],
   "questions": [],
@@ -1475,6 +1936,13 @@
       "progress": 0,
       "enrolledAt": "2026-06-21T10:46:41.099Z",
       "id": "7SFfx-Z-jhg"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-007",
+      "progress": 0,
+      "enrolledAt": "2026-06-29T04:48:52.259Z",
+      "id": "WHA_Q9JK1Xc"
     }
   ],
   "payments": [
@@ -1532,6 +2000,21 @@
       "reviewedBy": null,
       "rejectReason": null,
       "id": "AqsxV97xKcY"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-007",
+      "amount": 1000,
+      "currency": "VND",
+      "method": "vietqr",
+      "transferContent": "IELTS course-007 -001",
+      "status": "paid",
+      "createdAt": "2026-06-29T04:43:17.419Z",
+      "paidAt": "2026-06-29T04:48:52.233Z",
+      "reviewedAt": "2026-06-29T04:48:52.233Z",
+      "reviewedBy": "admin",
+      "rejectReason": null,
+      "id": "HmihBvmiryA"
     }
   ],
   "transactions": [
@@ -2258,6 +2741,52 @@
       "targetType": "test",
       "targetId": "tutor-speaking-approved-001",
       "createdAt": "2026-06-30T12:00:00.000Z"
+      "id": "log-021",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T13:54:31.824Z"
+    },
+    {
+      "id": "log-022",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T13:56:19.317Z"
+    },
+    {
+      "id": "log-023",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-28T14:02:31.649Z"
+    },
+    {
+      "id": "log-024",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-28T14:03:08.188Z"
+    },
+    {
+      "id": "log-025",
+      "actorId": "u-teacher-001",
+      "action": "ASSIGN_TEST_COURSE",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-28T14:04:58.441Z"
+    },
+    {
+      "id": "log-026",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-29T04:41:50.169Z"
     }
   ],
   "approvalRequests": [
@@ -3368,9 +3897,112 @@
       "guestId": null,
       "testId": "tutor-reading-approved-001",
       "skill": "Reading",
+      "startTime": "2026-06-24T12:10:38.434Z",
+      "expiredAt": "2026-06-24T13:10:38.434Z",
+      "status": "completed",
+      "answers": {},
+      "id": "lL7tEpE_O2M",
+      "completedAt": "2026-06-24T12:10:45.273Z",
+      "submittedAt": "2026-06-24T12:10:45.273Z",
+      "correctCount": 0,
+      "totalScore": 1,
+      "score": 0,
+      "overallBandScore": 0
+    },
+    {
+      "id": "ta-003",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "2GcMtr7u18M",
+      "skill": "Reading",
       "status": "in-progress",
-      "startTime": "2026-06-30T17:16:35.263Z",
-      "createdAt": "2026-06-30T17:16:35.268Z"
+      "startTime": "2026-06-29T10:15:54.604Z",
+      "createdAt": "2026-06-29T10:15:54.606Z"
+    },
+    {
+      "id": "ta-004",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "test-002",
+      "skill": "Listening",
+      "status": "in-progress",
+      "startTime": "2026-06-29T10:16:02.667Z",
+      "createdAt": "2026-06-29T10:16:02.673Z"
+    },
+    {
+      "id": "ta-005",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "sample-test-004",
+      "skill": "Speaking",
+      "status": "in-progress",
+      "startTime": "2026-06-29T10:16:24.189Z",
+      "createdAt": "2026-06-29T10:16:24.196Z"
+    },
+    {
+      "id": "ta-006",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "sample-test-007",
+      "skill": "Writing",
+      "status": "completed",
+      "startTime": "2026-06-29T10:16:38.786Z",
+      "createdAt": "2026-06-29T10:16:38.788Z",
+      "completedAt": "2026-06-29T10:16:41.902Z",
+      "answers": {},
+      "submittedAt": "2026-06-29T10:16:41.902Z",
+      "gradingStatus": "pending"
+    },
+    {
+      "id": "ta-007",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "sample-test-007",
+      "skill": "Writing",
+      "status": "completed",
+      "startTime": "2026-06-29T10:26:37.669Z",
+      "createdAt": "2026-06-29T10:26:37.673Z",
+      "completedAt": "2026-06-29T10:26:47.690Z",
+      "answers": {
+        "task1": "sdafsadfsadfafsd",
+        "task2": "fsdaadfsafdsdfsadfsadádfsdaffsadfsadfssfdasfda"
+      },
+      "submittedAt": "2026-06-29T10:26:47.689Z",
+      "gradingStatus": "pending"
+    },
+    {
+      "id": "ta-008",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "Mx539GlgPjQ",
+      "skill": "Writing",
+      "status": "completed",
+      "startTime": "2026-06-29T10:27:17.315Z",
+      "createdAt": "2026-06-29T10:27:17.319Z",
+      "completedAt": "2026-06-29T10:27:22.015Z",
+      "answers": {
+        "task1": "ffffffffffffffffff",
+        "task2": "fffffffffffffffffffffff"
+      },
+      "submittedAt": "2026-06-29T10:27:22.015Z",
+      "gradingStatus": "pending"
+    },
+    {
+      "id": "ta-009",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "Mx539GlgPjQ",
+      "skill": "Writing",
+      "status": "completed",
+      "startTime": "2026-06-29T10:44:18.540Z",
+      "createdAt": "2026-06-29T10:44:18.544Z",
+      "completedAt": "2026-06-29T10:44:28.216Z",
+      "answers": {
+        "task1": "ddddddd",
+        "task2": "ddddddddd"
+      },
+      "submittedAt": "2026-06-29T10:44:28.216Z",
+      "gradingStatus": "pending"
     }
   ],
   "flashcardDecks": [
@@ -3431,12 +4063,22 @@
       "title": "aaaaaaaaaaaaaaa",
       "description": "",
       "deckMode": "course",
-      "courseId": "course-004",
+      "courseId": "course-007",
       "teacherId": "u-teacher-001",
       "status": "published",
       "createdAt": "2026-06-27T14:08:26.240Z",
       "id": "cMRVjk0UR68",
-      "updatedAt": "2026-06-27T14:09:59.870Z"
+      "updatedAt": "2026-06-28T14:05:52.246Z"
+    },
+    {
+      "title": "aaaaaaaaa",
+      "description": "sssssssssss",
+      "deckMode": "free",
+      "courseId": "",
+      "teacherId": "u-teacher-001",
+      "status": "draft",
+      "createdAt": "2026-06-28T13:58:44.821Z",
+      "id": "HA3rzM39Jeg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

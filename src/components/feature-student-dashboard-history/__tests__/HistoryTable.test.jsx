@@ -59,7 +59,7 @@ describe('HistoryTable Component', () => {
     fireEvent.click(viewBtn);
     
     // Expect Router hook triggered with correct URL path
-    expect(mockNavigate).toHaveBeenCalledWith('/learning/history/1');
+    expect(mockNavigate).toHaveBeenCalledWith('/learning/tests/review/1');
   });
 
   it('handles pagination correctly when clicking Next (Happy Path)', () => {
