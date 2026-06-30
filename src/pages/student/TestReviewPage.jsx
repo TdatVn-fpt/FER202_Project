@@ -5,6 +5,7 @@ import { testService } from '../../services/testService';
 import { convertBandScore } from '../../utils/quizUtils';
 import {
   buildSpeakingQuestions,
+  buildConfigQuestions,
   buildWritingQuestions,
   calculateObjectiveScore,
   getAnswerValue,
@@ -24,6 +25,15 @@ const getSessionQuestions = (test, questionRecords) => {
   const normalized = normalizeTest(test);
   if (normalized.skill === 'Writing') return buildWritingQuestions(normalized);
   if (normalized.skill === 'Speaking' && questionRecords.length === 0) return buildSpeakingQuestions(normalized);
+  if (['Reading', 'Listening'].includes(normalized.skill)) {
+    const embeddedQuestions = buildConfigQuestions(normalized);
+    const bankQuestions = questionRecords.map((question, index) => ({
+      ...question,
+      skill: question.skill || normalized.skill,
+      order: Number(question.order || embeddedQuestions.length + index + 1),
+    }));
+    return [...embeddedQuestions, ...bankQuestions];
+  }
   return questionRecords.map((question, index) => ({
     ...question,
     skill: question.skill || normalized.skill,
