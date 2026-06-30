@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col, Form, Row } from 'react-bootstrap';
+import { Alert, Card, Col, Form, Row } from 'react-bootstrap';
 
 export default function WritingBuilder({ value, onChange }) {
   const task1 = value.task1 || {};
@@ -22,11 +22,15 @@ export default function WritingBuilder({ value, onChange }) {
           <h6 className="fw-bold mb-3">Writing Task 1</h6>
           <Row className="g-3">
             <Col md={8}>
-              <Form.Label>Image/chart URL</Form.Label>
+              <Form.Label>Task 1 visual link</Form.Label>
               <Form.Control
+                placeholder="https://example.com/chart-map-process.png"
                 value={task1.imageUrl || ''}
                 onChange={(e) => updateTask('task1', { imageUrl: e.target.value })}
               />
+              <Form.Text className="text-muted">
+                Gan link anh chart, table, map hoac process cho IELTS Academic Task 1.
+              </Form.Text>
             </Col>
             <Col md={4}>
               <Form.Label>Minimum words</Form.Label>
@@ -35,6 +39,27 @@ export default function WritingBuilder({ value, onChange }) {
                 value={task1.minimumWords || 150}
                 onChange={(e) => updateTask('task1', { minimumWords: Number(e.target.value) })}
               />
+            </Col>
+            <Col xs={12}>
+              {task1.imageUrl ? (
+                <div className="rounded-3 border p-3" style={{ background: '#f8fafc' }}>
+                  <div className="d-flex align-items-center gap-2 mb-2 fw-semibold">
+                    <i className="bi bi-image" />
+                    Task 1 image preview
+                  </div>
+                  <img
+                    src={task1.imageUrl}
+                    alt="Writing Task 1 visual preview"
+                    className="img-fluid rounded-3 border"
+                    style={{ maxHeight: 320, objectFit: 'contain', background: '#fff' }}
+                  />
+                </div>
+              ) : (
+                <Alert variant="light" className="border mb-0">
+                  <i className="bi bi-link-45deg me-2" />
+                  Chua gan link anh cho Task 1. Neu la Academic, hay dan link chart/map/process vao o tren.
+                </Alert>
+              )}
             </Col>
             <Col xs={12}>
               <Form.Label>Prompt Task 1</Form.Label>
