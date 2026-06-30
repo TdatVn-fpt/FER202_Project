@@ -9,6 +9,7 @@ import { testAttemptService } from '../../services/testAttemptService';
 import { convertBandScore } from '../../utils/quizUtils';
 import {
   buildSpeakingQuestions,
+  buildConfigQuestions,
   buildWritingQuestions,
   calculateObjectiveScore,
   countAnswered,
@@ -36,6 +37,16 @@ const getSessionQuestions = (test, questionRecords) => {
 
   if (normalized.skill === 'Speaking' && questionRecords.length === 0) {
     return buildSpeakingQuestions(normalized);
+  }
+
+  if (['Reading', 'Listening'].includes(normalized.skill)) {
+    const embeddedQuestions = buildConfigQuestions(normalized);
+    const bankQuestions = questionRecords.map((question, index) => ({
+      ...question,
+      skill: question.skill || normalized.skill,
+      order: Number(question.order || embeddedQuestions.length + index + 1),
+    }));
+    return [...embeddedQuestions, ...bankQuestions];
   }
 
   return questionRecords.map((question, index) => ({

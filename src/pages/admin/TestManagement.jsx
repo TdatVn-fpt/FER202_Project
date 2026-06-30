@@ -101,6 +101,7 @@ const TestManagement = () => {
     switch (status) {
       case 'published': return 'success';
       case 'draft': return 'secondary';
+      case 'pending': return 'warning text-dark';
       default: return 'secondary';
     }
   };
@@ -155,6 +156,7 @@ const TestManagement = () => {
               <Form.Select name="status" value={filters.status} onChange={handleFilterChange} className="rounded-pill" id="test-status-filter">
                 <option value="">Tất cả trạng thái</option>
                 <option value="published">Published</option>
+                <option value="pending">Pending</option>
                 <option value="draft">Draft</option>
               </Form.Select>
             </div>

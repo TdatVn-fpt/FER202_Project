@@ -202,7 +202,7 @@ export default function TestCreatePage() {
       }
 
       toast.success(id ? 'Đã cập nhật đề thi.' : 'Đã tạo đề thi.');
-      if (!id && savedTest.skill !== 'Writing') {
+      if (savedTest.skill !== 'Writing') {
         navigate(`/teacher/tests/${savedTest.id}/questions`);
       } else {
         navigate('/teacher/tests');
@@ -300,8 +300,9 @@ export default function TestCreatePage() {
                   <Col md={4}>
                     <Form.Label>Status</Form.Label>
                     <Form.Select value={draft.status} onChange={(e) => updateDraft({ status: e.target.value })}>
-                      <option value="draft">Draft</option>
-                      <option value="published">Published</option>
+                      <option value="draft">Draft (Nháp)</option>
+                      <option value="pending">Pending (Gửi duyệt)</option>
+                      {draft.status === 'published' && <option value="published">Published</option>}
                     </Form.Select>
                   </Col>
                   <Col xs={12}>
