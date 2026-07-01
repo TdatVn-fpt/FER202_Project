@@ -1451,9 +1451,9 @@
       "id": "tutor-writing-approved-001",
       "title": "Tutor IELTS Writing Full Mock - Process and Opinion",
       "description": "Academic Writing Task 1 with image link and Task 2 opinion essay.",
-      "courseId": "",
+      "courseId": "9w8htVkjNaI",
       "skill": "Writing",
-      "testMode": "free",
+      "testMode": "course",
       "isFreePreview": true,
       "status": "published",
       "approvalStatus": "approved",
@@ -1464,7 +1464,7 @@
       "bandScale": "IELTS 0-9",
       "practiceMode": "exam",
       "createdAt": "2026-06-30T12:00:00.000Z",
-      "updatedAt": "2026-06-30T12:00:00.000Z",
+      "updatedAt": "2026-06-30T17:24:11.157Z",
       "testConfig": {
         "task1": {
           "id": "writing-task-1",
@@ -2741,6 +2741,8 @@
       "targetType": "test",
       "targetId": "tutor-speaking-approved-001",
       "createdAt": "2026-06-30T12:00:00.000Z"
+    },
+    {
       "id": "log-021",
       "actorId": "u-teacher-001",
       "action": "CREATE_COURSE",
@@ -2787,6 +2789,14 @@
       "targetType": "course",
       "targetId": "course-007",
       "createdAt": "2026-06-29T04:41:50.169Z"
+    },
+    {
+      "id": "log-047",
+      "actorId": "u-student-004",
+      "action": "ASSIGN_TEST_COURSE",
+      "targetType": "course",
+      "targetId": "9w8htVkjNaI",
+      "createdAt": "2026-06-30T17:24:11.172Z"
     }
   ],
   "approvalRequests": [
@@ -4003,6 +4013,16 @@
       },
       "submittedAt": "2026-06-29T10:44:28.216Z",
       "gradingStatus": "pending"
+    },
+    {
+      "id": "ta-002",
+      "userId": "u-student-004",
+      "guestId": null,
+      "testId": "tutor-writing-approved-001",
+      "skill": "Writing",
+      "status": "in-progress",
+      "startTime": "2026-06-30T17:24:25.220Z",
+      "createdAt": "2026-06-30T17:24:25.223Z"
     }
   ],
   "flashcardDecks": [
