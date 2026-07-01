@@ -1481,7 +1481,7 @@
       }
     },
     {
-      "id": "tutor-speaking-approved-001",
+      "id": "buL7b65wJZ8",
       "title": "Tutor IELTS Speaking Full Mock - Technology and Study",
       "description": "A complete Speaking test with Part 1, Part 2 cue card and Part 3 discussion.",
       "courseId": "",
@@ -1496,8 +1496,8 @@
       "attemptLimit": 3,
       "bandScale": "IELTS 0-9",
       "practiceMode": "exam",
-      "createdAt": "2026-06-30T12:00:00.000Z",
-      "updatedAt": "2026-06-30T12:00:00.000Z",
+      "createdAt": "2026-06-27T13:59:36.597Z",
+      "updatedAt": "2026-06-27T14:07:41.613Z",
       "testConfig": {
         "parts": [
           {
@@ -1549,10 +1549,7 @@
             ]
           }
         ]
-      },
-      "updatedAt": "2026-06-27T14:07:41.613Z",
-      "createdAt": "2026-06-27T13:59:36.597Z",
-      "id": "buL7b65wJZ8"
+      }
     },
     {
       "title": "aaaaaaaaaaaaaaaaaaaaaa",
@@ -1598,302 +1595,6 @@
       "updatedAt": "2026-06-28T14:04:58.424Z",
       "createdAt": "2026-06-27T14:07:01.921Z",
       "id": "I8hqTxITOmg"
-    }
-  ],
-  "questions": [
-    {
-      "id": "1",
-      "testId": 1,
-      "type": "multiple-choice",
-      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
-      "prompt": "According to the passage, what was the PRIMARY effect of introducing machinery during the Industrial Revolution?",
-      "questionText": "According to the passage, what was the PRIMARY effect of introducing machinery during the Industrial Revolution?",
-      "options": [
-        "It caused widespread unemployment among craftspeople",
-        "It dramatically increased production capacity",
-        "It improved working conditions in factories",
-        "It led to the development of new energy sources"
-      ],
-      "answer": "It dramatically increased production capacity",
-      "score": 1
-    },
-    {
-      "id": "2",
-      "testId": 1,
-      "type": "true-false-not-given",
-      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
-      "prompt": "Social reformers successfully eliminated child labour during the Industrial Revolution.",
-      "questionText": "Social reformers successfully eliminated child labour during the Industrial Revolution.",
-      "options": [
-        "True",
-        "False",
-        "Not Given"
-      ],
-      "answer": "Not Given",
-      "score": 1
-    },
-    {
-      "id": "3",
-      "testId": 1,
-      "type": "true-false-not-given",
-      "passage": "THE INDUSTRIAL REVOLUTION\n\nThe Industrial Revolution, which began in Britain in the mid-18th century, fundamentally transformed how goods were produced and how people lived. Before this period, most manufacturing was done by hand, often in people's homes or small workshops — a system known as cottage industry. The introduction of machinery powered by steam engines and later electricity dramatically increased production capacity.\n\nFactories emerged as the new centres of production, drawing workers from rural areas into rapidly growing urban centres. Cities such as Manchester, Birmingham, and Leeds expanded at extraordinary rates, often without adequate housing, sanitation, or infrastructure to support the influx of population.\n\nWhile the revolution brought unprecedented economic growth and new consumer goods, it also created new social problems: difficult working conditions, child labour, and overcrowded, polluted cities became widespread concerns. Social reformers and early trade unions eventually pushed for legislation to address these problems, laying the groundwork for modern labour laws and social welfare systems.\n\nThe revolution also had global consequences, enabling Britain to build a vast industrial empire and reshaping trade relationships across continents. The technologies and economic models it generated influenced industrialisation processes in Europe, the United States, and later Asia throughout the 19th and 20th centuries.",
-      "prompt": "Before the Industrial Revolution, manufacturing was primarily carried out in people's homes.",
-      "questionText": "What is the main purpose of paragraph 1?",
-      "options": [
-        "To introduce a problem",
-        "To compare two theories",
-        "To describe a process",
-        "To reject an argument"
-      ],
-      "answer": "To introduce a problem",
-      "score": 1
-    },
-    {
-      "testId": "Cg33iHPXL2M",
-      "skill": "Reading",
-      "referenceId": "passage-1",
-      "referenceType": "passage",
-      "type": "multiple-choice",
-      "order": 1,
-      "questionText": "Chào mừng các bạn",
-      "prompt": "Chào mừng các bạn",
-      "options": [
-        "sdfsdf",
-        "sdfsdf",
-        "dsfsd",
-        "fsfd"
-      ],
-      "answer": "sdfsdf",
-      "explanation": "sdfsdfsd",
-      "score": 1,
-      "passage": "Test",
-      "id": "R4nfGnV3VM4"
-    },
-    {
-      "id": "sample-q-001",
-      "testId": "sample-test-001",
-      "skill": "Reading",
-      "referenceId": "passage-1",
-      "referenceType": "passage",
-      "type": "multiple-choice",
-      "order": 1,
-      "questionText": "What is one benefit of reliable public transport?",
-      "prompt": "What is one benefit of reliable public transport?",
-      "options": [
-        "It reduces congestion",
-        "It removes all private vehicles",
-        "It increases ticket prices",
-        "It closes schools"
-      ],
-      "answer": "It reduces congestion",
-      "explanation": "The passage says reliable buses and trains reduce congestion.",
-      "score": 1
-    },
-    {
-      "id": "sample-q-002",
-      "testId": "sample-test-001",
-      "skill": "Reading",
-      "referenceId": "passage-1",
-      "referenceType": "passage",
-      "type": "true-false-not-given",
-      "order": 2,
-      "questionText": "Ticket prices can influence public transport use.",
-      "prompt": "Ticket prices can influence public transport use.",
-      "options": [
-        "True",
-        "False",
-        "Not Given"
-      ],
-      "answer": "True",
-      "explanation": "The final sentence mentions ticket prices affect whether residents choose public transport.",
-      "score": 1
-    },
-    {
-      "id": "sample-q-003",
-      "testId": "sample-test-002",
-      "skill": "Listening",
-      "referenceId": "section-1",
-      "referenceType": "section",
-      "type": "multiple-choice",
-      "order": 1,
-      "questionText": "What should the student confirm first?",
-      "prompt": "What should the student confirm first?",
-      "options": [
-        "The appointment time",
-        "The weather forecast",
-        "The bus colour",
-        "The library password"
-      ],
-      "answer": "The appointment time",
-      "explanation": "Sample question for section-based Listening.",
-      "score": 1
-    },
-    {
-      "id": "sample-q-004",
-      "testId": "sample-test-002",
-      "skill": "Listening",
-      "referenceId": "section-1",
-      "referenceType": "section",
-      "type": "fill-in-the-blank",
-      "order": 2,
-      "questionText": "The meeting starts at ____.",
-      "prompt": "The meeting starts at ____.",
-      "answer": "nine",
-      "explanation": "Sample fill-in answer.",
-      "score": 1
-    },
-    {
-      "id": "sample-q-005",
-      "testId": "sample-test-005",
-      "skill": "Reading",
-      "referenceId": "passage-1",
-      "referenceType": "passage",
-      "type": "multiple-choice",
-      "order": 1,
-      "questionText": "What does sleep affect according to the passage?",
-      "prompt": "What does sleep affect according to the passage?",
-      "options": [
-        "Memory",
-        "Weather",
-        "Ticket prices",
-        "Food costs"
-      ],
-      "answer": "Memory",
-      "explanation": "The passage mentions concentration, memory, and emotional control.",
-      "score": 1
-    },
-    {
-      "id": "sample-q-006",
-      "testId": "sample-test-006",
-      "skill": "Listening",
-      "referenceId": "section-1",
-      "referenceType": "section",
-      "type": "fill-in-the-blank",
-      "order": 1,
-      "questionText": "Write the room number: ____.",
-      "prompt": "Write the room number: ____.",
-      "answer": "204",
-      "explanation": "Sample map/form completion question.",
-      "score": 1
-    },
-    {
-      "id": "sample-q-007",
-      "testId": "sample-test-009",
-      "skill": "Reading",
-      "referenceId": "passage-1",
-      "referenceType": "passage",
-      "type": "true-false-not-given",
-      "order": 1,
-      "questionText": "Community libraries can provide digital training.",
-      "prompt": "Community libraries can provide digital training.",
-      "options": [
-        "True",
-        "False",
-        "Not Given"
-      ],
-      "answer": "True",
-      "explanation": "The passage says many libraries provide digital training.",
-      "score": 1
-    },
-    {
-      "id": "sample-q-008",
-      "testId": "sample-test-010",
-      "skill": "Listening",
-      "referenceId": "section-1",
-      "referenceType": "section",
-      "type": "multiple-choice",
-      "order": 1,
-      "questionText": "Which item is required for registration?",
-      "prompt": "Which item is required for registration?",
-      "options": [
-        "Student ID",
-        "A bike lock",
-        "A camera",
-        "A map"
-      ],
-      "answer": "Student ID",
-      "explanation": "Sample form completion context.",
-      "score": 1
-    },
-    {
-      "testId": "buL7b65wJZ8",
-      "skill": "Speaking",
-      "referenceId": "speaking-part-1",
-      "referenceType": "part",
-      "type": "speaking-part",
-      "order": 2,
-      "questionText": "aaaaaaaaaaaaaaaaaaa",
-      "prompt": "aaaaaaaaaaaaaaaaaaa",
-      "options": [],
-      "answer": "",
-      "explanation": "",
-      "score": 1,
-      "part": 1,
-      "id": "2ouNupd0TlI"
-    },
-    {
-      "testId": "buL7b65wJZ8",
-      "skill": "Speaking",
-      "referenceId": "speaking-part-1",
-      "referenceType": "part",
-      "type": "speaking-part",
-      "order": 3,
-      "questionText": "aaaaaaaaaaaaaaaaaaaaa",
-      "prompt": "aaaaaaaaaaaaaaaaaaaaa",
-      "options": [],
-      "answer": "",
-      "explanation": "",
-      "score": 1,
-      "part": 1,
-      "id": "m_ZFZqycNbE"
-    },
-    {
-      "testId": "buL7b65wJZ8",
-      "skill": "Speaking",
-      "referenceId": "speaking-part-1",
-      "referenceType": "part",
-      "type": "speaking-part",
-      "order": 4,
-      "questionText": "aaaaaaaaaaaaaaaaa",
-      "prompt": "aaaaaaaaaaaaaaaaa",
-      "options": [],
-      "answer": "",
-      "explanation": "",
-      "score": 1,
-      "part": 1,
-      "id": "6-9WwI0nOC4"
-    },
-    {
-      "testId": "buL7b65wJZ8",
-      "skill": "Speaking",
-      "referenceId": "speaking-part-1",
-      "referenceType": "part",
-      "type": "speaking-part",
-      "order": 5,
-      "questionText": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "prompt": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "options": [],
-      "answer": "",
-      "explanation": "",
-      "score": 1,
-      "part": 1,
-      "id": "UrtyZ30M1uA"
-    },
-    {
-      "testId": "I8hqTxITOmg",
-      "skill": "Speaking",
-      "referenceId": "speaking-part-1",
-      "referenceType": "part",
-      "type": "speaking-part",
-      "order": 1,
-      "questionText": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "prompt": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "options": [],
-      "answer": "",
-      "explanation": "",
-      "score": 1,
-      "part": 1,
-      "id": "oZFWf8J1egM"
     }
   ],
   "questions": [],
@@ -3845,6 +3546,446 @@
       "imageUrl": "",
       "audioUrl": "",
       "id": "Ntd0u-poWGY"
+    },
+    {
+      "id": "card-0f3e8614",
+      "deckId": "deck-tech-258c49ed",
+      "word": "Breakthrough",
+      "meaning": "Đột phá",
+      "pronunciation": "/ˈbreɪkθruː/",
+      "example": "A major breakthrough in medical research.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-0ec25c41",
+      "deckId": "deck-tech-258c49ed",
+      "word": "Obsolete",
+      "meaning": "Lỗi thời",
+      "pronunciation": "/ˈɒbsəliːt/",
+      "example": "Gas lamps became obsolete when electric lighting was invented.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-6211be33",
+      "deckId": "deck-tech-258c49ed",
+      "word": "Cutting-edge",
+      "meaning": "Tiên tiến nhất",
+      "pronunciation": "/ˌkʌtɪŋ ˈedʒ/",
+      "example": "Cutting-edge technology.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-ebd103be",
+      "deckId": "deck-tech-258c49ed",
+      "word": "Automation",
+      "meaning": "Tự động hóa",
+      "pronunciation": "/ˌɔːtəˈmeɪʃn/",
+      "example": "Automation will cause job losses.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-11998d04",
+      "deckId": "deck-tech-258c49ed",
+      "word": "Innovate",
+      "meaning": "Đổi mới",
+      "pronunciation": "/ˈɪnəveɪt/",
+      "example": "We must constantly innovate to stay ahead.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-5988cfe5",
+      "deckId": "deck-tech-258c49ed",
+      "word": "Cyberspace",
+      "meaning": "Không gian mạng",
+      "pronunciation": "/ˈsaɪbəspeɪs/",
+      "example": "We are expanding our business into cyberspace.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-4318ce50",
+      "deckId": "deck-tech-258c49ed",
+      "word": "Artificial Intelligence",
+      "meaning": "Trí tuệ nhân tạo",
+      "pronunciation": "/ˌɑːtɪfɪʃl ɪnˈtelɪdʒəns/",
+      "example": "AI is changing the world.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-44663fe7",
+      "deckId": "deck-tech-258c49ed",
+      "word": "Gadget",
+      "meaning": "Thiết bị công nghệ",
+      "pronunciation": "/ˈɡædʒɪt/",
+      "example": "A highly useful gadget.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-35de2ade",
+      "deckId": "deck-tech-258c49ed",
+      "word": "Technophile",
+      "meaning": "Người yêu công nghệ",
+      "pronunciation": "/ˈteknəfaɪl/",
+      "example": "He is a true technophile.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-7b966188",
+      "deckId": "deck-tech-258c49ed",
+      "word": "Virtual Reality",
+      "meaning": "Thực tế ảo",
+      "pronunciation": "/ˌvɜːtʃuəl riˈæləti/",
+      "example": "VR games are becoming popular.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-322ea112",
+      "deckId": "deck-health-1de6ea90",
+      "word": "Sedentary",
+      "meaning": "Ít vận động",
+      "pronunciation": "/ˈsedntri/",
+      "example": "A sedentary lifestyle is bad for your health.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-413d45e0",
+      "deckId": "deck-health-1de6ea90",
+      "word": "Immunity",
+      "meaning": "Sự miễn dịch",
+      "pronunciation": "/ɪˈmjuːnəti/",
+      "example": "The vaccine provides immunity against the disease.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-fcb65a34",
+      "deckId": "deck-health-1de6ea90",
+      "word": "Epidemic",
+      "meaning": "Dịch bệnh",
+      "pronunciation": "/ˌepɪˈdemɪk/",
+      "example": "A flu epidemic.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-c4f72b44",
+      "deckId": "deck-health-1de6ea90",
+      "word": "Nutritious",
+      "meaning": "Bổ dưỡng",
+      "pronunciation": "/njuˈtrɪʃəs/",
+      "example": "A highly nutritious meal.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-a5d909f2",
+      "deckId": "deck-health-1de6ea90",
+      "word": "Remedy",
+      "meaning": "Phương thuốc",
+      "pronunciation": "/ˈremədi/",
+      "example": "An excellent home remedy for sore throats.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-f2606991",
+      "deckId": "deck-health-1de6ea90",
+      "word": "Preventive",
+      "meaning": "Phòng ngừa",
+      "pronunciation": "/prɪˈventɪv/",
+      "example": "Preventive medicine is very important.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-1ea31a60",
+      "deckId": "deck-health-1de6ea90",
+      "word": "Chronic",
+      "meaning": "Mãn tính",
+      "pronunciation": "/ˈkrɒnɪk/",
+      "example": "Chronic diseases.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-15e2f760",
+      "deckId": "deck-health-1de6ea90",
+      "word": "Fatigue",
+      "meaning": "Sự mệt mỏi",
+      "pronunciation": "/fəˈtiːɡ/",
+      "example": "Driver fatigue is a major cause of accidents.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-ec1c5d19",
+      "deckId": "deck-health-1de6ea90",
+      "word": "Obesity",
+      "meaning": "Bệnh béo phì",
+      "pronunciation": "/əʊˈbiːsəti/",
+      "example": "Obesity can lead to heart disease.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-b5e790a7",
+      "deckId": "deck-health-1de6ea90",
+      "word": "Metabolism",
+      "meaning": "Sự trao đổi chất",
+      "pronunciation": "/məˈtæbəlɪzəm/",
+      "example": "Exercise speeds up your metabolism.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-59cd8c7e",
+      "deckId": "deck-edu-177d1aae",
+      "word": "Curriculum",
+      "meaning": "Chương trình giảng dạy",
+      "pronunciation": "/kəˈrɪkjələm/",
+      "example": "Maths is an intrinsic part of the school curriculum.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-ed9fa799",
+      "deckId": "deck-edu-177d1aae",
+      "word": "Literacy",
+      "meaning": "Sự biết chữ",
+      "pronunciation": "/ˈlɪtərəsi/",
+      "example": "A campaign to improve adult literacy.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-22438a35",
+      "deckId": "deck-edu-177d1aae",
+      "word": "Assess",
+      "meaning": "Đánh giá",
+      "pronunciation": "/əˈses/",
+      "example": "Exams are not the only way to assess a student.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-a9dda54a",
+      "deckId": "deck-edu-177d1aae",
+      "word": "Pedagogy",
+      "meaning": "Sư phạm",
+      "pronunciation": "/ˈpedəɡɒdʒi/",
+      "example": "Traditional pedagogy.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-a9114ece",
+      "deckId": "deck-edu-177d1aae",
+      "word": "Extracurricular",
+      "meaning": "Ngoại khóa",
+      "pronunciation": "/ˌekstrəkəˈrɪkjələ(r)/",
+      "example": "Extracurricular activities.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-df519df0",
+      "deckId": "deck-edu-177d1aae",
+      "word": "Scholarship",
+      "meaning": "Học bổng",
+      "pronunciation": "/ˈskɒləʃɪp/",
+      "example": "She won a scholarship to Oxford.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-377012cb",
+      "deckId": "deck-edu-177d1aae",
+      "word": "Plagiarism",
+      "meaning": "Sự đạo văn",
+      "pronunciation": "/ˈpleɪdʒərɪzəm/",
+      "example": "Plagiarism is heavily punished.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-5b9f834d",
+      "deckId": "deck-edu-177d1aae",
+      "word": "Bursary",
+      "meaning": "Học bổng trợ cấp",
+      "pronunciation": "/ˈbɜːsəri/",
+      "example": "He received a bursary to study law.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-80a45d27",
+      "deckId": "deck-edu-177d1aae",
+      "word": "Cognitive",
+      "meaning": "Thuộc về nhận thức",
+      "pronunciation": "/ˈkɒɡnətɪv/",
+      "example": "Cognitive development.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-4c4d4439",
+      "deckId": "deck-edu-177d1aae",
+      "word": "Truancy",
+      "meaning": "Sự trốn học",
+      "pronunciation": "/ˈtruːənsi/",
+      "example": "Truancy rates have fallen.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-962cb8a8",
+      "deckId": "deck-travel-4e14f98b",
+      "word": "Itinerary",
+      "meaning": "Lịch trình chuyến đi",
+      "pronunciation": "/aɪˈtɪnərəri/",
+      "example": "A detailed itinerary.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-f4bc0084",
+      "deckId": "deck-travel-4e14f98b",
+      "word": "Wanderlust",
+      "meaning": "Niềm đam mê du lịch",
+      "pronunciation": "/ˈwɒndəlʌst/",
+      "example": "He was consumed by wanderlust.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-404fe2ed",
+      "deckId": "deck-travel-4e14f98b",
+      "word": "Expedition",
+      "meaning": "Cuộc thám hiểm",
+      "pronunciation": "/ˌekspəˈdɪʃn/",
+      "example": "An expedition to the North Pole.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-f9533b07",
+      "deckId": "deck-travel-4e14f98b",
+      "word": "Picturesque",
+      "meaning": "Đẹp như tranh",
+      "pronunciation": "/ˌpɪktʃəˈresk/",
+      "example": "A picturesque village.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-05c67fbb",
+      "deckId": "deck-travel-4e14f98b",
+      "word": "Ecotourism",
+      "meaning": "Du lịch sinh thái",
+      "pronunciation": "/ˈiːkəʊtʊərɪzəm/",
+      "example": "Ecotourism is a growing industry.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-94645c69",
+      "deckId": "deck-travel-4e14f98b",
+      "word": "Heritage",
+      "meaning": "Di sản",
+      "pronunciation": "/ˈherɪtɪdʒ/",
+      "example": "Cultural heritage.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-8e28fb84",
+      "deckId": "deck-travel-4e14f98b",
+      "word": "Souvenir",
+      "meaning": "Quà lưu niệm",
+      "pronunciation": "/ˌsuːvəˈnɪə(r)/",
+      "example": "I bought a wooden mask as a souvenir.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-b85e27a0",
+      "deckId": "deck-travel-4e14f98b",
+      "word": "Destination",
+      "meaning": "Điểm đến",
+      "pronunciation": "/ˌdestɪˈneɪʃn/",
+      "example": "Our final destination.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-571c753d",
+      "deckId": "deck-travel-4e14f98b",
+      "word": "Cuisine",
+      "meaning": "Ẩm thực",
+      "pronunciation": "/kwɪˈziːn/",
+      "example": "Italian cuisine.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-7208f5a6",
+      "deckId": "deck-travel-4e14f98b",
+      "word": "Hospitality",
+      "meaning": "Sự hiếu khách",
+      "pronunciation": "/ˌhɒspɪˈtæləti/",
+      "example": "Thank you for your warm hospitality.",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
     }
   ],
   "flashcardProgress": [
@@ -3902,7 +4043,7 @@
   ],
   "testAttempts": [
     {
-      "id": "ta-001",
+      "id": "lL7tEpE_O2M",
       "userId": "u-student-004",
       "guestId": null,
       "testId": "tutor-reading-approved-001",
@@ -3911,7 +4052,6 @@
       "expiredAt": "2026-06-24T13:10:38.434Z",
       "status": "completed",
       "answers": {},
-      "id": "lL7tEpE_O2M",
       "completedAt": "2026-06-24T12:10:45.273Z",
       "submittedAt": "2026-06-24T12:10:45.273Z",
       "correctCount": 0,
@@ -4023,6 +4163,51 @@
       "status": "in-progress",
       "startTime": "2026-06-30T17:24:25.220Z",
       "createdAt": "2026-06-30T17:24:25.223Z"
+    },
+    {
+      "id": "ta-writing-26b85056",
+      "userId": "u-student-001",
+      "guestId": null,
+      "testId": "tutor-writing-mock",
+      "testTitle": "Mock Test Writing Task 2",
+      "skill": "Writing",
+      "startTime": "2026-07-01T04:29:21.802Z",
+      "status": "graded",
+      "answers": {
+        "task1": "Some people believe that...",
+        "task2": "In recent years, the debate over whether automation will replace human jobs has intensified. While there are legitimate concerns about unemployment, I firmly believe that automation will ultimately create more opportunities than it destroys. Firstly, history shows that technological revolutions shift employment rather than eliminate it. During the Industrial Revolution, many feared that machines would leave the working class destitute. Instead, it gave rise to entire new industries and improved living standards. Similarly, while AI and robotics may take over repetitive tasks, they will spawn demand for skilled workers who can build, maintain, and oversee these systems. Secondly, automation can significantly enhance human productivity and well-being. By delegating mundane tasks to machines, humans can focus on creative, strategic, and interpersonal endeavors. For instance, in healthcare, automated diagnostics allow doctors to spend more time on patient care and complex treatments. The overall efficiency leads to better outcomes and a higher quality of life. In conclusion, although the transition period may be disruptive and require societal adaptation, automation is a positive force. Governments and educational institutions must focus on retraining programs to ensure that the workforce is prepared for the jobs of the future, thus reaping the full benefits of this technological advancement."
+      },
+      "submittedAt": "2026-07-01T04:59:21.802Z",
+      "score": 6.5,
+      "overallBandScore": 6.5,
+      "feedback": "Good",
+      "completedAt": "2026-07-01T06:10:08.235Z"
+    },
+    {
+      "id": "ta-speaking-fbff3361",
+      "userId": "u-student-002",
+      "guestId": null,
+      "testId": "tutor-speaking-mock",
+      "testTitle": "Mock Test Speaking Part 2",
+      "skill": "Speaking",
+      "startTime": "2026-07-01T03:29:21.802Z",
+      "status": "pending",
+      "answers": {
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+      },
+      "submittedAt": "2026-07-01T03:49:21.802Z",
+      "score": 0,
+      "overallBandScore": 0
+    },
+    {
+      "id": "ta-010",
+      "userId": "u-student-001",
+      "guestId": null,
+      "testId": "tutor-reading-approved-001",
+      "skill": "Reading",
+      "status": "in-progress",
+      "startTime": "2026-07-01T05:42:57.775Z",
+      "createdAt": "2026-07-01T05:42:57.780Z"
     }
   ],
   "flashcardDecks": [
@@ -4099,7 +4284,147 @@
       "status": "draft",
       "createdAt": "2026-06-28T13:58:44.821Z",
       "id": "HA3rzM39Jeg"
+    },
+    {
+      "id": "deck-tech-258c49ed",
+      "title": "Technology & Innovation",
+      "description": "Từ vựng cốt lõi chủ đề Công nghệ & Đổi mới sáng tạo trong IELTS.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "public",
+      "status": "published",
+      "createdAt": "2026-07-01T05:29:21.801Z",
+      "updatedAt": "2026-07-01T05:29:21.802Z"
+    },
+    {
+      "id": "deck-health-1de6ea90",
+      "title": "Health & Medicine",
+      "description": "Từ vựng cốt lõi chủ đề Sức khỏe và Y tế.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "public",
+      "status": "published",
+      "createdAt": "2026-07-01T05:29:21.802Z",
+      "updatedAt": "2026-07-01T05:29:21.802Z"
+    },
+    {
+      "id": "deck-edu-177d1aae",
+      "title": "Education & Learning",
+      "description": "Từ vựng cốt lõi chủ đề Giáo dục và Học tập.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "public",
+      "status": "published",
+      "createdAt": "2026-07-01T05:29:21.802Z",
+      "updatedAt": "2026-07-01T05:29:21.802Z"
+    },
+    {
+      "id": "deck-travel-4e14f98b",
+      "title": "Travel & Tourism",
+      "description": "Từ vựng cốt lõi chủ đề Du lịch.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "public",
+      "status": "published",
+      "createdAt": "2026-07-01T05:29:21.802Z",
+      "updatedAt": "2026-07-01T05:29:21.802Z"
     }
   ],
-  "$schema": "./node_modules/json-server/schema.json"
+  "$schema": "./node_modules/json-server/schema.json",
+  "library_resources": [
+    {
+      "id": "lib-861c16a1",
+      "teacherId": "u-teacher-001",
+      "title": "Cambridge IELTS 18 Academic - Full PDF",
+      "resourceType": "pdf",
+      "skill": "Reading",
+      "level": "Advanced",
+      "visibility": "public",
+      "createdAt": "2026-07-01T05:54:58.706Z",
+      "url": "/library/cambridge-18.pdf",
+      "description": "Bộ đề thi thật Cambridge 18 Academic mới nhất, bao gồm 4 Test đầy đủ."
+    },
+    {
+      "id": "lib-efddc882",
+      "teacherId": "u-teacher-001",
+      "title": "IELTS Trainer 2 Academic - Listening Practice",
+      "resourceType": "audio",
+      "skill": "Listening",
+      "level": "Intermediate",
+      "visibility": "public",
+      "createdAt": "2026-06-30T05:54:58.707Z",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+      "description": "File Audio luyện nghe IELTS Trainer 2."
+    },
+    {
+      "id": "lib-ff1f847f",
+      "teacherId": "u-teacher-001",
+      "title": "Simon's Writing Task 2 Idea Compilation",
+      "resourceType": "document",
+      "skill": "Writing",
+      "level": "All Levels",
+      "visibility": "public",
+      "createdAt": "2026-06-29T05:54:58.707Z",
+      "url": "/library/simons-ideas.pdf",
+      "description": "Tổng hợp ideas cho Writing Task 2 từ thầy Simon."
+    },
+    {
+      "id": "lib-d3abf753",
+      "teacherId": "u-teacher-001",
+      "title": "Speaking Part 1 Common Questions 2024",
+      "resourceType": "document",
+      "skill": "Speaking",
+      "level": "Beginner",
+      "visibility": "public",
+      "createdAt": "2026-06-28T05:54:58.707Z",
+      "url": "/library/speaking-p1.pdf",
+      "description": "Tài liệu Word tổng hợp các câu hỏi quen thuộc phần Speaking Part 1."
+    },
+    {
+      "id": "lib-9497de39",
+      "teacherId": "u-teacher-001",
+      "title": "Internal Teacher Material (Not for Students)",
+      "resourceType": "pdf",
+      "skill": "Reading",
+      "level": "Advanced",
+      "visibility": "private",
+      "createdAt": "2026-06-27T05:54:58.707Z",
+      "url": "/library/internal-material.pdf",
+      "description": "Tài liệu này chỉ có giáo viên mới thấy được."
+    },
+    {
+      "title": "Demo test",
+      "description": "Test thử chức năng thư viện đề thi",
+      "resourceType": "link",
+      "skill": "Reading",
+      "level": "Intermediate",
+      "fileUrl": "",
+      "fileName": "",
+      "fileSize": 0,
+      "externalUrl": "https://langgo.edu.vn/storage/uploads/2025/06/28/JM7sPJndnW5SWObSInomnfrYS0ijiSMndEZDpx38.pdf",
+      "thumbnailUrl": "",
+      "tags": "reading",
+      "visibility": "public",
+      "teacherId": "u-student-004",
+      "status": "published",
+      "downloadCount": 0,
+      "createdAt": "2026-07-01T06:18:01.809Z",
+      "id": "POfBqFgTyVo"
+    },
+    {
+      "title": "Reading demo 2",
+      "description": "Demo cho file pdf",
+      "resourceType": "pdf",
+      "skill": "Reading",
+      "level": "Intermediate",
+      "fileUrl": "/uploads/ETEST---IELTS-READING-TEST-2-1782887413375-860719177.pdf",
+      "fileName": "ETEST _ IELTS READING TEST 2.pdf",
+      "fileSize": 758178,
+      "externalUrl": "",
+      "thumbnailUrl": "",
+      "tags": "",
+      "visibility": "public",
+      "teacherId": "u-student-004",
+      "status": "published",
+      "downloadCount": 0,
+      "createdAt": "2026-07-01T06:30:13.386Z",
+      "id": "JPt6lSikiXM"
+    }
+  ]
 }

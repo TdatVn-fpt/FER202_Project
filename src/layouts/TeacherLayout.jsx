@@ -72,7 +72,12 @@ export default function TeacherLayout() {
           >
             <i className="bi bi-card-text"></i> Quản lý Flashcard
           </NavLink>
-
+          <NavLink
+            to="/teacher/marking-queue"
+            className={({ isActive }) => `nav-link d-flex align-items-center gap-3 py-2.5 px-3 rounded-3 text-white transition-all ${isActive ? 'bg-primary active' : 'hover-bg-secondary'}`}
+          >
+            <i className="bi bi-ui-checks"></i> Hàng chờ chấm
+          </NavLink>
           <NavLink
             to="/teacher/library"
             className={({ isActive }) => `nav-link d-flex align-items-center gap-3 py-2.5 px-3 rounded-3 text-white transition-all ${isActive ? 'bg-primary active' : 'hover-bg-secondary'}`}

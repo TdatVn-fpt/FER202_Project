@@ -84,6 +84,9 @@ export default function Navbar({ variant = 'default' }) {
               <Nav.Link as={NavLink} to="/learning/tests" className={navLinkClass} onClick={closeMenu}>
                 Tests
               </Nav.Link>
+              <Nav.Link as={NavLink} to="/learning/exam-library" className={navLinkClass} onClick={closeMenu}>
+                Thư viện đề
+              </Nav.Link>
               <Nav.Link as={NavLink} to="/learning/history" className={navLinkClass} onClick={closeMenu}>
                 Learning History
               </Nav.Link>

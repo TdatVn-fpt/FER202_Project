@@ -121,14 +121,25 @@ export default function LibraryResourceListPage() {
                   </td>
                   <td>{new Date(resource.createdAt).toLocaleDateString('vi-VN')}</td>
                   <td>
-                    <Button
-                      variant="outline-danger"
-                      size="sm"
-                      onClick={() => handleDelete(resource.id)}
-                      data-testid={`btn-delete-${resource.id}`}
-                    >
-                      Xóa
-                    </Button>
+                    <div className="d-flex gap-2">
+                      <Button
+                        as={Link}
+                        to={`/teacher/library/edit/${resource.id}`}
+                        variant="outline-primary"
+                        size="sm"
+                        data-testid={`btn-edit-${resource.id}`}
+                      >
+                        Sửa
+                      </Button>
+                      <Button
+                        variant="outline-danger"
+                        size="sm"
+                        onClick={() => handleDelete(resource.id)}
+                        data-testid={`btn-delete-${resource.id}`}
+                      >
+                        Xóa
+                      </Button>
+                    </div>
                   </td>
                 </tr>
               ))}
