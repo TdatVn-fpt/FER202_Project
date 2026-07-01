@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { Container, Card, Form, Button, Row, Col, Spinner, Alert } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { getCurrentUser } from '../../services/authService';
 import { teacherLibraryService } from '../../services/teacherLibraryService';
+import api from '../../services/api'; // direct api access if teacherLibraryService doesn't have getResourceById
 
-// Allowed file types and max file size
-const ALLOWED_FILE_TYPES = ['.pdf', '.doc', '.docx', '.ppt', '.pptx', '.mp3', '.mp4', '.jpg', '.png'];
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
-
-export default function LibraryResourceCreatePage() {
+export default function LibraryResourceEditPage() {
+  const { id } = useParams();
   const navigate = useNavigate();
   const currentUser = getCurrentUser();
   const teacherId = currentUser?.id || 'u-teacher-001';
 
+  const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
   const [successMsg, setSuccessMsg] = useState('');
+  
+  const [originalResource, setOriginalResource] = useState(null);
 
   const [formData, setFormData] = useState({
     title: '',
@@ -31,43 +32,46 @@ export default function LibraryResourceCreatePage() {
 
   const [selectedFile, setSelectedFile] = useState(null);
 
+  useEffect(() => {
+    const fetchResource = async () => {
+      try {
+        // Find the resource
+        const res = await api.get(`/library_resources/${id}`);
+        const data = res.data;
+        
+        setOriginalResource(data);
+        
+        // Populate form
+        setFormData({
+          title: data.title || '',
+          description: data.description || '',
+          resourceType: data.resourceType || 'pdf',
+          skill: data.skill || 'Reading',
+          level: data.level || 'Intermediate',
+          externalUrl: data.externalUrl || data.url || '',
+          tags: data.tags || '',
+          visibility: data.visibility || 'public',
+        });
+      } catch (err) {
+        toast.error('Không tìm thấy tài nguyên này!');
+        navigate('/teacher/library');
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchResource();
+  }, [id, navigate]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear field error on change
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      // INTENTIONALLY REMOVED VALIDATION FOR TESTING BUG DETECTION
-      /* 
-      const ext = '.' + file.name.split('.').pop().toLowerCase();
-      if (!ALLOWED_FILE_TYPES.includes(ext)) {
-        setErrors(prev => ({
-          ...prev,
-          file: `File type "${ext}" is not allowed. Allowed types: ${ALLOWED_FILE_TYPES.join(', ')}`
-        }));
-        setSelectedFile(null);
-        e.target.value = '';
-        return;
-      }
-
-      // Validate file size
-      if (file.size > MAX_FILE_SIZE) {
-        setErrors(prev => ({
-          ...prev,
-          file: `File size (${(file.size / 1024 / 1024).toFixed(1)}MB) exceeds maximum allowed size (10MB)`
-        }));
-        setSelectedFile(null);
-        e.target.value = '';
-        return;
-      }
-      */
-
       setSelectedFile(file);
       setErrors(prev => ({ ...prev, file: '' }));
     }
@@ -88,13 +92,14 @@ export default function LibraryResourceCreatePage() {
       newErrors.description = 'Description must be at least 10 characters';
     }
 
-    // Must provide either file or external URL
-    if (!selectedFile && !formData.externalUrl.trim()) {
+    // Must provide either old file, new file, or external URL
+    const hasOldFile = originalResource && (originalResource.fileUrl || originalResource.url);
+    if (!selectedFile && !formData.externalUrl.trim() && !hasOldFile) {
       newErrors.file = 'Please upload a file or provide an external URL';
     }
 
-    if (formData.externalUrl.trim() && !formData.externalUrl.trim().startsWith('http')) {
-      newErrors.externalUrl = 'External URL must start with http:// or https://';
+    if (formData.externalUrl.trim() && !formData.externalUrl.trim().startsWith('http') && !formData.externalUrl.trim().startsWith('/')) {
+      newErrors.externalUrl = 'External URL must start with http://, https://, or /';
     }
 
     setErrors(newErrors);
@@ -109,12 +114,11 @@ export default function LibraryResourceCreatePage() {
 
     setSubmitting(true);
     try {
-      let finalFileUrl = '';
-      let finalFileName = '';
-      let finalFileSize = 0;
+      let finalFileUrl = originalResource.fileUrl;
+      let finalFileName = originalResource.fileName;
+      let finalFileSize = originalResource.fileSize;
 
       if (selectedFile) {
-        // Upload file to backend
         const uploadRes = await teacherLibraryService.uploadFile(selectedFile);
         finalFileUrl = uploadRes.fileUrl;
         finalFileName = selectedFile.name;
@@ -122,52 +126,43 @@ export default function LibraryResourceCreatePage() {
       }
 
       const payload = {
+        ...originalResource, // preserve original attributes like createdAt, id, teacherId
         title: formData.title.trim(),
         description: formData.description.trim(),
         resourceType: formData.resourceType,
         skill: formData.skill,
         level: formData.level,
+        externalUrl: formData.externalUrl.trim(),
+        tags: formData.tags.trim(),
+        visibility: formData.visibility,
         fileUrl: finalFileUrl,
         fileName: finalFileName,
         fileSize: finalFileSize,
-        externalUrl: formData.externalUrl.trim(),
-        thumbnailUrl: '',
-        tags: formData.tags.trim(),
-        visibility: formData.visibility,
-        teacherId: teacherId,
-        status: 'published',
-        downloadCount: 0,
-        createdAt: new Date().toISOString(),
       };
 
-      await teacherLibraryService.createResource(payload);
+      await teacherLibraryService.updateResource(id, payload);
 
-      setSuccessMsg('Resource created successfully!');
-      toast.success('Tạo tài nguyên thành công!');
+      setSuccessMsg('Cập nhật tài nguyên thành công!');
+      toast.success('Cập nhật tài nguyên thành công!');
 
-      // Reset form
-      setFormData({
-        title: '',
-        description: '',
-        resourceType: 'pdf',
-        skill: 'Reading',
-        level: 'Intermediate',
-        externalUrl: '',
-        tags: '',
-        visibility: 'public',
-      });
-      setSelectedFile(null);
-
-      // Navigate back after short delay
       setTimeout(() => {
         navigate('/teacher/library');
       }, 1500);
     } catch (error) {
-      toast.error('Tạo tài nguyên thất bại. Vui lòng thử lại.');
+      toast.error('Cập nhật thất bại. Vui lòng thử lại.');
     } finally {
       setSubmitting(false);
     }
   };
+
+  if (loading) {
+    return (
+      <Container className="py-5 text-center">
+        <Spinner animation="border" variant="primary" />
+        <p className="text-muted mt-2">Đang tải dữ liệu...</p>
+      </Container>
+    );
+  }
 
   return (
     <Container className="py-4" style={{ maxWidth: '850px' }}>
@@ -181,23 +176,16 @@ export default function LibraryResourceCreatePage() {
 
       <Card className="border-0 shadow-sm p-4 p-md-5 rounded-3 bg-white mt-2">
         <div className="mb-4">
-          <h2 className="fw-bold text-dark mb-1" data-testid="page-title">
-            Tạo Tài nguyên Học tập
-          </h2>
-          <p className="text-secondary mb-0">
-            Upload file hoặc nhập URL tài nguyên để chia sẻ với học viên.
-          </p>
+          <h2 className="fw-bold text-dark mb-1">Chỉnh sửa Tài nguyên</h2>
+          <p className="text-secondary mb-0">Cập nhật thông tin hoặc đổi link của tài liệu.</p>
         </div>
 
         {successMsg && (
-          <Alert variant="success" data-testid="success-message">
-            {successMsg}
-          </Alert>
+          <Alert variant="success">{successMsg}</Alert>
         )}
 
-        <Form onSubmit={handleSubmit} noValidate data-testid="resource-form">
+        <Form onSubmit={handleSubmit} noValidate>
           <Row className="g-3">
-            {/* Title */}
             <Col xs={12}>
               <Form.Group controlId="resourceTitle">
                 <Form.Label className="fw-semibold text-secondary">
@@ -211,15 +199,11 @@ export default function LibraryResourceCreatePage() {
                   onChange={handleChange}
                   isInvalid={!!errors.title}
                   disabled={submitting}
-                  data-testid="input-title"
                 />
-                <Form.Control.Feedback type="invalid" data-testid="error-title">
-                  {errors.title}
-                </Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">{errors.title}</Form.Control.Feedback>
               </Form.Group>
             </Col>
 
-            {/* Description */}
             <Col xs={12}>
               <Form.Group controlId="resourceDescription">
                 <Form.Label className="fw-semibold text-secondary">
@@ -234,15 +218,11 @@ export default function LibraryResourceCreatePage() {
                   onChange={handleChange}
                   isInvalid={!!errors.description}
                   disabled={submitting}
-                  data-testid="input-description"
                 />
-                <Form.Control.Feedback type="invalid" data-testid="error-description">
-                  {errors.description}
-                </Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">{errors.description}</Form.Control.Feedback>
               </Form.Group>
             </Col>
 
-            {/* Resource Type & Skill */}
             <Col md={6}>
               <Form.Group controlId="resourceType">
                 <Form.Label className="fw-semibold text-secondary">
@@ -253,7 +233,6 @@ export default function LibraryResourceCreatePage() {
                   value={formData.resourceType}
                   onChange={handleChange}
                   disabled={submitting}
-                  data-testid="select-resourceType"
                 >
                   <option value="pdf">PDF Document</option>
                   <option value="document">Word Document</option>
@@ -276,7 +255,6 @@ export default function LibraryResourceCreatePage() {
                   value={formData.skill}
                   onChange={handleChange}
                   disabled={submitting}
-                  data-testid="select-skill"
                 >
                   <option value="Reading">Reading</option>
                   <option value="Listening">Listening</option>
@@ -287,7 +265,6 @@ export default function LibraryResourceCreatePage() {
               </Form.Group>
             </Col>
 
-            {/* Level & Visibility */}
             <Col md={6}>
               <Form.Group controlId="resourceLevel">
                 <Form.Label className="fw-semibold text-secondary">
@@ -298,7 +275,6 @@ export default function LibraryResourceCreatePage() {
                   value={formData.level}
                   onChange={handleChange}
                   disabled={submitting}
-                  data-testid="select-level"
                 >
                   <option value="Beginner">Beginner (3.0 - 4.5)</option>
                   <option value="Intermediate">Intermediate (5.0 - 6.5)</option>
@@ -317,7 +293,6 @@ export default function LibraryResourceCreatePage() {
                   value={formData.visibility}
                   onChange={handleChange}
                   disabled={submitting}
-                  data-testid="select-visibility"
                 >
                   <option value="public">Public - Tất cả học viên</option>
                   <option value="enrolled">Enrolled - Chỉ học viên đăng ký</option>
@@ -326,34 +301,31 @@ export default function LibraryResourceCreatePage() {
               </Form.Group>
             </Col>
 
-            {/* File Upload */}
             <Col xs={12}>
               <Form.Group controlId="resourceFile">
                 <Form.Label className="fw-semibold text-secondary">
-                  Upload File
+                  Upload File mới (chọn để thay thế file cũ)
                 </Form.Label>
                 <Form.Control
                   type="file"
                   onChange={handleFileChange}
                   isInvalid={!!errors.file}
                   disabled={submitting}
-                  data-testid="input-file"
                   accept=".pdf,.doc,.docx,.ppt,.pptx,.mp3,.mp4,.jpg,.png"
                 />
-                <Form.Control.Feedback type="invalid" data-testid="error-file">
-                  {errors.file}
-                </Form.Control.Feedback>
-                <Form.Text className="text-muted small">
-                  Allowed: PDF, DOC, DOCX, PPT, PPTX, MP3, MP4, JPG, PNG. Max 10MB.
-                </Form.Text>
+                {originalResource?.fileUrl && !selectedFile && (
+                  <Form.Text className="text-success">
+                    <i className="bi bi-file-earmark-check"></i> File hiện tại: {originalResource.fileName || 'Đã có file đính kèm'}
+                  </Form.Text>
+                )}
+                <Form.Control.Feedback type="invalid">{errors.file}</Form.Control.Feedback>
               </Form.Group>
             </Col>
 
-            {/* External URL */}
             <Col xs={12}>
               <Form.Group controlId="resourceExternalUrl">
                 <Form.Label className="fw-semibold text-secondary">
-                  External URL (nếu không upload file)
+                  External URL
                 </Form.Label>
                 <Form.Control
                   type="text"
@@ -363,34 +335,12 @@ export default function LibraryResourceCreatePage() {
                   onChange={handleChange}
                   isInvalid={!!errors.externalUrl}
                   disabled={submitting}
-                  data-testid="input-externalUrl"
                 />
-                <Form.Control.Feedback type="invalid" data-testid="error-externalUrl">
-                  {errors.externalUrl}
-                </Form.Control.Feedback>
-              </Form.Group>
-            </Col>
-
-            {/* Tags */}
-            <Col xs={12}>
-              <Form.Group controlId="resourceTags">
-                <Form.Label className="fw-semibold text-secondary">
-                  Tags (phân cách bằng dấu phẩy)
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  name="tags"
-                  placeholder="reading, tips, band7"
-                  value={formData.tags}
-                  onChange={handleChange}
-                  disabled={submitting}
-                  data-testid="input-tags"
-                />
+                <Form.Control.Feedback type="invalid">{errors.externalUrl}</Form.Control.Feedback>
               </Form.Group>
             </Col>
           </Row>
 
-          {/* Form Actions */}
           <div className="d-flex justify-content-end gap-3 mt-5 pt-3 border-top border-light">
             <Button
               as={Link}
@@ -398,7 +348,6 @@ export default function LibraryResourceCreatePage() {
               variant="outline-secondary"
               className="px-4 py-2 rounded-pill fw-semibold shadow-none"
               disabled={submitting}
-              data-testid="btn-cancel"
             >
               Hủy bỏ
             </Button>
@@ -407,14 +356,11 @@ export default function LibraryResourceCreatePage() {
               variant="primary"
               className="px-4 py-2 rounded-pill fw-semibold d-flex align-items-center gap-2"
               disabled={submitting}
-              data-testid="btn-submit"
             >
               {submitting ? (
-                <>
-                  <Spinner size="sm" animation="border" /> Đang tạo...
-                </>
+                <><Spinner size="sm" animation="border" /> Đang cập nhật...</>
               ) : (
-                <>Tạo Tài nguyên</>
+                <>Lưu thay đổi</>
               )}
             </Button>
           </div>

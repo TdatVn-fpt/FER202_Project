@@ -5,8 +5,30 @@
   const { JSONFile } = await import('lowdb/node');
   const { App } = await import('@tinyhttp/app');
   const { json } = await import('milliparsec');
+  const multer = (await import('multer')).default;
+  const path = await import('path');
+  const fs = await import('fs');
 
   const PORT = process.env.PORT || 9999;
+
+  // Initialize uploads directory
+  const uploadDir = path.join(process.cwd(), 'public', 'uploads');
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+  }
+
+  const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, uploadDir)
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+      const ext = path.extname(file.originalname);
+      const safeName = path.basename(file.originalname, ext).replace(/[^a-zA-Z0-9]/g, '-');
+      cb(null, safeName + '-' + uniqueSuffix + ext)
+    }
+  });
+  const upload = multer({ storage: storage });
 
   // Initialize lowdb database
   const adapter = new JSONFile('db.json');
@@ -23,6 +45,7 @@
   db.data.flashcardProgress = db.data.flashcardProgress || [];
   db.data.auditLogs = db.data.auditLogs || [];
   db.data.approvalRequests = db.data.approvalRequests || [];
+  db.data.library_resources = db.data.library_resources || [];
 
   // Sequential ID Generator
   function generateNextId(collectionName, prefix) {
@@ -57,6 +80,15 @@
   });
 
   const bodyParser = json();
+
+  // --- 0. POST /upload (Real File Upload) ---
+  server.post('/upload', upload.single('file'), (req, res) => {
+    if (!req.file) {
+      return res.status(400).json({ message: 'No file uploaded' });
+    }
+    // Return relative URL to be saved in JSON DB
+    res.json({ fileUrl: `/uploads/${req.file.filename}` });
+  });
 
   // --- 1. POST /courses (Course Creation) ---
   server.post('/courses', bodyParser, async (req, res) => {
