@@ -10,7 +10,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { Table, Form, Button, Badge, Spinner, Alert } from 'react-bootstrap';
-import { getTransactions } from '../../services/adminService';
+import { getTransactions, updateTransaction } from '../../services/adminService';
 
 // EARS[Ubiquitous]: THE system SHALL display transaction list (read-only) at /admin/transactions
 const TransactionList = () => {
@@ -65,6 +65,32 @@ const TransactionList = () => {
 
   const formatCurrency = (amount, currency) => {
     return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: currency || 'VND' }).format(amount);
+  };
+
+  const handleApprove = async (transactionId) => {
+    if (window.confirm('Bạn có chắc muốn duyệt giao dịch này?')) {
+      try {
+        setLoading(true);
+        await updateTransaction(transactionId, { status: 'completed' });
+        fetchTransactions();
+      } catch (err) {
+        setError('Lỗi khi duyệt giao dịch: ' + err.message);
+        setLoading(false);
+      }
+    }
+  };
+
+  const handleReject = async (transactionId) => {
+    if (window.confirm('Bạn có chắc muốn từ chối giao dịch này?')) {
+      try {
+        setLoading(true);
+        await updateTransaction(transactionId, { status: 'failed' });
+        fetchTransactions();
+      } catch (err) {
+        setError('Lỗi khi từ chối giao dịch: ' + err.message);
+        setLoading(false);
+      }
+    }
   };
 
   // EARS[Ubiquitous]: THE system SHALL compute total revenue from completed transactions
@@ -173,18 +199,19 @@ const TransactionList = () => {
                 <th>Phương thức</th>
                 <th>Trạng thái</th>
                 <th>Thời gian</th>
+                <th className="text-end pe-4">Thao tác</th>
               </tr>
             </thead>
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan="7" className="text-center py-5">
+                  <td colSpan="8" className="text-center py-5">
                     <Spinner animation="border" variant="primary" />
                   </td>
                 </tr>
               ) : transactions.length === 0 ? (
                 <tr>
-                  <td colSpan="7" className="text-center py-5 text-muted">
+                  <td colSpan="8" className="text-center py-5 text-muted">
                     <i className="bi bi-credit-card-2-front fs-1 d-block mb-2 opacity-50"></i>
                     Không có giao dịch nào phù hợp với bộ lọc.
                   </td>
@@ -214,6 +241,14 @@ const TransactionList = () => {
                     </td>
                     <td className="text-muted">
                       {txn.createdAt ? new Date(txn.createdAt).toLocaleString('vi-VN') : 'N/A'}
+                    </td>
+                    <td className="text-end pe-4">
+                      {txn.status === 'pending' && (
+                        <div className="d-flex gap-2 justify-content-end">
+                          <Button variant="success" size="sm" onClick={() => handleApprove(txn.id)} className="rounded-pill px-3">Duyệt</Button>
+                          <Button variant="danger" size="sm" onClick={() => handleReject(txn.id)} className="rounded-pill px-3">Từ chối</Button>
+                        </div>
+                      )}
                     </td>
                   </tr>
                 ))

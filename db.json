@@ -48,7 +48,7 @@
       "name": "Nguyen Tien Dat",
       "email": "ntiendat2108@gmail.com",
       "password": "12345678",
-      "role": "student",
+      "role": "admin",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "status": "active",
       "targetBand": 7,
@@ -179,7 +179,7 @@
       ],
       "skill": "Listening",
       "level": "Intermediate",
-      "price": 299000,
+      "price": 289000,
       "isPremium": true,
       "thumbnail": "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
@@ -1900,35 +1900,20 @@
   "questionAnswers": [],
   "enrollments": [
     {
-      "id": "1",
-      "userId": 1,
-      "courseId": 1,
-      "status": "active",
-      "progress": 35,
-      "enrolledAt": "2026-06-01"
-    },
-    {
-      "userId": "u-001",
+      "id": "enrol-001",
+      "enrolledAt": "2026-06-10T10:00:00Z",
       "courseId": "course-001",
-      "progress": 50,
-      "enrolledAt": "2026-06-21T09:45:56.480Z",
-      "id": "NYrti839-l8",
-      "status": "active"
+      "userId": "u-student-001",
+      "status": "active",
+      "progress": 45
     },
     {
+      "id": "enrol-002",
+      "enrolledAt": "2026-05-20T08:00:00Z",
+      "courseId": "course-001",
       "userId": "u-001",
-      "courseId": "course-002",
-      "progress": 100,
-      "enrolledAt": "2026-06-21T10:22:02.823Z",
-      "id": "ySsTPaPlmmU",
-      "status": "completed"
-    },
-    {
-      "userId": "u-001",
-      "courseId": "course-003",
-      "progress": 0,
-      "enrolledAt": "2026-06-21T10:27:06.120Z",
-      "id": "cb51wNV__9c"
+      "status": "active",
+      "progress": 100
     },
     {
       "userId": "u-001",
@@ -2051,7 +2036,7 @@
       "amount": 199000,
       "currency": "VND",
       "method": "vnpay",
-      "status": "pending",
+      "status": "completed",
       "createdAt": "2026-06-08T09:30:00Z"
     },
     {
@@ -2801,49 +2786,81 @@
   ],
   "approvalRequests": [
     {
-      "id": "req-001",
-      "targetType": "course",
-      "targetId": "course-002",
-      "teacherId": "u-teacher-001",
-      "status": "approved",
-      "createdAt": "2026-06-10T10:00:00Z"
-    },
-    {
-      "id": "req-002",
-      "targetType": "lesson",
-      "targetId": "lesson-004",
-      "teacherId": "u-teacher-001",
-      "status": "pending",
-      "createdAt": "2026-06-11T08:30:00Z"
-    },
-    {
-      "id": "req-003",
-      "targetType": "course",
-      "targetId": "course-005",
-      "teacherId": "u-teacher-001",
-      "status": "pending",
-      "createdAt": "2026-06-23T16:32:41.048Z"
-    },
-    {
-      "id": "req-004",
+      "id": "log-021",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
       "targetType": "course",
       "targetId": "course-006",
-      "teacherId": "u-teacher-001",
-      "status": "pending",
-      "createdAt": "2026-06-23T16:34:09.939Z"
+      "createdAt": "2026-06-28T16:50:45.661Z"
     },
     {
-      "id": "req-005",
+      "id": "log-022",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T16:51:48.461Z"
+    },
+    {
+      "id": "log-023",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T16:53:48.505Z"
+    },
+    {
+      "id": "log-024",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
       "targetType": "course",
       "targetId": "course-007",
-      "teacherId": "u-teacher-001",
-      "status": "pending",
-      "createdAt": "2026-06-23T16:35:29.072Z"
+      "createdAt": "2026-06-28T16:58:09.557Z"
     },
     {
-      "id": "req-006",
+      "id": "log-025",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
       "targetType": "course",
-      "targetId": "course-008",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T17:12:14.428Z"
+    },
+    {
+      "id": "log-026",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T17:12:28.893Z"
+    },
+    {
+      "id": "log-027",
+      "actorId": "u-teacher-001",
+      "action": "SUBMIT_APPROVAL",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T17:13:35.651Z"
+    },
+    {
+      "id": "log-028",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-28T17:25:31.610Z"
+    },
+    {
+      "id": "log-029",
+      "actorId": "u-teacher-001",
+      "action": "SUBMIT_APPROVAL",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-28T17:25:37.151Z"
+    }
+  ],
+  "approvalRequests": [
+    {
+      "id": "K3ppAlR20l4",
       "teacherId": "u-teacher-001",
       "status": "pending",
       "createdAt": "2026-06-23T16:35:49.491Z"

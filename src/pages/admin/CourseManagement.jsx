@@ -9,7 +9,7 @@
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Table, Form, Button, Badge, Spinner, Alert, Dropdown } from 'react-bootstrap';
+import { Table, Form, Button, Badge, Spinner, Alert, Dropdown, Modal } from 'react-bootstrap';
 import ConfirmModal from '../../components/common/ConfirmModal';
 import { getCourses, updateCourse, deleteCourse } from '../../services/adminService';
 
@@ -28,6 +28,34 @@ const CourseManagement = () => {
     actionData: null,
     actionType: '',
   });
+
+  const [priceModal, setPriceModal] = useState({
+    isOpen: false,
+    courseId: null,
+    currentPrice: 0,
+    newPrice: 0
+  });
+
+  const openPriceModal = (course) => {
+    setPriceModal({
+      isOpen: true,
+      courseId: course.id,
+      currentPrice: course.price || 0,
+      newPrice: course.price || 0
+    });
+  };
+
+  const handleSavePrice = async () => {
+    try {
+      setPriceModal(prev => ({ ...prev, isOpen: false }));
+      setLoading(true);
+      await updateCourse(priceModal.courseId, { price: Number(priceModal.newPrice) });
+      fetchCourses();
+    } catch (err) {
+      setError(`Lỗi khi sửa giá: ${err.message}`);
+      setLoading(false);
+    }
+  };
 
   // EARS[Event]: WHEN Admin loads CourseManagement, THE system SHALL fetch all courses
   const fetchCourses = useCallback(async () => {
@@ -239,6 +267,10 @@ const CourseManagement = () => {
                             </Dropdown.Item>
                           )}
                           <Dropdown.Divider />
+                          <Dropdown.Item className="text-primary fw-bold" onClick={() => openPriceModal(course)}>
+                            ✏️ Sửa giá
+                          </Dropdown.Item>
+                          <Dropdown.Divider />
                           {/* EARS[Unwanted]: WHERE Admin deletes a course, THE system SHALL ask for confirmation */}
                           <Dropdown.Item className="text-danger fw-bold" onClick={() => openConfirmModal('delete', course)}>
                             🗑 Xóa khóa học
@@ -253,6 +285,30 @@ const CourseManagement = () => {
           </Table>
         </div>
       </div>
+
+      <Modal show={priceModal.isOpen} onHide={() => setPriceModal(prev => ({ ...prev, isOpen: false }))} centered>
+        <Modal.Header closeButton className="border-bottom-0">
+          <Modal.Title className="fw-bold">Sửa giá khóa học</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form.Group>
+            <Form.Label>Giá mới (VNĐ)</Form.Label>
+            <Form.Control 
+              type="number" 
+              value={priceModal.newPrice}
+              onChange={(e) => setPriceModal(prev => ({ ...prev, newPrice: e.target.value }))}
+            />
+          </Form.Group>
+        </Modal.Body>
+        <Modal.Footer className="border-top-0">
+          <Button variant="light" onClick={() => setPriceModal(prev => ({ ...prev, isOpen: false }))} className="rounded-pill px-4">
+            Hủy
+          </Button>
+          <Button variant="primary" onClick={handleSavePrice} className="rounded-pill px-4">
+            Lưu
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       <ConfirmModal
         isOpen={confirmModal.isOpen}
