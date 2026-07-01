@@ -24,6 +24,9 @@ export const getCourses = async (params = {}) => {
       ? response.data
       : (response.data?.data || []);
 
+    // EARS[Event]: ONLY return courses that have been approved or published to students.
+    allCourses = allCourses.filter(c => c.status === 'approved' || c.status === 'published');
+
     // Lọc theo search keyword (client-side) — case-insensitive
     if (search) {
       const keyword = search.toLowerCase();
@@ -48,7 +51,14 @@ export const getCourses = async (params = {}) => {
 export const getCourseById = async (id) => {
   try {
     const response = await api.get(`/courses/${id}`);
-    return response.data;
+    const course = response.data;
+    
+    // EARS[Event]: ONLY allow viewing if course is approved or published
+    if (course.status !== 'approved' && course.status !== 'published') {
+      throw new Error('Course is not available or pending approval.');
+    }
+    
+    return course;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'Failed to fetch course details');
   }

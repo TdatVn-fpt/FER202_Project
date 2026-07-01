@@ -287,6 +287,38 @@
       "enrolledCount": 0,
       "durationWeeks": 4,
       "createdAt": "2026-06-28T10:07:55.776Z"
+    },
+    {
+      "id": "course-006",
+      "title": "IELTS Reading Mastery: Từ 3.0 đến 5.0+",
+      "description": "Khóa học giúp học viên xây dựng nền tảng IELTS Reading từ cơ bản đến trung cấp. Học viên sẽ được hướng dẫn các kỹ năng đọc hiểu, tìm ý chính, xác định thông tin chi tiết, xử lý dạng bài True/False/Not Given, Matching Headings và Multiple Choice. Sau khi hoàn thành khóa học, học viên có thể tự tin làm bài Reading ở mức 5.0+.",
+      "syllabus": [],
+      "skill": "Reading",
+      "level": "Beginner",
+      "price": 499000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
+      "enrolledCount": 0,
+      "durationWeeks": 4,
+      "createdAt": "2026-06-28T17:12:14.419Z"
+    },
+    {
+      "id": "course-007",
+      "title": "IELTS Reading Mastery: Từ 3.0 đến 5.0+",
+      "description": "Khóa học giúp học viên xây dựng nền tảng IELTS Reading từ cơ bản đến trung cấp. Học viên sẽ được hướng dẫn các kỹ năng đọc hiểu, tìm ý chính, xác định thông tin chi tiết, xử lý dạng bài True/False/Not Given, Matching Headings và Multiple Choice. Sau khi hoàn thành khóa học, học viên có thể tự tin làm bài Reading ở mức 5.0+.",
+      "syllabus": [],
+      "skill": "Reading",
+      "level": "Beginner",
+      "price": 122222,
+      "isPremium": true,
+      "thumbnail": "",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
+      "enrolledCount": 0,
+      "durationWeeks": 4,
+      "createdAt": "2026-06-28T17:25:31.605Z"
     }
   ],
   "freeResources": [
@@ -359,6 +391,18 @@
       "teacherId": "u-teacher-001",
       "status": "published",
       "createdAt": "2026-06-27T13:41:47.182Z"
+    },
+    {
+      "id": "lesson-007",
+      "courseId": null,
+      "title": "Reading Lesson 1: Introduction to IELTS Reading",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=As4e8dtqBrk",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-06-28T16:51:48.456Z"
     }
   ],
   "tests": [
@@ -1362,42 +1406,28 @@
   "questionAnswers": [],
   "enrollments": [
     {
-      "id": "1",
-      "userId": 1,
-      "courseId": 1,
-      "status": "active",
-      "progress": 35,
-      "enrolledAt": "2026-06-01"
-    },
-    {
-      "userId": "u-001",
+      "id": "enrol-001",
+      "enrolledAt": "2026-06-10T10:00:00Z",
       "courseId": "course-001",
-      "progress": 50,
-      "enrolledAt": "2026-06-21T09:45:56.480Z",
-      "id": "NYrti839-l8",
-      "status": "active"
+      "userId": "u-student-001",
+      "status": "active",
+      "progress": 45
     },
     {
+      "id": "enrol-002",
+      "enrolledAt": "2026-05-20T08:00:00Z",
+      "courseId": "course-001",
       "userId": "u-001",
+      "status": "active",
+      "progress": 100
+    },
+    {
+      "id": "enrol-003",
+      "enrolledAt": "2026-06-15T09:00:00Z",
       "courseId": "course-002",
-      "progress": 100,
-      "enrolledAt": "2026-06-21T10:22:02.823Z",
-      "id": "ySsTPaPlmmU",
-      "status": "completed"
-    },
-    {
-      "userId": "u-001",
-      "courseId": "course-003",
-      "progress": 0,
-      "enrolledAt": "2026-06-21T10:27:06.120Z",
-      "id": "cb51wNV__9c"
-    },
-    {
-      "userId": "u-001",
-      "courseId": null,
-      "progress": 0,
-      "enrolledAt": "2026-06-21T10:46:41.099Z",
-      "id": "7SFfx-Z-jhg"
+      "userId": "google-student-1",
+      "status": "paused",
+      "progress": 10
     }
   ],
   "payments": [
@@ -1941,56 +1971,96 @@
       "targetType": "course",
       "targetId": "course-005",
       "createdAt": "2026-06-28T10:18:00.577Z"
+    },
+    {
+      "id": "log-021",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T16:50:45.661Z"
+    },
+    {
+      "id": "log-022",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T16:51:48.461Z"
+    },
+    {
+      "id": "log-023",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T16:53:48.505Z"
+    },
+    {
+      "id": "log-024",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-28T16:58:09.557Z"
+    },
+    {
+      "id": "log-025",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T17:12:14.428Z"
+    },
+    {
+      "id": "log-026",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T17:12:28.893Z"
+    },
+    {
+      "id": "log-027",
+      "actorId": "u-teacher-001",
+      "action": "SUBMIT_APPROVAL",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T17:13:35.651Z"
+    },
+    {
+      "id": "log-028",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-28T17:25:31.610Z"
+    },
+    {
+      "id": "log-029",
+      "actorId": "u-teacher-001",
+      "action": "SUBMIT_APPROVAL",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-28T17:25:37.151Z"
     }
   ],
   "approvalRequests": [
     {
-      "id": "req-001",
-      "targetType": "course",
-      "targetId": "course-002",
+      "id": "K3ppAlR20l4",
       "teacherId": "u-teacher-001",
-      "status": "approved",
-      "createdAt": "2026-06-10T10:00:00Z"
-    },
-    {
-      "id": "req-002",
-      "targetType": "lesson",
-      "targetId": "lesson-004",
-      "teacherId": "u-teacher-001",
-      "status": "pending",
-      "createdAt": "2026-06-11T08:30:00Z"
-    },
-    {
-      "id": "req-003",
-      "targetType": "course",
-      "targetId": "course-005",
-      "teacherId": "u-teacher-001",
-      "status": "pending",
-      "createdAt": "2026-06-23T16:32:41.048Z"
-    },
-    {
-      "id": "req-004",
       "targetType": "course",
       "targetId": "course-006",
-      "teacherId": "u-teacher-001",
-      "status": "pending",
-      "createdAt": "2026-06-23T16:34:09.939Z"
+      "status": "approved",
+      "createdAt": "2026-06-28T17:13:35.632Z"
     },
     {
-      "id": "req-005",
+      "id": "BAow8J3XeBk",
+      "teacherId": "u-teacher-001",
       "targetType": "course",
       "targetId": "course-007",
-      "teacherId": "u-teacher-001",
-      "status": "pending",
-      "createdAt": "2026-06-23T16:35:29.072Z"
-    },
-    {
-      "id": "req-006",
-      "targetType": "course",
-      "targetId": "course-008",
-      "teacherId": "u-teacher-001",
-      "status": "pending",
-      "createdAt": "2026-06-23T16:35:49.491Z"
+      "status": "approved",
+      "createdAt": "2026-06-28T17:25:37.133Z"
     }
   ],
   "categories": [
@@ -3134,6 +3204,24 @@
       "totalScore": 1,
       "score": 0,
       "overallBandScore": 0
+    },
+    {
+      "id": "attempt-001",
+      "createdAt": "2026-06-12T14:30:00Z",
+      "totalQuestions": 40,
+      "score": 32,
+      "userId": "u-student-001",
+      "bandScore": 7,
+      "testId": "test-001"
+    },
+    {
+      "id": "attempt-002",
+      "createdAt": "2026-06-16T10:00:00Z",
+      "totalQuestions": 30,
+      "score": 25,
+      "userId": "google-student-1",
+      "bandScore": 6.5,
+      "testId": "test-002"
     }
   ],
   "flashcardDecks": [

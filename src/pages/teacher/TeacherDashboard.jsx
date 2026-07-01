@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Table, Badge, Alert, Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { getCurrentUser } from '../../services/authService';
 import { teacherCourseService } from '../../services/teacherCourseService';
 import { teacherLessonService } from '../../services/teacherLessonService';
@@ -105,9 +106,11 @@ export default function TeacherDashboard() {
                 <h3 className="fw-bold text-dark mb-0 mt-1">{stats.coursesCount}</h3>
               </div>
             </div>
-            <div className="bg-primary bg-opacity-10 py-2 px-4 border-top">
-              <small className="text-primary fw-medium">Xem danh sách khóa học</small>
-            </div>
+            <Link to="/teacher/courses" className="text-decoration-none">
+              <div className="bg-primary bg-opacity-10 py-2 px-4 border-top">
+                <small className="text-primary fw-medium">Xem danh sách khóa học</small>
+              </div>
+            </Link>
           </Card>
         </Col>
 
@@ -123,9 +126,11 @@ export default function TeacherDashboard() {
                 <h3 className="fw-bold text-dark mb-0 mt-1">{stats.lessonsCount}</h3>
               </div>
             </div>
-            <div className="bg-success bg-opacity-10 py-2 px-4 border-top">
-              <small className="text-success fw-medium">Xem giáo trình chi tiết</small>
-            </div>
+            <Link to="/teacher/lessons" className="text-decoration-none">
+              <div className="bg-success bg-opacity-10 py-2 px-4 border-top">
+                <small className="text-success fw-medium">Xem giáo trình chi tiết</small>
+              </div>
+            </Link>
           </Card>
         </Col>
 
@@ -141,9 +146,11 @@ export default function TeacherDashboard() {
                 <h3 className="fw-bold text-dark mb-0 mt-1">{stats.testsCount}</h3>
               </div>
             </div>
-            <div className="bg-info bg-opacity-10 py-2 px-4 border-top">
-              <small className="text-info fw-medium">Quản lý ngân hàng đề</small>
-            </div>
+            <Link to="/teacher/tests" className="text-decoration-none">
+              <div className="bg-info bg-opacity-10 py-2 px-4 border-top">
+                <small className="text-info fw-medium">Quản lý ngân hàng đề</small>
+              </div>
+            </Link>
           </Card>
         </Col>
 
@@ -159,9 +166,11 @@ export default function TeacherDashboard() {
                 <h3 className="fw-bold text-dark mb-0 mt-1">{stats.studentsCount}</h3>
               </div>
             </div>
-            <div className="bg-warning bg-opacity-10 py-2 px-4 border-top">
-              <small className="text-warning fw-medium">Theo dõi tiến độ học</small>
-            </div>
+            <Link to="/teacher/students" className="text-decoration-none">
+              <div className="bg-warning bg-opacity-10 py-2 px-4 border-top">
+                <small className="text-warning fw-medium">Theo dõi tiến độ học</small>
+              </div>
+            </Link>
           </Card>
         </Col>
       </Row>
@@ -193,10 +202,10 @@ export default function TeacherDashboard() {
                 {recentApprovals.map((req) => (
                   <tr key={req.id}>
                     <td className="ps-4">
-                      <span className="fw-bold text-dark text-capitalize">{req.contentType === 'course' ? 'Khóa học' : req.contentType}</span>
+                      <span className="fw-bold text-dark text-capitalize">{req.targetType === 'course' ? 'Khóa học' : req.targetType}</span>
                     </td>
                     <td>
-                      <code className="text-muted">{req.contentId}</code>
+                      <code className="text-muted">{req.targetId}</code>
                     </td>
                     <td>
                       <span className="text-secondary small fw-medium">

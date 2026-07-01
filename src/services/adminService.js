@@ -165,18 +165,28 @@ export const getApprovalRequests = async (params) => {
 };
 
 // EARS[Event]: WHEN Admin approves a request, THE system SHALL set status to 'approved'
-export const approveRequest = async (requestId) => {
+export const approveRequest = async (requestId, targetType, targetId) => {
   // T006: Kiểm tra quyền Admin trước khi thực hiện thay đổi
   requireAdminAuth();
   const response = await axios.patch(`${API_URL}/approvalRequests/${requestId}`, { status: 'approved' });
+  
+  if (targetType === 'course' && targetId) {
+    await axios.patch(`${API_URL}/courses/${targetId}`, { status: 'approved' });
+  }
+  
   return response.data;
 };
 
 // EARS[Event]: WHEN Admin rejects a request, THE system SHALL set status to 'rejected' with reason
-export const rejectRequest = async (requestId, reason) => {
+export const rejectRequest = async (requestId, targetType, targetId, adminId, reason) => {
   // T006: Kiểm tra quyền Admin trước khi thực hiện thay đổi
   requireAdminAuth();
   const response = await axios.patch(`${API_URL}/approvalRequests/${requestId}`, { status: 'rejected', reason });
+  
+  if (targetType === 'course' && targetId) {
+    await axios.patch(`${API_URL}/courses/${targetId}`, { status: 'rejected' });
+  }
+
   return response.data;
 };
 

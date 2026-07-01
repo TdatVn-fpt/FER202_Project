@@ -7,6 +7,7 @@ import { teacherCourseService } from '../../services/teacherCourseService';
 import { teacherLessonService } from '../../services/teacherLessonService';
 import { teacherTestService } from '../../services/teacherTestService';
 import { teacherFlashcardService } from '../../services/teacherFlashcardService';
+import { teacherApprovalService } from '../../services/teacherApprovalService';
 import { auditLogService } from '../../services/auditLogService';
 
 const getYouTubeId = (url) => {
@@ -116,6 +117,41 @@ export default function CourseDetailBuilder() {
         { courseId: course.id, reason: 'Course structure edited' },
         teacherId
       );
+    }
+  };
+
+  // --- Submit Approval Request ---
+  const handleSubmitApproval = async () => {
+    if (isLocked) return;
+    setWorking(true);
+    try {
+      const approvalData = {
+        id: `req-${Date.now()}`,
+        teacherId: teacherId,
+        targetType: 'course',
+        targetId: course.id,
+        status: 'pending',
+        createdAt: new Date().toISOString()
+      };
+      
+      // Update DB
+      await teacherApprovalService.submitApprovalRequest(approvalData);
+      await teacherCourseService.updateCourse(course.id, { status: 'pending' });
+      
+      // Update UI state
+      setCourse({ ...course, status: 'pending' });
+      toast.success('Đã gửi yêu cầu phê duyệt khóa học thành công!');
+      
+      // Log Action
+      await auditLogService.logAction(
+        'SUBMIT_APPROVAL',
+        { courseId: course.id, approvalId: approvalData.id },
+        teacherId
+      );
+    } catch (err) {
+      toast.error('Gửi yêu cầu thất bại. Vui lòng thử lại.');
+    } finally {
+      setWorking(false);
     }
   };
 
@@ -361,7 +397,7 @@ export default function CourseDetailBuilder() {
                 {course.price === 0 ? 'Miễn phí' : `${course.price.toLocaleString('vi-VN')} đ`}
               </strong>
             </div>
-            <div className="small text-muted">
+            <div className="small text-muted mb-3">
               {course.isPremium ? (
                 <Badge bg="warning" text="dark" className="px-3 py-1.5 rounded-pill fw-bold">
                   <i className="bi bi-star-fill text-danger me-1"></i>PREMIUM COURSE
@@ -370,6 +406,16 @@ export default function CourseDetailBuilder() {
                 <Badge bg="success" className="px-3 py-1.5 rounded-pill fw-bold">FREE COURSE</Badge>
               )}
             </div>
+            {(course.status === 'draft' || course.status === 'rejected') && (
+              <Button 
+                variant="primary" 
+                className="rounded-pill px-4 shadow-sm fw-semibold"
+                onClick={handleSubmitApproval}
+                disabled={working}
+              >
+                {working ? <Spinner animation="border" size="sm" /> : <><i className="bi bi-send-check me-2"></i> Gửi yêu cầu duyệt</>}
+              </Button>
+            )}
           </Col>
         </Row>
       </Card>
