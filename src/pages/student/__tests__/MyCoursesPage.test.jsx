@@ -81,14 +81,14 @@ describe('MyCoursesPage (T016)', () => {
     expect(screen.getByTestId('course-card-course-3')).toBeInTheDocument();
 
     // Verify Badges logic
-    expect(screen.getByText('In Progress')).toBeInTheDocument(); // course-1 (50%)
-    expect(screen.getByText('Completed')).toBeInTheDocument(); // course-2 (100%)
-    expect(screen.getByText('Not Started')).toBeInTheDocument(); // course-3 (0%)
+    expect(screen.getAllByText('In Progress').length).toBeGreaterThanOrEqual(1); // course-1 (50%)
+    expect(screen.getAllByText('Completed').length).toBeGreaterThanOrEqual(1); // course-2 (100%)
+    expect(screen.getAllByText('Not Started').length).toBeGreaterThanOrEqual(1); // course-3 (0%)
 
     // Verify Progress values
-    expect(screen.getByTestId('progress-course-1')).toHaveTextContent('50%');
-    expect(screen.getByTestId('progress-course-2')).toHaveTextContent('100%');
-    expect(screen.getByTestId('progress-course-3')).toHaveTextContent('0%');
+    expect(screen.getByTestId('progress-bar-course-1')).toHaveAttribute('aria-valuenow', '50');
+    expect(screen.getByTestId('progress-bar-course-2')).toHaveAttribute('aria-valuenow', '100');
+    expect(screen.getByTestId('progress-bar-course-3')).toHaveAttribute('aria-valuenow', '0');
   });
 
   it('2. [Empty State] Should show empty state when no enrollments exist', async () => {

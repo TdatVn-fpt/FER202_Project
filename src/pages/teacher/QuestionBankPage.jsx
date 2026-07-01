@@ -7,7 +7,7 @@ import { teacherCourseService } from '../../services/teacherCourseService';
 import { teacherTestService } from '../../services/teacherTestService';
 import { teacherQuestionService } from '../../services/teacherQuestionService';
 import { auditLogService } from '../../services/auditLogService';
-import { getPassageForQuestion, getReferenceOptions, normalizeTest } from '../../utils/testModel';
+import { getPassageForQuestion, getReferenceOptions, normalizeTest, buildConfigQuestions } from '../../utils/testModel';
 
 const emptyForm = {
   referenceId: '',
@@ -77,7 +77,8 @@ export default function QuestionBankPage() {
         }
 
         setTest(normalized);
-        setQuestions(questionsData);
+        const embeddedQuestions = buildConfigQuestions(normalized).map((q, idx) => ({ ...q, isEmbedded: true, id: `embedded-${idx}` }));
+        setQuestions([...embeddedQuestions, ...questionsData]);
         const refs = getReferenceOptions(normalized);
         setForm({
           ...emptyForm,
@@ -321,19 +322,28 @@ export default function QuestionBankPage() {
                         <Card.Body>
                           <div className="d-flex justify-content-between align-items-start gap-3">
                             <div>
-                              <Badge bg="secondary" className="mb-2">
-                                Câu {index + 1}: {question.type}
+                              <Badge bg={question.isEmbedded ? "info" : "secondary"} className="mb-2">
+                                Câu {index + 1}: {question.type} {question.isEmbedded ? '(Imported)' : ''}
                               </Badge>
                               {ref && <Badge bg="light" text="dark" className="ms-2 border">{ref.label}</Badge>}
                               <div className="fw-bold text-dark">{question.questionText || question.prompt}</div>
                             </div>
                             <div className="d-flex gap-2">
-                              <Button variant="outline-secondary" size="sm" onClick={() => handleEditClick(question)} disabled={isPending}>
-                                Sửa
-                              </Button>
-                              <Button variant="outline-danger" size="sm" onClick={() => handleDeleteClick(question)} disabled={isPending}>
-                                Xóa
-                              </Button>
+                              {!question.isEmbedded && (
+                                <>
+                                  <Button variant="outline-secondary" size="sm" onClick={() => handleEditClick(question)} disabled={isPending}>
+                                    Sửa
+                                  </Button>
+                                  <Button variant="outline-danger" size="sm" onClick={() => handleDeleteClick(question)} disabled={isPending}>
+                                    Xóa
+                                  </Button>
+                                </>
+                              )}
+                              {question.isEmbedded && (
+                                <Badge bg="light" text="muted" className="border d-flex align-items-center px-3">
+                                  <i className="bi bi-lock-fill me-1" /> Read-only preview
+                                </Badge>
+                              )}
                             </div>
                           </div>
                           {question.options?.length > 0 && (

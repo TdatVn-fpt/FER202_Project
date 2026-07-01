@@ -1,6 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
+import { getCurrentUser, getDashboardPathByRole } from '../../services/authService';
 import './Home.css';
 
 // Các hình thức học có THẬT trên web (khớp luồng guest: catalog → chi tiết → thanh toán/flashcard)
@@ -78,6 +79,17 @@ const skills = [
 ];
 
 export default function Home() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = getCurrentUser();
+    // Redirect non-student users (like teacher, admin) to their dashboard automatically 
+    // so they don't get stuck on the guest homepage.
+    if (user && user.role !== 'student') {
+      navigate(getDashboardPathByRole(user.role), { replace: true });
+    }
+  }, [navigate]);
+
   return (
     <div className="home-page">
       {/* ===== HERO ===== */}

@@ -1,3 +1,5 @@
+import { buildObjectiveQuestionsFromConfig, countQuestionsInConfig } from './ieltsQuestionBlocks';
+
 export const IELTS_SKILLS = ['Reading', 'Listening', 'Writing', 'Speaking'];
 
 export const SKILL_DEFAULTS = {
@@ -23,9 +25,9 @@ export const buildDefaultTestConfig = (skill) => {
   if (skill === 'Reading') {
     return {
       passages: [
-        { id: 'passage-1', title: 'Passage 1', content: '', imageUrl: '', order: 1 },
-        { id: 'passage-2', title: 'Passage 2', content: '', imageUrl: '', order: 2 },
-        { id: 'passage-3', title: 'Passage 3', content: '', imageUrl: '', order: 3 },
+        { id: 'passage-1', title: 'Passage 1', content: '', instruction: '', imageUrl: '', defaultRange: '1-13', blocks: [], order: 1 },
+        { id: 'passage-2', title: 'Passage 2', content: '', instruction: '', imageUrl: '', defaultRange: '14-26', blocks: [], order: 2 },
+        { id: 'passage-3', title: 'Passage 3', content: '', instruction: '', imageUrl: '', defaultRange: '27-40', blocks: [], order: 3 },
       ],
     };
   }
@@ -38,7 +40,11 @@ export const buildDefaultTestConfig = (skill) => {
         id: `section-${order}`,
         title: `Section ${order}`,
         instruction: `Listen and answer questions for Section ${order}.`,
+        transcript: '',
+        showTranscript: false,
+        defaultRange: `${((order - 1) * 10) + 1}-${order * 10}`,
         audioUrl: '',
+        blocks: [],
         order,
       })),
     };
@@ -244,6 +250,10 @@ export const buildSpeakingQuestions = (test) => {
 
   return result;
 };
+
+export const buildConfigQuestions = buildObjectiveQuestionsFromConfig;
+
+export const countEmbeddedQuestions = (test = {}) => countQuestionsInConfig(test.testConfig || {});
 
 export const getAnswerValue = (answers = {}, question, index) => {
   if (!question) return '';
