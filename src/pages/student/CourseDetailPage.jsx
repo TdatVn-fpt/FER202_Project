@@ -198,7 +198,7 @@ const CourseDetailPage = () => {
                   <i className="bi bi-bullseye"></i>{course.level || 'All Levels'}
                 </span>
                 {isFree && (
-                  <span className="hero-badge" style={{ background: '#16a34a', color: '#fff' }}>
+                  <span className="hero-badge" style={{ background: '#2563eb', color: '#fff' }}>
                     <i className="bi bi-gift-fill"></i>Free
                   </span>
                 )}
@@ -356,7 +356,7 @@ const CourseDetailPage = () => {
                   <div className={`price-display mb-3 ${isFree ? 'free' : ''}`}>{displayPrice}</div>
 
                   {courseAccess ? (
-                    <button className="cta-btn cta-btn-success mb-3" onClick={handleContinue} data-testid="btn-continue-learning">
+                    <button className="cta-btn cta-btn-primary mb-3" onClick={handleContinue} data-testid="btn-continue-learning">
                       <i className="bi bi-play-circle-fill me-2"></i>Continue Learning
                     </button>
                   ) : paymentPending ? (
@@ -384,7 +384,7 @@ const CourseDetailPage = () => {
                         {inCart ? 'Đã thêm vào giỏ hàng' : 'Thêm vào giỏ hàng'}
                       </button>
                       <button
-                        className={`btn ${wishlistAdded ? 'btn-success' : 'btn-outline-secondary'} w-100 mb-3`}
+                        className={`btn ${wishlistAdded ? 'btn-primary' : 'btn-outline-secondary'} w-100 mb-3`}
                         onClick={() => {
                           if (wishlistAdded) removeFromWishlist(courseId);
                           else addToWishlist(courseId);
@@ -398,7 +398,7 @@ const CourseDetailPage = () => {
 
                   {courseAccess && (
                     <button
-                      className={`btn ${wishlistAdded ? 'btn-success' : 'btn-outline-secondary'} w-100 mb-3`}
+                      className={`btn ${wishlistAdded ? 'btn-primary' : 'btn-outline-secondary'} w-100 mb-3`}
                       onClick={() => {
                         if (wishlistAdded) removeFromWishlist(courseId);
                         else addToWishlist(courseId);

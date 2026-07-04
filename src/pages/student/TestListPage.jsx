@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { testService } from '../../services/testService';
+import StudentPageBanner from '../../components/common/StudentPageBanner';
 
 const SKILL_CONFIG = {
   Reading:   { color: '#0ea5e9', bg: '#e0f2fe', icon: '📖', gradient: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)' },
@@ -36,55 +37,30 @@ export default function TestListPage() {
     ? tests
     : tests.filter(t => t.skill === activeFilter);
 
-  if (isLoading) {
-    return (
-      <div className="d-flex flex-column justify-content-center align-items-center" style={{ minHeight: '60vh' }} data-testid="testlist-loading">
-        <div className="spinner-border mb-3" style={{ width: '3rem', height: '3rem', color: '#1b4332' }} role="status" />
-        <p className="text-muted fw-semibold">Đang tải danh sách bài thi...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="container mt-5" data-testid="testlist-error">
-        <div className="alert alert-danger shadow-sm border-0 rounded-4 p-4 text-center">
-          <h4 className="alert-heading fw-bold mb-2">Oops! Lỗi xảy ra</h4>
-          <p className="mb-0">{error}</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div style={{ background: '#f8fafc', minHeight: '100vh' }} data-testid="testlist-page">
+    <div style={{ background: '#f8fafc', minHeight: '100vh', paddingBottom: '60px' }} data-testid="testlist-page">
 
-      {/* ===== HERO BANNER ===== */}
-      <div style={{
-        background: 'linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%)',
-        padding: '64px 0 80px',
-        position: 'relative',
-        overflow: 'hidden',
-      }}>
-        {/* Decorative circles */}
-        <div style={{ position:'absolute', top:-60, right:-60, width:240, height:240, borderRadius:'50%', background:'rgba(255,255,255,0.05)' }} />
-        <div style={{ position:'absolute', bottom:-40, left:-40, width:180, height:180, borderRadius:'50%', background:'rgba(255,255,255,0.05)' }} />
-        <div className="container position-relative">
-          <div className="d-flex align-items-center gap-3 mb-3">
-            <span style={{ fontSize: 36 }}>🏆</span>
-            <span className="badge px-3 py-2 fw-semibold" style={{ background:'rgba(255,255,255,0.2)', color:'#fff', fontSize:13, borderRadius:20 }}>
-              IELTS Practice Tests
-            </span>
-          </div>
-          <h1 className="fw-bold text-white mb-2" style={{ fontSize: 'clamp(2rem,5vw,3rem)', letterSpacing:'-0.5px' }}>
-            Thi thử IELTS Online
-          </h1>
-          <p className="mb-0" style={{ color: 'rgba(255,255,255,0.75)', fontSize: 17, maxWidth: 560 }}>
-            Luyện tập với bài thi chuẩn định dạng IELTS. Làm quen với áp lực thời gian thực và nhận kết quả tức thì.
-          </p>
+      <StudentPageBanner
+        title="Thi thử IELTS Online"
+        subtitle="Luyện tập với bài thi chuẩn định dạng IELTS. Làm quen với áp lực thời gian thực và nhận kết quả tức thì."
+        badgeText="IELTS PRACTICE TESTS"
+        badgeIcon="bi-journal-check"
+      />
+
+      {isLoading ? (
+        <div className="d-flex flex-column justify-content-center align-items-center" style={{ minHeight: '40vh' }} data-testid="testlist-loading">
+          <div className="spinner-border mb-3" style={{ width: '3rem', height: '3rem', color: '#1b4332' }} role="status" />
+          <p className="text-muted fw-semibold">Đang tải danh sách bài thi...</p>
         </div>
-      </div>
-
+      ) : error ? (
+        <div className="container mt-5" data-testid="testlist-error">
+          <div className="alert alert-danger shadow-sm border-0 rounded-4 p-4 text-center">
+            <h4 className="alert-heading fw-bold mb-2">Oops! Lỗi xảy ra</h4>
+            <p className="mb-0">{error}</p>
+          </div>
+        </div>
+      ) : (
+        <>
       {/* ===== FILTER TABS ===== */}
       <div className="bg-white border-bottom shadow-sm" style={{ position: 'sticky', top: 0, zIndex: 100 }}>
         <div className="container">
@@ -211,6 +187,8 @@ export default function TestListPage() {
           </div>
         )}
       </div>
+      </>
+      )}
     </div>
   );
 }

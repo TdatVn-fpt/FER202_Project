@@ -4,6 +4,7 @@ import { Navbar as BsNavbar, Nav, NavDropdown, Container, Button } from 'react-b
 import { getCurrentUser, getDashboardPathByRole, logout } from '../../services/authService';
 import { getCartItems, subscribeCartChanges } from '../../services/cartService';
 import { getWishlistItems, subscribeWishlistChanges } from '../../services/wishlistService';
+import './Navbar.css';
 
 export default function Navbar({ variant = 'default' }) {
   const [expanded, setExpanded] = useState(false);
@@ -44,7 +45,7 @@ export default function Navbar({ variant = 'default' }) {
   };
 
   // Class helper cho NavLink (thêm 'active' của Bootstrap khi đang ở route đó)
-  const navLinkClass = ({ isActive }) => `nav-link${isActive ? ' active fw-semibold' : ''}`;
+  const navLinkClass = ({ isActive }) => `custom-nav-link nav-link${isActive ? ' active' : ''}`;
 
   return (
     <BsNavbar
@@ -53,7 +54,7 @@ export default function Navbar({ variant = 'default' }) {
       sticky="top"
       expanded={expanded}
       onToggle={setExpanded}
-      className="shadow-sm py-2"
+      className="shadow-sm py-3 custom-navbar"
     >
       <Container>
         <BsNavbar.Brand as={Link} to={currentUser ? dashboardPath : '/'} onClick={closeMenu} className="fw-bold fs-4 lh-1">
@@ -65,7 +66,7 @@ export default function Navbar({ variant = 'default' }) {
 
         <BsNavbar.Collapse id="main-navbar">
           {effectiveVariant === 'student' ? (
-            <Nav className="me-auto fw-medium gap-lg-1 mx-lg-3 align-items-lg-center">
+            <Nav className="me-auto fw-medium gap-lg-2 ms-lg-4 align-items-lg-center">
               <Nav.Link as={NavLink} to="/learning" className={navLinkClass} onClick={closeMenu} end>
                 <i className="bi bi-house-door me-2 d-lg-none"></i>Home
               </Nav.Link>
@@ -78,9 +79,8 @@ export default function Navbar({ variant = 'default' }) {
               <Nav.Link as={NavLink} to="/learning/courses" className={navLinkClass} onClick={closeMenu}>
                 <i className="bi bi-compass me-2 d-lg-none"></i>Explore
               </Nav.Link>
-              
               <Nav.Link as={NavLink} to="/learning/exam-library" className={navLinkClass} onClick={closeMenu}>
-                <i className="bi bi-journal-text me-2 d-lg-none"></i>Thư viện đề
+                <i className="bi bi-journal-text me-2 d-lg-none"></i>Exam Library
               </Nav.Link>
 
               <Nav.Link as={NavLink} to="/learning/history" className={navLinkClass} onClick={closeMenu}>
@@ -119,7 +119,20 @@ export default function Navbar({ variant = 'default' }) {
 
           <Nav className="align-items-lg-center gap-lg-2">
             {currentUser ? (
-              <NavDropdown title={currentUser.name} id="user-dropdown" align="end">
+              <NavDropdown 
+                title={
+                  <span className="d-inline-flex align-items-center gap-2 m-0 p-0">
+                    <span className="navbar-user-avatar d-flex align-items-center justify-content-center">
+                      {currentUser?.name?.charAt(0)?.toUpperCase() || 'U'}
+                    </span>
+                    <span className="fw-semibold d-none d-lg-inline text-dark m-0 p-0 lh-1">{currentUser?.name || 'User'}</span>
+                    <i className="bi bi-chevron-down ms-1 d-flex align-items-center" style={{ fontSize: '12px', color: '#475569' }}></i>
+                  </span>
+                }
+                id="user-dropdown" 
+                align="end"
+                className="user-nav-dropdown"
+              >
                 {effectiveVariant !== 'student' && (
                   <NavDropdown.Item as={Link} to={dashboardPath} onClick={closeMenu}>
                     My Dashboard

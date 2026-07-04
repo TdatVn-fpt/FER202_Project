@@ -140,8 +140,8 @@ export default function FlashcardDeck() {
         {total === 0 ? (
           <div className="deck-empty">
             <p>Khóa học này chưa có flashcard nào.</p>
-            <Link to="/learning/courses" className="deck-btn deck-btn-primary">
-              Khám phá khóa học khác
+            <Link to="/learning/courses" target="_top" className="deck-btn deck-btn-primary">
+              <i className="bi bi-book"></i> Về khóa học
             </Link>
           </div>
         ) : (

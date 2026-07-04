@@ -12,7 +12,7 @@ const api = axios.create({
 
 export const getCourses = async (params = {}) => {
   try {
-    const { page = 1, limit = 9, search = '', skill = '', level = '' } = params;
+    const { page = 1, limit = 9, search = '', skill = '', level = '', priceType = '' } = params;
 
     // Lấy toàn bộ courses, lọc phía client để đảm bảo search hoạt động
     const queryParams = new URLSearchParams();
@@ -34,6 +34,13 @@ export const getCourses = async (params = {}) => {
       );
     }
 
+    // Lọc theo giá: free hoặc paid
+    if (priceType === 'free') {
+      allCourses = allCourses.filter(c => !c.price || c.price === 0);
+    } else if (priceType === 'paid') {
+      allCourses = allCourses.filter(c => c.price && c.price > 0);
+    }
+
     // Phân trang client-side
     const totalCount = allCourses.length;
     const start = (page - 1) * limit;
@@ -44,6 +51,7 @@ export const getCourses = async (params = {}) => {
     throw new Error(error.response?.data?.message || 'Failed to fetch courses');
   }
 };
+
 
 export const getCourseById = async (id) => {
   try {

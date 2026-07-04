@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getCourses } from '../../services/courseLearning.service';
 import { formatVnd } from '../../services/paymentService';
+import { getCurrentUser, getDashboardPathByRole } from '../../services/authService';
 import './OnlineCourses.css';
 
 const SKILLS = ['Tất cả', 'Reading', 'Listening', 'Writing', 'Speaking'];
@@ -12,6 +13,8 @@ export default function OnlineCourses() {
   const [error, setError] = useState('');
   const [skill, setSkill] = useState('Tất cả');
   const [search, setSearch] = useState('');
+  const user = getCurrentUser();
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,6 +37,15 @@ export default function OnlineCourses() {
     load();
     return () => { ignore = true; };
   }, []);
+
+  useEffect(() => {
+    if (user?.role === 'student') {
+      navigate('/learning/courses', { replace: true });
+    } else if (user && user.role !== 'student') {
+      // For teacher/admin
+      navigate(getDashboardPathByRole(user.role), { replace: true });
+    }
+  }, [user, navigate]);
 
   const filtered = useMemo(() => {
     return courses.filter((c) => {
@@ -98,7 +110,7 @@ export default function OnlineCourses() {
             const thumbnailSrc = course.thumbnail || 'https://via.placeholder.com/600x380?text=Course';
             return (
               <article className="catalog-card" key={course.id}>
-                <Link to={`/courses/${course.id}`} className="catalog-card-media">
+                <Link to={user?.role === 'student' ? `/learning/courses/${course.id}` : `/courses/${course.id}`} className="catalog-card-media">
                   <img
                     src={thumbnailSrc}
                     alt={course.title}
@@ -120,14 +132,14 @@ export default function OnlineCourses() {
                     <span>🗓️ {course.durationWeeks} tuần</span>
                   </div>
                   <h3>
-                    <Link to={`/courses/${course.id}`}>{course.title}</Link>
+                    <Link to={user?.role === 'student' ? `/learning/courses/${course.id}` : `/courses/${course.id}`}>{course.title}</Link>
                   </h3>
                   <p className="catalog-card-desc">{course.description}</p>
                   <div className="catalog-card-foot">
                     <span className="catalog-price">
                       {isFree ? 'Miễn phí' : formatVnd(course.price)}
                     </span>
-                    <Link to={`/courses/${course.id}`} className="catalog-btn">
+                    <Link to={user?.role === 'student' ? `/learning/courses/${course.id}` : `/courses/${course.id}`} className="catalog-btn">
                       Xem chi tiết
                     </Link>
                   </div>

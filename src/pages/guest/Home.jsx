@@ -4,53 +4,6 @@ import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
 import { getCurrentUser, getDashboardPathByRole } from '../../services/authService';
 import './Home.css';
 
-// Các hình thức học có THẬT trên web (khớp luồng guest: catalog → chi tiết → thanh toán/flashcard)
-const preparationOptions = [
-  {
-    eyebrow: 'Khóa học • Có giảng viên',
-    title: 'Khóa học IELTS chuyên sâu',
-    lead: 'Học theo lộ trình',
-    intro: 'Lộ trình bài bản cho từng mục tiêu band điểm:',
-    bullets: [
-      'Bám sát 4 kỹ năng Listening, Reading, Writing, Speaking',
-      'Giáo trình chi tiết theo từng tuần',
-      'Thanh toán nhanh bằng VietQR, truy cập trọn đời',
-      'Kèm flashcard từ vựng trọng tâm cho mỗi khóa',
-    ],
-    bestFor: 'Phù hợp khi bạn muốn học có hệ thống và mục tiêu rõ ràng.',
-    to: '/online-courses',
-    cta: 'Xem khóa học',
-  },
-  {
-    eyebrow: 'Miễn phí',
-    title: 'Tài nguyên luyện thi miễn phí',
-    lead: 'Miễn phí',
-    intro: 'Bắt đầu làm quen với IELTS mà không tốn chi phí:',
-    bullets: [
-      'Bài luyện tập theo từng kỹ năng',
-      'Tài liệu và mẹo làm bài từ chuyên gia',
-      'Trải nghiệm trước khi đăng ký khóa trả phí',
-    ],
-    bestFor: 'Phù hợp khi bạn mới bắt đầu và muốn thử sức.',
-    to: '/courses',
-    cta: 'Khám phá tài nguyên',
-  },
-  {
-    eyebrow: 'Học từ vựng',
-    title: 'Flashcard từ vựng IELTS',
-    lead: 'Đi kèm mỗi khóa học',
-    intro: 'Ghi nhớ từ vựng nhanh và lâu hơn:',
-    bullets: [
-      'Bộ thẻ từ vựng gắn riêng cho từng khóa học',
-      'Học theo phương pháp lật thẻ chủ động',
-      'Đánh dấu thẻ đã thuộc để theo dõi tiến độ',
-    ],
-    bestFor: 'Phù hợp khi bạn muốn mở rộng vốn từ mỗi ngày.',
-    to: '/online-courses',
-    cta: 'Bắt đầu học từ',
-  },
-];
-
 // Số liệu trung tính, phản ánh đúng quy mô đồ án (không phóng đại)
 const stats = [
   { value: '4', label: 'kỹ năng được luyện tập đầy đủ trong mỗi khóa học' },
@@ -80,15 +33,62 @@ const skills = [
 
 export default function Home() {
   const navigate = useNavigate();
+  const user = getCurrentUser();
+  const coursesPath = user?.role === 'student' ? '/learning/courses' : '/online-courses';
+
+  const preparationOptions = [
+    {
+      eyebrow: 'Khóa học • Có giảng viên',
+      title: 'Khóa học IELTS chuyên sâu',
+      lead: 'Học theo lộ trình',
+      intro: 'Lộ trình bài bản cho từng mục tiêu band điểm:',
+      bullets: [
+        'Bám sát 4 kỹ năng Listening, Reading, Writing, Speaking',
+        'Giáo trình chi tiết theo từng tuần',
+        'Thanh toán nhanh bằng VietQR, truy cập trọn đời',
+        'Kèm flashcard từ vựng trọng tâm cho mỗi khóa',
+      ],
+      bestFor: 'Phù hợp khi bạn muốn học có hệ thống và mục tiêu rõ ràng.',
+      to: coursesPath,
+      cta: 'Xem khóa học',
+    },
+    {
+      eyebrow: 'Miễn phí',
+      title: 'Tài nguyên luyện thi miễn phí',
+      lead: 'Miễn phí',
+      intro: 'Bắt đầu làm quen với IELTS mà không tốn chi phí:',
+      bullets: [
+        'Bài luyện tập theo từng kỹ năng',
+        'Tài liệu và mẹo làm bài từ chuyên gia',
+        'Trải nghiệm trước khi đăng ký khóa trả phí',
+      ],
+      bestFor: 'Phù hợp khi bạn mới bắt đầu và muốn thử sức.',
+      to: '/courses',
+      cta: 'Khám phá tài nguyên',
+    },
+    {
+      eyebrow: 'Học từ vựng',
+      title: 'Flashcard từ vựng IELTS',
+      lead: 'Đi kèm mỗi khóa học',
+      intro: 'Ghi nhớ từ vựng nhanh và lâu hơn:',
+      bullets: [
+        'Bộ thẻ từ vựng gắn riêng cho từng khóa học',
+        'Học theo phương pháp lật thẻ chủ động',
+        'Đánh dấu thẻ đã thuộc để theo dõi tiến độ',
+      ],
+      bestFor: 'Phù hợp khi bạn muốn mở rộng vốn từ mỗi ngày.',
+      to: coursesPath,
+      cta: 'Bắt đầu học từ',
+    },
+  ];
 
   useEffect(() => {
-    const user = getCurrentUser();
     // Redirect non-student users (like teacher, admin) to their dashboard automatically 
     // so they don't get stuck on the guest homepage.
     if (user && user.role !== 'student') {
       navigate(getDashboardPathByRole(user.role), { replace: true });
     }
-  }, [navigate]);
+  }, [navigate, user]);
 
   return (
     <div className="home-page">
@@ -108,7 +108,7 @@ export default function Home() {
                 và flashcard từ vựng đi kèm.
               </p>
               <div className="d-flex flex-wrap gap-3">
-                <Button as={Link} to="/online-courses" variant="light" size="lg" className="fw-semibold text-primary">
+                <Button as={Link} to={coursesPath} variant="light" size="lg" className="fw-semibold text-primary">
                   Khám phá khóa học
                 </Button>
                 <Button as={Link} to="/register" variant="outline-light" size="lg" className="fw-semibold">
@@ -228,7 +228,7 @@ export default function Home() {
           </p>
 
           <div className="d-flex flex-wrap justify-content-center gap-3 mt-4">
-            <Button as={Link} to="/online-courses" variant="primary" size="lg" className="fw-semibold">
+            <Button as={Link} to={coursesPath} variant="primary" size="lg" className="fw-semibold">
               Xem tất cả khóa học
             </Button>
             <Button as={Link} to="/register" variant="outline-primary" size="lg" className="fw-semibold">
