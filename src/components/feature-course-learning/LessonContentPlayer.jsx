@@ -34,7 +34,7 @@ const LessonContentPlayer = ({ lesson }) => {
             </video>
           ) : (
             <iframe 
-              src={contentUrl} 
+              src={contentUrl.replace('watch?v=', 'embed/')} 
               title={title || 'Lesson Video'} 
               allowFullScreen 
               className="w-100 h-100 border-0"

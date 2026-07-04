@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import LessonContentPlayer from '../../components/feature-course-learning/LessonContentPlayer';
 import {
   getLessons,
@@ -12,6 +12,8 @@ import {
 } from '../../services/courseLearning.service';
 import { calculateProgress, getNextLesson, getPreviousLesson } from '../../utils/progress.util';
 import { getCurrentUser } from '../../services/authService';
+import { testService } from '../../services/testService';
+import { getFlashcardsByCourse } from '../../services/flashcardService';
 import './LessonPage.css';
 
 const LessonPage = () => {
@@ -20,6 +22,8 @@ const LessonPage = () => {
   const storedUser = getCurrentUser();
 
   const [lessons, setLessons] = useState([]);
+  const [courseTests, setCourseTests] = useState([]);
+  const [courseFlashcards, setCourseFlashcards] = useState([]);
   const [completedIds, setCompletedIds] = useState([]);
   const [enrollment, setEnrollment] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -44,13 +48,17 @@ const LessonPage = () => {
         }
         setResolvedUserId(userId);
 
-        const [lessonsData, progressRecords, enrollmentData] = await Promise.all([
+        const [lessonsData, progressRecords, enrollmentData, testsData, flashcardsData] = await Promise.all([
           getLessons(courseId),
           getLessonProgress(userId, courseId),
           getEnrollment(userId, courseId),
+          testService.getTestsByCourse(courseId).catch(() => []),
+          getFlashcardsByCourse(courseId).catch(() => [])
         ]);
 
         setLessons(lessonsData);
+        setCourseTests(testsData);
+        setCourseFlashcards(flashcardsData);
         setEnrollment(enrollmentData);
 
         const ids = Array.isArray(progressRecords)
@@ -261,6 +269,59 @@ const LessonPage = () => {
                 </button>
               );
             })}
+
+            {courseTests.length > 0 && (
+              <>
+                <div className="px-3 pt-3 pb-2 fw-bold text-muted" style={{ fontSize: '0.85rem', textTransform: 'uppercase' }}>
+                  Practice Tests
+                </div>
+                {courseTests.map((test) => (
+                  <button
+                    key={test.id}
+                    className="lesson-list-item"
+                    onClick={() => window.open(`/learning/tests/${test.id}`, '_blank')}
+                    title="Open Test in new tab"
+                  >
+                    <div className="lesson-icon pending" style={{ background: '#e0f2fe', color: '#0ea5e9' }}>
+                      <i className="bi bi-journal-text fs-6"></i>
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div className="lesson-item-title">{test.title}</div>
+                      <div className="lesson-item-duration text-primary">
+                        <i className="bi bi-box-arrow-up-right me-1"></i>Take Test
+                      </div>
+                    </div>
+                  </button>
+                ))}
+              </>
+            )}
+
+            {courseFlashcards.length > 0 && (
+              <>
+                <div className="px-3 pt-3 pb-2 fw-bold text-muted" style={{ fontSize: '0.85rem', textTransform: 'uppercase' }}>
+                  Flashcards
+                </div>
+                {/* Lấy danh sách các deck duy nhất từ flashcards */}
+                {[...new Set(courseFlashcards.map(c => c.deckId))].map(deckId => (
+                  <button
+                    key={deckId}
+                    className="lesson-list-item"
+                    onClick={() => window.open(`/learning/flashcards/${deckId}`, '_blank')}
+                    title="Study Flashcards in new tab"
+                  >
+                    <div className="lesson-icon pending" style={{ background: '#ede9fe', color: '#8b5cf6' }}>
+                      <i className="bi bi-layers-fill fs-6"></i>
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div className="lesson-item-title">Topic Vocabulary</div>
+                      <div className="lesson-item-duration" style={{ color: '#8b5cf6' }}>
+                        <i className="bi bi-box-arrow-up-right me-1"></i>Study Deck
+                      </div>
+                    </div>
+                  </button>
+                ))}
+              </>
+            )}
           </div>
         </div>
 

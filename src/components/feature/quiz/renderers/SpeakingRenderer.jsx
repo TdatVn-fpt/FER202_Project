@@ -7,8 +7,10 @@ import PropTypes from 'prop-types';
  */
 const SpeakingRenderer = ({ question, currentAnswer, onAnswer, isReviewMode = false }) => {
   const [isRecording, setIsRecording] = useState(false);
-  const [recordedNote, setRecordedNote] = useState(currentAnswer || '');
+  const [audioUrl, setAudioUrl] = useState(currentAnswer || null);
   const timerRef = useRef(null);
+  const mediaRecorderRef = useRef(null);
+  const audioChunksRef = useRef([]);
   const [elapsed, setElapsed] = useState(0);
 
   const part = question.part || 1;
@@ -20,19 +22,49 @@ const SpeakingRenderer = ({ question, currentAnswer, onAnswer, isReviewMode = fa
   };
   const cfg = partConfig[part] || partConfig[1];
 
-  const handleStartRecording = () => {
+  const handleStartRecording = async () => {
     if (isReviewMode) return;
-    setIsRecording(true);
-    setElapsed(0);
-    timerRef.current = setInterval(() => setElapsed(p => p + 1), 1000);
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mediaRecorder = new MediaRecorder(stream);
+      mediaRecorderRef.current = mediaRecorder;
+      audioChunksRef.current = [];
+
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          audioChunksRef.current.push(event.data);
+        }
+      };
+
+      mediaRecorder.onstop = () => {
+        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
+        const url = URL.createObjectURL(audioBlob);
+        setAudioUrl(url);
+
+        // Convert to base64 to save in the mock DB
+        const reader = new FileReader();
+        reader.readAsDataURL(audioBlob);
+        reader.onloadend = () => {
+          if (onAnswer) onAnswer(question.id, reader.result);
+        };
+      };
+
+      mediaRecorder.start();
+      setIsRecording(true);
+      setElapsed(0);
+      timerRef.current = setInterval(() => setElapsed(p => p + 1), 1000);
+    } catch (err) {
+      alert('Không thể truy cập Microphone. Vui lòng cấp quyền trong trình duyệt!');
+    }
   };
 
   const handleStopRecording = () => {
+    if (mediaRecorderRef.current && isRecording) {
+      mediaRecorderRef.current.stop();
+      mediaRecorderRef.current.stream.getTracks().forEach(track => track.stop());
+    }
     clearInterval(timerRef.current);
     setIsRecording(false);
-    const note = `[Đã ghi âm – ${elapsed}s]`;
-    setRecordedNote(note);
-    if (onAnswer) onAnswer(question.id, note);
   };
 
   const formatTime = (s) => `${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;
@@ -59,11 +91,16 @@ const SpeakingRenderer = ({ question, currentAnswer, onAnswer, isReviewMode = fa
             🃏 CUE CARD — Describe:
           </div>
           <p className="fw-semibold lh-lg text-dark" style={{ fontSize: 15 }}>
-            {question.prompt || question.questionText}
+            {question.prompt || question.questionText || question.text}
           </p>
           {question.subPoints && (
             <ul className="text-secondary mt-3" style={{ fontSize: 14 }}>
               {question.subPoints.map((pt, i) => <li key={i}>{pt}</li>)}
+            </ul>
+          )}
+          {question.bulletPrompts && (
+            <ul className="text-secondary mt-3" style={{ fontSize: 14 }}>
+              {question.bulletPrompts.map((pt, i) => <li key={i}>{pt}</li>)}
             </ul>
           )}
           <p className="text-muted small mt-3 mb-0">
@@ -74,7 +111,7 @@ const SpeakingRenderer = ({ question, currentAnswer, onAnswer, isReviewMode = fa
         <div className="p-4 rounded-3 mb-4"
           style={{ background: '#f8fafc', border: '2px solid #e2e8f0' }}>
           <p className="fw-semibold text-dark lh-lg mb-0" style={{ fontSize: 15 }}>
-            {question.prompt || question.questionText}
+            {question.prompt || question.questionText || question.text}
           </p>
           {question.subPoints && (
             <ul className="text-secondary mt-3 mb-0" style={{ fontSize: 14 }}>
@@ -84,7 +121,7 @@ const SpeakingRenderer = ({ question, currentAnswer, onAnswer, isReviewMode = fa
         </div>
       )}
 
-      {/* Mock recording UI */}
+      {/* Real recording UI */}
       {!isReviewMode ? (
         <div className="rounded-4 p-4" style={{ background: '#f8fafc', border: '1px solid #e2e8f0' }}>
           <div className="d-flex align-items-center gap-3 flex-wrap">
@@ -96,8 +133,8 @@ const SpeakingRenderer = ({ question, currentAnswer, onAnswer, isReviewMode = fa
                 style={{ background: '#ef4444', color: '#fff', borderRadius: 24, border:'none', fontSize:14 }}
                 data-testid="speaking-record-btn"
               >
-                <span style={{ width:10, height:10, borderRadius:'50%', background:'#fff', display:'inline-block' }} />
-                Bắt đầu ghi âm (Mock)
+                <i className="bi bi-mic-fill fs-5"></i>
+                Bắt đầu ghi âm
               </button>
             ) : (
               <button
@@ -107,31 +144,35 @@ const SpeakingRenderer = ({ question, currentAnswer, onAnswer, isReviewMode = fa
                 style={{ background: '#1e293b', color: '#fff', borderRadius: 24, border:'none', fontSize:14 }}
                 data-testid="speaking-stop-btn"
               >
-                <span style={{ width:10, height:10, borderRadius:3, background:'#fff', display:'inline-block' }} />
+                <i className="bi bi-stop-circle fs-5"></i>
                 Dừng ghi âm — {formatTime(elapsed)}
               </button>
             )}
             {isRecording && (
-              <span style={{ fontSize:13, color:'#ef4444', fontWeight:700 }}>
-                🔴 Đang ghi âm... {formatTime(elapsed)}
+              <span className="blink-text" style={{ fontSize:13, color:'#ef4444', fontWeight:700 }}>
+                🔴 Đang ghi âm bằng Micro... {formatTime(elapsed)}
               </span>
             )}
           </div>
-          {recordedNote && (
-            <div className="mt-3 p-3 rounded-3 d-flex align-items-center gap-2"
-              style={{ background:'#d1fae5', border:'1px solid #10b981' }}>
-              <span>✓</span>
-              <span style={{ fontSize:13, color:'#065f46' }}>{recordedNote}</span>
+          {audioUrl && (
+            <div className="mt-4 p-3 rounded-3"
+              style={{ background:'#ecfdf5', border:'1px solid #10b981' }}>
+              <div className="d-flex align-items-center gap-2 mb-2">
+                <i className="bi bi-check-circle-fill text-success"></i>
+                <span className="fw-bold" style={{ color:'#065f46' }}>Đã ghi âm thành công</span>
+              </div>
+              <audio src={audioUrl} controls className="w-100" />
             </div>
           )}
-          <p className="text-muted small mt-3 mb-0">
-            * Đây là demo — ghi âm thực không được lưu trữ trong phiên bản này.
-          </p>
         </div>
       ) : (
         <div className="p-3 rounded-3" style={{ background:'#f8fafc', border:'1px solid #e2e8f0' }}>
-          <span className="text-muted small">Trả lời đã ghi: </span>
-          <span className="fw-semibold" style={{ fontSize:14 }}>{currentAnswer || <em>Không có ghi âm</em>}</span>
+          <span className="text-muted small d-block mb-2">Bản thu âm của bạn: </span>
+          {currentAnswer ? (
+            <audio src={currentAnswer} controls className="w-100" />
+          ) : (
+            <span className="fw-semibold text-danger" style={{ fontSize:14 }}><em>Không có ghi âm</em></span>
+          )}
         </div>
       )}
     </div>

@@ -19,6 +19,7 @@ import ReadingBuilder from './test-builder/ReadingBuilder';
 import ListeningBuilder from './test-builder/ListeningBuilder';
 import WritingBuilder from './test-builder/WritingBuilder';
 import SpeakingBuilder from './test-builder/SpeakingBuilder';
+import TestPreviewModal from './test-builder/TestPreviewModal';
 
 const createInitialDraft = (teacherId) => ({
   title: '',
@@ -53,6 +54,7 @@ export default function TestCreatePage() {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [isUnauthorized, setIsUnauthorized] = useState(false);
+  const [showPreviewModal, setShowPreviewModal] = useState(false);
 
   const normalizedDraft = useMemo(() => normalizeTest(draft), [draft]);
   const selectedCourse = courses.find((course) => String(course.id) === String(draft.courseId));
@@ -202,11 +204,7 @@ export default function TestCreatePage() {
       }
 
       toast.success(id ? 'Đã cập nhật đề thi.' : 'Đã tạo đề thi.');
-      if (savedTest.skill !== 'Writing') {
-        navigate(`/teacher/tests/${savedTest.id}/questions`);
-      } else {
-        navigate('/teacher/tests');
-      }
+      navigate('/teacher/tests');
     } catch (error) {
       toast.error('Lưu đề thi thất bại. Vui lòng thử lại.');
     } finally {
@@ -250,22 +248,37 @@ export default function TestCreatePage() {
 
   return (
     <Container fluid className="py-4">
-      <div className="d-flex justify-content-between align-items-start gap-3 mb-4">
-        <div>
-          <Link to="/teacher/tests" className="text-decoration-none text-muted small fw-semibold">
-            Quay lại quản lý đề thi
-          </Link>
-          <h2 className="fw-bold text-dark mt-2 mb-1">{id ? 'Chỉnh sửa IELTS test' : 'Tạo IELTS test'}</h2>
-          <p className="text-secondary mb-0">Tạo đề theo đúng template IELTS, publish free test hoặc gán vào khóa học.</p>
+      {/* Premium Header */}
+      <div className="bg-white p-4 rounded-4 shadow-sm mb-4 border border-light d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3" style={{ border: '1px solid #f1f5f9' }}>
+        <div className="d-flex align-items-center gap-3">
+          <Button as={Link} to="/teacher/tests" variant="light" className="rounded-circle p-2 d-flex align-items-center justify-content-center border shadow-sm" style={{ width: '48px', height: '48px', background: '#f8fafc' }}>
+            <i className="bi bi-arrow-left fs-5 text-secondary"></i>
+          </Button>
+          <div>
+            <h2 className="fw-bold text-dark mb-1" style={{ letterSpacing: '-0.5px' }}>
+              {id ? 'Chỉnh sửa IELTS test' : 'Tạo IELTS test'}
+            </h2>
+            <p className="text-secondary mb-0 fw-medium">Tạo đề theo chuẩn format IELTS, publish free test hoặc gán vào khóa học.</p>
+          </div>
         </div>
-        <div className="d-flex gap-2">
+        <div className="d-flex gap-3">
           {id && (
-            <Button as={Link} to={`/teacher/tests/${id}/questions`} variant="outline-primary">
-              Quản lý câu hỏi
+            <Button as={Link} to={`/teacher/tests/${id}/questions`} variant="outline-primary" className="rounded-pill px-4 fw-semibold d-flex align-items-center shadow-sm">
+              <i className="bi bi-ui-checks-grid me-2"></i> Quản lý câu hỏi
             </Button>
           )}
-          <Button variant="primary" onClick={handleSave} disabled={submitting || isCoursePending}>
-            {submitting ? 'Đang lưu...' : 'Lưu test'}
+          <Button 
+            variant="primary" 
+            onClick={handleSave} 
+            disabled={submitting || isCoursePending}
+            className="rounded-pill px-4 fw-bold shadow d-flex align-items-center"
+            style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)', border: 'none' }}
+          >
+            {submitting ? (
+              <><Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" className="me-2" /> Đang lưu...</>
+            ) : (
+              <><i className="bi bi-cloud-arrow-up-fill me-2 fs-5"></i> Lưu test</>
+            )}
           </Button>
         </div>
       </div>
@@ -407,34 +420,12 @@ export default function TestCreatePage() {
                   <Button variant="outline-secondary" onClick={() => setStep(1)}>Quay lại</Button>
                 </div>
                 {renderBuilder()}
-                <div className="d-flex justify-content-end mt-4">
-                  <Button onClick={() => setStep(3)}>Tiếp tục</Button>
-                </div>
-              </Card.Body>
-            </Card>
-          )}
-
-          {step === 3 && (
-            <Card className="border-0 shadow-sm">
-              <Card.Body className="p-4">
-                <h5 className="fw-bold mb-2">Câu hỏi / Tasks / Parts</h5>
-                {draft.skill === 'Writing' ? (
-                  <Alert variant="info" className="border-0">
-                    Writing dùng Task 1 và Task 2 trong Content Builder. Không cần tạo question record riêng.
-                  </Alert>
-                ) : id ? (
-                  <Alert variant="light" className="border">
-                    Test này hiện có <strong>{questions.length}</strong> câu hỏi. Bấm “Quản lý câu hỏi” để thêm hoặc chỉnh câu hỏi theo {draft.skill}.
-                  </Alert>
-                ) : (
-                  <Alert variant="warning" className="border-0">
-                    Hãy lưu test trước, sau đó hệ thống sẽ đưa bạn sang màn thêm câu hỏi.
-                  </Alert>
-                )}
-                <div className="d-flex justify-content-between mt-4">
-                  <Button variant="outline-secondary" onClick={() => setStep(2)}>Quay lại</Button>
+                <div className="d-flex justify-content-end gap-3 mt-4 pt-3 border-top">
+                  <Button variant="outline-info" onClick={() => setShowPreviewModal(true)} disabled={isCoursePending}>
+                    <i className="bi bi-eye me-2"></i> Preview Test
+                  </Button>
                   <Button variant="primary" onClick={handleSave} disabled={submitting || isCoursePending}>
-                    {submitting ? 'Đang lưu...' : id ? 'Lưu thay đổi' : 'Lưu và tiếp tục'}
+                    <i className="bi bi-check-circle me-2"></i> {submitting ? 'Đang xử lý...' : id ? 'Lưu thay đổi' : 'Submit for Approval'}
                   </Button>
                 </div>
               </Card.Body>
@@ -446,6 +437,12 @@ export default function TestCreatePage() {
           <LiveChecklist test={normalizedDraft} questionCount={questions.length} onGoToStep={setStep} />
         </Col>
       </Row>
+
+      <TestPreviewModal 
+        show={showPreviewModal} 
+        onHide={() => setShowPreviewModal(false)} 
+        draft={normalizedDraft} 
+      />
     </Container>
   );
 }
