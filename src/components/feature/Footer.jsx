@@ -10,11 +10,10 @@ export default function Footer() {
   return (
     <footer className="footer-fer202">
       <div className="footer-fer202-container">
-        <h2 className="footer-fer202-title">IELTS Online Learning System</h2>
+        <h2 className="footer-fer202-title"><span style={{color: '#38bdf8'}}>IELTS</span> Master</h2>
         <p className="footer-fer202-desc">
+          Hệ thống học và luyện thi IELTS trực tuyến toàn diện.<br />
           This project is developed as a capstone assignment for the <strong>FER202</strong> course.
-          <br />
-          It is an academic project designed to demonstrate front-end development skills using ReactJS.
         </p>
 
         {showGuestLinks && (

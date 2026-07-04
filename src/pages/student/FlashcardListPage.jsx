@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
 import FlashcardFilter from '../../components/feature/flashcards/FlashcardFilter';
+import StudentPageBanner from '../../components/common/StudentPageBanner';
 
 const ALL_CATEGORIES = 'all';
 
@@ -110,16 +111,15 @@ const FlashcardListPage = () => {
   };
 
   return (
-    <main className="container py-4">
-      <div className="d-flex flex-column flex-md-row justify-content-between gap-3 align-items-md-end mb-4">
-        <div>
-          <span className="badge rounded-pill text-bg-light mb-2">IELTS Vocabulary</span>
-          <h1 className="h2 mb-2">Flashcard Decks</h1>
-          <p className="text-muted mb-0">
-            Choose a topic and practice vocabulary with quick review cards.
-          </p>
-        </div>
-      </div>
+    <div style={{ background: '#f8fafc', minHeight: '100vh', paddingBottom: '60px' }}>
+      <StudentPageBanner
+        title="Flashcard Decks"
+        subtitle="Choose a topic and practice vocabulary with quick review cards."
+        badgeText="IELTS VOCABULARY"
+        badgeIcon="bi-layers-fill"
+      />
+      
+      <div className="container" style={{ marginTop: '-20px', position: 'relative', zIndex: 10 }}>
 
       {loading && (
         // EARS[Event]: WHEN flashcard data is loading, THE system SHALL display a loading state.
@@ -182,7 +182,8 @@ const FlashcardListPage = () => {
           )}
         </>
       )}
-    </main>
+      </div>
+    </div>
   );
 };
 

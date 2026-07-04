@@ -159,7 +159,7 @@ export default function CourseDetail() {
         <Container className="py-5">
           <Alert variant="danger" className="text-center">{error}</Alert>
           <div className="text-center">
-            <Button as={Link} to="/online-courses" variant="outline-secondary">
+            <Button as={Link} to={user?.role === 'student' ? '/learning/courses' : '/online-courses'} variant="outline-secondary">
               ← Về danh sách khóa học
             </Button>
           </div>
@@ -177,7 +177,7 @@ export default function CourseDetail() {
           <img className="cd-hero-bg" src={course.thumbnail} alt="" aria-hidden="true" />
         )}
         <Container className="cd-hero-content">
-          <Link to="/online-courses" className="cd-breadcrumb">← Tất cả khóa học</Link>
+          <Link to={user?.role === 'student' ? '/learning/courses' : '/online-courses'} className="cd-breadcrumb">← Tất cả khóa học</Link>
           <div className="d-flex gap-2 mb-3 flex-wrap">
             <Badge bg="light" text="dark" className="px-3 py-2">{course.skill}</Badge>
             <Badge bg={isFree ? 'success' : 'warning'} text={isFree ? undefined : 'dark'} className="px-3 py-2">
@@ -252,7 +252,7 @@ export default function CourseDetail() {
                     <Alert variant="success" className="py-2 text-center fw-semibold mb-3">
                       ✓ Bạn đã có quyền truy cập
                     </Alert>
-                    <Button variant="primary" className="w-100 fw-semibold mb-2" onClick={() => navigate('/learning/courses')}>
+                    <Button variant="primary" className="w-100 fw-semibold mb-2" onClick={() => navigate(`/learning/courses/${courseId}/lessons`)}>
                       Vào học ngay
                     </Button>
                   </>

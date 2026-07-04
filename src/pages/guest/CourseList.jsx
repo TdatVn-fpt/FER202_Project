@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col, Card, Button, Badge, Form, InputGroup } from 'react-bootstrap';
 import { freeResources, RESOURCE_SKILLS } from '../../data/freeResources';
 import { testService } from '../../services/testService';
+import { getCurrentUser } from '../../services/authService';
 import './CourseList.css';
 
 const skillVariant = {
@@ -24,6 +25,7 @@ const skillIcon = {
 const allSkill = RESOURCE_SKILLS[0];
 
 export default function CourseList() {
+  const user = getCurrentUser();
   const [skill, setSkill] = useState(allSkill);
   const [search, setSearch] = useState('');
   const [freeTests, setFreeTests] = useState([]);
@@ -246,8 +248,8 @@ export default function CourseList() {
               <Button as={Link} to="/skills" variant="light" className="fw-semibold px-4">
                 Luyện 4 kỹ năng
               </Button>
-              <Button as={Link} to="/online-courses" variant="outline-light" className="fw-semibold px-4">
-                Xem khóa học
+              <Button as={Link} to={user?.role === 'student' ? '/learning/courses' : '/online-courses'} variant="outline-light" className="fw-semibold px-4">
+                Xem khóa học IELTS
               </Button>
             </div>
           </Card.Body>
