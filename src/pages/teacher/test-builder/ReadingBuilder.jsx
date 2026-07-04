@@ -1,33 +1,12 @@
-import React from 'react';
-import { Button, Card, Col, Form, Row } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Badge, Button, Card, Col, Form, Row } from 'react-bootstrap';
 import QuestionBlockEditor from './QuestionBlockEditor';
 
-const parseRange = (range, fallbackStart, fallbackEnd) => {
-  const match = String(range || '').match(/(\d+)\s*-\s*(\d+)/);
-  if (!match) return [fallbackStart, fallbackEnd];
-  return [Number(match[1]), Number(match[2])];
-};
-
-const splitBlockByRange = (block, targetId, start, end) => {
-  const questions = (block.questions || []).filter((question) => {
-    const order = Number(question.questionOrder || 0);
-    return order >= start && order <= end;
-  });
-  if (!questions.length) return null;
-
-  const orders = questions.map((question) => Number(question.questionOrder)).filter(Boolean);
-  return {
-    ...block,
-    id: String(block.id || '').includes(`:${targetId}`) ? block.id : `${block.id}:${targetId}`,
-    range: `${Math.min(...orders)}-${Math.max(...orders)}`,
-    questions,
-  };
-};
-
-const flattenBlocks = (passages = []) => passages.flatMap((passage) => passage.blocks || []);
+// Utils removed as blocks are now managed locally per passage
 
 export default function ReadingBuilder({ value, onChange }) {
   const passages = value.passages || [];
+  const [expandedBulkId, setExpandedBulkId] = useState(null);
 
   const updatePassage = (id, patch) => {
     onChange({
@@ -61,87 +40,91 @@ export default function ReadingBuilder({ value, onChange }) {
     onChange({ ...value, passages: passages.filter((passage) => passage.id !== id) });
   };
 
-  const distributeBlocks = (allBlocks) => {
-    onChange({
-      ...value,
-      passages: passages.map((passage, index) => {
-        const [start, end] = parseRange(passage.defaultRange, index * 13 + 1, index === 2 ? 40 : (index + 1) * 13);
-        return {
-          ...passage,
-          blocks: allBlocks
-            .map((block) => splitBlockByRange(block, passage.id, start, end))
-            .filter(Boolean),
-        };
-      }),
-    });
-  };
+  // distributeBlocks removed since each passage manages its own blocks
 
   return (
-    <div className="d-flex flex-column gap-3">
-      {passages.map((passage, index) => (
+    <div className="d-flex flex-column gap-4">
+      {passages.map((passage, index) => {
+        const blockCount = (passage.blocks || []).length;
+        return (
         <Card className="border-0 shadow-sm" key={passage.id}>
-          <Card.Body>
-            <div className="d-flex justify-content-between align-items-center mb-3">
-              <h6 className="fw-bold mb-0">Reading Passage {index + 1}</h6>
-              {passages.length > 1 && (
-                <Button variant="outline-danger" size="sm" onClick={() => removePassage(passage.id)}>
-                  Delete passage
-                </Button>
-              )}
+          <Card.Header className="bg-white border-bottom-0 pt-4 pb-0 d-flex justify-content-between align-items-center">
+            <div className="d-flex align-items-center gap-3">
+              <h5 className="mb-0 fw-bold">Passage {index + 1}</h5>
+              <Badge bg="secondary" className="px-3 py-2 rounded-pill fw-medium fs-6">
+                Questions {passage.defaultRange || '1-13'}
+              </Badge>
+              <Badge bg="info" className="px-3 py-2 rounded-pill fw-medium fs-6 text-dark">
+                {blockCount} Blocks
+              </Badge>
             </div>
-
-            <Row className="g-3">
-              <Col md={8}>
-                <Form.Label>Passage title</Form.Label>
-                <Form.Control
-                  value={passage.title || ''}
-                  onChange={(event) => updatePassage(passage.id, { title: event.target.value })}
-                />
-              </Col>
-              <Col md={4}>
-                <Form.Label>Question range</Form.Label>
-                <Form.Control
-                  value={passage.defaultRange || ''}
-                  placeholder="1-13"
-                  onChange={(event) => updatePassage(passage.id, { defaultRange: event.target.value })}
-                />
-              </Col>
-              <Col md={8}>
-                <Form.Label>Image URL</Form.Label>
-                <Form.Control
-                  value={passage.imageUrl || ''}
-                  onChange={(event) => updatePassage(passage.id, { imageUrl: event.target.value })}
-                />
-              </Col>
-              <Col xs={12}>
-                <Form.Label>Instruction</Form.Label>
+            {passages.length > 1 && (
+              <Button variant="outline-danger" size="sm" onClick={() => removePassage(passage.id)}>
+                <i className="bi bi-trash me-1"></i> Delete
+              </Button>
+            )}
+          </Card.Header>
+          <Card.Body className="pt-3">
+            <div className="d-flex flex-column gap-3">
+              <div>
+                <Form.Label className="fw-semibold text-secondary small text-uppercase mb-1">Passage Instruction</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={2}
+                  placeholder="Read the passage below and answer Questions 1–13."
                   value={passage.instruction || ''}
                   onChange={(event) => updatePassage(passage.id, { instruction: event.target.value })}
                 />
-              </Col>
-              <Col xs={12}>
-                <Form.Label>Passage content</Form.Label>
+              </div>
+
+              <div>
+                <Form.Label className="fw-semibold text-secondary small text-uppercase mb-1">Passage Title</Form.Label>
+                <Form.Control
+                  placeholder={`Title of passage ${index + 1}`}
+                  value={passage.title || ''}
+                  onChange={(event) => updatePassage(passage.id, { title: event.target.value })}
+                />
+              </div>
+
+              <div>
+                <Form.Label className="fw-semibold text-secondary small text-uppercase mb-1">Content</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={8}
+                  placeholder="Paste passage content here..."
                   value={passage.content || ''}
                   onChange={(event) => updatePassage(passage.id, { content: event.target.value })}
                 />
-              </Col>
-            </Row>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="d-flex gap-3 mt-2">
+                <Button 
+                  variant="primary" 
+                  onClick={() => setExpandedBulkId(expandedBulkId === passage.id ? null : passage.id)}
+                >
+                  <i className="bi bi-lightning-charge me-2"></i> 
+                  {expandedBulkId === passage.id ? 'Đóng Nhập Nhanh' : 'Nhập Nhanh (Bulk Add)'}
+                </Button>
+              </div>
+
+              {/* Bulk Add Editor Area */}
+              {expandedBulkId === passage.id && (
+                <div className="mt-3 p-0 rounded-3 border overflow-hidden">
+                  <QuestionBlockEditor
+                    title={`Question Import: ${passage.title || `Passage ${index + 1}`}`}
+                    description={`${blockCount} blocks, ${(passage.blocks || []).reduce((sum, b) => sum + (b.questions || []).length, 0)} questions. Paste questions specific to this passage here.`}
+                    variant="primary"
+                    blocks={passage.blocks || []}
+                    onChange={(newBlocks) => updatePassage(passage.id, { blocks: newBlocks })}
+                  />
+                </div>
+              )}
+            </div>
           </Card.Body>
         </Card>
-      ))}
+      )})}
       <Button variant="outline-primary" onClick={addPassage}>Add passage</Button>
-      <QuestionBlockEditor
-        title="Advanced import for full Reading test"
-        variant="primary"
-        blocks={flattenBlocks(passages)}
-        onChange={distributeBlocks}
-      />
     </div>
   );
 }

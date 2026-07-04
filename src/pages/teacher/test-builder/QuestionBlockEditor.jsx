@@ -20,6 +20,7 @@ const getQuestionCount = (blocks = []) => blocks.reduce((sum, block) => sum + (b
 
 export default function QuestionBlockEditor({
   title,
+  description,
   blocks = [],
   onChange,
   variant = 'primary',
@@ -61,7 +62,7 @@ export default function QuestionBlockEditor({
         <div>
           <div className="small text-uppercase fw-bold lux-eyebrow">Advanced import</div>
           <h6 className="fw-bold mb-1">{title}</h6>
-          <div className="text-secondary small">{blocks.length} block, {totalQuestions} questions. Paste all 40 questions once; ranges will route them automatically.</div>
+          <div className="text-secondary small">{description || `${blocks.length} block, ${totalQuestions} questions. Paste all 40 questions once; ranges will route them automatically.`}</div>
         </div>
         <span className="lux-mini-counter">{totalQuestions}</span>
       </div>
@@ -94,7 +95,7 @@ export default function QuestionBlockEditor({
               </div>
             </div>
 
-            <div className="d-flex gap-2 flex-wrap justify-content-end">
+            <div className="d-flex gap-2 flex-wrap justify-content-end mt-3">
               <Button
                 type="button"
                 variant={`outline-${variant}`}
@@ -111,33 +112,44 @@ export default function QuestionBlockEditor({
                 Clear
               </Button>
               <Button type="button" variant={variant} onClick={parseText} disabled={!rawText.trim()}>
-                <i className="bi bi-eye me-1" />
-                Preview
+                <i className="bi bi-check2-circle me-1" />
+                Kiểm tra câu hỏi
               </Button>
             </div>
+
+            {errors?.length > 0 && (
+              <Alert variant="danger" className="mt-3 mb-0 shadow-sm border-0 border-start border-danger border-4">
+                <div className="fw-bold mb-1"><i className="bi bi-exclamation-triangle-fill me-2"></i> Lỗi cú pháp:</div>
+                <ul className="mb-0 ps-3">
+                  {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
+              </Alert>
+            )}
           </div>
         </Card.Body>
       </Card>
 
-      {errors?.length > 0 && (
-        <Alert variant="danger" className="lux-alert mt-3 mb-0">
-          {errors.map((error) => <div key={error}>{error}</div>)}
-        </Alert>
-      )}
-
       {parsedBlocks.length > 0 && !errors?.length && (
-        <Card className="lux-preview-card mt-3">
+        <Card className="lux-preview-card mt-4 border border-2 border-success shadow-sm">
           <Card.Body>
-            <div className="d-flex justify-content-between align-items-center gap-3 mb-3">
-              <h6 className="fw-bold mb-0">Preview import</h6>
-              <Button type="button" variant="success" size="sm" onClick={confirmBlocks}>
-                <i className="bi bi-plus-lg me-1" />
-                Add {getQuestionCount(parsedBlocks)} questions
+            <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4 p-3 bg-success bg-opacity-10 rounded">
+              <div>
+                <h6 className="fw-bold mb-1 text-success">
+                  <i className="bi bi-check-circle-fill me-2"></i>
+                  Phân tích cú pháp thành công!
+                </h6>
+                <div className="text-muted small">
+                  Bạn cần bấm nút <strong>Lưu</strong> bên cạnh để chính thức thêm {getQuestionCount(parsedBlocks)} câu hỏi này vào đoạn văn.
+                </div>
+              </div>
+              <Button type="button" variant="success" size="lg" onClick={confirmBlocks} className="fw-bold px-4 shadow">
+                <i className="bi bi-cloud-arrow-down-fill me-2" />
+                LƯU {getQuestionCount(parsedBlocks)} CÂU HỎI VÀO BÀI
               </Button>
             </div>
             <div className="d-flex flex-column gap-3">
               {parsedBlocks.map((block, blockIndex) => (
-                <div key={block.id} className="lux-preview-block" style={{ '--block-index': blockIndex }}>
+                <div key={block.id} className="lux-preview-block p-3 border rounded bg-light" style={{ '--block-index': blockIndex }}>
                   <div className="d-flex align-items-center gap-2 mb-2">
                     <Badge bg={variant}>{block.type}</Badge>
                     <span className="text-muted small">Range {block.range}</span>

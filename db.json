@@ -163,7 +163,7 @@
       "isPremium": false,
       "thumbnail": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "pending",
+      "status": "approved",
       "enrolledCount": 120,
       "durationWeeks": 6,
       "createdAt": "2026-06-01T08:00:00Z"
@@ -183,7 +183,7 @@
       "isPremium": true,
       "thumbnail": "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "pending",
+      "status": "approved",
       "enrolledCount": 85,
       "students": 85,
       "rating": 4.5,
@@ -205,7 +205,7 @@
       "isPremium": true,
       "thumbnail": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "pending",
+      "status": "approved",
       "enrolledCount": 0,
       "students": 0,
       "rating": 0,
@@ -266,7 +266,7 @@
       "durationWeeks": 5,
       "thumbnail": "https://images.unsplash.com/photo-1589149098258-3e9102ca6651?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-student-004",
-      "status": "draft",
+      "status": "approved",
       "enrolledCount": 0,
       "isPremium": true,
       "createdAt": "2026-06-25T11:41:03.486Z",
@@ -299,7 +299,7 @@
       "isPremium": true,
       "thumbnail": "https://www.google.com/imgres?q=reading%20ielts&imgurl=http%3A%2F%2Fgdcenglish.edu.vn%2Fwp-content%2Fuploads%2F2023%2F04%2FIELTS-Mock-Test-Reading.png&imgrefurl=https%3A%2F%2Fgdcenglish.edu.vn%2F6-tips-chinh-phuc-ielts-reading-hieu-qua%2F&docid=8h_de61zDxiMDM&tbnid=V8XT3amcUVl93M&vet=12ahUKEwjjuNfTjKqVAxWnjK8BHefWHVsQnPAOegQIJBAB..i&w=1200&h=628&hcb=2&ved=2ahUKEwjjuNfTjKqVAxWnjK8BHefWHVsQnPAOegQIJBAB",
       "teacherId": "u-teacher-001",
-      "status": "pending",
+      "status": "approved",
       "enrolledCount": 0,
       "durationWeeks": 4,
       "createdAt": "2026-06-28T14:02:31.641Z"
@@ -514,7 +514,7 @@
       "id": "tutor-reading-approved-001",
       "title": "Tutor IELTS Reading Full Mock - Urban Futures",
       "description": "A full 40-question Reading test created by tutor and approved by admin.",
-      "courseId": "",
+      "courseId": "course-001",
       "skill": "Reading",
       "testMode": "free",
       "isFreePreview": true,
@@ -976,13 +976,14 @@
             ]
           }
         ]
-      }
+      },
+      "createdBy": "u-teacher-001"
     },
     {
       "id": "tutor-listening-approved-001",
       "title": "Tutor IELTS Listening Full Mock - Campus and City",
       "description": "A 40-question Listening mock with local playable audio and four IELTS sections.",
-      "courseId": "",
+      "courseId": "course-002",
       "skill": "Listening",
       "testMode": "free",
       "isFreePreview": true,
@@ -1445,13 +1446,14 @@
             ]
           }
         ]
-      }
+      },
+      "createdBy": "u-teacher-001"
     },
     {
       "id": "tutor-writing-approved-001",
       "title": "Tutor IELTS Writing Full Mock - Process and Opinion",
       "description": "Academic Writing Task 1 with image link and Task 2 opinion essay.",
-      "courseId": "9w8htVkjNaI",
+      "courseId": "course-003",
       "skill": "Writing",
       "testMode": "course",
       "isFreePreview": true,
@@ -1478,13 +1480,14 @@
           "minimumWords": 250
         },
         "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
-      }
+      },
+      "createdBy": "u-teacher-001"
     },
     {
       "id": "buL7b65wJZ8",
       "title": "Tutor IELTS Speaking Full Mock - Technology and Study",
       "description": "A complete Speaking test with Part 1, Part 2 cue card and Part 3 discussion.",
-      "courseId": "",
+      "courseId": "eZfx0_P3YIU",
       "skill": "Speaking",
       "testMode": "free",
       "isFreePreview": true,
@@ -1549,7 +1552,8 @@
             ]
           }
         ]
-      }
+      },
+      "createdBy": "u-student-004"
     },
     {
       "title": "aaaaaaaaaaaaaaaaaaaaaa",
@@ -1595,6 +1599,59 @@
       "updatedAt": "2026-06-28T14:04:58.424Z",
       "createdAt": "2026-06-27T14:07:01.921Z",
       "id": "I8hqTxITOmg"
+    },
+    {
+      "title": "IELTS Reading test",
+      "description": "bài test cải thiện kĩ năng reading cho student",
+      "skill": "Reading",
+      "testMode": "course",
+      "courseId": "course-007",
+      "isFreePreview": false,
+      "status": "draft",
+      "practiceMode": "exam",
+      "attemptLimit": 0,
+      "requireLoginAfterLimit": true,
+      "durationMinutes": 60,
+      "totalQuestions": 40,
+      "bandScale": "IELTS 0-9",
+      "teacherId": "u-teacher-001",
+      "testConfig": {
+        "passages": [
+          {
+            "id": "passage-1",
+            "title": "The Rise of Urban Green Spaces",
+            "content": "Cities around the world have experienced rapid growth over the last century. As buildings, roads, and shopping centres replaced natural environments, many communities began to recognise the importance of preserving green spaces. Parks, gardens, and protected forests not only improve the appearance of a city but also provide important environmental and social benefits.\n\nOne of the greatest advantages of urban parks is their ability to improve air quality. Trees absorb carbon dioxide while releasing oxygen, helping reduce pollution produced by vehicles and factories. They also provide shade during hot weather, lowering temperatures and reducing the urban heat island effect.\n\nGreen spaces also support biodiversity. Birds, insects, and small mammals often find shelter in city parks where they might otherwise struggle to survive. Researchers have found that cities with larger green areas usually support a greater variety of wildlife than those with limited vegetation.\n\nIn addition to environmental benefits, parks improve public health. People who regularly visit parks are more likely to exercise through walking, cycling, or jogging. Studies suggest that spending time in nature can reduce stress, improve concentration, and support mental wellbeing.\n\nGovernments have increasingly invested in creating new public parks and restoring neglected areas. Although these projects require significant funding, many experts believe that the long-term environmental and health benefits outweigh the initial costs.",
+            "instruction": "",
+            "imageUrl": "",
+            "defaultRange": "1-13",
+            "blocks": [],
+            "order": 1
+          },
+          {
+            "id": "passage-2",
+            "title": "Remote Working in Modern Businesses",
+            "content": "Over the past decade, remote working has become increasingly common in many industries. Improvements in internet technology, cloud computing, and communication software have enabled employees to complete tasks from almost anywhere in the world.\n\nMany companies adopted remote working during periods of global disruption, discovering that productivity often remained stable or even improved. Employees reported spending less time commuting, allowing them to achieve a better balance between work and personal life.\n\nDespite these advantages, remote work also presents challenges. Some employees experience feelings of isolation because they have fewer opportunities for face-to-face interaction with colleagues. Managers have also needed to develop new methods of supervising teams and maintaining effective communication.\n\nBusinesses have invested heavily in digital collaboration tools such as video conferencing, project management software, and online document sharing. These technologies help teams coordinate work across different locations and time zones.\n\nExperts believe that hybrid working, combining office attendance with remote work, will become the preferred model for many organisations in the future. This approach allows businesses to benefit from flexibility while maintaining opportunities for direct collaboration.",
+            "instruction": "",
+            "imageUrl": "",
+            "defaultRange": "14-26",
+            "blocks": [],
+            "order": 2
+          },
+          {
+            "id": "passage-3",
+            "title": "Artificial Intelligence and Scientific Research",
+            "content": "Artificial intelligence has transformed scientific research by enabling computers to analyse enormous amounts of data in a fraction of the time required by humans. Machine learning algorithms can identify patterns, predict outcomes, and assist researchers in making complex decisions.\n\nIn medicine, AI systems help doctors detect diseases earlier by analysing medical images with remarkable accuracy. Researchers also use AI to discover potential drug candidates, reducing the time needed for pharmaceutical development.\n\nEnvironmental scientists rely on artificial intelligence to study climate change, monitor forests, and predict natural disasters. Satellites continuously collect large quantities of information, and AI allows scientists to process this data efficiently.\n\nHowever, many experts warn that artificial intelligence should not replace human judgement entirely. Algorithms may produce inaccurate results if they are trained using incomplete or biased data. Therefore, careful human supervision remains essential throughout the research process.\n\nAs technology continues to develop, artificial intelligence is expected to become an increasingly valuable tool across nearly every scientific discipline. Rather than replacing researchers, AI is more likely to support them by performing repetitive tasks and providing deeper insights from complex datasets.",
+            "instruction": "",
+            "imageUrl": "",
+            "defaultRange": "27-40",
+            "blocks": [],
+            "order": 3
+          }
+        ]
+      },
+      "updatedAt": "2026-07-04T13:38:40.699Z",
+      "createdAt": "2026-07-04T13:38:40.699Z",
+      "id": "7RxwDIJGgP8"
     }
   ],
   "questions": [],
@@ -1716,6 +1773,21 @@
       "reviewedBy": "admin",
       "rejectReason": null,
       "id": "HmihBvmiryA"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "course-009",
+      "amount": 350000,
+      "currency": "VND",
+      "method": "vietqr",
+      "transferContent": "IELTS course-009 -001",
+      "status": "pending",
+      "createdAt": "2026-07-04T12:10:00.554Z",
+      "paidAt": null,
+      "reviewedAt": null,
+      "reviewedBy": null,
+      "rejectReason": null,
+      "id": "aytXvSGKh_Q"
     }
   ],
   "transactions": [
@@ -2498,6 +2570,22 @@
       "targetType": "course",
       "targetId": "9w8htVkjNaI",
       "createdAt": "2026-06-30T17:24:11.172Z"
+    },
+    {
+      "id": "log-048",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_TEST",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-07-04T13:38:40.732Z"
+    },
+    {
+      "id": "log-049",
+      "actorId": "u-teacher-001",
+      "action": "REVERT_COURSE_STATUS",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-07-04T13:38:40.757Z"
     }
   ],
   "approvalRequests": [
@@ -2621,7 +2709,8 @@
       "id": "card-g13643b0e",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "deck-1",
@@ -2632,7 +2721,8 @@
       "id": "card-h5z3mix4o",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "deck-1",
@@ -2643,7 +2733,8 @@
       "id": "card-3motuhu3y",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "deck-1",
@@ -2654,7 +2745,8 @@
       "id": "card-k6smrfkf6",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "deck-1",
@@ -2665,7 +2757,8 @@
       "id": "card-1d7sgrxpi",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -2676,7 +2769,8 @@
       "id": "card-gl531r9xk",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -2687,7 +2781,8 @@
       "id": "card-bpontq6dd",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -2698,7 +2793,8 @@
       "id": "card-zbeetcceg",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -2709,7 +2805,8 @@
       "id": "card-mhwypxc4h",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -2720,7 +2817,8 @@
       "id": "card-ju509d0t7",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "aPZwGTPgqN0",
@@ -2786,7 +2884,8 @@
       "id": "card-xwm0bbkvl",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-4",
@@ -2797,7 +2896,8 @@
       "id": "card-x07bfk8zl",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-4",
@@ -2808,7 +2908,8 @@
       "id": "card-47nbvfpcs",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-4",
@@ -2819,7 +2920,8 @@
       "id": "card-k780hvba0",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-4",
@@ -2830,7 +2932,8 @@
       "id": "card-o4nqe06ag",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-5",
@@ -2841,7 +2944,8 @@
       "id": "card-ef90nl7x9",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "deckId": "deck-5",
@@ -2852,7 +2956,8 @@
       "id": "card-73wdnl0az",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "deckId": "deck-5",
@@ -2863,7 +2968,8 @@
       "id": "card-jhwbk33yw",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "deckId": "deck-5",
@@ -2874,7 +2980,8 @@
       "id": "card-d76w6i00a",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "deckId": "deck-5",
@@ -2885,7 +2992,8 @@
       "id": "card-rb0rbr55o",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "deckId": "deck-1",
@@ -2896,7 +3004,8 @@
       "id": "card-1krv4hsz3",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "deck-1",
@@ -2907,7 +3016,8 @@
       "id": "card-qo2di4ybk",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "deck-1",
@@ -2918,7 +3028,8 @@
       "id": "card-e6emn12ys",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "deck-1",
@@ -2929,7 +3040,8 @@
       "id": "card-ppyi6qau2",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "deck-1",
@@ -2940,7 +3052,8 @@
       "id": "card-4q3af1exv",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "deck-1",
@@ -2951,7 +3064,8 @@
       "id": "card-51pzkhm4o",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "deck-1",
@@ -2962,7 +3076,8 @@
       "id": "card-cq6lt4wvp",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "deck-1",
@@ -2973,7 +3088,8 @@
       "id": "card-7r0f3mbrr",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "deck-1",
@@ -2984,7 +3100,8 @@
       "id": "card-8emb7r45z",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "deck-1",
@@ -2995,7 +3112,8 @@
       "id": "card-30flpxhrg",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -3006,7 +3124,8 @@
       "id": "card-brj2s79rj",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -3017,7 +3136,8 @@
       "id": "card-wxlcr0evz",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -3028,7 +3148,8 @@
       "id": "card-3l55hwgft",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -3039,7 +3160,8 @@
       "id": "card-9t4oq0ylc",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -3050,7 +3172,8 @@
       "id": "card-cqr1kp938",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -3061,7 +3184,8 @@
       "id": "card-91wr9l077",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -3072,7 +3196,8 @@
       "id": "card-3c9y7zfbe",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -3083,7 +3208,8 @@
       "id": "card-5rlsd0c0r",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -3094,7 +3220,8 @@
       "id": "card-zhbpnkjdi",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "TCOYggEc8dw",
@@ -3105,7 +3232,8 @@
       "id": "card-a4pyn9fvu",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-001"
     },
     {
       "deckId": "aPZwGTPgqN0",
@@ -3226,7 +3354,8 @@
       "id": "card-o3guget3f",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-4",
@@ -3237,7 +3366,8 @@
       "id": "card-rwvg0gu75",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-4",
@@ -3248,7 +3378,8 @@
       "id": "card-sren7jw3d",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-4",
@@ -3259,7 +3390,8 @@
       "id": "card-dx46z6szt",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-4",
@@ -3270,7 +3402,8 @@
       "id": "card-h5o5u06on",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-4",
@@ -3281,7 +3414,8 @@
       "id": "card-sz58ka2en",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-4",
@@ -3292,7 +3426,8 @@
       "id": "card-jmhgc6rjs",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-4",
@@ -3303,7 +3438,8 @@
       "id": "card-wpsxyqe1a",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-4",
@@ -3314,7 +3450,8 @@
       "id": "card-a7abb25av",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-4",
@@ -3325,7 +3462,8 @@
       "id": "card-n8i254abt",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-007"
     },
     {
       "deckId": "deck-5",
@@ -3336,7 +3474,8 @@
       "id": "card-zdwjbgw9h",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "deckId": "deck-5",
@@ -3347,7 +3486,8 @@
       "id": "card-i5sxghnq9",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "deckId": "deck-5",
@@ -3358,7 +3498,8 @@
       "id": "card-orhsa3gxn",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "deckId": "deck-5",
@@ -3369,7 +3510,8 @@
       "id": "card-2o28g079b",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "deckId": "deck-5",
@@ -3380,7 +3522,8 @@
       "id": "card-h3przbhs6",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "deckId": "deck-5",
@@ -3391,7 +3534,8 @@
       "id": "card-bzrzl8kq8",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "deckId": "deck-5",
@@ -3402,7 +3546,8 @@
       "id": "card-i15imcmiq",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "deckId": "deck-5",
@@ -3413,7 +3558,8 @@
       "id": "card-sn2j62wml",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "deckId": "deck-5",
@@ -3424,7 +3570,8 @@
       "id": "card-gqwzy45ej",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "deckId": "deck-5",
@@ -3435,117 +3582,8 @@
       "id": "card-pacu3tg3m",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
-    },
-    {
-      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaa",
-      "pronunciation": "",
-      "example": "",
-      "deckId": "cMRVjk0UR68",
-      "status": "active",
-      "imageUrl": "",
       "audioUrl": "",
-      "id": "PASRRXxocj0"
-    },
-    {
-      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "pronunciation": "",
-      "example": "",
-      "deckId": "cMRVjk0UR68",
-      "status": "active",
-      "imageUrl": "",
-      "audioUrl": "",
-      "id": "PCdvH21o0N8"
-    },
-    {
-      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "pronunciation": "",
-      "example": "",
-      "deckId": "cMRVjk0UR68",
-      "status": "active",
-      "imageUrl": "",
-      "audioUrl": "",
-      "id": "2IablHH21F4"
-    },
-    {
-      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "pronunciation": "",
-      "example": "",
-      "deckId": "cMRVjk0UR68",
-      "status": "active",
-      "imageUrl": "",
-      "audioUrl": "",
-      "id": "5mbS21C1TFc"
-    },
-    {
-      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "pronunciation": "",
-      "example": "",
-      "deckId": "cMRVjk0UR68",
-      "status": "active",
-      "imageUrl": "",
-      "audioUrl": "",
-      "id": "yMx_gJjffys"
-    },
-    {
-      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "pronunciation": "",
-      "example": "",
-      "deckId": "cMRVjk0UR68",
-      "status": "active",
-      "imageUrl": "",
-      "audioUrl": "",
-      "id": "1Zw8jpnG1Xc"
-    },
-    {
-      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "pronunciation": "",
-      "example": "",
-      "deckId": "cMRVjk0UR68",
-      "status": "active",
-      "imageUrl": "",
-      "audioUrl": "",
-      "id": "KjUIAin5aJM"
-    },
-    {
-      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "pronunciation": "",
-      "example": "",
-      "deckId": "cMRVjk0UR68",
-      "status": "active",
-      "imageUrl": "",
-      "audioUrl": "",
-      "id": "uysv8sVARDg"
-    },
-    {
-      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "pronunciation": "",
-      "example": "",
-      "deckId": "cMRVjk0UR68",
-      "status": "active",
-      "imageUrl": "",
-      "audioUrl": "",
-      "id": "WXbBK3ok7rQ"
-    },
-    {
-      "word": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "meaning": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "pronunciation": "",
-      "example": "",
-      "deckId": "cMRVjk0UR68",
-      "status": "active",
-      "imageUrl": "",
-      "audioUrl": "",
-      "id": "Ntd0u-poWGY"
+      "courseId": "eZfx0_P3YIU"
     },
     {
       "id": "card-0f3e8614",
@@ -3556,7 +3594,8 @@
       "example": "A major breakthrough in medical research.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-0ec25c41",
@@ -3567,7 +3606,8 @@
       "example": "Gas lamps became obsolete when electric lighting was invented.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-6211be33",
@@ -3578,7 +3618,8 @@
       "example": "Cutting-edge technology.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-ebd103be",
@@ -3589,7 +3630,8 @@
       "example": "Automation will cause job losses.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-11998d04",
@@ -3600,7 +3642,8 @@
       "example": "We must constantly innovate to stay ahead.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-5988cfe5",
@@ -3611,7 +3654,8 @@
       "example": "We are expanding our business into cyberspace.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-4318ce50",
@@ -3622,7 +3666,8 @@
       "example": "AI is changing the world.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-44663fe7",
@@ -3633,7 +3678,8 @@
       "example": "A highly useful gadget.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-35de2ade",
@@ -3644,7 +3690,8 @@
       "example": "He is a true technophile.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-7b966188",
@@ -3655,7 +3702,8 @@
       "example": "VR games are becoming popular.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-322ea112",
@@ -3666,7 +3714,8 @@
       "example": "A sedentary lifestyle is bad for your health.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-002"
     },
     {
       "id": "card-413d45e0",
@@ -3677,7 +3726,8 @@
       "example": "The vaccine provides immunity against the disease.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-002"
     },
     {
       "id": "card-fcb65a34",
@@ -3688,7 +3738,8 @@
       "example": "A flu epidemic.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-002"
     },
     {
       "id": "card-c4f72b44",
@@ -3699,7 +3750,8 @@
       "example": "A highly nutritious meal.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-002"
     },
     {
       "id": "card-a5d909f2",
@@ -3710,7 +3762,8 @@
       "example": "An excellent home remedy for sore throats.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-002"
     },
     {
       "id": "card-f2606991",
@@ -3721,7 +3774,8 @@
       "example": "Preventive medicine is very important.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-002"
     },
     {
       "id": "card-1ea31a60",
@@ -3732,7 +3786,8 @@
       "example": "Chronic diseases.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-002"
     },
     {
       "id": "card-15e2f760",
@@ -3743,7 +3798,8 @@
       "example": "Driver fatigue is a major cause of accidents.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-002"
     },
     {
       "id": "card-ec1c5d19",
@@ -3754,7 +3810,8 @@
       "example": "Obesity can lead to heart disease.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-002"
     },
     {
       "id": "card-b5e790a7",
@@ -3765,7 +3822,8 @@
       "example": "Exercise speeds up your metabolism.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-002"
     },
     {
       "id": "card-59cd8c7e",
@@ -3776,7 +3834,8 @@
       "example": "Maths is an intrinsic part of the school curriculum.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-ed9fa799",
@@ -3787,7 +3846,8 @@
       "example": "A campaign to improve adult literacy.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-22438a35",
@@ -3798,7 +3858,8 @@
       "example": "Exams are not the only way to assess a student.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-a9dda54a",
@@ -3809,7 +3870,8 @@
       "example": "Traditional pedagogy.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-a9114ece",
@@ -3820,7 +3882,8 @@
       "example": "Extracurricular activities.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-df519df0",
@@ -3831,7 +3894,8 @@
       "example": "She won a scholarship to Oxford.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-377012cb",
@@ -3842,7 +3906,8 @@
       "example": "Plagiarism is heavily punished.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-5b9f834d",
@@ -3853,7 +3918,8 @@
       "example": "He received a bursary to study law.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-80a45d27",
@@ -3864,7 +3930,8 @@
       "example": "Cognitive development.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-4c4d4439",
@@ -3875,7 +3942,8 @@
       "example": "Truancy rates have fallen.",
       "status": "active",
       "imageUrl": "",
-      "audioUrl": ""
+      "audioUrl": "",
+      "courseId": "course-003"
     },
     {
       "id": "card-962cb8a8",
@@ -4208,6 +4276,36 @@
       "status": "in-progress",
       "startTime": "2026-07-01T05:42:57.775Z",
       "createdAt": "2026-07-01T05:42:57.780Z"
+    },
+    {
+      "id": "ta-011",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "tutor-listening-approved-001",
+      "skill": "Listening",
+      "status": "in-progress",
+      "startTime": "2026-07-04T16:59:51.235Z",
+      "createdAt": "2026-07-04T16:59:51.240Z"
+    },
+    {
+      "id": "ta-012",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "tutor-writing-approved-001",
+      "skill": "Writing",
+      "status": "in-progress",
+      "startTime": "2026-07-04T17:00:45.647Z",
+      "createdAt": "2026-07-04T17:00:45.651Z"
+    },
+    {
+      "id": "ta-013",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "tutor-reading-approved-001",
+      "skill": "Reading",
+      "status": "in-progress",
+      "startTime": "2026-07-04T17:02:08.304Z",
+      "createdAt": "2026-07-04T17:02:08.308Z"
     }
   ],
   "flashcardDecks": [
@@ -4217,7 +4315,7 @@
       "description": "Từ vựng cốt lõi thường xuyên xuất hiện trong phần thi Reading học thuật.",
       "teacherId": "u-teacher-001",
       "deckMode": "premium",
-      "courseId": "course-002",
+      "courseId": "course-001",
       "status": "published",
       "createdAt": "2026-06-20T10:00:00Z",
       "updatedAt": "2026-06-27T14:08:55.357Z"
@@ -4228,7 +4326,7 @@
       "description": "Từ vựng chuyên đề Môi trường và Thiên nhiên (Thường gặp trong Task 2 & Speaking Part 3)",
       "teacherId": "u-student-004",
       "deckMode": "free",
-      "courseId": "",
+      "courseId": "course-001",
       "status": "published",
       "createdAt": "2026-06-23T16:45:26.265Z",
       "updatedAt": "2026-06-24T11:54:25.968Z"
@@ -4249,8 +4347,8 @@
       "title": "Common Phrasal Verbs",
       "description": "10 Phrasal Verbs thông dụng nhất giúp ăn điểm từ vựng trong bài Speaking.",
       "teacherId": "u-teacher-001",
-      "deckMode": "free",
-      "courseId": "",
+      "deckMode": "course",
+      "courseId": "course-007",
       "status": "published",
       "createdAt": "2026-06-25T10:00:00Z"
     },
@@ -4260,30 +4358,9 @@
       "description": "Các thành ngữ (Idioms) phổ biến giúp nâng band điểm Speaking lên 7.0+.",
       "teacherId": "u-teacher-001",
       "deckMode": "free",
-      "courseId": "",
+      "courseId": "eZfx0_P3YIU",
       "status": "published",
       "createdAt": "2026-06-25T10:00:00Z"
-    },
-    {
-      "title": "aaaaaaaaaaaaaaa",
-      "description": "",
-      "deckMode": "course",
-      "courseId": "course-007",
-      "teacherId": "u-teacher-001",
-      "status": "published",
-      "createdAt": "2026-06-27T14:08:26.240Z",
-      "id": "cMRVjk0UR68",
-      "updatedAt": "2026-06-28T14:05:52.246Z"
-    },
-    {
-      "title": "aaaaaaaaa",
-      "description": "sssssssssss",
-      "deckMode": "free",
-      "courseId": "",
-      "teacherId": "u-teacher-001",
-      "status": "draft",
-      "createdAt": "2026-06-28T13:58:44.821Z",
-      "id": "HA3rzM39Jeg"
     },
     {
       "id": "deck-tech-258c49ed",
@@ -4293,7 +4370,8 @@
       "deckMode": "public",
       "status": "published",
       "createdAt": "2026-07-01T05:29:21.801Z",
-      "updatedAt": "2026-07-01T05:29:21.802Z"
+      "updatedAt": "2026-07-01T05:29:21.802Z",
+      "courseId": "course-003"
     },
     {
       "id": "deck-health-1de6ea90",
@@ -4303,7 +4381,8 @@
       "deckMode": "public",
       "status": "published",
       "createdAt": "2026-07-01T05:29:21.802Z",
-      "updatedAt": "2026-07-01T05:29:21.802Z"
+      "updatedAt": "2026-07-01T05:29:21.802Z",
+      "courseId": "course-002"
     },
     {
       "id": "deck-edu-177d1aae",
@@ -4313,7 +4392,8 @@
       "deckMode": "public",
       "status": "published",
       "createdAt": "2026-07-01T05:29:21.802Z",
-      "updatedAt": "2026-07-01T05:29:21.802Z"
+      "updatedAt": "2026-07-01T05:29:21.802Z",
+      "courseId": "course-003"
     },
     {
       "id": "deck-travel-4e14f98b",

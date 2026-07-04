@@ -50,6 +50,8 @@ export default function ListeningBuilder({ value, onChange }) {
     });
   };
 
+  const [expandedBulkId, setExpandedBulkId] = React.useState(null);
+
   const addSection = () => {
     const order = sections.length + 1;
     onChange({
@@ -73,21 +75,6 @@ export default function ListeningBuilder({ value, onChange }) {
 
   const removeSection = (id) => {
     onChange({ ...value, sections: sections.filter((section) => section.id !== id) });
-  };
-
-  const distributeBlocks = (allBlocks) => {
-    onChange({
-      ...value,
-      sections: sections.map((section, index) => {
-        const [start, end] = parseRange(section.defaultRange, index * 10 + 1, (index + 1) * 10);
-        return {
-          ...section,
-          blocks: allBlocks
-            .map((block) => splitBlockByRange(block, section.id, start, end))
-            .filter(Boolean),
-        };
-      }),
-    });
   };
 
   return (
@@ -120,27 +107,37 @@ export default function ListeningBuilder({ value, onChange }) {
         </Card.Body>
       </Card>
 
-      {sections.map((section, index) => (
+      {sections.map((section, index) => {
+        const blockCount = (section.blocks || []).length;
+        return (
         <Card className="border-0 shadow-sm" key={section.id}>
           <Card.Body>
             <div className="d-flex justify-content-between align-items-center mb-3">
-              <h6 className="fw-bold mb-0">Listening Section {index + 1}</h6>
+              <div className="d-flex align-items-center gap-3">
+                <h6 className="fw-bold mb-0">Listening Section {index + 1}</h6>
+                <span className="badge bg-secondary rounded-pill px-3 py-2 fw-medium fs-6">
+                  Questions {section.defaultRange || '1-10'}
+                </span>
+                <span className="badge bg-info text-dark rounded-pill px-3 py-2 fw-medium fs-6">
+                  {blockCount} Blocks
+                </span>
+              </div>
               {sections.length > 1 && (
                 <Button variant="outline-danger" size="sm" onClick={() => removeSection(section.id)}>
-                  Delete section
+                  <i className="bi bi-trash me-1"></i> Delete section
                 </Button>
               )}
             </div>
             <Row className="g-3">
               <Col md={6}>
-                <Form.Label>Section title</Form.Label>
+                <Form.Label className="fw-semibold text-secondary small text-uppercase mb-1">Section title</Form.Label>
                 <Form.Control
                   value={section.title || ''}
                   onChange={(event) => updateSection(section.id, { title: event.target.value })}
                 />
               </Col>
               <Col md={3}>
-                <Form.Label>Question range</Form.Label>
+                <Form.Label className="fw-semibold text-secondary small text-uppercase mb-1">Question range</Form.Label>
                 <Form.Control
                   value={section.defaultRange || ''}
                   placeholder="1-10"
@@ -149,7 +146,7 @@ export default function ListeningBuilder({ value, onChange }) {
               </Col>
               <Col md={3}>
                 <Form.Check
-                  className="mt-4 pt-2"
+                  className="mt-4 pt-2 fw-semibold text-secondary small text-uppercase"
                   type="switch"
                   label="Show transcript"
                   checked={Boolean(section.showTranscript)}
@@ -157,7 +154,7 @@ export default function ListeningBuilder({ value, onChange }) {
                 />
               </Col>
               <Col xs={12}>
-                <Form.Label>Section audio URL</Form.Label>
+                <Form.Label className="fw-semibold text-secondary small text-uppercase mb-1">Section audio URL</Form.Label>
                 <Form.Control
                   value={section.audioUrl || ''}
                   onChange={(event) => updateSection(section.id, { audioUrl: event.target.value })}
@@ -168,7 +165,7 @@ export default function ListeningBuilder({ value, onChange }) {
                 <AudioPreview audioUrl={section.audioUrl || ''} label={`${section.title || 'Section'} audio preview`} />
               </Col>
               <Col xs={12}>
-                <Form.Label>Instruction</Form.Label>
+                <Form.Label className="fw-semibold text-secondary small text-uppercase mb-1">Instruction</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={2}
@@ -177,7 +174,7 @@ export default function ListeningBuilder({ value, onChange }) {
                 />
               </Col>
               <Col xs={12}>
-                <Form.Label>Transcript</Form.Label>
+                <Form.Label className="fw-semibold text-secondary small text-uppercase mb-1">Transcript</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={4}
@@ -186,16 +183,34 @@ export default function ListeningBuilder({ value, onChange }) {
                 />
               </Col>
             </Row>
+
+            {/* Action Buttons */}
+            <div className="d-flex gap-3 mt-4">
+              <Button 
+                variant="primary" 
+                onClick={() => setExpandedBulkId(expandedBulkId === section.id ? null : section.id)}
+              >
+                <i className="bi bi-lightning-charge me-2"></i> 
+                {expandedBulkId === section.id ? 'Đóng Nhập Nhanh' : 'Nhập Nhanh (Bulk Add)'}
+              </Button>
+            </div>
+
+            {/* Bulk Add Editor Area */}
+            {expandedBulkId === section.id && (
+              <div className="mt-3 p-0 rounded-3 border overflow-hidden">
+                <QuestionBlockEditor
+                  title={`Question Import: ${section.title || `Section ${index + 1}`}`}
+                  description={`${blockCount} blocks, ${(section.blocks || []).reduce((sum, b) => sum + (b.questions || []).length, 0)} questions. Paste questions specific to this section here.`}
+                  variant="warning"
+                  blocks={section.blocks || []}
+                  onChange={(newBlocks) => updateSection(section.id, { blocks: newBlocks })}
+                />
+              </div>
+            )}
           </Card.Body>
         </Card>
-      ))}
+      )})}
       <Button variant="outline-primary" onClick={addSection}>Add section</Button>
-      <QuestionBlockEditor
-        title="Advanced import for full Listening test"
-        variant="warning"
-        blocks={flattenBlocks(sections)}
-        onChange={distributeBlocks}
-      />
     </div>
   );
 }

@@ -65,30 +65,26 @@ export default function Navbar({ variant = 'default' }) {
 
         <BsNavbar.Collapse id="main-navbar">
           {effectiveVariant === 'student' ? (
-            <Nav className="me-auto">
-              <Nav.Link as={NavLink} to="/learning" className={navLinkClass} onClick={closeMenu}>
-                Home
+            <Nav className="me-auto fw-medium gap-lg-1 mx-lg-3 align-items-lg-center">
+              <Nav.Link as={NavLink} to="/learning" className={navLinkClass} onClick={closeMenu} end>
+                <i className="bi bi-house-door me-2 d-lg-none"></i>Home
               </Nav.Link>
               <Nav.Link as={NavLink} to="/learning/dashboard" className={navLinkClass} onClick={closeMenu}>
-                Dashboard
+                <i className="bi bi-grid me-2 d-lg-none"></i>Dashboard
               </Nav.Link>
               <Nav.Link as={NavLink} to="/learning/my-courses" className={navLinkClass} onClick={closeMenu}>
-                My Courses
+                <i className="bi bi-journal-bookmark me-2 d-lg-none"></i>My Courses
               </Nav.Link>
               <Nav.Link as={NavLink} to="/learning/courses" className={navLinkClass} onClick={closeMenu}>
-                Course Catalog
+                <i className="bi bi-compass me-2 d-lg-none"></i>Explore
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/learning/flashcards" className={navLinkClass} onClick={closeMenu}>
-                Flashcards
-              </Nav.Link>
-              <Nav.Link as={NavLink} to="/learning/tests" className={navLinkClass} onClick={closeMenu}>
-                Tests
-              </Nav.Link>
+              
               <Nav.Link as={NavLink} to="/learning/exam-library" className={navLinkClass} onClick={closeMenu}>
-                Thư viện đề
+                <i className="bi bi-journal-text me-2 d-lg-none"></i>Thư viện đề
               </Nav.Link>
+
               <Nav.Link as={NavLink} to="/learning/history" className={navLinkClass} onClick={closeMenu}>
-                Learning History
+                <i className="bi bi-clock-history me-2 d-lg-none"></i>History
               </Nav.Link>
             </Nav>
           ) : (
