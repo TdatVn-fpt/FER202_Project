@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Form, Button, Alert, InputGroup, Spinner } from 'react-bootstrap';
 import { getDashboardPathByRole, loginWithEmailAndPassword } from '../../services/authService';
-import { getEnrollmentsByUser } from '../../services/courseLearning.service';
-import './Login.css';
 
 export default function Login() {
   useEffect(() => {
@@ -32,7 +30,6 @@ export default function Login() {
       const fallbackPath = getDashboardPathByRole(user.role);
       let redirectPath = location.state?.from?.pathname || fallbackPath;
       
-      // Force redirect to dashboard for non-student roles or if redirecting to guest homepage
       if (user.role !== 'student' || redirectPath === '/') {
         redirectPath = fallbackPath;
       }
@@ -49,41 +46,48 @@ export default function Login() {
   const isLoading = status === 'loading';
 
   return (
-    <div className="auth-page d-flex align-items-center">
-      <Container>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-gradient-hero)', minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative' }}>
+      <div className="tp-hero-dots">
+        {Array(20).fill(0).map((_, i) => <span key={i}></span>)}
+      </div>
+      <Container className="position-relative" style={{ zIndex: 1, padding: '40px 0' }}>
         <Row className="justify-content-center">
           <Col xs={12} md={10} lg={9} xl={8}>
-            <Card className="border-0 shadow-lg overflow-hidden auth-card">
+            <Card className="tp-card border-0 shadow-lg overflow-hidden">
               <Row className="g-0">
-                {/* Cột thương hiệu */}
-                <Col md={5} className="auth-brand d-none d-md-flex flex-column justify-content-between p-4 text-white">
-                  <div className="fw-bold fs-4">IELTS<span className="text-warning">Master</span></div>
+                {/* Brand Column */}
+                <Col md={5} className="d-none d-md-flex flex-column justify-content-between p-5 text-white" style={{ background: 'var(--tp-gradient-hero-alt)' }}>
+                  <div className="fw-bold fs-3 letter-spacing-1">
+                    <i className="bi bi-mortarboard-fill me-2 text-warning"></i>
+                    IELTS<span className="text-warning">Master</span>
+                  </div>
                   <div>
-                    <h2 className="h3 fw-bold mb-3">Chào mừng trở lại 👋</h2>
-                    <p className="mb-0 opacity-75">
-                      Đăng nhập để tiếp tục hành trình chinh phục IELTS của bạn với lộ trình cá nhân hóa,
-                      flashcard và bài luyện 4 kỹ năng.
+                    <h2 className="h3 fw-bold mb-3 mt-4">Chào mừng trở lại 👋</h2>
+                    <p className="mb-0 opacity-75 lh-lg">
+                      Đăng nhập để tiếp tục hành trình chinh phục IELTS của bạn với lộ trình cá nhân hóa, flashcard và bài luyện 4 kỹ năng.
                     </p>
                   </div>
-                  <ul className="list-unstyled small mb-0 opacity-75">
-                    <li className="mb-2">✓ Theo dõi tiến độ học tập</li>
-                    <li className="mb-2">✓ Kho tài nguyên miễn phí</li>
-                    <li>✓ Luyện đề bám sát thực tế</li>
+                  <ul className="list-unstyled mb-0 opacity-75 mt-5">
+                    <li className="mb-3 d-flex align-items-center"><i className="bi bi-check2-circle fs-5 me-2 text-success"></i> Theo dõi tiến độ học tập</li>
+                    <li className="mb-3 d-flex align-items-center"><i className="bi bi-check2-circle fs-5 me-2 text-success"></i> Kho tài nguyên miễn phí</li>
+                    <li className="d-flex align-items-center"><i className="bi bi-check2-circle fs-5 me-2 text-success"></i> Luyện đề bám sát thực tế</li>
                   </ul>
                 </Col>
 
-                {/* Cột form */}
-                <Col md={7} className="p-4 p-md-5">
-                  <h1 className="h3 fw-bold mb-1">Đăng nhập</h1>
-                  <p className="text-muted mb-4">
-                    Chưa có tài khoản? <Link to="/register" className="fw-semibold text-decoration-none">Đăng ký miễn phí</Link>
-                  </p>
+                {/* Form Column */}
+                <Col md={7} className="p-4 p-md-5 bg-white">
+                  <div className="text-center mb-4">
+                    <h1 className="h3 fw-bold mb-2 text-dark">Đăng nhập</h1>
+                    <p className="text-muted">
+                      Chưa có tài khoản? <Link to="/register" className="fw-semibold text-primary text-decoration-none">Đăng ký miễn phí</Link>
+                    </p>
+                  </div>
 
-                  {error && <Alert variant="danger" className="py-2 small">{error}</Alert>}
+                  {error && <Alert variant="danger" className="py-2 small border-0 rounded-3 text-center mb-4"><i className="bi bi-exclamation-triangle-fill me-2"></i>{error}</Alert>}
 
                   <Form onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3" controlId="loginEmail">
-                      <Form.Label className="fw-semibold small">Địa chỉ email</Form.Label>
+                    <Form.Group className="mb-4" controlId="loginEmail">
+                      <Form.Label className="fw-semibold text-dark small mb-2">Địa chỉ email</Form.Label>
                       <Form.Control
                         type="email"
                         name="email"
@@ -92,11 +96,15 @@ export default function Login() {
                         onChange={handleChange}
                         required
                         size="lg"
+                        className="tp-input rounded-3 bg-light"
                       />
                     </Form.Group>
 
-                    <Form.Group className="mb-2" controlId="loginPassword">
-                      <Form.Label className="fw-semibold small">Mật khẩu</Form.Label>
+                    <Form.Group className="mb-3" controlId="loginPassword">
+                      <Form.Label className="fw-semibold text-dark small mb-2 d-flex justify-content-between">
+                        <span>Mật khẩu</span>
+                        <a href="#reset" className="text-decoration-none text-primary fw-medium">Quên mật khẩu?</a>
+                      </Form.Label>
                       <InputGroup>
                         <Form.Control
                           type={showPassword ? 'text' : 'password'}
@@ -106,35 +114,36 @@ export default function Login() {
                           onChange={handleChange}
                           required
                           size="lg"
+                          className="tp-input rounded-start-3 bg-light"
+                          style={{ borderRight: 'none' }}
                         />
                         <Button
-                          variant="outline-secondary"
-                          type="button"
+                          variant="light"
+                          className="border bg-light text-muted rounded-end-3 px-3"
+                          style={{ borderLeft: 'none' }}
                           onClick={() => setShowPassword((s) => !s)}
                         >
-                          {showPassword ? 'Ẩn' : 'Hiện'}
+                          <i className={`bi ${showPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'}`}></i>
                         </Button>
                       </InputGroup>
                     </Form.Group>
 
-                    <div className="d-flex justify-content-end mb-4">
-                      <a href="#reset" className="small text-decoration-none">Quên mật khẩu?</a>
-                    </div>
-
                     <Button
                       type="submit"
-                      variant="primary"
-                      size="lg"
-                      className="w-100 fw-semibold mb-3"
+                      className="tp-btn-primary w-100 fw-bold mt-4 mb-4 py-3 rounded-pill"
                       disabled={isLoading}
                     >
                       {isLoading ? (
                         <><Spinner as="span" animation="border" size="sm" className="me-2" />Đang đăng nhập...</>
-                      ) : 'Đăng nhập'}
+                      ) : (
+                        'Đăng nhập ngay'
+                      )}
                     </Button>
 
                     <div className="text-center">
-                      <Link to="/" className="small text-muted text-decoration-none">← Quay lại trang chủ</Link>
+                      <Link to="/" className="small text-secondary text-decoration-none fw-medium tp-btn-hover">
+                        <i className="bi bi-arrow-left me-1"></i> Quay lại trang chủ
+                      </Link>
                     </div>
                   </Form>
                 </Col>

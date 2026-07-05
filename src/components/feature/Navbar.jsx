@@ -120,12 +120,6 @@ export default function Navbar({ variant = 'default' }) {
               <Nav.Link as={NavLink} to="/skills" className={navLinkClass} onClick={closeMenu}>
                 Luyện 4 kỹ năng
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/wishlist" className={navLinkClass} onClick={closeMenu}>
-                Yêu thích
-              </Nav.Link>
-              <Nav.Link as={NavLink} to="/checkout" className={navLinkClass} onClick={closeMenu}>
-                Giỏ hàng
-              </Nav.Link>
             </Nav>
           )}
 

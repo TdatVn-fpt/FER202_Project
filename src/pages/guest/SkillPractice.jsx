@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Alert, Badge, Button, Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { testService } from '../../services/testService';
-import './SkillPractice.css';
 
 const SKILLS = [
   {
@@ -87,197 +86,204 @@ export default function SkillPractice() {
   const allAnswered = MINI_QUESTIONS.every((question) => answers[question.id]);
 
   return (
-    <div className="skills-page">
-      <header className="skills-hero">
-        <Container className="py-5">
-          <Row className="align-items-end g-4">
-            <Col lg={8}>
-              <Badge bg="light" text="dark" className="mb-3 px-3 py-2 rounded-pill text-uppercase">
-                Approved IELTS practice
-              </Badge>
-              <h1 className="skills-title fw-bold mb-3">IELTS Skill Studio</h1>
-              <p className="skills-subtitle mb-0">
-                Hoc vien chi thay cac de da duoc admin chap nhan. Moi de ben duoi duoc tao tu tutor workflow va dang published.
-              </p>
-            </Col>
-            <Col lg={4}>
-              <div className="skills-hero-panel">
-                <div className="small text-uppercase text-secondary fw-bold">Live approved tests</div>
-                <div className="display-6 fw-bold">{approvedTests.length}</div>
-                <div className="text-secondary small">Linked from Teacher Test Builder</div>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </header>
-
-      <Container className="py-5">
-        <Row className="g-4 mb-4">
-          {SKILLS.map((skill) => (
-            <Col key={skill.key} sm={6} lg={3}>
-              <Card
-                role="button"
-                className={`skill-card h-100 ${activeSkill === skill.key ? 'skill-card-active' : ''}`}
-                onClick={() => {
-                  setActiveSkill(skill.key);
-                  setSubmitted(false);
-                  setAnswers({});
-                }}
-              >
-                <Card.Body>
-                  <div className={`skill-icon bg-${skill.variant}-subtle text-${skill.variant} mb-4`}>
-                    <i className={`bi ${skill.icon}`} />
-                  </div>
-                  <div className="small text-uppercase text-secondary fw-bold mb-1">{skill.time}</div>
-                  <h3 className="fs-5 fw-bold mb-2">{skill.name}</h3>
-                  <p className="text-secondary small mb-3">{skill.desc}</p>
-                  <div className="small fw-semibold">{skill.parts}</div>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-
-        <Card className="skill-focus-card border-0 mb-5">
-          <Card.Body className="p-4">
-            <Row className="g-4 align-items-center">
-              <Col lg={5}>
-                <div className="d-flex align-items-center gap-3">
-                  <span className={`skill-inline-icon bg-${selected.variant}-subtle text-${selected.variant}`}>
-                    <i className={`bi ${selected.icon}`} />
-                  </span>
-                  <div>
-                    <div className="small text-uppercase text-secondary fw-bold">Current skill</div>
-                    <h2 className="h4 fw-bold mb-0">{selected.name}</h2>
-                  </div>
-                </div>
-              </Col>
-              <Col lg={7}>
-                <Row className="g-3">
-                  {selected.tips.map((tip, index) => (
-                    <Col md={4} key={tip}>
-                      <div className="skill-tip h-100">
-                        <span className={`skill-tip-num bg-${selected.variant}`}>{index + 1}</span>
-                        <p className="mb-0 small">{tip}</p>
-                      </div>
-                    </Col>
-                  ))}
-                </Row>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
-
-        <section className="mb-5">
-          <div className="d-flex justify-content-between align-items-end gap-3 flex-wrap mb-4">
-            <div>
-              <Badge bg="success" className="mb-2 px-3 py-2 rounded-pill">Admin approved</Badge>
-              <h2 className="h3 fw-bold mb-1">De tutor tao da duoc duyet: {selected.name}</h2>
-              <p className="text-secondary mb-0">Teacher tao de, admin approve, hoc vien nhin thay tai day.</p>
-            </div>
-            <Button as={Link} to="/free-tests" variant="outline-dark" className="rounded-pill px-4">
-              View all tests
-            </Button>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      {/* ── HERO ── */}
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-controller"></i> Approved IELTS practice</div>
+            <h1 className="tp-page-title">IELTS Skill Studio</h1>
+            <p className="tp-page-sub">
+              Học viên chỉ thấy các đề đã được admin chấp nhận. Mỗi đề bên dưới được tạo từ tutor workflow và đang published.
+            </p>
           </div>
+          <div className="d-none d-lg-block text-end bg-white bg-opacity-10 rounded-4 p-3 border border-white border-opacity-25 shadow-sm">
+            <div className="small text-uppercase text-white-50 fw-bold">Live approved tests</div>
+            <div className="display-5 fw-bold text-white">{approvedTests.length}</div>
+            <div className="text-white-50 small">Linked from Teacher Test Builder</div>
+          </div>
+        </div>
+      </div>
 
-          <Row className="g-4">
-            {loadingTests ? (
-              <Col xs={12} className="text-center py-5">
-                <Spinner animation="border" variant={selected.variant} />
+      <div className="tp-main-content">
+        <Container fluid="xxl" className="px-4 py-4">
+          <Row className="g-4 mb-5">
+            {SKILLS.map((skill) => (
+              <Col key={skill.key} sm={6} lg={3}>
+                <Card
+                  role="button"
+                  className={`tp-card h-100 border-0 transition-all ${activeSkill === skill.key ? 'shadow-lg border-primary border-2' : ''}`}
+                  style={{ cursor: 'pointer', transform: activeSkill === skill.key ? 'translateY(-4px)' : 'none' }}
+                  onClick={() => {
+                    setActiveSkill(skill.key);
+                    setSubmitted(false);
+                    setAnswers({});
+                  }}
+                >
+                  <Card.Body className="p-4">
+                    <div className={`bg-${skill.variant} bg-opacity-10 text-${skill.variant} rounded-circle d-flex align-items-center justify-content-center mb-4`} style={{ width: '48px', height: '48px' }}>
+                      <i className={`bi ${skill.icon} fs-4`} />
+                    </div>
+                    <div className="small text-uppercase text-secondary fw-bold mb-1">{skill.time}</div>
+                    <h3 className="fs-5 fw-bold mb-2 text-dark">{skill.name}</h3>
+                    <p className="text-secondary small mb-3 flex-grow-1">{skill.desc}</p>
+                    <div className="small fw-semibold text-dark"><i className="bi bi-card-list me-1"></i> {skill.parts}</div>
+                  </Card.Body>
+                </Card>
               </Col>
-            ) : filteredTests.length === 0 ? (
-              <Col xs={12}>
-                <Alert variant="info" className="text-center border-0 shadow-sm">
-                  Chua co de published cho ky nang nay. Hay gui de tu Teacher Test Builder va admin approve.
-                </Alert>
-              </Col>
-            ) : (
-              filteredTests.map((test, index) => (
-                <Col md={6} xl={4} key={test.id}>
-                  <Card className="approved-test-card h-100" style={{ '--test-index': index }}>
-                    <Card.Body className="d-flex flex-column">
-                      <div className="d-flex justify-content-between align-items-start gap-3 mb-3">
-                        <Badge bg={selected.variant}>{test.skill}</Badge>
-                        <Badge bg="success">Published</Badge>
-                      </div>
-                      <Card.Title as="h3" className="fs-5 fw-bold">{test.title}</Card.Title>
-                      <p className="text-secondary small flex-grow-1">{test.description || 'IELTS practice test created by tutor and approved by admin.'}</p>
-                      <div className="approved-meta mb-3">
-                        <span><i className="bi bi-clock me-1" />{test.durationMinutes} min</span>
-                        <span><i className="bi bi-list-check me-1" />{test.totalQuestions} questions</span>
-                      </div>
-                      <Button as={Link} to={`/free-tests/${test.id}`} variant={selected.variant} className="w-100 fw-semibold">
-                        Lam bai ngay
-                      </Button>
+            ))}
+          </Row>
+
+          <Card className="tp-card border-0 mb-5 bg-white shadow-sm">
+            <Card.Body className="p-4 p-md-5">
+              <Row className="g-4 align-items-center">
+                <Col lg={4}>
+                  <div className="d-flex align-items-center gap-4 border-end-lg pe-lg-4">
+                    <div className={`bg-${selected.variant} text-white rounded-circle d-flex align-items-center justify-content-center shadow-sm`} style={{ width: '64px', height: '64px' }}>
+                      <i className={`bi ${selected.icon} fs-2`} />
+                    </div>
+                    <div>
+                      <div className="small text-uppercase text-secondary fw-bold letter-spacing-1">Current skill</div>
+                      <h2 className="h3 fw-bold mb-0 text-dark">{selected.name}</h2>
+                    </div>
+                  </div>
+                </Col>
+                <Col lg={8}>
+                  <Row className="g-4">
+                    {selected.tips.map((tip, index) => (
+                      <Col md={4} key={tip}>
+                        <div className="d-flex align-items-start gap-3">
+                          <div className={`bg-${selected.variant} bg-opacity-10 text-${selected.variant} rounded-circle d-flex align-items-center justify-content-center fw-bold flex-shrink-0`} style={{ width: '28px', height: '28px' }}>
+                            {index + 1}
+                          </div>
+                          <p className="mb-0 small text-secondary fw-medium lh-base">{tip}</p>
+                        </div>
+                      </Col>
+                    ))}
+                  </Row>
+                </Col>
+              </Row>
+            </Card.Body>
+          </Card>
+
+          <section className="mb-5">
+            <div className="d-flex justify-content-between align-items-end gap-3 flex-wrap mb-4">
+              <div>
+                <Badge bg="success" className="mb-2 px-3 py-2 rounded-pill shadow-sm"><i className="bi bi-shield-check me-1"></i> Admin approved</Badge>
+                <h2 className="h3 fw-bold mb-2 text-dark">Đề tutor tạo đã được duyệt: {selected.name}</h2>
+                <p className="text-secondary mb-0">Teacher tạo đề, admin approve, học viên nhìn thấy tại đây.</p>
+              </div>
+              <Button as={Link} to="/free-tests" variant="outline-primary" className="rounded-pill px-4 fw-medium bg-white shadow-sm">
+                View all tests
+              </Button>
+            </div>
+
+            <Row className="g-4">
+              {loadingTests ? (
+                <Col xs={12} className="text-center py-5">
+                  <Spinner animation="border" variant={selected.variant} style={{ width: '3rem', height: '3rem' }} />
+                </Col>
+              ) : filteredTests.length === 0 ? (
+                <Col xs={12}>
+                  <Alert variant="info" className="text-center border-0 shadow-sm rounded-4 py-4 bg-white">
+                    <i className="bi bi-info-circle fs-2 text-info mb-3 d-block"></i>
+                    <h5 className="fw-bold text-dark">Chưa có đề published cho kỹ năng này</h5>
+                    <p className="mb-0 text-secondary">Hãy gửi đề từ Teacher Test Builder và admin approve.</p>
+                  </Alert>
+                </Col>
+              ) : (
+                filteredTests.map((test) => (
+                  <Col md={6} xl={4} key={test.id}>
+                    <Card className="tp-card h-100 border-0 shadow-sm hover-lift">
+                      <Card.Body className="d-flex flex-column p-4">
+                        <div className="d-flex justify-content-between align-items-start gap-3 mb-3">
+                          <Badge bg={selected.variant} className="px-3 py-2 rounded-pill">{test.skill}</Badge>
+                          <Badge bg="success" className="px-3 py-2 rounded-pill"><i className="bi bi-check-circle me-1"></i>Published</Badge>
+                        </div>
+                        <Card.Title as="h3" className="fs-5 fw-bold text-dark mb-3">{test.title}</Card.Title>
+                        <p className="text-secondary small flex-grow-1 lh-base">{test.description || 'IELTS practice test created by tutor and approved by admin.'}</p>
+                        <div className="d-flex gap-3 text-secondary small fw-medium mb-4 pb-3 border-bottom">
+                          <span><i className="bi bi-clock me-1 text-primary" />{test.durationMinutes} min</span>
+                          <span><i className="bi bi-list-check me-1 text-primary" />{test.totalQuestions} questions</span>
+                        </div>
+                        <Button as={Link} to={`/free-tests/${test.id}`} variant={selected.variant} className="w-100 fw-bold rounded-pill text-white shadow-sm">
+                          Làm bài ngay
+                        </Button>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                ))
+              )}
+            </Row>
+          </section>
+
+          {activeSkill === 'reading' && (
+            <section className="mt-5 pt-4 border-top">
+              <div className="text-center mb-5">
+                <Badge bg="primary" className="mb-3 px-3 py-2 rounded-pill shadow-sm"><i className="bi bi-lightning-charge-fill me-1"></i> Quick check</Badge>
+                <h2 className="h3 fw-bold mb-2 text-dark">Reading mini quiz: True / False / Not Given</h2>
+                <p className="text-secondary">Đọc đoạn văn ngắn dưới đây và trả lời câu hỏi</p>
+              </div>
+              <Row className="g-4">
+                <Col lg={6}>
+                  <Card className="tp-card border-0 shadow-sm h-100 bg-white">
+                    <Card.Body className="p-4 p-xl-5">
+                      <h3 className="h5 fw-bold mb-4 text-dark border-start border-4 border-primary ps-3">{MINI_PASSAGE.title}</h3>
+                      {MINI_PASSAGE.paragraphs.map((paragraph, i) => (
+                        <p key={i} className="text-secondary lh-lg mb-4">{paragraph}</p>
+                      ))}
                     </Card.Body>
                   </Card>
                 </Col>
-              ))
-            )}
-          </Row>
-        </section>
-
-        {activeSkill === 'reading' && (
-          <section className="mini-quiz-section">
-            <div className="text-center mb-4">
-              <Badge bg="primary" className="mb-2 px-3 py-2">Quick check</Badge>
-              <h2 className="h3 fw-bold mb-1">Reading mini quiz: True / False / Not Given</h2>
-            </div>
-            <Row className="g-4">
-              <Col lg={6}>
-                <Card className="border-0 shadow-sm h-100">
-                  <Card.Body className="p-4">
-                    <h3 className="h5 fw-bold mb-3">{MINI_PASSAGE.title}</h3>
-                    {MINI_PASSAGE.paragraphs.map((paragraph) => (
-                      <p key={paragraph} className="text-secondary">{paragraph}</p>
-                    ))}
-                  </Card.Body>
-                </Card>
-              </Col>
-              <Col lg={6}>
-                <Card className="border-0 shadow-sm h-100">
-                  <Card.Body className="p-4">
-                    {MINI_QUESTIONS.map((question, index) => (
-                      <div key={question.id} className="quiz-item mb-4">
-                        <p className="fw-semibold mb-2">
-                          <span className="text-primary me-1">{index + 1}.</span>{question.statement}
-                        </p>
-                        <div className="d-flex flex-wrap gap-2">
-                          {['TRUE', 'FALSE', 'NOT GIVEN'].map((option) => {
-                            const selectedAnswer = answers[question.id] === option;
-                            const correct = submitted && option === question.answer;
-                            const wrong = submitted && selectedAnswer && option !== question.answer;
-                            return (
-                              <Button
-                                key={option}
-                                size="sm"
-                                variant={correct ? 'success' : wrong ? 'danger' : selectedAnswer ? 'primary' : 'outline-secondary'}
-                                className="rounded-pill px-3"
-                                onClick={() => !submitted && setAnswers((prev) => ({ ...prev, [question.id]: option }))}
-                              >
-                                {option}
-                              </Button>
-                            );
-                          })}
+                <Col lg={6}>
+                  <Card className="tp-card border-0 shadow-sm h-100 bg-light">
+                    <Card.Body className="p-4 p-xl-5">
+                      {MINI_QUESTIONS.map((question, index) => (
+                        <div key={question.id} className="bg-white p-4 rounded-4 shadow-sm mb-3 border">
+                          <p className="fw-semibold mb-3 text-dark">
+                            <span className="text-primary me-2 fs-5">{index + 1}.</span>{question.statement}
+                          </p>
+                          <div className="d-flex flex-wrap gap-2">
+                            {['TRUE', 'FALSE', 'NOT GIVEN'].map((option) => {
+                              const selectedAnswer = answers[question.id] === option;
+                              const correct = submitted && option === question.answer;
+                              const wrong = submitted && selectedAnswer && option !== question.answer;
+                              return (
+                                <Button
+                                  key={option}
+                                  size="sm"
+                                  variant={correct ? 'success' : wrong ? 'danger' : selectedAnswer ? 'primary' : 'outline-secondary'}
+                                  className={`rounded-pill px-4 py-2 fw-medium ${selectedAnswer ? 'shadow-sm' : ''}`}
+                                  onClick={() => !submitted && setAnswers((prev) => ({ ...prev, [question.id]: option }))}
+                                >
+                                  {option}
+                                </Button>
+                              );
+                            })}
+                          </div>
                         </div>
+                      ))}
+                      <div className="mt-4 pt-3 text-center">
+                        {!submitted ? (
+                          <Button className="tp-btn-primary px-5 py-3 rounded-pill fw-bold w-100" disabled={!allAnswered} onClick={() => setSubmitted(true)}>
+                            <i className="bi bi-check2-circle me-2"></i>
+                            {allAnswered ? 'Submit mini quiz' : 'Answer all questions to submit'}
+                          </Button>
+                        ) : (
+                          <Alert variant={score >= 3 ? 'success' : 'warning'} className="mb-0 rounded-4 shadow-sm py-3 border-0">
+                            <i className={`bi ${score >= 3 ? 'bi-emoji-smile-fill' : 'bi-emoji-frown-fill'} fs-4 d-block mb-2`}></i>
+                            Kết quả: <strong className="fs-5">{score}/{MINI_QUESTIONS.length}</strong>
+                          </Alert>
+                        )}
                       </div>
-                    ))}
-                    {!submitted ? (
-                      <Button className="w-100 fw-semibold" disabled={!allAnswered} onClick={() => setSubmitted(true)}>
-                        {allAnswered ? 'Submit mini quiz' : 'Answer all questions'}
-                      </Button>
-                    ) : (
-                      <Alert variant={score >= 3 ? 'success' : 'warning'} className="mb-0">
-                        Result: <strong>{score}/{MINI_QUESTIONS.length}</strong>
-                      </Alert>
-                    )}
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-          </section>
-        )}
-      </Container>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+            </section>
+          )}
+        </Container>
+      </div>
     </div>
   );
 }

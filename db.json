@@ -207,7 +207,7 @@
       "isPremium": true,
       "thumbnail": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "approved",
+      "status": "pending",
       "enrolledCount": 0,
       "students": 0,
       "rating": 0,
@@ -224,7 +224,7 @@
       "durationWeeks": 4,
       "thumbnail": "https://images.unsplash.com/photo-1599687267812-35c05ff70ee9?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "draft",
+      "status": "approved",
       "enrolledCount": 0,
       "isPremium": false,
       "createdAt": "2026-06-25T11:38:28.004Z",
@@ -239,7 +239,7 @@
       "durationWeeks": 8,
       "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead27d8?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "draft",
+      "status": "approved",
       "enrolledCount": 0,
       "isPremium": true,
       "createdAt": "2026-06-25T11:39:43.263Z",
@@ -449,7 +449,7 @@
       "order": 1,
       "durationMinutes": 60,
       "contentUrl": "/lessons/writing-intro",
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-06-10T09:00:00Z",
       "teacherId": "u-teacher-001"
     },
@@ -1722,7 +1722,7 @@
       "testMode": "course",
       "courseId": "course-007",
       "isFreePreview": false,
-      "status": "pending",
+      "status": "published",
       "practiceMode": "exam",
       "attemptLimit": 0,
       "requireLoginAfterLimit": true,
@@ -1764,7 +1764,7 @@
           }
         ]
       },
-      "updatedAt": "2026-07-05T05:40:21.906Z",
+      "updatedAt": "2026-07-05T09:39:42.258Z",
       "createdAt": "2026-07-04T13:38:40.699Z",
       "id": "7RxwDIJGgP8"
     }
@@ -2901,9 +2901,19 @@
       "targetType": "test",
       "targetId": "7RxwDIJGgP8",
       "teacherId": "u-teacher-001",
-      "status": "pending",
+      "status": "approved",
       "message": "Teacher submitted test \"IELTS Reading test\" for admin approval.",
-      "createdAt": "2026-07-05T05:40:21.934Z"
+      "createdAt": "2026-07-05T05:40:21.934Z",
+      "reviewedAt": "2026-07-05T09:39:42.247Z",
+      "reviewedBy": "u-admin-001"
+    },
+    {
+      "id": "req-007",
+      "targetType": "course",
+      "targetId": "course-003",
+      "teacherId": "u-teacher-001",
+      "status": "pending",
+      "createdAt": "2026-07-05T09:32:34.145Z"
     }
   ],
   "categories": [
@@ -4849,6 +4859,16 @@
       "totalScore": 40,
       "score": 0,
       "overallBandScore": 0
+    },
+    {
+      "id": "ta-033",
+      "userId": null,
+      "guestId": "guest-1783249465377-5xoe06",
+      "testId": "tutor-reading-approved-001",
+      "skill": "Reading",
+      "status": "in-progress",
+      "startTime": "2026-07-05T11:04:26.653Z",
+      "createdAt": "2026-07-05T11:04:26.658Z"
     }
   ],
   "flashcardDecks": [

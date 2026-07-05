@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Table, Form, Button, Dropdown, Spinner, Alert } from 'react-bootstrap';
+import { Table, Form, Button, Dropdown, Spinner, Alert, Card, Container } from 'react-bootstrap';
 import StatusBadge from '../../components/common/StatusBadge';
 import ConfirmModal from '../../components/common/ConfirmModal';
 import { getUsers, updateUserRole, updateUserStatus, deleteUser } from '../../services/adminService';
-import './UserManagement.css';
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
@@ -135,15 +134,23 @@ const UserManagement = () => {
   };
 
   return (
-    <div className="user-management-container container-fluid py-4">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="fw-bold">User Management</h2>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-people-fill"></i> Quản lý</div>
+            <h1 className="tp-page-title">Người dùng</h1>
+            <p className="tp-page-sub">Quản lý toàn bộ người dùng trong hệ thống (Học viên, Giáo viên, Admin)</p>
+          </div>
+        </div>
       </div>
+
+      <div className="tp-main-content">
+        <Container fluid="xxl" className="px-4">
 
       {error && <Alert variant="danger" onClose={() => setError(null)} dismissible>{error}</Alert>}
 
-      <div className="filter-card card mb-4 border-0 shadow-sm rounded-xl">
-        <div className="card-body">
+      <Card className="studio-filter-card mb-4">
           <Form className="row g-3">
             <div className="col-md-4">
               <Form.Control 
@@ -152,11 +159,11 @@ const UserManagement = () => {
                 name="q"
                 value={filters.q}
                 onChange={handleFilterChange}
-                className="rounded-pill"
+                className="tp-input"
               />
             </div>
             <div className="col-md-3">
-              <Form.Select name="role" value={filters.role} onChange={handleFilterChange} className="rounded-pill">
+              <Form.Select name="role" value={filters.role} onChange={handleFilterChange} className="tp-input">
                 <option value="">All Roles</option>
                 <option value="student">Student</option>
                 <option value="teacher">Teacher</option>
@@ -164,7 +171,7 @@ const UserManagement = () => {
               </Form.Select>
             </div>
             <div className="col-md-3">
-              <Form.Select name="status" value={filters.status} onChange={handleFilterChange} className="rounded-pill">
+              <Form.Select name="status" value={filters.status} onChange={handleFilterChange} className="tp-input">
                 <option value="">All Statuses</option>
                 <option value="active">Active</option>
                 <option value="locked">Locked</option>
@@ -172,18 +179,17 @@ const UserManagement = () => {
               </Form.Select>
             </div>
             <div className="col-md-2">
-              <Button variant="primary" className="w-100 rounded-pill" onClick={fetchUsers}>
-                Filter
+              <Button variant="outline-secondary" className="w-100 rounded-pill" onClick={() => setFilters({ role: '', status: '', q: '' })}>
+                Clear Filter
               </Button>
             </div>
           </Form>
-        </div>
-      </div>
+      </Card>
 
-      <div className="table-card card border-0 shadow-sm rounded-xl">
-        <div className="card-body p-0 table-responsive">
-          <Table hover className="mb-0 align-middle">
-            <thead className="table-light">
+      <Card className="studio-table-card">
+          <div className="table-responsive">
+            <Table responsive hover className="align-middle">
+            <thead>
               <tr>
                 <th className="ps-4">Name</th>
                 <th>Email</th>
@@ -247,13 +253,16 @@ const UserManagement = () => {
                           </Dropdown.Menu>
                         </Dropdown>
                       </td>
-                    </tr>
-                  );
-                })
-              )}
-            </tbody>
-          </Table>
-        </div>
+
+                      </tr>
+                    );
+                  })
+                )}
+              </tbody>
+              </Table>
+            </div>
+          </Card>
+        </Container>
       </div>
 
       <ConfirmModal 
