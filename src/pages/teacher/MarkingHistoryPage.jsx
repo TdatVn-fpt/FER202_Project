@@ -5,8 +5,8 @@ import { markingService } from '../../services/markingService';
 import { testService } from '../../services/testService';
 import { normalizeTest, buildSpeakingQuestions, buildWritingQuestions, getAnswerValue } from '../../utils/testModel';
 
-export default function MarkingQueuePage() {
-  const [submissions, setSubmissions] = useState([]);
+export default function MarkingHistoryPage() {
+  const [markedSubmissions, setMarkedSubmissions] = useState([]);
   const [loading, setLoading] = useState(true);
   
   // Grade View state
@@ -24,16 +24,16 @@ export default function MarkingQueuePage() {
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    fetchPendingSubmissions();
+    fetchMarkedSubmissions();
   }, []);
 
-  const fetchPendingSubmissions = async () => {
+  const fetchMarkedSubmissions = async () => {
     setLoading(true);
     try {
-      const pendingData = await markingService.getPendingSubmissions();
-      setSubmissions(pendingData);
+      const markedData = await markingService.getMarkedSubmissions();
+      setMarkedSubmissions(markedData);
     } catch (error) {
-      toast.error('Lỗi khi tải danh sách bài thi.');
+      toast.error('Lỗi khi tải lịch sử chấm bài.');
     } finally {
       setLoading(false);
     }
@@ -98,10 +98,9 @@ export default function MarkingQueuePage() {
         criteriaScores, 
         feedback 
       });
-      toast.success('Chấm điểm thành công!');
+      toast.success('Cập nhật điểm thành công!');
       setSelectedSubmission(null);
-      // Refresh the lists
-      fetchPendingSubmissions();
+      fetchMarkedSubmissions();
     } catch (error) {
       toast.error('Lỗi khi lưu điểm.');
     } finally {
@@ -111,10 +110,10 @@ export default function MarkingQueuePage() {
 
   if (loading) {
     return (
-      <div className="tp-loading">
-        <Spinner animation="border" variant="primary" style={{ width: '3rem', height: '3rem', borderWidth: '4px' }} />
-        <p className="mt-3 fw-semibold text-secondary">Đang tải danh sách bài chờ chấm...</p>
-      </div>
+      <Container className="py-5 text-center">
+        <Spinner animation="border" variant="primary" />
+        <p className="mt-3 text-muted">Đang tải danh sách bài đã chấm...</p>
+      </Container>
     );
   }
 
@@ -129,7 +128,7 @@ export default function MarkingQueuePage() {
                 <i className="bi bi-arrow-left fs-5"></i>
               </Button>
               <div>
-                <h4 className="fw-bold mb-0 text-dark">Chấm bài thi</h4>
+                <h4 className="fw-bold mb-0 text-dark">Chấm lại bài thi</h4>
                 <div className="text-muted small mt-1 d-flex align-items-center gap-2">
                   <Badge bg="secondary">{selectedSubmission.skill}</Badge>
                   <span>{selectedSubmission.testTitle || selectedSubmission.testId}</span>
@@ -140,7 +139,7 @@ export default function MarkingQueuePage() {
             </div>
             <Button variant="primary" onClick={handleSaveGrade} disabled={saving} className="rounded-0 px-4 fw-bold shadow-none border border-dark">
               {saving ? <Spinner size="sm" className="me-2" /> : <i className="bi bi-check2-circle me-2"></i>}
-              Hoàn tất & Lưu điểm
+              Hoàn tất & Cập nhật
             </Button>
           </Container>
         </div>
@@ -275,24 +274,24 @@ export default function MarkingQueuePage() {
       <div className="tp-page-header">
         <div className="tp-page-header-inner">
           <div>
-            <div className="tp-page-badge"><i className="bi bi-ui-checks"></i> Chấm bài</div>
-            <h1 className="tp-page-title">Hàng chờ chấm</h1>
-            <p className="tp-page-sub">Xem và chấm điểm các bài Writing/Speaking của học viên.</p>
+            <div className="tp-page-badge"><i className="bi bi-clock-history"></i> Lịch sử</div>
+            <h1 className="tp-page-title">Lịch sử chấm bài</h1>
+            <p className="tp-page-sub">Các bài thi bạn đã chấm. Bạn có thể xem lại hoặc sửa điểm nếu cần.</p>
           </div>
-          <div className="tp-badge tp-badge-warning" style={{ alignSelf: 'flex-end', fontSize: '0.9rem', padding: '10px 18px' }}>
-            <i className="bi bi-clock-fill"></i> {submissions.length} bài chờ chấm
+          <div className="tp-badge tp-badge-success" style={{ alignSelf: 'flex-end', fontSize: '0.9rem', padding: '10px 18px' }}>
+            <i className="bi bi-check-circle-fill"></i> {markedSubmissions.length} bài đã chấm
           </div>
         </div>
       </div>
 
       <div className="tp-main-content">
       <Container fluid="xxl" className="px-4">
-        {submissions.length === 0 ? (
+        {markedSubmissions.length === 0 ? (
           <div className="tp-card-static">
             <div className="tp-empty">
-              <div className="tp-empty-icon" style={{ fontSize: '2rem' }}>🎉</div>
-              <div className="tp-empty-title">Không có bài nào đang chờ!</div>
-              <p className="tp-empty-sub">Bạn đã chấm xong tất cả các bài thi hiện tại.</p>
+              <div className="tp-empty-icon"><i className="bi bi-clock-history"></i></div>
+              <div className="tp-empty-title">Chưa có lịch sử chấm</div>
+              <p className="tp-empty-sub">Bạn chưa chấm bài thi nào.</p>
             </div>
           </div>
         ) : (
@@ -303,22 +302,26 @@ export default function MarkingQueuePage() {
                   <th>Học viên</th>
                   <th>Bài thi</th>
                   <th>Kỹ năng</th>
-                  <th>Thời gian nộp</th>
+                  <th>Điểm (Band)</th>
+                  <th>Thời gian chấm</th>
                   <th style={{ textAlign: 'right' }}>Thao tác</th>
                 </tr>
               </thead>
               <tbody>
-                {submissions.map((sub) => (
+                {markedSubmissions.map((sub) => (
                   <tr key={sub.id}>
                     <td className="fw-semibold text-dark">{sub.userId}</td>
                     <td>{sub.testTitle || sub.testId}</td>
                     <td>
                       <span className={`tp-badge ${sub.skill === 'Writing' ? 'tp-badge-info' : 'tp-badge-success'}`}>{sub.skill}</span>
                     </td>
-                    <td className="text-secondary small">{new Date(sub.submittedAt).toLocaleString('vi-VN')}</td>
+                    <td className="fw-bold text-success" style={{ fontSize: '1.05rem' }}>
+                      {sub.overallBandScore !== undefined ? Number(sub.overallBandScore).toFixed(1) : '-'}
+                    </td>
+                    <td className="text-secondary small">{new Date(sub.gradedAt || sub.completedAt).toLocaleString('vi-VN')}</td>
                     <td style={{ textAlign: 'right' }}>
-                      <button className="btn btn-primary btn-sm rounded-pill px-3 fw-semibold" onClick={() => openGradeView(sub)}>
-                        <i className="bi bi-pencil-square me-1"></i> Chấm bài
+                      <button className="tp-action-btn tp-action-btn-view" title="Xem lại" onClick={() => openGradeView(sub)}>
+                        <i className="bi bi-eye"></i>
                       </button>
                     </td>
                   </tr>

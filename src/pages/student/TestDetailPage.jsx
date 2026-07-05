@@ -69,9 +69,9 @@ export default function TestDetailPage() {
     if (!testDetail) return '';
     if (isFreeAccessibleTest(testDetail) && attemptInfo.remaining <= 0) {
       if (!currentUser) {
-        return 'Bạn đã dùng hết 3 lượt miễn phí trên trình duyệt này. Hãy đăng ký hoặc đăng nhập để tiếp tục học với lộ trình đầy đủ.';
+        return 'Bạn đã dùng hết lượt miễn phí trên trình duyệt này. Hãy đăng ký hoặc đăng nhập để tiếp tục học với lộ trình đầy đủ.';
       }
-      return 'Bạn đã dùng hết lượt làm miễn phí. Hãy mua hoặc vào khóa học phù hợp để tiếp tục luyện tập.';
+      return 'Bạn đã dùng hết lượt làm miễn phí. Hãy nâng cấp Premium khóa học để làm lại không giới hạn.';
     }
     if (!currentUser && !isFreeAccessibleTest(testDetail)) {
       return 'Bạn cần đăng nhập để làm test thuộc khóa học.';
@@ -89,7 +89,7 @@ export default function TestDetailPage() {
       const prefix = isPublicFreeRoute ? '/free-tests' : '/learning/tests';
       navigate(`${prefix}/attempt/${attempt.id}${location.search}`);
     } catch (err) {
-      alert('Không thể bắt đầu bài thi. Vui lòng thử lại sau.');
+      alert('Lỗi khi bắt đầu bài thi: ' + (err.response?.data?.message || err.message || JSON.stringify(err)));
       setIsCreatingAttempt(false);
     }
   };
@@ -241,7 +241,7 @@ export default function TestDetailPage() {
                         </>
                       )}
                       {currentUser && testDetail.courseId && (
-                        <Link to={`/learning/courses/${testDetail.courseId}`} target="_top" className="btn btn-sm px-3 rounded-pill" style={{ background: '#b45309', color: '#fff' }}>Xem khóa học</Link>
+                        <Link to={`/learning/courses/${testDetail.courseId}`} target="_top" className="btn btn-sm px-3 rounded-pill fw-semibold" style={{ background: '#b45309', color: '#fff' }}>Xem & Nâng cấp Khóa học</Link>
                       )}
                     </div>
                   </div>

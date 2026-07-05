@@ -157,28 +157,32 @@ export default function LibraryResourceEditPage() {
 
   if (loading) {
     return (
-      <Container className="py-5 text-center">
-        <Spinner animation="border" variant="primary" />
-        <p className="text-muted mt-2">Đang tải dữ liệu...</p>
-      </Container>
+      <div className="tp-loading">
+        <Spinner animation="border" variant="primary" style={{ width: '3rem', height: '3rem', borderWidth: '4px' }} />
+        <p className="mt-3 fw-semibold text-secondary">Đang tải...</p>
+      </div>
     );
   }
 
   return (
-    <Container className="py-4" style={{ maxWidth: '850px' }}>
-      <Link
-        to="/teacher/library"
-        className="text-decoration-none text-muted mb-4 d-inline-flex align-items-center gap-2 fw-semibold"
-        style={{ fontSize: '14px' }}
-      >
-        <i className="bi bi-arrow-left"></i> Quay lại Thư viện Tài nguyên
-      </Link>
-
-      <Card className="border-0 shadow-sm p-4 p-md-5 rounded-3 bg-white mt-2">
-        <div className="mb-4">
-          <h2 className="fw-bold text-dark mb-1">Chỉnh sửa Tài nguyên</h2>
-          <p className="text-secondary mb-0">Cập nhật thông tin hoặc đổi link của tài liệu.</p>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-pencil-square"></i> Cập nhật tài nguyên</div>
+            <h1 className="tp-page-title" data-testid="page-title">Chỉnh sửa Tài nguyên</h1>
+            <p className="tp-page-sub">Cập nhật thông tin tài nguyên hoặc upload file mới.</p>
+          </div>
+          <Link to="/teacher/library" className="tp-btn-secondary" style={{ alignSelf: 'flex-end' }}>
+            <i className="bi bi-arrow-left"></i> Quay lại thư viện
+          </Link>
         </div>
+      </div>
+
+      <div className="tp-main-content">
+        <Container className="py-2" style={{ maxWidth: '850px' }}>
+          <div className="tp-card-static">
+            <div className="p-4 p-md-5">
 
         {successMsg && (
           <Alert variant="success">{successMsg}</Alert>
@@ -365,7 +369,8 @@ export default function LibraryResourceEditPage() {
             </Button>
           </div>
         </Form>
-      </Card>
-    </Container>
+          </div>
+        </div>
+      </Container></div></div>
   );
 }

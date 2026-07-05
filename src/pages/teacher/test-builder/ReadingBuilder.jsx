@@ -103,8 +103,8 @@ export default function ReadingBuilder({ value, onChange }) {
                   variant="primary" 
                   onClick={() => setExpandedBulkId(expandedBulkId === passage.id ? null : passage.id)}
                 >
-                  <i className="bi bi-lightning-charge me-2"></i> 
-                  {expandedBulkId === passage.id ? 'Đóng Nhập Nhanh' : 'Nhập Nhanh (Bulk Add)'}
+                  <i className="bi bi-ui-checks-grid me-2"></i> 
+                  {expandedBulkId === passage.id ? 'Đóng Quản lý Câu hỏi' : 'Quản lý Câu hỏi (Questions)'}
                 </Button>
               </div>
 

@@ -1,13 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import {
   Container, Row, Col, Card, Table, Badge, Button, Form,
-  Spinner, Alert, Modal, InputGroup,
+  Spinner, Alert, Modal, InputGroup, Tabs, Tab
 } from 'react-bootstrap';
 import api from '../../services/api';
 import {
   getAllPayments, approvePayment, rejectPayment,
   formatVnd, PAYMENT_STATUS, PAYMENT_STATUS_LABEL,
 } from '../../services/paymentService';
+import TransactionList from './TransactionList';
 
 const STATUS_VARIANT = {
   pending: 'warning',
@@ -31,6 +32,8 @@ export default function PaymentManagement() {
   const [filter, setFilter] = useState('pending');
   const [search, setSearch] = useState('');
   const [actingId, setActingId] = useState(null);
+
+  const [activeTab, setActiveTab] = useState('payments');
 
   // Modal từ chối
   const [rejectTarget, setRejectTarget] = useState(null);
@@ -138,159 +141,174 @@ export default function PaymentManagement() {
   };
 
   return (
-    <Container fluid className="py-4 px-md-4">
-      <div className="mb-4">
-        <h1 className="h3 fw-bold mb-1">Quản lý thanh toán</h1>
-        <p className="text-muted mb-0">
-          Đối soát giao dịch chuyển khoản và kích hoạt khóa học cho học viên.
-        </p>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-credit-card-fill"></i> Quản lý</div>
+            <h1 className="tp-page-title">Thanh toán</h1>
+            <p className="tp-page-sub">Đối soát giao dịch chuyển khoản và kích hoạt khóa học cho học viên</p>
+          </div>
+        </div>
       </div>
 
-      {/* THỐNG KÊ */}
-      <Row className="g-3 mb-4">
-        <Col xs={6} lg={3}>
-          <Card className="border-0 shadow-sm h-100">
-            <Card.Body>
-              <div className="text-muted small">Chờ xác nhận</div>
-              <div className="h3 fw-bold mb-0 text-warning">{stats.pending}</div>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col xs={6} lg={3}>
-          <Card className="border-0 shadow-sm h-100">
-            <Card.Body>
-              <div className="text-muted small">Đã kích hoạt</div>
-              <div className="h3 fw-bold mb-0 text-success">{stats.paid}</div>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col xs={6} lg={3}>
-          <Card className="border-0 shadow-sm h-100">
-            <Card.Body>
-              <div className="text-muted small">Bị từ chối</div>
-              <div className="h3 fw-bold mb-0 text-danger">{stats.rejected}</div>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col xs={6} lg={3}>
-          <Card className="border-0 shadow-sm h-100">
-            <Card.Body>
-              <div className="text-muted small">Doanh thu (đã duyệt)</div>
-              <div className="h4 fw-bold mb-0 text-primary">{formatVnd(stats.revenue)}</div>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+      <div className="tp-main-content">
+        <Container fluid="xxl" className="px-4">
+          <Tabs
+            activeKey={activeTab}
+            onSelect={(k) => setActiveTab(k)}
+            className="mb-4 admin-tabs"
+          >
+            <Tab eventKey="payments" title="Hàng chờ Kích hoạt">
+              {/* THỐNG KÊ */}
+              <Row className="g-3 mb-4">
+                <Col xs={6} lg={3}>
+                  <div className="tp-stat-card bg-white p-4 rounded-4 shadow-sm border border-light d-flex flex-column justify-content-center">
+                    <div className="text-muted small fw-medium mb-1">Chờ xác nhận</div>
+                    <div className="h3 fw-bold mb-0 text-warning">{stats.pending}</div>
+                  </div>
+                </Col>
+                <Col xs={6} lg={3}>
+                  <div className="tp-stat-card bg-white p-4 rounded-4 shadow-sm border border-light d-flex flex-column justify-content-center">
+                    <div className="text-muted small fw-medium mb-1">Đã kích hoạt</div>
+                    <div className="h3 fw-bold mb-0 text-success">{stats.paid}</div>
+                  </div>
+                </Col>
+                <Col xs={6} lg={3}>
+                  <div className="tp-stat-card bg-white p-4 rounded-4 shadow-sm border border-light d-flex flex-column justify-content-center">
+                    <div className="text-muted small fw-medium mb-1">Bị từ chối</div>
+                    <div className="h3 fw-bold mb-0 text-danger">{stats.rejected}</div>
+                  </div>
+                </Col>
+                <Col xs={6} lg={3}>
+                  <div className="tp-stat-card bg-white p-4 rounded-4 shadow-sm border border-light d-flex flex-column justify-content-center">
+                    <div className="text-muted small fw-medium mb-1">Doanh thu (đã duyệt)</div>
+                    <div className="h4 fw-bold mb-0 text-primary">{formatVnd(stats.revenue)}</div>
+                  </div>
+                </Col>
+              </Row>
 
-      <Card className="border-0 shadow-sm">
-        <Card.Body className="p-3 p-md-4">
-          {/* BỘ LỌC */}
-          <div className="d-flex flex-column flex-md-row gap-3 justify-content-between align-items-md-center mb-3">
-            <div className="d-flex gap-2 flex-wrap">
-              {FILTERS.map((f) => (
-                <Button
-                  key={f.key}
-                  size="sm"
-                  variant={filter === f.key ? 'primary' : 'outline-secondary'}
-                  onClick={() => setFilter(f.key)}
-                >
-                  {f.label}
-                </Button>
-              ))}
-            </div>
-            <InputGroup style={{ maxWidth: 320 }}>
-              <Form.Control
-                placeholder="Tìm theo email, tên, mã đơn, khóa học..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              {search && (
-                <Button variant="outline-secondary" onClick={() => setSearch('')}>×</Button>
-              )}
-            </InputGroup>
-          </div>
+              {/* BỘ LỌC */}
+              <Card className="studio-filter-card mb-4">
+                <div className="d-flex flex-column flex-md-row gap-3 justify-content-between align-items-md-center">
+                  <div className="d-flex gap-2 flex-wrap">
+                    {FILTERS.map((f) => (
+                      <Button
+                        key={f.key}
+                        size="sm"
+                        variant={filter === f.key ? 'primary' : 'outline-secondary'}
+                        onClick={() => setFilter(f.key)}
+                        className="rounded-pill px-3"
+                      >
+                        {f.label}
+                      </Button>
+                    ))}
+                  </div>
+                  <InputGroup style={{ maxWidth: 320 }}>
+                    <Form.Control
+                      placeholder="Tìm theo email, tên, mã đơn..."
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                      className="tp-input rounded-start-pill"
+                    />
+                    {search && (
+                      <Button variant="outline-secondary" className="rounded-end-pill" onClick={() => setSearch('')}>×</Button>
+                    )}
+                  </InputGroup>
+                </div>
+              </Card>
 
-          {error && <Alert variant="danger" className="py-2 small">{error}</Alert>}
+              <Card className="studio-table-card">
+                {error && <Alert variant="danger" className="py-2 small">{error}</Alert>}
 
-          {loading ? (
-            <div className="text-center py-5">
-              <Spinner animation="border" variant="primary" />
-              <p className="text-muted mt-3 mb-0">Đang tải dữ liệu...</p>
-            </div>
-          ) : filtered.length === 0 ? (
-            <div className="text-center text-muted py-5">
-              Không có đơn thanh toán nào khớp bộ lọc.
-            </div>
-          ) : (
-            <div className="table-responsive">
-              <Table hover className="align-middle mb-0">
-                <thead className="table-light">
-                  <tr>
-                    <th>Học viên</th>
-                    <th>Khóa học</th>
-                    <th>Mã đơn / Nội dung CK</th>
-                    <th className="text-end">Số tiền</th>
-                    <th>Thời gian</th>
-                    <th>Trạng thái</th>
-                    <th className="text-end">Thao tác</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {filtered.map((p) => {
-                    const u = usersMap[p.userId];
-                    const c = coursesMap[p.courseId];
-                    const busy = actingId === p.id;
-                    return (
-                      <tr key={p.id}>
-                        <td>
-                          <div className="fw-semibold">{u?.fullName || u?.name || 'Không rõ'}</div>
-                          <div className="text-muted small">{u?.email || p.userId}</div>
-                        </td>
-                        <td>{c?.title || p.courseId}</td>
-                        <td><code>{p.transferContent}</code></td>
-                        <td className="text-end fw-semibold">{formatVnd(p.amount)}</td>
-                        <td className="small text-muted">{fmtDate(p.createdAt)}</td>
-                        <td>
-                          <Badge bg={STATUS_VARIANT[p.status] || 'secondary'}>
-                            {PAYMENT_STATUS_LABEL[p.status] || p.status}
-                          </Badge>
-                          {p.status === PAYMENT_STATUS.REJECTED && p.rejectReason && (
-                            <div className="text-danger small mt-1" style={{ maxWidth: 200 }}>
-                              {p.rejectReason}
-                            </div>
-                          )}
-                        </td>
-                        <td className="text-end">
-                          {p.status === PAYMENT_STATUS.PENDING ? (
-                            <div className="d-flex gap-2 justify-content-end">
-                              <Button
-                                size="sm" variant="success" disabled={busy}
-                                onClick={() => handleApprove(p)}
-                              >
-                                {busy ? '...' : 'Duyệt'}
-                              </Button>
-                              <Button
-                                size="sm" variant="outline-danger" disabled={busy}
-                                onClick={() => openReject(p)}
-                              >
-                                Từ chối
-                              </Button>
-                            </div>
-                          ) : (
-                            <span className="text-muted small">
-                              {p.reviewedAt ? `Đã xử lý ${fmtDate(p.reviewedAt)}` : '—'}
-                            </span>
-                          )}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </Table>
-            </div>
-          )}
-        </Card.Body>
-      </Card>
+                {loading ? (
+                  <div className="text-center py-5">
+                    <Spinner animation="border" variant="primary" />
+                    <p className="text-muted mt-3 mb-0">Đang tải dữ liệu...</p>
+                  </div>
+                ) : filtered.length === 0 ? (
+                  <div className="text-center text-muted py-5">
+                    Không có đơn thanh toán nào khớp bộ lọc.
+                  </div>
+                ) : (
+                  <div className="table-responsive">
+                    <Table responsive hover className="align-middle">
+                      <thead>
+                        <tr>
+                          <th className="ps-4">Học viên</th>
+                          <th>Khóa học</th>
+                          <th>Mã đơn / Nội dung CK</th>
+                          <th className="text-end">Số tiền</th>
+                          <th>Thời gian</th>
+                          <th>Trạng thái</th>
+                          <th className="text-end pe-4">Thao tác</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {filtered.map((p) => {
+                          const u = usersMap[p.userId];
+                          const c = coursesMap[p.courseId];
+                          const busy = actingId === p.id;
+                          return (
+                            <tr key={p.id}>
+                              <td className="ps-4">
+                                <div className="fw-medium text-dark">{u?.fullName || u?.name || 'Không rõ'}</div>
+                                <div className="text-muted small">{u?.email || p.userId}</div>
+                              </td>
+                              <td>{c?.title || p.courseId}</td>
+                              <td><code>{p.transferContent}</code></td>
+                              <td className="text-end fw-semibold">{formatVnd(p.amount)}</td>
+                              <td className="small text-muted">{fmtDate(p.createdAt)}</td>
+                              <td>
+                                <span className={`tp-badge badge-${STATUS_VARIANT[p.status] || 'secondary'} px-3`}>
+                                  {PAYMENT_STATUS_LABEL[p.status] || p.status}
+                                </span>
+                                {p.status === PAYMENT_STATUS.REJECTED && p.rejectReason && (
+                                  <div className="text-danger small mt-1" style={{ maxWidth: 200 }}>
+                                    {p.rejectReason}
+                                  </div>
+                                )}
+                              </td>
+                              <td className="text-end pe-4">
+                                {p.status === PAYMENT_STATUS.PENDING ? (
+                                  <div className="d-flex gap-2 justify-content-end">
+                                    <Button
+                                      size="sm" variant="success" disabled={busy}
+                                      onClick={() => handleApprove(p)}
+                                      className="rounded-pill px-3"
+                                    >
+                                      {busy ? '...' : 'Duyệt'}
+                                    </Button>
+                                    <Button
+                                      size="sm" variant="outline-danger" disabled={busy}
+                                      onClick={() => openReject(p)}
+                                      className="rounded-pill px-3"
+                                    >
+                                      Từ chối
+                                    </Button>
+                                  </div>
+                                ) : (
+                                  <span className="text-muted small">
+                                    {p.reviewedAt ? `Đã xử lý ${fmtDate(p.reviewedAt)}` : '—'}
+                                  </span>
+                                )}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </Table>
+                  </div>
+                )}
+              </Card>
+            </Tab>
+          
+          <Tab eventKey="history" title="Lịch sử giao dịch">
+            <TransactionList isEmbedded={true} />
+          </Tab>
+        </Tabs>
+      </Container>
+      </div>
 
       {/* MODAL TỪ CHỐI */}
       <Modal show={Boolean(rejectTarget)} onHide={() => setRejectTarget(null)} centered>
@@ -308,16 +326,17 @@ export default function PaymentManagement() {
               placeholder="VD: Không tìm thấy giao dịch khớp nội dung chuyển khoản."
               value={rejectReason}
               onChange={(e) => setRejectReason(e.target.value)}
+              className="tp-input"
             />
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="outline-secondary" onClick={() => setRejectTarget(null)}>Hủy</Button>
-          <Button variant="danger" onClick={confirmReject} disabled={actingId === rejectTarget?.id}>
+          <Button variant="outline-secondary" className="rounded-pill px-4" onClick={() => setRejectTarget(null)}>Hủy</Button>
+          <Button variant="danger" className="rounded-pill px-4" onClick={confirmReject} disabled={actingId === rejectTarget?.id}>
             Xác nhận từ chối
           </Button>
         </Modal.Footer>
       </Modal>
-    </Container>
+    </div>
   );
 }

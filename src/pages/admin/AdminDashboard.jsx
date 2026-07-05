@@ -1,66 +1,77 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Tabs, Tab, Card, Row, Col, Spinner, Alert, Table, Button, Badge, Form, Pagination } from 'react-bootstrap';
-import { getUsers, getApprovalRequests, getAuditLogs } from '../../services/adminService';
+import { Container, Row, Col, Spinner, Alert, Badge } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { getUsers } from '../../services/adminService';
+import { getCurrentUser } from '../../services/authService';
 import axios from 'axios';
-import ApprovalDetailModal from '../../components/feature/admin/ApprovalDetailModal';
 
 const API_URL = 'http://localhost:9999';
 
-const AdminDashboard = () => {
-  const [activeTab, setActiveTab] = useState('overview');
-  
-  // Stats state
+const STAT_DEFS = [
+  {
+    key: 'totalUsers',
+    label: 'Tổng người dùng',
+    icon: 'bi-people-fill',
+    gradient: 'tp-gradient-blue',
+    link: '/admin/users',
+    linkText: 'Quản lý thành viên',
+  },
+  {
+    key: 'totalCourses',
+    label: 'Khóa học hệ thống',
+    icon: 'bi-journal-check',
+    gradient: 'tp-gradient-green',
+    link: '/admin/courses',
+    linkText: 'Quản lý khóa học',
+  },
+  {
+    key: 'pendingContent',
+    label: 'Hàng chờ duyệt',
+    icon: 'bi-shield-exclamation',
+    gradient: 'tp-gradient-amber',
+    link: '/admin/courses', // Approvals moved to individual pages
+    linkText: 'Duyệt nội dung',
+  },
+  {
+    key: 'totalLogs',
+    label: 'Lịch sử hoạt động',
+    icon: 'bi-card-text',
+    gradient: 'tp-gradient-purple',
+    link: '/admin/audit-logs',
+    linkText: 'Xem Audit Logs',
+  },
+];
+
+export default function AdminDashboard() {
   const [stats, setStats] = useState({
     totalUsers: 0,
     totalCourses: 0,
     pendingContent: 0,
     totalLogs: 0
   });
-  const [loadingStats, setLoadingStats] = useState(true);
-  const [statsError, setStatsError] = useState(null);
+  const [recentLogs, setRecentLogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Queue state
-  const [pendingRequests, setPendingRequests] = useState([]);
-  const [loadingQueue, setLoadingQueue] = useState(false);
-  const [queueError, setQueueError] = useState(null);
-  
-  // Modal state
-  const [selectedRequest, setSelectedRequest] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const currentUser = getCurrentUser();
+  const firstName = currentUser?.fullName?.split(' ').slice(-1)[0] || 'System Admin';
 
-  // Audit Logs state
-  const [logs, setLogs] = useState([]);
-  const [loadingLogs, setLoadingLogs] = useState(false);
-  const [logsError, setLogsError] = useState(null);
-  
-  // Filters
-  const [filterAction, setFilterAction] = useState('all');
-  const [filterTargetType, setFilterTargetType] = useState('all');
-  const [filterActorId, setFilterActorId] = useState('');
-  
-  // Pagination
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
-
-  // EARS[Event]: WHEN Admin views dashboard (Overview tab), THE system SHALL fetch and display aggregated stats.
   const fetchStats = useCallback(async () => {
     try {
-      setLoadingStats(true);
-      setStatsError(null);
+      setLoading(true);
+      setError(null);
 
-      const [usersRes, approvalsRes, logsRes, coursesRes] = await Promise.all([
+      const [usersRes, approvalsRes, logsRes, coursesRes, recentLogsRes] = await Promise.all([
         getUsers({ _page: 1, _per_page: 1 }), 
         axios.get(`${API_URL}/approvalRequests?status=pending&_page=1&_per_page=1`).catch(() => ({ data: { items: 0 } })),
         axios.get(`${API_URL}/auditLogs?_page=1&_per_page=1`).catch(() => ({ data: { items: 0 } })),
-        axios.get(`${API_URL}/courses?_page=1&_per_page=1`).catch(() => ({ data: { items: 0 } }))
+        axios.get(`${API_URL}/courses?_page=1&_per_page=1`).catch(() => ({ data: { items: 0 } })),
+        axios.get(`${API_URL}/auditLogs?_sort=timestamp&_order=desc&_limit=5`).catch(() => ({ data: [] }))
       ]);
 
       const parseCount = (res) => {
-        // json-server v1 returns pagination object with .items
         if (res?.data?.items !== undefined) return parseInt(res.data.items, 10);
-        // fallback for older json-server using headers
         if (res?.headers?.['x-total-count']) return parseInt(res.headers['x-total-count'], 10);
-        // fallback if it returned an array
         return Array.isArray(res?.data?.data) ? res.data.data.length : (Array.isArray(res?.data) ? res.data.length : (Array.isArray(res) ? res.length : 0));
       };
 
@@ -70,425 +81,172 @@ const AdminDashboard = () => {
         totalLogs: parseCount(logsRes),
         totalCourses: parseCount(coursesRes),
       });
-    } catch (error) {
-      setStatsError('Failed to load dashboard statistics. Please try again later.');
-    } finally {
-      setLoadingStats(false);
-    }
-  }, []);
 
-  // Fetch pending queue
-  const fetchQueue = useCallback(async () => {
-    try {
-      setLoadingQueue(true);
-      setQueueError(null);
-      // EARS[State-driven]: WHILE content status is pending, THE system SHALL display it in the approvals queue
-      const response = await getApprovalRequests({ status: 'pending' });
-      const data = response?.data || response;
-      setPendingRequests(Array.isArray(data) ? data : []);
+      const logsData = Array.isArray(recentLogsRes?.data?.data) ? recentLogsRes.data.data : (Array.isArray(recentLogsRes?.data) ? recentLogsRes.data : []);
+      const sortedLogs = [...logsData]
+        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+        .slice(0, 5);
+      setRecentLogs(sortedLogs);
     } catch (error) {
-      setQueueError('Failed to load pending requests. Please try again later.');
+      setError('Failed to load dashboard statistics. Please try again later.');
     } finally {
-      setLoadingQueue(false);
-    }
-  }, []);
-
-  // EARS[Event]: WHEN Admin views Audit Logs tab, THE system SHALL fetch all audit logs from JSON-Server.
-  // EARS[Unwanted]: WHERE fetching audit logs fails, THE system SHALL show an error message and allow retry.
-  const fetchLogs = useCallback(async () => {
-    try {
-      setLoadingLogs(true);
-      setLogsError(null);
-      const response = await getAuditLogs();
-      const data = response?.data || response;
-      setLogs(Array.isArray(data) ? data : []);
-    } catch (error) {
-      setLogsError('Failed to load audit logs. Please try again later.');
-    } finally {
-      setLoadingLogs(false);
+      setLoading(false);
     }
   }, []);
 
   useEffect(() => {
-    if (activeTab === 'overview') {
-      fetchStats();
-    } else if (activeTab === 'approvals') {
-      fetchQueue();
-    } else if (activeTab === 'logs') {
-      fetchLogs();
-    }
-  }, [activeTab, fetchStats, fetchQueue, fetchLogs]);
-
-  const handleFilterActionChange = (val) => {
-    setFilterAction(val);
-    setCurrentPage(1);
-  };
-
-  const handleFilterTargetChange = (val) => {
-    setFilterTargetType(val);
-    setCurrentPage(1);
-  };
-
-  const handleFilterActorChange = (val) => {
-    setFilterActorId(val);
-    setCurrentPage(1);
-  };
-
-  // EARS[Event]: WHEN Admin filters audit logs, THE system SHALL display only those matching action, targetType, and actorId.
-  const filteredLogs = logs.filter(log => {
-    const matchesAction = filterAction === 'all' || log.action === filterAction;
-    const matchesTarget = filterTargetType === 'all' || log.targetType === filterTargetType;
-    const matchesActor = !filterActorId || log.actorId?.toLowerCase().includes(filterActorId.toLowerCase().trim());
-    return matchesAction && matchesTarget && matchesActor;
-  });
-
-  // Sort logs by createdAt descending (newest first)
-  const sortedLogs = [...filteredLogs].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-
-  // EARS[Event]: WHEN Admin paginates audit logs, THE system SHALL slice the log entries and display 10 items per page.
-  const totalPages = Math.ceil(sortedLogs.length / itemsPerPage);
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = sortedLogs.slice(indexOfFirstItem, indexOfLastItem);
-
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
+    fetchStats();
+  }, [fetchStats]);
 
   const getActionBadge = (action) => {
-    switch (action) {
-      case 'CHANGE_USER_ROLE':
-        return <Badge bg="info" className="text-dark rounded-pill px-3">Role Change</Badge>;
-      case 'CHANGE_USER_STATUS':
-        return <Badge bg="warning" className="text-dark rounded-pill px-3">Status Change</Badge>;
-      case 'DELETE_USER':
-        return <Badge bg="danger" className="rounded-pill px-3">User Deleted</Badge>;
-      case 'APPROVE_CONTENT':
-        return <Badge bg="success" className="rounded-pill px-3">Approve</Badge>;
-      case 'REJECT_CONTENT':
-        return <Badge bg="secondary" className="rounded-pill px-3">Reject</Badge>;
-      default:
-        return <Badge bg="dark" className="rounded-pill px-3">{action}</Badge>;
-    }
+    if (action.includes('Delete')) return <Badge bg="danger">Delete</Badge>;
+    if (action.includes('Create') || action.includes('Add')) return <Badge bg="success">Create</Badge>;
+    if (action.includes('Update') || action.includes('Edit')) return <Badge bg="warning" text="dark">Update</Badge>;
+    if (action.includes('Login') || action.includes('Logout')) return <Badge bg="info">Auth</Badge>;
+    return <Badge bg="secondary">System</Badge>;
   };
 
-  const getTargetBadge = (targetType) => {
-    const style = targetType === 'course' ? { backgroundColor: '#0052ff', color: '#ffffff' } : {};
-    const bgVal = targetType === 'course' ? undefined : (targetType === 'user' ? 'secondary' : (targetType === 'lesson' ? 'info' : 'warning'));
+  if (loading) {
     return (
-      <Badge 
-        bg={bgVal} 
-        style={style} 
-        className={`rounded-pill px-3 text-capitalize ${targetType === 'user' || targetType === 'lesson' ? 'text-dark' : ''}`}
-      >
-        {targetType}
-      </Badge>
+      <div className="tp-loading">
+        <Spinner animation="border" variant="primary" style={{ width: '3rem', height: '3rem', borderWidth: '4px' }} />
+        <p className="mt-3 fw-semibold text-secondary">Đang tải Overview...</p>
+      </div>
     );
-  };
-
-  const renderLogDetails = (log) => {
-    const { action, oldValue, newValue, targetId } = log;
-    switch (action) {
-      case 'CHANGE_USER_ROLE':
-        return `Changed role of user ${targetId} from "${oldValue?.role || 'N/A'}" to "${newValue?.role || 'N/A'}"`;
-      case 'CHANGE_USER_STATUS':
-        return `Changed status of user ${targetId} from "${oldValue?.status || 'N/A'}" to "${newValue?.status || 'N/A'}"`;
-      case 'DELETE_USER':
-        return `Deleted user ${targetId}`;
-      case 'APPROVE_CONTENT':
-        return `Approved content with ID ${targetId}`;
-      case 'REJECT_CONTENT':
-        return `Rejected content with ID ${targetId}`;
-      default:
-        return `Performed ${action} on ${targetId}`;
-    }
-  };
-
-  // EARS[Event]: WHEN Admin clicks Review, THE system SHALL open the approval detail modal
-  const handleReviewClick = (request) => {
-    setSelectedRequest(request);
-    setIsModalOpen(true);
-  };
-
-  const handleActionSuccess = () => {
-    setIsModalOpen(false);
-    setSelectedRequest(null);
-    fetchQueue(); // refresh list
-    fetchStats(); // update stats implicitly in background
-  };
+  }
 
   return (
-    <div className="admin-dashboard-container container-fluid py-4">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="fw-bold">Admin Dashboard</h2>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+
+      {/* ── HERO ── */}
+      <div className="tp-hero">
+        <div className="tp-hero-dots">
+          {Array(15).fill(0).map((_, i) => <span key={i}></span>)}
+        </div>
+        <div className="tp-hero-inner">
+          <Container fluid="xxl" className="px-4">
+            <div className="tp-hero-badge">
+              <i className="bi bi-shield-lock-fill"></i>
+              IELTS MASTER — Admin Center
+            </div>
+            <h1 className="tp-hero-title">
+              Xin chào, <span>{firstName}</span>! 👋
+            </h1>
+            <p className="tp-hero-sub">
+              Chào mừng bạn đến với trung tâm quản trị. Giám sát toàn bộ hoạt động, người dùng và hệ thống từ một nơi duy nhất.
+            </p>
+            <div className="tp-hero-actions">
+              <Link to="/admin/users" className="tp-btn-primary">
+                <i className="bi bi-people-fill"></i> Quản lý Người dùng
+              </Link>
+              <Link to="/admin/payments" className="tp-btn-ghost">
+                <i className="bi bi-credit-card-fill"></i> Lịch sử Giao dịch
+              </Link>
+            </div>
+          </Container>
+        </div>
       </div>
 
-      <Tabs
-        id="admin-dashboard-tabs"
-        activeKey={activeTab}
-        onSelect={(k) => setActiveTab(k)}
-        className="mb-4"
-      >
-        <Tab eventKey="overview" title="System Overview">
-          {statsError && <Alert variant="danger">{statsError}</Alert>}
+      {/* ── MAIN CONTENT ── */}
+      <div className="tp-main-content">
+        <Container fluid="xxl" className="px-4">
           
-          {loadingStats ? (
-            <div className="text-center py-5">
-              <Spinner animation="border" variant="primary" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </Spinner>
+          {error && (
+            <div className="tp-error mb-4">
+              <i className="bi bi-exclamation-triangle-fill text-danger fs-4"></i>
+              <div>
+                <div className="fw-bold text-dark mb-1">Lỗi kết nối</div>
+                <div className="text-secondary small">{error}</div>
+              </div>
             </div>
-          ) : (
-            <Row className="g-4">
-              <Col md={3} sm={6}>
-                <Card className="border-0 shadow-sm h-100 text-center py-4" style={{ borderRadius: '24px' }}>
-                  <Card.Body>
-                    <h1 className="display-4 fw-bold text-primary mb-2">{stats.totalUsers}</h1>
-                    <Card.Text className="text-muted text-uppercase fw-semibold" style={{ letterSpacing: '1px' }}>
-                      Total Users
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-              
-              <Col md={3} sm={6}>
-                <Card className="border-0 shadow-sm h-100 text-center py-4" style={{ borderRadius: '24px' }}>
-                  <Card.Body>
-                    <h1 className="display-4 fw-bold text-success mb-2">{stats.totalCourses}</h1>
-                    <Card.Text className="text-muted text-uppercase fw-semibold" style={{ letterSpacing: '1px' }}>
-                      Courses
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-
-              <Col md={3} sm={6}>
-                <Card className="border-0 shadow-sm h-100 text-center py-4" style={{ borderRadius: '24px' }}>
-                  <Card.Body>
-                    <h1 className="display-4 fw-bold text-warning mb-2">{stats.pendingContent}</h1>
-                    <Card.Text className="text-muted text-uppercase fw-semibold" style={{ letterSpacing: '1px' }}>
-                      Pending Content
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-
-              <Col md={3} sm={6}>
-                <Card className="border-0 shadow-sm h-100 text-center py-4" style={{ borderRadius: '24px' }}>
-                  <Card.Body>
-                    <h1 className="display-4 fw-bold text-info mb-2">{stats.totalLogs}</h1>
-                    <Card.Text className="text-muted text-uppercase fw-semibold" style={{ letterSpacing: '1px' }}>
-                      Audit Logs
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
           )}
-        </Tab>
-        
-        <Tab eventKey="approvals" title="Approvals Queue">
-          <Card className="border-0 shadow-sm" style={{ borderRadius: '24px' }}>
-            <Card.Body className="p-0 table-responsive">
-              {queueError && <Alert variant="danger" className="m-3">{queueError}</Alert>}
-              
-              <Table hover className="mb-0 align-middle">
-                <thead className="table-light">
-                  <tr>
-                    <th className="ps-4">Type</th>
-                    <th>Target ID</th>
-                    <th>Teacher ID</th>
-                    <th>Submission Date</th>
-                    <th>Status</th>
-                    <th className="text-end pe-4">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {loadingQueue ? (
+
+          {/* ── STAT CARDS ── */}
+          <Row className="g-3 mb-4">
+            {STAT_DEFS.map(def => (
+              <Col key={def.key} xl={3} md={6}>
+                <div className="tp-stat-card">
+                  <div className={`tp-stat-icon ${def.gradient}`}>
+                    <i className={`bi ${def.icon}`}></i>
+                  </div>
+                  <div>
+                    <div className="tp-stat-label">{def.label}</div>
+                    <div className="tp-stat-value">{stats[def.key]}</div>
+                    <Link to={def.link} className="tp-stat-link">
+                      {def.linkText} <i className="bi bi-arrow-right"></i>
+                    </Link>
+                  </div>
+                </div>
+              </Col>
+            ))}
+          </Row>
+
+          {/* ── RECENT AUDIT LOGS TABLE ── */}
+          <div className="tp-card-static">
+            <div className="tp-card-header">
+              <div className="d-flex align-items-center gap-3">
+                <div className="tp-card-header-icon tp-gradient-slate">
+                  <i className="bi bi-activity"></i>
+                </div>
+                <div>
+                  <h5 className="tp-card-title mb-0">Hoạt động hệ thống gần đây</h5>
+                  <p className="text-secondary small mb-0" style={{ fontSize: '0.8rem' }}>5 logs mới nhất của Admin</p>
+                </div>
+              </div>
+              <span className="tp-badge tp-badge-info">Trực tiếp</span>
+            </div>
+
+            {recentLogs.length === 0 ? (
+              <div className="tp-empty">
+                <div className="tp-empty-icon">
+                  <i className="bi bi-shield-check"></i>
+                </div>
+                <div className="tp-empty-title">Chưa có hoạt động nào</div>
+                <p className="tp-empty-sub">Các thay đổi quan trọng trên hệ thống sẽ được ghi nhận tại đây.</p>
+              </div>
+            ) : (
+              <div style={{ overflowX: 'auto' }}>
+                <table className="tp-table">
+                  <thead>
                     <tr>
-                      <td colSpan="6" className="text-center py-5">
-                        <Spinner animation="border" variant="primary" />
-                      </td>
+                      <th className="ps-4">Timestamp</th>
+                      <th>Admin ID</th>
+                      <th>Action</th>
+                      <th>Target</th>
+                      <th className="text-end pe-4">Details</th>
                     </tr>
-                  ) : pendingRequests.length === 0 ? (
-                    <tr>
-                      <td colSpan="6" className="text-center py-5 text-muted">
-                        No pending content to review.
-                      </td>
-                    </tr>
-                  ) : (
-                    pendingRequests.map(req => (
-                      <tr key={req.id}>
-                        <td className="ps-4 text-capitalize fw-medium">{req.targetType}</td>
-                        <td className="text-muted">{req.targetId}</td>
-                        <td className="text-muted">{req.teacherId}</td>
-                        <td className="text-muted">{req.createdAt ? new Date(req.createdAt).toLocaleDateString() : 'N/A'}</td>
+                  </thead>
+                  <tbody>
+                    {recentLogs.map(log => (
+                      <tr key={log.id}>
+                        <td className="ps-4">
+                          <span className="text-secondary small fw-medium">
+                            {log.timestamp ? new Date(log.timestamp).toLocaleString('vi-VN') : 'N/A'}
+                          </span>
+                        </td>
                         <td>
-                          <Badge bg="warning" text="dark" pill>Pending</Badge>
+                          <code className="text-secondary small">{log.adminId || log.userId || 'System'}</code>
+                        </td>
+                        <td>{getActionBadge(log.action)}</td>
+                        <td>
+                          <span className="fw-semibold text-dark">{log.targetEntity || log.action}</span>
+                          {log.targetId && <code className="ms-2 small text-muted">#{log.targetId}</code>}
                         </td>
                         <td className="text-end pe-4">
-                          <Button 
-                            variant="primary" 
-                            size="sm" 
-                            className="rounded-pill px-3"
-                            onClick={() => handleReviewClick(req)}
-                          >
-                            Review
-                          </Button>
+                          <span className="text-muted small text-truncate d-inline-block" style={{ maxWidth: '200px' }}>
+                            {log.details || 'N/A'}
+                          </span>
                         </td>
                       </tr>
-                    ))
-                  )}
-                </tbody>
-              </Table>
-            </Card.Body>
-          </Card>
-        </Tab>
-        
-        <Tab eventKey="logs" title="Audit Logs">
-          <Card className="border-0 shadow-sm mb-4" style={{ borderRadius: '24px' }}>
-            <Card.Body className="p-4">
-              <h5 className="fw-bold mb-3">Filter Logs</h5>
-              {/* Filters Section */}
-              <Row className="g-3 mb-4">
-                <Col md={4} sm={6}>
-                  <Form.Group controlId="filterActionSelect">
-                    <Form.Label className="small fw-semibold text-muted text-uppercase">Action Type</Form.Label>
-                    <Form.Select 
-                      value={filterAction} 
-                      onChange={(e) => handleFilterActionChange(e.target.value)}
-                      className="rounded-pill border-1"
-                      style={{ height: '44px' }}
-                    >
-                      <option value="all">All Actions</option>
-                      <option value="CHANGE_USER_ROLE">Role Change</option>
-                      <option value="CHANGE_USER_STATUS">Status Change</option>
-                      <option value="DELETE_USER">User Deleted</option>
-                      <option value="APPROVE_CONTENT">Approve Content</option>
-                      <option value="REJECT_CONTENT">Reject Content</option>
-                    </Form.Select>
-                  </Form.Group>
-                </Col>
-                
-                <Col md={4} sm={6}>
-                  <Form.Group controlId="filterTargetTypeSelect">
-                    <Form.Label className="small fw-semibold text-muted text-uppercase">Target Type</Form.Label>
-                    <Form.Select 
-                      value={filterTargetType} 
-                      onChange={(e) => handleFilterTargetChange(e.target.value)}
-                      className="rounded-pill border-1"
-                      style={{ height: '44px' }}
-                    >
-                      <option value="all">All Targets</option>
-                      <option value="user">User</option>
-                      <option value="course">Course</option>
-                      <option value="lesson">Lesson</option>
-                      <option value="test">Test</option>
-                    </Form.Select>
-                  </Form.Group>
-                </Col>
-
-                <Col md={4} sm={12}>
-                  <Form.Group controlId="filterActorIdSearch">
-                    <Form.Label className="small fw-semibold text-muted text-uppercase">Actor ID</Form.Label>
-                    <Form.Control 
-                      type="text" 
-                      placeholder="Search by Actor ID..." 
-                      value={filterActorId}
-                      onChange={(e) => handleFilterActorChange(e.target.value)}
-                      className="rounded-pill px-3 border-1"
-                      style={{ height: '44px', backgroundColor: '#f7f7f7' }}
-                    />
-                  </Form.Group>
-                </Col>
-              </Row>
-
-              {/* Table Section */}
-              {logsError && <Alert variant="danger">{logsError}</Alert>}
-
-              {loadingLogs ? (
-                <div className="text-center py-5">
-                  <Spinner animation="border" variant="primary" role="status">
-                    <span className="visually-hidden">Loading logs...</span>
-                  </Spinner>
-                </div>
-              ) : currentItems.length === 0 ? (
-                <div className="text-center py-5 text-muted">
-                  No audit logs found matching the filters.
-                </div>
-              ) : (
-                <>
-                  <div className="table-responsive">
-                    <Table hover className="align-middle mb-0">
-                      <thead className="table-light">
-                        <tr>
-                          <th className="ps-4">Timestamp</th>
-                          <th>Actor ID</th>
-                          <th>Action</th>
-                          <th>Target</th>
-                          <th>Details</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {currentItems.map((log) => (
-                          <tr key={log.id}>
-                            <td className="ps-4 text-muted small">
-                              {log.createdAt ? new Date(log.createdAt).toLocaleString() : 'N/A'}
-                            </td>
-                            <td className="fw-semibold text-muted small">{log.actorId}</td>
-                            <td>{getActionBadge(log.action)}</td>
-                            <td>
-                              <div className="d-flex align-items-center gap-2">
-                                {getTargetBadge(log.targetType)}
-                                <span className="text-muted small">({log.targetId})</span>
-                              </div>
-                            </td>
-                            <td className="text-muted small">{renderLogDetails(log)}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </Table>
-                  </div>
-
-                  {/* Pagination Section */}
-                  {totalPages > 1 && (
-                    <div className="d-flex justify-content-center mt-4">
-                      <Pagination className="mb-0">
-                        <Pagination.Prev 
-                          onClick={() => handlePageChange(currentPage - 1)}
-                          disabled={currentPage === 1}
-                        />
-                        {[...Array(totalPages)].map((_, index) => (
-                          <Pagination.Item
-                            key={index + 1}
-                            active={index + 1 === currentPage}
-                            onClick={() => handlePageChange(index + 1)}
-                          >
-                            {index + 1}
-                          </Pagination.Item>
-                        ))}
-                        <Pagination.Next 
-                          onClick={() => handlePageChange(currentPage + 1)}
-                          disabled={currentPage === totalPages}
-                        />
-                      </Pagination>
-                    </div>
-                  )}
-                </>
-              )}
-            </Card.Body>
-          </Card>
-        </Tab>
-      </Tabs>
-
-      <ApprovalDetailModal 
-        request={selectedRequest}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onActionSuccess={handleActionSuccess}
-      />
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+          
+        </Container>
+      </div>
     </div>
   );
-};
-
-export default AdminDashboard;
+}

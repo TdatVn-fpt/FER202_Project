@@ -46,6 +46,7 @@
   db.data.auditLogs = db.data.auditLogs || [];
   db.data.approvalRequests = db.data.approvalRequests || [];
   db.data.library_resources = db.data.library_resources || [];
+  db.data.enrollments = db.data.enrollments || [];
 
   // Sequential ID Generator
   function generateNextId(collectionName, prefix) {
@@ -232,10 +233,14 @@
           ).length;
 
           if (count >= 3) {
-            console.log(`[Trial Limits] Blocked Test Attempt for user: ${studentId} on course: ${course.id}`);
-            return res.status(403).json({
-              message: 'Bạn đã sử dụng hết 3 lượt làm bài kiểm tra miễn phí của khóa học này. Vui lòng nâng cấp lên khóa học Premium để tiếp tục.'
-            });
+            // Check if user has premium enrollment
+            const enrollment = db.data.enrollments.find(e => e.userId === studentId && e.courseId === course.id);
+            if (!enrollment || !enrollment.isPremium) {
+              console.log(`[Trial Limits] Blocked Test Attempt for user: ${studentId} on course: ${course.id}`);
+              return res.status(403).json({
+                message: 'Bạn đã sử dụng hết 3 lượt làm bài kiểm tra miễn phí của khóa học này. Vui lòng nâng cấp lên khóa học Premium để tiếp tục.'
+              });
+            }
           }
         }
       }
