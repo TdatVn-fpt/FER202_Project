@@ -8,7 +8,7 @@ import {
   getAllPayments, approvePayment, rejectPayment,
   formatVnd, PAYMENT_STATUS, PAYMENT_STATUS_LABEL,
 } from '../../services/paymentService';
-import TransactionList from './TransactionList';
+
 
 const STATUS_VARIANT = {
   pending: 'warning',
@@ -33,7 +33,6 @@ export default function PaymentManagement() {
   const [search, setSearch] = useState('');
   const [actingId, setActingId] = useState(null);
 
-  const [activeTab, setActiveTab] = useState('payments');
 
   // Modal từ chối
   const [rejectTarget, setRejectTarget] = useState(null);
@@ -154,12 +153,7 @@ export default function PaymentManagement() {
 
       <div className="tp-main-content">
         <Container fluid="xxl" className="px-4">
-          <Tabs
-            activeKey={activeTab}
-            onSelect={(k) => setActiveTab(k)}
-            className="mb-4 admin-tabs"
-          >
-            <Tab eventKey="payments" title="Hàng chờ Kích hoạt">
+
               {/* THỐNG KÊ */}
               <Row className="g-3 mb-4">
                 <Col xs={6} lg={3}>
@@ -301,12 +295,7 @@ export default function PaymentManagement() {
                   </div>
                 )}
               </Card>
-            </Tab>
-          
-          <Tab eventKey="history" title="Lịch sử giao dịch">
-            <TransactionList isEmbedded={true} />
-          </Tab>
-        </Tabs>
+
       </Container>
       </div>
 

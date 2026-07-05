@@ -70,6 +70,12 @@ export default function AdminLayout() {
           <NavLink to="/admin/payments" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
             <i className="bi bi-credit-card"></i> Quản lý Thanh toán
           </NavLink>
+          <NavLink to="/admin/transactions" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
+            <i className="bi bi-receipt"></i> Lịch sử Giao dịch
+          </NavLink>
+          <NavLink to="/admin/revenue" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
+            <i className="bi bi-graph-up-arrow"></i> Thống kê Doanh thu
+          </NavLink>
         </nav>
 
         {/* Logout Button */}

@@ -113,7 +113,7 @@
 
 /* ── Filter bar (floating) ── */
 .clp-filter-bar {
-  margin-top: -36px;
+  margin-top: 36px;
   position: relative;
   z-index: 20;
   margin-bottom: 36px;

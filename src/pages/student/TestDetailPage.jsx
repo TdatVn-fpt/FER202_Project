@@ -144,7 +144,13 @@ export default function TestDetailPage() {
                 <span className="badge px-3 py-2 fw-semibold" style={{ background: sk.bg, color: sk.color, borderRadius: 20 }}>
                   {testDetail.skill}
                 </span>
-                {isFree && <span className="badge bg-success px-3 py-2 rounded-pill">Free test</span>}
+                {isFree && attemptInfo.limit === Infinity ? (
+                  <span className="badge bg-warning text-dark px-3 py-2 rounded-pill shadow-sm">
+                    <i className="bi bi-star-fill text-danger me-1"></i> Đã nâng cấp
+                  </span>
+                ) : isFree ? (
+                  <span className="badge bg-success px-3 py-2 rounded-pill">Free test</span>
+                ) : null}
               </div>
               <h1 className="fw-bold text-white mb-2" style={{ fontSize: 'clamp(1.6rem,4vw,2.4rem)' }}>
                 {testDetail.title}
@@ -217,7 +223,7 @@ export default function TestDetailPage() {
                       <strong style={{ fontSize: 15 }}>Thông tin lượt làm bài</strong>
                     </div>
                     <div style={{ fontSize: 14 }}>
-                      Lượt còn lại: <span className="fw-bold">{attemptInfo.remaining === Infinity ? 'Không giới hạn' : `${attemptInfo.remaining}/${attemptInfo.limit}`}</span>
+                      Lượt còn lại: <span className="fw-bold">{attemptInfo.remaining === Infinity ? 'Không giới hạn (Đã nâng cấp gói 99K)' : `${attemptInfo.remaining}/${attemptInfo.limit}`}</span>
                     </div>
                     {!currentUser && (
                       <div className="mt-2 pt-2 border-top border-info border-opacity-25" style={{ fontSize: 13, opacity: 0.9 }}>
