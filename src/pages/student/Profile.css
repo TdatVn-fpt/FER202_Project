@@ -22,7 +22,7 @@
 .prf-hero-sub { color: rgba(255,255,255,0.68); font-size: 0.97rem; }
 
 /* MAIN */
-.prf-main { margin-top: -52px; position: relative; z-index: 20; padding-bottom: 60px; }
+.prf-main { margin-top: 40px; position: relative; z-index: 20; padding-bottom: 60px; }
 .prf-loading { text-align: center; padding: 60px 0; }
 
 /* OVERVIEW CARD */

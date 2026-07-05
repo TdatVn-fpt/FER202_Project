@@ -177,9 +177,6 @@ const FlashcardStudyPage = () => {
               Thêm từ của bạn
             </button>
           )}
-          <button type="button" className="btn btn-outline-secondary rounded-pill d-flex align-items-center" onClick={() => navigate('/learning/flashcards')}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="me-1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Đóng
-          </button>
         </div>
       </div>
 

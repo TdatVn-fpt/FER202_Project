@@ -207,7 +207,7 @@
       "isPremium": true,
       "thumbnail": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "pending",
+      "status": "approved",
       "enrolledCount": 0,
       "students": 0,
       "rating": 0,
@@ -1724,7 +1724,7 @@
       "isFreePreview": false,
       "status": "published",
       "practiceMode": "exam",
-      "attemptLimit": 0,
+      "attemptLimit": 3,
       "requireLoginAfterLimit": true,
       "durationMinutes": 60,
       "totalQuestions": 40,
@@ -1845,6 +1845,13 @@
       "progress": 0,
       "enrolledAt": "2026-07-05T05:03:20.075Z",
       "id": "CO91zpzQhAg"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "WBXqCYd2cPQ",
+      "progress": 0,
+      "enrolledAt": "2026-07-05T11:36:15.560Z",
+      "id": "iDUHBchy0cE"
     }
   ],
   "payments": [
@@ -1995,6 +2002,22 @@
       "reviewedBy": "admin",
       "rejectReason": null,
       "id": "0AjrCVLm3eY"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "WBXqCYd2cPQ",
+      "amount": 990000,
+      "currency": "VND",
+      "method": "vietqr",
+      "transferContent": "IELTS WBXqCYd2cPQ -001",
+      "type": "enroll",
+      "status": "paid",
+      "createdAt": "2026-07-05T11:35:35.490Z",
+      "paidAt": "2026-07-05T11:36:15.546Z",
+      "reviewedAt": "2026-07-05T11:36:15.546Z",
+      "reviewedBy": "admin",
+      "rejectReason": null,
+      "id": "bseQJLzQJT8"
     }
   ],
   "transactions": [
@@ -4869,6 +4892,110 @@
       "status": "in-progress",
       "startTime": "2026-07-05T11:04:26.653Z",
       "createdAt": "2026-07-05T11:04:26.658Z"
+    },
+    {
+      "id": "ta-034",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "tutor-reading-approved-001",
+      "skill": "Reading",
+      "status": "completed",
+      "startTime": "2026-07-05T11:31:10.421Z",
+      "createdAt": "2026-07-05T11:31:10.424Z",
+      "completedAt": "2026-07-05T11:31:25.985Z",
+      "answers": {
+        "reading-passage-1-block-1-6-tfng-1": "False",
+        "reading-passage-1-block-1-6-tfng-3": "False",
+        "reading-passage-1-block-1-6-tfng-2": "Not Given",
+        "reading-passage-1-block-7-10-mcq-8": "D. Option 4",
+        "reading-passage-2-block-14-18-mcq-15": "C"
+      },
+      "submittedAt": "2026-07-05T11:31:25.985Z",
+      "correctCount": 0,
+      "totalScore": 40,
+      "score": 0,
+      "overallBandScore": 0
+    },
+    {
+      "id": "ta-035",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "tutor-listening-approved-001",
+      "skill": "Listening",
+      "status": "in-progress",
+      "startTime": "2026-07-05T11:31:41.577Z",
+      "createdAt": "2026-07-05T11:31:41.580Z"
+    },
+    {
+      "id": "ta-036",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "tutor-writing-approved-001",
+      "skill": "Writing",
+      "status": "completed",
+      "startTime": "2026-07-05T11:31:54.510Z",
+      "createdAt": "2026-07-05T11:31:54.513Z",
+      "completedAt": "2026-07-05T11:32:09.979Z",
+      "answers": {
+        "task1": "kjasbfkjabjkwdnkjacnwkjnakjcb",
+        "task2": "cacbaiuwbcawhilchilahwlicaliw"
+      },
+      "submittedAt": "2026-07-05T11:32:09.978Z",
+      "gradingStatus": "graded",
+      "score": 7.5,
+      "overallBandScore": 7.5,
+      "criteriaScores": {
+        "C1": 7,
+        "C2": 8,
+        "C3": 9,
+        "C4": 6
+      },
+      "feedback": "GOOD\n",
+      "gradedAt": "2026-07-05T11:34:29.851Z"
+    },
+    {
+      "id": "ta-037",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "I8hqTxITOmg",
+      "skill": "Speaking",
+      "status": "completed",
+      "startTime": "2026-07-05T11:33:09.751Z",
+      "createdAt": "2026-07-05T11:33:09.754Z",
+      "completedAt": "2026-07-05T11:33:22.033Z",
+      "answers": {},
+      "submittedAt": "2026-07-05T11:33:22.033Z",
+      "gradingStatus": "pending"
+    },
+    {
+      "id": "ta-038",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "tutor-reading-approved-001",
+      "skill": "Reading",
+      "status": "in-progress",
+      "startTime": "2026-07-05T11:43:16.600Z",
+      "createdAt": "2026-07-05T11:43:16.605Z"
+    },
+    {
+      "id": "ta-039",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "tutor-reading-approved-001",
+      "skill": "Reading",
+      "status": "in-progress",
+      "startTime": "2026-07-05T12:23:07.313Z",
+      "createdAt": "2026-07-05T12:23:07.317Z"
+    },
+    {
+      "id": "ta-040",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "tutor-writing-approved-001",
+      "skill": "Writing",
+      "status": "in-progress",
+      "startTime": "2026-07-05T12:40:48.557Z",
+      "createdAt": "2026-07-05T12:40:48.560Z"
     }
   ],
   "flashcardDecks": [
