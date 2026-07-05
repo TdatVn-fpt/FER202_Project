@@ -28,15 +28,36 @@ export default function CartCheckout() {
   const discountAmount = useMemo(() => calculateDiscount(cartTotal, appliedCoupon), [cartTotal, appliedCoupon]);
   const payableAmount  = useMemo(() => Math.max(0, cartTotal - discountAmount), [cartTotal, discountAmount]);
 
-  // Load courses (fixed: no infinite loop)
   useEffect(() => {
     if (cartCourseIds.length === 0) { setCourses([]); setLoading(false); return; }
     let ignore = false;
     setLoading(true); setError('');
-    Promise.all(cartCourseIds.map(getCourseById))
-      .then(res => { if (!ignore) setCourses(res.filter(Boolean)); })
-      .catch(e  => { if (!ignore) setError(e.message || 'Không thể tải khóa học trong giỏ hàng'); })
+    
+    Promise.allSettled(cartCourseIds.map(id => getCourseById(id)))
+      .then(results => {
+        if (ignore) return;
+        const validCourses = [];
+        let hasInvalid = false;
+        
+        results.forEach((res, index) => {
+          if (res.status === 'fulfilled' && res.value) {
+            validCourses.push(res.value);
+          } else {
+            hasInvalid = true;
+            removeFromCart(cartCourseIds[index]);
+          }
+        });
+        
+        setCourses(validCourses);
+        if (hasInvalid) {
+          setCartCourseIds(getCartItems());
+        }
+      })
+      .catch(e => {
+        if (!ignore) setError(e.message || 'Không thể tải khóa học trong giỏ hàng');
+      })
       .finally(() => { if (!ignore) setLoading(false); });
+      
     return () => { ignore = true; };
   }, [JSON.stringify(cartCourseIds)]);
 

@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Alert, Badge, Button, Card, Col, Form, Row } from 'react-bootstrap';
+import { Alert, Badge, Button, Card, Col, Form, Modal, Row } from 'react-bootstrap';
 import { parseAdvancedQuestionText } from '../../../utils/ieltsQuestionBlocks';
 
 const SAMPLE_TEXT = `[MCQ]
@@ -28,6 +28,7 @@ export default function QuestionBlockEditor({
   const [rawText, setRawText] = useState('');
   const [parsedBlocks, setParsedBlocks] = useState([]);
   const [errors, setErrors] = useState(null);
+  const [editingContext, setEditingContext] = useState(null);
 
   const totalQuestions = useMemo(() => getQuestionCount(blocks), [blocks]);
 
@@ -56,8 +57,30 @@ export default function QuestionBlockEditor({
     onChange((blocks || []).filter((block) => block.id !== blockId));
   };
 
+  const handleEditQuestion = (blockId, question) => {
+    setEditingContext({
+      blockId,
+      question: { ...question, options: question.options?.length >= 4 ? question.options : ['', '', '', ''] }
+    });
+  };
+
+  const handleSaveQuestion = () => {
+    if (!editingContext) return;
+    const { blockId, question } = editingContext;
+    const newBlocks = blocks.map(block => {
+      if (block.id !== blockId) return block;
+      return {
+        ...block,
+        questions: block.questions.map(q => q.id === question.id ? question : q)
+      };
+    });
+    onChange(newBlocks);
+    setEditingContext(null);
+  };
+
   return (
-    <div className="lux-block-editor">
+    <>
+      <div className="lux-block-editor">
       <div className="d-flex justify-content-between align-items-center gap-3 flex-wrap mb-3">
         <div>
           <div className="small text-uppercase fw-bold lux-eyebrow">Advanced import</div>
@@ -179,8 +202,18 @@ export default function QuestionBlockEditor({
                       <span className="fw-semibold">{block.type}</span>
                       <span className="text-muted small">Range {block.range}</span>
                     </div>
-                    <div className="text-muted small">
-                      {(block.questions || []).map((question) => `${question.questionOrder}. ${question.text}`).join(' | ')}
+                    <div className="d-flex flex-column gap-2">
+                      {(block.questions || []).map((question) => (
+                        <div key={question.id} className="d-flex justify-content-between align-items-start bg-light p-2 rounded border">
+                          <div className="small">
+                            <strong>{question.questionOrder}.</strong> {question.text} 
+                            <div className="text-success mt-1">Đáp án: {question.correctAnswer}</div>
+                          </div>
+                          <Button variant="outline-primary" size="sm" className="ms-2" onClick={() => handleEditQuestion(block.id, question)}>
+                            <i className="bi bi-pencil" /> Sửa
+                          </Button>
+                        </div>
+                      ))}
                     </div>
                   </Col>
                   <Col md={4} className="d-flex justify-content-md-end">
@@ -196,5 +229,50 @@ export default function QuestionBlockEditor({
         </div>
       )}
     </div>
+      
+      {/* Edit Question Modal */}
+      <Modal show={!!editingContext} onHide={() => setEditingContext(null)} size="lg" centered backdrop="static">
+        <Modal.Header closeButton className="bg-light">
+          <Modal.Title className="fs-5 fw-bold"><i className="bi bi-pencil-square me-2"></i>Sửa câu hỏi {editingContext?.question?.questionOrder}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {editingContext?.question && (
+            <div className="d-flex flex-column gap-3">
+              <Form.Group>
+                <Form.Label className="fw-semibold">Nội dung câu hỏi</Form.Label>
+                <Form.Control 
+                  as="textarea" 
+                  rows={3} 
+                  value={editingContext.question.text || ''} 
+                  onChange={(e) => setEditingContext(prev => ({ ...prev, question: { ...prev.question, text: e.target.value } }))}
+                />
+              </Form.Group>
+              
+              <Form.Group>
+                <Form.Label className="fw-semibold">Đáp án đúng</Form.Label>
+                <Form.Control 
+                  value={editingContext.question.correctAnswer || ''} 
+                  onChange={(e) => setEditingContext(prev => ({ ...prev, question: { ...prev.question, correctAnswer: e.target.value } }))}
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label className="fw-semibold">Giải thích (Explanation)</Form.Label>
+                <Form.Control 
+                  as="textarea" 
+                  rows={2} 
+                  value={editingContext.question.explanation || ''} 
+                  onChange={(e) => setEditingContext(prev => ({ ...prev, question: { ...prev.question, explanation: e.target.value } }))}
+                />
+              </Form.Group>
+            </div>
+          )}
+        </Modal.Body>
+        <Modal.Footer className="bg-light">
+          <Button variant="secondary" onClick={() => setEditingContext(null)}>Hủy</Button>
+          <Button variant="primary" onClick={handleSaveQuestion}>Lưu thay đổi</Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 }

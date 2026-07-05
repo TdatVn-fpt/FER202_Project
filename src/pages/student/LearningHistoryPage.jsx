@@ -31,7 +31,27 @@ const LearningHistoryPage = () => {
           } catch (_) { /* dùng userId cũ nếu fetch lỗi */ }
         }
         const res    = await axios.get(`${API_URL}/testAttempts?userId=${resolvedUserId}`);
-        const sorted = (res.data || []).sort((a, b) => new Date(b.submittedAt) - new Date(a.submittedAt));
+        const testRes = await axios.get(`${API_URL}/tests`);
+        const tests = testRes.data || [];
+        
+        // Filter out incomplete attempts (they don't have a submittedAt)
+        const completedAttempts = (res.data || []).filter(a => a.status === 'completed' && a.submittedAt);
+        
+        // Map test title and time spent
+        const mappedAttempts = completedAttempts.map(a => {
+          const test = tests.find(t => t.id === a.testId || String(t.id) === String(a.testId));
+          let timeSpent = 0;
+          if (a.startTime && a.submittedAt) {
+             timeSpent = Math.round((new Date(a.submittedAt) - new Date(a.startTime)) / 1000);
+          }
+          return {
+             ...a,
+             testTitle: test ? test.title : 'Unknown Test',
+             timeSpent
+          };
+        });
+
+        const sorted = mappedAttempts.sort((a, b) => new Date(b.submittedAt) - new Date(a.submittedAt));
         setAttempts(sorted);
       } catch (err) {
         setError('Failed to fetch learning history. Please try again later.');

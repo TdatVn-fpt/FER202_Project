@@ -225,63 +225,63 @@ export default function TestCreatePage() {
 
   if (loading) {
     return (
-      <Container className="py-5 text-center">
-        <Spinner animation="border" variant="primary" className="mb-2" />
-        <p className="text-secondary fw-semibold">Đang tải dữ liệu đề thi...</p>
-      </Container>
+      <div className="tp-loading">
+        <Spinner animation="border" variant="primary" style={{ width: '3rem', height: '3rem', borderWidth: '4px' }} />
+        <p className="mt-3 fw-semibold text-secondary">Đang tải dữ liệu đề thi...</p>
+      </div>
     );
   }
 
   if (isUnauthorized) {
     return (
-      <Container className="py-5" style={{ maxWidth: '600px' }}>
-        <Alert variant="danger" className="text-center p-4 shadow-sm border-0 rounded-3">
-          <Alert.Heading className="fw-bold">Quyền truy cập bị từ chối</Alert.Heading>
-          <p className="mb-4">Bạn không có quyền chỉnh sửa đề thi này.</p>
-          <Button as={Link} to="/teacher/tests" variant="danger" className="rounded-pill px-4">
+      <div className="tp-main-content">
+        <div className="tp-error">
+          <i className="bi bi-shield-slash fs-2 mb-2 d-block text-danger"></i>
+          <div>Bạn không có quyền chỉnh sửa đề thi này.</div>
+          <Link to="/teacher/tests" className="btn btn-danger mt-3 rounded-pill px-4">
             Quay lại danh sách
-          </Button>
-        </Alert>
-      </Container>
+          </Link>
+        </div>
+      </div>
     );
   }
 
   return (
-    <Container fluid className="py-4">
-      {/* Premium Header */}
-      <div className="bg-white p-4 rounded-4 shadow-sm mb-4 border border-light d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3" style={{ border: '1px solid #f1f5f9' }}>
-        <div className="d-flex align-items-center gap-3">
-          <Button as={Link} to="/teacher/tests" variant="light" className="rounded-circle p-2 d-flex align-items-center justify-content-center border shadow-sm" style={{ width: '48px', height: '48px', background: '#f8fafc' }}>
-            <i className="bi bi-arrow-left fs-5 text-secondary"></i>
-          </Button>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
           <div>
-            <h2 className="fw-bold text-dark mb-1" style={{ letterSpacing: '-0.5px' }}>
-              {id ? 'Chỉnh sửa IELTS test' : 'Tạo IELTS test'}
-            </h2>
-            <p className="text-secondary mb-0 fw-medium">Tạo đề theo chuẩn format IELTS, publish free test hoặc gán vào khóa học.</p>
+            <div className="tp-page-badge"><i className="bi bi-file-earmark-text"></i> IELTS Test</div>
+            <h1 className="tp-page-title">{id ? 'Chỉnh sửa IELTS test' : 'Tạo IELTS test'}</h1>
+            <p className="tp-page-sub">Tạo đề theo chuẩn format IELTS, publish free test hoặc gán vào khóa học.</p>
+          </div>
+          <div className="d-flex gap-3 align-items-center">
+            <Link to="/teacher/tests" className="tp-btn-secondary">
+              <i className="bi bi-arrow-left"></i> Quay lại
+            </Link>
+            {id && (
+              <Button as={Link} to={`/teacher/tests/${id}/questions`} variant="outline-light" className="tp-btn-secondary">
+                <i className="bi bi-ui-checks-grid me-1"></i> Quản lý câu hỏi
+              </Button>
+            )}
+            <Button 
+              variant="primary" 
+              onClick={handleSave} 
+              disabled={submitting || isCoursePending}
+              className="tp-btn-primary"
+            >
+              {submitting ? (
+                <><Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" className="me-1" /> Đang lưu...</>
+              ) : (
+                <><i className="bi bi-cloud-arrow-up-fill me-1"></i> Lưu test</>
+              )}
+            </Button>
           </div>
         </div>
-        <div className="d-flex gap-3">
-          {id && (
-            <Button as={Link} to={`/teacher/tests/${id}/questions`} variant="outline-primary" className="rounded-pill px-4 fw-semibold d-flex align-items-center shadow-sm">
-              <i className="bi bi-ui-checks-grid me-2"></i> Quản lý câu hỏi
-            </Button>
-          )}
-          <Button 
-            variant="primary" 
-            onClick={handleSave} 
-            disabled={submitting || isCoursePending}
-            className="rounded-pill px-4 fw-bold shadow d-flex align-items-center"
-            style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)', border: 'none' }}
-          >
-            {submitting ? (
-              <><Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" className="me-2" /> Đang lưu...</>
-            ) : (
-              <><i className="bi bi-cloud-arrow-up-fill me-2 fs-5"></i> Lưu test</>
-            )}
-          </Button>
-        </div>
       </div>
+
+      <div className="tp-main-content">
+        <Container fluid="xxl" className="px-4">
 
       {isCoursePending && (
         <Alert variant="warning" className="border-0 shadow-sm">
@@ -443,6 +443,6 @@ export default function TestCreatePage() {
         onHide={() => setShowPreviewModal(false)} 
         draft={normalizedDraft} 
       />
-    </Container>
+      </Container></div></div>
   );
 }

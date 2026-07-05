@@ -141,48 +141,42 @@ export default function LessonListPage() {
   });
 
   return (
-    <Container fluid className="py-4">
-      {/* Header */}
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <div>
-          <h2 className="fw-bold text-dark">Quản lý Giáo trình & Bài học</h2>
-          <p className="text-secondary mb-0">Theo dõi, chỉnh sửa thứ tự bài giảng và thời lượng bài học.</p>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      {/* ── PAGE HEADER ── */}
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-file-earmark-text-fill"></i> Quản lý</div>
+            <h1 className="tp-page-title">Quản lý Giáo trình &amp; Bài học</h1>
+            <p className="tp-page-sub">Theo dõi, chỉnh sửa thứ tự bài giảng và thời lượng bài học.</p>
+          </div>
+          <Link
+            to={selectedCourseId ? `/teacher/lessons/create?courseId=${selectedCourseId}` : "/teacher/lessons/create"}
+            className="tp-btn-primary"
+            style={{ alignSelf: 'flex-end' }}
+          >
+            <i className="bi bi-plus-circle-fill"></i> Thêm bài học mới
+          </Link>
         </div>
-        <Button 
-          as={Link}
-          to={selectedCourseId ? `/teacher/lessons/create?courseId=${selectedCourseId}` : "/teacher/lessons/create"}
-          variant="primary" 
-          className="d-flex align-items-center gap-2 px-4 py-2 shadow-sm rounded-pill fw-semibold"
-        >
-          <i className="bi bi-plus-lg"></i> Thêm bài học mới
-        </Button>
       </div>
 
-      {error && <Alert variant="danger" className="mb-4">{error}</Alert>}
+      <div className="tp-main-content">
+      <Container fluid="xxl" className="px-4">
+      {error && <div className="tp-error mb-4"><i className="bi bi-exclamation-triangle-fill text-danger fs-4"></i><div className="text-secondary">{error}</div></div>}
 
-      {/* Filter Bar */}
-      <Card className="border-0 shadow-sm p-4 mb-4 bg-white rounded-3">
+      {/* ── FILTER BAR ── */}
+      <div className="tp-filter-bar">
         <Form className="row g-3">
           <Col md={8}>
             <Form.Group controlId="search">
               <Form.Label className="fw-semibold text-secondary">Tìm kiếm bài học</Form.Label>
-              <Form.Control 
-                type="text" 
-                placeholder="Nhập tiêu đề bài học..." 
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="border-gray shadow-none"
-              />
+              <Form.Control type="text" placeholder="Nhập tiêu đề bài học..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="shadow-none" />
             </Form.Group>
           </Col>
           <Col md={4}>
             <Form.Group controlId="courseFilter">
               <Form.Label className="fw-semibold text-secondary">Lọc theo khóa học</Form.Label>
-              <Form.Select 
-                value={selectedCourseId}
-                onChange={(e) => setSelectedCourseId(e.target.value)}
-                className="border-gray shadow-none"
-              >
+              <Form.Select value={selectedCourseId} onChange={(e) => setSelectedCourseId(e.target.value)} className="shadow-none">
                 <option value="">Tất cả khóa học</option>
                 {courses.map(course => (
                   <option key={course.id} value={course.id}>{course.title} ({course.status})</option>
@@ -191,7 +185,7 @@ export default function LessonListPage() {
             </Form.Group>
           </Col>
         </Form>
-      </Card>
+      </div>
 
       {/* Lessons Table */}
       {loading ? (
@@ -200,24 +194,24 @@ export default function LessonListPage() {
           <span className="text-secondary fw-semibold">Đang tải danh sách bài học...</span>
         </div>
       ) : sortedLessons.length === 0 ? (
-        <Card className="border-0 shadow-sm text-center py-5 rounded-3">
-          <Card.Body>
-            <i className="bi bi-collection-play text-muted fs-1 mb-3"></i>
-            <h5 className="fw-semibold text-secondary">Không tìm thấy bài học nào</h5>
-            <p className="text-muted small">Hãy tạo bài học mới hoặc thay đổi bộ lọc tìm kiếm phía trên.</p>
-          </Card.Body>
-        </Card>
+        <div className="tp-card-static">
+          <div className="tp-empty">
+            <div className="tp-empty-icon"><i className="bi bi-collection-play"></i></div>
+            <div className="tp-empty-title">Không tìm thấy bài học nào</div>
+            <p className="tp-empty-sub">Hãy tạo bài học mới hoặc thay đổi bộ lọc tìm kiếm phía trên.</p>
+          </div>
+        </div>
       ) : (
-        <Card className="border-0 shadow-sm rounded-3 overflow-hidden bg-white">
-          <Table responsive hover className="align-middle mb-0 text-secondary table-nowrap">
-            <thead className="bg-light text-dark fw-bold">
+        <div className="tp-table-wrapper">
+          <table className="tp-table">
+            <thead>
               <tr>
-                <th className="px-4 py-3" style={{ width: '80px' }}>Thứ tự</th>
-                <th className="py-3">Tiêu đề bài học</th>
-                <th className="py-3">Khóa học</th>
-                <th className="py-3" style={{ width: '120px' }}>Thời lượng</th>
-                <th className="py-3">Nội dung / File âm thanh</th>
-                <th className="px-4 py-3 text-end" style={{ width: '120px' }}>Thao tác</th>
+                <th style={{ width: '80px' }}>Thứ tự</th>
+                <th>Tiêu đề bài học</th>
+                <th>Khóa học</th>
+                <th style={{ width: '120px' }}>Thời lượng</th>
+                <th>Nội dung / File âm thanh</th>
+                <th style={{ width: '120px', textAlign: 'right' }}>Thao tác</th>
               </tr>
             </thead>
             <tbody>
@@ -251,7 +245,7 @@ export default function LessonListPage() {
                         <Button 
                           variant="outline-primary"
                           onClick={() => handlePreviewClick(lesson)}
-                          className="py-1.5 px-2.5 rounded-circle d-inline-flex align-items-center justify-content-center border-0"
+                          className="py-1.5 px-2.5 rounded-0 d-inline-flex align-items-center justify-content-center border-0"
                           title="Xem trước bài giảng"
                         >
                           <i className="bi bi-eye"></i>
@@ -262,7 +256,7 @@ export default function LessonListPage() {
                             <Button 
                               variant="outline-secondary"
                               disabled
-                              className="py-1.5 px-2.5 rounded-circle d-inline-flex align-items-center justify-content-center border-0 shadow-none text-muted"
+                              className="py-1.5 px-2.5 rounded-0 d-inline-flex align-items-center justify-content-center border-0 shadow-none text-muted"
                               title="Khóa học đang chờ duyệt, không thể sửa bài học"
                             >
                               <i className="bi bi-pencil-square"></i>
@@ -270,7 +264,7 @@ export default function LessonListPage() {
                             <Button 
                               variant="outline-danger"
                               disabled
-                              className="py-1.5 px-2.5 rounded-circle d-inline-flex align-items-center justify-content-center border-0 shadow-none text-muted"
+                              className="py-1.5 px-2.5 rounded-0 d-inline-flex align-items-center justify-content-center border-0 shadow-none text-muted"
                               title="Khóa học đang chờ duyệt, không thể xóa bài học"
                             >
                               <i className="bi bi-trash"></i>
@@ -282,7 +276,7 @@ export default function LessonListPage() {
                               as={Link}
                               to={`/teacher/lessons/${lesson.id}/edit`}
                               variant="outline-secondary"
-                              className="py-1.5 px-2.5 rounded-circle d-inline-flex align-items-center justify-content-center border-0"
+                              className="py-1.5 px-2.5 rounded-0 d-inline-flex align-items-center justify-content-center border-0"
                               title="Sửa thông tin"
                             >
                               <i className="bi bi-pencil-square"></i>
@@ -290,7 +284,7 @@ export default function LessonListPage() {
                             <Button 
                               variant="outline-danger"
                               onClick={() => handleDeleteClick(lesson)}
-                              className="py-1.5 px-2.5 rounded-circle d-inline-flex align-items-center justify-content-center border-0"
+                              className="py-1.5 px-2.5 rounded-0 d-inline-flex align-items-center justify-content-center border-0"
                               title="Xóa bài học"
                             >
                               <i className="bi bi-trash"></i>
@@ -303,31 +297,16 @@ export default function LessonListPage() {
                 );
               })}
             </tbody>
-          </Table>
-        </Card>
+          </table>
+        </div>
       )}
 
-      {/* Delete Confirmation Modal */}
       <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)} centered>
-        <Modal.Header closeButton className="border-0">
-          <Modal.Title className="fw-bold text-dark">Xác nhận xóa bài học</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="py-3">
-          Bạn có chắc chắn muốn xóa bài học <strong className="text-danger">"{lessonToDelete?.title}"</strong> không? 
-          Hành động này không thể hoàn tác.
-        </Modal.Body>
+        <Modal.Header closeButton className="border-0"><Modal.Title className="fw-bold">Xác nhận xóa bài học</Modal.Title></Modal.Header>
+        <Modal.Body className="py-3">Bạn có chắc chắn muốn xóa bài học <strong className="text-danger">"{lessonToDelete?.title}"</strong>? Hành động này không thể hoàn tác.</Modal.Body>
         <Modal.Footer className="border-0">
-          <Button variant="light" onClick={() => setShowDeleteModal(false)} className="fw-semibold px-3 rounded-pill">
-            Hủy bỏ
-          </Button>
-          <Button 
-            variant="danger" 
-            onClick={handleConfirmDelete} 
-            disabled={deleting}
-            className="fw-semibold px-4 rounded-pill shadow-sm"
-          >
-            {deleting ? 'Đang xóa...' : 'Xác nhận xóa'}
-          </Button>
+          <Button variant="light" onClick={() => setShowDeleteModal(false)} className="fw-semibold rounded-pill px-4">Hủy</Button>
+          <Button variant="danger" onClick={handleConfirmDelete} disabled={deleting} className="fw-semibold rounded-pill px-4">{deleting ? 'Đang xóa...' : 'Xác nhận xóa'}</Button>
         </Modal.Footer>
       </Modal>
 
@@ -340,7 +319,7 @@ export default function LessonListPage() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="py-4">
-          <div className="mb-3 d-flex flex-wrap gap-3 text-secondary small bg-light p-2.5 rounded-3">
+          <div className="mb-3 d-flex flex-wrap gap-3 text-secondary small bg-light p-2.5 rounded-0">
             <div>
               <strong>Khóa học:</strong> {lessonToPreview && getCourseTitle(lessonToPreview.courseId)}
             </div>
@@ -356,7 +335,7 @@ export default function LessonListPage() {
             <div className="mb-4">
               <h6 className="fw-bold text-dark mb-2">Nội dung bài học:</h6>
               {getYouTubeId(lessonToPreview.contentUrl) ? (
-                <div className="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
+                <div className="ratio ratio-16x9 rounded overflow-hidden shadow-none border border-dark">
                   <iframe
                     src={`https://www.youtube.com/embed/${getYouTubeId(lessonToPreview.contentUrl)}`}
                     title="YouTube video player"
@@ -381,7 +360,7 @@ export default function LessonListPage() {
           {lessonToPreview?.audioUrl && (
             <div>
               <h6 className="fw-bold text-dark mb-2">Tệp âm thanh listening:</h6>
-              <div className="p-3 bg-light border rounded d-flex flex-column gap-2 shadow-sm">
+              <div className="p-3 bg-light border rounded d-flex flex-column gap-2 shadow-none border border-dark">
                 <div className="d-flex align-items-center gap-2 text-success">
                   <i className="bi bi-music-note-beamed fs-4"></i>
                   <span className="small fw-semibold text-truncate">{lessonToPreview.audioUrl}</span>
@@ -392,11 +371,9 @@ export default function LessonListPage() {
           )}
         </Modal.Body>
         <Modal.Footer className="border-0 pt-0">
-          <Button variant="secondary" onClick={() => setShowPreviewModal(false)} className="fw-semibold px-4 rounded-pill">
-            Đóng
-          </Button>
+          <Button variant="secondary" onClick={() => setShowPreviewModal(false)} className="fw-semibold rounded-pill px-4">Đóng</Button>
         </Modal.Footer>
       </Modal>
-    </Container>
+      </Container></div></div>
   );
 }

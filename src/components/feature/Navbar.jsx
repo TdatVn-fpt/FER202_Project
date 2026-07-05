@@ -79,9 +79,21 @@ export default function Navbar({ variant = 'default' }) {
               <Nav.Link as={NavLink} to="/learning/courses" className={navLinkClass} onClick={closeMenu}>
                 <i className="bi bi-compass me-2 d-lg-none"></i>Explore
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/learning/exam-library" className={navLinkClass} onClick={closeMenu}>
-                <i className="bi bi-journal-text me-2 d-lg-none"></i>Exam Library
-              </Nav.Link>
+              <NavDropdown 
+                title={<span className="fw-medium text-secondary px-2"><i className="bi bi-controller me-2 d-lg-none"></i>Practice</span>} 
+                id="practice-dropdown"
+                className="custom-nav-dropdown"
+              >
+                <NavDropdown.Item as={NavLink} to="/learning/exam-library" onClick={closeMenu} className="py-2">
+                  <i className="bi bi-journal-text me-2 text-primary"></i>Exam Library
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/learning/tests" onClick={closeMenu} className="py-2">
+                  <i className="bi bi-file-earmark-text me-2 text-success"></i>Mock Tests
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/learning/flashcards" onClick={closeMenu} className="py-2">
+                  <i className="bi bi-layers me-2 text-warning"></i>Flashcards
+                </NavDropdown.Item>
+              </NavDropdown>
 
               <Nav.Link as={NavLink} to="/learning/history" className={navLinkClass} onClick={closeMenu}>
                 <i className="bi bi-clock-history me-2 d-lg-none"></i>History

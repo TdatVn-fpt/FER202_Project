@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import { Container, Row, Col, Card, Button, Badge, Alert, Spinner } from 'react-bootstrap';
 import { getCourseById } from '../../services/courseLearning.service';
 import { getCurrentUser } from '../../services/authService';
@@ -18,7 +18,11 @@ import './Checkout.css';
 export default function Checkout() {
   const { id: courseId } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const user = getCurrentUser();
+
+  const searchParams = new URLSearchParams(location.search);
+  const isUpgrade = searchParams.get('upgrade') === 'true';
 
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -67,11 +71,13 @@ export default function Checkout() {
     setProcessing(true);
     setError('');
     try {
+      const amountToCharge = (isUpgrade && course.premiumPrice) ? course.premiumPrice : (course.price || 0);
       const created = await createPendingPayment({
         userId: user.id,
         courseId,
-        amount: course.price || 0,
+        amount: amountToCharge,
         transferContent,
+        type: isUpgrade ? 'upgrade' : 'enroll',
       });
       setPayment(created);
     } catch (err) {
@@ -223,13 +229,13 @@ export default function Checkout() {
   }
 
   // ===== Chưa thanh toán hoặc đơn trước bị từ chối -> hiển thị form QR =====
-  const amount = course?.price || 0;
+  const amount = (isUpgrade && course?.premiumPrice) ? course.premiumPrice : (course?.price || 0);
   const qrUrl = buildVietQrUrl(amount, transferContent);
 
   return (
     <div className="checkout-page" style={{ paddingBottom: '60px' }}>
       <StudentPageBanner
-        title="Hoàn tất đăng ký"
+        title={isUpgrade ? "Nâng cấp Premium" : "Hoàn tất đăng ký"}
         subtitle="Thanh toán khóa học"
         badgeText="THANH TOÁN AN TOÀN"
         badgeIcon="bi-shield-check"

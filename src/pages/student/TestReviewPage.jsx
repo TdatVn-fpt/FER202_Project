@@ -90,7 +90,8 @@ function ManualReviewCard({ question, index, studentAnswer }) {
 }
 
 const ObjectiveReviewCard = ({ question, index, studentAnswer }) => {
-  const isCorrect = (studentAnswer || '').toLowerCase() === (question.correctAnswer || '').toLowerCase();
+  const answerKey = question.answer || question.correctAnswer || '';
+  const isCorrect = (studentAnswer || '').toLowerCase() === answerKey.toLowerCase();
   const isSkipped = !studentAnswer || studentAnswer.trim() === '';
   
   const statusColor = isCorrect ? '#10b981' : isSkipped ? '#64748b' : '#ef4444';
@@ -116,7 +117,7 @@ const ObjectiveReviewCard = ({ question, index, studentAnswer }) => {
           <div className="d-flex flex-column gap-2 mb-4">
             {question.options.map((opt, optionIndex) => {
               const label = typeof opt === 'object' ? opt.text : opt;
-              const isRightChoice = label === question.correctAnswer;
+              const isRightChoice = label === answerKey;
               const isUserChoice = label === studentAnswer;
               
               let optBg = '#f8fafc';
@@ -165,7 +166,7 @@ const ObjectiveReviewCard = ({ question, index, studentAnswer }) => {
               <div className="p-3 rounded-3 h-100" style={{ background: '#f0fdf4', border: '1px solid #bbf7d0' }}>
                 <div className="text-success small text-uppercase fw-bold mb-2">Correct Answer</div>
                 <div className="fw-bold fs-6 text-success">
-                  {question.correctAnswer}
+                  {answerKey}
                 </div>
               </div>
             </div>
@@ -291,14 +292,19 @@ export default function TestReviewPage() {
       </div>
 
       <div className="container py-5">
-        {attempt.status === 'graded' || autoGraded ? (
+        {attempt.gradingStatus === 'graded' || attempt.status === 'graded' || autoGraded ? (
           <div className="row g-4 mb-5">
-            {[
+            {(autoGraded ? [
               { title: 'Tỷ lệ đúng', value: `${percentage}%`, sub: 'Accuracy', color: '#3b82f6', bg: '#eff6ff', icon: 'bi-percent' },
               { title: 'Câu đúng', value: `${scoreData.correct}/${scoreData.total}`, sub: 'Correct Answers', color: '#10b981', bg: '#f0fdf4', icon: 'bi-check2-circle' },
               { title: 'Band Score', value: scoreData.band.toFixed(1), sub: 'Overall Band', color: '#8b5cf6', bg: '#f5f3ff', icon: 'bi-award-fill' },
               { title: 'Trạng thái', value: 'Hoàn thành', sub: normalizedTest.skill, color: '#f59e0b', bg: '#fffbeb', icon: 'bi-patch-check-fill' }
-            ].map((stat, i) => (
+            ] : [
+              { title: 'Kỹ năng', value: normalizedTest.skill, sub: 'Skill Tested', color: '#3b82f6', bg: '#eff6ff', icon: normalizedTest.skill === 'Speaking' ? 'bi-mic' : 'bi-pencil-square' },
+              { title: 'Tiêu chí chấm', value: '4', sub: 'IELTS Criteria', color: '#10b981', bg: '#f0fdf4', icon: 'bi-list-check' },
+              { title: 'Band Score', value: attempt.overallBandScore !== undefined ? Number(attempt.overallBandScore).toFixed(1) : 'N/A', sub: 'Overall Band', color: '#8b5cf6', bg: '#f5f3ff', icon: 'bi-award-fill' },
+              { title: 'Trạng thái', value: 'Đã chấm', sub: 'Graded', color: '#f59e0b', bg: '#fffbeb', icon: 'bi-patch-check-fill' }
+            ]).map((stat, i) => (
               <div className="col-6 col-md-3" key={i}>
                 <div className="rounded-4 p-4 text-center h-100 bg-white" style={{ border: '1px solid #e2e8f0', boxShadow: '0 4px 15px rgba(0,0,0,0.03)', position: 'relative', overflow: 'hidden' }}>
                   <div style={{ position: 'absolute', top: '-15px', right: '-15px', opacity: 0.1, color: stat.color }}>
@@ -315,12 +321,34 @@ export default function TestReviewPage() {
 
             <div className="col-12 mt-4">
               <div className="p-4 rounded-4 bg-white" style={{ border: '1px solid #e2e8f0', boxShadow: '0 4px 15px rgba(0,0,0,0.03)' }}>
-                <div className="d-flex align-items-center mb-2">
+                <div className="d-flex align-items-center mb-3">
                   <div className="rounded-circle d-flex align-items-center justify-content-center me-2" style={{ width: 32, height: 32, background: '#eff6ff', color: '#3b82f6' }}>
                     <i className="bi bi-chat-left-text-fill"></i>
                   </div>
                   <div className="fw-bold text-dark fs-5">Nhận xét từ hệ thống / Giáo viên:</div>
                 </div>
+
+                {attempt.criteriaScores && (
+                  <div className="row g-3 mb-4 mt-1 mx-2 py-3 rounded-3" style={{ background: '#f8fafc', border: '1px solid #e2e8f0' }}>
+                    <div className="col-6 col-md-3 text-center">
+                      <div className="text-muted small fw-bold text-uppercase">{normalizedTest.skill === 'Speaking' ? 'FC (Fluency)' : 'TA/TR (Task)'}</div>
+                      <div className="fs-4 fw-bold" style={{ color: '#1b4332' }}>{attempt.criteriaScores.C1}</div>
+                    </div>
+                    <div className="col-6 col-md-3 text-center" style={{ borderLeft: '1px solid #e2e8f0' }}>
+                      <div className="text-muted small fw-bold text-uppercase">{normalizedTest.skill === 'Speaking' ? 'LR (Lexical)' : 'CC (Coherence)'}</div>
+                      <div className="fs-4 fw-bold" style={{ color: '#1b4332' }}>{attempt.criteriaScores.C2}</div>
+                    </div>
+                    <div className="col-6 col-md-3 text-center" style={{ borderLeft: '1px solid #e2e8f0' }}>
+                      <div className="text-muted small fw-bold text-uppercase">GRA (Grammar)</div>
+                      <div className="fs-4 fw-bold" style={{ color: '#1b4332' }}>{attempt.criteriaScores.C3}</div>
+                    </div>
+                    <div className="col-6 col-md-3 text-center" style={{ borderLeft: '1px solid #e2e8f0' }}>
+                      <div className="text-muted small fw-bold text-uppercase">{normalizedTest.skill === 'Speaking' ? 'PR (Pronun.)' : 'LR (Lexical)'}</div>
+                      <div className="fs-4 fw-bold" style={{ color: '#1b4332' }}>{attempt.criteriaScores.C4}</div>
+                    </div>
+                  </div>
+                )}
+
                 <div className="text-secondary lh-lg ms-4 ps-2" style={{ whiteSpace: 'pre-wrap', borderLeft: '3px solid #e2e8f0' }}>
                   {attempt.feedback || 'Bạn đã hoàn thành bài thi. Hãy xem kỹ lại các câu sai ở bên dưới để rút kinh nghiệm cho lần sau nhé!'}
                 </div>

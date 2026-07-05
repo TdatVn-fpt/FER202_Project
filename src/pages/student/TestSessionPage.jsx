@@ -58,22 +58,17 @@ const getSessionQuestions = (test, questionRecords) => {
 
 function QuestionMapItem({ number, isCurrent, isAnswered, isFlagged, onClick }) {
   let bg = '#fff';
-  let color = '#334155';
-  let border = '2px solid #cbd5e1';
+  let color = '#333';
+  let border = '1px solid #ccc';
 
   if (isCurrent) {
-    bg = '#4f46e5';
-    color = '#fff';
-    border = '2px solid #4f46e5';
+    border = '2px solid #000';
   } else if (isFlagged) {
-    bg = '#fef3c7';
-    color = '#92400e';
-    border = '2px solid #f59e0b';
-  } else if (isAnswered) {
-    bg = '#dcfce7';
-    color = '#166534';
-    border = '2px solid #22c55e';
+    bg = '#fff3cd';
+    border = '1px solid #ffc107';
   }
+
+  const textDec = isAnswered ? 'underline' : 'none';
 
   return (
     <button
@@ -81,14 +76,16 @@ function QuestionMapItem({ number, isCurrent, isAnswered, isFlagged, onClick }) 
       onClick={onClick}
       className="d-flex align-items-center justify-content-center fw-bold"
       style={{
-        width: 34,
-        height: 34,
+        width: 30,
+        height: 30,
         border,
         background: bg,
         color,
-        borderRadius: 8,
+        borderRadius: 0,
         fontSize: 13,
         cursor: 'pointer',
+        textDecoration: textDec,
+        textUnderlineOffset: '3px'
       }}
     >
       {number}
@@ -99,56 +96,60 @@ function QuestionMapItem({ number, isCurrent, isAnswered, isFlagged, onClick }) 
 function AudioPlayer({ audioUrl, audioPolicy = 'allow-replay' }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [playedOnce, setPlayedOnce] = useState(false);
-  const playOnce = audioPolicy === 'play-once';
-  const disabled = playOnce && playedOnce;
+  const [volume, setVolume] = useState(1);
+  const [hasStarted, setHasStarted] = useState(false);
 
-  const toggle = async () => {
-    if (!audioRef.current || disabled) return;
-    if (isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-      return;
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play()
+        .then(() => {
+          setIsPlaying(true);
+          setHasStarted(true);
+        })
+        .catch(e => {
+          console.warn("Autoplay blocked.", e);
+          setIsPlaying(false);
+        });
     }
-    await audioRef.current.play();
-    setIsPlaying(true);
-  };
+  }, [audioUrl]);
 
   return (
-    <div
-      className="d-flex align-items-center gap-3 px-4 py-3 shadow-sm"
-      style={{ background: '#fff7ed', borderBottom: '1px solid #fed7aa' }}
-    >
+    <div className="d-flex justify-content-end align-items-center py-1 px-3" style={{ background: '#fff' }}>
       <audio
         ref={audioRef}
         src={audioUrl}
-        onEnded={() => {
-          setIsPlaying(false);
-          setPlayedOnce(true);
-        }}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        style={{ display: 'none' }}
       />
-      <button
-        type="button"
-        onClick={toggle}
-        disabled={disabled}
-        className="btn fw-bold d-flex align-items-center justify-content-center"
-        style={{
-          width: 44,
-          height: 44,
-          borderRadius: '50%',
-          background: disabled ? '#cbd5e1' : '#f59e0b',
-          color: '#fff',
-          border: 0,
-        }}
-      >
-        <i className={`bi ${isPlaying ? 'bi-pause-fill' : 'bi-play-fill'}`} />
-      </button>
-      <div>
-        <div className="fw-bold" style={{ color: '#92400e' }}>Listening audio</div>
-        <div className="small text-muted">
-          {playOnce ? 'Audio policy: play once' : 'Audio policy: replay allowed'}
+      {!isPlaying && !hasStarted && (
+        <button 
+          className="btn btn-sm btn-dark rounded-0 fw-bold shadow-sm" 
+          onClick={() => {
+            audioRef.current?.play();
+            setHasStarted(true);
+          }}
+        >
+          <i className="bi bi-play-fill me-1"></i> BẮT ĐẦU NGHE
+        </button>
+      )}
+      {(isPlaying || hasStarted) && (
+        <div className="d-flex align-items-center gap-2">
+          <i className="bi bi-volume-up-fill text-dark" style={{ fontSize: '1.2rem' }}></i>
+          <input 
+            type="range" 
+            min="0" max="1" step="0.1" 
+            value={volume}
+            onChange={(e) => {
+              const v = parseFloat(e.target.value);
+              setVolume(v);
+              if (audioRef.current) audioRef.current.volume = v;
+            }}
+            style={{ width: '80px', cursor: 'pointer', accentColor: '#000' }}
+            title="Điều chỉnh âm lượng"
+          />
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -319,7 +320,17 @@ export default function TestSessionPage() {
         };
       }
 
-      await testAttemptService.completeAttempt(attemptId, answers, scorePayload);
+      // Sanitize answers to remove any leftover Base64 data (which causes Payload Too Large error)
+      const sanitizedAnswers = {};
+      for (const [qId, val] of Object.entries(answers)) {
+        if (typeof val === 'string' && val.startsWith('data:audio/')) {
+          sanitizedAnswers[qId] = ''; // discard raw base64 to save server
+        } else {
+          sanitizedAnswers[qId] = val;
+        }
+      }
+
+      await testAttemptService.completeAttempt(attemptId, sanitizedAnswers, scorePayload);
       navigate(reviewPath);
     } catch (err) {
       setIsSubmitting(false);
@@ -350,28 +361,23 @@ export default function TestSessionPage() {
   const currentQuestion = questions[Math.min(currentQuestionIndex, questions.length - 1)];
 
   const StickyHeader = () => (
-    <div className="sticky-top bg-white border-bottom shadow-sm" style={{ zIndex: 1030 }}>
+    <div className="sticky-top bg-white border-bottom" style={{ zIndex: 1030 }}>
       <div className="container-fluid px-4" style={{ maxWidth: 1400 }}>
         <div className="d-flex align-items-center justify-content-between py-2 gap-3">
           <div className="d-flex align-items-center gap-3 min-w-0">
-            <span className="badge px-3 py-2 fw-bold" style={{ background: activeColor, fontSize: 13, borderRadius: 20 }}>
-              {skill}
+            <span className="fw-bold text-dark fs-5" style={{ letterSpacing: '1px' }}>
+              IELTS {skill}
             </span>
-            <span className="text-muted small fw-semibold text-truncate d-none d-md-inline" style={{ maxWidth: 300 }}>
+            <span className="text-secondary small fw-semibold text-truncate d-none d-md-inline border-start ps-3" style={{ maxWidth: 400 }}>
               {normalizedTest.title}
             </span>
           </div>
-          <div className="flex-grow-1 d-none d-lg-flex align-items-center gap-2" style={{ maxWidth: 320 }}>
-            <span className="text-muted small">{answeredCount}/{questions.length}</span>
-            <div className="flex-grow-1"><ProgressBar percent={progressPercent} /></div>
-          </div>
           {expireAt && (
-            <div
-              className="d-flex align-items-center gap-2 px-3 py-2 rounded-pill fw-bold"
-              style={{ background: '#fff5f5', border: '2px solid #fecaca', color: '#dc2626', whiteSpace: 'nowrap' }}
-            >
-              <i className="bi bi-clock" />
-              <CountdownTimer expireAt={expireAt} onExpire={handleSubmitAttempt} />
+            <div className="d-flex align-items-center gap-2 px-3 py-1 bg-light border rounded-0">
+              <i className="bi bi-clock" style={{ color: '#000', fontSize: '18px' }} />
+              <div className="fw-bold fs-5 text-dark" style={{ minWidth: 60, textAlign: 'center' }}>
+                <CountdownTimer expireAt={expireAt} onExpire={handleSubmitAttempt} />
+              </div>
             </div>
           )}
         </div>
@@ -381,8 +387,8 @@ export default function TestSessionPage() {
 
   const SubmitButton = ({ block = false }) => (
     <button
-      className={`btn btn-lg fw-bold py-3 text-uppercase ${block ? 'w-100 rounded-4' : 'rounded-pill px-5'}`}
-      style={{ background: isSubmitting ? '#94a3b8' : '#4f46e5', color: '#fff', border: 'none' }}
+      className={`btn fw-bold py-2 px-4 rounded-0`}
+      style={{ background: isSubmitting ? '#ccc' : '#d92b2b', color: '#fff', border: 'none', letterSpacing: '0.5px' }}
       onClick={() => window.confirm('Bạn có chắc chắn muốn nộp bài?') && handleSubmitAttempt()}
       disabled={isSubmitting}
       data-testid="submit-btn"
@@ -390,18 +396,18 @@ export default function TestSessionPage() {
       {isSubmitting ? (
         <>
           <span className="spinner-border spinner-border-sm me-2" />
-          Đang nộp...
+          ...
         </>
       ) : (
-        `Nộp bài (${answeredCount}/${questions.length})`
+        `SUBMIT TEST`
       )}
     </button>
   );
 
   const QuestionFooterMap = () => (
-    <div className="bg-white border-top p-3 d-flex justify-content-between align-items-center flex-wrap gap-3" style={{ position: 'sticky', bottom: 0, zIndex: 1000, boxShadow: '0 -2px 10px rgba(0,0,0,0.05)' }}>
-      <div className="d-flex align-items-center gap-4 flex-grow-1 overflow-auto" style={{ maxWidth: 'calc(100vw - 300px)' }}>
-        <div className="d-flex align-items-center gap-2 flex-nowrap pb-1">
+    <div className="bg-light border-top p-2 d-flex justify-content-between align-items-center flex-wrap gap-2" style={{ position: 'sticky', bottom: 0, zIndex: 1000 }}>
+      <div className="d-flex align-items-center overflow-auto">
+        <div className="d-flex align-items-center gap-1 flex-nowrap pb-1">
           {questions.map((question, index) => (
             <QuestionMapItem
               key={question.id}
@@ -414,11 +420,8 @@ export default function TestSessionPage() {
           ))}
         </div>
       </div>
-      <div className="d-flex align-items-center gap-3">
-        <span className="text-muted small fw-bold"><span className="text-success">{answeredCount}</span>/{questions.length} answered</span>
-        <div style={{ width: 180 }}>
-          <SubmitButton block />
-        </div>
+      <div className="d-flex align-items-center gap-3 flex-shrink-0">
+        <SubmitButton />
       </div>
     </div>
   );
@@ -428,17 +431,17 @@ export default function TestSessionPage() {
     const passageMeta = (normalizedTest.testConfig?.passages || []).find((item) => item.id === currentQuestion.referenceId);
 
     return (
-      <div style={{ background: '#f8fafc', minHeight: '100vh', display: 'flex', flexDirection: 'column' }} data-testid="session-page">
+      <div style={{ background: '#fff', minHeight: '100vh', display: 'flex', flexDirection: 'column' }} data-testid="session-page">
         <StickyHeader />
         <div className="container-fluid px-0 flex-grow-1 d-flex flex-column" style={{ maxWidth: 1800 }}>
           <div className="row g-0 flex-grow-1 h-100">
-            <div className="col-12 col-lg-6 border-end d-flex flex-column" style={{ borderRightColor: '#cbd5e1 !important' }}>
-              <div className="px-4 py-3 fw-bold bg-white text-dark border-bottom" style={{ fontSize: '1.1rem' }}>
+            <div className="col-12 col-lg-6 border-end d-flex flex-column" style={{ borderRightColor: '#ccc !important' }}>
+              <div className="px-4 py-3 fw-bold bg-light text-dark border-bottom" style={{ fontSize: '1.1rem' }}>
                 {passageMeta?.title || 'Reading Passage'}
               </div>
               <div className="px-4 py-4 flex-grow-1 overflow-auto bg-white" style={{ height: '0', paddingBottom: '100px' }}>
-                <div style={{ lineHeight: 1.8, fontSize: 16, color: '#1e293b', whiteSpace: 'pre-wrap' }}>
-                  {passageMeta?.imageUrl && <img src={passageMeta.imageUrl} alt={passageMeta.title} className="img-fluid rounded mb-4" />}
+                <div style={{ lineHeight: 1.8, fontSize: 16, color: '#000', whiteSpace: 'pre-wrap', fontFamily: 'Arial, sans-serif' }}>
+                  {passageMeta?.imageUrl && <img src={passageMeta.imageUrl} alt={passageMeta.title} className="img-fluid mb-4" />}
                   {passage || <span className="text-muted">Chưa có nội dung passage.</span>}
                 </div>
               </div>
@@ -449,10 +452,8 @@ export default function TestSessionPage() {
                 <button
                   type="button"
                   onClick={() => handleToggleFlag(currentQuestionIndex)}
-                  className={`btn btn-sm px-3 fw-semibold ${flagged[currentQuestionIndex] ? 'btn-warning text-dark' : 'btn-outline-secondary'}`}
-                  style={{ borderRadius: '6px' }}
+                  className={`btn btn-sm px-3 fw-semibold border rounded-0 ${flagged[currentQuestionIndex] ? 'btn-warning text-dark' : 'btn-light'}`}
                 >
-                  <i className={`bi ${flagged[currentQuestionIndex] ? 'bi-bookmark-fill' : 'bi-bookmark'} me-1`} />
                   Review
                 </button>
               </div>
@@ -463,20 +464,18 @@ export default function TestSessionPage() {
                   onAnswer={handleAnswer}
                 />
               </div>
-              <div className="px-4 py-3 border-top d-flex justify-content-between bg-white">
+              <div className="px-4 py-3 border-top d-flex justify-content-between bg-light">
                 <button
-                  className="btn btn-outline-secondary px-4 py-2 fw-semibold"
+                  className="btn btn-outline-dark px-4 py-2 fw-semibold rounded-0"
                   onClick={() => setCurrentQuestionIndex((index) => Math.max(0, index - 1))}
                   disabled={currentQuestionIndex === 0}
-                  style={{ borderRadius: '6px' }}
                 >
                   Previous
                 </button>
                 <button
-                  className="btn btn-primary px-4 py-2 fw-semibold"
+                  className="btn btn-dark px-4 py-2 fw-semibold rounded-0"
                   onClick={() => setCurrentQuestionIndex((index) => Math.min(questions.length - 1, index + 1))}
                   disabled={currentQuestionIndex === questions.length - 1}
-                  style={{ borderRadius: '6px', background: '#2563eb', border: 'none' }}
                 >
                   Next
                 </button>
@@ -504,10 +503,10 @@ export default function TestSessionPage() {
     const globalAudioUrl = normalizedTest.testConfig?.audioUrl || normalizedTest.audioUrl;
 
     return (
-      <div style={{ background: '#f8fafc', minHeight: '100vh', display: 'flex', flexDirection: 'column' }} data-testid="session-page">
+      <div style={{ background: '#fff', minHeight: '100vh', display: 'flex', flexDirection: 'column' }} data-testid="session-page">
         <StickyHeader />
         {globalAudioUrl ? (
-          <div className="sticky-top bg-white border-bottom shadow-sm" style={{ zIndex: 1020, top: 57, padding: '10px 0' }}>
+          <div className="sticky-top bg-light border-bottom" style={{ zIndex: 1020, top: 57 }}>
             <div className="container" style={{ maxWidth: 1000 }}>
               <AudioPlayer audioUrl={globalAudioUrl} audioPolicy={audioPolicy} />
             </div>
@@ -515,13 +514,13 @@ export default function TestSessionPage() {
         ) : (
           <div className="alert alert-warning rounded-0 mb-0 text-center">Listening audio chưa được cấu hình.</div>
         )}
-        <div className="container py-5 flex-grow-1" style={{ maxWidth: 1000 }}>
+        <div className="container py-4 flex-grow-1" style={{ maxWidth: 1000 }}>
           <div className="d-flex flex-column gap-5">
             {grouped.map(({ section, questions: sectionQuestions }) => (
               <section key={section.id || section.title}>
-                <div className="rounded-4 px-4 py-3 mb-4 shadow-sm" style={{ background: '#fff', border: '1px solid #e2e8f0', borderLeft: '4px solid #3b82f6' }}>
-                  <div className="fw-bold text-dark" style={{ fontSize: 18 }}>{section.title || 'Listening Section'}</div>
-                  {section.instruction && <p className="mb-0 mt-2 text-secondary">{section.instruction}</p>}
+                <div className="px-2 py-3 mb-4" style={{ background: '#fff', borderBottom: '2px solid #000' }}>
+                  <div className="fw-bold text-dark" style={{ fontSize: 20 }}>{section.title || 'Listening Section'}</div>
+                  {section.instruction && <p className="mb-0 mt-2 text-secondary fst-italic">{section.instruction}</p>}
                 </div>
                 {section.audioUrl && (
                   <div className="mb-4">
@@ -534,11 +533,11 @@ export default function TestSessionPage() {
                     const answer = getAnswerValue(answers, question, index);
                     return (
                       <div className="col-12" key={question.id}>
-                        <div className="rounded-4 overflow-hidden shadow-sm bg-white" style={{ border: `1px solid ${answer ? '#10b981' : '#e2e8f0'}`, transition: 'all 0.2s ease' }}>
-                          <div className="d-flex align-items-center justify-content-between px-4 py-3 border-bottom" style={{ background: answer ? '#f0fdf4' : '#f8fafc' }}>
+                        <div className="bg-white px-3 py-2" style={{ border: 'none' }}>
+                          <div className="d-flex align-items-center justify-content-between mb-2">
                             <span className="fw-bold text-dark" style={{ fontSize: '1.1rem' }}>Question {index + 1}</span>
                           </div>
-                          <div className="p-4 p-md-5">
+                          <div className="p-0">
                             <QuestionRenderer question={question} currentAnswer={answer} onAnswer={handleAnswer} />
                           </div>
                         </div>

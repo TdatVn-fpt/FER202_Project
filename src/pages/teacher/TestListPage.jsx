@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Alert, Button, Card, Col, Form, Modal, Spinner, Table } from 'react-bootstrap';
+import { Alert, Button, Card, Col, Form, Modal, Row, Spinner, Table } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { getCurrentUser } from '../../services/authService';
 import { teacherCourseService } from '../../services/teacherCourseService';
@@ -198,454 +198,74 @@ export default function TestListPage() {
   };
 
   return (
-    <div className="test-studio-page">
-      <style>
-        {`
-          .test-studio-page {
-            min-height: 100vh;
-            background: #f7f7f7;
-            color: #0a0b0d;
-            animation: studioFade 260ms ease both;
-          }
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
 
-          .test-studio-shell {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 32px 24px 48px;
-          }
 
-          .studio-hero {
-            position: relative;
-            overflow: hidden;
-            background: #0a0b0d;
-            color: #ffffff;
-            border-radius: 24px;
-            padding: 34px;
-            min-height: 250px;
-            display: grid;
-            grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
-            gap: 24px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-          }
-
-          .studio-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            height: 34px;
-            padding: 0 14px;
-            border-radius: 999px;
-            background: #16181c;
-            color: #a8acb3;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-          }
-
-          .studio-title {
-            max-width: 760px;
-            margin: 22px 0 12px;
-            font-size: clamp(38px, 5vw, 68px);
-            font-weight: 400;
-            line-height: 1;
-            letter-spacing: 0;
-          }
-
-          .studio-subtitle {
-            max-width: 650px;
-            margin: 0;
-            color: #a8acb3;
-            font-size: 16px;
-            line-height: 1.55;
-          }
-
-          .studio-hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 26px;
-          }
-
-          .studio-primary-btn,
-          .studio-secondary-btn {
-            min-height: 44px;
-            border-radius: 999px;
-            padding: 10px 18px;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-          }
-
-          .studio-primary-btn {
-            background: #0052ff;
-            border-color: #0052ff;
-          }
-
-          .studio-secondary-btn {
-            background: #16181c;
-            border-color: #2b2f36;
-            color: #ffffff;
-          }
-
-          .studio-approval-card {
-            align-self: stretch;
-            background: #16181c;
-            border: 1px solid #2b2f36;
-            border-radius: 24px;
-            padding: 22px;
-            animation: studioFloat 5s ease-in-out infinite;
-          }
-
-          .approval-step {
-            display: grid;
-            grid-template-columns: 36px 1fr auto;
-            gap: 12px;
-            align-items: center;
-            padding: 14px 0;
-            border-bottom: 1px solid #2b2f36;
-          }
-
-          .approval-step:last-child {
-            border-bottom: 0;
-          }
-
-          .approval-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 999px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #eef0f3;
-            color: #0a0b0d;
-          }
-
-          .approval-label {
-            color: #ffffff;
-            font-weight: 700;
-          }
-
-          .approval-note {
-            color: #a8acb3;
-            font-size: 13px;
-          }
-
-          .approval-badge {
-            border-radius: 999px;
-            padding: 6px 10px;
-            color: #05b169;
-            background: transparent;
-            font-weight: 700;
-            font-size: 12px;
-          }
-
-          .metric-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 14px;
-            margin: 18px 0;
-          }
-
-          .metric-tile,
-          .studio-filter-card,
-          .studio-table-card {
-            background: #ffffff;
-            border: 1px solid #dee1e6;
-            border-radius: 24px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-          }
-
-          .metric-tile {
-            padding: 20px;
-            animation: studioLift 320ms ease both;
-            animation-delay: calc(var(--metric-index) * 55ms);
-          }
-
-          .metric-value {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            font-size: 30px;
-            font-weight: 600;
-            line-height: 1;
-          }
-
-          .metric-label {
-            margin-top: 8px;
-            color: #5b616e;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-          }
-
-          .studio-filter-card {
-            padding: 20px;
-            margin-bottom: 18px;
-          }
-
-          .studio-filter-card .form-label {
-            color: #5b616e;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-          }
-
-          .studio-filter-card .form-control,
-          .studio-filter-card .form-select {
-            min-height: 48px;
-            border-radius: 14px;
-            border-color: #dee1e6;
-            transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-          }
-
-          .studio-filter-card .form-control:focus,
-          .studio-filter-card .form-select:focus {
-            border-color: #0052ff;
-            box-shadow: 0 0 0 0.2rem rgba(0, 82, 255, 0.12);
-            transform: translateY(-1px);
-          }
-
-          .studio-table-card {
-            overflow: hidden;
-          }
-
-          .studio-table-card table {
-            margin: 0;
-          }
-
-          .studio-table-card thead th {
-            padding: 18px 18px;
-            border-bottom: 1px solid #dee1e6;
-            background: #ffffff;
-            color: #5b616e;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0;
-          }
-
-          .studio-row {
-            animation: studioLift 260ms ease both;
-            animation-delay: calc(var(--row-index) * 35ms);
-            transition: transform 180ms ease, background 180ms ease;
-          }
-
-          .studio-row:hover {
-            transform: translateY(-2px);
-            background: #f7f7f7;
-          }
-
-          .test-title-cell {
-            min-width: 300px;
-            padding: 18px;
-          }
-
-          .skill-pill,
-          .mode-pill,
-          .status-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            border-radius: 999px;
-            padding: 7px 11px;
-            font-size: 12px;
-            font-weight: 700;
-            white-space: nowrap;
-          }
-
-          .skill-pill {
-            background: #eef0f3;
-            color: #0a0b0d;
-          }
-
-          .mode-pill {
-            background: #ffffff;
-            color: #0a0b0d;
-            border: 1px solid #dee1e6;
-          }
-
-          .status-published {
-            color: #05b169;
-            background: transparent;
-          }
-
-          .status-pending {
-            color: #f4b000;
-            background: transparent;
-          }
-
-          .status-draft {
-            color: #5b616e;
-            background: transparent;
-          }
-
-          .question-meter {
-            min-width: 112px;
-          }
-
-          .question-meter-track {
-            height: 6px;
-            overflow: hidden;
-            border-radius: 999px;
-            background: #eef0f3;
-          }
-
-          .question-meter-fill {
-            height: 100%;
-            width: var(--meter-width);
-            background: #0052ff;
-            border-radius: inherit;
-            transition: width 260ms ease;
-          }
-
-          .studio-actions {
-            min-width: 280px;
-            display: flex;
-            justify-content: flex-end;
-            gap: 8px;
-            flex-wrap: wrap;
-          }
-
-          .studio-actions .btn {
-            min-height: 34px;
-            border-radius: 999px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: transform 160ms ease, box-shadow 160ms ease;
-          }
-
-          .studio-actions .btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-          }
-
-          .empty-state {
-            padding: 64px 24px;
-            text-align: center;
-            color: #5b616e;
-          }
-
-          @keyframes studioFade {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
-
-          @keyframes studioLift {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-
-          @keyframes studioFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-          }
-
-          @media (max-width: 992px) {
-            .studio-hero {
-              grid-template-columns: 1fr;
-            }
-
-            .metric-grid {
-              grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-          }
-
-          @media (max-width: 640px) {
-            .test-studio-shell {
-              padding: 18px 12px 32px;
-            }
-
-            .studio-hero,
-            .metric-tile,
-            .studio-filter-card,
-            .studio-table-card {
-              border-radius: 18px;
-            }
-
-            .studio-hero {
-              padding: 24px;
-            }
-
-            .metric-grid {
-              grid-template-columns: 1fr;
-            }
-
-            .studio-title {
-              font-size: 38px;
-            }
-          }
-        `}
-      </style>
-
-      <div className="test-studio-shell">
-        <section className="studio-hero mb-3">
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
           <div>
-            <span className="studio-eyebrow">
-              <i className="bi bi-grid-1x2"></i>
-              IELTS assessment studio
-            </span>
-            <h1 className="studio-title">Build, approve, publish.</h1>
-            <p className="studio-subtitle">
-              Tutor tests now move through admin approval before they reach student skill practice.
-              Reading and Listening can carry all 40 embedded questions in one polished test config.
-            </p>
-            <div className="studio-hero-actions">
-              <Button as={Link} to="/teacher/tests/create" className="studio-primary-btn">
-                <i className="bi bi-plus-lg"></i>
-                New IELTS test
-              </Button>
-              <Button as={Link} to="/skills" className="studio-secondary-btn">
-                <i className="bi bi-window"></i>
-                Student skills
-              </Button>
-            </div>
+            <div className="tp-page-badge"><i className="bi bi-patch-question-fill"></i> Quản lý</div>
+            <h1 className="tp-page-title">Ngân hàng Đề thi</h1>
+            <p className="tp-page-sub">Xây dựng, phê duyệt và xuất bản đề thi IELTS. Reading và Listening có thể chứa tới 40 câu hỏi trong một cấu hình đề duy nhất.</p>
           </div>
-
-          <div className="studio-approval-card">
-            <div className="approval-step">
-              <span className="approval-icon"><i className="bi bi-pencil-square"></i></span>
-              <div>
-                <div className="approval-label">Tutor creates</div>
-                <div className="approval-note">Draft, question blocks, audio and task setup.</div>
-              </div>
-              <span className="approval-badge">Step 1</span>
-            </div>
-            <div className="approval-step">
-              <span className="approval-icon"><i className="bi bi-shield-check"></i></span>
-              <div>
-                <div className="approval-label">Admin approves</div>
-                <div className="approval-note">Pending requests become published tests.</div>
-              </div>
-              <span className="approval-badge">Step 2</span>
-            </div>
-            <div className="approval-step">
-              <span className="approval-icon"><i className="bi bi-mortarboard"></i></span>
-              <div>
-                <div className="approval-label">Student practices</div>
-                <div className="approval-note">Only published free tests appear in /skills.</div>
-              </div>
-              <span className="approval-badge">Live</span>
-            </div>
-          </div>
-        </section>
-
-        <div className="metric-grid">
-          {[
-            ['Published', stats.published, 'bi-patch-check-fill'],
-            ['Waiting admin', stats.pending, 'bi-hourglass-split'],
-            ['Free skill tests', stats.free, 'bi-unlock'],
-            ['Total questions', stats.totalQuestions, 'bi-list-check'],
-          ].map(([label, value, icon], index) => (
-            <div className="metric-tile" style={{ '--metric-index': index }} key={label}>
-              <div className="d-flex justify-content-between align-items-start">
-                <div>
-                  <div className="metric-value">{value}</div>
-                  <div className="metric-label">{label}</div>
-                </div>
-                <i className={`bi ${icon} fs-4 text-primary`}></i>
-              </div>
-            </div>
-          ))}
+          <Link to="/teacher/tests/create" className="tp-btn-primary" style={{ alignSelf: 'flex-end' }}>
+            <i className="bi bi-plus-circle-fill"></i> Tạo đề thi mới
+          </Link>
         </div>
+      </div>
+      <div className="tp-main-content">
+      <div className="container-fluid px-4">
+        {/* --- APPROVAL FLOW --- */}
+        <div className="tp-card-static p-4 mb-4">
+          <h5 className="fw-bold mb-4 text-dark"><i className="bi bi-info-circle-fill text-primary me-2"></i>Quy trình duyệt Đề thi</h5>
+          <div className="d-flex flex-column flex-md-row justify-content-between gap-3 text-center">
+            <div className="flex-fill p-3 bg-light rounded border border-light">
+              <i className="bi bi-pencil-square fs-2 text-primary mb-2 d-block"></i>
+              <div className="fw-bold text-dark">Tutor creates</div>
+              <div className="small text-secondary mt-1">Draft, question blocks, audio and task setup.</div>
+            </div>
+            <div className="d-flex align-items-center justify-content-center text-muted">
+              <i className="bi bi-arrow-right fs-3 d-none d-md-block opacity-50"></i>
+              <i className="bi bi-arrow-down fs-3 d-block d-md-none opacity-50"></i>
+            </div>
+            <div className="flex-fill p-3 bg-light rounded border border-light">
+              <i className="bi bi-shield-check fs-2 text-warning mb-2 d-block"></i>
+              <div className="fw-bold text-dark">Admin approves</div>
+              <div className="small text-secondary mt-1">Pending requests become published tests.</div>
+            </div>
+            <div className="d-flex align-items-center justify-content-center text-muted">
+              <i className="bi bi-arrow-right fs-3 d-none d-md-block opacity-50"></i>
+              <i className="bi bi-arrow-down fs-3 d-block d-md-none opacity-50"></i>
+            </div>
+            <div className="flex-fill p-3 bg-light rounded border border-light">
+              <i className="bi bi-mortarboard fs-2 text-success mb-2 d-block"></i>
+              <div className="fw-bold text-dark">Student practices</div>
+              <div className="small text-secondary mt-1">Only published free tests appear in /skills.</div>
+            </div>
+          </div>
+        </div>
+
+        {/* --- METRICS --- */}
+        <Row className="g-3 mb-4">
+          {[
+            ['Published', stats.published, 'bi-patch-check-fill', 'tp-gradient-blue'],
+            ['Waiting admin', stats.pending, 'bi-hourglass-split', 'tp-gradient-purple'],
+            ['Free skill tests', stats.free, 'bi-unlock', 'tp-gradient-green'],
+            ['Total questions', stats.totalQuestions, 'bi-list-check', 'tp-gradient-orange'],
+          ].map(([label, value, icon, gradient]) => (
+            <Col xl={3} md={6} key={label}>
+              <div className="tp-stat-card">
+                <div className={`tp-stat-icon ${gradient}`}>
+                  <i className={`bi ${icon}`}></i>
+                </div>
+                <div>
+                  <div className="tp-stat-label">{label}</div>
+                  <div className="tp-stat-value">{value}</div>
+                </div>
+              </div>
+            </Col>
+          ))}
+        </Row>
 
         {error && <Alert variant="danger">{error}</Alert>}
 
@@ -749,33 +369,11 @@ export default function TestListPage() {
                       </td>
                       <td>
                         <div className="studio-actions">
-                          {test.skill !== 'Writing' && (
-                            <Button as={Link} to={`/teacher/tests/${test.id}/questions`} size="sm" variant="outline-primary" title="Question bank">
-                              <i className="bi bi-list-check"></i>
-                              Questions
-                            </Button>
-                          )}
                           <Button as={Link} to={`/teacher/tests/${test.id}/edit`} size="sm" variant="outline-secondary" disabled={locked} title="Edit test">
                             <i className="bi bi-pencil"></i>
-                            Edit
-                          </Button>
-                          <Button size="sm" variant="outline-info" onClick={() => openAssignModal(test)} disabled={working} title="Assign course">
-                            <i className="bi bi-link-45deg"></i>
-                            Assign
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant={test.status === 'published' ? 'outline-warning' : test.status === 'pending' ? 'outline-secondary' : 'outline-success'}
-                            onClick={() => handleTogglePublish(test)}
-                            disabled={working}
-                            title="Approval status"
-                          >
-                            <i className={`bi ${test.status === 'draft' ? 'bi-send' : 'bi-arrow-counterclockwise'}`}></i>
-                            {test.status === 'published' ? 'Draft' : test.status === 'pending' ? 'Cancel' : 'Send'}
                           </Button>
                           <Button size="sm" variant="outline-danger" onClick={() => handleDeleteClick(test)} disabled={locked || working} title="Delete test">
                             <i className="bi bi-trash3"></i>
-                            Delete
                           </Button>
                         </div>
                       </td>
@@ -794,7 +392,6 @@ export default function TestListPage() {
             </Table>
           </Card>
         )}
-      </div>
 
       <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)} centered>
         <Modal.Header closeButton className="border-0">
@@ -834,6 +431,9 @@ export default function TestListPage() {
           </Button>
         </Modal.Footer>
       </Modal>
+      </div>
     </div>
+  </div>
   );
 }
+

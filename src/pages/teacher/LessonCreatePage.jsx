@@ -205,66 +205,69 @@ export default function LessonCreatePage() {
 
   if (loading) {
     return (
-      <Container className="py-5 text-center">
-        <Spinner animation="border" variant="primary" className="mb-2" />
-        <p className="text-secondary fw-semibold">Đang tải giáo trình bài học...</p>
-      </Container>
+      <div className="tp-loading">
+        <Spinner animation="border" variant="primary" style={{ width: '3rem', height: '3rem', borderWidth: '4px' }} />
+        <p className="mt-3 fw-semibold text-secondary">Đang tải giáo trình bài học...</p>
+      </div>
     );
   }
 
   // EARS[Unwanted]: NẾU Giáo viên cố tình truy cập chỉnh sửa ID bài học của người khác, chuyển hướng hoặc hiển thị Alert
   if (isUnauthorized) {
     return (
-      <Container className="py-5" style={{ maxWidth: '600px' }}>
-        <Alert variant="danger" className="text-center p-4 shadow-sm border-0 rounded-3">
-          <Alert.Heading className="fw-bold"><i className="bi bi-shield-slash fs-2 mb-2 d-block"></i> Quyền truy cập bị từ chối</Alert.Heading>
-          <p className="mb-4">Bạn không có quyền chỉnh sửa bài học này.</p>
-          <Button as={Link} to="/teacher/lessons" variant="danger" className="rounded-pill px-4">
+      <div className="tp-main-content">
+        <div className="tp-error">
+          <i className="bi bi-shield-slash fs-2 mb-2 d-block text-danger"></i>
+          <div>Bạn không có quyền chỉnh sửa bài học này.</div>
+          <Link to="/teacher/lessons" className="btn btn-danger mt-3 rounded-pill px-4">
             Quay lại danh sách
-          </Button>
-        </Alert>
-      </Container>
+          </Link>
+        </div>
+      </div>
     );
   }
 
   const isPending = targetCourseStatus === 'pending';
 
   return (
-    <Container className="py-5" style={{ maxWidth: '800px' }}>
-      {/* Back Button */}
-      <Link 
-        to="/teacher/lessons" 
-        className="text-decoration-none text-muted mb-4 d-inline-flex align-items-center gap-2 fw-semibold transition-all hover-translate-x"
-        style={{ fontSize: '14px' }}
-      >
-        <i className="bi bi-arrow-left"></i> Quay lại quản lý bài học
-      </Link>
-
-      {isPending && (
-        <Alert variant="warning" className="mb-4 border-0 shadow-sm p-4 rounded-3 d-flex align-items-center gap-3">
-          <i className="bi bi-exclamation-triangle fs-3 text-warning"></i>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
           <div>
-            <h5 className="alert-heading fw-bold mb-1">Khóa học này đang chờ phê duyệt</h5>
-            <p className="mb-0 small text-secondary">Khóa học của bài giảng đang trong trạng thái xem xét duyệt. Không được phép thêm mới hoặc chỉnh sửa bài học.</p>
+            <div className="tp-page-badge"><i className="bi bi-play-btn-fill"></i> {id ? 'Cập nhật' : 'Bài học mới'}</div>
+            <h1 className="tp-page-title">{id ? 'Chỉnh sửa bài học' : 'Thêm bài học mới'}</h1>
+            <p className="tp-page-sub">Nhập tiêu đề, số thứ tự phân chia giáo trình bài học.</p>
           </div>
-        </Alert>
-      )}
-
-      {targetCourseStatus === 'approved' && (
-        <Alert variant="info" className="mb-4 border-0 shadow-sm p-4 rounded-3 d-flex align-items-center gap-3">
-          <i className="bi bi-info-circle fs-3 text-info"></i>
-          <div>
-            <h5 className="alert-heading fw-bold mb-1">Khóa học liên kết đã được xuất bản</h5>
-            <p className="mb-0 small text-secondary">Mọi chỉnh sửa hoặc bổ sung bài học mới sẽ tự động đưa khóa học liên kết trở lại trạng thái <strong>Chờ duyệt (Pending)</strong>.</p>
-          </div>
-        </Alert>
-      )}
-
-      <Card className="border-0 shadow-sm p-4 p-md-5 rounded-3 bg-white mt-2">
-        <div className="mb-4">
-          <h2 className="fw-bold text-dark mb-1">{id ? 'Chỉnh sửa bài học' : 'Thêm bài học mới'}</h2>
-          <p className="text-secondary mb-0">Nhập tiêu đề, số thứ tự phân chia giáo trình bài học.</p>
+          <Link to="/teacher/lessons" className="tp-btn-secondary" style={{ alignSelf: 'flex-end' }}>
+            <i className="bi bi-arrow-left"></i> Quay lại
+          </Link>
         </div>
+      </div>
+
+      <div className="tp-main-content">
+        <Container className="py-2" style={{ maxWidth: '800px' }}>
+          {isPending && (
+            <div className="tp-error mb-4 border border-warning bg-warning bg-opacity-10 text-dark">
+              <i className="bi bi-exclamation-triangle-fill text-warning fs-4"></i>
+              <div>
+                <h5 className="fw-bold mb-1">Khóa học này đang chờ phê duyệt</h5>
+                <p className="mb-0 small">Khóa học của bài giảng đang trong trạng thái xem xét duyệt. Không được phép thêm mới hoặc chỉnh sửa bài học.</p>
+              </div>
+            </div>
+          )}
+
+          {targetCourseStatus === 'approved' && (
+            <div className="tp-error mb-4 border border-info bg-info bg-opacity-10 text-dark">
+              <i className="bi bi-info-circle-fill text-info fs-4"></i>
+              <div>
+                <h5 className="fw-bold mb-1">Khóa học liên kết đã được xuất bản</h5>
+                <p className="mb-0 small">Mọi chỉnh sửa hoặc bổ sung bài học mới sẽ tự động đưa khóa học liên kết trở lại trạng thái <strong>Chờ duyệt (Pending)</strong>.</p>
+              </div>
+            </div>
+          )}
+
+          <div className="tp-card-static">
+            <div className="p-4 p-md-5">
 
         <Form onSubmit={handleSubmit(onSubmit)} noValidate>
           <Row className="g-3">
@@ -443,7 +446,8 @@ export default function LessonCreatePage() {
             </Button>
           </div>
         </Form>
-      </Card>
-    </Container>
+          </div>
+        </div>
+      </Container></div></div>
   );
 }

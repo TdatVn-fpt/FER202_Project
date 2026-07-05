@@ -43,6 +43,7 @@ import QuestionBankPage from '../pages/teacher/QuestionBankPage';
 import FlashcardManagementPage from '../pages/teacher/FlashcardManagementPage';
 import FlashcardDeckDetail from '../pages/teacher/FlashcardDeckDetail';
 import MarkingQueuePage from '../pages/teacher/MarkingQueuePage';
+import MarkingHistoryPage from '../pages/teacher/MarkingHistoryPage';
 import LibraryResourceListPage from '../pages/teacher/LibraryResourceListPage';
 import LibraryResourceCreatePage from '../pages/teacher/LibraryResourceCreatePage';
 import LibraryResourceEditPage from '../pages/teacher/LibraryResourceEditPage';
@@ -119,6 +120,7 @@ export default function AppRoutes() {
           <Route path="/teacher/flashcards" element={<FlashcardManagementPage />} />
           <Route path="/teacher/flashcards/:deckId" element={<FlashcardDeckDetail />} />
           <Route path="/teacher/marking-queue" element={<MarkingQueuePage />} />
+          <Route path="/teacher/marking-history" element={<MarkingHistoryPage />} />
           <Route path="/teacher/library" element={<LibraryResourceListPage />} />
           <Route path="/teacher/library/create" element={<LibraryResourceCreatePage />} />
           <Route path="/teacher/library/edit/:id" element={<LibraryResourceEditPage />} />
