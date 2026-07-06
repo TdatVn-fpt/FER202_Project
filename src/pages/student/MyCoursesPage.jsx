@@ -5,18 +5,29 @@ import { getCurrentUser } from '../../services/authService';
 import './MyCoursesPage.css';
 
 /**
- * MyCoursesPage — CL-05
- * EARS[Ubiquitous]: THE system SHALL protect this route via ProtectedRoute role='student'.
+ * MyCoursesPage — CL-05 (Premium Redesign)
  */
+const SKILL_STYLE = {
+  Reading:   { bg: 'rgba(219,234,254,0.85)', text: '#1d4ed8', ribbon: 'rgba(219,234,254,0.9)' },
+  Listening: { bg: 'rgba(243,232,255,0.85)', text: '#7e22ce', ribbon: 'rgba(243,232,255,0.9)' },
+  Writing:   { bg: 'rgba(255,237,213,0.85)', text: '#c2410c', ribbon: 'rgba(255,237,213,0.9)' },
+  Speaking:  { bg: 'rgba(209,250,229,0.85)', text: '#047857', ribbon: 'rgba(209,250,229,0.9)' },
+};
+
+const getProgressStatus = (enrollment) => {
+  if (enrollment.status === 'completed' || enrollment.progress === 100) return 'completed';
+  if (enrollment.progress > 0) return 'inprogress';
+  return 'notstarted';
+};
+
 const MyCoursesPage = () => {
   const navigate = useNavigate();
   const user = getCurrentUser();
-  // Dùng id của user đang đăng nhập, fallback về u-001 nếu cần
   const userId = user?.id || 'u-001';
 
   const [enrolledCourses, setEnrolledCourses] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading]   = useState(true);
+  const [error, setError]           = useState(null);
   const [activeFilter, setActiveFilter] = useState('all');
 
   useEffect(() => {
@@ -24,7 +35,6 @@ const MyCoursesPage = () => {
       setIsLoading(true);
       setError(null);
       try {
-        // Re-fetch user từ server theo email để tránh localStorage bị stale
         let resolvedUserId = userId;
         if (user?.email) {
           try {
@@ -32,15 +42,12 @@ const MyCoursesPage = () => {
             const freshUsers = await res.json();
             if (freshUsers.length > 0) {
               resolvedUserId = freshUsers[0].id;
-              // Cập nhật localStorage nếu id thay đổi
               if (resolvedUserId !== user.id) {
                 const { saveAuthUser } = await import('../../services/authService');
                 saveAuthUser({ ...user, ...freshUsers[0] });
               }
             }
-          } catch (_) {
-            // Nếu không fetch được thì dùng id cũ
-          }
+          } catch (_) {}
         }
 
         const enrollments = await getEnrollmentsByUser(resolvedUserId);
@@ -66,14 +73,12 @@ const MyCoursesPage = () => {
     fetchMyCourses();
   }, [userId]);
 
-  const handleContinueLearning = (courseId) => {
-    navigate(`/learning/courses/${courseId}/lessons`);
-  };
+  const handleContinueLearning = (courseId) => navigate(`/learning/courses/${courseId}/lessons`);
 
-  const getProgressStatus = (enrollment) => {
-    if (enrollment.status === 'completed' || enrollment.progress === 100) return 'completed';
-    if (enrollment.progress > 0) return 'inprogress';
-    return 'notstarted';
+  const stats = {
+    total:      enrolledCourses.length,
+    completed:  enrolledCourses.filter(({ enrollment }) => getProgressStatus(enrollment) === 'completed').length,
+    inprogress: enrolledCourses.filter(({ enrollment }) => getProgressStatus(enrollment) === 'inprogress').length,
   };
 
   const filteredCourses = enrolledCourses.filter(({ enrollment }) => {
@@ -81,250 +86,229 @@ const MyCoursesPage = () => {
     return getProgressStatus(enrollment) === activeFilter;
   });
 
-  const stats = {
-    total: enrolledCourses.length,
-    completed: enrolledCourses.filter(({ enrollment }) => getProgressStatus(enrollment) === 'completed').length,
-    inprogress: enrolledCourses.filter(({ enrollment }) => getProgressStatus(enrollment) === 'inprogress').length,
-  };
+  const STAT_ITEMS = [
+    { label: 'Total Enrolled', value: stats.total, icon: 'bi-collection-fill', iconBg: 'linear-gradient(135deg,#2563eb,#60a5fa)', textColor: '#2563eb', bg: '#eff6ff' },
+    { label: 'Completed',      value: stats.completed, icon: 'bi-patch-check-fill', iconBg: 'linear-gradient(135deg,#16a34a,#4ade80)', textColor: '#16a34a', bg: '#f0fdf4' },
+    { label: 'In Progress',    value: stats.inprogress, icon: 'bi-play-circle-fill', iconBg: 'linear-gradient(135deg,#d97706,#fbbf24)', textColor: '#d97706', bg: '#fffbeb' },
+  ];
 
-  if (isLoading) {
-    return (
-      <div className="my-courses-page">
-        <div className="container py-5 text-center" data-testid="loading-spinner">
-          <div className="spinner-border text-primary" role="status" style={{ width: '3rem', height: '3rem' }}>
-            <span className="visually-hidden">Loading...</span>
-          </div>
-          <p className="mt-3 text-muted fw-medium">Loading your courses...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="my-courses-page">
-        <div className="container py-5">
-          <div className="alert alert-danger shadow-sm rounded-4 d-flex align-items-center gap-2" role="alert" data-testid="error-alert">
-            <i className="bi bi-exclamation-triangle-fill fs-5"></i>
-            <div>
-              <strong>Something went wrong.</strong> {error}
-              <button className="btn btn-sm btn-outline-danger ms-3" onClick={() => window.location.reload()}>Retry</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (enrolledCourses.length === 0) {
-    return (
-      <div className="my-courses-page">
-        <div className="container py-5 text-center" data-testid="empty-state">
-          <div className="empty-state-icon mx-auto mb-4">
-            <i className="bi bi-journal-bookmark"></i>
-          </div>
-          <h3 className="fw-bold mb-2">No courses yet</h3>
-          <p className="text-muted mb-4" style={{ maxWidth: '400px', margin: '0 auto 1.5rem' }}>
-            You haven't enrolled in any courses. Browse our catalog and start your IELTS journey!
-          </p>
-          <button className="btn btn-primary rounded-pill px-5 py-2 fw-semibold shadow-sm" onClick={() => navigate('/learning/courses')} data-testid="btn-browse-courses">
-            <i className="bi bi-compass me-2"></i>Browse Courses
-          </button>
-        </div>
-      </div>
-    );
-  }
+  const FILTER_TABS = [
+    { key: 'all',        label: 'All Courses',  icon: 'bi-grid-3x3-gap', count: stats.total },
+    { key: 'inprogress', label: 'In Progress',  icon: 'bi-play-fill',    count: stats.inprogress },
+    { key: 'completed',  label: 'Completed',    icon: 'bi-check2-circle',count: stats.completed },
+    { key: 'notstarted', label: 'Not Started',  icon: 'bi-clock',        count: stats.total - stats.completed - stats.inprogress },
+  ];
 
   return (
     <div className="my-courses-page">
-      <div className="container py-5">
-
-        {/* ── Page Header ── */}
-        <div className="row align-items-end mb-5">
-          <div className="col">
-            <p className="text-primary fw-semibold mb-1" style={{ fontSize: '0.85rem', letterSpacing: '1px', textTransform: 'uppercase' }}>
-              <i className="bi bi-mortarboard me-2"></i>Student Portal
-            </p>
-            <h2 className="fw-bolder mb-2" style={{ fontSize: '2.2rem', letterSpacing: '-0.5px' }}>My Courses</h2>
-            <p className="text-muted mb-0 fs-6">Track your progress and continue learning.</p>
+      {/* ── HERO ── */}
+      <div className="mcp-hero">
+        <div className="container text-center position-relative" style={{ zIndex: 2 }}>
+          <div className="mcp-hero-badge">
+            <i className="bi bi-journal-bookmark-fill"></i>
+            MY LEARNING JOURNEY
           </div>
-          <div className="col-auto">
-            <button className="btn btn-outline-primary rounded-pill px-4 fw-semibold" onClick={() => navigate('/learning/courses')}>
-              <i className="bi bi-plus-lg me-2"></i>Enroll More
-            </button>
-          </div>
+          <h1>Khóa Học Của Tôi</h1>
+          <p className="mx-auto">
+            Tiếp tục các khóa học đang dang dở và xem lại những kiến thức bạn đã hoàn thành.
+            Lộ trình IELTS của bạn được theo dõi từng bước.
+          </p>
         </div>
+      </div>
 
-        {/* ── Stats Row ── */}
-        <div className="row g-3 mb-5">
-          {[
-            { label: 'Total Enrolled', value: stats.total, icon: 'bi-collection', color: '#3b82f6', bg: '#eff6ff' },
-            { label: 'Completed', value: stats.completed, icon: 'bi-patch-check-fill', color: '#16a34a', bg: '#f0fdf4' },
-            { label: 'In Progress', value: stats.inprogress, icon: 'bi-play-circle-fill', color: '#d97706', bg: '#fffbeb' },
-          ].map(({ label, value, icon, color, bg }) => (
-            <div className="col-12 col-sm-4" key={label}>
-              <div className="stat-card p-4 rounded-4 d-flex align-items-center gap-3" style={{ background: bg }}>
-                <div className="stat-icon rounded-3 d-flex align-items-center justify-content-center" style={{ background: color, color: '#fff', width: '48px', height: '48px', fontSize: '1.3rem', flexShrink: 0 }}>
-                  <i className={`bi ${icon}`}></i>
-                </div>
-                <div>
-                  <div className="fw-bold" style={{ fontSize: '1.8rem', lineHeight: 1, color }}>{value}</div>
-                  <div className="text-muted fw-medium" style={{ fontSize: '0.82rem' }}>{label}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* ── Filter Tabs ── */}
-        <div className="filter-tabs mb-4">
-          {[
-            { key: 'all', label: 'All Courses', count: stats.total },
-            { key: 'inprogress', label: 'In Progress', count: stats.inprogress },
-            { key: 'completed', label: 'Completed', count: stats.completed },
-            { key: 'notstarted', label: 'Not Started', count: stats.total - stats.completed - stats.inprogress },
-          ].map(({ key, label, count }) => (
-            <button
-              key={key}
-              className={`filter-tab ${activeFilter === key ? 'active' : ''}`}
-              onClick={() => setActiveFilter(key)}
-            >
-              {label}
-              <span className="tab-count">{count}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* ── Course Cards ── */}
-        {filteredCourses.length === 0 ? (
-          <div className="text-center py-5 text-muted">
-            <i className="bi bi-filter-circle fs-1 d-block mb-3 opacity-50"></i>
-            <p className="fw-medium">No courses in this category.</p>
-          </div>
-        ) : (
-          <div className="row g-4" data-testid="course-list">
-            {filteredCourses.map(({ enrollment, course }) => {
-              const progress = enrollment.progress ?? 0;
-              const status = getProgressStatus(enrollment);
-
-              const skillColorMap = {
-                Reading: { bg: '#e0f2fe', text: '#0369a1' },
-                Listening: { bg: '#f3e8ff', text: '#7e22ce' },
-                Writing: { bg: '#ffedd5', text: '#c2410c' },
-                Speaking: { bg: '#ecfdf5', text: '#047857' },
-              };
-              const skillStyle = skillColorMap[course.skill] || { bg: '#f1f5f9', text: '#475569' };
-
-              return (
-                <div className="col-12 col-md-6 col-xl-4" key={enrollment.id}>
-                  <div className="course-card rounded-4 overflow-hidden" data-testid={`course-card-${course.id}`}>
-
-                    {/* Thumbnail */}
-                    <div className="course-thumb" style={{ height: '200px', position: 'relative', overflow: 'hidden' }}>
-                      {course.thumbnail ? (
-                        <img src={course.thumbnail} alt={course.title} className="w-100 h-100" style={{ objectFit: 'cover', transition: 'transform 0.4s ease' }} />
-                      ) : (
-                        <div className="w-100 h-100 d-flex align-items-center justify-content-center bg-light">
-                          <i className="bi bi-play-circle text-muted" style={{ fontSize: '3rem' }}></i>
-                        </div>
-                      )}
-                      {/* Status Badge */}
-                      <div style={{ position: 'absolute', top: '12px', right: '12px' }}>
-                        {status === 'completed' && (
-                          <span className="badge rounded-pill fw-semibold px-3 py-2" style={{ background: 'rgba(22,163,74,0.92)', color: '#fff', fontSize: '0.75rem', backdropFilter: 'blur(4px)' }}>
-                            <i className="bi bi-patch-check me-1"></i>Completed
-                          </span>
-                        )}
-                        {status === 'inprogress' && (
-                          <span className="badge rounded-pill fw-semibold px-3 py-2" style={{ background: 'rgba(217,119,6,0.92)', color: '#fff', fontSize: '0.75rem', backdropFilter: 'blur(4px)' }}>
-                            <i className="bi bi-play-fill me-1"></i>In Progress
-                          </span>
-                        )}
-                        {status === 'notstarted' && (
-                          <span className="badge rounded-pill fw-semibold px-3 py-2" style={{ background: 'rgba(71,85,105,0.85)', color: '#fff', fontSize: '0.75rem', backdropFilter: 'blur(4px)' }}>
-                            Not Started
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Card Body */}
-                    <div className="p-4 d-flex flex-column gap-3" style={{ background: '#fff' }}>
-                      {/* Tags */}
-                      <div className="d-flex gap-2 flex-wrap">
-                        {course.skill && (
-                          <span className="badge rounded-pill fw-semibold" style={{ background: skillStyle.bg, color: skillStyle.text, fontSize: '0.75rem', padding: '5px 12px' }}>
-                            {course.skill}
-                          </span>
-                        )}
-                        {course.level && (
-                          <span className="badge rounded-pill fw-medium" style={{ background: '#f1f5f9', color: '#475569', fontSize: '0.75rem', padding: '5px 12px' }}>
-                            <i className="bi bi-bullseye me-1"></i>{course.level}
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Title */}
-                      <h5 className="fw-bold mb-0 lh-base" style={{
-                        display: '-webkit-box', WebkitLineClamp: 2,
-                        WebkitBoxOrient: 'vertical', overflow: 'hidden', fontSize: '1.05rem'
-                      }}>
-                        {course.title}
-                      </h5>
-
-                      {/* Teacher */}
-                      {course.teacherName && (
-                        <div className="d-flex align-items-center gap-2 text-muted" style={{ fontSize: '0.85rem' }}>
-                          <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold"
-                            style={{ width: '26px', height: '26px', fontSize: '0.7rem', flexShrink: 0 }}>
-                            {course.teacherName.charAt(0)}
-                          </div>
-                          <span className="fw-medium">{course.teacherName}</span>
-                        </div>
-                      )}
-
-                      {/* Progress */}
-                      <div>
-                        <div className="d-flex justify-content-between mb-2" style={{ fontSize: '0.82rem' }}>
-                          <span className="text-muted fw-medium">Progress</span>
-                          <span className="fw-bold" style={{ color: progress === 100 ? '#16a34a' : '#2563eb' }}>{progress}%</span>
-                        </div>
-                        <div className="progress rounded-pill" style={{ height: '7px', background: '#f1f5f9' }}>
-                          <div
-                            className="progress-bar rounded-pill"
-                            role="progressbar"
-                            style={{
-                              width: `${progress}%`,
-                              background: progress === 100 ? 'linear-gradient(90deg,#16a34a,#4ade80)' : 'linear-gradient(90deg,#2563eb,#60a5fa)',
-                              transition: 'width 0.6s ease'
-                            }}
-                            aria-valuenow={progress} aria-valuemin="0" aria-valuemax="100"
-                            data-testid={`progress-bar-${course.id}`}
-                          />
-                        </div>
-                      </div>
-
-                      {/* CTA Button */}
-                      <button
-                        className={`btn w-100 rounded-pill fw-semibold py-2 mt-1 ${progress === 100 ? 'btn-outline-success' : 'btn-primary'}`}
-                        onClick={() => handleContinueLearning(course.id)}
-                        data-testid={`btn-continue-${course.id}`}
-                        style={{ fontSize: '0.9rem', letterSpacing: '0.2px' }}
-                      >
-                        {progress === 100 ? (
-                          <><i className="bi bi-trophy me-2"></i>Review Course</>
-                        ) : progress > 0 ? (
-                          <><i className="bi bi-play-fill me-2"></i>Continue Learning</>
-                        ) : (
-                          <><i className="bi bi-rocket-takeoff me-2"></i>Start Learning</>
-                        )}
-                      </button>
-                    </div>
+      <div className="container">
+        {/* ── STATS ROW ── */}
+        {!isLoading && !error && enrolledCourses.length > 0 && (
+          <div className="row g-3 mcp-stats-row">
+            {STAT_ITEMS.map(({ label, value, icon, iconBg, textColor, bg }) => (
+              <div className="col-12 col-sm-4" key={label}>
+                <div className="mcp-stat-card">
+                  <div className="mcp-stat-icon" style={{ background: iconBg, color: '#fff' }}>
+                    <i className={`bi ${icon}`}></i>
+                  </div>
+                  <div>
+                    <div className="mcp-stat-value" style={{ color: textColor }}>{value}</div>
+                    <div className="mcp-stat-label">{label}</div>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
+        )}
+
+        {/* ── LOADING ── */}
+        {isLoading && (
+          <div className="py-5 text-center" data-testid="loading-spinner" style={{ paddingTop: '60px' }}>
+            <div className="spinner-border text-primary" role="status" style={{ width: '3.5rem', height: '3.5rem', borderWidth: '4px' }}>
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <p className="mt-4 text-muted fw-semibold">Đang tải khóa học của bạn...</p>
+          </div>
+        )}
+
+        {/* ── ERROR ── */}
+        {!isLoading && error && (
+          <div className="py-5" style={{ paddingTop: '60px' }}>
+            <div className="alert alert-danger shadow-sm rounded-4 d-flex align-items-center gap-2" role="alert" data-testid="error-alert">
+              <i className="bi bi-exclamation-triangle-fill fs-5"></i>
+              <div>
+                <strong>Something went wrong.</strong> {error}
+                <button className="btn btn-sm btn-outline-danger ms-3" onClick={() => window.location.reload()}>Retry</button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ── EMPTY STATE ── */}
+        {!isLoading && !error && enrolledCourses.length === 0 && (
+          <div className="mcp-empty" style={{ paddingTop: '60px' }} data-testid="empty-state">
+            <div className="mcp-empty-icon">
+              <i className="bi bi-journal-bookmark"></i>
+            </div>
+            <h3 className="fw-bold mb-2">Bạn chưa đăng ký khóa học nào</h3>
+            <p className="text-muted mb-5" style={{ maxWidth: '400px', margin: '0 auto 2rem' }}>
+              Khám phá danh mục khóa học IELTS đa dạng và bắt đầu hành trình chinh phục điểm số mơ ước!
+            </p>
+            <button
+              className="btn btn-primary rounded-pill px-5 py-3 fw-bold shadow-sm"
+              onClick={() => navigate('/learning/courses')}
+              data-testid="btn-browse-courses"
+              style={{ fontSize: '1rem' }}
+            >
+              <i className="bi bi-compass me-2"></i>Khám Phá Khóa Học
+            </button>
+          </div>
+        )}
+
+        {/* ── COURSE LIST ── */}
+        {!isLoading && !error && enrolledCourses.length > 0 && (
+          <>
+            {/* Filter Bar */}
+            <div className="mcp-filter-bar">
+              {FILTER_TABS.map(({ key, label, icon, count }) => (
+                <button
+                  key={key}
+                  className={`mcp-filter-btn ${activeFilter === key ? 'active' : ''}`}
+                  onClick={() => setActiveFilter(key)}
+                >
+                  <i className={`bi ${icon}`}></i>
+                  {label}
+                  <span className="mcp-filter-count">{count}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Empty filter result */}
+            {filteredCourses.length === 0 ? (
+              <div className="text-center py-5 text-muted">
+                <i className="bi bi-filter-circle fs-1 d-block mb-3 opacity-40"></i>
+                <p className="fw-semibold">Không có khóa học trong danh mục này.</p>
+              </div>
+            ) : (
+              <div className="row g-4 pb-5" data-testid="course-list">
+                {filteredCourses.map(({ enrollment, course }) => {
+                  const progress = enrollment.progress ?? 0;
+                  const status = getProgressStatus(enrollment);
+                  const skillStyle = SKILL_STYLE[course.skill] || { bg: '#f1f5f9', text: '#475569', ribbon: '#f1f5f9' };
+
+                  return (
+                    <div className="col-12 col-md-6 col-xl-4" key={enrollment.id}>
+                      <div className="mcp-course-card" data-testid={`course-card-${course.id}`}>
+
+                        {/* ── Thumbnail ── */}
+                        <div className="mcp-course-thumb">
+                          {course.thumbnail ? (
+                            <img
+                              src={course.thumbnail}
+                              alt={course.title}
+                              onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?auto=format&fit=crop&w=600&q=80'; }}
+                            />
+                          ) : (
+                            <div className="mcp-thumb-fallback">
+                              <i className="bi bi-play-circle"></i>
+                            </div>
+                          )}
+
+                          {/* Skill ribbon */}
+                          {course.skill && (
+                            <span className="mcp-skill-ribbon" style={{ background: skillStyle.ribbon, color: skillStyle.text }}>
+                              {course.skill}
+                            </span>
+                          )}
+
+                          {/* Status badge */}
+                          <span className={`mcp-status-badge ${status}`}>
+                            {status === 'completed'  && <><i className="bi bi-patch-check-fill me-1"></i>Hoàn Thành</>}
+                            {status === 'inprogress' && <><i className="bi bi-play-fill me-1"></i>Đang Học</>}
+                            {status === 'notstarted' && <>Chưa Bắt Đầu</>}
+                          </span>
+                        </div>
+
+                        {/* ── Body ── */}
+                        <div className="mcp-course-body">
+                          <h5 className="mcp-course-title">{course.title}</h5>
+
+                          <div className="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                            {course.teacherName && (
+                              <div className="mcp-teacher-row">
+                                <div className="mcp-teacher-avatar">
+                                  {course.teacherName.charAt(0).toUpperCase()}
+                                </div>
+                                <span className="mcp-teacher-name">{course.teacherName}</span>
+                              </div>
+                            )}
+                            {course.durationWeeks && (
+                              <span className="mcp-duration-chip">
+                                <i className="bi bi-clock text-primary"></i>
+                                {course.durationWeeks} tuần
+                              </span>
+                            )}
+                          </div>
+
+                          {/* Progress */}
+                          <div className="mcp-progress-area">
+                            <div className="mcp-progress-header">
+                              <span className="mcp-progress-label">Tiến độ</span>
+                              <span
+                                className="mcp-progress-pct"
+                                style={{ color: progress === 100 ? '#16a34a' : '#2563eb' }}
+                              >
+                                {progress}%
+                              </span>
+                            </div>
+                            <div className="mcp-progress-track">
+                              <div
+                                className={`mcp-progress-fill ${progress === 100 ? 'done' : progress > 0 ? 'going' : 'zero'}`}
+                                style={{ width: `${progress}%` }}
+                                role="progressbar"
+                                aria-valuenow={progress} aria-valuemin="0" aria-valuemax="100"
+                                data-testid={`progress-bar-${course.id}`}
+                              />
+                            </div>
+                          </div>
+
+                          {/* CTA */}
+                          <button
+                            className={`mcp-cta-btn ${progress === 100 ? 'success' : 'primary'}`}
+                            onClick={() => handleContinueLearning(course.id)}
+                            data-testid={`btn-continue-${course.id}`}
+                          >
+                            {progress === 100 ? (
+                              <><i className="bi bi-trophy-fill"></i>Ôn Lại Khóa Học</>
+                            ) : progress > 0 ? (
+                              <><i className="bi bi-play-fill"></i>Tiếp Tục Học</>
+                            ) : (
+                              <><i className="bi bi-rocket-takeoff-fill"></i>Bắt Đầu Học</>
+                            )}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

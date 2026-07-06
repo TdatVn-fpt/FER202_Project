@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* Global CSS cho dự án IELTS Online Learning */
 
 /* Utility class cắt chữ nhiều dòng (dùng cho Tiêu đề và Mô tả khóa học) */
@@ -18,3 +26,5 @@
   text-overflow: ellipsis;
   white-space: normal;
 }
+
+

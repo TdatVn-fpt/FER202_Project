@@ -1,8 +1,7 @@
 /* ===== CHECKOUT / VIETQR PAYMENT ===== */
 .checkout-page {
   min-height: 100vh;
-  background: linear-gradient(160deg, #0f172a 0%, #1e293b 55%, #334155 100%);
-  padding: 48px 20px 80px;
+  background-color: #f8fafc;
   font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
 }
 

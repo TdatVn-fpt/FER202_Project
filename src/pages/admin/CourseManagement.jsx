@@ -9,7 +9,7 @@
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Table, Form, Button, Badge, Spinner, Alert, Dropdown, Modal } from 'react-bootstrap';
+import { Table, Form, Button, Badge, Spinner, Alert, Dropdown, Card, Container } from 'react-bootstrap';
 import ConfirmModal from '../../components/common/ConfirmModal';
 import { getCourses, updateCourse, deleteCourse } from '../../services/adminService';
 
@@ -140,150 +140,148 @@ const CourseManagement = () => {
   };
 
   return (
-    <div className="container-fluid py-4">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <div>
-          <h2 className="fw-bold mb-1">Course Management</h2>
-          <p className="text-muted mb-0">Quản lý toàn bộ khóa học trong hệ thống</p>
-        </div>
-        <Badge bg="primary" className="fs-6 px-3 py-2">{courses.length} Khóa học</Badge>
-      </div>
-
-      {error && <Alert variant="danger" onClose={() => setError(null)} dismissible>{error}</Alert>}
-
-      {/* Filter Bar */}
-      <div className="card border-0 shadow-sm rounded-4 mb-4">
-        <div className="card-body">
-          <Form className="row g-3 align-items-end">
-            <div className="col-md-4">
-              <Form.Control
-                type="text"
-                placeholder="Tìm kiếm theo tên khóa học..."
-                name="q"
-                value={filters.q}
-                onChange={handleFilterChange}
-                className="rounded-pill"
-                id="course-search-input"
-              />
-            </div>
-            <div className="col-md-3">
-              <Form.Select name="skill" value={filters.skill} onChange={handleFilterChange} className="rounded-pill" id="course-skill-filter">
-                <option value="">Tất cả kỹ năng</option>
-                <option value="Reading">Reading</option>
-                <option value="Listening">Listening</option>
-                <option value="Writing">Writing</option>
-                <option value="Speaking">Speaking</option>
-              </Form.Select>
-            </div>
-            <div className="col-md-3">
-              <Form.Select name="status" value={filters.status} onChange={handleFilterChange} className="rounded-pill" id="course-status-filter">
-                <option value="">Tất cả trạng thái</option>
-                <option value="approved">Approved</option>
-                <option value="pending">Pending</option>
-                <option value="rejected">Rejected</option>
-              </Form.Select>
-            </div>
-            <div className="col-md-2">
-              <Button variant="primary" className="w-100 rounded-pill" onClick={fetchCourses} id="course-filter-btn">
-                Lọc
-              </Button>
-            </div>
-          </Form>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-journal-bookmark"></i> Quản lý</div>
+            <h1 className="tp-page-title">Khóa học</h1>
+            <p className="tp-page-sub">Quản lý toàn bộ khóa học trong hệ thống</p>
+          </div>
         </div>
       </div>
 
-      {/* Table */}
-      <div className="card border-0 shadow-sm rounded-4">
-        <div className="card-body p-0 table-responsive">
-          <Table hover className="mb-0 align-middle">
-            <thead className="table-light">
-              <tr>
-                <th className="ps-4">Tên khóa học</th>
-                <th>Kỹ năng</th>
-                <th>Cấp độ</th>
-                <th>Học viên</th>
-                <th>Giá</th>
-                <th>Trạng thái</th>
-                <th>Ngày tạo</th>
-                <th className="text-end pe-4">Thao tác</th>
-              </tr>
-            </thead>
-            <tbody>
-              {loading ? (
-                <tr>
-                  <td colSpan="8" className="text-center py-5">
-                    <Spinner animation="border" variant="primary" />
-                  </td>
-                </tr>
-              ) : courses.length === 0 ? (
-                <tr>
-                  <td colSpan="8" className="text-center py-5 text-muted">
-                    <i className="bi bi-inbox fs-1 d-block mb-2 opacity-50"></i>
-                    Không có khóa học nào phù hợp với bộ lọc.
-                  </td>
-                </tr>
-              ) : (
-                courses.map(course => (
-                  <tr key={course.id}>
-                    <td className="ps-4">
-                      <div className="fw-medium">{course.title}</div>
-                      <small className="text-muted">{course.id}</small>
-                    </td>
-                    <td>
-                      <Badge bg="info" text="dark" className="rounded-pill">{course.skill}</Badge>
-                    </td>
-                    <td className="text-muted">{course.level}</td>
-                    <td>{course.enrolledCount ?? 0}</td>
-                    <td>{formatPrice(course.price)}</td>
-                    <td>
-                      <Badge bg={getStatusVariant(course.status)} className="rounded-pill text-capitalize">
-                        {course.status}
-                      </Badge>
-                    </td>
-                    <td className="text-muted">
-                      {course.createdAt ? new Date(course.createdAt).toLocaleDateString('vi-VN') : 'N/A'}
-                    </td>
-                    <td className="text-end pe-4">
-                      <Dropdown align="end">
-                        <Dropdown.Toggle variant="light" size="sm" className="rounded-pill border-0" id={`course-action-${course.id}`}>
-                          Quản lý
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="shadow-sm border-0">
-                          <Dropdown.Header>Thay đổi trạng thái</Dropdown.Header>
-                          {/* EARS[Event]: WHEN Admin approves course, THE system SHALL update status to approved */}
-                          {course.status !== 'approved' && (
-                            <Dropdown.Item className="text-success" onClick={() => openConfirmModal('status', course, 'approved')}>
-                              ✓ Approve
-                            </Dropdown.Item>
-                          )}
-                          {course.status !== 'rejected' && (
-                            <Dropdown.Item className="text-danger" onClick={() => openConfirmModal('status', course, 'rejected')}>
-                              ✗ Reject
-                            </Dropdown.Item>
-                          )}
-                          {course.status !== 'pending' && (
-                            <Dropdown.Item className="text-warning" onClick={() => openConfirmModal('status', course, 'pending')}>
-                              ⏳ Set Pending
-                            </Dropdown.Item>
-                          )}
-                          <Dropdown.Divider />
-                          <Dropdown.Item className="text-primary fw-bold" onClick={() => openPriceModal(course)}>
-                            ✏️ Sửa giá
-                          </Dropdown.Item>
-                          <Dropdown.Divider />
-                          {/* EARS[Unwanted]: WHERE Admin deletes a course, THE system SHALL ask for confirmation */}
-                          <Dropdown.Item className="text-danger fw-bold" onClick={() => openConfirmModal('delete', course)}>
-                            🗑 Xóa khóa học
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </Table>
-        </div>
+      <div className="tp-main-content">
+        <Container fluid="xxl" className="px-4">
+          <div className="d-flex justify-content-end mb-3">
+            <Badge bg="primary" className="fs-6 px-3 py-2 rounded-pill shadow-sm">{courses.length} Khóa học</Badge>
+          </div>
+
+          {error && <Alert variant="danger" onClose={() => setError(null)} dismissible>{error}</Alert>}
+
+          {/* Filter Bar */}
+          <Card className="studio-filter-card mb-4">
+            <Form className="row g-3 align-items-end">
+              <div className="col-md-4">
+                <Form.Control
+                  type="text"
+                  placeholder="Tìm kiếm theo tên khóa học..."
+                  name="q"
+                  value={filters.q}
+                  onChange={handleFilterChange}
+                  className="tp-input"
+                  id="course-search-input"
+                />
+              </div>
+              <div className="col-md-3">
+                <Form.Select name="skill" value={filters.skill} onChange={handleFilterChange} className="tp-input" id="course-skill-filter">
+                  <option value="">Tất cả kỹ năng</option>
+                  <option value="Reading">Reading</option>
+                  <option value="Listening">Listening</option>
+                  <option value="Writing">Writing</option>
+                  <option value="Speaking">Speaking</option>
+                </Form.Select>
+              </div>
+              <div className="col-md-3">
+                <Form.Select name="status" value={filters.status} onChange={handleFilterChange} className="tp-input" id="course-status-filter">
+                  <option value="">Tất cả trạng thái</option>
+                  <option value="approved">Approved (Đã duyệt)</option>
+                  <option value="pending">Pending (Chờ duyệt)</option>
+                  <option value="rejected">Rejected (Từ chối)</option>
+                  <option value="draft">Draft (Bản nháp)</option>
+                </Form.Select>
+              </div>
+              <div className="col-md-2">
+                <Button variant="outline-secondary" className="w-100 rounded-pill" onClick={() => setFilters({ skill: '', status: '', q: '' })}>
+                  Xóa bộ lọc
+                </Button>
+              </div>
+            </Form>
+          </Card>
+
+          {/* Course List Table */}
+          <Card className="studio-table-card">
+            {loading ? (
+              <div className="d-flex justify-content-center p-5">
+                <Spinner animation="border" variant="primary" />
+              </div>
+            ) : courses.length === 0 ? (
+              <div className="text-center p-5 text-muted">
+                Không tìm thấy khóa học nào phù hợp.
+              </div>
+            ) : (
+              <div className="table-responsive">
+                <Table responsive hover className="align-middle">
+                  <thead>
+                    <tr>
+                      <th className="ps-4">Tên khóa học</th>
+                      <th>Kỹ năng</th>
+                      <th>Cấp độ</th>
+                      <th>Học viên</th>
+                      <th>Giá</th>
+                      <th>Trạng thái</th>
+                      <th>Ngày tạo</th>
+                      <th className="text-end pe-4">Thao tác</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {courses.map(course => (
+                      <tr key={course.id}>
+                        <td className="ps-4">
+                          <div className="fw-medium">{course.title}</div>
+                          <small className="text-muted">{course.id}</small>
+                        </td>
+                        <td>
+                          <Badge bg="info" text="dark" className="rounded-pill">{course.skill}</Badge>
+                        </td>
+                        <td className="text-muted">{course.level}</td>
+                        <td>{course.enrolledCount ?? 0}</td>
+                        <td>{formatPrice(course.price)}</td>
+                        <td>
+                          <Badge bg={getStatusVariant(course.status)} className="rounded-pill text-capitalize">
+                            {course.status}
+                          </Badge>
+                        </td>
+                        <td className="text-muted">
+                          {course.createdAt ? new Date(course.createdAt).toLocaleDateString('vi-VN') : 'N/A'}
+                        </td>
+                        <td className="text-end pe-4">
+                          <Dropdown align="end">
+                            <Dropdown.Toggle variant="light" size="sm" className="rounded-pill border-0" id={`course-action-${course.id}`}>
+                              Quản lý
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu className="shadow-sm border-0">
+                              <Dropdown.Header>Thay đổi trạng thái</Dropdown.Header>
+                              {course.status !== 'approved' && (
+                                <Dropdown.Item className="text-success" onClick={() => openConfirmModal('status', course, 'approved')}>
+                                  ✓ Approve
+                                </Dropdown.Item>
+                              )}
+                              {course.status !== 'rejected' && (
+                                <Dropdown.Item className="text-danger" onClick={() => openConfirmModal('status', course, 'rejected')}>
+                                  ✗ Reject
+                                </Dropdown.Item>
+                              )}
+                              {course.status !== 'pending' && (
+                                <Dropdown.Item className="text-warning" onClick={() => openConfirmModal('status', course, 'pending')}>
+                                  ⏳ Set Pending
+                                </Dropdown.Item>
+                              )}
+                              <Dropdown.Divider />
+                              <Dropdown.Item className="text-danger fw-bold" onClick={() => openConfirmModal('delete', course)}>
+                                🗑 Xóa khóa học
+                              </Dropdown.Item>
+                            </Dropdown.Menu>
+                          </Dropdown>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </div>
+            )}
+          </Card>
+        </Container>
       </div>
 
       <Modal show={priceModal.isOpen} onHide={() => setPriceModal(prev => ({ ...prev, isOpen: false }))} centered>
@@ -293,8 +291,8 @@ const CourseManagement = () => {
         <Modal.Body>
           <Form.Group>
             <Form.Label>Giá mới (VNĐ)</Form.Label>
-            <Form.Control 
-              type="number" 
+            <Form.Control
+              type="number"
               value={priceModal.newPrice}
               onChange={(e) => setPriceModal(prev => ({ ...prev, newPrice: e.target.value }))}
             />

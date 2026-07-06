@@ -26,12 +26,12 @@ const MCQRenderer = ({ question, currentAnswer, onAnswer, isReviewMode = false }
 
   return (
     <div className="mcq-renderer" data-testid={`mcq-question-${question.id}`}>
-      <div className="mb-4">
-        <p className="fs-5 fw-semibold text-dark lh-base mb-0">
+      <div className="mb-3">
+        <p className="fs-6 text-dark lh-base mb-0" style={{ fontFamily: 'Arial, sans-serif' }}>
           {question.prompt || question.questionText}
         </p>
       </div>
-      <div className="question-options d-flex flex-column gap-2">
+      <div className="question-options d-flex flex-column gap-2 ps-2">
         {question.options.map((option, index) => {
           const optionValue = typeof option === 'object' ? option.value : option;
           const optionLabel = typeof option === 'object' ? option.label : option;
@@ -39,60 +39,33 @@ const MCQRenderer = ({ question, currentAnswer, onAnswer, isReviewMode = false }
           const letter = OPTION_LETTERS[index] || String(index + 1);
 
           return (
-            <div
+            <label
               key={`${question.id}-opt-${index}`}
-              onClick={() => handleChange(optionValue)}
-              role="radio"
-              aria-checked={isChecked}
-              tabIndex={isReviewMode ? -1 : 0}
-              onKeyDown={(e) => e.key === 'Enter' && handleChange(optionValue)}
-              className={`d-flex align-items-center gap-3 p-3 rounded-3 border-2 ${
-                isReviewMode ? 'cursor-not-allowed' : 'cursor-pointer'
-              }`}
+              className="d-flex align-items-start gap-2 mb-2"
               style={{
                 cursor: isReviewMode ? 'not-allowed' : 'pointer',
-                border: isChecked
-                  ? '2px solid #0d6efd'
-                  : '2px solid #dee2e6',
-                backgroundColor: isChecked ? '#eef2ff' : '#fff',
-                transition: 'all 0.15s ease',
+                fontFamily: 'Arial, sans-serif',
+                fontSize: '15px'
               }}
-              data-testid={`mcq-radio-${index}`}
             >
-              <div
-                className="d-flex align-items-center justify-content-center rounded-circle fw-bold flex-shrink-0"
-                style={{
-                  width: 32,
-                  height: 32,
-                  background: isChecked ? '#0d6efd' : '#f0f0f0',
-                  color: isChecked ? '#fff' : '#555',
-                  fontSize: 14,
-                  transition: 'all 0.15s ease',
-                }}
-              >
-                {letter}
-              </div>
-              <span className="fs-6 text-dark">{optionLabel}</span>
-            </div>
+              <input
+                type="radio"
+                name={`question-${question.id}`}
+                value={optionValue}
+                checked={isChecked}
+                onChange={() => handleChange(optionValue)}
+                disabled={isReviewMode}
+                className="mt-1"
+                style={{ transform: 'scale(1.2)', cursor: isReviewMode ? 'not-allowed' : 'pointer' }}
+                data-testid={`mcq-radio-${index}`}
+              />
+              <span className="text-dark" style={{ lineHeight: '1.5' }}>
+                <strong className="me-2">{letter}.</strong>{optionLabel}
+              </span>
+            </label>
           );
         })}
       </div>
-      {/* Hidden real radio input for form compatibility */}
-      {question.options.map((option, index) => {
-        const optionValue = typeof option === 'object' ? option.value : option;
-        return (
-          <input
-            key={`hidden-${index}`}
-            type="radio"
-            name={`question-${question.id}`}
-            value={optionValue}
-            checked={currentAnswer === optionValue}
-            onChange={() => handleChange(optionValue)}
-            disabled={isReviewMode}
-            style={{ display: 'none' }}
-          />
-        );
-      })}
     </div>
   );
 };

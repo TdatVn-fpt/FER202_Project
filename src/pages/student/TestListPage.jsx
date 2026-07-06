@@ -1,216 +1,378 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { testService } from '../../services/testService';
+import api from '../../services/api';
+import { getCurrentUser } from '../../services/authService';
 
 const SKILL_CONFIG = {
-  Reading:   { color: '#0ea5e9', bg: '#e0f2fe', icon: '📖', gradient: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)' },
-  Listening: { color: '#f59e0b', bg: '#fef3c7', icon: '🎧', gradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)' },
-  Writing:   { color: '#8b5cf6', bg: '#ede9fe', icon: '✍️', gradient: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)' },
-  Speaking:  { color: '#10b981', bg: '#d1fae5', icon: '🎤', gradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)' },
+  Reading:   {
+    color: '#0369a1', bg: '#e0f2fe', icon: 'bi-book-fill',
+    gradient: 'linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%)',
+    light: '#f0f9ff', tag: 'READING'
+  },
+  Listening: {
+    color: '#b45309', bg: '#fef3c7', icon: 'bi-headphones',
+    gradient: 'linear-gradient(135deg, #f59e0b 0%, #b45309 100%)',
+    light: '#fffbeb', tag: 'LISTENING'
+  },
+  Writing:   {
+    color: '#6d28d9', bg: '#ede9fe', icon: 'bi-pencil-fill',
+    gradient: 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)',
+    light: '#faf5ff', tag: 'WRITING'
+  },
+  Speaking:  {
+    color: '#047857', bg: '#d1fae5', icon: 'bi-mic-fill',
+    gradient: 'linear-gradient(135deg, #10b981 0%, #047857 100%)',
+    light: '#ecfdf5', tag: 'SPEAKING'
+  },
 };
-const getSkill = (skill) => SKILL_CONFIG[skill] || { color: '#6366f1', bg: '#eef2ff', icon: '📝', gradient: 'linear-gradient(135deg,#6366f1,#4f46e5)' };
+const getSkill = (skill) => SKILL_CONFIG[skill] || {
+  color: '#4338ca', bg: '#eef2ff', icon: 'bi-file-text-fill',
+  gradient: 'linear-gradient(135deg,#6366f1,#4338ca)', light: '#eef2ff', tag: 'TEST'
+};
 
-const FILTERS = ['Tất cả', 'Reading', 'Listening', 'Writing', 'Speaking'];
+const FILTERS = [
+  { key: 'Tất cả', label: 'All Skills', icon: 'bi-grid-fill' },
+  { key: 'Reading', label: 'Reading', icon: 'bi-book-fill' },
+  { key: 'Listening', label: 'Listening', icon: 'bi-headphones' },
+  { key: 'Writing', label: 'Writing', icon: 'bi-pencil-fill' },
+  { key: 'Speaking', label: 'Speaking', icon: 'bi-mic-fill' },
+];
 
 export default function TestListPage() {
   const [tests, setTests] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeFilter, setActiveFilter] = useState('Tất cả');
+  const [enrollments, setEnrollments] = useState([]);
 
   useEffect(() => {
-    const fetchTests = async () => {
+    const fetchTestsAndEnrollments = async () => {
       try {
-        const data = await testService.getPublishedTests();
-        setTests(data);
+        const user = getCurrentUser();
+        const [testsData, enrollmentsRes] = await Promise.all([
+          testService.getPublishedTests(),
+          api.get(`/enrollments?userId=${user?.id}`)
+        ]);
+        setTests(testsData);
+        setEnrollments(enrollmentsRes.data || []);
       } catch (err) {
-        setError(err.message || 'Lỗi khi tải danh sách bài thi.');
+        setError(err.message || 'Lỗi khi tải dữ liệu bài thi.');
       } finally {
         setIsLoading(false);
       }
     };
-    fetchTests();
+    fetchTestsAndEnrollments();
   }, []);
 
   const filtered = activeFilter === 'Tất cả'
     ? tests
     : tests.filter(t => t.skill === activeFilter);
 
-  if (isLoading) {
-    return (
-      <div className="d-flex flex-column justify-content-center align-items-center" style={{ minHeight: '60vh' }} data-testid="testlist-loading">
-        <div className="spinner-border mb-3" style={{ width: '3rem', height: '3rem', color: '#1b4332' }} role="status" />
-        <p className="text-muted fw-semibold">Đang tải danh sách bài thi...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="container mt-5" data-testid="testlist-error">
-        <div className="alert alert-danger shadow-sm border-0 rounded-4 p-4 text-center">
-          <h4 className="alert-heading fw-bold mb-2">Oops! Lỗi xảy ra</h4>
-          <p className="mb-0">{error}</p>
-        </div>
-      </div>
-    );
-  }
+  const freeCount = tests.filter(t => t.testMode === 'free').length;
+  const premiumCount = tests.filter(t => t.testMode !== 'free').length;
 
   return (
-    <div style={{ background: '#f8fafc', minHeight: '100vh' }} data-testid="testlist-page">
+    <div style={{ background: '#f1f5f9', minHeight: '100vh', fontFamily: "'Inter', sans-serif" }} data-testid="testlist-page">
 
-      {/* ===== HERO BANNER ===== */}
+      {/* ===== HERO SECTION - IELTS Style ===== */}
       <div style={{
-        background: 'linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%)',
-        padding: '64px 0 80px',
+        background: 'linear-gradient(160deg, #0f172a 0%, #1e3a8a 50%, #1d4ed8 100%)',
+        padding: '72px 0 0',
+        color: '#fff',
         position: 'relative',
         overflow: 'hidden',
       }}>
-        {/* Decorative circles */}
-        <div style={{ position:'absolute', top:-60, right:-60, width:240, height:240, borderRadius:'50%', background:'rgba(255,255,255,0.05)' }} />
-        <div style={{ position:'absolute', bottom:-40, left:-40, width:180, height:180, borderRadius:'50%', background:'rgba(255,255,255,0.05)' }} />
-        <div className="container position-relative">
-          <div className="d-flex align-items-center gap-3 mb-3">
-            <span style={{ fontSize: 36 }}>🏆</span>
-            <span className="badge px-3 py-2 fw-semibold" style={{ background:'rgba(255,255,255,0.2)', color:'#fff', fontSize:13, borderRadius:20 }}>
-              IELTS Practice Tests
-            </span>
-          </div>
-          <h1 className="fw-bold text-white mb-2" style={{ fontSize: 'clamp(2rem,5vw,3rem)', letterSpacing:'-0.5px' }}>
-            Thi thử IELTS Online
-          </h1>
-          <p className="mb-0" style={{ color: 'rgba(255,255,255,0.75)', fontSize: 17, maxWidth: 560 }}>
-            Luyện tập với bài thi chuẩn định dạng IELTS. Làm quen với áp lực thời gian thực và nhận kết quả tức thì.
-          </p>
-        </div>
-      </div>
+        {/* Background decorative elements */}
+        <div style={{
+          position: 'absolute', top: '-60px', right: '-60px',
+          width: '400px', height: '400px', borderRadius: '50%',
+          background: 'rgba(255,255,255,0.03)', pointerEvents: 'none'
+        }}/>
+        <div style={{
+          position: 'absolute', bottom: '-80px', left: '-40px',
+          width: '300px', height: '300px', borderRadius: '50%',
+          background: 'rgba(99,102,241,0.15)', pointerEvents: 'none'
+        }}/>
 
-      {/* ===== FILTER TABS ===== */}
-      <div className="bg-white border-bottom shadow-sm" style={{ position: 'sticky', top: 0, zIndex: 100 }}>
-        <div className="container">
-          <div className="d-flex align-items-center gap-2 py-3 overflow-auto" style={{ scrollbarWidth: 'none' }}>
-            {FILTERS.map(f => (
-              <button
-                key={f}
-                type="button"
-                onClick={() => setActiveFilter(f)}
-                className="btn fw-semibold flex-shrink-0"
-                style={{
-                  borderRadius: 24,
-                  padding: '8px 22px',
-                  fontSize: 14,
-                  transition: 'all 0.2s ease',
-                  border: activeFilter === f ? '2px solid #1b4332' : '2px solid transparent',
-                  background: activeFilter === f ? '#1b4332' : '#f1f5f9',
-                  color: activeFilter === f ? '#fff' : '#475569',
-                }}
-              >
-                {f === 'Tất cả' ? '📋 Tất cả' : f}
-              </button>
-            ))}
-            <span className="ms-auto text-muted small flex-shrink-0">
-              {filtered.length} bài thi
-            </span>
+        <div className="container position-relative">
+          <div className="text-center mb-5">
+            {/* Tag */}
+            <div className="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill mb-4"
+              style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}>
+              <i className="bi bi-patch-check-fill" style={{ color: '#fbbf24' }}></i>
+              <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: '2px', color: '#fbbf24' }}>OFFICIAL IELTS PRACTICE</span>
+            </div>
+
+            <h1 style={{ fontSize: '2.8rem', fontWeight: 800, lineHeight: 1.2, marginBottom: 16 }}>
+              IELTS Mock Test Library
+            </h1>
+            <p style={{ fontSize: '1.1rem', opacity: 0.8, maxWidth: 560, margin: '0 auto 40px' }}>
+              Full-length mock tests matching real IELTS format. Track your band score and improve with every attempt.
+            </p>
+
+            {/* Stats bar */}
+            <div className="d-flex justify-content-center gap-5 mb-0">
+              {[
+                { num: tests.length, label: 'Total Tests' },
+                { num: freeCount, label: 'Free Tests' },
+                { num: premiumCount, label: 'Premium Tests' },
+                { num: '0–9', label: 'Band Scale' },
+              ].map(({ num, label }) => (
+                <div key={label} className="text-center">
+                  <div style={{ fontSize: '2rem', fontWeight: 800, color: '#fff' }}>{num}</div>
+                  <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase' }}>{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Filter Bar - attached to hero bottom */}
+          <div style={{
+            background: 'rgba(255,255,255,0.08)',
+            backdropFilter: 'blur(10px)',
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+            borderRadius: '16px 16px 0 0',
+            padding: '20px 24px',
+          }}>
+            <div className="d-flex align-items-center gap-2 overflow-auto" style={{ scrollbarWidth: 'none' }}>
+              {FILTERS.map(f => (
+                <button
+                  key={f.key}
+                  type="button"
+                  onClick={() => setActiveFilter(f.key)}
+                  className="d-flex align-items-center gap-2 fw-semibold flex-shrink-0"
+                  style={{
+                    borderRadius: 50,
+                    padding: '9px 20px',
+                    fontSize: 14,
+                    transition: 'all 0.2s ease',
+                    border: 'none',
+                    background: activeFilter === f.key ? '#ffffff' : 'rgba(255,255,255,0.12)',
+                    color: activeFilter === f.key ? '#1e3a8a' : 'rgba(255,255,255,0.85)',
+                    boxShadow: activeFilter === f.key ? '0 4px 14px rgba(0,0,0,0.2)' : 'none',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <i className={`bi ${f.icon}`} style={{ fontSize: 13 }}></i>
+                  {f.label}
+                </button>
+              ))}
+              <span className="ms-auto text-white-50 small flex-shrink-0 fw-semibold">
+                {filtered.length} test{filtered.length !== 1 ? 's' : ''}
+              </span>
+            </div>
           </div>
         </div>
       </div>
 
       {/* ===== CONTENT ===== */}
-      <div className="container py-5">
-        {filtered.length === 0 ? (
-          <div className="text-center py-5" data-testid="testlist-empty">
-            <p style={{ fontSize: 64 }}>🔍</p>
-            <h5 className="fw-bold text-dark mb-2">Hiện không có bài thi nào trong hệ thống.</h5>
-            <p className="text-muted">Thử chọn kỹ năng khác hoặc quay lại sau.</p>
+      {isLoading ? (
+        <div className="d-flex flex-column justify-content-center align-items-center" style={{ minHeight: '40vh' }}>
+          <div className="spinner-border mb-3" style={{ width: '3rem', height: '3rem', color: '#1e3a8a' }} role="status" />
+          <p className="text-muted fw-semibold">Loading tests...</p>
+        </div>
+      ) : error ? (
+        <div className="container mt-5">
+          <div className="alert alert-danger border-0 rounded-4 p-4 text-center shadow-sm">
+            <i className="bi bi-exclamation-triangle-fill fs-3 d-block mb-2 text-danger"></i>
+            <h5 className="fw-bold">{error}</h5>
           </div>
-        ) : (
-          <div className="row g-4">
-            {filtered.map((test) => {
-              const sk = getSkill(test.skill);
-              return (
-                <div className="col-12 col-md-6 col-xl-4" key={test.id} data-testid={`test-card-${test.id}`}>
-                  <div
-                    className="h-100"
-                    style={{
-                      background: '#fff',
-                      borderRadius: 20,
-                      overflow: 'hidden',
-                      boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
-                      border: '1px solid #e2e8f0',
-                      transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-                      display: 'flex', flexDirection: 'column',
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.transform='translateY(-6px)'; e.currentTarget.style.boxShadow='0 12px 32px rgba(0,0,0,0.13)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.transform='translateY(0)'; e.currentTarget.style.boxShadow='0 2px 12px rgba(0,0,0,0.07)'; }}
-                  >
-                    {/* Card top accent */}
-                    <div style={{ height: 5, background: sk.gradient }} />
+        </div>
+      ) : (
+        <div className="container py-5">
+          {filtered.length === 0 ? (
+            <div className="text-center py-5">
+              <i className="bi bi-search" style={{ fontSize: 64, color: '#cbd5e1' }}></i>
+              <h5 className="fw-bold text-dark mt-3 mb-2">No tests found for this skill.</h5>
+              <p className="text-muted">Try selecting a different skill filter.</p>
+            </div>
+          ) : (
+            <div className="row g-4">
+              {filtered.map((test) => {
+                const sk = getSkill(test.skill);
+                const isLocked = test.testMode !== 'free' && !enrollments.some(e => e.courseId === test.courseId);
 
-                    <div className="p-4 d-flex flex-column" style={{ flex: 1 }}>
-                      {/* Header row */}
-                      <div className="d-flex align-items-center justify-content-between mb-3">
-                        <div className="d-flex align-items-center gap-2">
-                          <div className="d-flex align-items-center justify-content-center rounded-circle"
-                            style={{ width:38, height:38, background:sk.bg, fontSize:18 }}>
-                            {sk.icon}
+                return (
+                  <div className="col-12 col-md-6 col-xl-4" key={test.id} data-testid={`test-card-${test.id}`}>
+                    <div
+                      style={{
+                        background: '#fff',
+                        borderRadius: 16,
+                        overflow: 'hidden',
+                        boxShadow: '0 1px 6px rgba(0,0,0,0.06)',
+                        border: '1px solid #e2e8f0',
+                        transition: 'all 0.3s ease',
+                        display: 'flex', flexDirection: 'column',
+                        height: '100%',
+                        filter: isLocked ? 'grayscale(20%)' : 'none',
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.transform = 'translateY(-5px)';
+                        e.currentTarget.style.boxShadow = '0 16px 40px rgba(0,0,0,0.12)';
+                        e.currentTarget.style.borderColor = isLocked ? '#e2e8f0' : sk.color;
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = '0 1px 6px rgba(0,0,0,0.06)';
+                        e.currentTarget.style.borderColor = '#e2e8f0';
+                      }}
+                    >
+                      {/* Skill color bar */}
+                      <div style={{ height: 4, background: isLocked ? '#e2e8f0' : sk.gradient }} />
+
+                      {/* Card header */}
+                      <div style={{ background: isLocked ? '#f8fafc' : sk.light, padding: '16px 20px 12px' }}>
+                        <div className="d-flex align-items-center justify-content-between">
+                          <div className="d-flex align-items-center gap-2">
+                            <div style={{
+                              width: 32, height: 32, borderRadius: 8,
+                              background: isLocked ? '#e2e8f0' : sk.gradient,
+                              display: 'flex', alignItems: 'center', justifyContent: 'center',
+                              boxShadow: isLocked ? 'none' : `0 4px 10px ${sk.color}40`
+                            }}>
+                              <i className={`bi ${sk.icon}`} style={{ color: '#fff', fontSize: 14 }}></i>
+                            </div>
+                            <span style={{
+                              fontWeight: 700, fontSize: 11, letterSpacing: '1.5px',
+                              color: isLocked ? '#94a3b8' : sk.color,
+                              textTransform: 'uppercase'
+                            }}>{sk.tag}</span>
                           </div>
-                          <span className="fw-bold" style={{ color:sk.color, fontSize:13 }}>
-                            {test.skill}
+                          {isLocked ? (
+                            <span style={{
+                              background: '#fef3c7', color: '#92400e', border: '1px solid #fde68a',
+                              borderRadius: 20, padding: '3px 10px', fontSize: 11, fontWeight: 700
+                            }}>
+                              <i className="bi bi-lock-fill me-1"></i>PREMIUM
+                            </span>
+                          ) : (
+                            <span style={{
+                              background: '#dcfce7', color: '#166534', border: '1px solid #bbf7d0',
+                              borderRadius: 20, padding: '3px 10px', fontSize: 11, fontWeight: 700
+                            }}>
+                              FREE
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Card body */}
+                      <div style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                        <h5 style={{
+                          fontWeight: 700, fontSize: 15, lineHeight: 1.4,
+                          color: '#0f172a', marginBottom: 12
+                        }}>
+                          {test.title}
+                        </h5>
+
+                        {/* Metadata chips */}
+                        <div className="d-flex gap-2 flex-wrap mb-4">
+                          <span style={{
+                            display: 'inline-flex', alignItems: 'center', gap: 5,
+                            background: '#f1f5f9', borderRadius: 6, padding: '4px 10px',
+                            fontSize: 12, color: '#475569', fontWeight: 600
+                          }}>
+                            <i className="bi bi-clock" style={{ fontSize: 11 }}></i>
+                            {test.durationMinutes} mins
+                          </span>
+                          <span style={{
+                            display: 'inline-flex', alignItems: 'center', gap: 5,
+                            background: '#f1f5f9', borderRadius: 6, padding: '4px 10px',
+                            fontSize: 12, color: '#475569', fontWeight: 600
+                          }}>
+                            <i className="bi bi-list-check" style={{ fontSize: 11 }}></i>
+                            {test.totalQuestions} questions
+                          </span>
+                          <span style={{
+                            display: 'inline-flex', alignItems: 'center', gap: 5,
+                            background: '#f1f5f9', borderRadius: 6, padding: '4px 10px',
+                            fontSize: 12, color: '#475569', fontWeight: 600
+                          }}>
+                            <i className="bi bi-trophy" style={{ fontSize: 11 }}></i>
+                            Band 0–9
                           </span>
                         </div>
-                        {/* IELTS score badge */}
-                        <div className="text-center">
-                          <div style={{ fontSize:11, color:'#94a3b8', fontWeight:600 }}>ĐIỂM</div>
-                          <div style={{ fontSize:22, fontWeight:800, color:'#cbd5e1' }}>0.0</div>
+
+                        {/* Bottom action row */}
+                        <div className="mt-auto">
+                          {/* Score display */}
+                          <div className="d-flex align-items-center justify-content-between mb-3">
+                            <div style={{ fontSize: 12, color: '#94a3b8' }}>
+                              <i className="bi bi-bar-chart-fill me-1"></i>
+                              Best score: <span style={{ fontWeight: 700, color: '#cbd5e1' }}>—</span>
+                            </div>
+                            <div style={{ fontSize: 12, color: '#10b981', fontWeight: 600 }}>
+                              <span style={{
+                                display: 'inline-block', width: 8, height: 8, borderRadius: '50%',
+                                background: '#10b981', marginRight: 5
+                              }}></span>
+                              Not attempted
+                            </div>
+                          </div>
+
+                          {/* Divider */}
+                          <div style={{ height: 1, background: '#f1f5f9', marginBottom: 16 }}></div>
+
+                          {isLocked ? (
+                            <Link
+                              to={test.courseId ? `/courses/${test.courseId}` : '#'}
+                              style={{
+                                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                                width: '100%', padding: '11px 20px',
+                                background: 'linear-gradient(135deg, #f59e0b, #d97706)',
+                                color: '#fff', borderRadius: 10, fontWeight: 700,
+                                fontSize: 14, textDecoration: 'none', border: 'none',
+                                boxShadow: '0 4px 12px rgba(245, 158, 11, 0.3)',
+                                transition: 'all 0.2s ease'
+                              }}
+                              onMouseEnter={e => {
+                                e.currentTarget.style.background = 'linear-gradient(135deg, #d97706, #b45309)';
+                                e.currentTarget.style.transform = 'translateY(-1px)';
+                              }}
+                              onMouseLeave={e => {
+                                e.currentTarget.style.background = 'linear-gradient(135deg, #f59e0b, #d97706)';
+                                e.currentTarget.style.transform = 'translateY(0)';
+                              }}
+                            >
+                              <i className="bi bi-lock-fill"></i>
+                              Unlock — View Course
+                            </Link>
+                          ) : (
+                            <Link
+                              to={`/learning/tests/${test.id}`}
+                              style={{
+                                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                                width: '100%', padding: '11px 20px',
+                                background: 'linear-gradient(135deg, #1e3a8a, #1d4ed8)',
+                                color: '#fff', borderRadius: 10, fontWeight: 700,
+                                fontSize: 14, textDecoration: 'none', border: 'none',
+                                boxShadow: '0 4px 12px rgba(30, 58, 138, 0.3)',
+                                transition: 'all 0.2s ease'
+                              }}
+                              onMouseEnter={e => {
+                                e.currentTarget.style.background = 'linear-gradient(135deg, #1d4ed8, #2563eb)';
+                                e.currentTarget.style.transform = 'translateY(-1px)';
+                              }}
+                              onMouseLeave={e => {
+                                e.currentTarget.style.background = 'linear-gradient(135deg, #1e3a8a, #1d4ed8)';
+                                e.currentTarget.style.transform = 'translateY(0)';
+                              }}
+                            >
+                              <i className="bi bi-play-fill" style={{ fontSize: 15 }}></i>
+                              Start Mock Test
+                            </Link>
+                          )}
                         </div>
-                      </div>
-
-                      {/* Title */}
-                      <h5 className="fw-bold text-dark lh-base mb-3" style={{ fontSize: 16 }}>
-                        {test.title}
-                      </h5>
-
-                      {/* Metadata */}
-                      <div className="d-flex align-items-center gap-3 mb-4" style={{ fontSize:13, color:'#64748b' }}>
-                        <span className="d-flex align-items-center gap-1">
-                          <span>🕒</span> {test.durationMinutes} phút
-                        </span>
-                        <span className="d-flex align-items-center gap-1">
-                          <span>📝</span> {test.totalQuestions} câu
-                        </span>
-                      </div>
-
-                      {/* Status + CTA */}
-                      <div className="mt-auto d-flex align-items-center justify-content-between gap-3">
-                        <span className="d-flex align-items-center gap-1" style={{ fontSize:13, color:'#10b981', fontWeight:600 }}>
-                          <span style={{ width:8,height:8,borderRadius:'50%',background:'#10b981',display:'inline-block' }} />
-                          Chưa thi
-                        </span>
-                        <Link
-                          to={`/learning/tests/${test.id}`}
-                          className="btn fw-bold px-4 py-2"
-                          style={{
-                            background: '#1b4332',
-                            color: '#fff',
-                            borderRadius: 12,
-                            fontSize: 14,
-                            transition: 'background 0.2s ease',
-                            textDecoration: 'none',
-                          }}
-                          onMouseEnter={e => e.currentTarget.style.background='#2d6a4f'}
-                          onMouseLeave={e => e.currentTarget.style.background='#1b4332'}
-                        >
-                          Thi thử →
-                        </Link>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

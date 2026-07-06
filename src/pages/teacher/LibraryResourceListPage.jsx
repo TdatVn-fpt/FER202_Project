@@ -53,55 +53,56 @@ export default function LibraryResourceListPage() {
 
   if (loading) {
     return (
-      <Container className="py-5 text-center">
-        <Spinner animation="border" variant="primary" />
-        <p className="text-muted mt-2">Đang tải...</p>
-      </Container>
+      <div className="tp-loading">
+        <Spinner animation="border" variant="primary" style={{ width: '3rem', height: '3rem', borderWidth: '4px' }} />
+        <p className="mt-3 fw-semibold text-secondary">Đang tải...</p>
+      </div>
     );
   }
 
   return (
-    <Container className="py-4">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <div>
-          <h2 className="fw-bold mb-1" data-testid="library-page-title">Thư viện Tài nguyên</h2>
-          <p className="text-muted mb-0">Quản lý các tài nguyên học tập đã tạo.</p>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-journal-album"></i> Thư viện</div>
+            <h1 className="tp-page-title" data-testid="library-page-title">Thư viện Tài nguyên</h1>
+            <p className="tp-page-sub">Quản lý các tài nguyên học tập đã tạo.</p>
+          </div>
+          <Link to="/teacher/library/create" className="tp-btn-primary" data-testid="btn-create-resource" style={{ alignSelf: 'flex-end' }}>
+            <i className="bi bi-plus-circle-fill"></i> Tạo tài nguyên mới
+          </Link>
         </div>
-        <Button
-          as={Link}
-          to="/teacher/library/create"
-          variant="primary"
-          className="rounded-pill fw-semibold px-4"
-          data-testid="btn-create-resource"
-        >
-          + Tạo tài nguyên mới
-        </Button>
       </div>
 
-      {error && <Alert variant="danger">{error}</Alert>}
+      <div className="tp-main-content">
+      <Container fluid="xxl" className="px-4">
+      {error && <div className="tp-error mb-4"><i className="bi bi-exclamation-triangle-fill text-danger fs-4"></i><div className="text-secondary">{error}</div></div>}
 
       {resources.length === 0 ? (
-        <Card className="border-0 shadow-sm text-center py-5">
-          <Card.Body>
-            <p className="text-muted fs-5" data-testid="empty-state">Chưa có tài nguyên nào.</p>
-            <Button as={Link} to="/teacher/library/create" variant="outline-primary">
-              Tạo tài nguyên đầu tiên
-            </Button>
-          </Card.Body>
-        </Card>
+        <div className="tp-card-static">
+          <div className="tp-empty">
+            <div className="tp-empty-icon"><i className="bi bi-folder2-open"></i></div>
+            <div className="tp-empty-title" data-testid="empty-state">Chưa có tài nguyên nào.</div>
+            <p className="tp-empty-sub">Hãy tạo tài nguyên đầu tiên để thêm vào thư viện.</p>
+            <Link to="/teacher/library/create" className="btn btn-primary rounded-pill px-4 mt-3 fw-semibold">
+              <i className="bi bi-plus-lg me-2"></i> Tạo tài nguyên
+            </Link>
+          </div>
+        </div>
       ) : (
-        <Card className="border-0 shadow-sm">
-          <Table responsive hover className="mb-0" data-testid="resource-table">
-            <thead className="bg-light">
+        <div className="tp-table-wrapper">
+          <table className="tp-table" data-testid="resource-table">
+            <thead>
               <tr>
-                <th>#</th>
+                <th style={{ width: '60px' }}>#</th>
                 <th>Tiêu đề</th>
                 <th>Loại</th>
                 <th>Kỹ năng</th>
                 <th>Trình độ</th>
                 <th>Hiển thị</th>
                 <th>Ngày tạo</th>
-                <th>Thao tác</th>
+                <th style={{ textAlign: 'right' }}>Thao tác</th>
               </tr>
             </thead>
             <tbody>
@@ -120,22 +121,22 @@ export default function LibraryResourceListPage() {
                     </Badge>
                   </td>
                   <td>{new Date(resource.createdAt).toLocaleDateString('vi-VN')}</td>
-                  <td>
-                    <Button
-                      variant="outline-danger"
-                      size="sm"
-                      onClick={() => handleDelete(resource.id)}
-                      data-testid={`btn-delete-${resource.id}`}
-                    >
-                      Xóa
-                    </Button>
+                  <td style={{ textAlign: 'right' }}>
+                    <div className="d-flex justify-content-end gap-2">
+                      <Link to={`/teacher/library/edit/${resource.id}`} className="tp-action-btn tp-action-btn-view" data-testid={`btn-edit-${resource.id}`} title="Sửa">
+                        <i className="bi bi-pencil-square"></i>
+                      </Link>
+                      <button className="tp-action-btn tp-action-btn-danger" onClick={() => handleDelete(resource.id)} data-testid={`btn-delete-${resource.id}`} title="Xóa">
+                        <i className="bi bi-trash"></i>
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
             </tbody>
-          </Table>
-        </Card>
+          </table>
+        </div>
       )}
-    </Container>
+      </Container></div></div>
   );
 }

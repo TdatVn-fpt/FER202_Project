@@ -1,10 +1,11 @@
 .footer-fer202 {
-  background-color: #1e1b4b; /* dark indigo, no longer the bright blue/purple */
+  background-color: #0f172a; /* Slate 900 for professional dark mode */
   color: #e5e7eb;
-  padding: 60px 24px 40px;
+  padding: 80px 24px 40px;
   text-align: center;
   font-family: 'Inter', -apple-system, sans-serif;
   margin-top: auto;
+  border-top: 4px solid #3b82f6; /* Blue accent line on top */
 }
 
 .footer-fer202-container {

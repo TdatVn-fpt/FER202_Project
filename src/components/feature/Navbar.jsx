@@ -4,6 +4,7 @@ import { Navbar as BsNavbar, Nav, NavDropdown, Container, Button } from 'react-b
 import { getCurrentUser, getDashboardPathByRole, logout } from '../../services/authService';
 import { getCartItems, subscribeCartChanges } from '../../services/cartService';
 import { getWishlistItems, subscribeWishlistChanges } from '../../services/wishlistService';
+import './Navbar.css';
 
 export default function Navbar({ variant = 'default' }) {
   const [expanded, setExpanded] = useState(false);
@@ -44,7 +45,7 @@ export default function Navbar({ variant = 'default' }) {
   };
 
   // Class helper cho NavLink (thêm 'active' của Bootstrap khi đang ở route đó)
-  const navLinkClass = ({ isActive }) => `nav-link${isActive ? ' active fw-semibold' : ''}`;
+  const navLinkClass = ({ isActive }) => `custom-nav-link nav-link${isActive ? ' active' : ''}`;
 
   return (
     <BsNavbar
@@ -53,7 +54,7 @@ export default function Navbar({ variant = 'default' }) {
       sticky="top"
       expanded={expanded}
       onToggle={setExpanded}
-      className="shadow-sm py-2"
+      className="shadow-sm py-3 custom-navbar"
     >
       <Container>
         <BsNavbar.Brand as={Link} to={currentUser ? dashboardPath : '/'} onClick={closeMenu} className="fw-bold fs-4 lh-1">
@@ -65,27 +66,37 @@ export default function Navbar({ variant = 'default' }) {
 
         <BsNavbar.Collapse id="main-navbar">
           {effectiveVariant === 'student' ? (
-            <Nav className="me-auto">
-              <Nav.Link as={NavLink} to="/learning" className={navLinkClass} onClick={closeMenu}>
-                Home
+            <Nav className="me-auto fw-medium gap-lg-2 ms-lg-4 align-items-lg-center">
+              <Nav.Link as={NavLink} to="/learning" className={navLinkClass} onClick={closeMenu} end>
+                <i className="bi bi-house-door me-2 d-lg-none"></i>Home
               </Nav.Link>
               <Nav.Link as={NavLink} to="/learning/dashboard" className={navLinkClass} onClick={closeMenu}>
-                Dashboard
+                <i className="bi bi-grid me-2 d-lg-none"></i>Dashboard
               </Nav.Link>
               <Nav.Link as={NavLink} to="/learning/my-courses" className={navLinkClass} onClick={closeMenu}>
-                My Courses
+                <i className="bi bi-journal-bookmark me-2 d-lg-none"></i>My Courses
               </Nav.Link>
               <Nav.Link as={NavLink} to="/learning/courses" className={navLinkClass} onClick={closeMenu}>
-                Course Catalog
+                <i className="bi bi-compass me-2 d-lg-none"></i>Explore
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/learning/flashcards" className={navLinkClass} onClick={closeMenu}>
-                Flashcards
-              </Nav.Link>
-              <Nav.Link as={NavLink} to="/learning/tests" className={navLinkClass} onClick={closeMenu}>
-                Tests
-              </Nav.Link>
+              <NavDropdown 
+                title={<span className="fw-medium text-secondary px-2"><i className="bi bi-controller me-2 d-lg-none"></i>Practice</span>} 
+                id="practice-dropdown"
+                className="custom-nav-dropdown"
+              >
+                <NavDropdown.Item as={NavLink} to="/learning/exam-library" onClick={closeMenu} className="py-2">
+                  <i className="bi bi-journal-text me-2 text-primary"></i>Exam Library
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/learning/tests" onClick={closeMenu} className="py-2">
+                  <i className="bi bi-file-earmark-text me-2 text-success"></i>Mock Tests
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/learning/flashcards" onClick={closeMenu} className="py-2">
+                  <i className="bi bi-layers me-2 text-warning"></i>Flashcards
+                </NavDropdown.Item>
+              </NavDropdown>
+
               <Nav.Link as={NavLink} to="/learning/history" className={navLinkClass} onClick={closeMenu}>
-                Learning History
+                <i className="bi bi-clock-history me-2 d-lg-none"></i>History
               </Nav.Link>
             </Nav>
           ) : (
@@ -109,18 +120,25 @@ export default function Navbar({ variant = 'default' }) {
               <Nav.Link as={NavLink} to="/skills" className={navLinkClass} onClick={closeMenu}>
                 Luyện 4 kỹ năng
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/wishlist" className={navLinkClass} onClick={closeMenu}>
-                Yêu thích
-              </Nav.Link>
-              <Nav.Link as={NavLink} to="/checkout" className={navLinkClass} onClick={closeMenu}>
-                Giỏ hàng
-              </Nav.Link>
             </Nav>
           )}
 
           <Nav className="align-items-lg-center gap-lg-2">
             {currentUser ? (
-              <NavDropdown title={currentUser.name} id="user-dropdown" align="end">
+              <NavDropdown 
+                title={
+                  <span className="d-inline-flex align-items-center gap-2 m-0 p-0">
+                    <span className="navbar-user-avatar d-flex align-items-center justify-content-center">
+                      {currentUser?.name?.charAt(0)?.toUpperCase() || 'U'}
+                    </span>
+                    <span className="fw-semibold d-none d-lg-inline text-dark m-0 p-0 lh-1">{currentUser?.name || 'User'}</span>
+                    <i className="bi bi-chevron-down ms-1 d-flex align-items-center" style={{ fontSize: '12px', color: '#475569' }}></i>
+                  </span>
+                }
+                id="user-dropdown" 
+                align="end"
+                className="user-nav-dropdown"
+              >
                 {effectiveVariant !== 'student' && (
                   <NavDropdown.Item as={Link} to={dashboardPath} onClick={closeMenu}>
                     My Dashboard

@@ -1,27 +1,31 @@
 import React from 'react';
+import './StepIndicator.css';
 
 const STEPS = [
-  'Thông tin',
-  'Nội dung IELTS',
-  'Câu hỏi',
+  { label: 'Thông tin cơ bản', icon: 'bi-sliders2' },
+  { label: 'Nội dung & Câu hỏi', icon: 'bi-layers' },
 ];
 
 export default function StepIndicator({ currentStep, onStepClick }) {
   return (
-    <div className="d-flex gap-2 flex-wrap mb-4">
-      {STEPS.map((label, index) => {
+    <div className="test-stepper-container">
+      {STEPS.map((item, index) => {
         const step = index + 1;
         const active = currentStep === step;
         const done = currentStep > step;
         return (
           <button
-            key={label}
+            key={item.label}
             type="button"
             onClick={() => onStepClick(step)}
-            className={`btn btn-sm fw-semibold rounded-pill px-3 ${active ? 'btn-primary' : done ? 'btn-success' : 'btn-outline-secondary'}`}
+            className={`test-stepper-item ${active ? 'is-active' : ''} ${done ? 'is-done' : ''}`}
           >
-            <span className="me-2">{done ? '✓' : step}</span>
-            {label}
+            <div className="test-stepper-icon">
+              <i className={`bi ${done ? 'bi-check-lg' : item.icon}`} />
+            </div>
+            <div className="test-stepper-label">
+              {step}. {item.label}
+            </div>
           </button>
         );
       })}

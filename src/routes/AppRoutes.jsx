@@ -28,6 +28,7 @@ import TestReviewPage from '../pages/student/TestReviewPage';
 import StudentProfile from '../pages/student/Profile';
 import FlashcardListPage from '../pages/student/FlashcardListPage';
 import FlashcardStudyPage from '../pages/student/FlashcardStudyPage';
+import ExamLibraryPage from '../pages/student/ExamLibraryPage';
 import TeacherDashboard from '../pages/teacher/TeacherDashboard';
 import TeacherCourseManagement from '../pages/teacher/CourseManagement';
 import CourseCreatePage from '../pages/teacher/CourseCreatePage';
@@ -41,15 +42,21 @@ import StudentTrackingPage from '../pages/teacher/StudentTrackingPage';
 import QuestionBankPage from '../pages/teacher/QuestionBankPage';
 import FlashcardManagementPage from '../pages/teacher/FlashcardManagementPage';
 import FlashcardDeckDetail from '../pages/teacher/FlashcardDeckDetail';
+import MarkingQueuePage from '../pages/teacher/MarkingQueuePage';
+import MarkingHistoryPage from '../pages/teacher/MarkingHistoryPage';
 import LibraryResourceListPage from '../pages/teacher/LibraryResourceListPage';
 import LibraryResourceCreatePage from '../pages/teacher/LibraryResourceCreatePage';
+import LibraryResourceEditPage from '../pages/teacher/LibraryResourceEditPage';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import UserManagement from '../pages/admin/UserManagement';
 import AdminCourseManagement from '../pages/admin/CourseManagement';
 import LessonManagement from '../pages/admin/LessonManagement';
 import TestManagement from '../pages/admin/TestManagement';
+import PaymentManagement from '../pages/admin/PaymentManagement';
+import AuditLogs from '../pages/admin/AuditLogs';
+import AdminFlashcardManagement from '../pages/admin/FlashcardManagement';
 import TransactionList from '../pages/admin/TransactionList';
-
+import RevenueStatistics from '../pages/admin/RevenueStatistics';
 import MainLayout from '../layouts/MainLayout';
 import StudentLayout from '../layouts/StudentLayout';
 import TeacherLayout from '../layouts/TeacherLayout';
@@ -87,6 +94,7 @@ export default function AppRoutes() {
           <Route path="/learning/courses/:courseId/lessons" element={<LessonPage />} />
           <Route path="/learning/courses/:courseId/lessons/:lessonId" element={<LessonPage />} />
           <Route path="/learning/tests" element={<TestListPage />} />
+          <Route path="/learning/exam-library" element={<ExamLibraryPage />} />
           <Route path="/learning/tests/:id" element={<TestDetailPage />} />
           <Route path="/learning/tests/attempt/:attemptId" element={<TestSessionPage />} />
           <Route path="/learning/tests/review/:attemptId" element={<TestReviewPage />} />
@@ -114,8 +122,11 @@ export default function AppRoutes() {
           <Route path="/teacher/questions" element={<QuestionBankPage />} />
           <Route path="/teacher/flashcards" element={<FlashcardManagementPage />} />
           <Route path="/teacher/flashcards/:deckId" element={<FlashcardDeckDetail />} />
+          <Route path="/teacher/marking-queue" element={<MarkingQueuePage />} />
+          <Route path="/teacher/marking-history" element={<MarkingHistoryPage />} />
           <Route path="/teacher/library" element={<LibraryResourceListPage />} />
           <Route path="/teacher/library/create" element={<LibraryResourceCreatePage />} />
+          <Route path="/teacher/library/edit/:id" element={<LibraryResourceEditPage />} />
         </Route>
       </Route>
 
@@ -123,11 +134,15 @@ export default function AppRoutes() {
       <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
         <Route element={<AdminLayout />}>
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/audit-logs" element={<AuditLogs />} />
           <Route path="/admin/users" element={<UserManagement />} />
           <Route path="/admin/courses" element={<AdminCourseManagement />} />
           <Route path="/admin/lessons" element={<LessonManagement />} />
           <Route path="/admin/tests" element={<TestManagement />} />
+          <Route path="/admin/flashcards" element={<AdminFlashcardManagement />} />
+          <Route path="/admin/payments" element={<PaymentManagement />} />
           <Route path="/admin/transactions" element={<TransactionList />} />
+          <Route path="/admin/revenue" element={<RevenueStatistics />} />
         </Route>
       </Route>
     </Routes>

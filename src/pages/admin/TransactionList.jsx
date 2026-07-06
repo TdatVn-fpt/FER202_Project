@@ -9,17 +9,15 @@
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Table, Form, Button, Badge, Spinner, Alert } from 'react-bootstrap';
-import { getTransactions, updateTransaction } from '../../services/adminService';
+import { Table, Form, Button, Badge, Spinner, Alert, Row, Col, Card, Container } from 'react-bootstrap';
+import { getTransactions } from '../../services/adminService';
 
-// EARS[Ubiquitous]: THE system SHALL display transaction list (read-only) at /admin/transactions
 const TransactionList = () => {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [filters, setFilters] = useState({ status: '', method: '' });
 
-  // EARS[Event]: WHEN Admin loads TransactionList, THE system SHALL fetch all transactions
   const fetchTransactions = useCallback(async () => {
     try {
       setLoading(true);
@@ -67,195 +65,179 @@ const TransactionList = () => {
     return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: currency || 'VND' }).format(amount);
   };
 
-  const handleApprove = async (transactionId) => {
-    if (window.confirm('Bạn có chắc muốn duyệt giao dịch này?')) {
-      try {
-        setLoading(true);
-        await updateTransaction(transactionId, { status: 'completed' });
-        fetchTransactions();
-      } catch (err) {
-        setError('Lỗi khi duyệt giao dịch: ' + err.message);
-        setLoading(false);
-      }
-    }
-  };
-
-  const handleReject = async (transactionId) => {
-    if (window.confirm('Bạn có chắc muốn từ chối giao dịch này?')) {
-      try {
-        setLoading(true);
-        await updateTransaction(transactionId, { status: 'failed' });
-        fetchTransactions();
-      } catch (err) {
-        setError('Lỗi khi từ chối giao dịch: ' + err.message);
-        setLoading(false);
-      }
-    }
-  };
-
-  // EARS[Ubiquitous]: THE system SHALL compute total revenue from completed transactions
   const totalRevenue = transactions
     .filter(t => t.status === 'completed')
     .reduce((sum, t) => sum + (t.amount || 0), 0);
 
-  return (
-    <div className="container-fluid py-4">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <div>
-          <h2 className="fw-bold mb-1">Transactions</h2>
-          <p className="text-muted mb-0">Xem toàn bộ giao dịch thanh toán trong hệ thống (chỉ xem)</p>
-        </div>
-        <Badge bg="secondary" className="fs-6 px-3 py-2">{transactions.length} Giao dịch</Badge>
-      </div>
-
+  const content = (
+    <>
       {/* Summary Cards */}
-      <div className="row g-3 mb-4">
-        <div className="col-md-4">
-          <div className="card border-0 shadow-sm rounded-4 h-100">
-            <div className="card-body d-flex align-items-center gap-3">
-              <div className="rounded-3 bg-success bg-opacity-10 p-3">
-                <span className="fs-3">💰</span>
+      <Row className="g-4 mb-4">
+        <Col md={4}>
+          <Card className="tp-stat-card bg-white p-4 rounded-4 shadow-sm border-0 h-100">
+            <div className="d-flex align-items-center gap-3">
+              <div className="rounded-circle bg-success bg-opacity-10 text-success d-flex align-items-center justify-content-center" style={{ width: '56px', height: '56px', fontSize: '1.5rem' }}>
+                <i className="bi bi-wallet2"></i>
               </div>
               <div>
-                <div className="text-muted small">Tổng doanh thu</div>
-                <div className="fw-bold fs-5 text-success">{formatCurrency(totalRevenue, 'VND')}</div>
+                <div className="text-muted small fw-medium text-uppercase" style={{ letterSpacing: '0.5px' }}>Tổng doanh thu</div>
+                <div className="fw-bold fs-3 text-dark">{formatCurrency(totalRevenue, 'VND')}</div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="card border-0 shadow-sm rounded-4 h-100">
-            <div className="card-body d-flex align-items-center gap-3">
-              <div className="rounded-3 bg-primary bg-opacity-10 p-3">
-                <span className="fs-3">✅</span>
+          </Card>
+        </Col>
+        <Col md={4}>
+          <Card className="tp-stat-card bg-white p-4 rounded-4 shadow-sm border-0 h-100">
+            <div className="d-flex align-items-center gap-3">
+              <div className="rounded-circle bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center" style={{ width: '56px', height: '56px', fontSize: '1.5rem' }}>
+                <i className="bi bi-check-circle-fill"></i>
               </div>
               <div>
-                <div className="text-muted small">Giao dịch thành công</div>
-                <div className="fw-bold fs-5 text-primary">
-                  {transactions.filter(t => t.status === 'completed').length}
+                <div className="text-muted small fw-medium text-uppercase" style={{ letterSpacing: '0.5px' }}>Giao dịch thành công</div>
+                <div className="fw-bold fs-3 text-dark">
+                  {transactions.filter(t => t.status === 'completed').length} <span className="fs-6 text-muted fw-normal">giao dịch</span>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="card border-0 shadow-sm rounded-4 h-100">
-            <div className="card-body d-flex align-items-center gap-3">
-              <div className="rounded-3 bg-danger bg-opacity-10 p-3">
-                <span className="fs-3">❌</span>
+          </Card>
+        </Col>
+        <Col md={4}>
+          <Card className="tp-stat-card bg-white p-4 rounded-4 shadow-sm border-0 h-100">
+            <div className="d-flex align-items-center gap-3">
+              <div className="rounded-circle bg-warning bg-opacity-10 text-warning d-flex align-items-center justify-content-center" style={{ width: '56px', height: '56px', fontSize: '1.5rem' }}>
+                <i className="bi bi-exclamation-triangle-fill"></i>
               </div>
               <div>
-                <div className="text-muted small">Giao dịch thất bại / pending</div>
-                <div className="fw-bold fs-5 text-danger">
-                  {transactions.filter(t => t.status !== 'completed').length}
+                <div className="text-muted small fw-medium text-uppercase" style={{ letterSpacing: '0.5px' }}>Giao dịch chưa hoàn tất</div>
+                <div className="fw-bold fs-3 text-dark">
+                  {transactions.filter(t => t.status !== 'completed').length} <span className="fs-6 text-muted fw-normal">giao dịch</span>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </Card>
+        </Col>
+      </Row>
 
       {error && <Alert variant="danger" onClose={() => setError(null)} dismissible>{error}</Alert>}
 
       {/* Filter Bar */}
-      <div className="card border-0 shadow-sm rounded-4 mb-4">
-        <div className="card-body">
-          <Form className="row g-3 align-items-end">
-            <div className="col-md-4">
-              <Form.Select name="status" value={filters.status} onChange={handleFilterChange} className="rounded-pill" id="txn-status-filter">
-                <option value="">Tất cả trạng thái</option>
-                <option value="completed">Completed</option>
-                <option value="pending">Pending</option>
-                <option value="failed">Failed</option>
-              </Form.Select>
-            </div>
-            <div className="col-md-4">
-              <Form.Select name="method" value={filters.method} onChange={handleFilterChange} className="rounded-pill" id="txn-method-filter">
-                <option value="">Tất cả phương thức</option>
-                <option value="bank-transfer">Bank Transfer</option>
-                <option value="momo">MoMo</option>
-                <option value="vnpay">VNPay</option>
-              </Form.Select>
-            </div>
-            <div className="col-md-4">
-              <Button variant="primary" className="w-100 rounded-pill" onClick={fetchTransactions} id="txn-filter-btn">
-                Lọc
+      <Card className="studio-filter-card mb-4 border-0 shadow-sm rounded-4">
+        <Card.Body className="p-4">
+          <Row className="g-3 align-items-center">
+            <Col md={4}>
+              <div className="d-flex align-items-center gap-2">
+                <i className="bi bi-funnel text-muted"></i>
+                <Form.Select name="status" value={filters.status} onChange={handleFilterChange} className="tp-input rounded-pill shadow-none" id="txn-status-filter">
+                  <option value="">Tất cả trạng thái</option>
+                  <option value="completed">Thành công (Completed)</option>
+                  <option value="pending">Đang xử lý (Pending)</option>
+                  <option value="failed">Thất bại (Failed)</option>
+                </Form.Select>
+              </div>
+            </Col>
+            <Col md={4}>
+              <div className="d-flex align-items-center gap-2">
+                <i className="bi bi-credit-card text-muted"></i>
+                <Form.Select name="method" value={filters.method} onChange={handleFilterChange} className="tp-input rounded-pill shadow-none" id="txn-method-filter">
+                  <option value="">Tất cả phương thức</option>
+                  <option value="bank-transfer">Bank Transfer</option>
+                  <option value="momo">MoMo</option>
+                  <option value="vnpay">VNPay</option>
+                </Form.Select>
+              </div>
+            </Col>
+            <Col md={4} className="text-md-end">
+              <Button variant="light" className="rounded-pill px-4 text-secondary fw-medium border shadow-sm" onClick={() => setFilters({ status: '', method: '' })}>
+                <i className="bi bi-arrow-clockwise me-2"></i>Làm mới
               </Button>
-            </div>
-          </Form>
-        </div>
-      </div>
+            </Col>
+          </Row>
+        </Card.Body>
+      </Card>
 
       {/* Table */}
-      <div className="card border-0 shadow-sm rounded-4">
-        <div className="card-body p-0 table-responsive">
-          <Table hover className="mb-0 align-middle">
-            <thead className="table-light">
-              <tr>
-                <th className="ps-4">Mã GD</th>
-                <th>Người dùng</th>
-                <th>Khóa học</th>
-                <th>Số tiền</th>
-                <th>Phương thức</th>
-                <th>Trạng thái</th>
-                <th>Thời gian</th>
-                <th className="text-end pe-4">Thao tác</th>
-              </tr>
-            </thead>
-            <tbody>
-              {loading ? (
+      <Card className="studio-table-card">
+        {loading ? (
+          <div className="d-flex justify-content-center p-5">
+            <Spinner animation="border" variant="primary" />
+          </div>
+        ) : transactions.length === 0 ? (
+          <div className="text-center p-5 text-muted">
+            Không có giao dịch nào phù hợp.
+          </div>
+        ) : (
+          <div className="table-responsive">
+            <Table hover className="align-middle border-top-0 mb-0">
+              <thead className="bg-light text-muted">
                 <tr>
-                  <td colSpan="8" className="text-center py-5">
-                    <Spinner animation="border" variant="primary" />
-                  </td>
+                  <th className="ps-4 fw-medium border-0 py-3">Mã GD</th>
+                  <th className="fw-medium border-0 py-3">User ID</th>
+                  <th className="fw-medium border-0 py-3">Khóa học</th>
+                  <th className="fw-medium border-0 py-3">Số tiền</th>
+                  <th className="fw-medium border-0 py-3">Phương thức</th>
+                  <th className="fw-medium border-0 py-3">Trạng thái</th>
+                  <th className="text-end pe-4 fw-medium border-0 py-3">Ngày tạo</th>
                 </tr>
-              ) : transactions.length === 0 ? (
-                <tr>
-                  <td colSpan="8" className="text-center py-5 text-muted">
-                    <i className="bi bi-credit-card-2-front fs-1 d-block mb-2 opacity-50"></i>
-                    Không có giao dịch nào phù hợp với bộ lọc.
-                  </td>
-                </tr>
-              ) : (
-                transactions.map(txn => (
-                  <tr key={txn.id}>
-                    <td className="ps-4">
-                      <code className="text-primary small">{txn.id}</code>
+              </thead>
+              <tbody className="border-top-0">
+                {transactions.map(txn => (
+                  <tr key={txn.id} style={{ transition: 'all 0.2s' }}>
+                    <td className="ps-4 py-3">
+                      <div className="fw-semibold text-dark mb-1">{txn.id}</div>
                     </td>
-                    <td>
-                      <div className="fw-medium">{txn.userName}</div>
-                      <small className="text-muted">{txn.userId}</small>
+                    <td className="py-3">
+                      <div className="text-secondary small fw-medium">{txn.userId || 'N/A'}</div>
                     </td>
-                    <td>
-                      <div>{txn.courseTitle}</div>
-                      <small className="text-muted">{txn.courseId}</small>
+                    <td className="py-3">
+                      <div className="text-dark fw-medium">{txn.courseId || 'N/A'}</div>
                     </td>
-                    <td className="fw-bold text-success">
-                      {formatCurrency(txn.amount, txn.currency)}
+                    <td className="py-3">
+                      <div className="fw-bold text-primary">
+                        {formatCurrency(txn.amount, txn.currency)}
+                      </div>
                     </td>
-                    <td className="text-muted">{getMethodLabel(txn.method)}</td>
-                    <td>
-                      <Badge bg={getStatusVariant(txn.status)} className="rounded-pill text-capitalize">
-                        {txn.status}
-                      </Badge>
+                    <td className="py-3">
+                      <div className="d-flex align-items-center gap-2">
+                        <span className="text-dark fw-medium">{getMethodLabel(txn.method)}</span>
+                      </div>
                     </td>
-                    <td className="text-muted">
-                      {txn.createdAt ? new Date(txn.createdAt).toLocaleString('vi-VN') : 'N/A'}
+                    <td className="py-3">
+                      <span className={`tp-badge badge-${getStatusVariant(txn.status)} px-3`}>
+                        {txn.status === 'completed' ? 'Thành công' : txn.status === 'pending' ? 'Chờ duyệt' : 'Thất bại'}
+                      </span>
                     </td>
-                    <td className="text-end pe-4">
-                      {txn.status === 'pending' && (
-                        <div className="d-flex gap-2 justify-content-end">
-                          <Button variant="success" size="sm" onClick={() => handleApprove(txn.id)} className="rounded-pill px-3">Duyệt</Button>
-                          <Button variant="danger" size="sm" onClick={() => handleReject(txn.id)} className="rounded-pill px-3">Từ chối</Button>
-                        </div>
-                      )}
+                    <td className="text-end pe-4 py-3">
+                      <div className="text-muted small">
+                        {txn.createdAt ? new Date(txn.createdAt).toLocaleString('vi-VN', { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit', year: 'numeric' }) : 'N/A'}
+                      </div>
                     </td>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </Table>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        )}
+      </Card>
+    </>
+  );
+
+
+
+  return (
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-receipt"></i> Giao dịch</div>
+            <h1 className="tp-page-title">Transactions</h1>
+            <p className="tp-page-sub">Xem toàn bộ giao dịch thanh toán trong hệ thống (chỉ xem)</p>
+          </div>
         </div>
+      </div>
+      <div className="tp-main-content">
+        <Container fluid="xxl" className="px-4">
+          {content}
+        </Container>
       </div>
     </div>
   );
