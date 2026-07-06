@@ -145,6 +145,18 @@
       "role": "admin",
       "status": "active",
       "avatar": "https://www.gravatar.com/avatar/?d=mp"
+    },
+    {
+      "email": "thaikhachuuduc@gmail.com",
+      "password": "123456789",
+      "fullName": "Thái Khắc Hữu Đức",
+      "name": "Thái Khắc Hữu Đức",
+      "dateOfBirth": "2006-1-3",
+      "id": "zhaxsIXvvNg",
+      "role": "student",
+      "status": "active",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp",
+      "createdAt": "2026-07-05T11:48:40.322Z"
     }
   ],
   "courses": [
@@ -392,6 +404,49 @@
       "enrolledCount": 71,
       "durationWeeks": 6,
       "createdAt": "2026-06-28T08:00:00Z"
+    },
+    {
+      "id": "course-reading-free-8s28fpfl7",
+      "title": "IELTS Reading Free Basics",
+      "description": "A free introductory course to IELTS Reading.",
+      "syllabus": [
+        "Introduction to Reading",
+        "Basic Skimming"
+      ],
+      "skill": "Reading",
+      "level": "Band 4.0 - 5.0",
+      "price": 0,
+      "premiumPrice": 99000,
+      "isPremium": false,
+      "thumbnail": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-student-004",
+      "status": "approved",
+      "enrolledCount": 50,
+      "durationWeeks": 2,
+      "createdAt": "2026-07-06T06:53:41.121Z"
+    },
+    {
+      "id": "course-reading-paid-ki1nljyt3",
+      "title": "IELTS Reading Premium Intensive",
+      "description": "AI-generated comprehensive course for advanced IELTS Reading strategies.",
+      "syllabus": [
+        "Advanced Skimming",
+        "Matching Features",
+        "Y/N/NG Mastery",
+        "Summary Completion",
+        "Full Mock Test Strategies"
+      ],
+      "skill": "Reading",
+      "level": "Band 6.5 - 8.0",
+      "price": 99000,
+      "premiumPrice": 99000,
+      "isPremium": true,
+      "thumbnail": "https://images.unsplash.com/photo-1512820200504-f5ce6a8ca1fe?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-student-004",
+      "status": "approved",
+      "enrolledCount": 200,
+      "durationWeeks": 5,
+      "createdAt": "2026-07-06T06:53:41.125Z"
     }
   ],
   "freeResources": [
@@ -418,7 +473,7 @@
       "contentUrl": "https://www.youtube.com/embed/sBws8MSXN7A",
       "status": "published",
       "createdAt": "2026-06-01T09:00:00Z",
-      "teacherId": "u-teacher-001"
+      "teacherId": "u-student-004"
     },
     {
       "id": "lesson-002",
@@ -429,7 +484,7 @@
       "contentUrl": "https://www.youtube.com/embed/P-16i36q-0g",
       "status": "published",
       "createdAt": "2026-06-02T09:00:00Z",
-      "teacherId": "u-teacher-001"
+      "teacherId": "u-student-004"
     },
     {
       "id": "lesson-003",
@@ -440,7 +495,7 @@
       "contentUrl": "/lessons/listening-note-taking",
       "status": "published",
       "createdAt": "2026-06-03T09:00:00Z",
-      "teacherId": "u-teacher-001"
+      "teacherId": "u-student-004"
     },
     {
       "id": "lesson-004",
@@ -451,7 +506,7 @@
       "contentUrl": "/lessons/writing-intro",
       "status": "published",
       "createdAt": "2026-06-10T09:00:00Z",
-      "teacherId": "u-teacher-001"
+      "teacherId": "u-student-004"
     },
     {
       "id": "lesson-008",
@@ -461,7 +516,7 @@
       "durationMinutes": 30,
       "contentUrl": "https://www.youtube.com/watch?v=a0fOt81glvA",
       "audioUrl": "",
-      "teacherId": "u-teacher-001",
+      "teacherId": "u-student-004",
       "status": "published",
       "createdAt": "2026-06-28T14:03:08.180Z"
     },
@@ -473,7 +528,7 @@
       "durationMinutes": 40,
       "contentUrl": "https://www.youtube.com/watch?v=sRFEVurxO2c",
       "audioUrl": "",
-      "teacherId": "u-teacher-001",
+      "teacherId": "u-student-004",
       "status": "published",
       "createdAt": "2026-06-25T09:00:00Z"
     },
@@ -485,7 +540,7 @@
       "durationMinutes": 50,
       "contentUrl": "https://www.youtube.com/watch?v=P_7ZfVfJgq8",
       "audioUrl": "",
-      "teacherId": "u-teacher-001",
+      "teacherId": "u-student-004",
       "status": "published",
       "createdAt": "2026-06-26T09:00:00Z"
     },
@@ -497,7 +552,7 @@
       "durationMinutes": 35,
       "contentUrl": "https://www.youtube.com/watch?v=IevmdO16GuE",
       "audioUrl": "",
-      "teacherId": "u-teacher-001",
+      "teacherId": "u-student-004",
       "status": "published",
       "createdAt": "2026-06-27T09:00:00Z"
     },
@@ -509,9 +564,117 @@
       "durationMinutes": 45,
       "contentUrl": "https://www.youtube.com/watch?v=a0fOt81glvA",
       "audioUrl": "",
-      "teacherId": "u-teacher-001",
+      "teacherId": "u-student-004",
       "status": "published",
       "createdAt": "2026-06-28T09:00:00Z"
+    },
+    {
+      "id": "lesson-013",
+      "courseId": null,
+      "title": "IELTS Reading – Câu hỏi trả lời ngắn",
+      "order": 1,
+      "durationMinutes": 10,
+      "contentUrl": "https://www.youtube.com/watch?v=v_oQTT08czc",
+      "audioUrl": "",
+      "teacherId": "u-student-004",
+      "status": "published",
+      "createdAt": "2026-07-06T06:41:19.835Z"
+    },
+    {
+      "id": "lesson-014",
+      "courseId": null,
+      "title": " IELTS Reading – Matching Names With Statements Task",
+      "order": 2,
+      "durationMinutes": 10,
+      "contentUrl": "https://www.youtube.com/watch?v=eyfGxSDBoE4",
+      "audioUrl": "",
+      "teacherId": "u-student-004",
+      "status": "published",
+      "createdAt": "2026-07-06T06:42:30.114Z"
+    },
+    {
+      "id": "lesson-802rk1zr7",
+      "courseId": "course-reading-free-8s28fpfl7",
+      "title": "Free Reading Lesson 1",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=kSn9P0GW7Zg&list=PLAqSDn2SYzg39TEO2Tyq57vnH5UpCq4OD&index=2",
+      "status": "published",
+      "createdAt": "2026-07-06T06:53:41.124Z",
+      "teacherId": "u-student-004",
+      "audioUrl": ""
+    },
+    {
+      "id": "lesson-1h22rksqu",
+      "courseId": "course-reading-free-8s28fpfl7",
+      "title": "Free Reading Lesson 2",
+      "order": 2,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=2tLdOPOHxhA&list=PLAqSDn2SYzg39TEO2Tyq57vnH5UpCq4OD",
+      "status": "published",
+      "createdAt": "2026-07-06T06:53:41.124Z",
+      "teacherId": "u-student-004",
+      "audioUrl": ""
+    },
+    {
+      "id": "lesson-paid-kygbv2ny6",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "title": "Premium Reading Lesson 1",
+      "order": 1,
+      "durationMinutes": 45,
+      "contentUrl": "https://www.youtube.com/watch?v=Q4gG1FCPSh0&list=PLAqSDn2SYzg39TEO2Tyq57vnH5UpCq4OD&index=3",
+      "status": "published",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "teacherId": "u-student-004",
+      "audioUrl": ""
+    },
+    {
+      "id": "lesson-paid-4dgpe390p",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "title": "Premium Reading Lesson 2",
+      "order": 2,
+      "durationMinutes": 45,
+      "contentUrl": "https://www.youtube.com/watch?v=95-xOIF49oE&list=PLAqSDn2SYzg39TEO2Tyq57vnH5UpCq4OD&index=5",
+      "status": "published",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "teacherId": "u-student-004",
+      "audioUrl": ""
+    },
+    {
+      "id": "lesson-paid-srn1a20wr",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "title": "Premium Reading Lesson 3",
+      "order": 3,
+      "durationMinutes": 45,
+      "contentUrl": "https://www.youtube.com/watch?v=zBVd2CWJNFQ&list=PLAqSDn2SYzg39TEO2Tyq57vnH5UpCq4OD&index=6",
+      "status": "published",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "teacherId": "u-student-004",
+      "audioUrl": ""
+    },
+    {
+      "id": "lesson-paid-vyxq711r7",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "title": "Premium Reading Lesson 4",
+      "order": 4,
+      "durationMinutes": 45,
+      "contentUrl": "https://www.youtube.com/watch?v=zK98618nt3U&list=PLAqSDn2SYzg39TEO2Tyq57vnH5UpCq4OD&index=7",
+      "status": "published",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "teacherId": "u-student-004",
+      "audioUrl": ""
+    },
+    {
+      "id": "lesson-paid-zx29gwq2m",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "title": "Premium Reading Lesson 5",
+      "order": 5,
+      "durationMinutes": 7,
+      "contentUrl": "https://www.youtube.com/embed/p1I2-https://www.youtube.com/watch?v=vsMpXfFNcjw&list=PLAqSDn2SYzg39TEO2Tyq57vnH5UpCq4OD&index=8",
+      "status": "published",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "teacherId": "u-student-004",
+      "audioUrl": ""
     }
   ],
   "tests": [
@@ -1767,6 +1930,1357 @@
       "updatedAt": "2026-07-05T09:39:42.258Z",
       "createdAt": "2026-07-04T13:38:40.699Z",
       "id": "7RxwDIJGgP8"
+    },
+    {
+      "id": "test-free-51ka0cjns",
+      "title": "Free Reading Mock Test 1",
+      "description": "Free reading test 1 with 3 attempts limit.",
+      "courseId": "course-reading-free-8s28fpfl7",
+      "skill": "Reading",
+      "testMode": "free",
+      "isFreePreview": true,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-student-004",
+      "durationMinutes": 60,
+      "totalQuestions": 12,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-06T06:53:41.124Z",
+      "updatedAt": "2026-07-06T06:53:41.124Z",
+      "createdBy": "u-student-004",
+      "testConfig": {
+        "passages": [
+          {
+            "id": "passage-w4pyaoqs2",
+            "order": 1,
+            "title": "The Future of Urban Planning",
+            "instruction": "Read the passage below and answer questions 1-12.",
+            "defaultRange": "1-12",
+            "content": "Cities today face unprecedented challenges due to rapid population growth and climate change. Urban planners are now forced to rethink traditional infrastructure. Historically, cities were designed around the automobile, leading to urban sprawl and increased carbon emissions. However, a new paradigm is emerging: the \"15-minute city\". This concept dictates that all essential services, such as schools, clinics, and grocery stores, should be accessible within a 15-minute walk or bike ride from any resident's home. \n\nImplementing this model requires significant changes. Sidewalks must be widened, and bike lanes must be physically separated from traffic. Moreover, public transportation networks need to be optimized to connect these localized neighborhoods to larger economic hubs. Critics argue that retrofitting existing cities is too expensive and that the model is only feasible in affluent areas. Despite these concerns, several major metropolitan areas have already begun pilot programs, showing promising initial results in reducing local pollution levels and increasing community engagement.",
+            "blocks": [
+              {
+                "id": "block-tfng-uripi6afx",
+                "type": "True/False/Not Given",
+                "rendererType": "true-false-not-given",
+                "range": "1-4",
+                "instruction": "Do the following statements agree with the information given in the Reading Passage? In boxes 1-4 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+                "questions": [
+                  {
+                    "id": "q-e374us93w",
+                    "questionOrder": 1,
+                    "text": "Traditional city designs prioritized car travel.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "True",
+                    "explanation": "The passage states: \"Historically, cities were designed around the automobile...\""
+                  },
+                  {
+                    "id": "q-fmvdj1uqz",
+                    "questionOrder": 2,
+                    "text": "The 15-minute city concept requires people to drive to grocery stores.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "False",
+                    "explanation": "The concept dictates services should be accessible within a 15-minute walk or bike ride, not driving."
+                  },
+                  {
+                    "id": "q-wofxtfe6p",
+                    "questionOrder": 3,
+                    "text": "Most critics of the 15-minute city live in suburban areas.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "Not Given",
+                    "explanation": "The passage mentions critics, but does not state where they live."
+                  },
+                  {
+                    "id": "q-23b9e769g",
+                    "questionOrder": 4,
+                    "text": "Pilot programs have successfully reduced traffic accidents.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "Not Given",
+                    "explanation": "The passage says programs show results in reducing pollution and increasing engagement, but doesn't mention traffic accidents."
+                  }
+                ]
+              },
+              {
+                "id": "block-mcq-j9eyo6g9q",
+                "type": "Multiple Choice",
+                "rendererType": "multiple-choice",
+                "range": "5-8",
+                "instruction": "Choose the correct letter, A, B, C or D.",
+                "questions": [
+                  {
+                    "id": "q-71zhzzc9h",
+                    "questionOrder": 5,
+                    "text": "According to the passage, what has caused urban planners to rethink infrastructure?",
+                    "options": [
+                      "A. A decrease in population",
+                      "B. Population growth and climate change",
+                      "C. The invention of the automobile",
+                      "D. A lack of funding for public transport"
+                    ],
+                    "correctAnswer": "B. Population growth and climate change",
+                    "explanation": "First sentence: \"Cities today face unprecedented challenges due to rapid population growth and climate change. Urban planners are now forced to rethink...\""
+                  },
+                  {
+                    "id": "q-756gms9kj",
+                    "questionOrder": 6,
+                    "text": "What is a requirement for implementing the 15-minute city model?",
+                    "options": [
+                      "A. Building more highways",
+                      "B. Reducing the number of schools",
+                      "C. Widening sidewalks and separating bike lanes",
+                      "D. Banning all cars from the city center"
+                    ],
+                    "correctAnswer": "C. Widening sidewalks and separating bike lanes",
+                    "explanation": "Passage: \"Sidewalks must be widened, and bike lanes must be physically separated from traffic.\""
+                  },
+                  {
+                    "id": "q-n1bfyqmsp",
+                    "questionOrder": 7,
+                    "text": "What do critics argue about the 15-minute city model?",
+                    "options": [
+                      "A. It increases carbon emissions.",
+                      "B. It is too cheap to implement.",
+                      "C. It is only viable for wealthy districts.",
+                      "D. It discourages community engagement."
+                    ],
+                    "correctAnswer": "C. It is only viable for wealthy districts.",
+                    "explanation": "Passage: \"Critics argue that... the model is only feasible in affluent areas.\""
+                  },
+                  {
+                    "id": "q-fuukswyxx",
+                    "questionOrder": 8,
+                    "text": "What has been an initial result of the pilot programs?",
+                    "options": [
+                      "A. Higher taxes",
+                      "B. Less local pollution",
+                      "C. More affluent neighborhoods",
+                      "D. Wider cars"
+                    ],
+                    "correctAnswer": "B. Less local pollution",
+                    "explanation": "Passage: \"showing promising initial results in reducing local pollution levels...\""
+                  }
+                ]
+              },
+              {
+                "id": "block-fill-0g01r2zu9",
+                "type": "Summary Completion",
+                "rendererType": "fill-in-the-blank",
+                "range": "9-12",
+                "instruction": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+                "questions": [
+                  {
+                    "id": "q-uiceexsqw",
+                    "questionOrder": 9,
+                    "text": "In the past, urban areas were built to accommodate the [blank], which caused urban sprawl.",
+                    "options": [],
+                    "correctAnswer": "automobile",
+                    "explanation": "...cities were designed around the automobile..."
+                  },
+                  {
+                    "id": "q-7d4bx5mbv",
+                    "questionOrder": 10,
+                    "text": "The new approach ensures that residents can reach [blank] such as clinics within 15 minutes.",
+                    "options": [],
+                    "correctAnswer": "essential services",
+                    "explanation": "...all essential services, such as schools, clinics..."
+                  },
+                  {
+                    "id": "q-iqv15bdqt",
+                    "questionOrder": 11,
+                    "text": "To connect localized areas to economic hubs, [blank] must be improved.",
+                    "options": [],
+                    "correctAnswer": "public transportation",
+                    "explanation": "...public transportation networks need to be optimized to connect these localized neighborhoods..."
+                  },
+                  {
+                    "id": "q-1y1nqhnhy",
+                    "questionOrder": 12,
+                    "text": "Some believe modifying older cities is too [blank] to be practical everywhere.",
+                    "options": [],
+                    "correctAnswer": "expensive",
+                    "explanation": "Critics argue that retrofitting existing cities is too expensive..."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "test-free-g6kb0tdk4",
+      "title": "Free Reading Mock Test 2",
+      "description": "Free reading test 2 with 3 attempts limit.",
+      "courseId": "course-reading-free-8s28fpfl7",
+      "skill": "Reading",
+      "testMode": "free",
+      "isFreePreview": true,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-student-004",
+      "durationMinutes": 60,
+      "totalQuestions": 12,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-06T06:53:41.124Z",
+      "updatedAt": "2026-07-06T06:53:41.124Z",
+      "createdBy": "u-student-004",
+      "testConfig": {
+        "passages": [
+          {
+            "id": "passage-29nrrd5kq",
+            "order": 1,
+            "title": "The Future of Urban Planning",
+            "instruction": "Read the passage below and answer questions 1-12.",
+            "defaultRange": "1-12",
+            "content": "Cities today face unprecedented challenges due to rapid population growth and climate change. Urban planners are now forced to rethink traditional infrastructure. Historically, cities were designed around the automobile, leading to urban sprawl and increased carbon emissions. However, a new paradigm is emerging: the \"15-minute city\". This concept dictates that all essential services, such as schools, clinics, and grocery stores, should be accessible within a 15-minute walk or bike ride from any resident's home. \n\nImplementing this model requires significant changes. Sidewalks must be widened, and bike lanes must be physically separated from traffic. Moreover, public transportation networks need to be optimized to connect these localized neighborhoods to larger economic hubs. Critics argue that retrofitting existing cities is too expensive and that the model is only feasible in affluent areas. Despite these concerns, several major metropolitan areas have already begun pilot programs, showing promising initial results in reducing local pollution levels and increasing community engagement.",
+            "blocks": [
+              {
+                "id": "block-tfng-uripi6afx",
+                "type": "True/False/Not Given",
+                "rendererType": "true-false-not-given",
+                "range": "1-4",
+                "instruction": "Do the following statements agree with the information given in the Reading Passage? In boxes 1-4 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+                "questions": [
+                  {
+                    "id": "q-e374us93w",
+                    "questionOrder": 1,
+                    "text": "Traditional city designs prioritized car travel.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "True",
+                    "explanation": "The passage states: \"Historically, cities were designed around the automobile...\""
+                  },
+                  {
+                    "id": "q-fmvdj1uqz",
+                    "questionOrder": 2,
+                    "text": "The 15-minute city concept requires people to drive to grocery stores.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "False",
+                    "explanation": "The concept dictates services should be accessible within a 15-minute walk or bike ride, not driving."
+                  },
+                  {
+                    "id": "q-wofxtfe6p",
+                    "questionOrder": 3,
+                    "text": "Most critics of the 15-minute city live in suburban areas.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "Not Given",
+                    "explanation": "The passage mentions critics, but does not state where they live."
+                  },
+                  {
+                    "id": "q-23b9e769g",
+                    "questionOrder": 4,
+                    "text": "Pilot programs have successfully reduced traffic accidents.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "Not Given",
+                    "explanation": "The passage says programs show results in reducing pollution and increasing engagement, but doesn't mention traffic accidents."
+                  }
+                ]
+              },
+              {
+                "id": "block-mcq-j9eyo6g9q",
+                "type": "Multiple Choice",
+                "rendererType": "multiple-choice",
+                "range": "5-8",
+                "instruction": "Choose the correct letter, A, B, C or D.",
+                "questions": [
+                  {
+                    "id": "q-71zhzzc9h",
+                    "questionOrder": 5,
+                    "text": "According to the passage, what has caused urban planners to rethink infrastructure?",
+                    "options": [
+                      "A. A decrease in population",
+                      "B. Population growth and climate change",
+                      "C. The invention of the automobile",
+                      "D. A lack of funding for public transport"
+                    ],
+                    "correctAnswer": "B. Population growth and climate change",
+                    "explanation": "First sentence: \"Cities today face unprecedented challenges due to rapid population growth and climate change. Urban planners are now forced to rethink...\""
+                  },
+                  {
+                    "id": "q-756gms9kj",
+                    "questionOrder": 6,
+                    "text": "What is a requirement for implementing the 15-minute city model?",
+                    "options": [
+                      "A. Building more highways",
+                      "B. Reducing the number of schools",
+                      "C. Widening sidewalks and separating bike lanes",
+                      "D. Banning all cars from the city center"
+                    ],
+                    "correctAnswer": "C. Widening sidewalks and separating bike lanes",
+                    "explanation": "Passage: \"Sidewalks must be widened, and bike lanes must be physically separated from traffic.\""
+                  },
+                  {
+                    "id": "q-n1bfyqmsp",
+                    "questionOrder": 7,
+                    "text": "What do critics argue about the 15-minute city model?",
+                    "options": [
+                      "A. It increases carbon emissions.",
+                      "B. It is too cheap to implement.",
+                      "C. It is only viable for wealthy districts.",
+                      "D. It discourages community engagement."
+                    ],
+                    "correctAnswer": "C. It is only viable for wealthy districts.",
+                    "explanation": "Passage: \"Critics argue that... the model is only feasible in affluent areas.\""
+                  },
+                  {
+                    "id": "q-fuukswyxx",
+                    "questionOrder": 8,
+                    "text": "What has been an initial result of the pilot programs?",
+                    "options": [
+                      "A. Higher taxes",
+                      "B. Less local pollution",
+                      "C. More affluent neighborhoods",
+                      "D. Wider cars"
+                    ],
+                    "correctAnswer": "B. Less local pollution",
+                    "explanation": "Passage: \"showing promising initial results in reducing local pollution levels...\""
+                  }
+                ]
+              },
+              {
+                "id": "block-fill-0g01r2zu9",
+                "type": "Summary Completion",
+                "rendererType": "fill-in-the-blank",
+                "range": "9-12",
+                "instruction": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+                "questions": [
+                  {
+                    "id": "q-uiceexsqw",
+                    "questionOrder": 9,
+                    "text": "In the past, urban areas were built to accommodate the [blank], which caused urban sprawl.",
+                    "options": [],
+                    "correctAnswer": "automobile",
+                    "explanation": "...cities were designed around the automobile..."
+                  },
+                  {
+                    "id": "q-7d4bx5mbv",
+                    "questionOrder": 10,
+                    "text": "The new approach ensures that residents can reach [blank] such as clinics within 15 minutes.",
+                    "options": [],
+                    "correctAnswer": "essential services",
+                    "explanation": "...all essential services, such as schools, clinics..."
+                  },
+                  {
+                    "id": "q-iqv15bdqt",
+                    "questionOrder": 11,
+                    "text": "To connect localized areas to economic hubs, [blank] must be improved.",
+                    "options": [],
+                    "correctAnswer": "public transportation",
+                    "explanation": "...public transportation networks need to be optimized to connect these localized neighborhoods..."
+                  },
+                  {
+                    "id": "q-1y1nqhnhy",
+                    "questionOrder": 12,
+                    "text": "Some believe modifying older cities is too [blank] to be practical everywhere.",
+                    "options": [],
+                    "correctAnswer": "expensive",
+                    "explanation": "Critics argue that retrofitting existing cities is too expensive..."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "test-paid-hhzrcr83t",
+      "title": "Premium Reading Mock Test 1",
+      "description": "Full AI-generated premium reading test 1. Unlimited attempts.",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "skill": "Reading",
+      "testMode": "premium",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-student-004",
+      "durationMinutes": 60,
+      "totalQuestions": 12,
+      "attemptLimit": 0,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "updatedAt": "2026-07-06T06:53:41.125Z",
+      "createdBy": "u-student-004",
+      "testConfig": {
+        "passages": [
+          {
+            "id": "passage-k3smorkax",
+            "order": 1,
+            "title": "The Future of Urban Planning",
+            "instruction": "Read the passage below and answer questions 1-12.",
+            "defaultRange": "1-12",
+            "content": "Cities today face unprecedented challenges due to rapid population growth and climate change. Urban planners are now forced to rethink traditional infrastructure. Historically, cities were designed around the automobile, leading to urban sprawl and increased carbon emissions. However, a new paradigm is emerging: the \"15-minute city\". This concept dictates that all essential services, such as schools, clinics, and grocery stores, should be accessible within a 15-minute walk or bike ride from any resident's home. \n\nImplementing this model requires significant changes. Sidewalks must be widened, and bike lanes must be physically separated from traffic. Moreover, public transportation networks need to be optimized to connect these localized neighborhoods to larger economic hubs. Critics argue that retrofitting existing cities is too expensive and that the model is only feasible in affluent areas. Despite these concerns, several major metropolitan areas have already begun pilot programs, showing promising initial results in reducing local pollution levels and increasing community engagement.",
+            "blocks": [
+              {
+                "id": "block-tfng-uripi6afx",
+                "type": "True/False/Not Given",
+                "rendererType": "true-false-not-given",
+                "range": "1-4",
+                "instruction": "Do the following statements agree with the information given in the Reading Passage? In boxes 1-4 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+                "questions": [
+                  {
+                    "id": "q-e374us93w",
+                    "questionOrder": 1,
+                    "text": "Traditional city designs prioritized car travel.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "True",
+                    "explanation": "The passage states: \"Historically, cities were designed around the automobile...\""
+                  },
+                  {
+                    "id": "q-fmvdj1uqz",
+                    "questionOrder": 2,
+                    "text": "The 15-minute city concept requires people to drive to grocery stores.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "False",
+                    "explanation": "The concept dictates services should be accessible within a 15-minute walk or bike ride, not driving."
+                  },
+                  {
+                    "id": "q-wofxtfe6p",
+                    "questionOrder": 3,
+                    "text": "Most critics of the 15-minute city live in suburban areas.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "Not Given",
+                    "explanation": "The passage mentions critics, but does not state where they live."
+                  },
+                  {
+                    "id": "q-23b9e769g",
+                    "questionOrder": 4,
+                    "text": "Pilot programs have successfully reduced traffic accidents.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "Not Given",
+                    "explanation": "The passage says programs show results in reducing pollution and increasing engagement, but doesn't mention traffic accidents."
+                  }
+                ]
+              },
+              {
+                "id": "block-mcq-j9eyo6g9q",
+                "type": "Multiple Choice",
+                "rendererType": "multiple-choice",
+                "range": "5-8",
+                "instruction": "Choose the correct letter, A, B, C or D.",
+                "questions": [
+                  {
+                    "id": "q-71zhzzc9h",
+                    "questionOrder": 5,
+                    "text": "According to the passage, what has caused urban planners to rethink infrastructure?",
+                    "options": [
+                      "A. A decrease in population",
+                      "B. Population growth and climate change",
+                      "C. The invention of the automobile",
+                      "D. A lack of funding for public transport"
+                    ],
+                    "correctAnswer": "B. Population growth and climate change",
+                    "explanation": "First sentence: \"Cities today face unprecedented challenges due to rapid population growth and climate change. Urban planners are now forced to rethink...\""
+                  },
+                  {
+                    "id": "q-756gms9kj",
+                    "questionOrder": 6,
+                    "text": "What is a requirement for implementing the 15-minute city model?",
+                    "options": [
+                      "A. Building more highways",
+                      "B. Reducing the number of schools",
+                      "C. Widening sidewalks and separating bike lanes",
+                      "D. Banning all cars from the city center"
+                    ],
+                    "correctAnswer": "C. Widening sidewalks and separating bike lanes",
+                    "explanation": "Passage: \"Sidewalks must be widened, and bike lanes must be physically separated from traffic.\""
+                  },
+                  {
+                    "id": "q-n1bfyqmsp",
+                    "questionOrder": 7,
+                    "text": "What do critics argue about the 15-minute city model?",
+                    "options": [
+                      "A. It increases carbon emissions.",
+                      "B. It is too cheap to implement.",
+                      "C. It is only viable for wealthy districts.",
+                      "D. It discourages community engagement."
+                    ],
+                    "correctAnswer": "C. It is only viable for wealthy districts.",
+                    "explanation": "Passage: \"Critics argue that... the model is only feasible in affluent areas.\""
+                  },
+                  {
+                    "id": "q-fuukswyxx",
+                    "questionOrder": 8,
+                    "text": "What has been an initial result of the pilot programs?",
+                    "options": [
+                      "A. Higher taxes",
+                      "B. Less local pollution",
+                      "C. More affluent neighborhoods",
+                      "D. Wider cars"
+                    ],
+                    "correctAnswer": "B. Less local pollution",
+                    "explanation": "Passage: \"showing promising initial results in reducing local pollution levels...\""
+                  }
+                ]
+              },
+              {
+                "id": "block-fill-0g01r2zu9",
+                "type": "Summary Completion",
+                "rendererType": "fill-in-the-blank",
+                "range": "9-12",
+                "instruction": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+                "questions": [
+                  {
+                    "id": "q-uiceexsqw",
+                    "questionOrder": 9,
+                    "text": "In the past, urban areas were built to accommodate the [blank], which caused urban sprawl.",
+                    "options": [],
+                    "correctAnswer": "automobile",
+                    "explanation": "...cities were designed around the automobile..."
+                  },
+                  {
+                    "id": "q-7d4bx5mbv",
+                    "questionOrder": 10,
+                    "text": "The new approach ensures that residents can reach [blank] such as clinics within 15 minutes.",
+                    "options": [],
+                    "correctAnswer": "essential services",
+                    "explanation": "...all essential services, such as schools, clinics..."
+                  },
+                  {
+                    "id": "q-iqv15bdqt",
+                    "questionOrder": 11,
+                    "text": "To connect localized areas to economic hubs, [blank] must be improved.",
+                    "options": [],
+                    "correctAnswer": "public transportation",
+                    "explanation": "...public transportation networks need to be optimized to connect these localized neighborhoods..."
+                  },
+                  {
+                    "id": "q-1y1nqhnhy",
+                    "questionOrder": 12,
+                    "text": "Some believe modifying older cities is too [blank] to be practical everywhere.",
+                    "options": [],
+                    "correctAnswer": "expensive",
+                    "explanation": "Critics argue that retrofitting existing cities is too expensive..."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "test-paid-zixt0y4yu",
+      "title": "Premium Reading Mock Test 2",
+      "description": "Full AI-generated premium reading test 2. Unlimited attempts.",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "skill": "Reading",
+      "testMode": "premium",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-student-004",
+      "durationMinutes": 60,
+      "totalQuestions": 12,
+      "attemptLimit": 0,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "updatedAt": "2026-07-06T06:53:41.125Z",
+      "createdBy": "u-student-004",
+      "testConfig": {
+        "passages": [
+          {
+            "id": "passage-tl4xefen6",
+            "order": 1,
+            "title": "The Future of Urban Planning",
+            "instruction": "Read the passage below and answer questions 1-12.",
+            "defaultRange": "1-12",
+            "content": "Cities today face unprecedented challenges due to rapid population growth and climate change. Urban planners are now forced to rethink traditional infrastructure. Historically, cities were designed around the automobile, leading to urban sprawl and increased carbon emissions. However, a new paradigm is emerging: the \"15-minute city\". This concept dictates that all essential services, such as schools, clinics, and grocery stores, should be accessible within a 15-minute walk or bike ride from any resident's home. \n\nImplementing this model requires significant changes. Sidewalks must be widened, and bike lanes must be physically separated from traffic. Moreover, public transportation networks need to be optimized to connect these localized neighborhoods to larger economic hubs. Critics argue that retrofitting existing cities is too expensive and that the model is only feasible in affluent areas. Despite these concerns, several major metropolitan areas have already begun pilot programs, showing promising initial results in reducing local pollution levels and increasing community engagement.",
+            "blocks": [
+              {
+                "id": "block-tfng-uripi6afx",
+                "type": "True/False/Not Given",
+                "rendererType": "true-false-not-given",
+                "range": "1-4",
+                "instruction": "Do the following statements agree with the information given in the Reading Passage? In boxes 1-4 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+                "questions": [
+                  {
+                    "id": "q-e374us93w",
+                    "questionOrder": 1,
+                    "text": "Traditional city designs prioritized car travel.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "True",
+                    "explanation": "The passage states: \"Historically, cities were designed around the automobile...\""
+                  },
+                  {
+                    "id": "q-fmvdj1uqz",
+                    "questionOrder": 2,
+                    "text": "The 15-minute city concept requires people to drive to grocery stores.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "False",
+                    "explanation": "The concept dictates services should be accessible within a 15-minute walk or bike ride, not driving."
+                  },
+                  {
+                    "id": "q-wofxtfe6p",
+                    "questionOrder": 3,
+                    "text": "Most critics of the 15-minute city live in suburban areas.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "Not Given",
+                    "explanation": "The passage mentions critics, but does not state where they live."
+                  },
+                  {
+                    "id": "q-23b9e769g",
+                    "questionOrder": 4,
+                    "text": "Pilot programs have successfully reduced traffic accidents.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "Not Given",
+                    "explanation": "The passage says programs show results in reducing pollution and increasing engagement, but doesn't mention traffic accidents."
+                  }
+                ]
+              },
+              {
+                "id": "block-mcq-j9eyo6g9q",
+                "type": "Multiple Choice",
+                "rendererType": "multiple-choice",
+                "range": "5-8",
+                "instruction": "Choose the correct letter, A, B, C or D.",
+                "questions": [
+                  {
+                    "id": "q-71zhzzc9h",
+                    "questionOrder": 5,
+                    "text": "According to the passage, what has caused urban planners to rethink infrastructure?",
+                    "options": [
+                      "A. A decrease in population",
+                      "B. Population growth and climate change",
+                      "C. The invention of the automobile",
+                      "D. A lack of funding for public transport"
+                    ],
+                    "correctAnswer": "B. Population growth and climate change",
+                    "explanation": "First sentence: \"Cities today face unprecedented challenges due to rapid population growth and climate change. Urban planners are now forced to rethink...\""
+                  },
+                  {
+                    "id": "q-756gms9kj",
+                    "questionOrder": 6,
+                    "text": "What is a requirement for implementing the 15-minute city model?",
+                    "options": [
+                      "A. Building more highways",
+                      "B. Reducing the number of schools",
+                      "C. Widening sidewalks and separating bike lanes",
+                      "D. Banning all cars from the city center"
+                    ],
+                    "correctAnswer": "C. Widening sidewalks and separating bike lanes",
+                    "explanation": "Passage: \"Sidewalks must be widened, and bike lanes must be physically separated from traffic.\""
+                  },
+                  {
+                    "id": "q-n1bfyqmsp",
+                    "questionOrder": 7,
+                    "text": "What do critics argue about the 15-minute city model?",
+                    "options": [
+                      "A. It increases carbon emissions.",
+                      "B. It is too cheap to implement.",
+                      "C. It is only viable for wealthy districts.",
+                      "D. It discourages community engagement."
+                    ],
+                    "correctAnswer": "C. It is only viable for wealthy districts.",
+                    "explanation": "Passage: \"Critics argue that... the model is only feasible in affluent areas.\""
+                  },
+                  {
+                    "id": "q-fuukswyxx",
+                    "questionOrder": 8,
+                    "text": "What has been an initial result of the pilot programs?",
+                    "options": [
+                      "A. Higher taxes",
+                      "B. Less local pollution",
+                      "C. More affluent neighborhoods",
+                      "D. Wider cars"
+                    ],
+                    "correctAnswer": "B. Less local pollution",
+                    "explanation": "Passage: \"showing promising initial results in reducing local pollution levels...\""
+                  }
+                ]
+              },
+              {
+                "id": "block-fill-0g01r2zu9",
+                "type": "Summary Completion",
+                "rendererType": "fill-in-the-blank",
+                "range": "9-12",
+                "instruction": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+                "questions": [
+                  {
+                    "id": "q-uiceexsqw",
+                    "questionOrder": 9,
+                    "text": "In the past, urban areas were built to accommodate the [blank], which caused urban sprawl.",
+                    "options": [],
+                    "correctAnswer": "automobile",
+                    "explanation": "...cities were designed around the automobile..."
+                  },
+                  {
+                    "id": "q-7d4bx5mbv",
+                    "questionOrder": 10,
+                    "text": "The new approach ensures that residents can reach [blank] such as clinics within 15 minutes.",
+                    "options": [],
+                    "correctAnswer": "essential services",
+                    "explanation": "...all essential services, such as schools, clinics..."
+                  },
+                  {
+                    "id": "q-iqv15bdqt",
+                    "questionOrder": 11,
+                    "text": "To connect localized areas to economic hubs, [blank] must be improved.",
+                    "options": [],
+                    "correctAnswer": "public transportation",
+                    "explanation": "...public transportation networks need to be optimized to connect these localized neighborhoods..."
+                  },
+                  {
+                    "id": "q-1y1nqhnhy",
+                    "questionOrder": 12,
+                    "text": "Some believe modifying older cities is too [blank] to be practical everywhere.",
+                    "options": [],
+                    "correctAnswer": "expensive",
+                    "explanation": "Critics argue that retrofitting existing cities is too expensive..."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "test-paid-2onlebpf3",
+      "title": "Premium Reading Mock Test 3",
+      "description": "Full AI-generated premium reading test 3. Unlimited attempts.",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "skill": "Reading",
+      "testMode": "premium",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-student-004",
+      "durationMinutes": 60,
+      "totalQuestions": 12,
+      "attemptLimit": 0,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "updatedAt": "2026-07-06T06:53:41.125Z",
+      "createdBy": "u-student-004",
+      "testConfig": {
+        "passages": [
+          {
+            "id": "passage-spxf19rqm",
+            "order": 1,
+            "title": "The Future of Urban Planning",
+            "instruction": "Read the passage below and answer questions 1-12.",
+            "defaultRange": "1-12",
+            "content": "Cities today face unprecedented challenges due to rapid population growth and climate change. Urban planners are now forced to rethink traditional infrastructure. Historically, cities were designed around the automobile, leading to urban sprawl and increased carbon emissions. However, a new paradigm is emerging: the \"15-minute city\". This concept dictates that all essential services, such as schools, clinics, and grocery stores, should be accessible within a 15-minute walk or bike ride from any resident's home. \n\nImplementing this model requires significant changes. Sidewalks must be widened, and bike lanes must be physically separated from traffic. Moreover, public transportation networks need to be optimized to connect these localized neighborhoods to larger economic hubs. Critics argue that retrofitting existing cities is too expensive and that the model is only feasible in affluent areas. Despite these concerns, several major metropolitan areas have already begun pilot programs, showing promising initial results in reducing local pollution levels and increasing community engagement.",
+            "blocks": [
+              {
+                "id": "block-tfng-uripi6afx",
+                "type": "True/False/Not Given",
+                "rendererType": "true-false-not-given",
+                "range": "1-4",
+                "instruction": "Do the following statements agree with the information given in the Reading Passage? In boxes 1-4 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+                "questions": [
+                  {
+                    "id": "q-e374us93w",
+                    "questionOrder": 1,
+                    "text": "Traditional city designs prioritized car travel.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "True",
+                    "explanation": "The passage states: \"Historically, cities were designed around the automobile...\""
+                  },
+                  {
+                    "id": "q-fmvdj1uqz",
+                    "questionOrder": 2,
+                    "text": "The 15-minute city concept requires people to drive to grocery stores.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "False",
+                    "explanation": "The concept dictates services should be accessible within a 15-minute walk or bike ride, not driving."
+                  },
+                  {
+                    "id": "q-wofxtfe6p",
+                    "questionOrder": 3,
+                    "text": "Most critics of the 15-minute city live in suburban areas.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "Not Given",
+                    "explanation": "The passage mentions critics, but does not state where they live."
+                  },
+                  {
+                    "id": "q-23b9e769g",
+                    "questionOrder": 4,
+                    "text": "Pilot programs have successfully reduced traffic accidents.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "Not Given",
+                    "explanation": "The passage says programs show results in reducing pollution and increasing engagement, but doesn't mention traffic accidents."
+                  }
+                ]
+              },
+              {
+                "id": "block-mcq-j9eyo6g9q",
+                "type": "Multiple Choice",
+                "rendererType": "multiple-choice",
+                "range": "5-8",
+                "instruction": "Choose the correct letter, A, B, C or D.",
+                "questions": [
+                  {
+                    "id": "q-71zhzzc9h",
+                    "questionOrder": 5,
+                    "text": "According to the passage, what has caused urban planners to rethink infrastructure?",
+                    "options": [
+                      "A. A decrease in population",
+                      "B. Population growth and climate change",
+                      "C. The invention of the automobile",
+                      "D. A lack of funding for public transport"
+                    ],
+                    "correctAnswer": "B. Population growth and climate change",
+                    "explanation": "First sentence: \"Cities today face unprecedented challenges due to rapid population growth and climate change. Urban planners are now forced to rethink...\""
+                  },
+                  {
+                    "id": "q-756gms9kj",
+                    "questionOrder": 6,
+                    "text": "What is a requirement for implementing the 15-minute city model?",
+                    "options": [
+                      "A. Building more highways",
+                      "B. Reducing the number of schools",
+                      "C. Widening sidewalks and separating bike lanes",
+                      "D. Banning all cars from the city center"
+                    ],
+                    "correctAnswer": "C. Widening sidewalks and separating bike lanes",
+                    "explanation": "Passage: \"Sidewalks must be widened, and bike lanes must be physically separated from traffic.\""
+                  },
+                  {
+                    "id": "q-n1bfyqmsp",
+                    "questionOrder": 7,
+                    "text": "What do critics argue about the 15-minute city model?",
+                    "options": [
+                      "A. It increases carbon emissions.",
+                      "B. It is too cheap to implement.",
+                      "C. It is only viable for wealthy districts.",
+                      "D. It discourages community engagement."
+                    ],
+                    "correctAnswer": "C. It is only viable for wealthy districts.",
+                    "explanation": "Passage: \"Critics argue that... the model is only feasible in affluent areas.\""
+                  },
+                  {
+                    "id": "q-fuukswyxx",
+                    "questionOrder": 8,
+                    "text": "What has been an initial result of the pilot programs?",
+                    "options": [
+                      "A. Higher taxes",
+                      "B. Less local pollution",
+                      "C. More affluent neighborhoods",
+                      "D. Wider cars"
+                    ],
+                    "correctAnswer": "B. Less local pollution",
+                    "explanation": "Passage: \"showing promising initial results in reducing local pollution levels...\""
+                  }
+                ]
+              },
+              {
+                "id": "block-fill-0g01r2zu9",
+                "type": "Summary Completion",
+                "rendererType": "fill-in-the-blank",
+                "range": "9-12",
+                "instruction": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+                "questions": [
+                  {
+                    "id": "q-uiceexsqw",
+                    "questionOrder": 9,
+                    "text": "In the past, urban areas were built to accommodate the [blank], which caused urban sprawl.",
+                    "options": [],
+                    "correctAnswer": "automobile",
+                    "explanation": "...cities were designed around the automobile..."
+                  },
+                  {
+                    "id": "q-7d4bx5mbv",
+                    "questionOrder": 10,
+                    "text": "The new approach ensures that residents can reach [blank] such as clinics within 15 minutes.",
+                    "options": [],
+                    "correctAnswer": "essential services",
+                    "explanation": "...all essential services, such as schools, clinics..."
+                  },
+                  {
+                    "id": "q-iqv15bdqt",
+                    "questionOrder": 11,
+                    "text": "To connect localized areas to economic hubs, [blank] must be improved.",
+                    "options": [],
+                    "correctAnswer": "public transportation",
+                    "explanation": "...public transportation networks need to be optimized to connect these localized neighborhoods..."
+                  },
+                  {
+                    "id": "q-1y1nqhnhy",
+                    "questionOrder": 12,
+                    "text": "Some believe modifying older cities is too [blank] to be practical everywhere.",
+                    "options": [],
+                    "correctAnswer": "expensive",
+                    "explanation": "Critics argue that retrofitting existing cities is too expensive..."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "test-paid-mvhw1vfrj",
+      "title": "Premium Reading Mock Test 4",
+      "description": "Full AI-generated premium reading test 4. Unlimited attempts.",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "skill": "Reading",
+      "testMode": "premium",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-student-004",
+      "durationMinutes": 60,
+      "totalQuestions": 12,
+      "attemptLimit": 0,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "updatedAt": "2026-07-06T06:53:41.125Z",
+      "createdBy": "u-student-004",
+      "testConfig": {
+        "passages": [
+          {
+            "id": "passage-eqv3gyr5i",
+            "order": 1,
+            "title": "The Future of Urban Planning",
+            "instruction": "Read the passage below and answer questions 1-12.",
+            "defaultRange": "1-12",
+            "content": "Cities today face unprecedented challenges due to rapid population growth and climate change. Urban planners are now forced to rethink traditional infrastructure. Historically, cities were designed around the automobile, leading to urban sprawl and increased carbon emissions. However, a new paradigm is emerging: the \"15-minute city\". This concept dictates that all essential services, such as schools, clinics, and grocery stores, should be accessible within a 15-minute walk or bike ride from any resident's home. \n\nImplementing this model requires significant changes. Sidewalks must be widened, and bike lanes must be physically separated from traffic. Moreover, public transportation networks need to be optimized to connect these localized neighborhoods to larger economic hubs. Critics argue that retrofitting existing cities is too expensive and that the model is only feasible in affluent areas. Despite these concerns, several major metropolitan areas have already begun pilot programs, showing promising initial results in reducing local pollution levels and increasing community engagement.",
+            "blocks": [
+              {
+                "id": "block-tfng-uripi6afx",
+                "type": "True/False/Not Given",
+                "rendererType": "true-false-not-given",
+                "range": "1-4",
+                "instruction": "Do the following statements agree with the information given in the Reading Passage? In boxes 1-4 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+                "questions": [
+                  {
+                    "id": "q-e374us93w",
+                    "questionOrder": 1,
+                    "text": "Traditional city designs prioritized car travel.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "True",
+                    "explanation": "The passage states: \"Historically, cities were designed around the automobile...\""
+                  },
+                  {
+                    "id": "q-fmvdj1uqz",
+                    "questionOrder": 2,
+                    "text": "The 15-minute city concept requires people to drive to grocery stores.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "False",
+                    "explanation": "The concept dictates services should be accessible within a 15-minute walk or bike ride, not driving."
+                  },
+                  {
+                    "id": "q-wofxtfe6p",
+                    "questionOrder": 3,
+                    "text": "Most critics of the 15-minute city live in suburban areas.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "Not Given",
+                    "explanation": "The passage mentions critics, but does not state where they live."
+                  },
+                  {
+                    "id": "q-23b9e769g",
+                    "questionOrder": 4,
+                    "text": "Pilot programs have successfully reduced traffic accidents.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "Not Given",
+                    "explanation": "The passage says programs show results in reducing pollution and increasing engagement, but doesn't mention traffic accidents."
+                  }
+                ]
+              },
+              {
+                "id": "block-mcq-j9eyo6g9q",
+                "type": "Multiple Choice",
+                "rendererType": "multiple-choice",
+                "range": "5-8",
+                "instruction": "Choose the correct letter, A, B, C or D.",
+                "questions": [
+                  {
+                    "id": "q-71zhzzc9h",
+                    "questionOrder": 5,
+                    "text": "According to the passage, what has caused urban planners to rethink infrastructure?",
+                    "options": [
+                      "A. A decrease in population",
+                      "B. Population growth and climate change",
+                      "C. The invention of the automobile",
+                      "D. A lack of funding for public transport"
+                    ],
+                    "correctAnswer": "B. Population growth and climate change",
+                    "explanation": "First sentence: \"Cities today face unprecedented challenges due to rapid population growth and climate change. Urban planners are now forced to rethink...\""
+                  },
+                  {
+                    "id": "q-756gms9kj",
+                    "questionOrder": 6,
+                    "text": "What is a requirement for implementing the 15-minute city model?",
+                    "options": [
+                      "A. Building more highways",
+                      "B. Reducing the number of schools",
+                      "C. Widening sidewalks and separating bike lanes",
+                      "D. Banning all cars from the city center"
+                    ],
+                    "correctAnswer": "C. Widening sidewalks and separating bike lanes",
+                    "explanation": "Passage: \"Sidewalks must be widened, and bike lanes must be physically separated from traffic.\""
+                  },
+                  {
+                    "id": "q-n1bfyqmsp",
+                    "questionOrder": 7,
+                    "text": "What do critics argue about the 15-minute city model?",
+                    "options": [
+                      "A. It increases carbon emissions.",
+                      "B. It is too cheap to implement.",
+                      "C. It is only viable for wealthy districts.",
+                      "D. It discourages community engagement."
+                    ],
+                    "correctAnswer": "C. It is only viable for wealthy districts.",
+                    "explanation": "Passage: \"Critics argue that... the model is only feasible in affluent areas.\""
+                  },
+                  {
+                    "id": "q-fuukswyxx",
+                    "questionOrder": 8,
+                    "text": "What has been an initial result of the pilot programs?",
+                    "options": [
+                      "A. Higher taxes",
+                      "B. Less local pollution",
+                      "C. More affluent neighborhoods",
+                      "D. Wider cars"
+                    ],
+                    "correctAnswer": "B. Less local pollution",
+                    "explanation": "Passage: \"showing promising initial results in reducing local pollution levels...\""
+                  }
+                ]
+              },
+              {
+                "id": "block-fill-0g01r2zu9",
+                "type": "Summary Completion",
+                "rendererType": "fill-in-the-blank",
+                "range": "9-12",
+                "instruction": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+                "questions": [
+                  {
+                    "id": "q-uiceexsqw",
+                    "questionOrder": 9,
+                    "text": "In the past, urban areas were built to accommodate the [blank], which caused urban sprawl.",
+                    "options": [],
+                    "correctAnswer": "automobile",
+                    "explanation": "...cities were designed around the automobile..."
+                  },
+                  {
+                    "id": "q-7d4bx5mbv",
+                    "questionOrder": 10,
+                    "text": "The new approach ensures that residents can reach [blank] such as clinics within 15 minutes.",
+                    "options": [],
+                    "correctAnswer": "essential services",
+                    "explanation": "...all essential services, such as schools, clinics..."
+                  },
+                  {
+                    "id": "q-iqv15bdqt",
+                    "questionOrder": 11,
+                    "text": "To connect localized areas to economic hubs, [blank] must be improved.",
+                    "options": [],
+                    "correctAnswer": "public transportation",
+                    "explanation": "...public transportation networks need to be optimized to connect these localized neighborhoods..."
+                  },
+                  {
+                    "id": "q-1y1nqhnhy",
+                    "questionOrder": 12,
+                    "text": "Some believe modifying older cities is too [blank] to be practical everywhere.",
+                    "options": [],
+                    "correctAnswer": "expensive",
+                    "explanation": "Critics argue that retrofitting existing cities is too expensive..."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "test-paid-6nzxljx15",
+      "title": "Premium Reading Mock Test 5",
+      "description": "Full AI-generated premium reading test 5. Unlimited attempts.",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "skill": "Reading",
+      "testMode": "premium",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-student-004",
+      "durationMinutes": 60,
+      "totalQuestions": 12,
+      "attemptLimit": 0,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "updatedAt": "2026-07-06T06:53:41.125Z",
+      "createdBy": "u-student-004",
+      "testConfig": {
+        "passages": [
+          {
+            "id": "passage-vbyxa4osx",
+            "order": 1,
+            "title": "The Future of Urban Planning",
+            "instruction": "Read the passage below and answer questions 1-12.",
+            "defaultRange": "1-12",
+            "content": "Cities today face unprecedented challenges due to rapid population growth and climate change. Urban planners are now forced to rethink traditional infrastructure. Historically, cities were designed around the automobile, leading to urban sprawl and increased carbon emissions. However, a new paradigm is emerging: the \"15-minute city\". This concept dictates that all essential services, such as schools, clinics, and grocery stores, should be accessible within a 15-minute walk or bike ride from any resident's home. \n\nImplementing this model requires significant changes. Sidewalks must be widened, and bike lanes must be physically separated from traffic. Moreover, public transportation networks need to be optimized to connect these localized neighborhoods to larger economic hubs. Critics argue that retrofitting existing cities is too expensive and that the model is only feasible in affluent areas. Despite these concerns, several major metropolitan areas have already begun pilot programs, showing promising initial results in reducing local pollution levels and increasing community engagement.",
+            "blocks": [
+              {
+                "id": "block-tfng-uripi6afx",
+                "type": "True/False/Not Given",
+                "rendererType": "true-false-not-given",
+                "range": "1-4",
+                "instruction": "Do the following statements agree with the information given in the Reading Passage? In boxes 1-4 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+                "questions": [
+                  {
+                    "id": "q-e374us93w",
+                    "questionOrder": 1,
+                    "text": "Traditional city designs prioritized car travel.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "True",
+                    "explanation": "The passage states: \"Historically, cities were designed around the automobile...\""
+                  },
+                  {
+                    "id": "q-fmvdj1uqz",
+                    "questionOrder": 2,
+                    "text": "The 15-minute city concept requires people to drive to grocery stores.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "False",
+                    "explanation": "The concept dictates services should be accessible within a 15-minute walk or bike ride, not driving."
+                  },
+                  {
+                    "id": "q-wofxtfe6p",
+                    "questionOrder": 3,
+                    "text": "Most critics of the 15-minute city live in suburban areas.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "Not Given",
+                    "explanation": "The passage mentions critics, but does not state where they live."
+                  },
+                  {
+                    "id": "q-23b9e769g",
+                    "questionOrder": 4,
+                    "text": "Pilot programs have successfully reduced traffic accidents.",
+                    "options": [
+                      "True",
+                      "False",
+                      "Not Given"
+                    ],
+                    "correctAnswer": "Not Given",
+                    "explanation": "The passage says programs show results in reducing pollution and increasing engagement, but doesn't mention traffic accidents."
+                  }
+                ]
+              },
+              {
+                "id": "block-mcq-j9eyo6g9q",
+                "type": "Multiple Choice",
+                "rendererType": "multiple-choice",
+                "range": "5-8",
+                "instruction": "Choose the correct letter, A, B, C or D.",
+                "questions": [
+                  {
+                    "id": "q-71zhzzc9h",
+                    "questionOrder": 5,
+                    "text": "According to the passage, what has caused urban planners to rethink infrastructure?",
+                    "options": [
+                      "A. A decrease in population",
+                      "B. Population growth and climate change",
+                      "C. The invention of the automobile",
+                      "D. A lack of funding for public transport"
+                    ],
+                    "correctAnswer": "B. Population growth and climate change",
+                    "explanation": "First sentence: \"Cities today face unprecedented challenges due to rapid population growth and climate change. Urban planners are now forced to rethink...\""
+                  },
+                  {
+                    "id": "q-756gms9kj",
+                    "questionOrder": 6,
+                    "text": "What is a requirement for implementing the 15-minute city model?",
+                    "options": [
+                      "A. Building more highways",
+                      "B. Reducing the number of schools",
+                      "C. Widening sidewalks and separating bike lanes",
+                      "D. Banning all cars from the city center"
+                    ],
+                    "correctAnswer": "C. Widening sidewalks and separating bike lanes",
+                    "explanation": "Passage: \"Sidewalks must be widened, and bike lanes must be physically separated from traffic.\""
+                  },
+                  {
+                    "id": "q-n1bfyqmsp",
+                    "questionOrder": 7,
+                    "text": "What do critics argue about the 15-minute city model?",
+                    "options": [
+                      "A. It increases carbon emissions.",
+                      "B. It is too cheap to implement.",
+                      "C. It is only viable for wealthy districts.",
+                      "D. It discourages community engagement."
+                    ],
+                    "correctAnswer": "C. It is only viable for wealthy districts.",
+                    "explanation": "Passage: \"Critics argue that... the model is only feasible in affluent areas.\""
+                  },
+                  {
+                    "id": "q-fuukswyxx",
+                    "questionOrder": 8,
+                    "text": "What has been an initial result of the pilot programs?",
+                    "options": [
+                      "A. Higher taxes",
+                      "B. Less local pollution",
+                      "C. More affluent neighborhoods",
+                      "D. Wider cars"
+                    ],
+                    "correctAnswer": "B. Less local pollution",
+                    "explanation": "Passage: \"showing promising initial results in reducing local pollution levels...\""
+                  }
+                ]
+              },
+              {
+                "id": "block-fill-0g01r2zu9",
+                "type": "Summary Completion",
+                "rendererType": "fill-in-the-blank",
+                "range": "9-12",
+                "instruction": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+                "questions": [
+                  {
+                    "id": "q-uiceexsqw",
+                    "questionOrder": 9,
+                    "text": "In the past, urban areas were built to accommodate the [blank], which caused urban sprawl.",
+                    "options": [],
+                    "correctAnswer": "automobile",
+                    "explanation": "...cities were designed around the automobile..."
+                  },
+                  {
+                    "id": "q-7d4bx5mbv",
+                    "questionOrder": 10,
+                    "text": "The new approach ensures that residents can reach [blank] such as clinics within 15 minutes.",
+                    "options": [],
+                    "correctAnswer": "essential services",
+                    "explanation": "...all essential services, such as schools, clinics..."
+                  },
+                  {
+                    "id": "q-iqv15bdqt",
+                    "questionOrder": 11,
+                    "text": "To connect localized areas to economic hubs, [blank] must be improved.",
+                    "options": [],
+                    "correctAnswer": "public transportation",
+                    "explanation": "...public transportation networks need to be optimized to connect these localized neighborhoods..."
+                  },
+                  {
+                    "id": "q-1y1nqhnhy",
+                    "questionOrder": 12,
+                    "text": "Some believe modifying older cities is too [blank] to be practical everywhere.",
+                    "options": [],
+                    "correctAnswer": "expensive",
+                    "explanation": "Critics argue that retrofitting existing cities is too expensive..."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "questions": [],
@@ -1845,13 +3359,6 @@
       "progress": 0,
       "enrolledAt": "2026-07-05T05:03:20.075Z",
       "id": "CO91zpzQhAg"
-    },
-    {
-      "userId": "u-001",
-      "courseId": "WBXqCYd2cPQ",
-      "progress": 0,
-      "enrolledAt": "2026-07-05T11:36:15.560Z",
-      "id": "iDUHBchy0cE"
     }
   ],
   "payments": [
@@ -2002,22 +3509,6 @@
       "reviewedBy": "admin",
       "rejectReason": null,
       "id": "0AjrCVLm3eY"
-    },
-    {
-      "userId": "u-001",
-      "courseId": "WBXqCYd2cPQ",
-      "amount": 990000,
-      "currency": "VND",
-      "method": "vietqr",
-      "transferContent": "IELTS WBXqCYd2cPQ -001",
-      "type": "enroll",
-      "status": "paid",
-      "createdAt": "2026-07-05T11:35:35.490Z",
-      "paidAt": "2026-07-05T11:36:15.546Z",
-      "reviewedAt": "2026-07-05T11:36:15.546Z",
-      "reviewedBy": "admin",
-      "rejectReason": null,
-      "id": "bseQJLzQJT8"
     }
   ],
   "transactions": [
@@ -2794,13 +4285,21 @@
       "createdAt": "2026-06-29T04:41:50.169Z"
     },
     {
-      "id": "log-047",
-      "actorId": "u-student-004",
-      "action": "ASSIGN_TEST_COURSE",
-      "targetType": "course",
-      "targetId": "9w8htVkjNaI",
-      "createdAt": "2026-06-30T17:24:11.172Z"
+      "userId": "u-001",
+      "courseId": "bundle",
+      "progress": 0,
+      "enrolledAt": "2026-07-05T05:03:20.075Z",
+      "id": "CO91zpzQhAg"
     },
+    {
+      "userId": "u-001",
+      "courseId": "WBXqCYd2cPQ",
+      "progress": 0,
+      "enrolledAt": "2026-07-05T11:36:15.560Z",
+      "id": "iDUHBchy0cE"
+    }
+  ],
+  "payments": [
     {
       "id": "log-048",
       "actorId": "u-teacher-001",
@@ -2824,6 +4323,192 @@
       "targetType": "unknown",
       "targetId": "unknown",
       "createdAt": "2026-07-05T05:40:21.946Z"
+    },
+    {
+      "id": "log-051",
+      "actorId": "u-student-004",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T06:19:41.557Z"
+    },
+    {
+      "id": "log-052",
+      "actorId": "u-student-004",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T06:38:46.984Z"
+    },
+    {
+      "id": "log-053",
+      "actorId": "u-student-004",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T06:41:19.843Z"
+    },
+    {
+      "id": "log-054",
+      "actorId": "u-student-004",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T06:42:30.122Z"
+    },
+    {
+      "id": "log-055",
+      "actorId": "u-student-004",
+      "action": "REVERT_COURSE_STATUS",
+      "targetType": "course",
+      "targetId": "course-reading-free-8s28fpfl7",
+      "createdAt": "2026-07-06T07:27:02.002Z"
+    },
+    {
+      "id": "log-056",
+      "actorId": "u-student-004",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-reading-free-8s28fpfl7",
+      "createdAt": "2026-07-06T07:27:02.012Z"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "6juKyo6dXkU",
+      "amount": 1500000,
+      "currency": "VND",
+      "method": "vietqr",
+      "transferContent": "IELTS 6juKyo6dXkU -001",
+      "type": "enroll",
+      "status": "paid",
+      "createdAt": "2026-07-05T05:01:14.469Z",
+      "paidAt": "2026-07-05T05:03:19.559Z",
+      "reviewedAt": "2026-07-05T05:03:19.559Z",
+      "reviewedBy": "admin",
+      "rejectReason": null,
+      "id": "0AjrCVLm3eY"
+    },
+    {
+      "userId": "u-001",
+      "courseId": "WBXqCYd2cPQ",
+      "amount": 990000,
+      "currency": "VND",
+      "method": "vietqr",
+      "transferContent": "IELTS WBXqCYd2cPQ -001",
+      "type": "enroll",
+      "status": "paid",
+      "createdAt": "2026-07-05T11:35:35.490Z",
+      "paidAt": "2026-07-05T11:36:15.546Z",
+      "reviewedAt": "2026-07-05T11:36:15.546Z",
+      "reviewedBy": "admin",
+      "rejectReason": null,
+      "id": "bseQJLzQJT8"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "log-058",
+      "actorId": "u-student-004",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-reading-free-8s28fpfl7",
+      "createdAt": "2026-07-06T07:28:36.429Z"
+    },
+    {
+      "id": "log-059",
+      "actorId": "u-student-004",
+      "action": "REVERT_COURSE_STATUS",
+      "targetType": "course",
+      "targetId": "course-reading-free-8s28fpfl7",
+      "createdAt": "2026-07-06T07:30:13.731Z"
+    },
+    {
+      "id": "log-060",
+      "actorId": "u-student-004",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-reading-free-8s28fpfl7",
+      "createdAt": "2026-07-06T07:30:13.741Z"
+    },
+    {
+      "id": "log-061",
+      "actorId": "u-student-004",
+      "action": "REVERT_COURSE_STATUS",
+      "targetType": "course",
+      "targetId": "course-reading-paid-ki1nljyt3",
+      "createdAt": "2026-07-06T07:30:42.348Z"
+    },
+    {
+      "id": "log-062",
+      "actorId": "u-student-004",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-reading-paid-ki1nljyt3",
+      "createdAt": "2026-07-06T07:30:42.360Z"
+    },
+    {
+      "id": "log-063",
+      "actorId": "u-student-004",
+      "action": "REVERT_COURSE_STATUS",
+      "targetType": "course",
+      "targetId": "course-reading-paid-ki1nljyt3",
+      "createdAt": "2026-07-06T07:32:08.255Z"
+    },
+    {
+      "id": "log-064",
+      "actorId": "u-student-004",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-reading-paid-ki1nljyt3",
+      "createdAt": "2026-07-06T07:32:08.277Z"
+    },
+    {
+      "id": "log-065",
+      "actorId": "u-student-004",
+      "action": "REVERT_COURSE_STATUS",
+      "targetType": "course",
+      "targetId": "course-reading-paid-ki1nljyt3",
+      "createdAt": "2026-07-06T07:33:56.172Z"
+    },
+    {
+      "id": "log-066",
+      "actorId": "u-student-004",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-reading-paid-ki1nljyt3",
+      "createdAt": "2026-07-06T07:33:56.183Z"
+    },
+    {
+      "id": "log-067",
+      "actorId": "u-student-004",
+      "action": "REVERT_COURSE_STATUS",
+      "targetType": "course",
+      "targetId": "course-reading-paid-ki1nljyt3",
+      "createdAt": "2026-07-06T07:34:36.542Z"
+    },
+    {
+      "id": "log-068",
+      "actorId": "u-student-004",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-reading-paid-ki1nljyt3",
+      "createdAt": "2026-07-06T07:34:36.556Z"
+    },
+    {
+      "id": "log-069",
+      "actorId": "u-student-004",
+      "action": "REVERT_COURSE_STATUS",
+      "targetType": "course",
+      "targetId": "course-reading-paid-ki1nljyt3",
+      "createdAt": "2026-07-06T07:35:08.558Z"
+    },
+    {
+      "id": "log-070",
+      "actorId": "u-student-004",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-reading-paid-ki1nljyt3",
+      "createdAt": "2026-07-06T07:35:08.599Z"
     }
   ],
   "approvalRequests": [
@@ -2937,6 +4622,22 @@
       "teacherId": "u-teacher-001",
       "status": "pending",
       "createdAt": "2026-07-05T09:32:34.145Z"
+    },
+    {
+      "id": "req-008",
+      "targetType": "course",
+      "targetId": "course-reading-free-8s28fpfl7",
+      "teacherId": "u-student-004",
+      "status": "pending",
+      "createdAt": "2026-07-06T07:27:01.980Z"
+    },
+    {
+      "id": "req-009",
+      "targetType": "course",
+      "targetId": "course-reading-paid-ki1nljyt3",
+      "teacherId": "u-student-004",
+      "status": "pending",
+      "createdAt": "2026-07-06T07:30:42.328Z"
     }
   ],
   "categories": [
@@ -4311,6 +6012,952 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": ""
+    },
+    {
+      "id": "card-2335q652u",
+      "deckId": "deck-free-1g1bsrecj",
+      "word": "Ambiguous",
+      "meaning": "Mơ hồ, không rõ ràng",
+      "pronunciation": "/æmˈbɪɡjuəs/",
+      "example": "Example for Ambiguous",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-qr497v4n4",
+      "deckId": "deck-free-1g1bsrecj",
+      "word": "Incorporate",
+      "meaning": "Sát nhập, kết hợp",
+      "pronunciation": "/ɪnˈkɔːpəreɪt/",
+      "example": "Example for Incorporate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-xx31y1s0y",
+      "deckId": "deck-free-1g1bsrecj",
+      "word": "Cognitive",
+      "meaning": "Thuộc về nhận thức",
+      "pronunciation": "/ˈkɒɡnətɪv/",
+      "example": "Example for Cognitive",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-pmjhwebim",
+      "deckId": "deck-free-1g1bsrecj",
+      "word": "Diminish",
+      "meaning": "Giảm bớt",
+      "pronunciation": "/dɪˈmɪnɪʃ/",
+      "example": "Example for Diminish",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-83ufhwse2",
+      "deckId": "deck-free-1g1bsrecj",
+      "word": "Feasible",
+      "meaning": "Khả thi",
+      "pronunciation": "/ˈfiːzəb(ə)l/",
+      "example": "Example for Feasible",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-fzhtm6frh",
+      "deckId": "deck-free-1g1bsrecj",
+      "word": "Qualitative",
+      "meaning": "Định tính",
+      "pronunciation": "/ˈkwɒlɪtətɪv/",
+      "example": "Example for Qualitative",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-dp4u9e87i",
+      "deckId": "deck-free-1g1bsrecj",
+      "word": "Comprehend",
+      "meaning": "Hiểu, lĩnh hội",
+      "pronunciation": "/ˌkɒmprɪˈhend/",
+      "example": "Example for Comprehend",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-5tcsgrf5c",
+      "deckId": "deck-free-1g1bsrecj",
+      "word": "Implementation",
+      "meaning": "Sự thi hành",
+      "pronunciation": "/ˌɪmplɪmɛnˈteɪʃən/",
+      "example": "Example for Implementation",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-xym5h5ps4",
+      "deckId": "deck-free-1g1bsrecj",
+      "word": "Legislate",
+      "meaning": "Lập pháp, ban hành luật",
+      "pronunciation": "/ˈledʒɪsleɪt/",
+      "example": "Example for Legislate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-b0izbz9el",
+      "deckId": "deck-free-1g1bsrecj",
+      "word": "Sustainable",
+      "meaning": "Bền vững",
+      "pronunciation": "/səˈsteɪnəbl/",
+      "example": "Example for Sustainable",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-mtkwdq0ei",
+      "deckId": "deck-free-r9kgbnjae",
+      "word": "Implementation",
+      "meaning": "Sự thi hành",
+      "pronunciation": "/ˌɪmplɪmɛnˈteɪʃən/",
+      "example": "Example for Implementation",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-hoyfl4ci2",
+      "deckId": "deck-free-r9kgbnjae",
+      "word": "Evaluate",
+      "meaning": "Đánh giá",
+      "pronunciation": "/ɪˈvæljueɪt/",
+      "example": "Example for Evaluate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-2uqyy81h4",
+      "deckId": "deck-free-r9kgbnjae",
+      "word": "Qualitative",
+      "meaning": "Định tính",
+      "pronunciation": "/ˈkwɒlɪtətɪv/",
+      "example": "Example for Qualitative",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-jfg2dmdq5",
+      "deckId": "deck-free-r9kgbnjae",
+      "word": "Sustainable",
+      "meaning": "Bền vững",
+      "pronunciation": "/səˈsteɪnəbl/",
+      "example": "Example for Sustainable",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-00717jbp9",
+      "deckId": "deck-free-r9kgbnjae",
+      "word": "Fluctuate",
+      "meaning": "Biến động",
+      "pronunciation": "/ˈflʌktʃueɪt/",
+      "example": "Example for Fluctuate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-t1b109ixu",
+      "deckId": "deck-free-r9kgbnjae",
+      "word": "Substantial",
+      "meaning": "Đáng kể",
+      "pronunciation": "/səbˈstænʃəl/",
+      "example": "Example for Substantial",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-zwhrwvmwl",
+      "deckId": "deck-free-r9kgbnjae",
+      "word": "Incorporate",
+      "meaning": "Sát nhập, kết hợp",
+      "pronunciation": "/ɪnˈkɔːpəreɪt/",
+      "example": "Example for Incorporate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-1ae6giz0b",
+      "deckId": "deck-free-r9kgbnjae",
+      "word": "Proliferation",
+      "meaning": "Sự sinh sôi nảy nở",
+      "pronunciation": "/prəʊˌlɪfəˈreɪʃ(ə)n/",
+      "example": "Example for Proliferation",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-zhash1c3c",
+      "deckId": "deck-free-r9kgbnjae",
+      "word": "Ambiguous",
+      "meaning": "Mơ hồ, không rõ ràng",
+      "pronunciation": "/æmˈbɪɡjuəs/",
+      "example": "Example for Ambiguous",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-scrsxtfps",
+      "deckId": "deck-free-r9kgbnjae",
+      "word": "Eradicate",
+      "meaning": "Tiêu diệt",
+      "pronunciation": "/ɪˈrædɪkeɪt/",
+      "example": "Example for Eradicate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-idekc4tfl",
+      "deckId": "deck-free-r9kgbnjae",
+      "word": "Feasible",
+      "meaning": "Khả thi",
+      "pronunciation": "/ˈfiːzəb(ə)l/",
+      "example": "Example for Feasible",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-9468ic5eu",
+      "deckId": "deck-free-r9kgbnjae",
+      "word": "Comprehend",
+      "meaning": "Hiểu, lĩnh hội",
+      "pronunciation": "/ˌkɒmprɪˈhend/",
+      "example": "Example for Comprehend",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-klcv4isek",
+      "deckId": "deck-free-r9kgbnjae",
+      "word": "Contradict",
+      "meaning": "Mâu thuẫn, trái ngược",
+      "pronunciation": "/ˌkɒntrəˈdɪkt/",
+      "example": "Example for Contradict",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-fh6ym26rw",
+      "deckId": "deck-free-r9kgbnjae",
+      "word": "Cognitive",
+      "meaning": "Thuộc về nhận thức",
+      "pronunciation": "/ˈkɒɡnətɪv/",
+      "example": "Example for Cognitive",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-8y0s8xfu9",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Legislate",
+      "meaning": "Lập pháp, ban hành luật",
+      "pronunciation": "/ˈledʒɪsleɪt/",
+      "example": "Example for Legislate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-offtcdw9m",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Diminish",
+      "meaning": "Giảm bớt",
+      "pronunciation": "/dɪˈmɪnɪʃ/",
+      "example": "Example for Diminish",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-e39oojodp",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Cognitive",
+      "meaning": "Thuộc về nhận thức",
+      "pronunciation": "/ˈkɒɡnətɪv/",
+      "example": "Example for Cognitive",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-yzz46hwoe",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Feasible",
+      "meaning": "Khả thi",
+      "pronunciation": "/ˈfiːzəb(ə)l/",
+      "example": "Example for Feasible",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-0ywu5hpxp",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Substantial",
+      "meaning": "Đáng kể",
+      "pronunciation": "/səbˈstænʃəl/",
+      "example": "Example for Substantial",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-crjj96s6m",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Qualitative",
+      "meaning": "Định tính",
+      "pronunciation": "/ˈkwɒlɪtətɪv/",
+      "example": "Example for Qualitative",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-g948biyp0",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Eradicate",
+      "meaning": "Tiêu diệt",
+      "pronunciation": "/ɪˈrædɪkeɪt/",
+      "example": "Example for Eradicate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-mscynhm0t",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Evaluate",
+      "meaning": "Đánh giá",
+      "pronunciation": "/ɪˈvæljueɪt/",
+      "example": "Example for Evaluate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-oi7qgi387",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Sustainable",
+      "meaning": "Bền vững",
+      "pronunciation": "/səˈsteɪnəbl/",
+      "example": "Example for Sustainable",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-tr25z282d",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Ambiguous",
+      "meaning": "Mơ hồ, không rõ ràng",
+      "pronunciation": "/æmˈbɪɡjuəs/",
+      "example": "Example for Ambiguous",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-qa67lpcpa",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Incorporate",
+      "meaning": "Sát nhập, kết hợp",
+      "pronunciation": "/ɪnˈkɔːpəreɪt/",
+      "example": "Example for Incorporate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-vx4lmdrrk",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Contradict",
+      "meaning": "Mâu thuẫn, trái ngược",
+      "pronunciation": "/ˌkɒntrəˈdɪkt/",
+      "example": "Example for Contradict",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-rqcdmoxip",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Fluctuate",
+      "meaning": "Biến động",
+      "pronunciation": "/ˈflʌktʃueɪt/",
+      "example": "Example for Fluctuate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-pp8pd5pn8",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Proliferation",
+      "meaning": "Sự sinh sôi nảy nở",
+      "pronunciation": "/prəʊˌlɪfəˈreɪʃ(ə)n/",
+      "example": "Example for Proliferation",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-eeytltcrr",
+      "deckId": "deck-paid-ibnhzhwom",
+      "word": "Paradigm",
+      "meaning": "Mô hình, kiểu mẫu",
+      "pronunciation": "/ˈpærədaɪm/",
+      "example": "Example for Paradigm",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-zf8spq332",
+      "deckId": "deck-paid-d32ppdnaf",
+      "word": "Implementation",
+      "meaning": "Sự thi hành",
+      "pronunciation": "/ˌɪmplɪmɛnˈteɪʃən/",
+      "example": "Example for Implementation",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-gk3s4pic3",
+      "deckId": "deck-paid-d32ppdnaf",
+      "word": "Abundant",
+      "meaning": "Dồi dào",
+      "pronunciation": "/əˈbʌndənt/",
+      "example": "Example for Abundant",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-ynq3q8wyg",
+      "deckId": "deck-paid-d32ppdnaf",
+      "word": "Substantial",
+      "meaning": "Đáng kể",
+      "pronunciation": "/səbˈstænʃəl/",
+      "example": "Example for Substantial",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-dg5d2e6ni",
+      "deckId": "deck-paid-d32ppdnaf",
+      "word": "Ambiguous",
+      "meaning": "Mơ hồ, không rõ ràng",
+      "pronunciation": "/æmˈbɪɡjuəs/",
+      "example": "Example for Ambiguous",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-ed8i0rimv",
+      "deckId": "deck-paid-d32ppdnaf",
+      "word": "Eradicate",
+      "meaning": "Tiêu diệt",
+      "pronunciation": "/ɪˈrædɪkeɪt/",
+      "example": "Example for Eradicate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-0kldr14rz",
+      "deckId": "deck-paid-d32ppdnaf",
+      "word": "Diminish",
+      "meaning": "Giảm bớt",
+      "pronunciation": "/dɪˈmɪnɪʃ/",
+      "example": "Example for Diminish",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-3g2vo0l6p",
+      "deckId": "deck-paid-d32ppdnaf",
+      "word": "Comprehend",
+      "meaning": "Hiểu, lĩnh hội",
+      "pronunciation": "/ˌkɒmprɪˈhend/",
+      "example": "Example for Comprehend",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-eq89xxy6f",
+      "deckId": "deck-paid-d32ppdnaf",
+      "word": "Fluctuate",
+      "meaning": "Biến động",
+      "pronunciation": "/ˈflʌktʃueɪt/",
+      "example": "Example for Fluctuate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-ofca4psls",
+      "deckId": "deck-paid-d32ppdnaf",
+      "word": "Cognitive",
+      "meaning": "Thuộc về nhận thức",
+      "pronunciation": "/ˈkɒɡnətɪv/",
+      "example": "Example for Cognitive",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-wneh5jhip",
+      "deckId": "deck-paid-d32ppdnaf",
+      "word": "Contradict",
+      "meaning": "Mâu thuẫn, trái ngược",
+      "pronunciation": "/ˌkɒntrəˈdɪkt/",
+      "example": "Example for Contradict",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-quwxd2eea",
+      "deckId": "deck-paid-d32ppdnaf",
+      "word": "Valid",
+      "meaning": "Hợp lệ",
+      "pronunciation": "/ˈvælɪd/",
+      "example": "Example for Valid",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-oh4s661pf",
+      "deckId": "deck-paid-d32ppdnaf",
+      "word": "Evaluate",
+      "meaning": "Đánh giá",
+      "pronunciation": "/ɪˈvæljueɪt/",
+      "example": "Example for Evaluate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-zb12hfvyc",
+      "deckId": "deck-paid-d32ppdnaf",
+      "word": "Proliferation",
+      "meaning": "Sự sinh sôi nảy nở",
+      "pronunciation": "/prəʊˌlɪfəˈreɪʃ(ə)n/",
+      "example": "Example for Proliferation",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-o6xzepojl",
+      "deckId": "deck-paid-v3x6smap6",
+      "word": "Implementation",
+      "meaning": "Sự thi hành",
+      "pronunciation": "/ˌɪmplɪmɛnˈteɪʃən/",
+      "example": "Example for Implementation",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-uzpn6x1hy",
+      "deckId": "deck-paid-v3x6smap6",
+      "word": "Incorporate",
+      "meaning": "Sát nhập, kết hợp",
+      "pronunciation": "/ɪnˈkɔːpəreɪt/",
+      "example": "Example for Incorporate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-b4ihahjbf",
+      "deckId": "deck-paid-v3x6smap6",
+      "word": "Contradict",
+      "meaning": "Mâu thuẫn, trái ngược",
+      "pronunciation": "/ˌkɒntrəˈdɪkt/",
+      "example": "Example for Contradict",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-rqne800pd",
+      "deckId": "deck-paid-v3x6smap6",
+      "word": "Supplement",
+      "meaning": "Phần bổ sung",
+      "pronunciation": "/ˈsʌplɪmənt/",
+      "example": "Example for Supplement",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-tccrkoocr",
+      "deckId": "deck-paid-v3x6smap6",
+      "word": "Qualitative",
+      "meaning": "Định tính",
+      "pronunciation": "/ˈkwɒlɪtətɪv/",
+      "example": "Example for Qualitative",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-ufr8uxwwt",
+      "deckId": "deck-paid-v3x6smap6",
+      "word": "Comprehend",
+      "meaning": "Hiểu, lĩnh hội",
+      "pronunciation": "/ˌkɒmprɪˈhend/",
+      "example": "Example for Comprehend",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-yi5xi76h2",
+      "deckId": "deck-paid-v3x6smap6",
+      "word": "Substantial",
+      "meaning": "Đáng kể",
+      "pronunciation": "/səbˈstænʃəl/",
+      "example": "Example for Substantial",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-eejwfx1gd",
+      "deckId": "deck-paid-v3x6smap6",
+      "word": "Feasible",
+      "meaning": "Khả thi",
+      "pronunciation": "/ˈfiːzəb(ə)l/",
+      "example": "Example for Feasible",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-8bmcamobo",
+      "deckId": "deck-paid-v3x6smap6",
+      "word": "Abundant",
+      "meaning": "Dồi dào",
+      "pronunciation": "/əˈbʌndənt/",
+      "example": "Example for Abundant",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-zvdsli7cp",
+      "deckId": "deck-paid-v3x6smap6",
+      "word": "Evaluate",
+      "meaning": "Đánh giá",
+      "pronunciation": "/ɪˈvæljueɪt/",
+      "example": "Example for Evaluate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-5wxn75egm",
+      "deckId": "deck-paid-v3x6smap6",
+      "word": "Legislate",
+      "meaning": "Lập pháp, ban hành luật",
+      "pronunciation": "/ˈledʒɪsleɪt/",
+      "example": "Example for Legislate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-b9aoc5cpx",
+      "deckId": "deck-paid-v3x6smap6",
+      "word": "Cognitive",
+      "meaning": "Thuộc về nhận thức",
+      "pronunciation": "/ˈkɒɡnətɪv/",
+      "example": "Example for Cognitive",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-zcd9hiya5",
+      "deckId": "deck-paid-urarekgtk",
+      "word": "Legislate",
+      "meaning": "Lập pháp, ban hành luật",
+      "pronunciation": "/ˈledʒɪsleɪt/",
+      "example": "Example for Legislate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-c9lcvp4u5",
+      "deckId": "deck-paid-urarekgtk",
+      "word": "Feasible",
+      "meaning": "Khả thi",
+      "pronunciation": "/ˈfiːzəb(ə)l/",
+      "example": "Example for Feasible",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-qdoge3ypa",
+      "deckId": "deck-paid-urarekgtk",
+      "word": "Proliferation",
+      "meaning": "Sự sinh sôi nảy nở",
+      "pronunciation": "/prəʊˌlɪfəˈreɪʃ(ə)n/",
+      "example": "Example for Proliferation",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-n1ps2xocv",
+      "deckId": "deck-paid-urarekgtk",
+      "word": "Valid",
+      "meaning": "Hợp lệ",
+      "pronunciation": "/ˈvælɪd/",
+      "example": "Example for Valid",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-2ncmduz5m",
+      "deckId": "deck-paid-urarekgtk",
+      "word": "Substantial",
+      "meaning": "Đáng kể",
+      "pronunciation": "/səbˈstænʃəl/",
+      "example": "Example for Substantial",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-g7acyk0q0",
+      "deckId": "deck-paid-urarekgtk",
+      "word": "Diminish",
+      "meaning": "Giảm bớt",
+      "pronunciation": "/dɪˈmɪnɪʃ/",
+      "example": "Example for Diminish",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-wgppg4v96",
+      "deckId": "deck-paid-urarekgtk",
+      "word": "Incorporate",
+      "meaning": "Sát nhập, kết hợp",
+      "pronunciation": "/ɪnˈkɔːpəreɪt/",
+      "example": "Example for Incorporate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-9vx7866f8",
+      "deckId": "deck-paid-urarekgtk",
+      "word": "Cognitive",
+      "meaning": "Thuộc về nhận thức",
+      "pronunciation": "/ˈkɒɡnətɪv/",
+      "example": "Example for Cognitive",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-k3yp2pzeh",
+      "deckId": "deck-paid-urarekgtk",
+      "word": "Contradict",
+      "meaning": "Mâu thuẫn, trái ngược",
+      "pronunciation": "/ˌkɒntrəˈdɪkt/",
+      "example": "Example for Contradict",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-29x5wzohb",
+      "deckId": "deck-paid-urarekgtk",
+      "word": "Supplement",
+      "meaning": "Phần bổ sung",
+      "pronunciation": "/ˈsʌplɪmənt/",
+      "example": "Example for Supplement",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-1ywy6795i",
+      "deckId": "deck-paid-urarekgtk",
+      "word": "Fluctuate",
+      "meaning": "Biến động",
+      "pronunciation": "/ˈflʌktʃueɪt/",
+      "example": "Example for Fluctuate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-1xb7nio2b",
+      "deckId": "deck-paid-4iieulx7g",
+      "word": "Supplement",
+      "meaning": "Phần bổ sung",
+      "pronunciation": "/ˈsʌplɪmənt/",
+      "example": "Example for Supplement",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-nkkh77rm3",
+      "deckId": "deck-paid-4iieulx7g",
+      "word": "Sustainable",
+      "meaning": "Bền vững",
+      "pronunciation": "/səˈsteɪnəbl/",
+      "example": "Example for Sustainable",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-ctxu7vzki",
+      "deckId": "deck-paid-4iieulx7g",
+      "word": "Paradigm",
+      "meaning": "Mô hình, kiểu mẫu",
+      "pronunciation": "/ˈpærədaɪm/",
+      "example": "Example for Paradigm",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-ohzxb0htk",
+      "deckId": "deck-paid-4iieulx7g",
+      "word": "Ambiguous",
+      "meaning": "Mơ hồ, không rõ ràng",
+      "pronunciation": "/æmˈbɪɡjuəs/",
+      "example": "Example for Ambiguous",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-86ix2tb1d",
+      "deckId": "deck-paid-4iieulx7g",
+      "word": "Evaluate",
+      "meaning": "Đánh giá",
+      "pronunciation": "/ɪˈvæljueɪt/",
+      "example": "Example for Evaluate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-uqgklt9ey",
+      "deckId": "deck-paid-4iieulx7g",
+      "word": "Fluctuate",
+      "meaning": "Biến động",
+      "pronunciation": "/ˈflʌktʃueɪt/",
+      "example": "Example for Fluctuate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-4z8wkate7",
+      "deckId": "deck-paid-4iieulx7g",
+      "word": "Feasible",
+      "meaning": "Khả thi",
+      "pronunciation": "/ˈfiːzəb(ə)l/",
+      "example": "Example for Feasible",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-1ybz74k44",
+      "deckId": "deck-paid-4iieulx7g",
+      "word": "Comprehend",
+      "meaning": "Hiểu, lĩnh hội",
+      "pronunciation": "/ˌkɒmprɪˈhend/",
+      "example": "Example for Comprehend",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-nklebkseb",
+      "deckId": "deck-paid-4iieulx7g",
+      "word": "Qualitative",
+      "meaning": "Định tính",
+      "pronunciation": "/ˈkwɒlɪtətɪv/",
+      "example": "Example for Qualitative",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-q7ab1h5co",
+      "deckId": "deck-paid-4iieulx7g",
+      "word": "Incorporate",
+      "meaning": "Sát nhập, kết hợp",
+      "pronunciation": "/ɪnˈkɔːpəreɪt/",
+      "example": "Example for Incorporate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "id": "card-4ehfnv854",
+      "deckId": "deck-paid-4iieulx7g",
+      "word": "Eradicate",
+      "meaning": "Tiêu diệt",
+      "pronunciation": "/ɪˈrædɪkeɪt/",
+      "example": "Example for Eradicate",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
     }
   ],
   "flashcardProgress": [
@@ -5003,7 +7650,7 @@
       "id": "deck-1",
       "title": "IELTS Reading: Academic Vocabulary",
       "description": "Từ vựng cốt lõi thường xuyên xuất hiện trong phần thi Reading học thuật.",
-      "teacherId": "u-teacher-001",
+      "teacherId": "u-student-004",
       "deckMode": "premium",
       "courseId": "course-001",
       "status": "published",
@@ -5036,7 +7683,7 @@
       "id": "deck-4",
       "title": "Common Phrasal Verbs",
       "description": "10 Phrasal Verbs thông dụng nhất giúp ăn điểm từ vựng trong bài Speaking.",
-      "teacherId": "u-teacher-001",
+      "teacherId": "u-student-004",
       "deckMode": "course",
       "courseId": "course-007",
       "status": "published",
@@ -5046,7 +7693,7 @@
       "id": "deck-5",
       "title": "Idioms for IELTS Speaking",
       "description": "Các thành ngữ (Idioms) phổ biến giúp nâng band điểm Speaking lên 7.0+.",
-      "teacherId": "u-teacher-001",
+      "teacherId": "u-student-004",
       "deckMode": "premium",
       "courseId": "eZfx0_P3YIU",
       "status": "published",
@@ -5056,7 +7703,7 @@
       "id": "deck-tech-258c49ed",
       "title": "Technology & Innovation",
       "description": "Từ vựng cốt lõi chủ đề Công nghệ & Đổi mới sáng tạo trong IELTS.",
-      "teacherId": "u-teacher-001",
+      "teacherId": "u-student-004",
       "deckMode": "premium",
       "status": "published",
       "createdAt": "2026-07-01T05:29:21.801Z",
@@ -5067,7 +7714,7 @@
       "id": "deck-health-1de6ea90",
       "title": "Health & Medicine",
       "description": "Từ vựng cốt lõi chủ đề Sức khỏe và Y tế.",
-      "teacherId": "u-teacher-001",
+      "teacherId": "u-student-004",
       "deckMode": "public",
       "status": "published",
       "createdAt": "2026-07-01T05:29:21.802Z",
@@ -5078,7 +7725,7 @@
       "id": "deck-edu-177d1aae",
       "title": "Education & Learning",
       "description": "Từ vựng cốt lõi chủ đề Giáo dục và Học tập.",
-      "teacherId": "u-teacher-001",
+      "teacherId": "u-student-004",
       "deckMode": "public",
       "status": "published",
       "createdAt": "2026-07-01T05:29:21.802Z",
@@ -5089,11 +7736,88 @@
       "id": "deck-travel-4e14f98b",
       "title": "Travel & Tourism",
       "description": "Từ vựng cốt lõi chủ đề Du lịch.",
-      "teacherId": "u-teacher-001",
+      "teacherId": "u-student-004",
       "deckMode": "public",
       "status": "published",
       "createdAt": "2026-07-01T05:29:21.802Z",
       "updatedAt": "2026-07-01T05:29:21.802Z"
+    },
+    {
+      "id": "deck-free-1g1bsrecj",
+      "title": "Free Reading Vocabulary 1",
+      "description": "Basic vocabulary for free course.",
+      "teacherId": "u-student-004",
+      "deckMode": "free",
+      "courseId": "course-reading-free-8s28fpfl7",
+      "status": "published",
+      "createdAt": "2026-07-06T06:53:41.124Z",
+      "updatedAt": "2026-07-06T06:53:41.124Z"
+    },
+    {
+      "id": "deck-free-r9kgbnjae",
+      "title": "Free Reading Vocabulary 2",
+      "description": "Basic vocabulary for free course.",
+      "teacherId": "u-student-004",
+      "deckMode": "free",
+      "courseId": "course-reading-free-8s28fpfl7",
+      "status": "published",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "updatedAt": "2026-07-06T06:53:41.125Z"
+    },
+    {
+      "id": "deck-paid-ibnhzhwom",
+      "title": "Premium Reading Vocabulary 1",
+      "description": "Advanced vocabulary for premium course generated by AI.",
+      "teacherId": "u-student-004",
+      "deckMode": "premium",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "status": "published",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "updatedAt": "2026-07-06T06:53:41.125Z"
+    },
+    {
+      "id": "deck-paid-d32ppdnaf",
+      "title": "Premium Reading Vocabulary 2",
+      "description": "Advanced vocabulary for premium course generated by AI.",
+      "teacherId": "u-student-004",
+      "deckMode": "premium",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "status": "published",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "updatedAt": "2026-07-06T06:53:41.125Z"
+    },
+    {
+      "id": "deck-paid-v3x6smap6",
+      "title": "Premium Reading Vocabulary 3",
+      "description": "Advanced vocabulary for premium course generated by AI.",
+      "teacherId": "u-student-004",
+      "deckMode": "premium",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "status": "published",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "updatedAt": "2026-07-06T06:53:41.125Z"
+    },
+    {
+      "id": "deck-paid-urarekgtk",
+      "title": "Premium Reading Vocabulary 4",
+      "description": "Advanced vocabulary for premium course generated by AI.",
+      "teacherId": "u-student-004",
+      "deckMode": "premium",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "status": "published",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "updatedAt": "2026-07-06T06:53:41.125Z"
+    },
+    {
+      "id": "deck-paid-4iieulx7g",
+      "title": "Premium Reading Vocabulary 5",
+      "description": "Advanced vocabulary for premium course generated by AI.",
+      "teacherId": "u-student-004",
+      "deckMode": "premium",
+      "courseId": "course-reading-paid-ki1nljyt3",
+      "status": "published",
+      "createdAt": "2026-07-06T06:53:41.125Z",
+      "updatedAt": "2026-07-06T06:53:41.125Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json",
