@@ -447,6 +447,46 @@
       "enrolledCount": 200,
       "durationWeeks": 5,
       "createdAt": "2026-07-06T06:53:41.125Z"
+    },
+    {
+      "id": "course-speaking-free-9s34fplk8",
+      "title": "IELTS Speaking Free Essentials",
+      "description": "A free introductory course to IELTS Speaking, covering key structures for Part 1 and fluency tips.",
+      "syllabus": [
+        "Introduction to Speaking Part 1",
+        "Improving Fluency & Coherence Basics"
+      ],
+      "skill": "Speaking",
+      "level": "Band 4.5 - 6.0",
+      "price": 0,
+      "premiumPrice": 99000,
+      "isPremium": false,
+      "thumbnail": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
+      "enrolledCount": 80,
+      "durationWeeks": 3,
+      "createdAt": "2026-07-06T16:29:00.000Z"
+    },
+    {
+      "id": "course-writing-free-3s78asfg5",
+      "title": "IELTS Writing Free Basics",
+      "description": "Learn the basic paragraph structure and essay organization for IELTS Writing Task 2.",
+      "syllabus": [
+        "Task 2 Essay Structure Overview",
+        "Writing a Cohesive Introduction"
+      ],
+      "skill": "Writing",
+      "level": "Band 4.5 - 6.0",
+      "price": 0,
+      "premiumPrice": 99000,
+      "isPremium": false,
+      "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead27d8?auto=format&fit=crop&w=600&q=80",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
+      "enrolledCount": 110,
+      "durationWeeks": 3,
+      "createdAt": "2026-07-06T16:29:00.000Z"
     }
   ],
   "freeResources": [
@@ -3281,6 +3321,218 @@
           }
         ]
       }
+    },
+    {
+      "id": "test-speaking-free-1",
+      "title": "Speaking Mock Test 1 - Hobbies and Interests",
+      "description": "Practice IELTS Speaking Part 1, 2, and 3 topics on hobbies and leisure activities.",
+      "courseId": "course-speaking-free-9s34fplk8",
+      "skill": "Speaking",
+      "testMode": "free",
+      "isFreePreview": true,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 15,
+      "totalQuestions": 8,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-06T16:30:00.000Z",
+      "updatedAt": "2026-07-06T16:30:00.000Z",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction and Interview",
+            "questions": [
+              {
+                "id": "sp-free-1-q1",
+                "text": "What is your favorite hobby?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "sp-free-1-q2",
+                "text": "How much time do you spend on it?",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "Describe a hobby you would like to start in the future.",
+            "bulletPrompts": [
+              "what it is",
+              "why you want to start it",
+              "how you would learn it",
+              "and explain what challenges you might face"
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "sp-free-1-q3",
+                "text": "Why is it important for people to have hobbies?",
+                "answerSeconds": 60
+              },
+              {
+                "id": "sp-free-1-q4",
+                "text": "Do you think leisure activities have changed compared to the past?",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "test-speaking-free-2",
+      "title": "Speaking Mock Test 2 - Work and Study Environment",
+      "description": "Speaking topics covering your academic/professional life and future goals.",
+      "courseId": "course-speaking-free-9s34fplk8",
+      "skill": "Speaking",
+      "testMode": "free",
+      "isFreePreview": true,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 15,
+      "totalQuestions": 8,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-06T16:30:00.000Z",
+      "updatedAt": "2026-07-06T16:30:00.000Z",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction and Interview",
+            "questions": [
+              {
+                "id": "sp-free-2-q1",
+                "text": "Do you currently study or work?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "sp-free-2-q2",
+                "text": "What is the most interesting part of your daily routine?",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "Describe a course or subject you studied that you found interesting.",
+            "bulletPrompts": [
+              "what it was",
+              "where you studied it",
+              "what the content was",
+              "and explain why you liked it"
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "sp-free-2-q3",
+                "text": "Is higher education necessary for success in life?",
+                "answerSeconds": 60
+              },
+              {
+                "id": "sp-free-2-q4",
+                "text": "How should schools make learning more engaging for students?",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "test-writing-free-1",
+      "title": "Writing Mock Test 1 - Line Graphs and Technology",
+      "description": "Task 1 Line Graph description and Task 2 Essay on digital communication.",
+      "courseId": "course-writing-free-3s78asfg5",
+      "skill": "Writing",
+      "testMode": "free",
+      "isFreePreview": true,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 60,
+      "totalQuestions": 2,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-06T16:30:00.000Z",
+      "updatedAt": "2026-07-06T16:30:00.000Z",
+      "testConfig": {
+        "task1": {
+          "id": "writing-task-1",
+          "prompt": "The line graph below shows the percentage of people using the internet in three countries from 1999 to 2009. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+          "imageUrl": "https://quickchart.io/chart?width=700&height=420&c={type:%27line%27,data:{labels:[%271999%27,%272004%27,%272009%27],datasets:[{label:%27USA%27,data:[40,65,80]},{label:%27Canada%27,data:[30,60,85]},{label:%27Mexico%27,data:[5,15,40]}]}}",
+          "minimumWords": 150
+        },
+        "task2": {
+          "id": "writing-task-2",
+          "prompt": "Many people believe that social media has brought people closer together, while others argue it has made us more isolated. Discuss both views and give your opinion.",
+          "minimumWords": 250
+        },
+        "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "test-writing-free-2",
+      "title": "Writing Mock Test 2 - Bar Charts and Environment",
+      "description": "Task 1 Bar Chart comparison and Task 2 Essay on environmental responsibilities.",
+      "courseId": "course-writing-free-3s78asfg5",
+      "skill": "Writing",
+      "testMode": "free",
+      "isFreePreview": true,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 60,
+      "totalQuestions": 2,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-06T16:30:00.000Z",
+      "updatedAt": "2026-07-06T16:30:00.000Z",
+      "testConfig": {
+        "task1": {
+          "id": "writing-task-1",
+          "prompt": "The bar chart below shows the energy consumption by source in a specific country between 2000 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+          "imageUrl": "https://quickchart.io/chart?width=700&height=420&c={type:%27bar%27,data:{labels:[%27Coal%27,%27Gas%27,%27Solar%27],datasets:[{label:%272000%27,data:[50,30,5]},{label:%272020%27,data:[20,40,30]}]}}",
+          "minimumWords": 150
+        },
+        "task2": {
+          "id": "writing-task-2",
+          "prompt": "Some people think that individuals can do nothing to improve the environment, and only governments and large companies can make a difference. To what extent do you agree or disagree?",
+          "minimumWords": 250
+        },
+        "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
+      },
+      "createdBy": "u-teacher-001"
     }
   ],
   "questions": [],
@@ -7195,7 +7447,7 @@
         "C4": 7.5
       },
       "feedback": "cần cải thiện thêm GRA",
-      "gradedAt": "2026-07-05T04:53:50.315Z"
+      "gradedAt": "2026-07-06T09:26:55.744Z"
     },
     {
       "id": "ta-030",
@@ -7449,6 +7701,63 @@
       "totalScore": 12,
       "score": 0,
       "overallBandScore": 0
+    },
+    {
+      "id": "ta-044",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "test-speaking-free-1",
+      "skill": "Speaking",
+      "status": "completed",
+      "startTime": "2026-07-06T09:40:37.089Z",
+      "createdAt": "2026-07-06T09:40:37.095Z",
+      "completedAt": "2026-07-06T09:40:53.862Z",
+      "answers": {
+        "part1": {
+          "sp-free-1-q1": {
+            "type": "text",
+            "value": "http://localhost:9999/uploads/speaking-sp-free-1-q1-1783330847947-1783330847979-109639156.webm"
+          }
+        }
+      },
+      "submittedAt": "2026-07-06T09:40:53.862Z",
+      "gradingStatus": "graded",
+      "score": 8,
+      "overallBandScore": 8,
+      "criteriaScores": {
+        "C1": 8,
+        "C2": 8,
+        "C3": 8,
+        "C4": 8
+      },
+      "feedback": "",
+      "gradedAt": "2026-07-06T09:42:04.772Z"
+    },
+    {
+      "id": "ta-045",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "test-writing-free-1",
+      "skill": "Writing",
+      "status": "completed",
+      "startTime": "2026-07-06T09:41:19.229Z",
+      "createdAt": "2026-07-06T09:41:19.233Z",
+      "completedAt": "2026-07-06T09:41:24.777Z",
+      "answers": {
+        "task1": "ffffffffffffffffffffffffffffffff"
+      },
+      "submittedAt": "2026-07-06T09:41:24.777Z",
+      "gradingStatus": "graded",
+      "score": 8,
+      "overallBandScore": 8,
+      "criteriaScores": {
+        "C1": 8,
+        "C2": 8,
+        "C3": 8,
+        "C4": 8
+      },
+      "feedback": "",
+      "gradedAt": "2026-07-06T09:42:08.988Z"
     }
   ],
   "flashcardDecks": [
