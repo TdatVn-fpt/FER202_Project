@@ -90,11 +90,11 @@ export const getPaymentsByUser = async (userId) => {
 
 // EARS[Event]: WHEN user bấm "Tôi đã chuyển khoản", tạo đơn PENDING (chờ admin duyệt).
 // KHÔNG tạo enrollment ở bước này - chỉ mở khóa học sau khi admin xác nhận.
-export const createPendingPayment = async ({ userId, courseId, amount, transferContent }) => {
+export const createPendingPayment = async ({ userId, courseId, amount, transferContent, type = 'enroll' }) => {
   try {
     // Tránh tạo trùng: nếu đã có đơn pending thì trả về đơn cũ.
     const existingRes = await api.get(
-      `/payments?userId=${userId}&courseId=${courseId}&status=pending`
+      `/payments?userId=${userId}&courseId=${courseId}&status=pending&type=${type}`
     );
     if (Array.isArray(existingRes.data) && existingRes.data.length > 0) {
       return existingRes.data[0];
@@ -107,6 +107,7 @@ export const createPendingPayment = async ({ userId, courseId, amount, transferC
       currency: 'VND',
       method: 'vietqr',
       transferContent,
+      type,
       status: PAYMENT_STATUS.PENDING,
       createdAt: new Date().toISOString(),
       paidAt: null,
@@ -149,11 +150,27 @@ export const approvePayment = async (payment, adminId = 'admin') => {
       rejectReason: null,
     });
 
-    // Mở quyền học: tạo enrollment nếu chưa có.
+    // Mở quyền học hoặc nâng cấp Premium
     const existing = await getEnrollment(payment.userId, payment.courseId).catch(() => null);
-    if (!existing) {
-      await createEnrollment(payment.userId, payment.courseId);
+    
+    if (payment.type === 'upgrade') {
+      if (existing) {
+        await api.patch(`/enrollments/${existing.id}`, { isPremium: true });
+      } else {
+        await api.post('/enrollments', {
+          userId: payment.userId,
+          courseId: payment.courseId,
+          progress: 0,
+          enrolledAt: new Date().toISOString(),
+          isPremium: true
+        });
+      }
+    } else {
+      if (!existing) {
+        await createEnrollment(payment.userId, payment.courseId);
+      }
     }
+    
     return updated.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'Duyệt thanh toán thất bại');

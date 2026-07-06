@@ -7,7 +7,6 @@ import { getPaidPayment, getLatestPayment, formatVnd, PAYMENT_STATUS } from '../
 import { getCurrentUser } from '../../services/authService';
 import { addToCart, isInCart, subscribeCartChanges } from '../../services/cartService';
 import { isInWishlist, addToWishlist, removeFromWishlist, subscribeWishlistChanges } from '../../services/wishlistService';
-import './CourseDetail.css';
 
 export default function CourseDetail() {
   const { id: courseId } = useParams();
@@ -144,7 +143,7 @@ export default function CourseDetail() {
 
   if (loading) {
     return (
-      <div className="cd-page bg-light">
+      <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
         <Container className="py-5 text-center">
           <Spinner animation="border" variant="primary" />
           <p className="text-muted mt-3 mb-0">Đang tải thông tin khóa học...</p>
@@ -155,11 +154,11 @@ export default function CourseDetail() {
 
   if (error && !course) {
     return (
-      <div className="cd-page bg-light">
+      <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
         <Container className="py-5">
           <Alert variant="danger" className="text-center">{error}</Alert>
           <div className="text-center">
-            <Button as={Link} to="/online-courses" variant="outline-secondary">
+            <Button as={Link} to={user?.role === 'student' ? '/learning/courses' : '/online-courses'} variant="outline-secondary">
               ← Về danh sách khóa học
             </Button>
           </div>
@@ -169,169 +168,216 @@ export default function CourseDetail() {
   }
 
   return (
-    <div className="cd-page bg-light">
-      {/* HERO */}
-      <div className="cd-hero">
-        <div className="cd-hero-overlay" />
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      
+      {/* HERO SECTION */}
+      <div className="tp-hero" style={{ padding: '60px 0', position: 'relative' }}>
+        <div className="tp-hero-dots">
+          {Array(15).fill(0).map((_, i) => <span key={i}></span>)}
+        </div>
         {course.thumbnail && (
-          <img className="cd-hero-bg" src={course.thumbnail} alt="" aria-hidden="true" />
+          <div className="position-absolute top-0 end-0 bottom-0 start-0 opacity-25" style={{
+            backgroundImage: `url(${course.thumbnail})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'blur(20px)'
+          }} />
         )}
-        <Container className="cd-hero-content">
-          <Link to="/online-courses" className="cd-breadcrumb">← Tất cả khóa học</Link>
-          <div className="d-flex gap-2 mb-3 flex-wrap">
-            <Badge bg="light" text="dark" className="px-3 py-2">{course.skill}</Badge>
-            <Badge bg={isFree ? 'success' : 'warning'} text={isFree ? undefined : 'dark'} className="px-3 py-2">
-              {isFree ? 'Miễn phí' : 'Trả phí'}
-            </Badge>
-          </div>
-          <h1 className="fw-bold display-6">{course.title}</h1>
-          <p className="lead text-white-50 mb-3">{course.description}</p>
-          <div className="d-flex gap-4 flex-wrap small">
-            <span>⭐ {course.rating} đánh giá</span>
-            <span>👥 {course.enrolledCount} học viên</span>
-            <span>🗓️ {course.durationWeeks} tuần</span>
-            <span>📊 {course.level}</span>
-          </div>
-        </Container>
+        <div className="tp-hero-inner position-relative">
+          <Container fluid="xxl" className="px-4">
+            <Link to={user?.role === 'student' ? '/learning/courses' : '/online-courses'} className="text-white-50 text-decoration-none d-inline-block mb-4 fw-medium">
+              <i className="bi bi-arrow-left me-2"></i> Tất cả khóa học
+            </Link>
+            <Row className="align-items-center g-5">
+              <Col lg={8}>
+                <div className="d-flex gap-2 mb-3 flex-wrap">
+                  <Badge bg="light" text="dark" className="px-3 py-2 rounded-pill shadow-sm">{course.skill}</Badge>
+                  <Badge bg={isFree ? 'success' : 'warning'} text={isFree ? 'white' : 'dark'} className="px-3 py-2 rounded-pill shadow-sm">
+                    {isFree ? 'Miễn phí' : 'Trả phí'}
+                  </Badge>
+                </div>
+                <h1 className="tp-hero-title mb-3">
+                  {course.title}
+                </h1>
+                <p className="tp-hero-sub mb-4 opacity-75" style={{ fontSize: '1.1rem' }}>
+                  {course.description}
+                </p>
+                <div className="d-flex gap-4 flex-wrap small text-white fw-medium">
+                  <span><i className="bi bi-star-fill text-warning me-1"></i> {course.rating || '4.5'} đánh giá</span>
+                  <span><i className="bi bi-people-fill me-1"></i> {course.enrolledCount || 0} học viên</span>
+                  <span><i className="bi bi-calendar3 me-1"></i> {course.durationWeeks || 0} tuần</span>
+                  <span><i className="bi bi-bar-chart-fill me-1"></i> {course.level || 'Cơ bản'}</span>
+                </div>
+              </Col>
+              {course.thumbnail && (
+                <Col lg={4} className="d-none d-lg-block">
+                  <img src={course.thumbnail} alt="" className="img-fluid rounded-4 shadow-lg border" style={{ borderColor: 'rgba(255,255,255,0.2) !important' }} />
+                </Col>
+              )}
+            </Row>
+          </Container>
+        </div>
       </div>
 
-      <Container className="py-5">
-        <Row className="g-4">
-          {/* MAIN */}
-          <Col lg={8}>
-            {/* GIÁO TRÌNH */}
-            <Card className="border-0 shadow-sm mb-4">
-              <Card.Body className="p-4">
-                <h2 className="h4 fw-bold mb-3">Nội dung khóa học</h2>
-                <ListGroup variant="flush">
-                  {(course.syllabus || []).map((item, i) => (
-                    <ListGroup.Item key={i} className="d-flex align-items-center gap-3 px-0">
-                      <span className="cd-syllabus-num">{i + 1}</span>
-                      <span>{item}</span>
-                    </ListGroup.Item>
-                  ))}
-                </ListGroup>
-              </Card.Body>
-            </Card>
+      <div className="tp-main-content">
+        <Container fluid="xxl" className="px-4 py-5">
+          <Row className="g-4">
+            {/* MAIN CONTENT */}
+            <Col lg={8}>
+              {/* SÁCH / GIÁO TRÌNH */}
+              <Card className="tp-card border-0 mb-4">
+                <Card.Body className="p-4">
+                  <h2 className="h4 fw-bold mb-4 text-dark"><i className="bi bi-journal-text me-2 text-primary"></i> Nội dung khóa học</h2>
+                  <ListGroup variant="flush">
+                    {(course.syllabus || []).map((item, i) => (
+                      <ListGroup.Item key={i} className="d-flex align-items-start gap-3 px-0 py-3 bg-transparent border-bottom">
+                        <div className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 fw-bold" style={{ width: '32px', height: '32px' }}>
+                          {i + 1}
+                        </div>
+                        <span className="text-secondary mt-1">{item}</span>
+                      </ListGroup.Item>
+                    ))}
+                  </ListGroup>
+                </Card.Body>
+              </Card>
 
-            {/* FLASHCARD */}
-            <Card className="border-0 shadow-sm cd-flashcard-promo">
-              <Card.Body className="p-4 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
-                <div>
-                  <h2 className="h5 fw-bold mb-2">🎴 Flashcard từ vựng</h2>
-                  <p className="mb-1 text-muted">
-                    Khóa học này đi kèm <strong>{flashcardCount} thẻ từ vựng</strong> trọng tâm.
-                    Học theo phương pháp lật thẻ chủ động để ghi nhớ nhanh và lâu hơn.
-                  </p>
-                  {!user && (
-                    <p className="text-warning-emphasis small mb-0">🔒 Đăng nhập để bắt đầu học flashcard.</p>
-                  )}
-                </div>
-                <Button
-                  variant="dark"
-                  className="flex-shrink-0 fw-semibold"
-                  onClick={handleOpenFlashcards}
-                  disabled={flashcardCount === 0}
-                >
-                  {flashcardCount === 0 ? 'Chưa có thẻ' : 'Học Flashcard ngay'}
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          {/* SIDEBAR */}
-          <Col lg={4}>
-            <Card className="border-0 shadow-sm cd-sticky">
-              <Card.Body className="p-4">
-                <div className="h2 fw-bold mb-3">
-                  {isFree ? <span className="text-success">Miễn phí</span> : formatVnd(course.price)}
-                </div>
-
-                {canAccess ? (
-                  <>
-                    <Alert variant="success" className="py-2 text-center fw-semibold mb-3">
-                      ✓ Bạn đã có quyền truy cập
-                    </Alert>
-                    <Button variant="primary" className="w-100 fw-semibold mb-2" onClick={() => navigate('/learning/courses')}>
-                      Vào học ngay
-                    </Button>
-                  </>
-                ) : pending ? (
-                  <>
-                    <Alert variant="warning" className="py-2 text-center mb-3">
-                      ⏳ Đơn của bạn đang <strong>chờ quản trị viên xác nhận</strong>.
-                    </Alert>
-                    <Button variant="outline-primary" className="w-100 fw-semibold mb-2" onClick={handleBuy}>
-                      Xem trạng thái đơn
-                    </Button>
-                  </>
-                ) : isFree ? (
+              {/* FLASHCARD */}
+              <Card className="tp-card border-0" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)' }}>
+                <Card.Body className="p-4 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-4">
+                  <div>
+                    <h2 className="h5 fw-bold mb-2 text-dark"><i className="bi bi-card-text me-2 text-primary"></i> Flashcard từ vựng</h2>
+                    <p className="mb-2 text-secondary">
+                      Khóa học này đi kèm <strong className="text-dark">{flashcardCount} thẻ từ vựng</strong> trọng tâm. Học theo phương pháp lật thẻ chủ động để ghi nhớ nhanh và lâu hơn.
+                    </p>
+                    {!user && (
+                      <Badge bg="warning" text="dark" className="px-3 py-2 rounded-pill"><i className="bi bi-lock-fill me-1"></i> Đăng nhập để học flashcard</Badge>
+                    )}
+                  </div>
                   <Button
-                    variant="primary"
-                    className="w-100 fw-semibold mb-2"
-                    onClick={handleEnrollFree}
-                    disabled={enrolling}
+                    variant="dark"
+                    className="flex-shrink-0 fw-semibold rounded-pill px-4 shadow-sm"
+                    onClick={handleOpenFlashcards}
+                    disabled={flashcardCount === 0}
                   >
-                    {enrolling ? 'Đang đăng ký...' : 'Đăng ký miễn phí'}
+                    <i className="bi bi-layers-fill me-2"></i> {flashcardCount === 0 ? 'Chưa có thẻ' : 'Học Flashcard ngay'}
                   </Button>
-                ) : (
-                  <Button variant="primary" className="w-100 fw-semibold mb-2" onClick={handleBuy}>
-                    Mua khóa học
-                  </Button>
-                )}
+                </Card.Body>
+              </Card>
+            </Col>
 
-                <Button
-                  variant="outline-dark"
-                  className="w-100 mb-3"
-                  onClick={handleOpenFlashcards}
-                  disabled={flashcardCount === 0}
-                >
-                  🎴 Học Flashcard ({flashcardCount})
-                </Button>
+            {/* SIDEBAR */}
+            <Col lg={4}>
+              <div className="sticky-top" style={{ top: '90px' }}>
+                <Card className="tp-card border-0 shadow-sm">
+                  <Card.Body className="p-4">
+                    <div className="text-center mb-4 pb-3 border-bottom">
+                      <div className="h2 fw-bold text-primary mb-0">
+                        {isFree ? <span className="text-success">Miễn phí</span> : formatVnd(course.price)}
+                      </div>
+                    </div>
 
-                {error && <Alert variant="danger" className="small py-2">{error}</Alert>}
+                    {canAccess ? (
+                      <>
+                        <Alert variant="success" className="py-3 text-center fw-semibold mb-3 rounded-3 border-0">
+                          <i className="bi bi-check-circle-fill me-2"></i> Bạn đã có quyền truy cập
+                        </Alert>
+                        <Button variant="primary" className="tp-btn-primary w-100 fw-semibold mb-2 py-2" onClick={() => navigate(`/learning/courses/${courseId}/lessons`)}>
+                          <i className="bi bi-play-circle-fill me-2"></i> Vào học ngay
+                        </Button>
+                      </>
+                    ) : pending ? (
+                      <>
+                        <Alert variant="warning" className="py-3 text-center mb-3 rounded-3 border-0">
+                          <i className="bi bi-hourglass-split me-2"></i> Đơn của bạn đang <strong>chờ quản trị viên xác nhận</strong>.
+                        </Alert>
+                        <Button variant="outline-primary" className="w-100 fw-semibold mb-2 py-2 rounded-pill" onClick={handleBuy}>
+                          Xem trạng thái đơn
+                        </Button>
+                      </>
+                    ) : isFree ? (
+                      <Button
+                        variant="primary"
+                        className="tp-btn-primary w-100 fw-semibold mb-2 py-2"
+                        onClick={handleEnrollFree}
+                        disabled={enrolling}
+                      >
+                        {enrolling ? (
+                          <><Spinner size="sm" className="me-2"/> Đang đăng ký...</>
+                        ) : (
+                          <><i className="bi bi-person-plus-fill me-2"></i> Đăng ký miễn phí</>
+                        )}
+                      </Button>
+                    ) : (
+                      <Button variant="primary" className="tp-btn-primary w-100 fw-semibold mb-2 py-2" onClick={handleBuy}>
+                        <i className="bi bi-cart-check-fill me-2"></i> Mua khóa học
+                      </Button>
+                    )}
 
-                {!canAccess && !isFree && (
-                  <>
                     <Button
-                      variant={inCart ? 'outline-secondary' : 'primary'}
-                      className="w-100 fw-semibold mb-2"
-                      onClick={handleAddToCart}
-                      disabled={inCart}
+                      variant="light"
+                      className="w-100 mb-3 py-2 fw-semibold border shadow-sm rounded-pill tp-btn-hover"
+                      onClick={handleOpenFlashcards}
+                      disabled={flashcardCount === 0}
                     >
-                      {inCart ? 'Đã thêm vào giỏ hàng' : 'Thêm vào giỏ hàng'}
+                      <i className="bi bi-images text-primary me-2"></i> Học Flashcard ({flashcardCount})
                     </Button>
-                    <Button
-                      variant={wishlistAdded ? 'success' : 'outline-secondary'}
-                      className="w-100 mb-3"
-                      onClick={handleToggleWishlist}
-                    >
-                      {wishlistAdded ? 'Đã lưu yêu thích' : 'Lưu vào yêu thích'}
-                    </Button>
-                  </>
-                )}
 
-                {canAccess && (
-                  <Button
-                    variant={wishlistAdded ? 'success' : 'outline-secondary'}
-                    className="w-100 mb-3"
-                    onClick={handleToggleWishlist}
-                  >
-                    {wishlistAdded ? 'Đã lưu yêu thích' : 'Lưu vào yêu thích'}
-                  </Button>
-                )}
+                    {error && <Alert variant="danger" className="small py-2 border-0">{error}</Alert>}
 
-                <ListGroup variant="flush" className="cd-perks">
-                  <ListGroup.Item className="px-0 border-0 py-1">✓ Truy cập trọn đời</ListGroup.Item>
-                  <ListGroup.Item className="px-0 border-0 py-1">✓ {flashcardCount} thẻ từ vựng</ListGroup.Item>
-                  <ListGroup.Item className="px-0 border-0 py-1">✓ Giáo viên: {course.teacherName}</ListGroup.Item>
-                  <ListGroup.Item className="px-0 border-0 py-1">✓ Chứng nhận hoàn thành</ListGroup.Item>
-                </ListGroup>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+                    {!canAccess && !isFree && (
+                      <div className="d-flex gap-2 mb-3">
+                        <Button
+                          variant={inCart ? 'light' : 'outline-primary'}
+                          className={`w-100 fw-semibold border rounded-pill ${inCart ? 'text-secondary' : ''}`}
+                          onClick={handleAddToCart}
+                          disabled={inCart}
+                        >
+                          <i className={`bi ${inCart ? 'bi-cart-check-fill' : 'bi-cart-plus'} me-1`}></i>
+                          {inCart ? 'Đã trong giỏ' : 'Thêm vào giỏ'}
+                        </Button>
+                        <Button
+                          variant={wishlistAdded ? 'danger' : 'outline-secondary'}
+                          className={`flex-shrink-0 rounded-pill px-3 ${wishlistAdded ? 'border-danger text-white' : ''}`}
+                          onClick={handleToggleWishlist}
+                          title={wishlistAdded ? 'Bỏ yêu thích' : 'Lưu yêu thích'}
+                        >
+                          <i className={`bi ${wishlistAdded ? 'bi-heart-fill' : 'bi-heart'}`}></i>
+                        </Button>
+                      </div>
+                    )}
+
+                    {canAccess && (
+                      <Button
+                        variant={wishlistAdded ? 'danger' : 'outline-secondary'}
+                        className={`w-100 mb-3 py-2 rounded-pill fw-semibold border ${wishlistAdded ? 'text-white' : ''}`}
+                        onClick={handleToggleWishlist}
+                      >
+                        <i className={`bi ${wishlistAdded ? 'bi-heart-fill' : 'bi-heart'} me-2`}></i>
+                        {wishlistAdded ? 'Đã lưu yêu thích' : 'Lưu vào yêu thích'}
+                      </Button>
+                    )}
+
+                    <ListGroup variant="flush" className="mt-4 pt-3 border-top">
+                      <ListGroup.Item className="px-0 border-0 py-2 text-secondary bg-transparent d-flex align-items-center">
+                        <i className="bi bi-infinity fs-5 text-primary me-3"></i> Truy cập trọn đời
+                      </ListGroup.Item>
+                      <ListGroup.Item className="px-0 border-0 py-2 text-secondary bg-transparent d-flex align-items-center">
+                        <i className="bi bi-collection fs-5 text-primary me-3"></i> {flashcardCount} thẻ từ vựng
+                      </ListGroup.Item>
+                      <ListGroup.Item className="px-0 border-0 py-2 text-secondary bg-transparent d-flex align-items-center">
+                        <i className="bi bi-person-video3 fs-5 text-primary me-3"></i> Giáo viên: <strong className="text-dark ms-1">{course.teacherName || 'Chuyên gia IELTS'}</strong>
+                      </ListGroup.Item>
+                      <ListGroup.Item className="px-0 border-0 py-2 text-secondary bg-transparent d-flex align-items-center">
+                        <i className="bi bi-patch-check fs-5 text-primary me-3"></i> Chứng nhận hoàn thành
+                      </ListGroup.Item>
+                    </ListGroup>
+                  </Card.Body>
+                </Card>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 }

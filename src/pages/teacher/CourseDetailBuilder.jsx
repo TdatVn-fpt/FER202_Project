@@ -312,70 +312,50 @@ export default function CourseDetailBuilder() {
 
   if (loading) {
     return (
-      <Container className="py-5 text-center">
-        <Spinner animation="border" variant="primary" className="mb-2" />
-        <p className="text-secondary fw-semibold">Đang tải thông tin chi tiết giáo trình...</p>
-      </Container>
+      <div className="tp-loading">
+        <Spinner animation="border" variant="primary" style={{ width: '3rem', height: '3rem', borderWidth: '4px' }} />
+        <p className="mt-3 fw-semibold text-secondary">Đang tải thông tin chi tiết giáo trình...</p>
+      </div>
     );
   }
 
   if (error) {
     return (
-      <Container className="py-5">
-        <Alert variant="danger" className="text-center p-4 border-0 shadow-sm rounded-3">
-          <Alert.Heading className="fw-bold mb-2">Đã xảy ra lỗi</Alert.Heading>
-          <p>{error}</p>
-          <Button as={Link} to="/teacher/courses" variant="danger" className="rounded-pill px-4">
+      <div className="tp-main-content">
+        <div className="tp-error">
+          <i className="bi bi-exclamation-triangle-fill text-danger fs-4 mb-2"></i>
+          <div>{error}</div>
+          <Link to="/teacher/courses" className="btn btn-danger mt-3 rounded-pill px-4">
             Quay lại quản lý khóa học
-          </Button>
-        </Alert>
-      </Container>
+          </Link>
+        </div>
+      </div>
     );
   }
 
   return (
-    <Container fluid className="py-4">
-      {/* Breadcrumb / Back Button */}
-      <Link 
-        to="/teacher/courses" 
-        className="text-decoration-none text-muted mb-3 d-inline-flex align-items-center gap-2 fw-semibold"
-        style={{ fontSize: '14px' }}
-      >
-        <i className="bi bi-arrow-left"></i> Quay lại danh sách khóa học
-      </Link>
-
-      {/* Course Summary Header Card */}
-      <Card className="border-0 shadow-sm p-4 bg-white rounded-3 mb-4 mt-2">
-        <Row className="align-items-center">
-          <Col md={8}>
-            <div className="d-flex align-items-center gap-3 mb-2 flex-wrap">
-              <span className="small text-secondary fw-bold text-uppercase">{course.skill} &bull; {course.level}</span>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-gear-wide-connected"></i> Course Builder</div>
+            <h1 className="tp-page-title">{course.title}</h1>
+            <div className="d-flex align-items-center gap-3 flex-wrap mt-2">
+              <span className="small text-white-50 fw-bold text-uppercase">{course.skill} &bull; {course.level}</span>
               {getStatusBadge(course.status)}
             </div>
-            <h2 className="fw-bold text-dark mb-2">{course.title}</h2>
-            <p className="text-secondary mb-0 text-truncate-2 small">{course.description}</p>
-          </Col>
-          <Col md={4} className="text-md-end mt-3 mt-md-0">
-            <div className="text-secondary small mb-2">
-              <strong className="text-dark fs-4">
-                {course.price === 0 ? 'Miễn phí' : `${course.price.toLocaleString('vi-VN')} đ`}
-              </strong>
-            </div>
-            <div className="small text-muted">
-              {course.isPremium ? (
-                <Badge bg="warning" text="dark" className="px-3 py-1.5 rounded-pill fw-bold">
-                  <i className="bi bi-star-fill text-danger me-1"></i>PREMIUM COURSE
-                </Badge>
-              ) : (
-                <Badge bg="success" className="px-3 py-1.5 rounded-pill fw-bold">FREE COURSE</Badge>
-              )}
-            </div>
-          </Col>
-        </Row>
-      </Card>
+          </div>
+          <Link to="/teacher/courses" className="tp-btn-secondary" style={{ alignSelf: 'flex-end' }}>
+            <i className="bi bi-arrow-left"></i> Quay lại danh sách khóa học
+          </Link>
+        </div>
+      </div>
 
+      <div className="tp-main-content">
+        <div className="container-fluid px-4">
+          
       {/* Main Tabs Area */}
-      <Card className="border-0 shadow-sm rounded-3 bg-white p-4">
+      <div className="tp-card-static p-4">
         <Tabs defaultActiveKey="lessons" id="course-builder-tabs" className="mb-4 custom-tabs">
           
           {/* TAB 1: LESSONS */}
@@ -644,7 +624,7 @@ export default function CourseDetailBuilder() {
             )}
           </Tab>
         </Tabs>
-      </Card>
+      </div>
 
       {/* --- LESSON PREVIEW MODAL --- */}
       <Modal show={showLessonPreviewModal} onHide={() => setShowLessonPreviewModal(false)} size="lg" centered>
@@ -826,6 +806,8 @@ export default function CourseDetailBuilder() {
           </Button>
         </Modal.Footer>
       </Modal>
-    </Container>
+      </div>
+    </div>
+  </div>
   );
 }

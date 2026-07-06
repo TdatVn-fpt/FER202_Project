@@ -37,36 +37,42 @@ const TFNotGivenRenderer = ({ question, currentAnswer, onAnswer, isReviewMode = 
 
   return (
     <div className="tf-renderer" data-testid={`tf-question-${question.id}`}>
-      <div className="mb-4">
-        <p className="fs-5 fw-semibold text-dark lh-base mb-0">
+      <div className="mb-3">
+        <p className="fs-6 text-dark lh-base mb-0" style={{ fontFamily: 'Arial, sans-serif' }}>
           {question.prompt || question.questionText}
         </p>
       </div>
-      <div className="d-flex flex-wrap gap-3">
+      <div className="d-flex flex-column gap-2 ps-2">
         {options.map((option, index) => {
           const optionValue = typeof option === 'object' ? option.value : option;
           const optionLabel = typeof option === 'object' ? option.label : option;
           const isChecked = currentAnswer === optionValue;
-          const color = COLORS[optionValue] || { active: '#0d6efd', bg: '#eef2ff', border: '#0d6efd' };
 
           return (
-            <button
+            <label
               key={`${question.id}-opt-${index}`}
-              type="button"
-              onClick={() => handleChange(optionValue)}
-              disabled={isReviewMode}
-              data-testid={`tf-radio-${index}`}
-              className="btn fw-semibold px-4 py-2 rounded-pill"
+              className="d-flex align-items-start gap-2 mb-2"
               style={{
-                border: `2px solid ${isChecked ? color.border : '#dee2e6'}`,
-                backgroundColor: isChecked ? color.bg : '#fff',
-                color: isChecked ? color.active : '#6c757d',
-                transition: 'all 0.15s ease',
-                minWidth: 120,
+                cursor: isReviewMode ? 'not-allowed' : 'pointer',
+                fontFamily: 'Arial, sans-serif',
+                fontSize: '15px'
               }}
             >
-              {optionLabel}
-            </button>
+              <input
+                type="radio"
+                name={`question-${question.id}`}
+                value={optionValue}
+                checked={isChecked}
+                onChange={() => handleChange(optionValue)}
+                disabled={isReviewMode}
+                className="mt-1"
+                style={{ transform: 'scale(1.2)', cursor: isReviewMode ? 'not-allowed' : 'pointer' }}
+                data-testid={`tf-radio-${index}`}
+              />
+              <span className="text-dark" style={{ lineHeight: '1.5' }}>
+                {optionLabel}
+              </span>
+            </label>
           );
         })}
       </div>

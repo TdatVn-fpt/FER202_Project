@@ -90,17 +90,21 @@ export default function CourseCreatePage() {
   if (isPreviewMode) {
     const values = getValues();
     return (
-      <Container className="py-5" style={{ maxWidth: '1000px' }}>
-        {/* Preview Alert Banner */}
-        <Alert variant="warning" className="d-flex align-items-center gap-3 border-0 shadow-sm mb-4 rounded-3 py-3">
-          <i className="bi bi-eye-fill fs-4 text-warning"></i>
-          <div>
-            <h6 className="mb-1 fw-bold text-dark-emphasis">Chế độ xem trước (Preview Mode)</h6>
-            <p className="mb-0 text-secondary" style={{ fontSize: '13.5px' }}>
-              Dưới đây là giao diện chi tiết khóa học được mô phỏng theo góc nhìn của học viên. Hãy kiểm tra kỹ trước khi xác nhận lưu bản nháp.
-            </p>
+      <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+        <div className="tp-page-header">
+          <div className="tp-page-header-inner">
+            <div>
+              <div className="tp-page-badge"><i className="bi bi-eye-fill"></i> Chế độ xem trước</div>
+              <h1 className="tp-page-title">Preview Mode</h1>
+              <p className="tp-page-sub">Dưới đây là giao diện chi tiết khóa học được mô phỏng theo góc nhìn của học viên.</p>
+            </div>
+            <button onClick={() => setIsPreviewMode(false)} className="tp-btn-secondary" style={{ alignSelf: 'flex-end' }}>
+              <i className="bi bi-arrow-left"></i> Quay lại chỉnh sửa
+            </button>
           </div>
-        </Alert>
+        </div>
+        <div className="tp-main-content">
+          <Container className="py-2" style={{ maxWidth: '1000px' }}>
 
         {/* Hero Section */}
         <div className="text-white p-4 p-md-5 rounded-4 mb-4 shadow" style={{ background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)' }}>
@@ -240,26 +244,29 @@ export default function CourseCreatePage() {
             )}
           </Button>
         </div>
-      </Container>
+      </Container></div></div>
     );
   }
 
   return (
-    <Container className="py-5" style={{ maxWidth: '800px' }}>
-      {/* Back Button */}
-      <Link 
-        to="/teacher/courses" 
-        className="text-decoration-none text-muted mb-4 d-inline-flex align-items-center gap-2 fw-semibold transition-all hover-translate-x"
-        style={{ fontSize: '14px' }}
-      >
-        <i className="bi bi-arrow-left"></i> Quay lại quản lý khóa học
-      </Link>
-
-      <Card className="border-0 shadow-sm p-4 p-md-5 rounded-3 bg-white mt-2">
-        <div className="mb-4">
-          <h2 className="fw-bold text-dark mb-1">Tạo khóa học mới</h2>
-          <p className="text-secondary mb-0">Thiết lập thông tin cơ bản cho lộ trình học IELTS mới.</p>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-plus-circle"></i> Khóa học mới</div>
+            <h1 className="tp-page-title">Tạo khóa học</h1>
+            <p className="tp-page-sub">Thiết lập thông tin cơ bản cho lộ trình học IELTS mới.</p>
+          </div>
+          <Link to="/teacher/courses" className="tp-btn-secondary" style={{ alignSelf: 'flex-end' }}>
+            <i className="bi bi-arrow-left"></i> Quay lại
+          </Link>
         </div>
+      </div>
+      
+      <div className="tp-main-content">
+        <Container className="py-2" style={{ maxWidth: '800px' }}>
+          <div className="tp-card-static">
+            <div className="p-4 p-md-5">
 
         <Form onSubmit={handleSubmit(onSubmit)} noValidate>
           <Row className="g-3">
@@ -434,7 +441,10 @@ export default function CourseCreatePage() {
             </Button>
           </div>
         </Form>
-      </Card>
+      </div>
+    </div>
     </Container>
+  </div>
+</div>
   );
 }

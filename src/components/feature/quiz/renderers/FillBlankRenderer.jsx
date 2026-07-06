@@ -43,46 +43,32 @@ const FillBlankRenderer = ({ question, currentAnswer, onAnswer, isReviewMode = f
 
   return (
     <div className="fillblank-renderer" data-testid={`fillblank-question-${question.id}`}>
-      <div className="mb-4">
-        <p className="fs-5 fw-semibold text-dark lh-base mb-0">
+      <div className="mb-3">
+        <p className="fs-6 text-dark lh-base mb-0" style={{ fontFamily: 'Arial, sans-serif' }}>
           {question.prompt || question.questionText}
         </p>
       </div>
       <div className="question-input">
-        <div className="position-relative" style={{ maxWidth: 420 }}>
-          <input
-            type="text"
-            className="form-control form-control-lg"
-            id={`q${question.id}-input`}
-            value={localValue}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            onKeyDown={handleKeyDown}
-            disabled={isReviewMode}
-            placeholder="Nhập câu trả lời..."
-            data-testid="fillblank-input"
-            autoComplete="off"
-            style={{
-              border: localValue ? '2px solid #0d6efd' : '2px solid #dee2e6',
-              borderRadius: 12,
-              transition: 'border-color 0.15s ease',
-              background: isReviewMode ? '#f8f9fa' : '#fff',
-            }}
-          />
-          {localValue && !isReviewMode && (
-            <span
-              className="position-absolute top-50 end-0 translate-middle-y me-3 text-success"
-              style={{ fontSize: 18 }}
-            >
-              ✓
-            </span>
-          )}
-        </div>
-        {!isReviewMode && (
-          <p className="text-muted small mt-2 mb-0">
-            <em>Nhấn Enter hoặc click ra ngoài để lưu câu trả lời</em>
-          </p>
-        )}
+        <input
+          type="text"
+          className="form-control"
+          id={`q${question.id}-input`}
+          value={localValue}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          onKeyDown={handleKeyDown}
+          disabled={isReviewMode}
+          data-testid="fillblank-input"
+          autoComplete="off"
+          style={{
+            maxWidth: 300,
+            border: '1px solid #000',
+            borderRadius: 0,
+            background: isReviewMode ? '#e9ecef' : '#fff',
+            boxShadow: 'none',
+            fontSize: '15px'
+          }}
+        />
       </div>
     </div>
   );

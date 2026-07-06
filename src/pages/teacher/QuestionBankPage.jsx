@@ -7,7 +7,7 @@ import { teacherCourseService } from '../../services/teacherCourseService';
 import { teacherTestService } from '../../services/teacherTestService';
 import { teacherQuestionService } from '../../services/teacherQuestionService';
 import { auditLogService } from '../../services/auditLogService';
-import { getPassageForQuestion, getReferenceOptions, normalizeTest } from '../../utils/testModel';
+import { getPassageForQuestion, getReferenceOptions, normalizeTest, buildConfigQuestions } from '../../utils/testModel';
 
 const emptyForm = {
   referenceId: '',
@@ -77,7 +77,8 @@ export default function QuestionBankPage() {
         }
 
         setTest(normalized);
-        setQuestions(questionsData);
+        const embeddedQuestions = buildConfigQuestions(normalized).map((q, idx) => ({ ...q, isEmbedded: true, id: `embedded-${idx}` }));
+        setQuestions([...embeddedQuestions, ...questionsData]);
         const refs = getReferenceOptions(normalized);
         setForm({
           ...emptyForm,
@@ -249,69 +250,77 @@ export default function QuestionBankPage() {
 
   if (loading) {
     return (
-      <Container className="py-5 text-center">
-        <Spinner animation="border" variant="primary" className="mb-2" />
-        <p className="text-secondary fw-semibold">Đang tải ngân hàng câu hỏi...</p>
-      </Container>
+      <div className="tp-loading">
+        <Spinner animation="border" variant="primary" style={{ width: '3rem', height: '3rem', borderWidth: '4px' }} />
+        <p className="mt-3 fw-semibold text-secondary">Đang tải ngân hàng câu hỏi...</p>
+      </div>
     );
   }
 
   if (isUnauthorized) {
     return (
-      <Container className="py-5" style={{ maxWidth: 640 }}>
-        <Alert variant="danger" className="text-center border-0 shadow-sm">
-          Bạn không có quyền chỉnh sửa câu hỏi của test này.
-        </Alert>
-      </Container>
+      <div className="tp-main-content">
+        <div className="tp-error">
+          <i className="bi bi-exclamation-triangle-fill text-danger fs-4 mb-2"></i>
+          <div>Bạn không có quyền chỉnh sửa câu hỏi của test này.</div>
+        </div>
+      </div>
     );
   }
 
   if (normalizedTest?.skill === 'Writing') {
     return (
-      <Container className="py-5">
-        <Link to="/teacher/tests" className="text-decoration-none text-muted small fw-semibold">Quay lại danh sách test</Link>
-        <Alert variant="info" className="mt-4 border-0 shadow-sm">
-          Writing test dùng Task 1 và Task 2 trong Content Builder, không cần tạo câu hỏi riêng.
-          <div className="mt-3">
-            <Button as={Link} to={`/teacher/tests/${testId}/edit`} variant="primary">Quay lại chỉnh test</Button>
+      <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+        <div className="tp-page-header">
+          <div className="tp-page-header-inner">
+            <div>
+              <div className="tp-page-badge"><i className="bi bi-patch-question-fill"></i> Question Bank</div>
+              <h1 className="tp-page-title">{normalizedTest?.title}</h1>
+              <p className="tp-page-sub">Writing test dùng Task 1 và Task 2 trong Content Builder, không cần tạo câu hỏi riêng.</p>
+            </div>
+            <Link to={`/teacher/tests/${testId}/edit`} className="tp-btn-primary" style={{ alignSelf: 'flex-end' }}>
+              Quay lại chỉnh test
+            </Link>
           </div>
-        </Alert>
-      </Container>
+        </div>
+      </div>
     );
   }
 
   return (
-    <Container fluid className="py-4">
-      <Link to="/teacher/tests" className="text-decoration-none text-muted small fw-semibold">Quay lại danh sách test</Link>
-
-      <Card className="border-0 shadow-sm p-4 my-4">
-        <div className="d-flex flex-column flex-md-row justify-content-between gap-3">
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
           <div>
-            <Badge bg="primary" className="mb-2">{normalizedTest?.skill}</Badge>
-            <h2 className="fw-bold mb-1">{normalizedTest?.title}</h2>
-            <p className="text-muted mb-0">
-              Mode: {normalizedTest?.testMode} · Status: {normalizedTest?.status} · Câu hỏi: {questions.length}
-            </p>
+            <div className="tp-page-badge"><i className="bi bi-patch-question-fill"></i> Question Bank</div>
+            <h1 className="tp-page-title">{normalizedTest?.title}</h1>
+            <p className="tp-page-sub">Mode: {normalizedTest?.testMode} · Status: {normalizedTest?.status} · Câu hỏi: {questions.length}</p>
           </div>
-          <Button as={Link} to={`/teacher/tests/${testId}/edit`} variant="outline-secondary">
-            Chỉnh cấu trúc test
-          </Button>
+          <Link to={`/teacher/tests/${testId}/edit`} className="tp-btn-primary" style={{ alignSelf: 'flex-end' }}>
+            <i className="bi bi-pencil-square"></i> Chỉnh cấu trúc test
+          </Link>
         </div>
-      </Card>
-
-      {isPending && (
-        <Alert variant="warning" className="border-0 shadow-sm">
-          Khóa học liên kết đang chờ duyệt nên không thể chỉnh sửa câu hỏi.
-        </Alert>
-      )}
-
-      <Row className="g-4">
+      </div>
+      
+      <div className="tp-main-content">
+        <div className="container-fluid py-2">
+          {isPending && (
+            <div className="tp-error mb-4 border border-warning bg-warning bg-opacity-10 text-dark">
+              <i className="bi bi-exclamation-triangle-fill text-warning fs-4"></i>
+              <div>Khóa học đang chờ duyệt, bạn không thể xóa hay sửa đổi câu hỏi.</div>
+            </div>
+          )}
+          <Row className="g-4">
         <Col xl={7}>
-          <Card className="border-0 shadow-sm">
-            <Card.Body>
-              <h5 className="fw-bold mb-3">Danh sách câu hỏi ({questions.length})</h5>
+          <div className="tp-card-static">
+            <div className="p-4">
+              <h5 className="tp-page-title fs-5 mb-3">Danh sách câu hỏi ({questions.length})</h5>
               {questions.length === 0 ? (
-                <div className="text-center text-muted py-5">Chưa có câu hỏi nào.</div>
+                <div className="tp-empty">
+                  <div className="tp-empty-icon"><i className="bi bi-list-task"></i></div>
+                  <div className="tp-empty-title">Chưa có câu hỏi nào.</div>
+                  <p className="tp-empty-sub">Hãy chọn dạng bài và thêm câu hỏi mới vào ngân hàng.</p>
+                </div>
               ) : (
                 <div className="d-flex flex-column gap-3">
                   {questions.map((question, index) => {
@@ -321,19 +330,28 @@ export default function QuestionBankPage() {
                         <Card.Body>
                           <div className="d-flex justify-content-between align-items-start gap-3">
                             <div>
-                              <Badge bg="secondary" className="mb-2">
-                                Câu {index + 1}: {question.type}
+                              <Badge bg={question.isEmbedded ? "info" : "secondary"} className="mb-2">
+                                Câu {index + 1}: {question.type} {question.isEmbedded ? '(Imported)' : ''}
                               </Badge>
                               {ref && <Badge bg="light" text="dark" className="ms-2 border">{ref.label}</Badge>}
                               <div className="fw-bold text-dark">{question.questionText || question.prompt}</div>
                             </div>
                             <div className="d-flex gap-2">
-                              <Button variant="outline-secondary" size="sm" onClick={() => handleEditClick(question)} disabled={isPending}>
-                                Sửa
-                              </Button>
-                              <Button variant="outline-danger" size="sm" onClick={() => handleDeleteClick(question)} disabled={isPending}>
-                                Xóa
-                              </Button>
+                              {!question.isEmbedded && (
+                                <>
+                                  <Button variant="outline-secondary" size="sm" onClick={() => handleEditClick(question)} disabled={isPending}>
+                                    Sửa
+                                  </Button>
+                                  <Button variant="outline-danger" size="sm" onClick={() => handleDeleteClick(question)} disabled={isPending}>
+                                    Xóa
+                                  </Button>
+                                </>
+                              )}
+                              {question.isEmbedded && (
+                                <Badge bg="light" text="muted" className="border d-flex align-items-center px-3">
+                                  <i className="bi bi-lock-fill me-1" /> Read-only preview
+                                </Badge>
+                              )}
                             </div>
                           </div>
                           {question.options?.length > 0 && (
@@ -356,14 +374,14 @@ export default function QuestionBankPage() {
                   })}
                 </div>
               )}
-            </Card.Body>
-          </Card>
+            </div>
+          </div>
         </Col>
 
         <Col xl={5}>
-          <Card className="border-0 shadow-sm">
-            <Card.Body>
-              <h5 className="fw-bold mb-3">{editingQuestionId ? 'Chỉnh câu hỏi' : 'Thêm câu hỏi'}</h5>
+          <div className="tp-card-static" style={{ position: 'sticky', top: '24px' }}>
+            <div className="p-4">
+              <h5 className="tp-page-title fs-5 mb-3">{editingQuestionId ? 'Chỉnh câu hỏi' : 'Thêm câu hỏi'}</h5>
               <Form onSubmit={handleSubmit}>
                 <Row className="g-3">
                   <Col md={7}>
@@ -478,8 +496,8 @@ export default function QuestionBankPage() {
                   </Button>
                 </div>
               </Form>
-            </Card.Body>
-          </Card>
+            </div>
+          </div>
         </Col>
       </Row>
 
@@ -493,6 +511,6 @@ export default function QuestionBankPage() {
           <Button variant="danger" onClick={handleConfirmDelete} disabled={submitting}>Xóa</Button>
         </Modal.Footer>
       </Modal>
-    </Container>
+      </div></div></div>
   );
 }

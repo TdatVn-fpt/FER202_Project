@@ -307,83 +307,33 @@ export default function FlashcardManagementPage() {
   };
 
   return (
-    <div className="container-fluid py-4 test-management-page">
-      <style>
-        {`
-          .test-management-page {
-            animation: testPageEnter 220ms ease both;
-          }
-
-          .test-filter-card,
-          .test-table-card {
-            animation: testPanelEnter 260ms ease both;
-            transition: transform 180ms ease, box-shadow 180ms ease;
-          }
-
-          .test-filter-card:hover,
-          .test-table-card:hover {
-            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1) !important;
-          }
-
-          .test-management-row {
-            transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
-          }
-
-          .test-management-row:hover {
-            transform: translateY(-2px);
-            background: #f8fafc;
-            box-shadow: inset 4px 0 0 #0d6efd;
-          }
-
-          .test-table-card .btn,
-          .test-filter-card .form-control,
-          .test-filter-card .form-select {
-            transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
-          }
-
-          .test-table-card .btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
-          }
-
-          .test-filter-card .form-control:focus,
-          .test-filter-card .form-select:focus {
-            border-color: #86b7fe;
-            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.12);
-          }
-
-          @keyframes testPageEnter {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-
-          @keyframes testPanelEnter {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-        `}
-      </style>
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <div>
-          <h2 className="fw-bold text-dark">IELTS Flashcard Builder</h2>
-          <p className="text-secondary mb-0">Tạo bộ từ vựng, quản lý Free/Course/Premium Mode và Publish.</p>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-card-text"></i> Học liệu</div>
+            <h1 className="tp-page-title">IELTS Flashcard Builder</h1>
+            <p className="tp-page-sub">Tạo bộ từ vựng, quản lý Free/Course/Premium Mode và Publish.</p>
+          </div>
+          <button onClick={handleOpenCreateModal} className="tp-btn-primary" style={{ alignSelf: 'flex-end' }}>
+            <i className="bi bi-plus-circle-fill"></i> Thêm bộ từ vựng mới
+          </button>
         </div>
-        <Button onClick={handleOpenCreateModal} variant="primary" className="rounded-pill px-4 fw-semibold">
-          Thêm bộ từ vựng mới
-        </Button>
       </div>
+      <div className="tp-main-content">
+      <div className="container-fluid py-2">
 
       {error && <Alert variant="danger">{error}</Alert>}
 
-      <Card className="test-filter-card border-0 shadow-sm p-4 mb-4">
+      <div className="tp-filter-bar">
         <Form className="row g-3">
           <Col md={4}>
             <Form.Label>Tìm bộ từ vựng</Form.Label>
-            <Form.Control value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Nhập tiêu đề..." />
+            <Form.Control value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Nhập tiêu đề..." className="shadow-none" />
           </Col>
           <Col md={3}>
             <Form.Label>Khóa học</Form.Label>
-            <Form.Select value={selectedCourseId} onChange={(e) => setSelectedCourseId(e.target.value)}>
+            <Form.Select value={selectedCourseId} onChange={(e) => setSelectedCourseId(e.target.value)} className="shadow-none">
               <option value="">Tất cả khóa học</option>
               {courses.map((course) => (
                 <option key={course.id} value={course.id}>{course.title}</option>
@@ -392,7 +342,7 @@ export default function FlashcardManagementPage() {
           </Col>
           <Col md={2}>
             <Form.Label>Mode</Form.Label>
-            <Form.Select value={selectedMode} onChange={(e) => setSelectedMode(e.target.value)}>
+            <Form.Select value={selectedMode} onChange={(e) => setSelectedMode(e.target.value)} className="shadow-none">
               <option value="">Tất cả</option>
               <option value="free">Free</option>
               <option value="course">Course</option>
@@ -401,31 +351,31 @@ export default function FlashcardManagementPage() {
           </Col>
           <Col md={3}>
             <Form.Label>Trạng thái</Form.Label>
-            <Form.Select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}>
+            <Form.Select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} className="shadow-none">
               <option value="">Tất cả</option>
               <option value="draft">Draft</option>
               <option value="published">Published</option>
             </Form.Select>
           </Col>
         </Form>
-      </Card>
+      </div>
 
       {loading ? (
-        <div className="text-center py-5">
-          <Spinner animation="border" variant="primary" />
-          <p className="mt-2 text-muted">Đang tải danh sách bộ từ vựng...</p>
+        <div className="tp-loading">
+          <Spinner animation="border" variant="primary" style={{ width: '3rem', height: '3rem', borderWidth: '4px' }} />
+          <p className="mt-2 fw-semibold text-secondary">Đang tải danh sách bộ từ vựng...</p>
         </div>
       ) : (
-        <Card className="test-table-card border-0 shadow-sm overflow-hidden">
-          <Table responsive hover className="align-middle mb-0">
-            <thead className="bg-light">
+        <div className="tp-table-wrapper">
+          <table className="tp-table">
+            <thead>
               <tr>
-                <th className="px-4 py-3">Bộ từ vựng</th>
+                <th>Bộ từ vựng</th>
                 <th>Mode</th>
                 <th>Khóa học</th>
                 <th>Status</th>
                 <th>Số lượng thẻ</th>
-                <th className="text-end px-4">Thao tác</th>
+                <th style={{ textAlign: 'right' }}>Thao tác</th>
               </tr>
             </thead>
             <tbody>
@@ -452,25 +402,26 @@ export default function FlashcardManagementPage() {
                     </td>
                     <td className="text-end px-4">
                       <div className="d-flex gap-2 justify-content-end flex-wrap">
-                        <Button as={Link} to={`/teacher/flashcards/${deck.id}`} size="sm" variant="outline-primary">
-                          Quản lý Thẻ
+                        <Button as={Link} to={`/teacher/flashcards/${deck.id}`} size="sm" variant="outline-primary" title="Quản lý Thẻ">
+                          <i className="bi bi-card-list"></i>
                         </Button>
-                        <Button size="sm" variant="outline-secondary" onClick={() => handleOpenEditModal(deck)} disabled={working}>
-                          Sửa
+                        <Button size="sm" variant="outline-secondary" onClick={() => handleOpenEditModal(deck)} disabled={working} title="Sửa">
+                          <i className="bi bi-pencil"></i>
                         </Button>
-                        <Button size="sm" variant="outline-info" onClick={() => openAssignModal(deck)} disabled={working}>
-                          Cấu hình
+                        <Button size="sm" variant="outline-info" onClick={() => openAssignModal(deck)} disabled={working} title="Cấu hình">
+                          <i className="bi bi-gear"></i>
                         </Button>
                         <Button 
                           size="sm" 
                           variant={deck.status === 'published' ? 'outline-warning' : 'outline-success'} 
                           onClick={() => handleTogglePublish(deck)} 
                           disabled={working}
+                          title={deck.status === 'published' ? 'Về Draft' : 'Publish'}
                         >
-                          {deck.status === 'published' ? 'Về Draft' : 'Publish'}
+                          <i className={`bi ${deck.status === 'published' ? 'bi-send-slash' : 'bi-send'}`}></i>
                         </Button>
-                        <Button size="sm" variant="outline-danger" onClick={() => handleDeleteClick(deck)} disabled={working}>
-                          Xóa
+                        <Button size="sm" variant="outline-danger" onClick={() => handleDeleteClick(deck)} disabled={working} title="Xóa">
+                          <i className="bi bi-trash3"></i>
                         </Button>
                       </div>
                     </td>
@@ -483,8 +434,8 @@ export default function FlashcardManagementPage() {
                 </tr>
               )}
             </tbody>
-          </Table>
-        </Card>
+          </table>
+        </div>
       )}
 
       {/* Modal Cấu hình (Mode & Course) */}
@@ -589,14 +540,14 @@ export default function FlashcardManagementPage() {
             )}
           </Modal.Body>
           <Modal.Footer className="border-0">
-            <Button variant="light" onClick={handleCloseFormModal} className="fw-semibold px-4 rounded-pill">
+            <Button variant="light" onClick={handleCloseFormModal} className="fw-semibold px-4 rounded-0">
               Hủy
             </Button>
             <Button 
               variant="primary" 
               type="submit" 
               disabled={working}
-              className="fw-semibold px-4 rounded-pill shadow-sm"
+              className="fw-semibold px-4 rounded-0 shadow-none border border-dark"
             >
               {working ? 'Đang lưu...' : 'Lưu lại'}
             </Button>
@@ -619,5 +570,7 @@ export default function FlashcardManagementPage() {
         </Modal.Footer>
       </Modal>
     </div>
+  </div>
+</div>
   );
 }

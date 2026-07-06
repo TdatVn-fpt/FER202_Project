@@ -25,7 +25,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(120deg, rgba(12, 16, 38, 0.93) 0%, rgba(28, 32, 84, 0.82) 50%, rgba(108, 43, 217, 0.78) 100%);
+  background: linear-gradient(120deg, rgba(15, 23, 42, 0.93) 0%, rgba(30, 58, 138, 0.85) 50%, rgba(59, 130, 246, 0.75) 100%);
 }
 .cd-breadcrumb {
   display: inline-block;
@@ -45,7 +45,7 @@
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, #6c2bd9, #4361ee);
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
   color: #fff;
   font-weight: 700;
   font-size: 0.85rem;
@@ -53,8 +53,8 @@
 
 /* Khối flashcard nổi bật bằng nền gradient ấm */
 .cd-flashcard-promo {
-  background: linear-gradient(135deg, #fff7ed, #fef2f2);
-  border: 1px solid #ffe0c2 !important;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border: 1px solid #bae6fd !important;
 }
 
 /* Sidebar dính khi cuộn trên desktop */

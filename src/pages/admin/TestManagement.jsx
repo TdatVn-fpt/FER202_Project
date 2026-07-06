@@ -9,7 +9,7 @@
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Table, Form, Button, Badge, Spinner, Alert, Dropdown } from 'react-bootstrap';
+import { Table, Form, Button, Badge, Spinner, Alert, Dropdown, Card, Container } from 'react-bootstrap';
 import ConfirmModal from '../../components/common/ConfirmModal';
 import { getTests, updateTest, deleteTest } from '../../services/adminService';
 
@@ -101,6 +101,7 @@ const TestManagement = () => {
     switch (status) {
       case 'published': return 'success';
       case 'draft': return 'secondary';
+      case 'pending': return 'warning text-dark';
       default: return 'secondary';
     }
   };
@@ -116,139 +117,145 @@ const TestManagement = () => {
   };
 
   return (
-    <div className="container-fluid py-4">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <div>
-          <h2 className="fw-bold mb-1">Test Management</h2>
-          <p className="text-muted mb-0">Quản lý toàn bộ bài kiểm tra và câu hỏi trong hệ thống</p>
-        </div>
-        <Badge bg="warning" text="dark" className="fs-6 px-3 py-2">{tests.length} Bài kiểm tra</Badge>
-      </div>
-
-      {error && <Alert variant="danger" onClose={() => setError(null)} dismissible>{error}</Alert>}
-
-      {/* Filter Bar */}
-      <div className="card border-0 shadow-sm rounded-4 mb-4">
-        <div className="card-body">
-          <Form className="row g-3 align-items-end">
-            <div className="col-md-4">
-              <Form.Control
-                type="text"
-                placeholder="Tìm kiếm theo tên bài kiểm tra..."
-                name="q"
-                value={filters.q}
-                onChange={handleFilterChange}
-                className="rounded-pill"
-                id="test-search-input"
-              />
-            </div>
-            <div className="col-md-3">
-              <Form.Select name="skill" value={filters.skill} onChange={handleFilterChange} className="rounded-pill" id="test-skill-filter">
-                <option value="">Tất cả kỹ năng</option>
-                <option value="Reading">Reading</option>
-                <option value="Listening">Listening</option>
-                <option value="Writing">Writing</option>
-                <option value="Speaking">Speaking</option>
-              </Form.Select>
-            </div>
-            <div className="col-md-3">
-              <Form.Select name="status" value={filters.status} onChange={handleFilterChange} className="rounded-pill" id="test-status-filter">
-                <option value="">Tất cả trạng thái</option>
-                <option value="published">Published</option>
-                <option value="draft">Draft</option>
-              </Form.Select>
-            </div>
-            <div className="col-md-2">
-              <Button variant="primary" className="w-100 rounded-pill" onClick={fetchTests} id="test-filter-btn">
-                Lọc
-              </Button>
-            </div>
-          </Form>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-file-earmark-text-fill"></i> Quản lý</div>
+            <h1 className="tp-page-title">Bài kiểm tra</h1>
+            <p className="tp-page-sub">Quản lý toàn bộ bài kiểm tra và câu hỏi trong hệ thống</p>
+          </div>
         </div>
       </div>
 
-      {/* Table */}
-      <div className="card border-0 shadow-sm rounded-4">
-        <div className="card-body p-0 table-responsive">
-          <Table hover className="mb-0 align-middle">
-            <thead className="table-light">
-              <tr>
-                <th className="ps-4">Tên bài kiểm tra</th>
-                <th>Kỹ năng</th>
-                <th>Thời gian</th>
-                <th>Số câu hỏi</th>
-                <th>Thang điểm</th>
-                <th>Trạng thái</th>
-                <th>Ngày tạo</th>
-                <th className="text-end pe-4">Thao tác</th>
-              </tr>
-            </thead>
-            <tbody>
-              {loading ? (
-                <tr>
-                  <td colSpan="8" className="text-center py-5">
-                    <Spinner animation="border" variant="primary" />
-                  </td>
-                </tr>
-              ) : tests.length === 0 ? (
-                <tr>
-                  <td colSpan="8" className="text-center py-5 text-muted">
-                    <i className="bi bi-file-earmark-x fs-1 d-block mb-2 opacity-50"></i>
-                    Không có bài kiểm tra nào phù hợp với bộ lọc.
-                  </td>
-                </tr>
-              ) : (
-                tests.map(test => (
-                  <tr key={test.id}>
-                    <td className="ps-4">
-                      <div className="fw-medium">{test.title}</div>
-                      <small className="text-muted">{test.id}</small>
-                    </td>
-                    <td>
-                      <Badge bg={getSkillColor(test.skill)} className="rounded-pill">{test.skill}</Badge>
-                    </td>
-                    <td className="text-muted">{test.durationMinutes} phút</td>
-                    <td className="text-center">{test.totalQuestions}</td>
-                    <td className="text-muted">{test.bandScale}</td>
-                    <td>
-                      <Badge bg={getStatusVariant(test.status)} className="rounded-pill text-capitalize">
-                        {test.status}
-                      </Badge>
-                    </td>
-                    <td className="text-muted">
-                      {test.createdAt ? new Date(test.createdAt).toLocaleDateString('vi-VN') : 'N/A'}
-                    </td>
-                    <td className="text-end pe-4">
-                      <Dropdown align="end">
-                        <Dropdown.Toggle variant="light" size="sm" className="rounded-pill border-0" id={`test-action-${test.id}`}>
-                          Quản lý
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="shadow-sm border-0">
-                          <Dropdown.Header>Thay đổi trạng thái</Dropdown.Header>
-                          {/* EARS[Event]: WHEN Admin publishes test, THE system SHALL update tests.status */}
-                          {test.status !== 'published' && (
-                            <Dropdown.Item className="text-success" onClick={() => openConfirmModal('status', test, 'published')}>
-                              ✓ Publish
-                            </Dropdown.Item>
-                          )}
-                          {test.status !== 'draft' && (
-                            <Dropdown.Item className="text-secondary" onClick={() => openConfirmModal('status', test, 'draft')}>
-                              📝 Set Draft
-                            </Dropdown.Item>
-                          )}
-                          <Dropdown.Divider />
-                          <Dropdown.Item className="text-danger fw-bold" onClick={() => openConfirmModal('delete', test)}>
-                            🗑 Xóa bài kiểm tra
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </Table>
-        </div>
+      <div className="tp-main-content">
+        <Container fluid="xxl" className="px-4">
+          <div className="d-flex justify-content-end mb-3">
+            <Badge bg="primary" className="fs-6 px-3 py-2 rounded-pill shadow-sm">{tests.length} Bài kiểm tra</Badge>
+          </div>
+
+          {error && <Alert variant="danger" onClose={() => setError(null)} dismissible>{error}</Alert>}
+
+          {/* Filter Bar */}
+          <Card className="studio-filter-card mb-4">
+            <Form className="row g-3 align-items-end">
+              <div className="col-md-4">
+                <Form.Control
+                  type="text"
+                  placeholder="Tìm kiếm theo tên bài kiểm tra..."
+                  name="q"
+                  value={filters.q}
+                  onChange={handleFilterChange}
+                  className="tp-input"
+                  id="test-search-input"
+                />
+              </div>
+              <div className="col-md-3">
+                <Form.Select name="skill" value={filters.skill} onChange={handleFilterChange} className="tp-input" id="test-skill-filter">
+                  <option value="">Tất cả kỹ năng</option>
+                  <option value="Reading">Reading</option>
+                  <option value="Listening">Listening</option>
+                  <option value="Writing">Writing</option>
+                  <option value="Speaking">Speaking</option>
+                  <option value="mixed">Mixed</option>
+                </Form.Select>
+              </div>
+              <div className="col-md-3">
+                <Form.Select name="status" value={filters.status} onChange={handleFilterChange} className="tp-input" id="test-status-filter">
+                  <option value="">Tất cả trạng thái</option>
+                  <option value="published">Published</option>
+                  <option value="draft">Draft</option>
+                  <option value="pending">Pending</option>
+                </Form.Select>
+              </div>
+              <div className="col-md-2">
+                <Button variant="outline-secondary" className="w-100 rounded-pill" onClick={() => setFilters({ skill: '', status: '', q: '' })}>
+                  Xóa bộ lọc
+                </Button>
+              </div>
+            </Form>
+          </Card>
+
+          {/* Table */}
+          <Card className="studio-table-card">
+            {loading ? (
+              <div className="d-flex justify-content-center p-5">
+                <Spinner animation="border" variant="primary" />
+              </div>
+            ) : tests.length === 0 ? (
+              <div className="text-center p-5 text-muted">
+                Không tìm thấy bài kiểm tra nào phù hợp.
+              </div>
+            ) : (
+              <div className="table-responsive">
+                <Table responsive hover className="align-middle">
+                  <thead>
+                    <tr>
+                      <th className="ps-4">Tên bài kiểm tra</th>
+                      <th>Kỹ năng</th>
+                      <th>Thời gian</th>
+                      <th>Số câu hỏi</th>
+                      <th>Thang điểm</th>
+                      <th>Trạng thái</th>
+                      <th>Ngày tạo</th>
+                      <th className="text-end pe-4">Thao tác</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tests.map(test => (
+                      <tr key={test.id}>
+                        <td className="ps-4">
+                          <div className="fw-medium">{test.title}</div>
+                          <small className="text-muted">{test.id}</small>
+                        </td>
+                        <td>
+                          <Badge bg={getSkillColor(test.skill)} className="rounded-pill text-capitalize">
+                            {test.skill}
+                          </Badge>
+                        </td>
+                        <td className="text-muted">{test.durationMinutes} phút</td>
+                        <td className="text-center">{test.totalQuestions || (test.questionIds?.length) || 0}</td>
+                        <td className="text-muted">{test.bandScale || 'N/A'}</td>
+                        <td>
+                          <Badge bg={getStatusVariant(test.status)} className="rounded-pill text-capitalize">
+                            {test.status}
+                          </Badge>
+                        </td>
+                        <td className="text-muted">
+                          {test.createdAt ? new Date(test.createdAt).toLocaleDateString('vi-VN') : 'N/A'}
+                        </td>
+                        <td className="text-end pe-4">
+                          <Dropdown align="end">
+                            <Dropdown.Toggle variant="light" size="sm" className="rounded-pill border-0" id={`test-action-${test.id}`}>
+                              Quản lý
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu className="shadow-sm border-0">
+                              <Dropdown.Header>Thay đổi trạng thái</Dropdown.Header>
+                              {test.status !== 'published' && (
+                                <Dropdown.Item className="text-success" onClick={() => openConfirmModal('status', test, 'published')}>
+                                  ✓ Publish
+                                </Dropdown.Item>
+                              )}
+                              {test.status !== 'draft' && (
+                                <Dropdown.Item className="text-secondary" onClick={() => openConfirmModal('status', test, 'draft')}>
+                                  ✏️ Draft
+                                </Dropdown.Item>
+                              )}
+                              <Dropdown.Divider />
+                              <Dropdown.Item className="text-danger fw-bold" onClick={() => openConfirmModal('delete', test)}>
+                                🗑 Xóa bài kiểm tra
+                              </Dropdown.Item>
+                            </Dropdown.Menu>
+                          </Dropdown>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </div>
+            )}
+          </Card>
+        </Container>
       </div>
 
       <ConfirmModal

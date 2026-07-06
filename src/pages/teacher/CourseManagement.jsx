@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Container, Row, Col, Card, Button, Form, Badge, Modal, Spinner, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Button, Form, Modal, Spinner } from 'react-bootstrap';
 import { getCurrentUser } from '../../services/authService';
 import { teacherCourseService } from '../../services/teacherCourseService';
 
@@ -107,39 +107,35 @@ export default function CourseManagement() {
 
   const getStatusBadge = (status) => {
     switch (status) {
-      case 'approved':
-        return <Badge bg="success-subtle" className="text-success rounded-pill px-3 py-1.5 text-uppercase">Approved</Badge>;
-      case 'pending':
-        return <Badge bg="warning-subtle" className="text-warning rounded-pill px-3 py-1.5 text-uppercase">Pending</Badge>;
-      case 'rejected':
-        return <Badge bg="danger-subtle" className="text-danger rounded-pill px-3 py-1.5 text-uppercase">Rejected</Badge>;
-      default:
-        return <Badge bg="secondary-subtle" className="text-secondary rounded-pill px-3 py-1.5 text-uppercase">Draft</Badge>;
+      case 'approved': return <span className="tp-badge tp-badge-success"><i className="bi bi-check-circle-fill"></i> Approved</span>;
+      case 'pending':  return <span className="tp-badge tp-badge-warning"><i className="bi bi-clock-fill"></i> Pending</span>;
+      case 'rejected': return <span className="tp-badge tp-badge-danger"><i className="bi bi-x-circle-fill"></i> Rejected</span>;
+      default:         return <span className="tp-badge tp-badge-secondary">Draft</span>;
     }
   };
 
   return (
-    <Container fluid className="py-4">
-      {/* Header */}
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <div>
-          <h2 className="fw-bold text-dark">Quản lý Khóa học</h2>
-          <p className="text-secondary mb-0">Xây dựng, chỉnh sửa và gửi kiểm duyệt các khóa học IELTS của bạn.</p>
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      {/* ── PAGE HEADER ── */}
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-journal-bookmark-fill"></i> Quản lý</div>
+            <h1 className="tp-page-title">Quản lý Khóa học</h1>
+            <p className="tp-page-sub">Xây dựng, chỉnh sửa và gửi kiểm duyệt các khóa học IELTS của bạn.</p>
+          </div>
+          <Link to="/teacher/courses/create" className="tp-btn-primary" style={{ alignSelf: 'flex-end' }}>
+            <i className="bi bi-plus-circle-fill"></i> Tạo khóa học mới
+          </Link>
         </div>
-        <Button 
-          as={Link}
-          to="/teacher/courses/create"
-          variant="primary" 
-          className="d-flex align-items-center gap-2 px-4 py-2 shadow-sm rounded-pill fw-semibold"
-        >
-          <i className="bi bi-plus-lg"></i> Tạo khóa học mới
-        </Button>
       </div>
 
-      {error && <Alert variant="danger" className="mb-4">{error}</Alert>}
+      <div className="tp-main-content">
+      <Container fluid="xxl" className="px-4">
+      {error && <div className="tp-error mb-4"><i className="bi bi-exclamation-triangle-fill text-danger fs-4"></i><div className="text-secondary">{error}</div></div>}
 
-      {/* Filter Bar */}
-      <Card className="border-0 shadow-sm p-4 mb-4 bg-white rounded-3">
+      {/* ── FILTER BAR ── */}
+      <div className="tp-filter-bar">
         <Form className="row g-3">
           <Col lg={4} md={6}>
             <Form.Group controlId="search">
@@ -201,163 +197,88 @@ export default function CourseManagement() {
             </Form.Group>
           </Col>
         </Form>
-      </Card>
+      </div>
 
       {/* Grid Danh sách khóa học */}
       {loading ? (
-        <div className="d-flex justify-content-center align-items-center py-5">
-          <Spinner animation="border" variant="primary" className="me-2" />
-          <span className="text-secondary fw-semibold">Đang tải danh sách khóa học...</span>
+        <div className="tp-loading">
+          <Spinner animation="border" variant="primary" style={{ width: '3rem', height: '3rem', borderWidth: '4px' }} />
+          <p className="mt-3 fw-semibold text-secondary">Đang tải danh sách khóa học...</p>
         </div>
       ) : filteredCourses.length === 0 ? (
-        <Card className="border-0 shadow-sm text-center py-5 rounded-3">
-          <Card.Body>
-            <i className="bi bi-journal-x text-muted fs-1 mb-3"></i>
-            <h5 className="fw-semibold text-secondary">Không tìm thấy khóa học nào</h5>
-            <p className="text-muted small">Hãy tạo khóa học mới hoặc thay đổi bộ lọc tìm kiếm phía trên.</p>
-          </Card.Body>
-        </Card>
+        <div className="tp-card-static">
+          <div className="tp-empty">
+            <div className="tp-empty-icon"><i className="bi bi-journal-x"></i></div>
+            <div className="tp-empty-title">Không tìm thấy khóa học nào</div>
+            <p className="tp-empty-sub">Hãy tạo khóa học mới hoặc thay đổi bộ lọc tìm kiếm phía trên.</p>
+            <Link to="/teacher/courses/create" className="btn btn-primary rounded-pill px-4">Tạo khóa học mới</Link>
+          </div>
+        </div>
       ) : (
         <Row className="g-4">
           {filteredCourses.map(course => (
             <Col key={course.id} xl={4} md={6}>
-              <Card className="border-0 shadow-sm h-100 rounded-3 overflow-hidden bg-white d-flex flex-column transition-all hover-shadow">
-                
-                {/* Thumbnail khóa học */}
-                <div className="position-relative bg-light" style={{ height: '180px' }}>
+              <div className="tp-resource-card">
+                {/* Thumbnail */}
+                <div className="position-relative">
                   {course.thumbnail ? (
-                    <img 
-                      src={course.thumbnail} 
-                      alt={course.title}
-                      className="w-100 h-100 object-fit-cover"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80';
-                      }}
+                    <img src={course.thumbnail} alt={course.title} className="tp-resource-card-img"
+                      onError={(e) => { e.target.onerror=null; e.target.src='https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80'; }}
                     />
                   ) : (
-                    <div className="w-100 h-100 d-flex align-items-center justify-content-center text-muted bg-secondary bg-opacity-10">
-                      <i className="bi bi-image fs-1 text-secondary"></i>
+                    <div className="tp-resource-card-img-placeholder">
+                      <i className="bi bi-journal-bookmark-fill"></i>
                     </div>
                   )}
-                  {/* Skill Badge trên góc */}
-                  <div className="position-absolute top-0 start-0 m-3 d-flex gap-1.5 flex-column">
-                    <Badge bg="primary" className="px-3 py-1.5 shadow-sm rounded-pill text-uppercase">{course.skill}</Badge>
-                    <Badge bg="info" className="text-dark px-3 py-1.5 shadow-sm rounded-pill text-uppercase">{course.level}</Badge>
+                  <div className="position-absolute top-0 start-0 m-3 d-flex gap-2">
+                    <span className="tp-badge tp-badge-info">{course.skill}</span>
+                    <span className="tp-badge tp-badge-secondary">{course.level}</span>
                   </div>
                 </div>
 
-                <Card.Body className="p-4 d-flex flex-column flex-grow-1">
-                  
-                  {/* Trạng thái duyệt */}
-                  <div className="mb-2">{getStatusBadge(course.status)}</div>
-
-                  {/* Tiêu đề & Mô tả */}
-                  <h5 className="card-title fw-bold text-dark mb-2 text-truncate-2">{course.title}</h5>
-                  <p className="card-text text-secondary text-truncate-3 small mb-4">{course.description}</p>
-
-                  <div className="mt-auto">
-                    {/* Thông số khóa học */}
-                    <div className="d-flex justify-content-between align-items-center border-top border-light pt-3 mb-4 text-secondary small">
-                      <span><i className="bi bi-clock me-1 text-primary"></i>{course.durationWeeks || 0} tuần</span>
-                      <span><i className="bi bi-people me-1 text-primary"></i>{course.enrolledCount || 0} học viên</span>
-                      <span>
-                        <i className="bi bi-cash-stack me-1 text-primary"></i>
-                        {course.price === 0 ? <strong className="text-success">Miễn phí</strong> : `${course.price.toLocaleString('vi-VN')} đ`}
-                      </span>
-                    </div>
-
-                    {/* Nút thao tác */}
-                    <div className="d-flex gap-2">
-                      <Button 
-                        as={Link}
-                        to={`/teacher/courses/${course.id}`}
-                        variant="outline-primary"
-                        className="flex-grow-1 py-2 rounded-pill fw-semibold text-center small"
-                      >
-                        Giáo trình
-                      </Button>
-                      
-                      {/* EARS[Unwanted]: WHERE course is pending, THE system SHALL disable the edit button to lock changes. */}
-                      <Button 
-                        onClick={() => handleEditClick(course)}
-                        variant="outline-secondary"
-                        className={`py-2 px-3 rounded-circle d-flex align-items-center justify-content-center ${(course.status === 'pending') ? 'opacity-75' : ''}`}
-                        title={course.status === 'pending' ? 'Khóa học đang chờ duyệt, không thể sửa' : 'Sửa thông tin'}
-                      >
-                        <i className="bi bi-pencil-square"></i>
-                      </Button>
-
-                      {/* EARS[Unwanted]: WHERE course is approved or pending, THE system SHALL disable/prevent deletion. */}
-                      <Button 
-                        variant="outline-danger"
-                        onClick={() => handleDeleteClick(course)}
-                        className={`py-2 px-3 rounded-circle d-flex align-items-center justify-content-center ${(course.status === 'approved' || course.status === 'pending') ? 'opacity-75' : ''}`}
-                        title={course.status === 'approved' || course.status === 'pending' ? 'Không thể xóa khóa học đã duyệt hoặc chờ duyệt' : 'Xóa khóa học'}
-                      >
-                        <i className="bi bi-trash"></i>
-                      </Button>
-                    </div>
+                <div className="tp-resource-card-body">
+                  <div>{getStatusBadge(course.status)}</div>
+                  <h5 className="tp-resource-card-title">{course.title}</h5>
+                  <p className="text-secondary small mb-0 text-truncate-2">{course.description}</p>
+                  <div className="d-flex gap-3 text-secondary" style={{ fontSize: '0.8rem' }}>
+                    <span><i className="bi bi-clock me-1 text-primary"></i>{course.durationWeeks || 0} tuần</span>
+                    <span><i className="bi bi-people me-1 text-primary"></i>{course.enrolledCount || 0} HV</span>
+                    <span><i className="bi bi-cash-stack me-1 text-primary"></i>{course.price === 0 ? <strong className="text-success">Miễn phí</strong> : `${course.price?.toLocaleString('vi-VN')}đ`}</span>
                   </div>
+                </div>
 
-                </Card.Body>
-
-              </Card>
+                <div className="tp-resource-card-footer">
+                  <Link to={`/teacher/courses/${course.id}`} className="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold flex-grow-1 text-center">Giáo trình</Link>
+                  <button className="tp-action-btn tp-action-btn-edit" title={course.status === 'pending' ? 'Đang chờ duyệt' : 'Sửa'} onClick={() => handleEditClick(course)}><i className="bi bi-pencil-square"></i></button>
+                  <button className="tp-action-btn tp-action-btn-delete" title="Xóa" onClick={() => handleDeleteClick(course)}><i className="bi bi-trash"></i></button>
+                </div>
+              </div>
             </Col>
           ))}
         </Row>
       )}
 
-      {/* Modal xác nhận xóa */}
+      {/* ── MODALS ── */}
       <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)} centered>
-        <Modal.Header closeButton className="border-0">
-          <Modal.Title className="fw-bold text-dark">Xác nhận xóa khóa học</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="py-3">
-          Bạn có chắc chắn muốn xóa khóa học <strong className="text-danger">"{courseToDelete?.title}"</strong> không? 
-          Tất cả dữ liệu liên quan sẽ bị xóa và hành động này không thể phục hồi.
-        </Modal.Body>
+        <Modal.Header closeButton className="border-0"><Modal.Title className="fw-bold">Xác nhận xóa khóa học</Modal.Title></Modal.Header>
+        <Modal.Body className="py-3">Bạn có chắc chắn muốn xóa khóa học <strong className="text-danger">"{courseToDelete?.title}"</strong>? Hành động này không thể phục hồi.</Modal.Body>
         <Modal.Footer className="border-0">
-          <Button variant="light" onClick={() => setShowDeleteModal(false)} className="fw-semibold px-3 rounded-pill">
-            Hủy bỏ
-          </Button>
-          <Button 
-            variant="danger" 
-            onClick={handleConfirmDelete} 
-            disabled={deleting}
-            className="fw-semibold px-4 rounded-pill shadow-sm"
-          >
-            {deleting ? 'Đang xóa...' : 'Xác nhận xóa'}
-          </Button>
+          <Button variant="light" onClick={() => setShowDeleteModal(false)} className="fw-semibold rounded-pill px-4">Hủy</Button>
+          <Button variant="danger" onClick={handleConfirmDelete} disabled={deleting} className="fw-semibold rounded-pill px-4">{deleting ? 'Đang xóa...' : 'Xác nhận xóa'}</Button>
         </Modal.Footer>
       </Modal>
 
-      {/* Modal Cảnh báo Giới hạn Thao tác */}
-      <Modal 
-        show={restrictionModal.show} 
-        onHide={() => setRestrictionModal({ ...restrictionModal, show: false })} 
-        centered
-        size="md"
-      >
-        <Modal.Header closeButton className="border-0 bg-warning bg-opacity-10">
-          <Modal.Title className="fw-bold text-warning d-flex align-items-center gap-2">
-            <i className="bi bi-exclamation-triangle-fill"></i> {restrictionModal.title}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="py-4 px-4 text-center">
-          <div className="text-dark fw-semibold fs-5 mb-3">{restrictionModal.message}</div>
-          <p className="text-secondary small mb-0">Theo quy định nghiệp vụ của hệ thống, các khóa học đang chờ duyệt hoặc đã xuất bản sẽ tạm thời bị khóa các tính năng chỉnh sửa và xóa để đảm bảo tính ổn định của dữ liệu.</p>
+      <Modal show={restrictionModal.show} onHide={() => setRestrictionModal({ ...restrictionModal, show: false })} centered>
+        <Modal.Header closeButton className="border-0 bg-warning bg-opacity-10"><Modal.Title className="fw-bold text-warning d-flex align-items-center gap-2"><i className="bi bi-exclamation-triangle-fill"></i>{restrictionModal.title}</Modal.Title></Modal.Header>
+        <Modal.Body className="py-4 text-center">
+          <div className="fw-semibold fs-5 mb-2">{restrictionModal.message}</div>
+          <p className="text-secondary small mb-0">Các khóa học đang chờ duyệt hoặc đã xuất bản sẽ tạm thời bị khóa chỉnh sửa và xóa.</p>
         </Modal.Body>
         <Modal.Footer className="border-0 justify-content-center">
-          <Button 
-            variant="warning" 
-            onClick={() => setRestrictionModal({ ...restrictionModal, show: false })} 
-            className="fw-semibold px-4 rounded-pill shadow-sm text-dark border-0"
-          >
-            Đã hiểu
-          </Button>
+          <Button variant="warning" onClick={() => setRestrictionModal({ ...restrictionModal, show: false })} className="fw-semibold rounded-pill px-4 text-dark">Đã hiểu</Button>
         </Modal.Footer>
       </Modal>
-    </Container>
+
+      </Container></div></div>
   );
 }
