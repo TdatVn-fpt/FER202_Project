@@ -56,6 +56,7 @@ import PaymentManagement from '../pages/admin/PaymentManagement';
 import AuditLogs from '../pages/admin/AuditLogs';
 import AdminFlashcardManagement from '../pages/admin/FlashcardManagement';
 import TransactionList from '../pages/admin/TransactionList';
+import RevenueStatistics from '../pages/admin/RevenueStatistics';
 import MainLayout from '../layouts/MainLayout';
 import StudentLayout from '../layouts/StudentLayout';
 import TeacherLayout from '../layouts/TeacherLayout';
@@ -141,6 +142,7 @@ export default function AppRoutes() {
           <Route path="/admin/flashcards" element={<AdminFlashcardManagement />} />
           <Route path="/admin/payments" element={<PaymentManagement />} />
           <Route path="/admin/transactions" element={<TransactionList />} />
+          <Route path="/admin/revenue" element={<RevenueStatistics />} />
         </Route>
       </Route>
     </Routes>
