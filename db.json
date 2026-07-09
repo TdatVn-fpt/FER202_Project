@@ -404,105 +404,6 @@
       "enrolledCount": 71,
       "durationWeeks": 6,
       "createdAt": "2026-06-28T08:00:00Z"
-    },
-    {
-      "id": "course-reading-free-8s28fpfl7",
-      "title": "IELTS Reading Free Basics",
-      "description": "A free introductory course to IELTS Reading.",
-      "syllabus": [
-        "Introduction to Reading",
-        "Basic Skimming"
-      ],
-      "skill": "Reading",
-      "level": "Band 4.0 - 5.0",
-      "price": 0,
-      "premiumPrice": 99000,
-      "isPremium": false,
-      "thumbnail": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-student-004",
-      "status": "approved",
-      "enrolledCount": 50,
-      "durationWeeks": 2,
-      "createdAt": "2026-07-06T06:53:41.121Z"
-    },
-    {
-      "id": "course-reading-paid-ki1nljyt3",
-      "title": "IELTS Reading Premium Intensive",
-      "description": "AI-generated comprehensive course for advanced IELTS Reading strategies.",
-      "syllabus": [
-        "Advanced Skimming",
-        "Matching Features",
-        "Y/N/NG Mastery",
-        "Summary Completion",
-        "Full Mock Test Strategies"
-      ],
-      "skill": "Reading",
-      "level": "Band 6.5 - 8.0",
-      "price": 99000,
-      "premiumPrice": 99000,
-      "isPremium": true,
-      "thumbnail": "https://images.unsplash.com/photo-1512820200504-f5ce6a8ca1fe?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-student-004",
-      "status": "approved",
-      "enrolledCount": 200,
-      "durationWeeks": 5,
-      "createdAt": "2026-07-06T06:53:41.125Z"
-    },
-    {
-      "id": "course-speaking-free-9s34fplk8",
-      "title": "IELTS Speaking Free Essentials",
-      "description": "A free introductory course to IELTS Speaking, covering key structures for Part 1 and fluency tips.",
-      "syllabus": [
-        "Introduction to Speaking Part 1",
-        "Improving Fluency & Coherence Basics"
-      ],
-      "skill": "Speaking",
-      "level": "Band 4.5 - 6.0",
-      "price": 0,
-      "premiumPrice": 99000,
-      "isPremium": false,
-      "thumbnail": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "status": "approved",
-      "enrolledCount": 80,
-      "durationWeeks": 3,
-      "createdAt": "2026-07-06T16:29:00.000Z"
-    },
-    {
-      "id": "course-writing-free-3s78asfg5",
-      "title": "IELTS Writing Free Basics",
-      "description": "Learn the basic paragraph structure and essay organization for IELTS Writing Task 2.",
-      "syllabus": [
-        "Task 2 Essay Structure Overview",
-        "Writing a Cohesive Introduction"
-      ],
-      "skill": "Writing",
-      "level": "Band 4.5 - 6.0",
-      "price": 0,
-      "premiumPrice": 99000,
-      "isPremium": false,
-      "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead27d8?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "status": "approved",
-      "enrolledCount": 110,
-      "durationWeeks": 3,
-      "createdAt": "2026-07-06T16:29:00.000Z"
-    },
-    {
-      "id": "course-012",
-      "title": "IELTS Listening Mastery: Từ Cơ Bản Đến 6.5+",
-      "description": "Khóa học IELTS Listening Mastery được thiết kế dành cho học viên muốn cải thiện kỹ năng nghe tiếng Anh học thuật và nâng cao điểm số IELTS Listening. Khóa học cung cấp các chiến lược làm bài hiệu quả, kỹ năng nhận diện từ khóa, dự đoán đáp án, nghe chi tiết và nghe ý chính.\n\nHọc viên sẽ được luyện tập với đầy đủ 4 phần của bài thi IELTS Listening, làm quen với nhiều giọng đọc khác nhau như Anh, Mỹ, Úc và Canada. Sau khi hoàn thành khóa học, học viên có thể tự tin xử lý các dạng câu hỏi phổ biến và đạt mục tiêu từ 5.5 đến 6.5+ IELTS Listening.",
-      "syllabus": [],
-      "skill": "Listening",
-      "level": "Intermediate",
-      "price": 1200000,
-      "isPremium": true,
-      "thumbnail": "https://3d-universal.com/en/wp-content/uploads/2025/09/ChatGPT-Image-Sep-13-2025-05_22_32-PM.png",
-      "teacherId": "u-teacher-001",
-      "status": "approved",
-      "enrolledCount": 0,
-      "durationWeeks": 8,
-      "createdAt": "2026-07-06T14:33:09.813Z"
     }
   ],
   "freeResources": [
@@ -623,210 +524,6 @@
       "teacherId": "u-student-004",
       "status": "published",
       "createdAt": "2026-06-28T09:00:00Z"
-    },
-    {
-      "id": "lesson-013",
-      "courseId": null,
-      "title": "IELTS Reading – Câu hỏi trả lời ngắn",
-      "order": 1,
-      "durationMinutes": 10,
-      "contentUrl": "https://www.youtube.com/watch?v=v_oQTT08czc",
-      "audioUrl": "",
-      "teacherId": "u-student-004",
-      "status": "published",
-      "createdAt": "2026-07-06T06:41:19.835Z"
-    },
-    {
-      "id": "lesson-014",
-      "courseId": null,
-      "title": " IELTS Reading – Matching Names With Statements Task",
-      "order": 2,
-      "durationMinutes": 10,
-      "contentUrl": "https://www.youtube.com/watch?v=eyfGxSDBoE4",
-      "audioUrl": "",
-      "teacherId": "u-student-004",
-      "status": "published",
-      "createdAt": "2026-07-06T06:42:30.114Z"
-    },
-    {
-      "id": "lesson-802rk1zr7",
-      "courseId": "course-reading-free-8s28fpfl7",
-      "title": "Free Reading Lesson 1",
-      "order": 1,
-      "durationMinutes": 30,
-      "contentUrl": "https://www.youtube.com/watch?v=kSn9P0GW7Zg&list=PLAqSDn2SYzg39TEO2Tyq57vnH5UpCq4OD&index=2",
-      "status": "published",
-      "createdAt": "2026-07-06T06:53:41.124Z",
-      "teacherId": "u-student-004",
-      "audioUrl": ""
-    },
-    {
-      "id": "lesson-1h22rksqu",
-      "courseId": "course-reading-free-8s28fpfl7",
-      "title": "Free Reading Lesson 2",
-      "order": 2,
-      "durationMinutes": 30,
-      "contentUrl": "https://www.youtube.com/watch?v=2tLdOPOHxhA&list=PLAqSDn2SYzg39TEO2Tyq57vnH5UpCq4OD",
-      "status": "published",
-      "createdAt": "2026-07-06T06:53:41.124Z",
-      "teacherId": "u-student-004",
-      "audioUrl": ""
-    },
-    {
-      "id": "lesson-paid-kygbv2ny6",
-      "courseId": "course-reading-paid-ki1nljyt3",
-      "title": "Premium Reading Lesson 1",
-      "order": 1,
-      "durationMinutes": 45,
-      "contentUrl": "https://www.youtube.com/watch?v=Q4gG1FCPSh0&list=PLAqSDn2SYzg39TEO2Tyq57vnH5UpCq4OD&index=3",
-      "status": "published",
-      "createdAt": "2026-07-06T06:53:41.125Z",
-      "teacherId": "u-student-004",
-      "audioUrl": ""
-    },
-    {
-      "id": "lesson-paid-4dgpe390p",
-      "courseId": "course-reading-paid-ki1nljyt3",
-      "title": "Premium Reading Lesson 2",
-      "order": 2,
-      "durationMinutes": 45,
-      "contentUrl": "https://www.youtube.com/watch?v=95-xOIF49oE&list=PLAqSDn2SYzg39TEO2Tyq57vnH5UpCq4OD&index=5",
-      "status": "published",
-      "createdAt": "2026-07-06T06:53:41.125Z",
-      "teacherId": "u-student-004",
-      "audioUrl": ""
-    },
-    {
-      "id": "lesson-paid-srn1a20wr",
-      "courseId": "course-reading-paid-ki1nljyt3",
-      "title": "Premium Reading Lesson 3",
-      "order": 3,
-      "durationMinutes": 45,
-      "contentUrl": "https://www.youtube.com/watch?v=zBVd2CWJNFQ&list=PLAqSDn2SYzg39TEO2Tyq57vnH5UpCq4OD&index=6",
-      "status": "published",
-      "createdAt": "2026-07-06T06:53:41.125Z",
-      "teacherId": "u-student-004",
-      "audioUrl": ""
-    },
-    {
-      "id": "lesson-paid-vyxq711r7",
-      "courseId": "course-reading-paid-ki1nljyt3",
-      "title": "Premium Reading Lesson 4",
-      "order": 4,
-      "durationMinutes": 45,
-      "contentUrl": "https://www.youtube.com/watch?v=zK98618nt3U&list=PLAqSDn2SYzg39TEO2Tyq57vnH5UpCq4OD&index=7",
-      "status": "published",
-      "createdAt": "2026-07-06T06:53:41.125Z",
-      "teacherId": "u-student-004",
-      "audioUrl": ""
-    },
-    {
-      "id": "lesson-paid-zx29gwq2m",
-      "courseId": "course-reading-paid-ki1nljyt3",
-      "title": "Premium Reading Lesson 5",
-      "order": 5,
-      "durationMinutes": 7,
-      "contentUrl": "https://www.youtube.com/embed/p1I2-https://www.youtube.com/watch?v=vsMpXfFNcjw&list=PLAqSDn2SYzg39TEO2Tyq57vnH5UpCq4OD&index=8",
-      "status": "published",
-      "createdAt": "2026-07-06T06:53:41.125Z",
-      "teacherId": "u-student-004",
-      "audioUrl": ""
-    },
-    {
-      "id": "lesson-803",
-      "courseId": "course-012",
-      "title": "IELTS Listening Lesson 1: Introduction & Test Structure",
-      "order": 1,
-      "durationMinutes": 30,
-      "contentUrl": "https://www.youtube.com/watch?v=UKdZALEoa4o",
-      "audioUrl": "https://www.youtube.com/watch?v=gsC-i7mfCVw",
-      "teacherId": "u-teacher-001",
-      "status": "published",
-      "createdAt": "2026-07-06T14:36:38.784Z"
-    },
-    {
-      "id": "lesson-804",
-      "courseId": "course-012",
-      "title": "IELTS Listening Lesson 2: Identifying Keywords",
-      "order": 2,
-      "durationMinutes": 30,
-      "contentUrl": "https://www.youtube.com/watch?v=NLwztJnKU0U",
-      "audioUrl": "",
-      "teacherId": "u-teacher-001",
-      "status": "published",
-      "createdAt": "2026-07-06T14:38:56.881Z"
-    },
-    {
-      "id": "lesson-805",
-      "courseId": "course-012",
-      "title": "IELTS Listening Lesson 3: Form & Note Completion",
-      "order": 3,
-      "durationMinutes": 30,
-      "contentUrl": "https://www.youtube.com/watch?v=YZtQiO0NUWg",
-      "audioUrl": "",
-      "teacherId": "u-teacher-001",
-      "status": "published",
-      "createdAt": "2026-07-06T14:39:34.788Z"
-    },
-    {
-      "id": "lesson-806",
-      "courseId": "course-012",
-      "title": "IELTS Listening Lesson 4: Multiple Choice Strategies",
-      "order": 4,
-      "durationMinutes": 30,
-      "contentUrl": "https://www.youtube.com/watch?v=YZtQiO0NUWg",
-      "audioUrl": "",
-      "teacherId": "u-teacher-001",
-      "status": "published",
-      "createdAt": "2026-07-06T14:39:59.125Z"
-    },
-    {
-      "id": "lesson-807",
-      "courseId": "course-012",
-      "title": "IELTS Listening Lesson 5: Matching Information",
-      "order": 4,
-      "durationMinutes": 30,
-      "contentUrl": "https://www.youtube.com/watch?v=YZtQiO0NUWg",
-      "audioUrl": "",
-      "teacherId": "u-teacher-001",
-      "status": "published",
-      "createdAt": "2026-07-06T14:40:33.692Z"
-    },
-    {
-      "id": "lesson-808",
-      "courseId": "course-012",
-      "title": "IELTS Listening Lesson 6: Map & Diagram Labeling",
-      "order": 6,
-      "durationMinutes": 30,
-      "contentUrl": "https://www.youtube.com/watch?v=YZtQiO0NUWg",
-      "audioUrl": "",
-      "teacherId": "u-teacher-001",
-      "status": "published",
-      "createdAt": "2026-07-06T14:40:51.560Z"
-    },
-    {
-      "id": "lesson-809",
-      "courseId": "course-012",
-      "title": "IELTS Listening Lesson 7: Academic Lectures & Section 4",
-      "order": 7,
-      "durationMinutes": 30,
-      "contentUrl": "https://www.youtube.com/watch?v=YZtQiO0NUWg",
-      "audioUrl": "",
-      "teacherId": "u-teacher-001",
-      "status": "published",
-      "createdAt": "2026-07-06T14:41:09.988Z"
-    },
-    {
-      "id": "lesson-810",
-      "courseId": "course-012",
-      "title": "IELTS Listening Lesson 8: Full Practice Test & Review",
-      "order": 8,
-      "durationMinutes": 30,
-      "contentUrl": "https://www.youtube.com/watch?v=YZtQiO0NUWg",
-      "audioUrl": "",
-      "teacherId": "u-teacher-001",
-      "status": "published",
-      "createdAt": "2026-07-06T14:41:35.240Z"
     }
   ],
   "tests": [
@@ -3805,20 +3502,6 @@
       "progress": 100
     },
     {
-      "id": "ySsTPaPlmmU",
-      "enrolledAt": "2026-06-21T10:22:02.823Z",
-      "courseId": "course-002",
-      "progress": 100,
-      "status": "completed"
-    },
-    {
-      "userId": "u-001",
-      "courseId": "course-003",
-      "progress": 0,
-      "enrolledAt": "2026-06-21T10:27:06.120Z",
-      "id": "cb51wNV__9c"
-    },
-    {
       "userId": "u-001",
       "courseId": null,
       "progress": 0,
@@ -3831,34 +3514,6 @@
       "progress": 0,
       "enrolledAt": "2026-06-29T04:48:52.259Z",
       "id": "WHA_Q9JK1Xc"
-    },
-    {
-      "userId": "u-001",
-      "courseId": "course-011",
-      "progress": 0,
-      "enrolledAt": "2026-07-05T02:35:18.747Z",
-      "id": "fqJSvzIA4jc"
-    },
-    {
-      "userId": "u-001",
-      "courseId": "course-009",
-      "progress": 0,
-      "enrolledAt": "2026-07-05T02:35:19.240Z",
-      "id": "al3vwFtLf2s"
-    },
-    {
-      "userId": "u-001",
-      "courseId": "6juKyo6dXkU",
-      "progress": 0,
-      "enrolledAt": "2026-07-05T05:03:19.576Z",
-      "id": "aMTzKX4qeXo"
-    },
-    {
-      "userId": "u-001",
-      "courseId": "bundle",
-      "progress": 0,
-      "enrolledAt": "2026-07-05T05:03:20.075Z",
-      "id": "CO91zpzQhAg"
     }
   ],
   "payments": [
@@ -4800,6 +4455,72 @@
     },
     {
       "id": "log-047",
+      "actorId": "u-student-004",
+      "action": "ASSIGN_TEST_COURSE",
+      "targetType": "course",
+      "targetId": "9w8htVkjNaI",
+      "createdAt": "2026-06-30T17:24:11.172Z"
+    }
+  ],
+  "approvalRequests": [
+    {
+      "id": "log-021",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T16:50:45.661Z"
+    },
+    {
+      "id": "log-022",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T16:51:48.461Z"
+    },
+    {
+      "id": "log-023",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T16:53:48.505Z"
+    },
+    {
+      "id": "log-024",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-007",
+      "createdAt": "2026-06-28T16:58:09.557Z"
+    },
+    {
+      "id": "log-025",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T17:12:14.428Z"
+    },
+    {
+      "id": "log-026",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T17:12:28.893Z"
+    },
+    {
+      "id": "log-027",
+      "actorId": "u-teacher-001",
+      "action": "SUBMIT_APPROVAL",
+      "targetType": "course",
+      "targetId": "course-006",
+      "createdAt": "2026-06-28T17:13:35.651Z"
+    },
+    {
+      "id": "log-028",
       "actorId": "u-teacher-001",
       "action": "CREATE_COURSE",
       "targetType": "course",
@@ -4811,167 +4532,13 @@
       "actorId": "u-teacher-001",
       "action": "UPDATE_COURSE",
       "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T14:34:13.127Z"
-    },
-    {
-      "id": "log-049",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T14:36:38.800Z"
-    },
-    {
-      "id": "log-050",
-      "actorId": "u-teacher-001",
-      "action": "UPDATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T14:37:29.271Z"
-    },
-    {
-      "id": "log-051",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T14:38:56.891Z"
-    },
-    {
-      "id": "log-052",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T14:39:34.803Z"
-    },
-    {
-      "id": "log-053",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T14:39:59.143Z"
-    },
-    {
-      "id": "log-054",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T14:40:33.703Z"
-    },
-    {
-      "id": "log-055",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T14:40:51.567Z"
-    },
-    {
-      "id": "log-056",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T14:41:09.995Z"
-    },
-    {
-      "id": "log-057",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T14:41:35.251Z"
-    },
-    {
-      "id": "log-058",
-      "actorId": "u-teacher-001",
-      "action": "UPDATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T14:44:10.874Z"
-    },
-    {
-      "id": "log-059",
-      "actorId": "u-teacher-001",
-      "action": "UPDATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T14:45:38.535Z"
-    },
-    {
-      "id": "log-060",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_TEST",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-07-06T15:48:41.254Z"
-    },
-    {
-      "id": "log-061",
-      "actorId": "u-teacher-001",
-      "action": "UPDATE_TEST",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-07-06T15:50:11.492Z"
-    },
-    {
-      "id": "log-062",
-      "actorId": "u-teacher-001",
-      "action": "UPDATE_TEST",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-07-06T15:50:35.415Z"
-    },
-    {
-      "id": "log-063",
-      "actorId": "u-teacher-001",
-      "action": "UPDATE_COURSE",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-09T02:16:14.190Z"
-    },
-    {
-      "id": "log-064",
-      "actorId": "u-teacher-001",
-      "action": "UPDATE_COURSE",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-09T02:16:50.946Z"
-    },
-    {
-      "id": "log-065",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_TEST",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-09T02:58:28.165Z"
+      "targetId": "course-007",
+      "createdAt": "2026-06-28T17:25:37.151Z"
     }
   ],
   "approvalRequests": [
     {
       "id": "K3ppAlR20l4",
-      "teacherId": "u-teacher-001",
-      "targetType": "course",
-      "targetId": "course-006",
-      "status": "approved",
-      "createdAt": "2026-06-28T17:13:35.632Z"
-    },
-    {
-      "id": "BAow8J3XeBk",
-      "teacherId": "u-teacher-001",
-      "targetType": "course",
-      "targetId": "course-007",
-      "status": "pending",
-      "createdAt": "2026-06-23T16:35:29.072Z"
-    },
-    {
-      "id": "req-006",
-      "targetType": "course",
-      "targetId": "course-008",
       "teacherId": "u-teacher-001",
       "status": "pending",
       "createdAt": "2026-06-23T16:35:49.491Z"
@@ -5019,41 +4586,6 @@
       "createdAt": "2026-06-30T12:00:00.000Z",
       "reviewedAt": "2026-06-30T12:00:00.000Z",
       "reviewedBy": "u-admin-001"
-    },
-    {
-      "id": "fupLPIBqasQ",
-      "targetType": "test",
-      "targetId": "7RxwDIJGgP8",
-      "teacherId": "u-teacher-001",
-      "status": "approved",
-      "message": "Teacher submitted test \"IELTS Reading test\" for admin approval.",
-      "createdAt": "2026-07-05T05:40:21.934Z",
-      "reviewedAt": "2026-07-05T09:39:42.247Z",
-      "reviewedBy": "u-admin-001"
-    },
-    {
-      "id": "req-007",
-      "targetType": "course",
-      "targetId": "course-003",
-      "teacherId": "u-teacher-001",
-      "status": "pending",
-      "createdAt": "2026-07-05T09:32:34.145Z"
-    },
-    {
-      "id": "req-008",
-      "targetType": "course",
-      "targetId": "course-reading-free-8s28fpfl7",
-      "teacherId": "u-student-004",
-      "status": "pending",
-      "createdAt": "2026-07-06T07:27:01.980Z"
-    },
-    {
-      "id": "req-009",
-      "targetType": "course",
-      "targetId": "course-reading-paid-ki1nljyt3",
-      "teacherId": "u-student-004",
-      "status": "pending",
-      "createdAt": "2026-07-06T07:30:42.328Z"
     }
   ],
   "categories": [
@@ -7518,622 +7050,6 @@
       "status": "in-progress",
       "startTime": "2026-06-30T17:24:25.220Z",
       "createdAt": "2026-06-30T17:24:25.223Z"
-    },
-    {
-      "id": "ta-writing-26b85056",
-      "userId": "u-student-001",
-      "guestId": null,
-      "testId": "tutor-writing-mock",
-      "testTitle": "Mock Test Writing Task 2",
-      "skill": "Writing",
-      "startTime": "2026-07-01T04:29:21.802Z",
-      "status": "graded",
-      "answers": {
-        "task1": "Some people believe that...",
-        "task2": "In recent years, the debate over whether automation will replace human jobs has intensified. While there are legitimate concerns about unemployment, I firmly believe that automation will ultimately create more opportunities than it destroys. Firstly, history shows that technological revolutions shift employment rather than eliminate it. During the Industrial Revolution, many feared that machines would leave the working class destitute. Instead, it gave rise to entire new industries and improved living standards. Similarly, while AI and robotics may take over repetitive tasks, they will spawn demand for skilled workers who can build, maintain, and oversee these systems. Secondly, automation can significantly enhance human productivity and well-being. By delegating mundane tasks to machines, humans can focus on creative, strategic, and interpersonal endeavors. For instance, in healthcare, automated diagnostics allow doctors to spend more time on patient care and complex treatments. The overall efficiency leads to better outcomes and a higher quality of life. In conclusion, although the transition period may be disruptive and require societal adaptation, automation is a positive force. Governments and educational institutions must focus on retraining programs to ensure that the workforce is prepared for the jobs of the future, thus reaping the full benefits of this technological advancement."
-      },
-      "submittedAt": "2026-07-01T04:59:21.802Z",
-      "score": 6.5,
-      "overallBandScore": 6.5,
-      "feedback": "Good",
-      "completedAt": "2026-07-01T06:10:08.235Z"
-    },
-    {
-      "id": "ta-speaking-fbff3361",
-      "userId": "u-student-002",
-      "guestId": null,
-      "testId": "tutor-speaking-mock",
-      "testTitle": "Mock Test Speaking Part 2",
-      "skill": "Speaking",
-      "startTime": "2026-07-01T03:29:21.802Z",
-      "status": "pending",
-      "answers": {
-        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-      },
-      "submittedAt": "2026-07-01T03:49:21.802Z",
-      "score": 0,
-      "overallBandScore": 0
-    },
-    {
-      "id": "ta-010",
-      "userId": "u-student-001",
-      "guestId": null,
-      "testId": "tutor-reading-approved-001",
-      "skill": "Reading",
-      "status": "in-progress",
-      "startTime": "2026-07-01T05:42:57.775Z",
-      "createdAt": "2026-07-01T05:42:57.780Z"
-    },
-    {
-      "id": "ta-011",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-listening-approved-001",
-      "skill": "Listening",
-      "status": "in-progress",
-      "startTime": "2026-07-04T16:59:51.235Z",
-      "createdAt": "2026-07-04T16:59:51.240Z"
-    },
-    {
-      "id": "ta-012",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-writing-approved-001",
-      "skill": "Writing",
-      "status": "in-progress",
-      "startTime": "2026-07-04T17:00:45.647Z",
-      "createdAt": "2026-07-04T17:00:45.651Z"
-    },
-    {
-      "id": "ta-013",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-reading-approved-001",
-      "skill": "Reading",
-      "status": "in-progress",
-      "startTime": "2026-07-04T17:02:08.304Z",
-      "createdAt": "2026-07-04T17:02:08.308Z"
-    },
-    {
-      "id": "ta-014",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-reading-approved-001",
-      "skill": "Reading",
-      "status": "completed",
-      "startTime": "2026-07-04T17:38:43.295Z",
-      "createdAt": "2026-07-04T17:38:43.300Z",
-      "completedAt": "2026-07-04T17:38:56.211Z",
-      "answers": {},
-      "submittedAt": "2026-07-04T17:38:56.211Z",
-      "correctCount": 0,
-      "totalScore": 40,
-      "score": 0,
-      "overallBandScore": 0
-    },
-    {
-      "id": "ta-015",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-listening-approved-001",
-      "skill": "Listening",
-      "status": "in-progress",
-      "startTime": "2026-07-04T17:41:33.255Z",
-      "createdAt": "2026-07-04T17:41:33.258Z"
-    },
-    {
-      "id": "ta-016",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-reading-approved-001",
-      "skill": "Reading",
-      "status": "completed",
-      "startTime": "2026-07-04T17:42:06.519Z",
-      "createdAt": "2026-07-04T17:42:06.523Z",
-      "completedAt": "2026-07-04T17:42:11.355Z",
-      "answers": {},
-      "submittedAt": "2026-07-04T17:42:11.355Z",
-      "correctCount": 0,
-      "totalScore": 40,
-      "score": 0,
-      "overallBandScore": 0
-    },
-    {
-      "id": "ta-017",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-listening-approved-001",
-      "skill": "Listening",
-      "status": "completed",
-      "startTime": "2026-07-04T17:56:33.744Z",
-      "createdAt": "2026-07-04T17:56:33.748Z",
-      "completedAt": "2026-07-04T17:56:47.320Z",
-      "answers": {},
-      "submittedAt": "2026-07-04T17:56:47.320Z",
-      "correctCount": 0,
-      "totalScore": 40,
-      "score": 0,
-      "overallBandScore": 0
-    },
-    {
-      "id": "ta-018",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-writing-approved-001",
-      "skill": "Writing",
-      "status": "in-progress",
-      "startTime": "2026-07-04T17:58:45.746Z",
-      "createdAt": "2026-07-04T17:58:45.750Z"
-    },
-    {
-      "id": "ta-019",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-writing-approved-001",
-      "skill": "Writing",
-      "status": "in-progress",
-      "startTime": "2026-07-04T18:01:46.952Z",
-      "createdAt": "2026-07-04T18:01:46.957Z"
-    },
-    {
-      "id": "ta-020",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "buL7b65wJZ8",
-      "skill": "Speaking",
-      "status": "in-progress",
-      "startTime": "2026-07-04T19:19:42.933Z",
-      "createdAt": "2026-07-04T19:19:42.936Z"
-    },
-    {
-      "id": "ta-021",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "I8hqTxITOmg",
-      "skill": "Speaking",
-      "status": "in-progress",
-      "startTime": "2026-07-04T19:19:52.957Z",
-      "createdAt": "2026-07-04T19:19:52.960Z"
-    },
-    {
-      "id": "ta-022",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-reading-approved-001",
-      "skill": "Reading",
-      "status": "in-progress",
-      "startTime": "2026-07-05T03:17:52.869Z",
-      "createdAt": "2026-07-05T03:17:52.891Z"
-    },
-    {
-      "id": "ta-023",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-reading-approved-001",
-      "skill": "Reading",
-      "status": "in-progress",
-      "startTime": "2026-07-05T03:41:32.139Z",
-      "createdAt": "2026-07-05T03:41:32.144Z"
-    },
-    {
-      "id": "ta-024",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "buL7b65wJZ8",
-      "skill": "Speaking",
-      "status": "completed",
-      "startTime": "2026-07-05T03:50:25.096Z",
-      "createdAt": "2026-07-05T03:50:25.099Z",
-      "completedAt": "2026-07-05T03:50:51.472Z",
-      "answers": {},
-      "submittedAt": "2026-07-05T03:50:51.472Z",
-      "gradingStatus": "pending"
-    },
-    {
-      "id": "ta-025",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "buL7b65wJZ8",
-      "skill": "Speaking",
-      "status": "in-progress",
-      "startTime": "2026-07-05T03:53:08.219Z",
-      "createdAt": "2026-07-05T03:53:08.223Z"
-    },
-    {
-      "id": "ta-026",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "I8hqTxITOmg",
-      "skill": "Speaking",
-      "status": "in-progress",
-      "startTime": "2026-07-05T04:01:16.299Z",
-      "createdAt": "2026-07-05T04:01:16.305Z"
-    },
-    {
-      "id": "ta-027",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "I8hqTxITOmg",
-      "skill": "Speaking",
-      "status": "in-progress",
-      "startTime": "2026-07-05T04:02:48.775Z",
-      "createdAt": "2026-07-05T04:02:48.779Z"
-    },
-    {
-      "id": "ta-028",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "I8hqTxITOmg",
-      "skill": "Speaking",
-      "status": "completed",
-      "startTime": "2026-07-05T04:04:42.179Z",
-      "createdAt": "2026-07-05T04:04:42.182Z",
-      "completedAt": "2026-07-05T04:10:36.643Z",
-      "answers": {
-        "part1": {
-          "sp-5": {
-            "type": "text",
-            "value": "http://localhost:9999/uploads/speaking-sp-5-1783224620682-1783224620698-406835977.webm"
-          },
-          "sp-6": {
-            "type": "text",
-            "value": "http://localhost:9999/uploads/speaking-sp-6-1783224628330-1783224628335-654108009.webm"
-          },
-          "sp-7": {
-            "type": "text",
-            "value": "http://localhost:9999/uploads/speaking-sp-7-1783224634687-1783224634692-701893626.webm"
-          }
-        }
-      },
-      "submittedAt": "2026-07-05T04:10:36.643Z",
-      "gradingStatus": "graded",
-      "score": 6.5,
-      "overallBandScore": 6.5,
-      "criteriaScores": {
-        "C1": 5,
-        "C2": 6.5,
-        "C3": 7,
-        "C4": 7.5
-      },
-      "feedback": "good",
-      "gradedAt": "2026-07-05T04:30:02.080Z"
-    },
-    {
-      "id": "ta-029",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-writing-approved-001",
-      "skill": "Writing",
-      "status": "completed",
-      "startTime": "2026-07-05T04:52:12.562Z",
-      "createdAt": "2026-07-05T04:52:12.565Z",
-      "completedAt": "2026-07-05T04:53:10.641Z",
-      "answers": {
-        "task1": "The diagram illustrates the process of recycling plastic bottles, from their disposal to the production of new plastic products.\n\nOverall, the recycling process consists of several stages, beginning with the collection of used plastic bottles and ending with the manufacture of new items. Throughout the process, waste materials are sorted, cleaned, processed into raw materials, and finally reused.\n\nInitially, consumers place used plastic bottles into designated recycling bins. These bottles are then collected by trucks and transported to a recycling centre. At the facility, recyclable bottles are separated from non-recyclable waste before being thoroughly washed to remove any dirt or impurities.\n\nAfter cleaning, the bottles are crushed into small pieces and then processed into plastic pellets. These pellets are subsequently heated and melted to form raw plastic material, which is prepared for manufacturing. In the final stage, the recycled plastic is used to produce a wide range of new products, including plastic bottles, clothing, shopping bags, stationery, and other plastic goods.\n\nOverall, the process transforms discarded plastic bottles into valuable reusable materials, helping to reduce waste and conserve natural resources.",
-        "task2": "There is an ongoing debate about whether governments should prioritise investment in public transportation or focus on improving roads and supporting private vehicles. While both approaches have their advantages, I believe that greater investment in public transport would bring more long-term benefits to society.\n\nOn the one hand, supporters of road development argue that better roads improve economic growth and make daily travel more convenient. Many people rely on private cars for commuting, particularly those living in suburban or rural areas where public transport is limited. Expanding highways and maintaining road infrastructure can reduce traffic congestion, shorten travel times, and facilitate the transportation of goods, all of which contribute to economic development.\n\nOn the other hand, investing in public transportation offers significant environmental and social benefits. Efficient systems such as buses, metro lines, and railways can carry large numbers of passengers while producing less pollution than private cars. As more people choose public transport, traffic congestion decreases, fuel consumption is reduced, and greenhouse gas emissions decline. Furthermore, affordable public transport improves accessibility for students, elderly people, and low-income citizens who may not own a vehicle.\n\nIn my opinion, governments should give priority to developing public transport while continuing to maintain existing road infrastructure. Although roads remain essential, continuously encouraging private vehicle ownership may worsen congestion and environmental problems. A modern, reliable public transport network provides a more sustainable solution for growing urban populations and contributes to a cleaner environment.\n\nIn conclusion, both public transport and road infrastructure are important. However, allocating more funding to public transportation is a wiser long-term strategy because it benefits both society and the environment while supporting sustainable economic growth."
-      },
-      "submittedAt": "2026-07-05T04:53:10.641Z",
-      "gradingStatus": "graded",
-      "score": 7,
-      "overallBandScore": 7,
-      "criteriaScores": {
-        "C1": 7,
-        "C2": 8,
-        "C3": 5.5,
-        "C4": 7.5
-      },
-      "feedback": "cần cải thiện thêm GRA",
-      "gradedAt": "2026-07-06T09:26:55.744Z"
-    },
-    {
-      "id": "ta-030",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-reading-approved-001",
-      "skill": "Reading",
-      "status": "completed",
-      "startTime": "2026-07-05T04:56:13.893Z",
-      "createdAt": "2026-07-05T04:56:13.897Z",
-      "completedAt": "2026-07-05T04:59:26.429Z",
-      "answers": {
-        "reading-passage-1-block-1-6-tfng-1": "True",
-        "reading-passage-1-block-1-6-tfng-2": "False",
-        "reading-passage-1-block-1-6-tfng-3": "True",
-        "reading-passage-1-block-1-6-tfng-4": "True",
-        "reading-passage-1-block-1-6-tfng-5": "Not Given",
-        "reading-passage-1-block-1-6-tfng-6": "True",
-        "reading-passage-1-block-7-10-mcq-7": "A. Option 1",
-        "reading-passage-1-block-7-10-mcq-8": "B. Option 2",
-        "reading-passage-1-block-7-10-mcq-9": "D. Option 4",
-        "reading-passage-1-block-7-10-mcq-10": "B. Option 2",
-        "reading-passage-1-block-11-13-fill-11": "ga",
-        "reading-passage-1-block-11-13-fill-12": "ga",
-        "reading-passage-1-block-11-13-fill-13": "ga",
-        "reading-passage-2-block-14-18-mcq-14": "B",
-        "reading-passage-2-block-14-18-mcq-15": "C",
-        "reading-passage-2-block-14-18-mcq-16": "A",
-        "reading-passage-2-block-14-18-mcq-17": "C",
-        "reading-passage-2-block-19-23-fill-19": "ga",
-        "reading-passage-2-block-19-23-fill-20": "ga",
-        "reading-passage-2-block-19-23-fill-21": "ga",
-        "reading-passage-2-block-19-23-fill-22": "ga",
-        "reading-passage-2-block-19-23-fill-23": "ga",
-        "reading-passage-2-block-24-26-tfng-25": "False",
-        "reading-passage-2-block-24-26-tfng-26": "Not Given",
-        "reading-passage-3-block-27-31-gap-27": "ga",
-        "reading-passage-3-block-27-31-gap-28": "ga",
-        "reading-passage-3-block-27-31-gap-29": "ga",
-        "reading-passage-3-block-27-31-gap-30": "ga",
-        "reading-passage-3-block-27-31-gap-31": "ga",
-        "reading-passage-3-block-32-36-tfng-32": "True",
-        "reading-passage-3-block-32-36-tfng-33": "True",
-        "reading-passage-3-block-32-36-tfng-34": "True",
-        "reading-passage-3-block-32-36-tfng-35": "True",
-        "reading-passage-3-block-32-36-tfng-36": "False",
-        "reading-passage-3-block-37-40-mcq-37": "Tested alternative materials",
-        "reading-passage-3-block-37-40-mcq-38": "Recycling more",
-        "reading-passage-3-block-37-40-mcq-39": "Reduce unnecessary packaging",
-        "reading-passage-3-block-37-40-mcq-40": "Microplastics are harmless",
-        "reading-passage-2-block-14-18-mcq-18": "C",
-        "reading-passage-2-block-24-26-tfng-24": "False"
-      },
-      "submittedAt": "2026-07-05T04:59:26.428Z",
-      "correctCount": 9,
-      "totalScore": 40,
-      "score": 4,
-      "overallBandScore": 4
-    },
-    {
-      "id": "ta-031",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-listening-approved-001",
-      "skill": "Listening",
-      "status": "in-progress",
-      "startTime": "2026-07-05T05:03:45.835Z",
-      "createdAt": "2026-07-05T05:03:45.837Z"
-    },
-    {
-      "id": "ta-032",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-listening-approved-001",
-      "skill": "Listening",
-      "status": "completed",
-      "startTime": "2026-07-05T05:16:25.882Z",
-      "createdAt": "2026-07-05T05:16:25.885Z",
-      "completedAt": "2026-07-05T05:17:17.620Z",
-      "answers": {
-        "listening-section-1-block-1-10-gap-4": "ăd",
-        "listening-section-1-block-1-10-gap-5": "ăda"
-      },
-      "submittedAt": "2026-07-05T05:17:17.619Z",
-      "correctCount": 0,
-      "totalScore": 40,
-      "score": 0,
-      "overallBandScore": 0
-    },
-    {
-      "id": "ta-033",
-      "userId": null,
-      "guestId": "guest-1783249465377-5xoe06",
-      "testId": "tutor-reading-approved-001",
-      "skill": "Reading",
-      "status": "in-progress",
-      "startTime": "2026-07-05T11:04:26.653Z",
-      "createdAt": "2026-07-05T11:04:26.658Z"
-    },
-    {
-      "id": "ta-034",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-reading-approved-001",
-      "skill": "Reading",
-      "status": "completed",
-      "startTime": "2026-07-05T11:31:10.421Z",
-      "createdAt": "2026-07-05T11:31:10.424Z",
-      "completedAt": "2026-07-05T11:31:25.985Z",
-      "answers": {
-        "reading-passage-1-block-1-6-tfng-1": "False",
-        "reading-passage-1-block-1-6-tfng-3": "False",
-        "reading-passage-1-block-1-6-tfng-2": "Not Given",
-        "reading-passage-1-block-7-10-mcq-8": "D. Option 4",
-        "reading-passage-2-block-14-18-mcq-15": "C"
-      },
-      "submittedAt": "2026-07-05T11:31:25.985Z",
-      "correctCount": 0,
-      "totalScore": 40,
-      "score": 0,
-      "overallBandScore": 0
-    },
-    {
-      "id": "ta-035",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-listening-approved-001",
-      "skill": "Listening",
-      "status": "in-progress",
-      "startTime": "2026-07-05T11:31:41.577Z",
-      "createdAt": "2026-07-05T11:31:41.580Z"
-    },
-    {
-      "id": "ta-036",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-writing-approved-001",
-      "skill": "Writing",
-      "status": "completed",
-      "startTime": "2026-07-05T11:31:54.510Z",
-      "createdAt": "2026-07-05T11:31:54.513Z",
-      "completedAt": "2026-07-05T11:32:09.979Z",
-      "answers": {
-        "task1": "kjasbfkjabjkwdnkjacnwkjnakjcb",
-        "task2": "cacbaiuwbcawhilchilahwlicaliw"
-      },
-      "submittedAt": "2026-07-05T11:32:09.978Z",
-      "gradingStatus": "graded",
-      "score": 7.5,
-      "overallBandScore": 7.5,
-      "criteriaScores": {
-        "C1": 7,
-        "C2": 8,
-        "C3": 9,
-        "C4": 6
-      },
-      "feedback": "GOOD\n",
-      "gradedAt": "2026-07-05T11:34:29.851Z"
-    },
-    {
-      "id": "ta-037",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "I8hqTxITOmg",
-      "skill": "Speaking",
-      "status": "completed",
-      "startTime": "2026-07-05T11:33:09.751Z",
-      "createdAt": "2026-07-05T11:33:09.754Z",
-      "completedAt": "2026-07-05T11:33:22.033Z",
-      "answers": {},
-      "submittedAt": "2026-07-05T11:33:22.033Z",
-      "gradingStatus": "pending"
-    },
-    {
-      "id": "ta-038",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-reading-approved-001",
-      "skill": "Reading",
-      "status": "in-progress",
-      "startTime": "2026-07-05T11:43:16.600Z",
-      "createdAt": "2026-07-05T11:43:16.605Z"
-    },
-    {
-      "id": "ta-039",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-reading-approved-001",
-      "skill": "Reading",
-      "status": "in-progress",
-      "startTime": "2026-07-05T12:23:07.313Z",
-      "createdAt": "2026-07-05T12:23:07.317Z"
-    },
-    {
-      "id": "ta-040",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "tutor-writing-approved-001",
-      "skill": "Writing",
-      "status": "in-progress",
-      "startTime": "2026-07-05T12:40:48.557Z",
-      "createdAt": "2026-07-05T12:40:48.560Z"
-    },
-    {
-      "id": "ta-041",
-      "userId": "zhaxsIXvvNg",
-      "guestId": null,
-      "testId": "test-free-51ka0cjns",
-      "skill": "Reading",
-      "status": "completed",
-      "startTime": "2026-07-06T08:28:26.136Z",
-      "createdAt": "2026-07-06T08:28:26.143Z",
-      "completedAt": "2026-07-06T08:28:28.240Z",
-      "answers": {},
-      "submittedAt": "2026-07-06T08:28:28.240Z",
-      "correctCount": 0,
-      "totalScore": 12,
-      "score": 0,
-      "overallBandScore": 0
-    },
-    {
-      "id": "ta-042",
-      "userId": "zhaxsIXvvNg",
-      "guestId": null,
-      "testId": "test-free-51ka0cjns",
-      "skill": "Reading",
-      "status": "completed",
-      "startTime": "2026-07-06T08:28:32.837Z",
-      "createdAt": "2026-07-06T08:28:32.839Z",
-      "completedAt": "2026-07-06T08:28:34.715Z",
-      "answers": {},
-      "submittedAt": "2026-07-06T08:28:34.715Z",
-      "correctCount": 0,
-      "totalScore": 12,
-      "score": 0,
-      "overallBandScore": 0
-    },
-    {
-      "id": "ta-043",
-      "userId": "zhaxsIXvvNg",
-      "guestId": null,
-      "testId": "test-free-51ka0cjns",
-      "skill": "Reading",
-      "status": "completed",
-      "startTime": "2026-07-06T08:28:39.031Z",
-      "createdAt": "2026-07-06T08:28:39.034Z",
-      "completedAt": "2026-07-06T08:28:41.163Z",
-      "answers": {},
-      "submittedAt": "2026-07-06T08:28:41.163Z",
-      "correctCount": 0,
-      "totalScore": 12,
-      "score": 0,
-      "overallBandScore": 0
-    },
-    {
-      "id": "ta-044",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "test-speaking-free-1",
-      "skill": "Speaking",
-      "status": "completed",
-      "startTime": "2026-07-06T09:40:37.089Z",
-      "createdAt": "2026-07-06T09:40:37.095Z",
-      "completedAt": "2026-07-06T09:40:53.862Z",
-      "answers": {
-        "part1": {
-          "sp-free-1-q1": {
-            "type": "text",
-            "value": "http://localhost:9999/uploads/speaking-sp-free-1-q1-1783330847947-1783330847979-109639156.webm"
-          }
-        }
-      },
-      "submittedAt": "2026-07-06T09:40:53.862Z",
-      "gradingStatus": "graded",
-      "score": 8,
-      "overallBandScore": 8,
-      "criteriaScores": {
-        "C1": 8,
-        "C2": 8,
-        "C3": 8,
-        "C4": 8
-      },
-      "feedback": "",
-      "gradedAt": "2026-07-06T09:42:04.772Z"
-    },
-    {
-      "id": "ta-045",
-      "userId": "u-001",
-      "guestId": null,
-      "testId": "test-writing-free-1",
-      "skill": "Writing",
-      "status": "completed",
-      "startTime": "2026-07-06T09:41:19.229Z",
-      "createdAt": "2026-07-06T09:41:19.233Z",
-      "completedAt": "2026-07-06T09:41:24.777Z",
-      "answers": {
-        "task1": "ffffffffffffffffffffffffffffffff"
-      },
-      "submittedAt": "2026-07-06T09:41:24.777Z",
-      "gradingStatus": "graded",
-      "score": 8,
-      "overallBandScore": 8,
-      "criteriaScores": {
-        "C1": 8,
-        "C2": 8,
-        "C3": 8,
-        "C4": 8
-      },
-      "feedback": "",
-      "gradedAt": "2026-07-06T09:42:08.988Z"
     }
   ],
   "flashcardDecks": [
