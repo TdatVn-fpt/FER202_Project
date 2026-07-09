@@ -157,66 +157,66 @@ const TransactionList = () => {
 
       {/* Table */}
       <Card className="studio-table-card">
-          {loading ? (
-            <div className="d-flex justify-content-center p-5">
-              <Spinner animation="border" variant="primary" />
-            </div>
-          ) : transactions.length === 0 ? (
-            <div className="text-center p-5 text-muted">
-              Không có giao dịch nào phù hợp.
-            </div>
-          ) : (
-            <div className="table-responsive">
-              <Table hover className="align-middle border-top-0 mb-0">
-                <thead className="bg-light text-muted">
-                  <tr>
-                    <th className="ps-4 fw-medium border-0 py-3">Mã GD</th>
-                    <th className="fw-medium border-0 py-3">User ID</th>
-                    <th className="fw-medium border-0 py-3">Khóa học</th>
-                    <th className="fw-medium border-0 py-3">Số tiền</th>
-                    <th className="fw-medium border-0 py-3">Phương thức</th>
-                    <th className="fw-medium border-0 py-3">Trạng thái</th>
-                    <th className="text-end pe-4 fw-medium border-0 py-3">Ngày tạo</th>
+        {loading ? (
+          <div className="d-flex justify-content-center p-5">
+            <Spinner animation="border" variant="primary" />
+          </div>
+        ) : transactions.length === 0 ? (
+          <div className="text-center p-5 text-muted">
+            Không có giao dịch nào phù hợp.
+          </div>
+        ) : (
+          <div className="table-responsive">
+            <Table hover className="align-middle border-top-0 mb-0">
+              <thead className="bg-light text-muted">
+                <tr>
+                  <th className="ps-4 fw-medium border-0 py-3">Mã GD</th>
+                  <th className="fw-medium border-0 py-3">User ID</th>
+                  <th className="fw-medium border-0 py-3">Khóa học</th>
+                  <th className="fw-medium border-0 py-3">Số tiền</th>
+                  <th className="fw-medium border-0 py-3">Phương thức</th>
+                  <th className="fw-medium border-0 py-3">Trạng thái</th>
+                  <th className="text-end pe-4 fw-medium border-0 py-3">Ngày tạo</th>
+                </tr>
+              </thead>
+              <tbody className="border-top-0">
+                {transactions.map(txn => (
+                  <tr key={txn.id} style={{ transition: 'all 0.2s' }}>
+                    <td className="ps-4 py-3">
+                      <div className="fw-semibold text-dark mb-1">{txn.id}</div>
+                    </td>
+                    <td className="py-3">
+                      <div className="text-secondary small fw-medium">{txn.userId || 'N/A'}</div>
+                    </td>
+                    <td className="py-3">
+                      <div className="text-dark fw-medium">{txn.courseId || 'N/A'}</div>
+                    </td>
+                    <td className="py-3">
+                      <div className="fw-bold text-primary">
+                        {formatCurrency(txn.amount, txn.currency)}
+                      </div>
+                    </td>
+                    <td className="py-3">
+                      <div className="d-flex align-items-center gap-2">
+                        <span className="text-dark fw-medium">{getMethodLabel(txn.method)}</span>
+                      </div>
+                    </td>
+                    <td className="py-3">
+                      <span className={`tp-badge badge-${getStatusVariant(txn.status)} px-3`}>
+                        {txn.status === 'completed' ? 'Thành công' : txn.status === 'pending' ? 'Chờ duyệt' : 'Thất bại'}
+                      </span>
+                    </td>
+                    <td className="text-end pe-4 py-3">
+                      <div className="text-muted small">
+                        {txn.createdAt ? new Date(txn.createdAt).toLocaleString('vi-VN', { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit', year: 'numeric' }) : 'N/A'}
+                      </div>
+                    </td>
                   </tr>
-                </thead>
-                <tbody className="border-top-0">
-                  {transactions.map(txn => (
-                    <tr key={txn.id} style={{ transition: 'all 0.2s' }}>
-                      <td className="ps-4 py-3">
-                        <div className="fw-semibold text-dark mb-1">{txn.id}</div>
-                      </td>
-                      <td className="py-3">
-                        <div className="text-secondary small fw-medium">{txn.userId || 'N/A'}</div>
-                      </td>
-                      <td className="py-3">
-                        <div className="text-dark fw-medium">{txn.courseId || 'N/A'}</div>
-                      </td>
-                      <td className="py-3">
-                        <div className="fw-bold text-primary">
-                          {formatCurrency(txn.amount, txn.currency)}
-                        </div>
-                      </td>
-                      <td className="py-3">
-                        <div className="d-flex align-items-center gap-2">
-                          <span className="text-dark fw-medium">{getMethodLabel(txn.method)}</span>
-                        </div>
-                      </td>
-                      <td className="py-3">
-                        <span className={`tp-badge badge-${getStatusVariant(txn.status)} px-3`}>
-                          {txn.status === 'completed' ? 'Thành công' : txn.status === 'pending' ? 'Chờ duyệt' : 'Thất bại'}
-                        </span>
-                      </td>
-                      <td className="text-end pe-4 py-3">
-                        <div className="text-muted small">
-                          {txn.createdAt ? new Date(txn.createdAt).toLocaleString('vi-VN', { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit', year: 'numeric' }) : 'N/A'}
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </div>
-          )}
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        )}
       </Card>
     </>
   );

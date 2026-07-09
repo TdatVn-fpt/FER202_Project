@@ -95,9 +95,9 @@ export default function TeacherDashboard() {
   const getStatusBadge = (status) => {
     switch (status) {
       case 'approved': return <span className="tp-badge tp-badge-success"><i className="bi bi-check-circle-fill"></i> Approved</span>;
-      case 'pending':  return <span className="tp-badge tp-badge-warning"><i className="bi bi-clock-fill"></i> Pending</span>;
+      case 'pending': return <span className="tp-badge tp-badge-warning"><i className="bi bi-clock-fill"></i> Pending</span>;
       case 'rejected': return <span className="tp-badge tp-badge-danger"><i className="bi bi-x-circle-fill"></i> Rejected</span>;
-      default:         return <span className="tp-badge tp-badge-secondary">Draft</span>;
+      default: return <span className="tp-badge tp-badge-secondary">Draft</span>;
     }
   };
 
