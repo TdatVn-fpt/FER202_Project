@@ -487,6 +487,22 @@
       "enrolledCount": 110,
       "durationWeeks": 3,
       "createdAt": "2026-07-06T16:29:00.000Z"
+    },
+    {
+      "id": "course-012",
+      "title": "IELTS Listening Mastery: Từ Cơ Bản Đến 6.5+",
+      "description": "Khóa học IELTS Listening Mastery được thiết kế dành cho học viên muốn cải thiện kỹ năng nghe tiếng Anh học thuật và nâng cao điểm số IELTS Listening. Khóa học cung cấp các chiến lược làm bài hiệu quả, kỹ năng nhận diện từ khóa, dự đoán đáp án, nghe chi tiết và nghe ý chính.\n\nHọc viên sẽ được luyện tập với đầy đủ 4 phần của bài thi IELTS Listening, làm quen với nhiều giọng đọc khác nhau như Anh, Mỹ, Úc và Canada. Sau khi hoàn thành khóa học, học viên có thể tự tin xử lý các dạng câu hỏi phổ biến và đạt mục tiêu từ 5.5 đến 6.5+ IELTS Listening.",
+      "syllabus": [],
+      "skill": "Listening",
+      "level": "Intermediate",
+      "price": 1200000,
+      "isPremium": true,
+      "thumbnail": "https://3d-universal.com/en/wp-content/uploads/2025/09/ChatGPT-Image-Sep-13-2025-05_22_32-PM.png",
+      "teacherId": "u-teacher-001",
+      "status": "approved",
+      "enrolledCount": 0,
+      "durationWeeks": 8,
+      "createdAt": "2026-07-06T14:33:09.813Z"
     }
   ],
   "freeResources": [
@@ -715,6 +731,102 @@
       "createdAt": "2026-07-06T06:53:41.125Z",
       "teacherId": "u-student-004",
       "audioUrl": ""
+    },
+    {
+      "id": "lesson-803",
+      "courseId": "course-012",
+      "title": "IELTS Listening Lesson 1: Introduction & Test Structure",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=UKdZALEoa4o",
+      "audioUrl": "https://www.youtube.com/watch?v=gsC-i7mfCVw",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-06T14:36:38.784Z"
+    },
+    {
+      "id": "lesson-804",
+      "courseId": "course-012",
+      "title": "IELTS Listening Lesson 2: Identifying Keywords",
+      "order": 2,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=NLwztJnKU0U",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-06T14:38:56.881Z"
+    },
+    {
+      "id": "lesson-805",
+      "courseId": "course-012",
+      "title": "IELTS Listening Lesson 3: Form & Note Completion",
+      "order": 3,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=YZtQiO0NUWg",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-06T14:39:34.788Z"
+    },
+    {
+      "id": "lesson-806",
+      "courseId": "course-012",
+      "title": "IELTS Listening Lesson 4: Multiple Choice Strategies",
+      "order": 4,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=YZtQiO0NUWg",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-06T14:39:59.125Z"
+    },
+    {
+      "id": "lesson-807",
+      "courseId": "course-012",
+      "title": "IELTS Listening Lesson 5: Matching Information",
+      "order": 4,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=YZtQiO0NUWg",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-06T14:40:33.692Z"
+    },
+    {
+      "id": "lesson-808",
+      "courseId": "course-012",
+      "title": "IELTS Listening Lesson 6: Map & Diagram Labeling",
+      "order": 6,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=YZtQiO0NUWg",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-06T14:40:51.560Z"
+    },
+    {
+      "id": "lesson-809",
+      "courseId": "course-012",
+      "title": "IELTS Listening Lesson 7: Academic Lectures & Section 4",
+      "order": 7,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=YZtQiO0NUWg",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-06T14:41:09.988Z"
+    },
+    {
+      "id": "lesson-810",
+      "courseId": "course-012",
+      "title": "IELTS Listening Lesson 8: Full Practice Test & Review",
+      "order": 8,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=YZtQiO0NUWg",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-06T14:41:35.240Z"
     }
   ],
   "tests": [
@@ -3533,18 +3645,154 @@
         "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
       },
       "createdBy": "u-teacher-001"
+    },
+    {
+      "title": "IELTS Listening Practice Test 1",
+      "description": "Bài thi mô phỏng IELTS Listening gồm 4 sections với 40 câu hỏi. Thí sinh sẽ luyện tập kỹ năng nghe hội thoại, độc thoại, thảo luận học thuật và bài giảng theo chuẩn IELTS Academic. Thời gian làm bài 40 phút, thang điểm IELTS 0-9.",
+      "skill": "Listening",
+      "testMode": "free",
+      "courseId": "",
+      "isFreePreview": false,
+      "status": "published",
+      "practiceMode": "exam",
+      "attemptLimit": 3,
+      "requireLoginAfterLimit": true,
+      "durationMinutes": 40,
+      "totalQuestions": 40,
+      "bandScale": "IELTS 0-9",
+      "teacherId": "u-teacher-001",
+      "testConfig": {
+        "audioUrl": "",
+        "audioPolicy": "allow-replay",
+        "sections": [
+          {
+            "id": "section-1",
+            "title": "Section 1",
+            "instruction": "Listen and answer questions for Section 1.",
+            "transcript": "",
+            "showTranscript": false,
+            "defaultRange": "1-10",
+            "audioUrl": "",
+            "blocks": [],
+            "order": 1
+          },
+          {
+            "id": "section-2",
+            "title": "Section 2",
+            "instruction": "Listen and answer questions for Section 2.",
+            "transcript": "",
+            "showTranscript": false,
+            "defaultRange": "11-20",
+            "audioUrl": "",
+            "blocks": [],
+            "order": 2
+          },
+          {
+            "id": "section-3",
+            "title": "Section 3",
+            "instruction": "Listen and answer questions for Section 3.",
+            "transcript": "",
+            "showTranscript": false,
+            "defaultRange": "21-30",
+            "audioUrl": "",
+            "blocks": [],
+            "order": 3
+          },
+          {
+            "id": "section-4",
+            "title": "Section 4",
+            "instruction": "Listen and answer questions for Section 4.",
+            "transcript": "",
+            "showTranscript": false,
+            "defaultRange": "31-40",
+            "audioUrl": "",
+            "blocks": [],
+            "order": 4
+          }
+        ]
+      },
+      "updatedAt": "2026-07-06T15:50:35.403Z",
+      "createdAt": "2026-07-06T15:48:41.234Z",
+      "id": "zLjOy-D2BWo"
+    },
+    {
+      "title": "IELTS Listening Mock Test 1",
+      "description": "Đề thi mô phỏng IELTS Listening gồm 4 sections với 40 câu hỏi, được thiết kế dành cho học viên khóa IELTS Listening Mastery: Từ Cơ Bản Đến 6.5+. Đề giúp luyện tập kỹ năng nghe, làm quen với cấu trúc bài thi và đánh giá trình độ theo thang điểm IELTS 0-9.",
+      "skill": "Listening",
+      "testMode": "course",
+      "courseId": "course-012",
+      "isFreePreview": false,
+      "status": "published",
+      "practiceMode": "exam",
+      "attemptLimit": 0,
+      "requireLoginAfterLimit": true,
+      "durationMinutes": 40,
+      "totalQuestions": 40,
+      "bandScale": "IELTS 0-9",
+      "teacherId": "u-teacher-001",
+      "testConfig": {
+        "audioUrl": "",
+        "audioPolicy": "allow-replay",
+        "sections": [
+          {
+            "id": "section-1",
+            "title": "Booking a Language Course",
+            "instruction": "Listen to a conversation between a student and a course administrator. Complete the registration information and answer questions 1–10.",
+            "transcript": "Good morning. Welcome to Bright Future English Centre. How may I help you?\n\nHello. I'd like to register for an IELTS Listening course.\n\nCertainly. May I have your full name, please?\n\nMy name is Emily Carter.\n\nThank you, Emily. Could you spell your last name?\n\nYes. C-A-R-T-E-R.\n\nGreat. May I have your phone number?\n\nIt's 0987 654 321.\n\nWhat is your email address?\n\nIt's emily.carter@gmail.com.\n\nWhich course would you like to join?\n\nThe Beginner IELTS Listening course.\n\nThe course starts on August 5th and lasts for six weeks. Classes are held every Tuesday and Thursday evening from 6:30 p.m. to 8:00 p.m.\n\nThe tuition fee is 2,500,000 VND, including all study materials.\n\nExcellent. I'd like to register today.\n\nPerfect. Your registration is complete. Please arrive fifteen minutes before the first lesson.",
+            "showTranscript": false,
+            "defaultRange": "1-10",
+            "audioUrl": "https://www.dropbox.com/scl/fi/114jv5h1ybclvhrzvl0i9/8562c651-05d9-4ca4-a9c7-e15dbec25478.mp3?rlkey=ha72tgy6vrx45qc1w3bn4yblv&st=xf2h4h3n&raw=1",
+            "blocks": [],
+            "order": 1
+          },
+          {
+            "id": "section-2",
+            "title": "Library Orientation",
+            "instruction": "Listen to a librarian introducing the university library and answer questions 11–20.",
+            "transcript": "Welcome to the Central University Library.\n\nThe library is open from 8 a.m. until 9 p.m. on weekdays and from 9 a.m. until 5 p.m. on weekends.\n\nThe first floor contains newspapers, magazines and a café.\n\nThe second floor is for general books, while the third floor is a quiet study area.\n\nStudents may borrow up to eight books for two weeks.\n\nIf books are returned late, a fine of 10,000 VND per day will be charged.\n\nFree Wi-Fi is available throughout the building, and computers may be booked online.\n\nLibrary staff are always available at the information desk if you need assistance.",
+            "showTranscript": false,
+            "defaultRange": "11-20",
+            "audioUrl": "https://www.dropbox.com/scl/fi/5h9gpmzsvt9bep1mn0saq/0e7185dc-b602-4c12-9d94-322973f25f12.mp3?rlkey=copqf5nj4c8j9mv3kc4a91z8l&st=x1f9kv69&raw=1",
+            "blocks": [],
+            "order": 2
+          },
+          {
+            "id": "section-3",
+            "title": "Preparing for the IELTS Listening Test",
+            "instruction": "Listen to a teacher giving advice on improving IELTS Listening skills.",
+            "transcript": "Many students believe that IELTS Listening is difficult because they try to understand every word.\n\nInstead, you should focus on keywords and predict the information before the recording begins.\n\nPractice listening every day using English podcasts, news programs and IELTS practice tests.\n\nRemember to pay attention to numbers, dates, names and locations because these often appear in the exam.\n\nYou should also read the questions carefully before listening.\n\nFinally, review your mistakes after every practice test. Learning from your errors is one of the fastest ways to improve your score.",
+            "showTranscript": false,
+            "defaultRange": "21-30",
+            "audioUrl": "https://www.dropbox.com/scl/fi/ovj66dlg1q339jfa61reh/3634477c-c907-48aa-a9d3-870a7a241178.mp3?rlkey=zt940iluhj5a6wrw1wx7lm9xk&st=fues9776&raw=1",
+            "blocks": [],
+            "order": 3
+          },
+          {
+            "id": "section-4",
+            "title": "The Importance of Effective Listening",
+            "instruction": "Listen to an academic lecture about effective listening skills and answer questions 31–40.",
+            "transcript": "Listening is one of the most important communication skills in both education and the workplace.\n\nResearch shows that people spend nearly half of their communication time listening.\n\nHowever, many people do not actively listen. They often become distracted or think about their response before the speaker finishes.\n\nEffective listeners maintain eye contact, take notes when necessary and ask questions to confirm understanding.\n\nIn language learning, listening regularly helps learners improve vocabulary, pronunciation and grammar naturally.\n\nExperts recommend listening to English for at least thirty minutes every day and gradually increasing the difficulty of the materials.\n\nWith consistent practice, learners can significantly improve both their listening ability and their overall IELTS performance.",
+            "showTranscript": false,
+            "defaultRange": "31-40",
+            "audioUrl": "https://www.dropbox.com/scl/fi/vkvgxpqr0w8u73lzy7gvl/43517159-9d6e-4747-904c-ff95afc4dc08.mp3?rlkey=41ze7ak0p9faez2oqlkk76d4z&st=s05qw76m&raw=1",
+            "blocks": [],
+            "order": 4
+          }
+        ]
+      },
+      "updatedAt": "2026-07-09T02:58:28.148Z",
+      "createdAt": "2026-07-09T02:58:28.148Z",
+      "id": "sF2V7Ax97Y4"
     }
   ],
   "questions": [],
   "questionAnswers": [],
   "enrollments": [
     {
-      "id": "enrol-001",
-      "enrolledAt": "2026-06-10T10:00:00Z",
+      "id": "NYrti839-l8",
+      "enrolledAt": "2026-06-21T09:45:56.480Z",
       "courseId": "course-001",
       "progress": 50,
-      "enrolledAt": "2026-06-21T09:45:56.480Z",
-      "id": "NYrti839-l8",
       "status": "active",
       "isPremium": true
     },
@@ -3557,12 +3805,10 @@
       "progress": 100
     },
     {
-      "id": "enrol-003",
-      "enrolledAt": "2026-06-15T09:00:00Z",
+      "id": "ySsTPaPlmmU",
+      "enrolledAt": "2026-06-21T10:22:02.823Z",
       "courseId": "course-002",
       "progress": 100,
-      "enrolledAt": "2026-06-21T10:22:02.823Z",
-      "id": "ySsTPaPlmmU",
       "status": "completed"
     },
     {
@@ -4551,6 +4797,158 @@
       "progress": 0,
       "enrolledAt": "2026-07-05T11:36:15.560Z",
       "id": "iDUHBchy0cE"
+    },
+    {
+      "id": "log-047",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T14:33:09.831Z"
+    },
+    {
+      "id": "log-048",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T14:34:13.127Z"
+    },
+    {
+      "id": "log-049",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T14:36:38.800Z"
+    },
+    {
+      "id": "log-050",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T14:37:29.271Z"
+    },
+    {
+      "id": "log-051",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T14:38:56.891Z"
+    },
+    {
+      "id": "log-052",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T14:39:34.803Z"
+    },
+    {
+      "id": "log-053",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T14:39:59.143Z"
+    },
+    {
+      "id": "log-054",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T14:40:33.703Z"
+    },
+    {
+      "id": "log-055",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T14:40:51.567Z"
+    },
+    {
+      "id": "log-056",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T14:41:09.995Z"
+    },
+    {
+      "id": "log-057",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T14:41:35.251Z"
+    },
+    {
+      "id": "log-058",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T14:44:10.874Z"
+    },
+    {
+      "id": "log-059",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_LESSON",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-06T14:45:38.535Z"
+    },
+    {
+      "id": "log-060",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_TEST",
+      "targetType": "unknown",
+      "targetId": "unknown",
+      "createdAt": "2026-07-06T15:48:41.254Z"
+    },
+    {
+      "id": "log-061",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_TEST",
+      "targetType": "unknown",
+      "targetId": "unknown",
+      "createdAt": "2026-07-06T15:50:11.492Z"
+    },
+    {
+      "id": "log-062",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_TEST",
+      "targetType": "unknown",
+      "targetId": "unknown",
+      "createdAt": "2026-07-06T15:50:35.415Z"
+    },
+    {
+      "id": "log-063",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-09T02:16:14.190Z"
+    },
+    {
+      "id": "log-064",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_COURSE",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-09T02:16:50.946Z"
+    },
+    {
+      "id": "log-065",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_TEST",
+      "targetType": "course",
+      "targetId": "course-012",
+      "createdAt": "2026-07-09T02:58:28.165Z"
     }
   ],
   "approvalRequests": [
@@ -4567,7 +4965,6 @@
       "teacherId": "u-teacher-001",
       "targetType": "course",
       "targetId": "course-007",
-      "teacherId": "u-teacher-001",
       "status": "pending",
       "createdAt": "2026-06-23T16:35:29.072Z"
     },

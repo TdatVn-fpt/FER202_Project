@@ -9,7 +9,7 @@
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Table, Form, Button, Badge, Spinner, Alert, Dropdown, Card, Container } from 'react-bootstrap';
+import { Table, Form, Button, Badge, Spinner, Alert, Dropdown, Card, Container, Modal } from 'react-bootstrap';
 import ConfirmModal from '../../components/common/ConfirmModal';
 import { getCourses, updateCourse, deleteCourse } from '../../services/adminService';
 
