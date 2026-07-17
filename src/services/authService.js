@@ -67,7 +67,7 @@ export async function loginWithGoogle(options = {}) {
   return saveAuthUser(MOCK_GOOGLE_USERS[role]);
 }
 
-// Thêm hàm Login bằng Email & Password kết nối tới db.json qua json-server
+// Thêm hàm Login bằng Email & Password kết nối tới database.json qua json-server
 export async function loginWithEmailAndPassword(email, password) {
   try {
     // Tải toàn bộ user về và tự filter bằng JavaScript 
@@ -90,7 +90,7 @@ export async function loginWithEmailAndPassword(email, password) {
   }
 }
 
-// Thêm hàm Register để lưu user mới vào db.json
+// Thêm hàm Register để lưu user mới vào database.json
 export async function registerNewUser(userData) {
   try {
     // 1. Kiểm tra email đã tồn tại chưa bằng cách kéo toàn bộ về kiểm tra thủ công
@@ -112,7 +112,7 @@ export async function registerNewUser(userData) {
       createdAt: new Date().toISOString()
     };
     
-    // 3. Gửi request POST để lưu vào db.json
+    // 3. Gửi request POST để lưu vào database.json
     const response = await axios.post(`${API_URL}/users`, newUser);
     return response.data;
   } catch (error) {

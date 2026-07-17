@@ -31,7 +31,7 @@
   const upload = multer({ storage: storage });
 
   // Initialize lowdb database
-  const adapter = new JSONFile('db.json');
+  const adapter = new JSONFile('database.json');
   const db = new Low(adapter, {});
   await db.read();
 
