@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:9999'; // Cổng chạy chung với npm start (chứa db.json)
+const API_URL = 'http://localhost:9999'; // Cổng chạy chung với npm start (chứa database.json)
 
 /**
- * Cập nhật thông tin profile của user lên db.json.
+ * Cập nhật thông tin profile của user lên database.json.
  * Mọi field truyền vào sẽ đè lên object user trong json-server nếu dùng PUT, 
  * nếu dùng PATCH thì nó chỉ sửa các trường được gửi. Chúng ta sẽ dùng PATCH cho an toàn.
  * 

@@ -57,19 +57,13 @@ Làm theo các bước sau để chạy dự án trên máy tính của bạn:
    ```
 3. **Thiết lập biến môi trường:**
    Tạo một file `.env` ở thư mục gốc (ngang hàng với `package.json`) và copy nội dung từ file `.env.example` sang nếu có.
-4. **Chạy Mock Database (JSON Server):**
-   *(Mở một terminal thứ nhất)*
-
-   ```bash
-   npm run start:db  # Hoặc lệnh tương ứng bạn cài đặt để chạy file db.json
-   ```
-5. **Chạy ứng dụng React:**
-   *(Mở terminal thứ hai)*
+4. **Chạy ứng dụng React và Mock API:**
 
    ```bash
    npm start
    ```
 
+   Lệnh này chạy React và JSON Server với dữ liệu mẫu trong `database.json`.
    Ứng dụng sẽ tự động mở trên trình duyệt tại địa chỉ: `http://localhost:3000`
 
 ## 👥 Thành viên nhóm (Team Members)
