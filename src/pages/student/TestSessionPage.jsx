@@ -58,22 +58,17 @@ const getSessionQuestions = (test, questionRecords) => {
 
 function QuestionMapItem({ number, isCurrent, isAnswered, isFlagged, onClick }) {
   let bg = '#fff';
-  let color = '#334155';
-  let border = '2px solid #cbd5e1';
+  let color = '#333';
+  let border = '1px solid #ccc';
 
   if (isCurrent) {
-    bg = '#1b4332';
-    color = '#fff';
-    border = '2px solid #1b4332';
+    border = '2px solid #000';
   } else if (isFlagged) {
-    bg = '#fef3c7';
-    color = '#92400e';
-    border = '2px solid #f59e0b';
-  } else if (isAnswered) {
-    bg = '#dcfce7';
-    color = '#166534';
-    border = '2px solid #22c55e';
+    bg = '#fff3cd';
+    border = '1px solid #ffc107';
   }
+
+  const textDec = isAnswered ? 'underline' : 'none';
 
   return (
     <button
@@ -81,14 +76,16 @@ function QuestionMapItem({ number, isCurrent, isAnswered, isFlagged, onClick }) 
       onClick={onClick}
       className="d-flex align-items-center justify-content-center fw-bold"
       style={{
-        width: 34,
-        height: 34,
+        width: 30,
+        height: 30,
         border,
         background: bg,
         color,
-        borderRadius: 8,
+        borderRadius: 0,
         fontSize: 13,
         cursor: 'pointer',
+        textDecoration: textDec,
+        textUnderlineOffset: '3px'
       }}
     >
       {number}
@@ -99,56 +96,60 @@ function QuestionMapItem({ number, isCurrent, isAnswered, isFlagged, onClick }) 
 function AudioPlayer({ audioUrl, audioPolicy = 'allow-replay' }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [playedOnce, setPlayedOnce] = useState(false);
-  const playOnce = audioPolicy === 'play-once';
-  const disabled = playOnce && playedOnce;
+  const [volume, setVolume] = useState(1);
+  const [hasStarted, setHasStarted] = useState(false);
 
-  const toggle = async () => {
-    if (!audioRef.current || disabled) return;
-    if (isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-      return;
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play()
+        .then(() => {
+          setIsPlaying(true);
+          setHasStarted(true);
+        })
+        .catch(e => {
+          console.warn("Autoplay blocked.", e);
+          setIsPlaying(false);
+        });
     }
-    await audioRef.current.play();
-    setIsPlaying(true);
-  };
+  }, [audioUrl]);
 
   return (
-    <div
-      className="d-flex align-items-center gap-3 px-4 py-3 shadow-sm"
-      style={{ background: '#fff7ed', borderBottom: '1px solid #fed7aa' }}
-    >
+    <div className="d-flex justify-content-end align-items-center py-1 px-3" style={{ background: '#fff' }}>
       <audio
         ref={audioRef}
         src={audioUrl}
-        onEnded={() => {
-          setIsPlaying(false);
-          setPlayedOnce(true);
-        }}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        style={{ display: 'none' }}
       />
-      <button
-        type="button"
-        onClick={toggle}
-        disabled={disabled}
-        className="btn fw-bold d-flex align-items-center justify-content-center"
-        style={{
-          width: 44,
-          height: 44,
-          borderRadius: '50%',
-          background: disabled ? '#cbd5e1' : '#f59e0b',
-          color: '#fff',
-          border: 0,
-        }}
-      >
-        <i className={`bi ${isPlaying ? 'bi-pause-fill' : 'bi-play-fill'}`} />
-      </button>
-      <div>
-        <div className="fw-bold" style={{ color: '#92400e' }}>Listening audio</div>
-        <div className="small text-muted">
-          {playOnce ? 'Audio policy: play once' : 'Audio policy: replay allowed'}
+      {!isPlaying && !hasStarted && (
+        <button 
+          className="btn btn-sm btn-dark rounded-0 fw-bold shadow-sm" 
+          onClick={() => {
+            audioRef.current?.play();
+            setHasStarted(true);
+          }}
+        >
+          <i className="bi bi-play-fill me-1"></i> BẮT ĐẦU NGHE
+        </button>
+      )}
+      {(isPlaying || hasStarted) && (
+        <div className="d-flex align-items-center gap-2">
+          <i className="bi bi-volume-up-fill text-dark" style={{ fontSize: '1.2rem' }}></i>
+          <input 
+            type="range" 
+            min="0" max="1" step="0.1" 
+            value={volume}
+            onChange={(e) => {
+              const v = parseFloat(e.target.value);
+              setVolume(v);
+              if (audioRef.current) audioRef.current.volume = v;
+            }}
+            style={{ width: '80px', cursor: 'pointer', accentColor: '#000' }}
+            title="Điều chỉnh âm lượng"
+          />
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -160,51 +161,58 @@ function WritingAnswerPanel({ question, answer, onAnswer }) {
 
   return (
     <div
-      className="d-flex flex-column flex-lg-row rounded-4 overflow-hidden shadow-sm"
-      style={{ background: '#fff', border: '1px solid #e2e8f0' }}
+      className="d-flex flex-column flex-lg-row overflow-hidden shadow-sm bg-white"
+      style={{ border: '1px solid #cbd5e1', borderRadius: '8px', minHeight: '600px' }}
     >
       <div
-        className="p-4"
+        className="p-4 d-flex flex-column"
         style={{
-          flex: '0 0 44%',
-          minWidth: 280,
-          maxWidth: 680,
+          flex: '0 0 50%',
           resize: 'horizontal',
           overflow: 'auto',
-          background: '#faf5ff',
-          borderRight: '1px solid #e9d5ff',
+          borderRight: '2px solid #cbd5e1',
+          background: '#fff'
         }}
       >
-        <div className="badge mb-3 px-3 py-2" style={{ background: '#8b5cf6' }}>
+        <div className="fw-bold mb-3 pb-2 border-bottom text-dark" style={{ fontSize: '1.2rem' }}>
           Writing Task {question.taskNumber}
         </div>
-        <p className="fw-semibold lh-lg mb-3" style={{ whiteSpace: 'pre-wrap' }}>
+        <p className="fw-normal text-dark" style={{ whiteSpace: 'pre-wrap', fontSize: '15px', lineHeight: '1.6' }}>
           {question.prompt || question.questionText}
         </p>
         {imageUrl && (
           <img
             src={imageUrl}
             alt={`Writing Task ${question.taskNumber}`}
-            className="img-fluid rounded-3 border"
+            className="img-fluid mt-3"
+            style={{ maxWidth: '100%', objectFit: 'contain' }}
           />
         )}
       </div>
 
-      <div className="p-4 flex-grow-1">
-        <div className="d-flex align-items-center justify-content-between gap-3 mb-2">
-          <span className="fw-bold text-dark">Your answer</span>
-          <span className={`fw-bold small ${words >= minWords ? 'text-success' : 'text-muted'}`}>
-            {words}/{minWords}+ words
-          </span>
+      <div className="p-4 flex-grow-1 d-flex flex-column bg-white">
+        <div className="fw-bold mb-3 text-dark pb-2 border-bottom" style={{ fontSize: '1.2rem' }}>
+          Your Answer
         </div>
         <textarea
-          className="form-control"
-          rows={16}
+          className="form-control flex-grow-1 border-0 p-0"
           value={answer || ''}
           onChange={(event) => onAnswer(question.id, event.target.value)}
-          placeholder="Write your answer here..."
-          style={{ borderRadius: 12, lineHeight: 1.8, resize: 'vertical' }}
+          placeholder="Type your answer here..."
+          style={{ 
+            boxShadow: 'none', 
+            resize: 'none', 
+            fontSize: '15px', 
+            lineHeight: '1.8',
+            color: '#1e293b'
+          }}
         />
+        <div className="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+          <span className="text-muted small">Word count:</span>
+          <span className={`fw-bold ${words >= minWords ? 'text-dark' : 'text-danger'}`} style={{ fontSize: '15px' }}>
+            {words} {words >= minWords ? <i className="bi bi-check-circle-fill text-success ms-1"></i> : null}
+          </span>
+        </div>
       </div>
     </div>
   );
@@ -215,7 +223,7 @@ export default function TestSessionPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const isFreeRoute = location.pathname.startsWith('/free-tests');
-  const reviewPath = isFreeRoute ? `/free-tests/review/${attemptId}` : `/learning/tests/review/${attemptId}`;
+  const reviewPath = (isFreeRoute ? `/free-tests/review/${attemptId}` : `/learning/tests/review/${attemptId}`) + location.search;
 
   const [attempt, setAttempt] = useState(null);
   const [testInfo, setTestInfo] = useState(null);
@@ -312,7 +320,17 @@ export default function TestSessionPage() {
         };
       }
 
-      await testAttemptService.completeAttempt(attemptId, answers, scorePayload);
+      // Sanitize answers to remove any leftover Base64 data (which causes Payload Too Large error)
+      const sanitizedAnswers = {};
+      for (const [qId, val] of Object.entries(answers)) {
+        if (typeof val === 'string' && val.startsWith('data:audio/')) {
+          sanitizedAnswers[qId] = ''; // discard raw base64 to save server
+        } else {
+          sanitizedAnswers[qId] = val;
+        }
+      }
+
+      await testAttemptService.completeAttempt(attemptId, sanitizedAnswers, scorePayload);
       navigate(reviewPath);
     } catch (err) {
       setIsSubmitting(false);
@@ -323,7 +341,7 @@ export default function TestSessionPage() {
   if (isLoading) {
     return (
       <div className="d-flex flex-column justify-content-center align-items-center vh-100" data-testid="session-loading">
-        <div className="spinner-border mb-3" style={{ width: '3rem', height: '3rem', color: '#1b4332' }} role="status" />
+        <div className="spinner-border text-primary mb-3" style={{ width: '3rem', height: '3rem' }} role="status" />
         <p className="text-muted fw-semibold">Đang chuẩn bị bài test...</p>
       </div>
     );
@@ -343,28 +361,23 @@ export default function TestSessionPage() {
   const currentQuestion = questions[Math.min(currentQuestionIndex, questions.length - 1)];
 
   const StickyHeader = () => (
-    <div className="sticky-top bg-white border-bottom shadow-sm" style={{ zIndex: 1030 }}>
+    <div className="sticky-top bg-white border-bottom" style={{ zIndex: 1030 }}>
       <div className="container-fluid px-4" style={{ maxWidth: 1400 }}>
         <div className="d-flex align-items-center justify-content-between py-2 gap-3">
           <div className="d-flex align-items-center gap-3 min-w-0">
-            <span className="badge px-3 py-2 fw-bold" style={{ background: activeColor, fontSize: 13, borderRadius: 20 }}>
-              {skill}
+            <span className="fw-bold text-dark fs-5" style={{ letterSpacing: '1px' }}>
+              IELTS {skill}
             </span>
-            <span className="text-muted small fw-semibold text-truncate d-none d-md-inline" style={{ maxWidth: 300 }}>
+            <span className="text-secondary small fw-semibold text-truncate d-none d-md-inline border-start ps-3" style={{ maxWidth: 400 }}>
               {normalizedTest.title}
             </span>
           </div>
-          <div className="flex-grow-1 d-none d-lg-flex align-items-center gap-2" style={{ maxWidth: 320 }}>
-            <span className="text-muted small">{answeredCount}/{questions.length}</span>
-            <div className="flex-grow-1"><ProgressBar percent={progressPercent} /></div>
-          </div>
           {expireAt && (
-            <div
-              className="d-flex align-items-center gap-2 px-3 py-2 rounded-pill fw-bold"
-              style={{ background: '#fff5f5', border: '2px solid #fecaca', color: '#dc2626', whiteSpace: 'nowrap' }}
-            >
-              <i className="bi bi-clock" />
-              <CountdownTimer expireAt={expireAt} onExpire={handleSubmitAttempt} />
+            <div className="d-flex align-items-center gap-2 px-3 py-1 bg-light border rounded-0">
+              <i className="bi bi-clock" style={{ color: '#000', fontSize: '18px' }} />
+              <div className="fw-bold fs-5 text-dark" style={{ minWidth: 60, textAlign: 'center' }}>
+                <CountdownTimer expireAt={expireAt} onExpire={handleSubmitAttempt} />
+              </div>
             </div>
           )}
         </div>
@@ -374,8 +387,8 @@ export default function TestSessionPage() {
 
   const SubmitButton = ({ block = false }) => (
     <button
-      className={`btn btn-lg fw-bold py-3 text-uppercase ${block ? 'w-100 rounded-4' : 'rounded-pill px-5'}`}
-      style={{ background: isSubmitting ? '#94a3b8' : 'linear-gradient(135deg,#1b4332,#2d6a4f)', color: '#fff', border: 'none' }}
+      className={`btn fw-bold py-2 px-4 rounded-0`}
+      style={{ background: isSubmitting ? '#ccc' : '#d92b2b', color: '#fff', border: 'none', letterSpacing: '0.5px' }}
       onClick={() => window.confirm('Bạn có chắc chắn muốn nộp bài?') && handleSubmitAttempt()}
       disabled={isSubmitting}
       data-testid="submit-btn"
@@ -383,22 +396,18 @@ export default function TestSessionPage() {
       {isSubmitting ? (
         <>
           <span className="spinner-border spinner-border-sm me-2" />
-          Đang nộp...
+          ...
         </>
       ) : (
-        `Nộp bài (${answeredCount}/${questions.length})`
+        `SUBMIT TEST`
       )}
     </button>
   );
 
-  const QuestionSidebar = () => (
-    <div className="d-flex flex-column gap-3">
-      <div className="rounded-4 p-4" style={{ background: '#fff', boxShadow: '0 2px 12px rgba(0,0,0,0.07)', border: '1px solid #e2e8f0' }}>
-        <div className="d-flex align-items-center justify-content-between mb-3">
-          <h6 className="fw-bold mb-0 text-dark">Bản đồ câu hỏi</h6>
-          <span className="text-muted small"><strong className="text-success">{answeredCount}</strong>/{questions.length}</span>
-        </div>
-        <div className="d-flex flex-wrap gap-2 mb-3">
+  const QuestionFooterMap = () => (
+    <div className="bg-light border-top p-2 d-flex justify-content-between align-items-center flex-wrap gap-2" style={{ position: 'sticky', bottom: 0, zIndex: 1000 }}>
+      <div className="d-flex align-items-center overflow-auto">
+        <div className="d-flex align-items-center gap-1 flex-nowrap pb-1">
           {questions.map((question, index) => (
             <QuestionMapItem
               key={question.id}
@@ -411,7 +420,9 @@ export default function TestSessionPage() {
           ))}
         </div>
       </div>
-      <SubmitButton block />
+      <div className="d-flex align-items-center gap-3 flex-shrink-0">
+        <SubmitButton />
+      </div>
     </div>
   );
 
@@ -420,62 +431,59 @@ export default function TestSessionPage() {
     const passageMeta = (normalizedTest.testConfig?.passages || []).find((item) => item.id === currentQuestion.referenceId);
 
     return (
-      <div style={{ background: '#f4f6f9', minHeight: '100vh' }} data-testid="session-page">
+      <div style={{ background: '#fff', minHeight: '100vh', display: 'flex', flexDirection: 'column' }} data-testid="session-page">
         <StickyHeader />
-        <div className="container-fluid px-3 px-md-4 py-4" style={{ maxWidth: 1400 }}>
-          <div className="row g-3">
-            <div className="col-12 col-lg-5">
-              <div className="rounded-4 overflow-hidden shadow-sm" style={{ position: 'sticky', top: 76, maxHeight: 'calc(100vh - 100px)', background: '#fff', border: '1px solid #e2e8f0' }}>
-                <div className="px-4 py-3 fw-bold" style={{ background: '#e0f2fe', color: '#0369a1', borderBottom: '2px solid #0ea5e9' }}>
-                  {passageMeta?.title || 'Reading Passage'}
-                </div>
-                <div className="px-4 py-4 overflow-auto" style={{ maxHeight: 'calc(100vh - 160px)', lineHeight: 1.9, fontSize: 15, color: '#1e293b', whiteSpace: 'pre-wrap' }}>
-                  {passageMeta?.imageUrl && <img src={passageMeta.imageUrl} alt={passageMeta.title} className="img-fluid rounded-3 border mb-3" />}
+        <div className="container-fluid px-0 flex-grow-1 d-flex flex-column" style={{ maxWidth: 1800 }}>
+          <div className="row g-0 flex-grow-1 h-100">
+            <div className="col-12 col-lg-6 border-end d-flex flex-column" style={{ borderRightColor: '#ccc !important' }}>
+              <div className="px-4 py-3 fw-bold bg-light text-dark border-bottom" style={{ fontSize: '1.1rem' }}>
+                {passageMeta?.title || 'Reading Passage'}
+              </div>
+              <div className="px-4 py-4 flex-grow-1 overflow-auto bg-white" style={{ height: '0', paddingBottom: '100px' }}>
+                <div style={{ lineHeight: 1.8, fontSize: 16, color: '#000', whiteSpace: 'pre-wrap', fontFamily: 'Arial, sans-serif' }}>
+                  {passageMeta?.imageUrl && <img src={passageMeta.imageUrl} alt={passageMeta.title} className="img-fluid mb-4" />}
                   {passage || <span className="text-muted">Chưa có nội dung passage.</span>}
                 </div>
               </div>
             </div>
-            <div className="col-12 col-lg-7 d-flex flex-column gap-3">
-              <div className="rounded-4 overflow-hidden shadow-sm" style={{ background: '#fff', border: '1px solid #e2e8f0' }}>
-                <div className="d-flex align-items-center justify-content-between px-4 py-3" style={{ background: '#f8fafc', borderBottom: '1px solid #e9ecef' }}>
-                  <div className="fw-bold">Question {currentQuestionIndex + 1}/{questions.length}</div>
-                  <button
-                    type="button"
-                    onClick={() => handleToggleFlag(currentQuestionIndex)}
-                    className={`btn btn-sm rounded-pill px-3 ${flagged[currentQuestionIndex] ? 'btn-warning' : 'btn-outline-secondary'}`}
-                  >
-                    <i className={`bi ${flagged[currentQuestionIndex] ? 'bi-bookmark-fill' : 'bi-bookmark'} me-1`} />
-                    Review
-                  </button>
-                </div>
-                <div className="p-4 p-md-5">
-                  <QuestionRenderer
-                    question={currentQuestion}
-                    currentAnswer={getAnswerValue(answers, currentQuestion, currentQuestionIndex)}
-                    onAnswer={handleAnswer}
-                  />
-                </div>
-                <div className="px-4 px-md-5 pb-4 d-flex justify-content-between gap-3">
-                  <button
-                    className="btn btn-outline-secondary px-4 py-2 rounded-pill fw-semibold"
-                    onClick={() => setCurrentQuestionIndex((index) => Math.max(0, index - 1))}
-                    disabled={currentQuestionIndex === 0}
-                  >
-                    Previous
-                  </button>
-                  <button
-                    className="btn btn-primary px-4 py-2 rounded-pill fw-semibold"
-                    onClick={() => setCurrentQuestionIndex((index) => Math.min(questions.length - 1, index + 1))}
-                    disabled={currentQuestionIndex === questions.length - 1}
-                  >
-                    Next
-                  </button>
-                </div>
+            <div className="col-12 col-lg-6 d-flex flex-column position-relative bg-white">
+              <div className="d-flex align-items-center justify-content-between px-4 py-3 border-bottom bg-light">
+                <div className="fw-bold text-dark" style={{ fontSize: '1.1rem' }}>Question {currentQuestionIndex + 1} of {questions.length}</div>
+                <button
+                  type="button"
+                  onClick={() => handleToggleFlag(currentQuestionIndex)}
+                  className={`btn btn-sm px-3 fw-semibold border rounded-0 ${flagged[currentQuestionIndex] ? 'btn-warning text-dark' : 'btn-light'}`}
+                >
+                  Review
+                </button>
               </div>
-              <QuestionSidebar />
+              <div className="p-4 p-md-5 flex-grow-1 overflow-auto" style={{ height: '0' }}>
+                <QuestionRenderer
+                  question={currentQuestion}
+                  currentAnswer={getAnswerValue(answers, currentQuestion, currentQuestionIndex)}
+                  onAnswer={handleAnswer}
+                />
+              </div>
+              <div className="px-4 py-3 border-top d-flex justify-content-between bg-light">
+                <button
+                  className="btn btn-outline-dark px-4 py-2 fw-semibold rounded-0"
+                  onClick={() => setCurrentQuestionIndex((index) => Math.max(0, index - 1))}
+                  disabled={currentQuestionIndex === 0}
+                >
+                  Previous
+                </button>
+                <button
+                  className="btn btn-dark px-4 py-2 fw-semibold rounded-0"
+                  onClick={() => setCurrentQuestionIndex((index) => Math.min(questions.length - 1, index + 1))}
+                  disabled={currentQuestionIndex === questions.length - 1}
+                >
+                  Next
+                </button>
+              </div>
             </div>
           </div>
         </div>
+        <QuestionFooterMap />
       </div>
     );
   }
@@ -495,81 +503,83 @@ export default function TestSessionPage() {
     const globalAudioUrl = normalizedTest.testConfig?.audioUrl || normalizedTest.audioUrl;
 
     return (
-      <div style={{ background: '#f8fafc', minHeight: '100vh' }} data-testid="session-page">
+      <div style={{ background: '#fff', minHeight: '100vh', display: 'flex', flexDirection: 'column' }} data-testid="session-page">
         <StickyHeader />
         {globalAudioUrl ? (
-          <div className="sticky-top" style={{ zIndex: 1020, top: 57 }}>
-            <AudioPlayer audioUrl={globalAudioUrl} audioPolicy={audioPolicy} />
+          <div className="sticky-top bg-light border-bottom" style={{ zIndex: 1020, top: 57 }}>
+            <div className="container" style={{ maxWidth: 1000 }}>
+              <AudioPlayer audioUrl={globalAudioUrl} audioPolicy={audioPolicy} />
+            </div>
           </div>
         ) : (
           <div className="alert alert-warning rounded-0 mb-0 text-center">Listening audio chưa được cấu hình.</div>
         )}
-        <div className="container py-4" style={{ maxWidth: 980 }}>
-          <div className="d-flex flex-column gap-4">
+        <div className="container py-4 flex-grow-1" style={{ maxWidth: 1000 }}>
+          <div className="d-flex flex-column gap-5">
             {grouped.map(({ section, questions: sectionQuestions }) => (
               <section key={section.id || section.title}>
-                <div className="rounded-4 px-4 py-3 mb-3 shadow-sm" style={{ background: '#fff7ed', border: '1px solid #fed7aa' }}>
-                  <div className="fw-bold" style={{ color: '#92400e', fontSize: 18 }}>{section.title || 'Listening Section'}</div>
-                  {section.instruction && <p className="mb-0 mt-1 text-muted small">{section.instruction}</p>}
+                <div className="px-2 py-3 mb-4" style={{ background: '#fff', borderBottom: '2px solid #000' }}>
+                  <div className="fw-bold text-dark" style={{ fontSize: 20 }}>{section.title || 'Listening Section'}</div>
+                  {section.instruction && <p className="mb-0 mt-2 text-secondary fst-italic">{section.instruction}</p>}
                 </div>
-                {section.audioUrl && <AudioPlayer audioUrl={section.audioUrl} audioPolicy={audioPolicy} />}
-                {sectionQuestions.map((question) => {
-                  const index = questions.findIndex((item) => item.id === question.id);
-                  const answer = getAnswerValue(answers, question, index);
-                  const sectionMeta = getSectionForQuestion(normalizedTest, question);
-                  return (
-                    <div key={question.id} className="rounded-4 mb-3 overflow-hidden shadow-sm" style={{ background: '#fff', border: `2px solid ${answer ? '#22c55e' : '#e2e8f0'}` }}>
-                      <div className="d-flex align-items-center justify-content-between px-4 py-3" style={{ background: answer ? '#dcfce7' : '#f8fafc' }}>
-                        <span className="fw-bold">Question {index + 1}</span>
-                        {sectionMeta?.title && <span className="small text-muted">{sectionMeta.title}</span>}
+                {section.audioUrl && (
+                  <div className="mb-4">
+                    <AudioPlayer audioUrl={section.audioUrl} audioPolicy={audioPolicy} />
+                  </div>
+                )}
+                <div className="row g-4">
+                  {sectionQuestions.map((question) => {
+                    const index = questions.findIndex((item) => item.id === question.id);
+                    const answer = getAnswerValue(answers, question, index);
+                    return (
+                      <div className="col-12" key={question.id}>
+                        <div className="bg-white px-3 py-2" style={{ border: 'none' }}>
+                          <div className="d-flex align-items-center justify-content-between mb-2">
+                            <span className="fw-bold text-dark" style={{ fontSize: '1.1rem' }}>Question {index + 1}</span>
+                          </div>
+                          <div className="p-0">
+                            <QuestionRenderer question={question} currentAnswer={answer} onAnswer={handleAnswer} />
+                          </div>
+                        </div>
                       </div>
-                      <div className="p-4">
-                        <QuestionRenderer question={question} currentAnswer={answer} onAnswer={handleAnswer} />
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </section>
             ))}
-            <div className="d-flex justify-content-end pb-5">
-              <SubmitButton />
-            </div>
           </div>
         </div>
+        <QuestionFooterMap />
       </div>
     );
   }
 
   if (skill === 'Writing') {
     return (
-      <div style={{ background: '#f8fafc', minHeight: '100vh' }} data-testid="session-page">
+      <div style={{ background: '#f1f5f9', minHeight: '100vh', display: 'flex', flexDirection: 'column' }} data-testid="session-page">
         <StickyHeader />
-        <div className="container py-4" style={{ maxWidth: 1260 }}>
-          <div className="row g-4">
-            <div className="col-12 col-xl-9 d-flex flex-column gap-4">
-              {questions.map((question, index) => (
-                <WritingAnswerPanel
-                  key={question.id}
-                  question={question}
-                  answer={getAnswerValue(answers, question, index)}
-                  onAnswer={handleAnswer}
-                />
-              ))}
+        <div className="container-fluid py-4 flex-grow-1 d-flex flex-column" style={{ maxWidth: 1600, paddingLeft: '2rem', paddingRight: '2rem' }}>
+          <div className="d-flex flex-column gap-5 mb-5 flex-grow-1">
+            {questions.map((question, index) => (
+              <WritingAnswerPanel
+                key={question.id}
+                question={question}
+                answer={getAnswerValue(answers, question, index)}
+                onAnswer={handleAnswer}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="border-top bg-white p-3 d-flex justify-content-between align-items-center" style={{ position: 'sticky', bottom: 0, zIndex: 1000, boxShadow: '0 -2px 10px rgba(0,0,0,0.05)' }}>
+          <div className="d-flex align-items-center gap-3">
+            <div className="badge bg-light text-dark border p-2" style={{ fontSize: '13px' }}>
+              <i className="bi bi-info-circle text-primary me-2"></i>
+              IELTS Writing
             </div>
-            <div className="col-12 col-xl-3">
-              <div className="sticky-top d-flex flex-column gap-3" style={{ top: 80 }}>
-                <QuestionSidebar />
-                <div className="rounded-4 p-4 shadow-sm" style={{ background: '#eff6ff', border: '1px solid #bfdbfe' }}>
-                  <h6 className="fw-bold mb-3" style={{ color: '#1e40af' }}>Writing criteria</h6>
-                  <ul className="text-muted small mb-0 ps-3 lh-lg">
-                    <li>Task Achievement / Response</li>
-                    <li>Coherence & Cohesion</li>
-                    <li>Lexical Resource</li>
-                    <li>Grammar Range & Accuracy</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <span className="text-muted small">Make sure you have completed both Task 1 and Task 2 before submitting.</span>
+          </div>
+          <div style={{ width: 200 }}>
+            <SubmitButton block />
           </div>
         </div>
       </div>
@@ -578,49 +588,36 @@ export default function TestSessionPage() {
 
   if (skill === 'Speaking') {
     return (
-      <div style={{ background: '#f8fafc', minHeight: '100vh' }} data-testid="session-page">
+      <div style={{ background: '#f8fafc', minHeight: '100vh', display: 'flex', flexDirection: 'column' }} data-testid="session-page">
         <StickyHeader />
-        <div className="container py-4" style={{ maxWidth: 1100 }}>
-          <div className="rounded-4 p-4 mb-4 shadow-sm" style={{ background: '#ecfdf5', border: '1px solid #6ee7b7' }}>
-            <h5 className="fw-bold mb-1" style={{ color: '#065f46' }}>IELTS Speaking format</h5>
-            <p className="mb-0 text-muted small">
-              Part 1: short interview. Part 2: cue card. Part 3: discussion and ideas.
+        <div className="container py-5 flex-grow-1" style={{ maxWidth: 900 }}>
+          <div className="rounded-4 p-4 mb-5 shadow-sm bg-white" style={{ border: '1px solid #e2e8f0', borderLeft: '4px solid #10b981' }}>
+            <h5 className="fw-bold mb-2 text-dark">IELTS Speaking</h5>
+            <p className="mb-0 text-secondary" style={{ fontSize: '15px' }}>
+              Ensure your microphone is working properly. The test consists of 3 parts: Introduction, Long Turn (Cue Card), and Discussion.
             </p>
           </div>
-          <div className="row g-4">
-            <div className="col-12 col-lg-8 d-flex flex-column gap-4">
-              {questions.map((question, index) => (
-                <div key={question.id} className="rounded-4 overflow-hidden shadow-sm" style={{ background: '#fff', border: '1px solid #d1fae5' }}>
-                  <div className="px-4 py-3 fw-bold" style={{ background: '#ecfdf5', color: '#065f46' }}>
+          <div className="d-flex flex-column gap-5">
+            {questions.map((question, index) => (
+              <div key={question.id} className="rounded-4 overflow-hidden shadow-sm bg-white" style={{ border: '1px solid #e2e8f0' }}>
+                <div className="px-4 py-3 border-bottom bg-light">
+                  <div className="fw-bold text-dark" style={{ fontSize: '1.1rem' }}>
                     Part {question.part || index + 1}
-                    {question.answerSeconds ? ` - suggested answer ${question.answerSeconds}s` : ''}
-                  </div>
-                  <div className="p-4">
-                    <QuestionRenderer
-                      question={question}
-                      currentAnswer={getAnswerValue(answers, question, index)}
-                      onAnswer={handleAnswer}
-                    />
+                    {question.answerSeconds ? <span className="ms-2 badge bg-success fw-normal">~ {question.answerSeconds}s</span> : ''}
                   </div>
                 </div>
-              ))}
-            </div>
-            <div className="col-12 col-lg-4">
-              <div className="sticky-top d-flex flex-column gap-3" style={{ top: 80 }}>
-                <QuestionSidebar />
-                <div className="rounded-4 p-4 shadow-sm" style={{ background: '#fff', border: '1px solid #d1fae5' }}>
-                  <h6 className="fw-bold mb-3" style={{ color: '#065f46' }}>Speaking criteria</h6>
-                  <ul className="text-muted small mb-0 ps-3 lh-lg">
-                    <li>Fluency & Coherence</li>
-                    <li>Lexical Resource</li>
-                    <li>Grammar Range & Accuracy</li>
-                    <li>Pronunciation</li>
-                  </ul>
+                <div className="p-4 p-md-5">
+                  <QuestionRenderer
+                    question={question}
+                    currentAnswer={getAnswerValue(answers, question, index)}
+                    onAnswer={handleAnswer}
+                  />
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
+        <QuestionFooterMap />
       </div>
     );
   }

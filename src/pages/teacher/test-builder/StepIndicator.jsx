@@ -1,14 +1,14 @@
 import React from 'react';
+import './StepIndicator.css';
 
 const STEPS = [
-  { label: 'Thong tin', icon: 'bi-sliders2' },
-  { label: 'Noi dung IELTS', icon: 'bi-layers' },
-  { label: 'Cau hoi', icon: 'bi-ui-checks-grid' },
+  { label: 'Thông tin cơ bản', icon: 'bi-sliders2' },
+  { label: 'Nội dung & Câu hỏi', icon: 'bi-layers' },
 ];
 
 export default function StepIndicator({ currentStep, onStepClick }) {
   return (
-    <div className="lux-stepper mb-4">
+    <div className="test-stepper-container">
       {STEPS.map((item, index) => {
         const step = index + 1;
         const active = currentStep === step;
@@ -18,12 +18,14 @@ export default function StepIndicator({ currentStep, onStepClick }) {
             key={item.label}
             type="button"
             onClick={() => onStepClick(step)}
-            className={`lux-step ${active ? 'is-active' : ''} ${done ? 'is-done' : ''}`}
+            className={`test-stepper-item ${active ? 'is-active' : ''} ${done ? 'is-done' : ''}`}
           >
-            <span className="lux-step-index">
+            <div className="test-stepper-icon">
               <i className={`bi ${done ? 'bi-check-lg' : item.icon}`} />
-            </span>
-            <span>{step}. {item.label}</span>
+            </div>
+            <div className="test-stepper-label">
+              {step}. {item.label}
+            </div>
           </button>
         );
       })}

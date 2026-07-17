@@ -39,11 +39,11 @@ const CountdownTimer = ({ expireAt, onExpire }) => {
     return () => clearInterval(intervalId);
   }, [expireAt, onExpire]);
 
-  // Use Bootstrap font-monospace for fixed-width digits
-  const textColorClass = timeInfo.isWarning ? 'text-danger fw-bold' : 'text-dark fw-bold';
+  // Remove hardcoded text-dark so parent can style it, only force danger on warning
+  const textColorClass = timeInfo.isWarning ? 'text-danger fw-bold' : 'fw-bold';
 
   return (
-    <div className={`countdown-timer ${textColorClass} fs-4 font-monospace`} data-testid="countdown-timer">
+    <div className={`countdown-timer ${textColorClass} font-monospace`} style={{ fontSize: '22px' }} data-testid="countdown-timer">
       {timeInfo.formatted}
     </div>
   );

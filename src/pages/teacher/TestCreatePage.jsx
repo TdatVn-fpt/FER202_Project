@@ -19,6 +19,7 @@ import ReadingBuilder from './test-builder/ReadingBuilder';
 import ListeningBuilder from './test-builder/ListeningBuilder';
 import WritingBuilder from './test-builder/WritingBuilder';
 import SpeakingBuilder from './test-builder/SpeakingBuilder';
+import TestPreviewModal from './test-builder/TestPreviewModal';
 
 const createInitialDraft = (teacherId) => ({
   title: '',
@@ -53,6 +54,7 @@ export default function TestCreatePage() {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [isUnauthorized, setIsUnauthorized] = useState(false);
+  const [showPreviewModal, setShowPreviewModal] = useState(false);
 
   const normalizedDraft = useMemo(() => normalizeTest(draft), [draft]);
   const selectedCourse = courses.find((course) => String(course.id) === String(draft.courseId));
@@ -202,11 +204,7 @@ export default function TestCreatePage() {
       }
 
       toast.success(id ? 'Đã cập nhật đề thi.' : 'Đã tạo đề thi.');
-      if (savedTest.skill !== 'Writing') {
-        navigate(`/teacher/tests/${savedTest.id}/questions`);
-      } else {
-        navigate('/teacher/tests');
-      }
+      navigate('/teacher/tests');
     } catch (error) {
       toast.error('Lưu đề thi thất bại. Vui lòng thử lại.');
     } finally {
@@ -227,48 +225,63 @@ export default function TestCreatePage() {
 
   if (loading) {
     return (
-      <Container className="py-5 text-center">
-        <Spinner animation="border" variant="primary" className="mb-2" />
-        <p className="text-secondary fw-semibold">Đang tải dữ liệu đề thi...</p>
-      </Container>
+      <div className="tp-loading">
+        <Spinner animation="border" variant="primary" style={{ width: '3rem', height: '3rem', borderWidth: '4px' }} />
+        <p className="mt-3 fw-semibold text-secondary">Đang tải dữ liệu đề thi...</p>
+      </div>
     );
   }
 
   if (isUnauthorized) {
     return (
-      <Container className="py-5" style={{ maxWidth: '600px' }}>
-        <Alert variant="danger" className="text-center p-4 shadow-sm border-0 rounded-3">
-          <Alert.Heading className="fw-bold">Quyền truy cập bị từ chối</Alert.Heading>
-          <p className="mb-4">Bạn không có quyền chỉnh sửa đề thi này.</p>
-          <Button as={Link} to="/teacher/tests" variant="danger" className="rounded-pill px-4">
+      <div className="tp-main-content">
+        <div className="tp-error">
+          <i className="bi bi-shield-slash fs-2 mb-2 d-block text-danger"></i>
+          <div>Bạn không có quyền chỉnh sửa đề thi này.</div>
+          <Link to="/teacher/tests" className="btn btn-danger mt-3 rounded-pill px-4">
             Quay lại danh sách
-          </Button>
-        </Alert>
-      </Container>
+          </Link>
+        </div>
+      </div>
     );
   }
 
   return (
-    <Container fluid className="py-4">
-      <div className="d-flex justify-content-between align-items-start gap-3 mb-4">
-        <div>
-          <Link to="/teacher/tests" className="text-decoration-none text-muted small fw-semibold">
-            Quay lại quản lý đề thi
-          </Link>
-          <h2 className="fw-bold text-dark mt-2 mb-1">{id ? 'Chỉnh sửa IELTS test' : 'Tạo IELTS test'}</h2>
-          <p className="text-secondary mb-0">Tạo đề theo đúng template IELTS, publish free test hoặc gán vào khóa học.</p>
-        </div>
-        <div className="d-flex gap-2">
-          {id && (
-            <Button as={Link} to={`/teacher/tests/${id}/questions`} variant="outline-primary">
-              Quản lý câu hỏi
+    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+      <div className="tp-page-header">
+        <div className="tp-page-header-inner">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-file-earmark-text"></i> IELTS Test</div>
+            <h1 className="tp-page-title">{id ? 'Chỉnh sửa IELTS test' : 'Tạo IELTS test'}</h1>
+            <p className="tp-page-sub">Tạo đề theo chuẩn format IELTS, publish free test hoặc gán vào khóa học.</p>
+          </div>
+          <div className="d-flex gap-3 align-items-center">
+            <Link to="/teacher/tests" className="tp-btn-secondary">
+              <i className="bi bi-arrow-left"></i> Quay lại
+            </Link>
+            {id && (
+              <Button as={Link} to={`/teacher/tests/${id}/questions`} variant="outline-light" className="tp-btn-secondary">
+                <i className="bi bi-ui-checks-grid me-1"></i> Quản lý câu hỏi
+              </Button>
+            )}
+            <Button 
+              variant="primary" 
+              onClick={handleSave} 
+              disabled={submitting || isCoursePending}
+              className="tp-btn-primary"
+            >
+              {submitting ? (
+                <><Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" className="me-1" /> Đang lưu...</>
+              ) : (
+                <><i className="bi bi-cloud-arrow-up-fill me-1"></i> Lưu test</>
+              )}
             </Button>
-          )}
-          <Button variant="primary" onClick={handleSave} disabled={submitting || isCoursePending}>
-            {submitting ? 'Đang lưu...' : 'Lưu test'}
-          </Button>
+          </div>
         </div>
       </div>
+
+      <div className="tp-main-content">
+        <Container fluid="xxl" className="px-4">
 
       {isCoursePending && (
         <Alert variant="warning" className="border-0 shadow-sm">
@@ -407,34 +420,12 @@ export default function TestCreatePage() {
                   <Button variant="outline-secondary" onClick={() => setStep(1)}>Quay lại</Button>
                 </div>
                 {renderBuilder()}
-                <div className="d-flex justify-content-end mt-4">
-                  <Button onClick={() => setStep(3)}>Tiếp tục</Button>
-                </div>
-              </Card.Body>
-            </Card>
-          )}
-
-          {step === 3 && (
-            <Card className="border-0 shadow-sm">
-              <Card.Body className="p-4">
-                <h5 className="fw-bold mb-2">Câu hỏi / Tasks / Parts</h5>
-                {draft.skill === 'Writing' ? (
-                  <Alert variant="info" className="border-0">
-                    Writing dùng Task 1 và Task 2 trong Content Builder. Không cần tạo question record riêng.
-                  </Alert>
-                ) : id ? (
-                  <Alert variant="light" className="border">
-                    Test này hiện có <strong>{questions.length}</strong> câu hỏi. Bấm “Quản lý câu hỏi” để thêm hoặc chỉnh câu hỏi theo {draft.skill}.
-                  </Alert>
-                ) : (
-                  <Alert variant="warning" className="border-0">
-                    Hãy lưu test trước, sau đó hệ thống sẽ đưa bạn sang màn thêm câu hỏi.
-                  </Alert>
-                )}
-                <div className="d-flex justify-content-between mt-4">
-                  <Button variant="outline-secondary" onClick={() => setStep(2)}>Quay lại</Button>
+                <div className="d-flex justify-content-end gap-3 mt-4 pt-3 border-top">
+                  <Button variant="outline-info" onClick={() => setShowPreviewModal(true)} disabled={isCoursePending}>
+                    <i className="bi bi-eye me-2"></i> Preview Test
+                  </Button>
                   <Button variant="primary" onClick={handleSave} disabled={submitting || isCoursePending}>
-                    {submitting ? 'Đang lưu...' : id ? 'Lưu thay đổi' : 'Lưu và tiếp tục'}
+                    <i className="bi bi-check-circle me-2"></i> {submitting ? 'Đang xử lý...' : id ? 'Lưu thay đổi' : 'Submit for Approval'}
                   </Button>
                 </div>
               </Card.Body>
@@ -446,6 +437,12 @@ export default function TestCreatePage() {
           <LiveChecklist test={normalizedDraft} questionCount={questions.length} onGoToStep={setStep} />
         </Col>
       </Row>
-    </Container>
+
+      <TestPreviewModal 
+        show={showPreviewModal} 
+        onHide={() => setShowPreviewModal(false)} 
+        draft={normalizedDraft} 
+      />
+      </Container></div></div>
   );
 }

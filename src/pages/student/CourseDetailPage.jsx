@@ -40,7 +40,7 @@ const CourseDetailPage = () => {
   const storedUserEmail = storedUser?.email;
 
   const [course, setCourse] = useState(null);
-  const [, setEnrollment] = useState(null);
+  const [enrollment, setEnrollment] = useState(null);
   const [hasPaid, setHasPaid] = useState(false);
   const [paymentPending, setPaymentPending] = useState(false);
   const [inCart, setInCart] = useState(false);
@@ -198,7 +198,7 @@ const CourseDetailPage = () => {
                   <i className="bi bi-bullseye"></i>{course.level || 'All Levels'}
                 </span>
                 {isFree && (
-                  <span className="hero-badge" style={{ background: '#16a34a', color: '#fff' }}>
+                  <span className="hero-badge" style={{ background: '#2563eb', color: '#fff' }}>
                     <i className="bi bi-gift-fill"></i>Free
                   </span>
                 )}
@@ -353,12 +353,32 @@ const CourseDetailPage = () => {
               <div className="sidebar-card">
                 {/* Price + CTA */}
                 <div className="p-4">
-                  <div className={`price-display mb-3 ${isFree ? 'free' : ''}`}>{displayPrice}</div>
+                  {!courseAccess && (
+                    <div className={`price-display mb-3 ${isFree ? 'free' : ''}`}>{displayPrice}</div>
+                  )}
 
                   {courseAccess ? (
-                    <button className="cta-btn cta-btn-success mb-3" onClick={handleContinue} data-testid="btn-continue-learning">
-                      <i className="bi bi-play-circle-fill me-2"></i>Continue Learning
-                    </button>
+                    <>
+                      <div className="text-center mb-3">
+                        <span className="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill fw-bold" style={{ fontSize: '0.9rem' }}>
+                          <i className="bi bi-check-circle-fill me-2"></i>You own this course
+                        </span>
+                      </div>
+                      <button className="cta-btn cta-btn-primary mb-3" onClick={handleContinue} data-testid="btn-continue-learning">
+                        <i className="bi bi-play-circle-fill me-2"></i>Continue Learning
+                      </button>
+                      {isFree && enrollment && !enrollment.isPremium && course.premiumPrice && (
+                        <div className="card border-warning mb-3 shadow-sm bg-warning bg-opacity-10">
+                          <div className="card-body p-3 text-center">
+                            <h6 className="fw-bold text-dark mb-1"><i className="bi bi-star-fill text-warning me-1"></i> Upgrade to Premium</h6>
+                            <p className="text-muted small mb-2">Unlock unlimited test attempts for only {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(course.premiumPrice)}</p>
+                            <button className="btn btn-warning w-100 fw-bold shadow-sm" onClick={() => navigate(`/checkout/${courseId}?upgrade=true`)}>
+                              Upgrade Now
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </>
                   ) : paymentPending ? (
                     <button className="cta-btn cta-btn-warning mb-3" onClick={() => navigate(`/checkout/${courseId}`)}>
                       <i className="bi bi-hourglass-split me-2"></i>Waiting for Payment Confirmation
@@ -384,7 +404,7 @@ const CourseDetailPage = () => {
                         {inCart ? 'Đã thêm vào giỏ hàng' : 'Thêm vào giỏ hàng'}
                       </button>
                       <button
-                        className={`btn ${wishlistAdded ? 'btn-success' : 'btn-outline-secondary'} w-100 mb-3`}
+                        className={`btn ${wishlistAdded ? 'btn-primary' : 'btn-outline-secondary'} w-100 mb-3`}
                         onClick={() => {
                           if (wishlistAdded) removeFromWishlist(courseId);
                           else addToWishlist(courseId);
@@ -393,26 +413,25 @@ const CourseDetailPage = () => {
                       >
                         {wishlistAdded ? 'Đã lưu yêu thích' : 'Lưu vào yêu thích'}
                       </button>
+                      <p className="text-center text-muted mb-0" style={{ fontSize: '0.8rem' }}>
+                        <i className="bi bi-shield-check me-1 text-success"></i>
+                        30-day money-back guarantee
+                      </p>
                     </>
                   )}
 
                   {courseAccess && (
                     <button
-                      className={`btn ${wishlistAdded ? 'btn-success' : 'btn-outline-secondary'} w-100 mb-3`}
+                      className={`btn ${wishlistAdded ? 'btn-outline-primary fw-bold' : 'btn-outline-secondary'} w-100 mb-2`}
                       onClick={() => {
                         if (wishlistAdded) removeFromWishlist(courseId);
                         else addToWishlist(courseId);
                         setWishlistAdded(!wishlistAdded);
                       }}
                     >
-                      {wishlistAdded ? 'Đã lưu yêu thích' : 'Lưu vào yêu thích'}
+                      {wishlistAdded ? <><i className="bi bi-heart-fill me-2"></i>Đã lưu yêu thích</> : <><i className="bi bi-heart me-2"></i>Lưu vào yêu thích</>}
                     </button>
                   )}
-
-                  <p className="text-center text-muted mb-0" style={{ fontSize: '0.8rem' }}>
-                    <i className="bi bi-shield-check me-1 text-success"></i>
-                    30-day money-back guarantee
-                  </p>
                 </div>
 
                 {/* Meta grid */}

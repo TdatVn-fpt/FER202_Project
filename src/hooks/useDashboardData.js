@@ -36,31 +36,43 @@ export const useDashboardData = (userId) => {
         const lessons = lessonsRes.data || [];
 
         // 1. Tính toán Stat Cards
-        const completedLessons = lessons.filter(l => l.status === 'completed').length;
-        const completedTests = attempts.length;
+        const completedLessons = lessons.filter(l => l.status === 'completed' || l.completed === true).length;
+        
+        // Lọc ra những attempt thực sự đã hoàn thành (có điểm hoặc có trạng thái hoàn thành)
+        const completedAttempts = attempts.filter(a => a.status === 'completed' || a.submittedAt || a.score !== undefined);
+        
+        const completedTests = completedAttempts.length;
         
         let avgBand = 'N/A';
         let totalHours = 0;
         
-        if (attempts.length > 0) {
-          const totalScore = attempts.reduce((acc, curr) => acc + (curr.overallBandScore || curr.score || 0), 0);
-          avgBand = Number((totalScore / attempts.length).toFixed(1));
+        if (completedAttempts.length > 0) {
+          const totalScore = completedAttempts.reduce((acc, curr) => acc + (curr.overallBandScore || curr.score || 0), 0);
+          avgBand = Number((totalScore / completedAttempts.length).toFixed(1));
           
-          const totalTimeSeconds = attempts.reduce((acc, curr) => acc + (curr.timeSpent || 0), 0);
+          const totalTimeSeconds = completedAttempts.reduce((acc, curr) => acc + (curr.timeSpent || 0), 0);
           totalHours = Number((totalTimeSeconds / 3600).toFixed(1));
         }
 
         // 2. Tính toán Line Chart Data (Trend)
-        const sortedAttempts = [...attempts].sort((a, b) => new Date(a.submittedAt) - new Date(b.submittedAt));
-        const lineChartData = sortedAttempts.map(a => ({
-          date: new Date(a.submittedAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit' }),
-          score: a.overallBandScore || a.score || 0
-        }));
+        const sortedAttempts = [...completedAttempts].sort((a, b) => {
+          const dateA = new Date(a.submittedAt || a.createdAt || a.startTime || 0);
+          const dateB = new Date(b.submittedAt || b.createdAt || b.startTime || 0);
+          return dateA - dateB;
+        });
+        
+        const lineChartData = sortedAttempts.map(a => {
+          const dateStr = a.submittedAt || a.createdAt || a.startTime;
+          return {
+            date: dateStr ? new Date(dateStr).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit' }) : 'N/A',
+            score: a.overallBandScore || a.score || 0
+          };
+        });
 
         // 3. Tính toán Radar Chart Data (Skill Balance)
         const skills = ['Listening', 'Reading', 'Writing', 'Speaking'];
         const radarChartData = skills.map(skillName => {
-          const skillAttempts = attempts.filter(a => a.skill === skillName);
+          const skillAttempts = completedAttempts.filter(a => a.skill === skillName);
           let avgScore = 0; // Kỹ năng trống tự fallback về 0
           if (skillAttempts.length > 0) {
             const sum = skillAttempts.reduce((acc, curr) => acc + (curr.overallBandScore || curr.score || 0), 0);

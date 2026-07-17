@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import { Container, Row, Col, Card, Button, Badge, Alert, Spinner } from 'react-bootstrap';
 import { getCourseById } from '../../services/courseLearning.service';
 import { getCurrentUser } from '../../services/authService';
@@ -12,12 +12,17 @@ import {
   PAYMENT_STATUS,
   formatVnd,
 } from '../../services/paymentService';
+import StudentPageBanner from '../../components/common/StudentPageBanner';
 import './Checkout.css';
 
 export default function Checkout() {
   const { id: courseId } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const user = getCurrentUser();
+
+  const searchParams = new URLSearchParams(location.search);
+  const isUpgrade = searchParams.get('upgrade') === 'true';
 
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -66,11 +71,13 @@ export default function Checkout() {
     setProcessing(true);
     setError('');
     try {
+      const amountToCharge = (isUpgrade && course.premiumPrice) ? course.premiumPrice : (course.price || 0);
       const created = await createPendingPayment({
         userId: user.id,
         courseId,
-        amount: course.price || 0,
+        amount: amountToCharge,
         transferContent,
+        type: isUpgrade ? 'upgrade' : 'enroll',
       });
       setPayment(created);
     } catch (err) {
@@ -83,8 +90,14 @@ export default function Checkout() {
   // ===== Chưa đăng nhập =====
   if (!user) {
     return (
-      <div className="checkout-page bg-light">
-        <Container className="py-5">
+      <div className="checkout-page" style={{ paddingBottom: '60px' }}>
+        <StudentPageBanner
+          title="Bạn cần đăng nhập"
+          subtitle="Đăng nhập để thanh toán và đăng ký khóa học"
+          badgeText="BẢO MẬT"
+          badgeIcon="bi-shield-lock-fill"
+        />
+        <Container style={{ marginTop: '-20px', position: 'relative', zIndex: 10 }}>
           <Card className="border-0 shadow-sm mx-auto text-center" style={{ maxWidth: 460 }}>
             <Card.Body className="p-5">
               <div className="ck-guard-icon mb-3">🔒</div>
@@ -102,8 +115,9 @@ export default function Checkout() {
 
   if (loading) {
     return (
-      <div className="checkout-page bg-light">
-        <Container className="py-5 text-center">
+      <div className="checkout-page" style={{ paddingBottom: '60px' }}>
+        <StudentPageBanner title="Đang tải..." subtitle="Vui lòng đợi trong giây lát" />
+        <Container style={{ marginTop: '-20px', position: 'relative', zIndex: 10 }} className="text-center">
           <Spinner animation="border" variant="primary" />
           <p className="text-muted mt-3 mb-0">Đang tải thông tin thanh toán...</p>
         </Container>
@@ -113,8 +127,9 @@ export default function Checkout() {
 
   if (error && !course) {
     return (
-      <div className="checkout-page bg-light">
-        <Container className="py-5">
+      <div className="checkout-page" style={{ paddingBottom: '60px' }}>
+        <StudentPageBanner title="Lỗi tải trang" subtitle="Không thể tải thông tin thanh toán" />
+        <Container style={{ marginTop: '-20px', position: 'relative', zIndex: 10 }}>
           <Alert variant="danger" className="text-center">{error}</Alert>
         </Container>
       </div>
@@ -126,8 +141,14 @@ export default function Checkout() {
   // ===== Đã được kích hoạt (admin đã duyệt) =====
   if (status === PAYMENT_STATUS.PAID) {
     return (
-      <div className="checkout-page bg-light">
-        <Container className="py-5">
+      <div className="checkout-page" style={{ paddingBottom: '60px' }}>
+        <StudentPageBanner
+          title="Thanh toán thành công"
+          subtitle="Khóa học đã sẵn sàng"
+          badgeText="KÍCH HOẠT"
+          badgeIcon="bi-check-circle-fill"
+        />
+        <Container style={{ marginTop: '-20px', position: 'relative', zIndex: 10 }}>
           <Card className="border-0 shadow-sm mx-auto text-center" style={{ maxWidth: 520 }}>
             <Card.Body className="p-5">
               <div className="ck-result-icon ck-result-success mx-auto mb-3">✓</div>
@@ -140,7 +161,7 @@ export default function Checkout() {
                 <Button variant="primary" className="fw-semibold px-4" onClick={() => navigate('/learning/courses')}>
                   Vào học ngay
                 </Button>
-                <Button as={Link} to={`/courses/${courseId}`} variant="outline-secondary" className="px-4">
+                <Button as={Link} to={user?.role === 'student' ? `/learning/courses/${courseId}` : `/courses/${courseId}`} variant="outline-secondary" className="px-4">
                   Chi tiết khóa học
                 </Button>
               </div>
@@ -154,8 +175,14 @@ export default function Checkout() {
   // ===== Đang chờ admin xác nhận =====
   if (status === PAYMENT_STATUS.PENDING) {
     return (
-      <div className="checkout-page bg-light">
-        <Container className="py-5">
+      <div className="checkout-page" style={{ paddingBottom: '60px' }}>
+        <StudentPageBanner
+          title="Đang xử lý thanh toán"
+          subtitle="Quản trị viên đang đối soát đơn hàng"
+          badgeText="CHỜ XÁC NHẬN"
+          badgeIcon="bi-hourglass-split"
+        />
+        <Container style={{ marginTop: '-20px', position: 'relative', zIndex: 10 }}>
           <Card className="border-0 shadow-sm mx-auto" style={{ maxWidth: 560 }}>
             <Card.Body className="p-4 p-md-5 text-center">
               <div className="ck-result-icon ck-result-pending mx-auto mb-3">⏳</div>
@@ -190,7 +217,7 @@ export default function Checkout() {
                 <Button as={Link} to="/learning/courses" variant="primary" className="fw-semibold px-4">
                   Xem khóa học của tôi
                 </Button>
-                <Button as={Link} to="/online-courses" variant="outline-secondary" className="px-4">
+                <Button as={Link} to={user?.role === 'student' ? '/learning/courses' : '/online-courses'} variant="outline-secondary" className="px-4">
                   Tiếp tục khám phá
                 </Button>
               </div>
@@ -202,16 +229,18 @@ export default function Checkout() {
   }
 
   // ===== Chưa thanh toán hoặc đơn trước bị từ chối -> hiển thị form QR =====
-  const amount = course?.price || 0;
+  const amount = (isUpgrade && course?.premiumPrice) ? course.premiumPrice : (course?.price || 0);
   const qrUrl = buildVietQrUrl(amount, transferContent);
 
   return (
-    <div className="checkout-page bg-light">
-      <Container className="py-5">
-        <div className="text-center mb-4">
-          <span className="text-uppercase text-primary fw-semibold small">Thanh toán khóa học</span>
-          <h1 className="h2 fw-bold mb-0">Hoàn tất đăng ký</h1>
-        </div>
+    <div className="checkout-page" style={{ paddingBottom: '60px' }}>
+      <StudentPageBanner
+        title={isUpgrade ? "Nâng cấp Premium" : "Hoàn tất đăng ký"}
+        subtitle="Thanh toán khóa học"
+        badgeText="THANH TOÁN AN TOÀN"
+        badgeIcon="bi-shield-check"
+      />
+      <Container style={{ marginTop: '-20px', position: 'relative', zIndex: 10 }}>
 
         {status === PAYMENT_STATUS.REJECTED && (
           <Alert variant="danger" className="mx-auto" style={{ maxWidth: 920 }}>
@@ -294,7 +323,7 @@ export default function Checkout() {
                 <Button
                   variant="outline-secondary"
                   className="w-100"
-                  onClick={() => navigate(`/courses/${courseId}`)}
+                  onClick={() => navigate(user?.role === 'student' ? `/learning/courses/${courseId}` : `/courses/${courseId}`)}
                   disabled={processing}
                 >
                   Quay lại chi tiết khóa học

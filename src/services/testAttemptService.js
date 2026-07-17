@@ -25,6 +25,22 @@ export const testAttemptService = {
       return { limit, used: 0, remaining: Infinity, attempts: [] };
     }
 
+    if (user?.id && normalized.courseId) {
+      try {
+        const { getEnrollment, getCourseById } = await import('./courseLearning.service');
+        const enrollment = await getEnrollment(user.id, normalized.courseId);
+        if (enrollment) {
+          const course = await getCourseById(normalized.courseId);
+          const isFreeCourse = !course.price || course.price === 0;
+          if (!isFreeCourse || enrollment.isPremium) {
+            return { limit: Infinity, used: 0, remaining: Infinity, attempts: [] };
+          }
+        }
+      } catch (err) {
+        console.error('Error checking premium status:', err);
+      }
+    }
+
     const owner = getAttemptOwner(user);
     const attempts = await testAttemptService.getAttemptsForTestOwner(normalized.id, owner);
     const counted = attempts.filter(isAttemptCounted);
