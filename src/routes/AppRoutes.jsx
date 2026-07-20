@@ -98,6 +98,10 @@ export default function AppRoutes() {
         <Route path="/free-tests/attempt/:attemptId" element={<TestSessionPage />} />
         <Route path="/free-tests/review/:attemptId" element={<TestReviewPage />} />
         <Route element={<ProtectedRoute allowedRoles={['student', 'teacher', 'admin']} />}>
+<<<<<<< HEAD
+=======
+          <Route path="/profile" element={<StudentProfile />} />
+>>>>>>> origin/main
           <Route path="/profile" element={<ProfileRedirect />} />
         </Route>
       </Route>

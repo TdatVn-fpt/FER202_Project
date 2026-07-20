@@ -1,4 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
+<<<<<<< HEAD
+=======
+import { Table, Spinner, Alert, Container, Form, Row, Col, Pagination, Card } from 'react-bootstrap';
+>>>>>>> origin/main
 import { Table, Spinner, Alert, Container, Form, Row, Col, Pagination, Card, Button } from 'react-bootstrap';
 import { getAuditLogs } from '../../services/adminService';
 
@@ -136,6 +140,9 @@ export default function AuditLogs() {
       <div className="tp-main-content">
         <Container fluid="xxl" className="px-4">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/main
           {/* Lọc Logs */}
           <Card className="studio-filter-card mb-4">
             <Row className="g-3">
@@ -171,7 +178,10 @@ export default function AuditLogs() {
                 />
               </Col>
             </Row>
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/main
           <Card className="border-0 shadow-sm rounded-4 mb-4">
             <Card.Body className="p-4">
               <Row className="g-3">
@@ -216,6 +226,9 @@ export default function AuditLogs() {
                 </Col>
               </Row>
             </Card.Body>
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
           </Card>
 

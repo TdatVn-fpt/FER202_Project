@@ -48,18 +48,12 @@
       "name": "Nguyen Tien Dat",
       "email": "ntiendat2108@gmail.com",
       "role": "admin",
-      "avatar": "https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-6/519423241_1532583371481775_1460153108882887398_n.jpg?stp=dst-jpg_tt6&cstp=mx1920x1920&ctp=s1920x1920&_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEI_fbwzQF22jUF7KyqXy9i0eOatIB_1vbR45q0gH_W9vVCwEy8hd5mSbthMnJDqnMkm1VAKfpY7FnYrSZc7QeX&_nc_ohc=R6F3LZ3mfOkQ7kNvwHx-UnA&_nc_oc=AdrLLEBJOLHf6NzBgjhm3CI2sKQd2rgtDFRGObAdOWt90u6RSh6hRlfMQzKTmw6S36Y&_nc_zt=23&_nc_ht=scontent.fhan18-1.fna&_nc_gid=ZR-aKHXkIeTssY8xgNJW_Q&_nc_ss=7a2a8&oh=00_AQAHhePauoRmEHzTFFmd7soMa4pAwmu8RZZSJD6PuP4jOg&oe=6A63DF18",
+      "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "status": "active",
       "targetBand": 7,
       "currentBand": 5.5,
       "createdAt": "2026-06-01T08:00:00Z",
-<<<<<<< HEAD
       "passwordHash": "$2b$10$peFW66ULi4fclViLUPGyTOSMUUGQXIQW4xb5giBY9bKQ5DyglgMEG"
-=======
-      "passwordHash": "$2b$10$peFW66ULi4fclViLUPGyTOSMUUGQXIQW4xb5giBY9bKQ5DyglgMEG",
-      "dateOfBirth": "2005-12-01",
-      "updatedAt": "2026-07-20T12:33:51.656Z"
->>>>>>> origin/main
     },
     {
       "id": "u-student-004",
@@ -88,12 +82,7 @@
       "currentBand": 5,
       "createdAt": "2026-06-02T08:00:00Z",
       "dateOfBirth": "",
-<<<<<<< HEAD
       "passwordHash": "$2b$10$VWVreLPDHhKzFK/dpFKmMuYyCHMN8/oNmVQZ8GTLEW7ubGrvwgDQi"
-=======
-      "passwordHash": "$2b$10$VWVreLPDHhKzFK/dpFKmMuYyCHMN8/oNmVQZ8GTLEW7ubGrvwgDQi",
-      "updatedAt": "2026-07-20T12:52:43.344Z"
->>>>>>> origin/main
     },
     {
       "id": "u-teacher-001",
@@ -119,25 +108,15 @@
     },
     {
       "email": "kien030405@gmail.com",
-<<<<<<< HEAD
       "fullName": "",
       "name": "",
-=======
-      "fullName": "Kiên trần",
-      "name": "Kiên trần",
->>>>>>> origin/main
       "dateOfBirth": "2007-12-20",
       "id": "ydj-RqSNOgY",
       "role": "admin",
       "status": "active",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "createdAt": "2026-06-11T03:17:42.250Z",
-<<<<<<< HEAD
       "passwordHash": "$2b$10$WarXHPcckclgRf29q2rmn.zNM3t7.GzVeqUmuXVT/392SKm/BEh/y"
-=======
-      "passwordHash": "$2b$10$WarXHPcckclgRf29q2rmn.zNM3t7.GzVeqUmuXVT/392SKm/BEh/y",
-      "updatedAt": "2026-07-20T12:51:22.801Z"
->>>>>>> origin/main
     },
     {
       "email": "thaikhachuuduc@gmail.com",
@@ -172,24 +151,14 @@
       "name": "Nguyễn Văn Khá",
       "email": "fer202studenttest@ntdservice.store",
       "passwordHash": "$2b$10$8vM5ni5Qr.Wrx8gLTh4K3evctNvV0QW89xFNcaJfGZTTnOTn98Nxu",
-<<<<<<< HEAD
       "role": "student",
       "status": "active",
       "avatar": "",
-=======
-      "role": "teacher",
-      "status": "active",
-      "avatar": "https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-6/519423241_1532583371481775_1460153108882887398_n.jpg?stp=dst-jpg_tt6&cstp=mx1920x1920&ctp=s1920x1920&_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEI_fbwzQF22jUF7KyqXy9i0eOatIB_1vbR45q0gH_W9vVCwEy8hd5mSbthMnJDqnMkm1VAKfpY7FnYrSZc7QeX&_nc_ohc=R6F3LZ3mfOkQ7kNvwHx-UnA&_nc_oc=AdrLLEBJOLHf6NzBgjhm3CI2sKQd2rgtDFRGObAdOWt90u6RSh6hRlfMQzKTmw6S36Y&_nc_zt=23&_nc_ht=scontent.fhan18-1.fna&_nc_gid=ZR-aKHXkIeTssY8xgNJW_Q&_nc_ss=7a2a8&oh=00_AQAHhePauoRmEHzTFFmd7soMa4pAwmu8RZZSJD6PuP4jOg&oe=6A63DF18",
->>>>>>> origin/main
       "dateOfBirth": "2001-12-09",
       "currentBand": 0,
       "targetBand": 0,
       "createdAt": "2026-07-20T10:43:08.520Z",
-<<<<<<< HEAD
       "updatedAt": "2026-07-20T10:43:08.520Z"
-=======
-      "updatedAt": "2026-07-20T12:34:52.316Z"
->>>>>>> origin/main
     },
     {
       "id": "u-student-006",
@@ -199,7 +168,6 @@
       "passwordHash": "$2b$10$5xgBVoE006G0xDdrGJq8C.fUplFCNQQARRnKHEk5LvYciqMd3olry",
       "role": "student",
       "status": "active",
-<<<<<<< HEAD
       "avatar": "",
       "dateOfBirth": "2006-05-17",
       "currentBand": 0,
@@ -221,14 +189,6 @@
       "targetBand": 0,
       "createdAt": "2026-07-20T12:42:19.050Z",
       "updatedAt": "2026-07-20T12:42:19.050Z"
-=======
-      "avatar": "https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-6/519423241_1532583371481775_1460153108882887398_n.jpg?stp=dst-jpg_tt6&cstp=mx1920x1920&ctp=s1920x1920&_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEI_fbwzQF22jUF7KyqXy9i0eOatIB_1vbR45q0gH_W9vVCwEy8hd5mSbthMnJDqnMkm1VAKfpY7FnYrSZc7QeX&_nc_ohc=R6F3LZ3mfOkQ7kNvwHx-UnA&_nc_oc=AdrLLEBJOLHf6NzBgjhm3CI2sKQd2rgtDFRGObAdOWt90u6RSh6hRlfMQzKTmw6S36Y&_nc_zt=23&_nc_ht=scontent.fhan18-1.fna&_nc_gid=ZR-aKHXkIeTssY8xgNJW_Q&_nc_ss=7a2a8&oh=00_AQAHhePauoRmEHzTFFmd7soMa4pAwmu8RZZSJD6PuP4jOg&oe=6A63DF18",
-      "dateOfBirth": "2006-05-17",
-      "currentBand": 5,
-      "targetBand": 7.5,
-      "createdAt": "2026-07-20T11:55:08.771Z",
-      "updatedAt": "2026-07-20T12:53:50.229Z"
->>>>>>> origin/main
     }
   ],
   "courses": [
@@ -3533,13 +3493,13 @@
             "audioUrl": "",
             "blocks": [
               {
-                "id": "block-1784554022802-2zs55c",
+                "id": "block-1784555950075-lbrenp",
                 "type": "Note/Table/Flow-chart Completion",
                 "rendererType": "fill-in-the-blank",
                 "range": "1-10",
                 "questions": [
                   {
-                    "id": "q-1-1784554022801-k5o56",
+                    "id": "q-1-1784555950074-afokp",
                     "questionOrder": 1,
                     "text": "Customer Name: ____.",
                     "options": [],
@@ -3547,7 +3507,7 @@
                     "explanation": "She spells her surname J-E-N-K-I-N-S."
                   },
                   {
-                    "id": "q-2-1784554022802-tc7gp",
+                    "id": "q-2-1784555950074-z6hb8",
                     "questionOrder": 2,
                     "text": "Contact Number: ____.",
                     "options": [],
@@ -3555,7 +3515,7 @@
                     "explanation": "The agent confirms the number ending in 321."
                   },
                   {
-                    "id": "q-3-1784554022802-f5wme",
+                    "id": "q-3-1784555950074-pgugl",
                     "questionOrder": 3,
                     "text": "Type of membership required: ____.",
                     "options": [],
@@ -3563,7 +3523,7 @@
                     "explanation": "She asks for a membership covering two adults and two children."
                   },
                   {
-                    "id": "q-4-1784554022802-uh7ub",
+                    "id": "q-4-1784555950074-a61i9",
                     "questionOrder": 4,
                     "text": "Start date: ____.",
                     "options": [],
@@ -3571,7 +3531,7 @@
                     "explanation": "They agree the membership will begin on the 15th of August."
                   },
                   {
-                    "id": "q-5-1784554022802-vml15",
+                    "id": "q-5-1784555950074-ir4zk",
                     "questionOrder": 5,
                     "text": "Payment method: ____.",
                     "options": [],
@@ -3579,7 +3539,7 @@
                     "explanation": "She prefers to pay via credit card rather than direct debit."
                   },
                   {
-                    "id": "q-6-1784554022802-rtg9g",
+                    "id": "q-6-1784555950074-eot7b",
                     "questionOrder": 6,
                     "text": "Membership includes free access to the ____.",
                     "options": [],
@@ -3587,7 +3547,7 @@
                     "explanation": "The agent mentions the pool is free for family members."
                   },
                   {
-                    "id": "q-7-1784554022802-w6845",
+                    "id": "q-7-1784555950074-qhy92",
                     "questionOrder": 7,
                     "text": "Orientation session is scheduled for ____.",
                     "options": [],
@@ -3595,7 +3555,7 @@
                     "explanation": "She chooses Saturday morning for her gym induction."
                   },
                   {
-                    "id": "q-8-1784554022802-hirxh",
+                    "id": "q-8-1784555950074-1ka4f",
                     "questionOrder": 8,
                     "text": "Must bring ____ to the first session.",
                     "options": [],
@@ -3603,7 +3563,7 @@
                     "explanation": "The receptionist reminds her to carry a photo ID for registration."
                   },
                   {
-                    "id": "q-9-1784554022802-sgqnr",
+                    "id": "q-9-1784555950074-l3ppx",
                     "questionOrder": 9,
                     "text": "Discount code applied: ____.",
                     "options": [],
@@ -3611,7 +3571,7 @@
                     "explanation": "She provides the code SUMMER20 to get 20% off."
                   },
                   {
-                    "id": "q-10-1784554022802-vfpf4",
+                    "id": "q-10-1784555950074-09i50",
                     "questionOrder": 10,
                     "text": "Welcome pack will be sent via ____.",
                     "options": [],
@@ -3633,13 +3593,13 @@
             "audioUrl": "",
             "blocks": [
               {
-                "id": "block-1784554022803-tosxou",
+                "id": "block-1784555950075-65e2on",
                 "type": "Multiple Choice",
                 "rendererType": "multiple-choice",
                 "range": "11-15",
                 "questions": [
                   {
-                    "id": "q-11-1784554022803-ypz2k",
+                    "id": "q-11-1784555950075-n4iwy",
                     "questionOrder": 11,
                     "text": "The local museum was recently renovated to:",
                     "options": [
@@ -3651,7 +3611,7 @@
                     "explanation": "The director mentions the new wing was the primary reason for the closure."
                   },
                   {
-                    "id": "q-12-1784554022803-1rp5w",
+                    "id": "q-12-1784555950075-i3aax",
                     "questionOrder": 12,
                     "text": "Visitors are advised to park:",
                     "options": [
@@ -3663,7 +3623,7 @@
                     "explanation": "The museum parking is closed, so the town hall is recommended."
                   },
                   {
-                    "id": "q-13-1784554022803-ye5n9",
+                    "id": "q-13-1784555950075-46m5s",
                     "questionOrder": 13,
                     "text": "The new dinosaur exhibit features:",
                     "options": [
@@ -3675,7 +3635,7 @@
                     "explanation": "The speaker highlights the animatronic, life-size models."
                   },
                   {
-                    "id": "q-14-1784554022803-60ndu",
+                    "id": "q-14-1784555950075-mza4b",
                     "questionOrder": 14,
                     "text": "The cafe is currently located:",
                     "options": [
@@ -3687,7 +3647,7 @@
                     "explanation": "Following the renovation, the cafe moved adjacent to the shop."
                   },
                   {
-                    "id": "q-15-1784554022803-1okap",
+                    "id": "q-15-1784555950075-ts64i",
                     "questionOrder": 15,
                     "text": "Guided tours start every:",
                     "options": [
@@ -3713,13 +3673,13 @@
             "audioUrl": "",
             "blocks": [
               {
-                "id": "block-1784554022803-gakrpm",
+                "id": "block-1784555950075-1jmamo",
                 "type": "Multiple Choice",
                 "rendererType": "multiple-choice",
                 "range": "21-25",
                 "questions": [
                   {
-                    "id": "q-21-1784554022803-ivvig",
+                    "id": "q-21-1784555950075-pc0zl",
                     "questionOrder": 21,
                     "text": "What did John find most difficult about his research?",
                     "options": [
@@ -3731,7 +3691,7 @@
                     "explanation": "John complains about the lack of peer-reviewed articles on his topic."
                   },
                   {
-                    "id": "q-22-1784554022803-wxnb1",
+                    "id": "q-22-1784555950075-m93hl",
                     "questionOrder": 22,
                     "text": "Maria suggests that John should:",
                     "options": [
@@ -3743,7 +3703,7 @@
                     "explanation": "Maria thinks his scope is too broad and needs narrowing."
                   },
                   {
-                    "id": "q-23-1784554022803-2pymw",
+                    "id": "q-23-1784555950075-y2dde",
                     "questionOrder": 23,
                     "text": "Both students agree that the previous lecture was:",
                     "options": [
@@ -3755,7 +3715,7 @@
                     "explanation": "They both felt the professor jumped between topics too quickly."
                   },
                   {
-                    "id": "q-24-1784554022803-adnfw",
+                    "id": "q-24-1784555950075-wrd1t",
                     "questionOrder": 24,
                     "text": "For their joint presentation, they decide to focus on:",
                     "options": [
@@ -3767,7 +3727,7 @@
                     "explanation": "They settle on renewable energy as it has the most recent data."
                   },
                   {
-                    "id": "q-25-1784554022803-920dr",
+                    "id": "q-25-1784555950075-a24x0",
                     "questionOrder": 25,
                     "text": "The presentation must not exceed:",
                     "options": [
@@ -3793,13 +3753,13 @@
             "audioUrl": "",
             "blocks": [
               {
-                "id": "block-1784554022803-nr95nm",
+                "id": "block-1784555950075-927f5m",
                 "type": "Sentence Completion",
                 "rendererType": "fill-in-the-blank",
                 "range": "31-40",
                 "questions": [
                   {
-                    "id": "q-31-1784554022803-6aa5s",
+                    "id": "q-31-1784555950075-2lv42",
                     "questionOrder": 31,
                     "text": "The ancient civilization was primarily based around the ____ river.",
                     "options": [],
@@ -3807,7 +3767,7 @@
                     "explanation": "The lecturer states the Nile was the lifeblood of their society."
                   },
                   {
-                    "id": "q-32-1784554022803-w3xjl",
+                    "id": "q-32-1784555950075-ju1r2",
                     "questionOrder": 32,
                     "text": "Their agricultural success relied heavily on predictable ____.",
                     "options": [],
@@ -3815,7 +3775,7 @@
                     "explanation": "Annual flooding deposited nutrient-rich silt."
                   },
                   {
-                    "id": "q-33-1784554022803-6urmi",
+                    "id": "q-33-1784555950075-wgmk3",
                     "questionOrder": 33,
                     "text": "Farmers developed a complex system of ____ to manage water.",
                     "options": [],
@@ -3823,7 +3783,7 @@
                     "explanation": "Irrigation canals were dug to distribute water inland."
                   },
                   {
-                    "id": "q-34-1784554022803-6i9nm",
+                    "id": "q-34-1784555950075-d923k",
                     "questionOrder": 34,
                     "text": "The main crop grown for food was ____.",
                     "options": [],
@@ -3831,7 +3791,7 @@
                     "explanation": "Wheat was the staple grain of their diet."
                   },
                   {
-                    "id": "q-35-1784554022803-53r51",
+                    "id": "q-35-1784555950075-uhcpp",
                     "questionOrder": 35,
                     "text": "Papyrus was crucial for keeping ____.",
                     "options": [],
@@ -3839,7 +3799,7 @@
                     "explanation": "They needed papyrus to document taxes and laws."
                   },
                   {
-                    "id": "q-36-1784554022803-20jn1",
+                    "id": "q-36-1784555950075-yexq2",
                     "questionOrder": 36,
                     "text": "The society was highly hierarchical, with the ____ at the top.",
                     "options": [],
@@ -3847,7 +3807,7 @@
                     "explanation": "The Pharaoh was considered both a king and a god."
                   },
                   {
-                    "id": "q-37-1784554022803-qhqde",
+                    "id": "q-37-1784555950075-z9tq3",
                     "questionOrder": 37,
                     "text": "Most of the labor for building monuments was provided by ____.",
                     "options": [],
@@ -3855,7 +3815,7 @@
                     "explanation": "During the flood season, farmers were drafted for construction."
                   },
                   {
-                    "id": "q-38-1784554022803-nvszm",
+                    "id": "q-38-1784555950075-vegwe",
                     "questionOrder": 38,
                     "text": "Trade routes were established to acquire rare materials like ____.",
                     "options": [],
@@ -3863,7 +3823,7 @@
                     "explanation": "Wood was scarce, so timber was imported from Lebanon."
                   },
                   {
-                    "id": "q-39-1784554022803-3w7qk",
+                    "id": "q-39-1784555950075-lllze",
                     "questionOrder": 39,
                     "text": "The decline of the empire was partially due to severe ____.",
                     "options": [],
@@ -3871,7 +3831,7 @@
                     "explanation": "A series of prolonged droughts weakened the agricultural base."
                   },
                   {
-                    "id": "q-40-1784554022803-8av4r",
+                    "id": "q-40-1784555950075-hqc9q",
                     "questionOrder": 40,
                     "text": "However, their advancements in ____ continue to influence modern science.",
                     "options": [],
@@ -4988,7 +4948,6 @@
     },
     {
       "id": "log-050",
-<<<<<<< HEAD
       "actorId": "u-teacher-001",
       "action": "DELETE_TEST",
       "targetType": "activity",
@@ -5000,258 +4959,6 @@
         "courseId": "course-007"
       },
       "createdAt": "2026-07-20T12:47:04.298Z"
-=======
-      "actorId": "u-student-001",
-      "action": "UPDATE_USER",
-      "targetType": "user",
-      "targetId": "u-student-005",
-      "oldValue": {
-        "id": "u-student-005",
-        "fullName": "Nguyễn Văn Khá",
-        "name": "Nguyễn Văn Khá",
-        "email": "fer202studenttest@ntdservice.store",
-        "role": "student",
-        "status": "active",
-        "avatar": "",
-        "dateOfBirth": "2001-12-09",
-        "currentBand": 0,
-        "targetBand": 0,
-        "createdAt": "2026-07-20T10:43:08.520Z",
-        "updatedAt": "2026-07-20T10:43:08.520Z"
-      },
-      "newValue": {
-        "id": "u-student-005",
-        "fullName": "Nguyễn Văn Khá",
-        "name": "Nguyễn Văn Khá",
-        "email": "fer202studenttest@ntdservice.store",
-        "role": "teacher",
-        "status": "active",
-        "avatar": "",
-        "dateOfBirth": "2001-12-09",
-        "currentBand": 0,
-        "targetBand": 0,
-        "createdAt": "2026-07-20T10:43:08.520Z",
-        "updatedAt": "2026-07-20T12:34:27.318Z"
-      },
-      "createdAt": "2026-07-20T12:34:27.318Z"
-    },
-    {
-      "id": "log-051",
-      "actorId": "u-student-001",
-      "action": "CHANGE_USER_ROLE",
-      "targetType": "user",
-      "targetId": "u-student-005",
-      "oldValue": {
-        "role": "student"
-      },
-      "newValue": {
-        "role": "teacher"
-      },
-      "createdAt": "2026-07-20T12:34:27.319Z"
-    },
-    {
-      "id": "log-052",
-      "actorId": "u-student-001",
-      "action": "UPDATE_USER",
-      "targetType": "user",
-      "targetId": "ydj-RqSNOgY",
-      "oldValue": {
-        "email": "kien030405@gmail.com",
-        "fullName": "",
-        "name": "",
-        "dateOfBirth": "2007-12-20",
-        "id": "ydj-RqSNOgY",
-        "role": "admin",
-        "status": "active",
-        "avatar": "https://www.gravatar.com/avatar/?d=mp",
-        "createdAt": "2026-06-11T03:17:42.250Z"
-      },
-      "newValue": {
-        "email": "kien030405@gmail.com",
-        "fullName": "Kiên trần",
-        "name": "Kiên trần",
-        "dateOfBirth": "2007-12-20",
-        "id": "ydj-RqSNOgY",
-        "role": "admin",
-        "status": "active",
-        "avatar": "https://www.gravatar.com/avatar/?d=mp",
-        "createdAt": "2026-06-11T03:17:42.250Z",
-        "updatedAt": "2026-07-20T12:51:22.801Z"
-      },
-      "createdAt": "2026-07-20T12:51:22.801Z"
-    },
-    {
-      "id": "log-053",
-      "actorId": "u-student-001",
-      "action": "CHANGE_USER_STATUS",
-      "targetType": "user",
-      "targetId": "u-001",
-      "oldValue": {
-        "status": "active",
-        "lockedUntil": null
-      },
-      "newValue": {
-        "status": "banned",
-        "lockedUntil": null
-      },
-      "createdAt": "2026-07-20T12:52:07.108Z"
-    },
-    {
-      "id": "log-054",
-      "actorId": "u-student-001",
-      "action": "UPDATE_USER",
-      "targetType": "user",
-      "targetId": "u-001",
-      "oldValue": {
-        "id": "u-001",
-        "fullName": "Nguyen Duy Manh",
-        "name": "Nguyen Duy Manh",
-        "email": "manhnd@student.com",
-        "role": "student",
-        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB61G-dq7NqM8aauLy9sA6jizp_6495Vgmxw&s",
-        "status": "banned",
-        "targetBand": 7.5,
-        "currentBand": 5,
-        "createdAt": "2026-06-02T08:00:00Z",
-        "dateOfBirth": "",
-        "updatedAt": "2026-07-20T12:52:07.108Z"
-      },
-      "newValue": {
-        "id": "u-001",
-        "fullName": "Nguyen Duy Manh",
-        "name": "Nguyen Duy Manh",
-        "email": "manhnd@student.com",
-        "role": "student",
-        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB61G-dq7NqM8aauLy9sA6jizp_6495Vgmxw&s",
-        "status": "banned",
-        "targetBand": 7.5,
-        "currentBand": 5,
-        "createdAt": "2026-06-02T08:00:00Z",
-        "dateOfBirth": "",
-        "updatedAt": "2026-07-20T12:52:21.882Z"
-      },
-      "createdAt": "2026-07-20T12:52:21.882Z"
-    },
-    {
-      "id": "log-055",
-      "actorId": "u-student-001",
-      "action": "UPDATE_USER",
-      "targetType": "user",
-      "targetId": "u-001",
-      "oldValue": {
-        "id": "u-001",
-        "fullName": "Nguyen Duy Manh",
-        "name": "Nguyen Duy Manh",
-        "email": "manhnd@student.com",
-        "role": "student",
-        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB61G-dq7NqM8aauLy9sA6jizp_6495Vgmxw&s",
-        "status": "banned",
-        "targetBand": 7.5,
-        "currentBand": 5,
-        "createdAt": "2026-06-02T08:00:00Z",
-        "dateOfBirth": "",
-        "updatedAt": "2026-07-20T12:52:21.882Z"
-      },
-      "newValue": {
-        "id": "u-001",
-        "fullName": "Nguyen Duy Manh",
-        "name": "Nguyen Duy Manh",
-        "email": "manhnd@student.com",
-        "role": "student",
-        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB61G-dq7NqM8aauLy9sA6jizp_6495Vgmxw&s",
-        "status": "banned",
-        "targetBand": 7.5,
-        "currentBand": 5,
-        "createdAt": "2026-06-02T08:00:00Z",
-        "dateOfBirth": "",
-        "updatedAt": "2026-07-20T12:52:43.320Z"
-      },
-      "createdAt": "2026-07-20T12:52:43.321Z"
-    },
-    {
-      "id": "log-056",
-      "actorId": "u-student-001",
-      "action": "CHANGE_USER_STATUS",
-      "targetType": "user",
-      "targetId": "u-001",
-      "oldValue": {
-        "status": "banned",
-        "lockedUntil": null
-      },
-      "newValue": {
-        "status": "active",
-        "lockedUntil": null
-      },
-      "createdAt": "2026-07-20T12:52:43.344Z"
-    },
-    {
-      "id": "log-057",
-      "actorId": "u-student-001",
-      "action": "CHANGE_USER_STATUS",
-      "targetType": "user",
-      "targetId": "u-student-006",
-      "oldValue": {
-        "status": "active",
-        "lockedUntil": null
-      },
-      "newValue": {
-        "status": "banned",
-        "lockedUntil": null
-      },
-      "createdAt": "2026-07-20T12:52:59.979Z"
-    },
-    {
-      "id": "log-058",
-      "actorId": "u-student-001",
-      "action": "UPDATE_USER",
-      "targetType": "user",
-      "targetId": "u-student-006",
-      "oldValue": {
-        "id": "u-student-006",
-        "fullName": "tien dat nguyen",
-        "name": "tien dat nguyen",
-        "email": "fer202studenttest2@ntdservice.store",
-        "role": "student",
-        "status": "banned",
-        "avatar": "https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-6/519423241_1532583371481775_1460153108882887398_n.jpg?stp=dst-jpg_tt6&cstp=mx1920x1920&ctp=s1920x1920&_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEI_fbwzQF22jUF7KyqXy9i0eOatIB_1vbR45q0gH_W9vVCwEy8hd5mSbthMnJDqnMkm1VAKfpY7FnYrSZc7QeX&_nc_ohc=R6F3LZ3mfOkQ7kNvwHx-UnA&_nc_oc=AdrLLEBJOLHf6NzBgjhm3CI2sKQd2rgtDFRGObAdOWt90u6RSh6hRlfMQzKTmw6S36Y&_nc_zt=23&_nc_ht=scontent.fhan18-1.fna&_nc_gid=ZR-aKHXkIeTssY8xgNJW_Q&_nc_ss=7a2a8&oh=00_AQAHhePauoRmEHzTFFmd7soMa4pAwmu8RZZSJD6PuP4jOg&oe=6A63DF18",
-        "dateOfBirth": "2006-05-17",
-        "currentBand": 5,
-        "targetBand": 7.5,
-        "createdAt": "2026-07-20T11:55:08.771Z",
-        "updatedAt": "2026-07-20T12:52:59.979Z"
-      },
-      "newValue": {
-        "id": "u-student-006",
-        "fullName": "tien dat nguyen",
-        "name": "tien dat nguyen",
-        "email": "fer202studenttest2@ntdservice.store",
-        "role": "student",
-        "status": "banned",
-        "avatar": "https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-6/519423241_1532583371481775_1460153108882887398_n.jpg?stp=dst-jpg_tt6&cstp=mx1920x1920&ctp=s1920x1920&_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEI_fbwzQF22jUF7KyqXy9i0eOatIB_1vbR45q0gH_W9vVCwEy8hd5mSbthMnJDqnMkm1VAKfpY7FnYrSZc7QeX&_nc_ohc=R6F3LZ3mfOkQ7kNvwHx-UnA&_nc_oc=AdrLLEBJOLHf6NzBgjhm3CI2sKQd2rgtDFRGObAdOWt90u6RSh6hRlfMQzKTmw6S36Y&_nc_zt=23&_nc_ht=scontent.fhan18-1.fna&_nc_gid=ZR-aKHXkIeTssY8xgNJW_Q&_nc_ss=7a2a8&oh=00_AQAHhePauoRmEHzTFFmd7soMa4pAwmu8RZZSJD6PuP4jOg&oe=6A63DF18",
-        "dateOfBirth": "2006-05-17",
-        "currentBand": 5,
-        "targetBand": 7.5,
-        "createdAt": "2026-07-20T11:55:08.771Z",
-        "updatedAt": "2026-07-20T12:53:50.194Z"
-      },
-      "createdAt": "2026-07-20T12:53:50.194Z"
-    },
-    {
-      "id": "log-059",
-      "actorId": "u-student-001",
-      "action": "CHANGE_USER_STATUS",
-      "targetType": "user",
-      "targetId": "u-student-006",
-      "oldValue": {
-        "status": "banned",
-        "lockedUntil": null
-      },
-      "newValue": {
-        "status": "active",
-        "lockedUntil": null
-      },
-      "createdAt": "2026-07-20T12:53:50.229Z"
->>>>>>> origin/main
     }
   ],
   "approvalRequests": [
@@ -8003,7 +7710,6 @@
       "status": "in-progress",
       "answers": {},
       "id": "WfnpFzvmB7c"
-<<<<<<< HEAD
     },
     {
       "id": "ta-010",
@@ -8044,8 +7750,6 @@
       "status": "in-progress",
       "startTime": "2026-07-20T13:04:46.235Z",
       "createdAt": "2026-07-20T13:04:46.239Z"
-=======
->>>>>>> origin/main
     }
   ],
   "flashcardDecks": [
@@ -8382,7 +8086,6 @@
       "expiresAt": "2026-07-21T11:55:08.890Z",
       "usedAt": "2026-07-20T11:55:38.306Z",
       "createdAt": "2026-07-20T11:55:08.771Z"
-<<<<<<< HEAD
     },
     {
       "id": "vt-002",
@@ -8391,8 +8094,6 @@
       "expiresAt": "2026-07-21T12:42:19.203Z",
       "usedAt": null,
       "createdAt": "2026-07-20T12:42:19.050Z"
-=======
->>>>>>> origin/main
     }
   ]
 }
