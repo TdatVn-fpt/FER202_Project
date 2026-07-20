@@ -3,7 +3,17 @@ import { Alert, Badge, Button, Card, Col, Form, Modal, Row } from 'react-bootstr
 import { parseAdvancedQuestionText } from '../../../utils/ieltsQuestionBlocks';
 import { READING_SAMPLES, LISTENING_SAMPLES, DEFAULT_SAMPLE } from '../../../utils/sampleQuestions';
 
+const SAMPLE_TEXT = `[MCQ]
+1. Why does the speaker call the office?
+A. To cancel a booking
+*B. To change a reservation
+C. To ask for directions
+Explanation: The speaker says she needs another date.
 
+[NOTE COMPLETION]
+2. Customer name: ____.
+*Martin Hale
+Explanation: The receptionist repeats the name.`;
 
 const MARKER_CHIPS = ['[MCQ]', '[T/F/NG]', '[Y/N/NG]', '[NOTE COMPLETION]', '[SENTENCE COMPLETION]', '[SAQ]'];
 
@@ -15,6 +25,7 @@ export default function QuestionBlockEditor({
   blocks = [],
   onChange,
   variant = 'primary',
+  defaultSampleText,
   skill = 'Reading',
   referenceIndex = 0,
 }) {
@@ -116,7 +127,7 @@ export default function QuestionBlockEditor({
                 type="button"
                 variant={`outline-${variant}`}
                 onClick={() => {
-                  let sampleText = DEFAULT_SAMPLE;
+                  let sampleText = defaultSampleText || DEFAULT_SAMPLE || SAMPLE_TEXT;
                   if (skill === 'Reading' && READING_SAMPLES[referenceIndex]) {
                     sampleText = READING_SAMPLES[referenceIndex];
                   } else if (skill === 'Listening' && LISTENING_SAMPLES[referenceIndex]) {
