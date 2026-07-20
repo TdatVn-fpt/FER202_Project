@@ -126,6 +126,12 @@ export default function AppRoutes() {
           <Route path="/learning/tests/review/:attemptId" element={<TestReviewPage />} />
           <Route path="/learning/profile" element={<Navigate to="/profile" replace />} />
           <Route path="/learning/flashcards" element={<FlashcardListPage />} />
+        </Route>
+      </Route>
+
+      {/* Flashcard Study Page (Accessible by Student, Teacher, and Admin for Preview/Learning) */}
+      <Route element={<ProtectedRoute allowedRoles={['student', 'teacher', 'admin']} />}>
+        <Route element={<StudentLayout />}>
           <Route path="/learning/flashcards/:deckId" element={<FlashcardStudyPage />} />
         </Route>
       </Route>

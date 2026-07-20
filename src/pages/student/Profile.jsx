@@ -13,6 +13,7 @@ const validDate = (value) => {
     && !Number.isNaN(parsed.getTime())
     && parsed.toISOString().slice(0, 10) === value
     && parsed <= new Date();
+};
 const validateDob = (value) => {
   if (!value) return { isValid: true };
   const parsedDate = new Date(`${value}T00:00:00Z`);
@@ -121,21 +122,6 @@ export default function Profile() {
     }
   };
 
-
-    setSavingPassword(true);
-    try {
-      const result = await changeCurrentUserPassword(password);
-      setPassword({ currentPassword: '', newPassword: '', confirmPassword: '' });
-      toast.success(result.message || 'Đổi mật khẩu thành công!');
-    } catch (error) {
-      const field = error.code === 'CURRENT_PASSWORD_INVALID' ? { currentPassword: error.message } : {};
-      setPasswordErrors(field);
-      toast.error(error.message || 'Đổi mật khẩu thất bại.');
-    } finally {
-      setSavingPassword(false);
-    }
-  };
-
   if (!user) return <div className="container py-5 text-center">Không tìm thấy phiên người dùng.</div>;
 
   return (
@@ -192,18 +178,6 @@ export default function Profile() {
                   </div>
                   <div className="col-md-6">
                     <label className="prf-label" htmlFor="profileEmail">Email</label>
-                    <input id="profileEmail" className="prf-input" value={user.email} readOnly />
-                  </div>
-                  <div className="col-md-6">
-                    <label className="prf-label" htmlFor="profileDateOfBirth">Ngày sinh</label>
-                    <input id="profileDateOfBirth" type="date" className={`prf-input ${profileErrors.dateOfBirth ? 'is-invalid' : ''}`} value={profile.dateOfBirth} onChange={(event) => setProfile((old) => ({ ...old, dateOfBirth: event.target.value }))} />
-                    {profileErrors.dateOfBirth && <div className="prf-error">{profileErrors.dateOfBirth}</div>}
-                  </div>
-                  <div className="col-md-6">
-                    <label className="prf-label" htmlFor="profileAvatar">Avatar URL</label>
-                    <input id="profileAvatar" className={`prf-input ${profileErrors.avatar ? 'is-invalid' : ''}`} value={profile.avatar} onChange={(event) => setProfile((old) => ({ ...old, avatar: event.target.value }))} />
-                    {profileErrors.avatar && <div className="prf-error">{profileErrors.avatar}</div>}
-                  </div>
                     <input id="profileEmail" className="prf-input text-muted" value={user.email} readOnly style={{ backgroundColor: '#f8fafc', cursor: 'not-allowed' }} />
                     <div className="mt-1 fw-medium" style={{ fontSize: '0.75rem', color: '#ef4444' }}>
                       * Không thể thay đổi do chính sách bảo mật.

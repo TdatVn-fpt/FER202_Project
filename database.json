@@ -353,27 +353,6 @@
       "createdAt": "2026-06-28T14:02:31.641Z"
     },
     {
-      "id": "course-008",
-      "title": "IELTS Speaking: Band 7.5+ Masterclass",
-      "description": "Succeed in your IELTS Speaking test with our advanced masterclass. Focuses on fluency, pronunciation, range of vocabulary, and coherent structuring of Parts 1, 2, and 3.",
-      "syllabus": [
-        "Part 1: Conversational Starters & Fluency Tips",
-        "Part 2: Structuring Your 2-Minute Talk",
-        "Part 3: Mastering Abstract Questions",
-        "Avoiding Common Vocabulary & Pronunciation Pitfalls"
-      ],
-      "skill": "Speaking",
-      "level": "Advanced",
-      "price": 590000,
-      "isPremium": true,
-      "thumbnail": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "status": "approved",
-      "enrolledCount": 42,
-      "durationWeeks": 6,
-      "createdAt": "2026-06-25T08:00:00Z"
-    },
-    {
       "id": "course-009",
       "title": "IELTS Writing Task 1: Academic Report Guide",
       "description": "Learn how to summarize and describe visual information (bar charts, line graphs, pie charts, tables, diagrams, maps) systematically to score Band 7.0+ in Task 1.",
@@ -621,7 +600,7 @@
     },
     {
       "id": "lesson-009",
-      "courseId": "course-008",
+      "courseId": null,
       "title": "Speaking Lesson 1: Fluency & Coherence in Part 1",
       "order": 1,
       "durationMinutes": 40,
@@ -676,20 +655,96 @@
       "content": "Section 1 of IELTS Listening is always a conversation between two people set in an everyday social context (e.g., booking a hotel, joining a club). The most common question type here is Form Completion.\n\n## Core Strategies:\n\n1. **Read the Instructions Carefully:**\nAlways check the word limit. 'NO MORE THAN TWO WORDS AND/OR A NUMBER' means exactly that. If the answer is 'red car' and you write 'a red car', you lose the mark.\n\n2. **Predict the Answers:**\nLook at the gaps before the audio starts. Ask yourself: \n- What type of word is missing? A noun, verb, or adjective?\n- What kind of information is it? A name, date, telephone number, or price?\n\n3. **Watch out for Spelling and Numbers:**\nSpeakers will often spell out names or addresses. You must know the English alphabet perfectly. (Be careful with A/E/I and G/J).\n\n4. **Beware of Distractors:**\nThe speakers will often give one piece of information, then correct themselves. \n*Example:* 'I'd like to book it for the 14th... Oh wait, my wife is busy then, let's make it the 16th.' The answer is 16th, not 14th.\n\n### Practice Drill:\nHave a friend spell 10 random names and read 10 random phone numbers to you while you write them down quickly."
     },
     {
-      "id": "lesson-006",
-      "courseId": "course-004",
-      "title": "Part 2: The 1-Minute Prep Strategy",
-      "order": 2,
-      "durationMinutes": 45,
-      "content": "In Speaking Part 2, you are given a cue card with a topic and 3-4 bullet points. You have exactly 1 minute to prepare, and you must speak for 1 to 2 minutes.\n\n## How to Use Your 1 Minute Effectively\nMany students waste this time writing full sentences. **Don't do this.** You will end up reading from the paper, which lowers your fluency and pronunciation scores.\n\n### The 'Keyword Map' Strategy:\n1. Divide your scratch paper into 4 quadrants (one for each bullet point).\n2. Write down 2-3 **Keywords** or **Collocations** for each quadrant.\n3. Think of one specific 'Story' or memory to tie it all together.\n\n## Structuring Your 2-Minute Talk:\n- **Introduction (15 sec):** 'I'd like to talk about a time when...'\n- **Past Details (30 sec):** Discuss the background. Use Past Continuous ('I was walking...') and Past Perfect ('I had never seen...').\n- **Core Description (45 sec):** Answer the main part of the prompt. Use descriptive adjectives.\n- **Conclusion / Feelings (30 sec):** 'Looking back, I felt incredibly...' This directly answers the final bullet point usually asking about your feelings.\n\n### Emergency Tactic:\nIf you run out of things to say at 1 minute 30 seconds, shift to the future or a hypothetical: *'If I had the chance to do it again, I would...'* or *'I hope to experience something similar in the future because...'*."
-    },
-    {
       "id": "lesson-007",
       "courseId": "course-005",
       "title": "Line Graphs: Describing Trends",
       "order": 1,
       "durationMinutes": 50,
       "content": "Academic Writing Task 1 requires you to write at least 150 words summarizing visual information. Line graphs are incredibly common and require specific vocabulary to describe changes over time.\n\n## The Essential Structure\n1. **Introduction:** Paraphrase the prompt. (e.g., 'The line graph illustrates the changes in...')\n2. **Overview:** Identify the 2 or 3 main trends. (e.g., 'Overall, it is clear that X increased significantly, while Y saw a dramatic decline.') *Never include specific numbers in the overview.*\n3. **Body Paragraph 1:** Detail the first main trend with data (years and numbers).\n4. **Body Paragraph 2:** Detail the remaining trends, comparing them to Paragraph 1 where relevant.\n\n## Crucial Vocabulary for Trends\n\n### Upward Trend:\n- Verbs: *increased, rose, climbed, surged, skyrocketed*\n- Nouns: *an increase, a rise, an upward trend*\n\n### Downward Trend:\n- Verbs: *decreased, fell, dropped, declined, plummeted*\n- Nouns: *a decrease, a fall, a drop*\n\n### Stability and Fluctuation:\n- *remained stable, leveled off, plateaued*\n- *fluctuated wildly, showed erratic changes*\n\n### Adjectives / Adverbs of Degree:\n- *significant / significantly*\n- *dramatic / dramatically*\n- *slight / slightly*\n- *gradual / gradually*\n\n**Example Sentence:**\n'The number of tourists *rose dramatically* from 1 million in 2000 to just under 4 million in 2010.'"
+    },
+    {
+      "id": "lesson-013",
+      "courseId": "course-004",
+      "title": "IELTS English Podcast - Speaking Topic: Urbanization",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://youtu.be/QnYAQmATdgc",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-20T15:46:02.374Z"
+    },
+    {
+      "id": "lesson-014",
+      "courseId": "course-004",
+      "title": "IELTS English Podcast - Speaking Topic: Weather",
+      "order": 3,
+      "durationMinutes": 30,
+      "contentUrl": "https://youtu.be/ebK2ghvN1QM?list=PLh5jkV0EGF6k22k5qMfxv3A0SJJbDnuzo",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-20T15:46:49.662Z"
+    },
+    {
+      "id": "lesson-017",
+      "courseId": "eZfx0_P3YIU",
+      "title": "Most Common IELTS Speaking Part 1 Questions and Answers",
+      "order": 2,
+      "durationMinutes": 30,
+      "contentUrl": "https://youtu.be/FUNeZlSQhRY",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-20T15:51:56.067Z"
+    },
+    {
+      "id": "lesson-018",
+      "courseId": "eZfx0_P3YIU",
+      "title": "3 Steps to a Perfect IELTS Speaking Part 2 Answer",
+      "order": 3,
+      "durationMinutes": 30,
+      "contentUrl": "https://youtu.be/N3x1cvJoy38",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-20T15:52:54.323Z"
+    },
+    {
+      "id": "lesson-019",
+      "courseId": "eZfx0_P3YIU",
+      "title": "Improve your IELTS Speaking Part 1 Answers",
+      "order": 4,
+      "durationMinutes": 30,
+      "contentUrl": "https://youtu.be/0PMSzsCnsgQ",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-20T16:37:24.105Z"
+    },
+    {
+      "id": "lesson-020",
+      "courseId": "eZfx0_P3YIU",
+      "title": "Fluency in 5 minutes a day (with the chunking method)",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://youtu.be/SaALUGpjPsY",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-20T16:38:20.787Z"
+    },
+    {
+      "id": "lesson-021",
+      "courseId": "eZfx0_P3YIU",
+      "title": "IELTS Speaking Part 2: Band 9 TEMPLATES - #2. PEOPLE",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://youtu.be/Hrk-cvJyAuo",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-20T16:39:20.128Z"
     }
   ],
   "tests": [
@@ -1780,7 +1835,7 @@
       "id": "buL7b65wJZ8",
       "title": "Tutor IELTS Speaking Full Mock - Technology and Study",
       "description": "A complete Speaking test with Part 1, Part 2 cue card and Part 3 discussion.",
-      "courseId": "eZfx0_P3YIU",
+      "courseId": "",
       "skill": "Speaking",
       "testMode": "free",
       "isFreePreview": true,
@@ -1793,7 +1848,7 @@
       "bandScale": "IELTS 0-9",
       "practiceMode": "exam",
       "createdAt": "2026-06-27T13:59:36.597Z",
-      "updatedAt": "2026-06-27T14:07:41.613Z",
+      "updatedAt": "2026-07-20T16:28:21.682Z",
       "testConfig": {
         "parts": [
           {
@@ -3256,7 +3311,7 @@
       "id": "test-speaking-free-1",
       "title": "Speaking Mock Test 1 - Hobbies and Interests",
       "description": "Practice IELTS Speaking Part 1, 2, and 3 topics on hobbies and leisure activities.",
-      "courseId": "course-speaking-free-9s34fplk8",
+      "courseId": "",
       "skill": "Speaking",
       "testMode": "free",
       "isFreePreview": true,
@@ -3269,7 +3324,7 @@
       "bandScale": "IELTS 0-9",
       "practiceMode": "exam",
       "createdAt": "2026-07-06T16:30:00.000Z",
-      "updatedAt": "2026-07-06T16:30:00.000Z",
+      "updatedAt": "2026-07-20T16:27:47.860Z",
       "testConfig": {
         "parts": [
           {
@@ -3917,6 +3972,726 @@
       "updatedAt": "2026-07-09T02:58:28.148Z",
       "createdAt": "2026-07-09T02:58:28.148Z",
       "id": "sF2V7Ax97Y4"
+    },
+    {
+      "id": "test-spk-ezfx-001",
+      "title": "Speaking Practice 1 - Hometown and Accommodation",
+      "description": "Practice describing your hometown and accommodation, focusing on fluency and natural responses.",
+      "courseId": "eZfx0_P3YIU",
+      "skill": "Speaking",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 15,
+      "totalQuestions": 8,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T16:00:00.000Z",
+      "updatedAt": "2026-07-20T16:18:29.694Z",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction and Interview",
+            "questions": [
+              {
+                "id": "test-spk-ezfx-001-q1",
+                "text": "Where is your hometown?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-ezfx-001-q2",
+                "text": "What is the most interesting part of your hometown?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-ezfx-001-q3",
+                "text": "Do you live in a house or an apartment?",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "Describe a town or city you would like to live in.",
+            "bulletPrompts": [
+              "where it is",
+              "how you know about it",
+              "what it is like",
+              "and explain why you would like to live there"
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "test-spk-ezfx-001-q4",
+                "text": "Why do you think people migrate from rural areas to big cities?",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "test-spk-ezfx-002",
+      "title": "Speaking Practice 2 - Travel and Tourism",
+      "description": "Practice speaking about travel experiences and destinations, focusing on descriptive adjectives.",
+      "courseId": "eZfx0_P3YIU",
+      "skill": "Speaking",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 15,
+      "totalQuestions": 8,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T16:00:00.000Z",
+      "updatedAt": "2026-07-20T16:00:00.000Z",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction and Interview",
+            "questions": [
+              {
+                "id": "test-spk-ezfx-002-q1",
+                "text": "Do you like travelling?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-ezfx-002-q2",
+                "text": "What is your favorite holiday destination?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-ezfx-002-q3",
+                "text": "Do you prefer travelling alone or in a group?",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "Describe a memorable trip you have taken.",
+            "bulletPrompts": [
+              "where you went",
+              "who you went with",
+              "what you did there",
+              "and explain why it was memorable"
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "test-spk-ezfx-002-q4",
+                "text": "What are the advantages and disadvantages of international tourism?",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "test-spk-ezfx-003",
+      "title": "Speaking Practice 3 - Sports and Healthy Lifestyles",
+      "description": "Learn to discuss sports, exercise, and healthy habits with natural reflexes.",
+      "courseId": "eZfx0_P3YIU",
+      "skill": "Speaking",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 15,
+      "totalQuestions": 8,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T16:00:00.000Z",
+      "updatedAt": "2026-07-20T16:28:41.827Z",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction and Interview",
+            "questions": [
+              {
+                "id": "test-spk-ezfx-003-q1",
+                "text": "What sports do you enjoy playing or watching?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-ezfx-003-q2",
+                "text": "How often do you exercise?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-ezfx-003-q3",
+                "text": "Do you think children should do more sports at school?",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "Describe a healthy habit you have started recently.",
+            "bulletPrompts": [
+              "what it is",
+              "when you started it",
+              "how you do it",
+              "and explain how it benefits your health"
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "test-spk-ezfx-003-q4",
+                "text": "Do you think the government should promote healthy lifestyles among citizens?",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "test-spk-ezfx-004",
+      "title": "Speaking Practice 4 - Food and Eating Habits",
+      "description": "Practice describing local cuisine and eating habits, using common vocabulary.",
+      "courseId": "eZfx0_P3YIU",
+      "skill": "Speaking",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 15,
+      "totalQuestions": 8,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T16:00:00.000Z",
+      "updatedAt": "2026-07-20T16:00:00.000Z",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction and Interview",
+            "questions": [
+              {
+                "id": "test-spk-ezfx-004-q1",
+                "text": "Do you prefer eating out or eating at home?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-ezfx-004-q2",
+                "text": "What is your favorite type of food?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-ezfx-004-q3",
+                "text": "Do you know how to cook?",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "Describe a traditional meal or dish from your country.",
+            "bulletPrompts": [
+              "what the meal is",
+              "how it is prepared",
+              "when you usually eat it",
+              "and explain why it is special"
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "test-spk-ezfx-004-q4",
+                "text": "How have eating habits changed in your country over the past few decades?",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "test-spk-ezfx-005",
+      "title": "Speaking Practice 5 - Friends and Social Connections",
+      "description": "Practice speaking about social circles and friendships, focusing on communication reflex.",
+      "courseId": "eZfx0_P3YIU",
+      "skill": "Speaking",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 15,
+      "totalQuestions": 8,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T16:00:00.000Z",
+      "updatedAt": "2026-07-20T16:29:23.949Z",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction and Interview",
+            "questions": [
+              {
+                "id": "test-spk-ezfx-005-q1",
+                "text": "How often do you hang out with friends?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-ezfx-005-q2",
+                "text": "What qualities do you look for in a good friend?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-ezfx-005-q3",
+                "text": "Do you keep in touch with childhood friends?",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "Describe your best friend.",
+            "bulletPrompts": [
+              "who they are",
+              "how you met",
+              "what you usually do together",
+              "and explain why you value their friendship"
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "test-spk-ezfx-005-q4",
+                "text": "Do you think social media has made it easier or harder to build real friendships?",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "test-spk-c004-001",
+      "title": "Speaking Practice 1 - Environment and Climate Change",
+      "description": "Practice answering questions on environment, using advanced vocabulary and expressions.",
+      "courseId": "course-004",
+      "skill": "Speaking",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 15,
+      "totalQuestions": 8,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T16:00:00.000Z",
+      "updatedAt": "2026-07-20T16:00:00.000Z",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction and Interview",
+            "questions": [
+              {
+                "id": "test-spk-c004-001-q1",
+                "text": "What is the weather like in your country?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-c004-001-q2",
+                "text": "Do you think the environment in your city is clean?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-c004-001-q3",
+                "text": "Have you ever volunteered for environmental activities?",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "Describe a natural place that you visited and was impressed by.",
+            "bulletPrompts": [
+              "where it is",
+              "when you visited it",
+              "what you did there",
+              "and explain why you found it impressive"
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "test-spk-c004-001-q4",
+                "text": "Whose responsibility is it to protect the environment: governments or individuals?",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "test-spk-c004-002",
+      "title": "Speaking Practice 2 - Art and Cultural Heritage",
+      "description": "Develop structured arguments about art, local culture, and history.",
+      "courseId": "course-004",
+      "skill": "Speaking",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 15,
+      "totalQuestions": 8,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T16:00:00.000Z",
+      "updatedAt": "2026-07-20T16:00:00.000Z",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction and Interview",
+            "questions": [
+              {
+                "id": "test-spk-c004-002-q1",
+                "text": "Do you like art?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-c004-002-q2",
+                "text": "How often do you visit art galleries or museums?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-c004-002-q3",
+                "text": "Did you learn drawing or painting when you were a child?",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "Describe a painting, statue, or work of art that you really like.",
+            "bulletPrompts": [
+              "what it is",
+              "where you saw it",
+              "what it looks like",
+              "and explain why you like it"
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "test-spk-c004-002-q4",
+                "text": "Should governments spend money on supporting art galleries and museums?",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "test-spk-c004-003",
+      "title": "Speaking Practice 3 - Media, Advertising and News",
+      "description": "Express opinions on media influence, advertising, and modern news channels.",
+      "courseId": "",
+      "skill": "Speaking",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 15,
+      "totalQuestions": 8,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T16:00:00.000Z",
+      "updatedAt": "2026-07-20T16:00:00.000Z",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction and Interview",
+            "questions": [
+              {
+                "id": "test-spk-c004-003-q1",
+                "text": "How do you get your news?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-c004-003-q2",
+                "text": "Do you use social media often?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-c004-003-q3",
+                "text": "What kind of advertisements do you find interesting?",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "Describe an interesting news story that you read or heard about recently.",
+            "bulletPrompts": [
+              "what it was about",
+              "where you found it",
+              "how you felt when you heard it",
+              "and explain why it was interesting to you"
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "test-spk-c004-003-q4",
+                "text": "What are the social impacts of false information or fake news on social media?",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "test-spk-c004-004",
+      "title": "Speaking Practice 4 - Education and Lifelong Learning",
+      "description": "Discuss educational systems, online learning, and practical vs academic skills.",
+      "courseId": "",
+      "skill": "Speaking",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 15,
+      "totalQuestions": 8,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T16:00:00.000Z",
+      "updatedAt": "2026-07-20T16:00:00.000Z",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction and Interview",
+            "questions": [
+              {
+                "id": "test-spk-c004-004-q1",
+                "text": "Who was your favorite teacher at school?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-c004-004-q2",
+                "text": "What subject did you find most difficult at school?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-c004-004-q3",
+                "text": "Do you prefer studying online or in a traditional classroom?",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "Describe a subject you enjoyed studying in high school.",
+            "bulletPrompts": [
+              "what the subject was",
+              "who taught you",
+              "what you learned",
+              "and explain why you enjoyed it"
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "test-spk-c004-004-q4",
+                "text": "Do you agree that practical skills are more valuable than academic certificates in the modern job market?",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "test-spk-c004-005",
+      "title": "Speaking Practice 5 - Work, Career Goals and Automation",
+      "description": "Practice advanced topics relating to careers, work-life balance, and future job trends.",
+      "courseId": "",
+      "skill": "Speaking",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 15,
+      "totalQuestions": 8,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T16:00:00.000Z",
+      "updatedAt": "2026-07-20T16:00:00.000Z",
+      "testConfig": {
+        "parts": [
+          {
+            "id": "speaking-part-1",
+            "partNumber": 1,
+            "title": "Introduction and Interview",
+            "questions": [
+              {
+                "id": "test-spk-c004-005-q1",
+                "text": "What is your dream job?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-c004-005-q2",
+                "text": "Do you prefer working individually or in teams?",
+                "answerSeconds": 45
+              },
+              {
+                "id": "test-spk-c004-005-q3",
+                "text": "Is work-life balance important to you?",
+                "answerSeconds": 45
+              }
+            ]
+          },
+          {
+            "id": "speaking-part-2",
+            "partNumber": 2,
+            "title": "Cue Card",
+            "cueCard": "Describe a successful businessperson or leader you admire.",
+            "bulletPrompts": [
+              "who they are",
+              "how you know about them",
+              "what they have achieved",
+              "and explain why you admire them"
+            ],
+            "prepSeconds": 60,
+            "answerSeconds": 120
+          },
+          {
+            "id": "speaking-part-3",
+            "partNumber": 3,
+            "title": "Discussion",
+            "questions": [
+              {
+                "id": "test-spk-c004-005-q4",
+                "text": "How will artificial intelligence and automation change the nature of work in the future?",
+                "answerSeconds": 60
+              }
+            ]
+          }
+        ]
+      },
+      "createdBy": "u-teacher-001"
     }
   ],
   "questions": [],
@@ -4959,6 +5734,325 @@
         "courseId": "course-007"
       },
       "createdAt": "2026-07-20T12:47:04.298Z"
+    },
+    {
+      "id": "log-051",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-013",
+        "title": "IELTS English Podcast - Speaking Topic: Urbanization",
+        "courseId": "course-004"
+      },
+      "createdAt": "2026-07-20T15:46:02.399Z"
+    },
+    {
+      "id": "log-052",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-014",
+        "title": "IELTS English Podcast - Speaking Topic: Weather",
+        "courseId": "course-004"
+      },
+      "createdAt": "2026-07-20T15:46:49.687Z"
+    },
+    {
+      "id": "log-053",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-015",
+        "title": "IELTS English Podcast - Speaking Topic: Science",
+        "courseId": "course-004"
+      },
+      "createdAt": "2026-07-20T15:49:41.496Z"
+    },
+    {
+      "id": "log-054",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-016",
+        "title": "IELTS English Podcast - Speaking Topic: Money",
+        "courseId": "course-004"
+      },
+      "createdAt": "2026-07-20T15:50:27.703Z"
+    },
+    {
+      "id": "log-055",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-017",
+        "title": "Most Common IELTS Speaking Part 1 Questions and Answers",
+        "courseId": "eZfx0_P3YIU"
+      },
+      "createdAt": "2026-07-20T15:51:56.096Z"
+    },
+    {
+      "id": "log-056",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-018",
+        "title": "3 Steps to a Perfect IELTS Speaking Part 2 Answer",
+        "courseId": "eZfx0_P3YIU"
+      },
+      "createdAt": "2026-07-20T15:52:54.347Z"
+    },
+    {
+      "id": "log-057",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_TEST",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "testId": "test-spk-ezfx-001",
+        "title": "Speaking Practice 1 - Hometown and Accommodation",
+        "courseId": "eZfx0_P3YIU"
+      },
+      "createdAt": "2026-07-20T16:18:29.729Z"
+    },
+    {
+      "id": "log-058",
+      "actorId": "u-teacher-001",
+      "action": "DELETE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-016",
+        "title": "IELTS English Podcast - Speaking Topic: Money",
+        "courseId": "course-004"
+      },
+      "createdAt": "2026-07-20T16:25:47.577Z"
+    },
+    {
+      "id": "log-059",
+      "actorId": "u-teacher-001",
+      "action": "DELETE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-015",
+        "title": "IELTS English Podcast - Speaking Topic: Science",
+        "courseId": "course-004"
+      },
+      "createdAt": "2026-07-20T16:25:49.436Z"
+    },
+    {
+      "id": "log-060",
+      "actorId": "u-teacher-001",
+      "action": "DELETE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-006",
+        "title": "Part 2: The 1-Minute Prep Strategy",
+        "courseId": "course-004"
+      },
+      "createdAt": "2026-07-20T16:25:57.459Z"
+    },
+    {
+      "id": "log-061",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_TEST",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "testId": "test-speaking-free-1",
+        "title": "Speaking Mock Test 1 - Hobbies and Interests",
+        "courseId": ""
+      },
+      "createdAt": "2026-07-20T16:27:47.890Z"
+    },
+    {
+      "id": "log-062",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_TEST",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "testId": "buL7b65wJZ8",
+        "title": "Tutor IELTS Speaking Full Mock - Technology and Study",
+        "courseId": ""
+      },
+      "createdAt": "2026-07-20T16:28:21.714Z"
+    },
+    {
+      "id": "log-063",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_TEST",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "testId": "test-spk-ezfx-003",
+        "title": "Speaking Practice 3 - Sports and Healthy Lifestyles",
+        "courseId": "eZfx0_P3YIU"
+      },
+      "createdAt": "2026-07-20T16:28:41.860Z"
+    },
+    {
+      "id": "log-064",
+      "actorId": "u-teacher-001",
+      "action": "UNLINK_TEST_FROM_COURSE",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "testId": "test-spk-c004-005",
+        "courseId": "course-004"
+      },
+      "createdAt": "2026-07-20T16:28:58.986Z"
+    },
+    {
+      "id": "log-065",
+      "actorId": "u-teacher-001",
+      "action": "UNLINK_TEST_FROM_COURSE",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "testId": "test-spk-c004-004",
+        "courseId": "course-004"
+      },
+      "createdAt": "2026-07-20T16:29:02.632Z"
+    },
+    {
+      "id": "log-066",
+      "actorId": "u-teacher-001",
+      "action": "UNLINK_TEST_FROM_COURSE",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "testId": "test-spk-c004-003",
+        "courseId": "course-004"
+      },
+      "createdAt": "2026-07-20T16:29:06.730Z"
+    },
+    {
+      "id": "log-067",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_TEST",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "testId": "test-spk-ezfx-005",
+        "title": "Speaking Practice 5 - Friends and Social Connections",
+        "courseId": "eZfx0_P3YIU"
+      },
+      "createdAt": "2026-07-20T16:29:23.979Z"
+    },
+    {
+      "id": "log-068",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-019",
+        "title": "Improve your IELTS Speaking Part 1 Answers",
+        "courseId": "eZfx0_P3YIU"
+      },
+      "createdAt": "2026-07-20T16:37:24.131Z"
+    },
+    {
+      "id": "log-069",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-020",
+        "title": "Fluency in 5 minutes a day (with the chunking method)",
+        "courseId": "eZfx0_P3YIU"
+      },
+      "createdAt": "2026-07-20T16:38:20.815Z"
+    },
+    {
+      "id": "log-070",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-017",
+        "title": "Most Common IELTS Speaking Part 1 Questions and Answers",
+        "courseId": "eZfx0_P3YIU"
+      },
+      "createdAt": "2026-07-20T16:38:31.093Z"
+    },
+    {
+      "id": "log-071",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-018",
+        "title": "3 Steps to a Perfect IELTS Speaking Part 2 Answer",
+        "courseId": "eZfx0_P3YIU"
+      },
+      "createdAt": "2026-07-20T16:38:42.263Z"
+    },
+    {
+      "id": "log-072",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-019",
+        "title": "Improve your IELTS Speaking Part 1 Answers",
+        "courseId": "eZfx0_P3YIU"
+      },
+      "createdAt": "2026-07-20T16:38:54.376Z"
+    },
+    {
+      "id": "log-073",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-021",
+        "title": "IELTS Speaking Part 2: Band 9 TEMPLATES - #2. PEOPLE",
+        "courseId": "eZfx0_P3YIU"
+      },
+      "createdAt": "2026-07-20T16:39:20.158Z"
     }
   ],
   "approvalRequests": [
@@ -7522,6 +8616,1206 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": ""
+    },
+    {
+      "word": "Bustling",
+      "meaning": "Nhộn nhịp, hối hả",
+      "pronunciation": "/ˈbʌslɪŋ/",
+      "example": "Hanoi is a bustling city with heavy traffic day and night.",
+      "deckId": "deck-spk-ezfx-001",
+      "id": "card-spk-ezfx-001-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Cosy",
+      "meaning": "Ấm cúng, dễ chịu",
+      "pronunciation": "/ˈhəʊzi/",
+      "example": "I live in a cosy little apartment in the city center.",
+      "deckId": "deck-spk-ezfx-001",
+      "id": "card-spk-ezfx-001-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Suburb",
+      "meaning": "Ngoại ô",
+      "pronunciation": "/ˈsʌbɜːb/",
+      "example": "They decided to move to a quiet suburb to raise their children.",
+      "deckId": "deck-spk-ezfx-001",
+      "id": "card-spk-ezfx-001-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Spacious",
+      "meaning": "Rộng rãi",
+      "pronunciation": "/ˈspeɪʃəs/",
+      "example": "The living room is spacious and gets plenty of natural light.",
+      "deckId": "deck-spk-ezfx-001",
+      "id": "card-spk-ezfx-001-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Residential area",
+      "meaning": "Khu dân cư",
+      "pronunciation": "/ˌrezɪˈdenʃl ˈeəriə/",
+      "example": "It is a quiet residential area with many parks.",
+      "deckId": "deck-spk-ezfx-001",
+      "id": "card-spk-ezfx-001-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Metropolis",
+      "meaning": "Đô thị lớn",
+      "pronunciation": "/məˈtrɒpəlɪs/",
+      "example": "Tokyo is a massive metropolis with millions of residents.",
+      "deckId": "deck-spk-ezfx-001",
+      "id": "card-spk-ezfx-001-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Picturesque",
+      "meaning": "Đẹp như tranh vẽ",
+      "pronunciation": "/ˌpɪktʃəˈresk/",
+      "example": "We stayed in a picturesque mountain village last summer.",
+      "deckId": "deck-spk-ezfx-001",
+      "id": "card-spk-ezfx-001-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Amenities",
+      "meaning": "Tiện nghi",
+      "pronunciation": "/əˈmiːnətiz/",
+      "example": "The apartment building offers modern amenities like a gym and a pool.",
+      "deckId": "deck-spk-ezfx-001",
+      "id": "card-spk-ezfx-001-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Lively",
+      "meaning": "Sống động, tràn đầy sinh lực",
+      "pronunciation": "/ˈlaɪvli/",
+      "example": "The local market is always lively on weekend mornings.",
+      "deckId": "deck-spk-ezfx-001",
+      "id": "card-spk-ezfx-001-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Overlooking",
+      "meaning": "Trông ra, hướng ra",
+      "pronunciation": "/ˌəʊvəˈlʊkɪŋ/",
+      "example": "My bedroom window has a balcony overlooking a small lake.",
+      "deckId": "deck-spk-ezfx-001",
+      "id": "card-spk-ezfx-001-10",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Itinerary",
+      "meaning": "Lộ trình chuyến đi",
+      "pronunciation": "/aɪˈtɪnərəri/",
+      "example": "We have a very busy itinerary for our trip to Japan.",
+      "deckId": "deck-spk-ezfx-002",
+      "id": "card-spk-ezfx-002-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Breathtaking",
+      "meaning": "Ngoạn mục, đẹp đến ngạt thở",
+      "pronunciation": "/ˈbreθteɪkɪŋ/",
+      "example": "The view from the top of the mountain was absolutely breathtaking.",
+      "deckId": "deck-spk-ezfx-002",
+      "id": "card-spk-ezfx-002-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Unwind",
+      "meaning": "Thư giãn, nghỉ ngơi",
+      "pronunciation": "/ˌʌnˈwaɪnd/",
+      "example": "Listening to music helps me unwind after a long day at work.",
+      "deckId": "deck-spk-ezfx-002",
+      "id": "card-spk-ezfx-002-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Local cuisine",
+      "meaning": "Ẩm thực địa phương",
+      "pronunciation": "/ˈləʊkl kwɪˈziːn/",
+      "example": "I love trying the local cuisine whenever I travel to a new province.",
+      "deckId": "deck-spk-ezfx-002",
+      "id": "card-spk-ezfx-002-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Wanderlust",
+      "meaning": "Niềm đam mê dịch chuyển",
+      "pronunciation": "/ˈwɒndəlʌst/",
+      "example": "Her wanderlust led her to travel to over thirty countries.",
+      "deckId": "deck-spk-ezfx-002",
+      "id": "card-spk-ezfx-002-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Tourist attraction",
+      "meaning": "Điểm thu hút khách du lịch",
+      "pronunciation": "/ˈtʊərɪst əˈtrækʃn/",
+      "example": "The Eiffel Tower is a world-famous tourist attraction.",
+      "deckId": "deck-spk-ezfx-002",
+      "id": "card-spk-ezfx-002-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Off the beaten track",
+      "meaning": "Nơi hẻo lánh, ít người biết",
+      "pronunciation": "/ɒf ðə ˈbiːtn træk/",
+      "example": "We prefer finding quiet beaches that are off the beaten track.",
+      "deckId": "deck-spk-ezfx-002",
+      "id": "card-spk-ezfx-002-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Sightseeing",
+      "meaning": "Đi ngắm cảnh",
+      "pronunciation": "/ˈsaɪtsiːɪŋ/",
+      "example": "We spent the whole day sightseeing around the old town.",
+      "deckId": "deck-spk-ezfx-002",
+      "id": "card-spk-ezfx-002-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Scenic route",
+      "meaning": "Tuyến đường phong cảnh đẹp",
+      "pronunciation": "/ˈsiːnɪk ruːt/",
+      "example": "We took the scenic route along the coast instead of the highway.",
+      "deckId": "deck-spk-ezfx-002",
+      "id": "card-spk-ezfx-002-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Rejuvenate",
+      "meaning": "Làm sảng khoái, tươi trẻ lại",
+      "pronunciation": "/rɪˈdʒuːvəneɪt/",
+      "example": "A short weekend getaway can completely rejuvenate your mind.",
+      "deckId": "deck-spk-ezfx-002",
+      "id": "card-spk-ezfx-002-10",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Delectable",
+      "meaning": "Ngon lành, thú vị",
+      "pronunciation": "/dɪˈlektəbl/",
+      "example": "The bakery offers a wide selection of delectable desserts.",
+      "deckId": "deck-spk-ezfx-003",
+      "id": "card-spk-ezfx-003-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Savoury",
+      "meaning": "Có vị mặn/cay (không ngọt)",
+      "pronunciation": "/ˈseɪvəri/",
+      "example": "I prefer savoury breakfasts like eggs and toast over sweet pancakes.",
+      "deckId": "deck-spk-ezfx-003",
+      "id": "card-spk-ezfx-003-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Nutritious",
+      "meaning": "Bổ dưỡng",
+      "pronunciation": "/njuːˈtrɪʃəs/",
+      "example": "It is important to cook simple yet nutritious meals at home.",
+      "deckId": "deck-spk-ezfx-003",
+      "id": "card-spk-ezfx-003-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Delicacy",
+      "meaning": "Đặc sản, cao lương mỹ vị",
+      "pronunciation": "/ˈdelɪkəsi/",
+      "example": "Truffles are considered an expensive delicacy in Europe.",
+      "deckId": "deck-spk-ezfx-003",
+      "id": "card-spk-ezfx-003-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Mouth-watering",
+      "meaning": "Thèm nhỏ dãi, cực ngon",
+      "pronunciation": "/ˈmaʊθ wɔːtərɪŋ/",
+      "example": "The smell of fresh grilled meat was mouth-watering.",
+      "deckId": "deck-spk-ezfx-003",
+      "id": "card-spk-ezfx-003-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Signature dish",
+      "meaning": "Món ăn đặc trưng",
+      "pronunciation": "/ˈsɪɡnətʃə dɪʃ/",
+      "example": "The chef's signature dish is spicy seafood noodles.",
+      "deckId": "deck-spk-ezfx-003",
+      "id": "card-spk-ezfx-003-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Culinary",
+      "meaning": "Thuộc về ẩm thực, bếp núc",
+      "pronunciation": "/ˈkʌlɪnəri/",
+      "example": "The city is famous for its rich culinary traditions.",
+      "deckId": "deck-spk-ezfx-003",
+      "id": "card-spk-ezfx-003-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Processed food",
+      "meaning": "Thực phẩm chế biến sẵn",
+      "pronunciation": "/ˈprəʊsest fuːd/",
+      "example": "Eating too much processed food is harmful to your health.",
+      "deckId": "deck-spk-ezfx-003",
+      "id": "card-spk-ezfx-003-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Appetite",
+      "meaning": "Sự ngon miệng, thèm ăn",
+      "pronunciation": "/ˈæpɪtaɪt/",
+      "example": "Outdoor activities always give the kids a healthy appetite.",
+      "deckId": "deck-spk-ezfx-003",
+      "id": "card-spk-ezfx-003-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Gourmet",
+      "meaning": "Đồ ăn cao cấp, sành ăn",
+      "pronunciation": "/ˈɡʊəmeɪ/",
+      "example": "They enjoyed a five-course gourmet dinner at a luxury hotel.",
+      "deckId": "deck-spk-ezfx-003",
+      "id": "card-spk-ezfx-003-10",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Sedentary",
+      "meaning": "Thụ động, ít vận động",
+      "pronunciation": "/ˈsedntri/",
+      "example": "Working in an office can lead to a very sedentary lifestyle.",
+      "deckId": "deck-spk-ezfx-004",
+      "id": "card-spk-ezfx-004-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Strenuous",
+      "meaning": "Vất vả, đòi hỏi nhiều sức lực",
+      "pronunciation": "/ˈstrenjuəs/",
+      "example": "Avoid strenuous exercise immediately after eating.",
+      "deckId": "deck-spk-ezfx-004",
+      "id": "card-spk-ezfx-004-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Endurance",
+      "meaning": "Sức chịu đựng, sự bền bỉ",
+      "pronunciation": "/ɪnˈdjʊərəns/",
+      "example": "Running marathons requires great physical and mental endurance.",
+      "deckId": "deck-spk-ezfx-004",
+      "id": "card-spk-ezfx-004-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Keep fit",
+      "meaning": "Giữ dáng, sống khỏe mạnh",
+      "pronunciation": "/kiːp fɪt/",
+      "example": "She does yoga every morning to keep fit.",
+      "deckId": "deck-spk-ezfx-004",
+      "id": "card-spk-ezfx-004-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Gym enthusiast",
+      "meaning": "Người đam mê tập gym",
+      "pronunciation": "/dʒɪm ɪnˈθjuːziæst/",
+      "example": "As a gym enthusiast, he works out five times a week.",
+      "deckId": "deck-spk-ezfx-004",
+      "id": "card-spk-ezfx-004-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Balanced diet",
+      "meaning": "Chế độ ăn uống cân bằng",
+      "pronunciation": "/ˈbælənst ˈdaɪət/",
+      "example": "A balanced diet combined with exercise is the key to longevity.",
+      "deckId": "deck-spk-ezfx-004",
+      "id": "card-spk-ezfx-004-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Aesthetic",
+      "meaning": "Thẩm mỹ, vẻ đẹp thể hình",
+      "pronunciation": "/iːsˈθetɪk/",
+      "example": "Many bodybuilders train not just for strength but for aesthetic appeal.",
+      "deckId": "deck-spk-ezfx-004",
+      "id": "card-spk-ezfx-004-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Exertion",
+      "meaning": "Sự nỗ lực thể chất",
+      "pronunciation": "/ɪɡˈzɜːʃn/",
+      "example": "He was panting after the physical exertion of climbing the stairs.",
+      "deckId": "deck-spk-ezfx-004",
+      "id": "card-spk-ezfx-004-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Cardiovascular",
+      "meaning": "Thuộc tim mạch",
+      "pronunciation": "/ˌkɑːdiəʊˈvæskjələ/",
+      "example": "Running is an excellent way to improve cardiovascular health.",
+      "deckId": "deck-spk-ezfx-004",
+      "id": "card-spk-ezfx-004-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Agility",
+      "meaning": "Sự nhanh nhẹn, linh hoạt",
+      "pronunciation": "/əˈdʒɪləti/",
+      "example": "Football players need incredible agility to dodge defenders.",
+      "deckId": "deck-spk-ezfx-004",
+      "id": "card-spk-ezfx-004-10",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Companion",
+      "meaning": "Bạn đồng hành",
+      "pronunciation": "/kəmˈpæniən/",
+      "example": "Traveling with a good companion makes the journey much more fun.",
+      "deckId": "deck-spk-ezfx-005",
+      "id": "card-spk-ezfx-005-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Trustworthy",
+      "meaning": "Đáng tin cậy",
+      "pronunciation": "/ˈtrʌst wɜːði/",
+      "example": "It is comforting to have a trustworthy friend to talk to.",
+      "deckId": "deck-spk-ezfx-005",
+      "id": "card-spk-ezfx-005-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Get along with",
+      "meaning": "Hòa hợp với",
+      "pronunciation": "/ɡet əˈlɒŋ wɪð/",
+      "example": "I get along very well with most of my colleagues.",
+      "deckId": "deck-spk-ezfx-005",
+      "id": "card-spk-ezfx-005-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Mutual respect",
+      "meaning": "Sự tôn trọng lẫn nhau",
+      "pronunciation": "/ˈmjuːtʃuəl rɪˈspekt/",
+      "example": "A healthy relationship is built on mutual respect and trust.",
+      "deckId": "deck-spk-ezfx-005",
+      "id": "card-spk-ezfx-005-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Cherish",
+      "meaning": "Trân trọng, yêu thương",
+      "pronunciation": "/ˈtʃerɪʃ/",
+      "example": "I cherish the memories of our university days together.",
+      "deckId": "deck-spk-ezfx-005",
+      "id": "card-spk-ezfx-005-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Clash",
+      "meaning": "Xung đột, bất đồng",
+      "pronunciation": "/klæʃ/",
+      "example": "Their personalities clash, so they often argue.",
+      "deckId": "deck-spk-ezfx-005",
+      "id": "card-spk-ezfx-005-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Close-knit",
+      "meaning": "Gắn kết chặt chẽ",
+      "pronunciation": "/ˌkləʊs ˈnɪt/",
+      "example": "She grew up in a very close-knit family.",
+      "deckId": "deck-spk-ezfx-005",
+      "id": "card-spk-ezfx-005-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Confide in",
+      "meaning": "Tâm sự, chia sẻ bí mật",
+      "pronunciation": "/kənˈfaɪd ɪn/",
+      "example": "He has no close friends to confide in.",
+      "deckId": "deck-spk-ezfx-005",
+      "id": "card-spk-ezfx-005-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Empathy",
+      "meaning": "Sự thấu cảm",
+      "pronunciation": "/ˈempəθi/",
+      "example": "Empathy is key to understanding other people's challenges.",
+      "deckId": "deck-spk-ezfx-005",
+      "id": "card-spk-ezfx-005-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Acquaintance",
+      "meaning": "Người quen",
+      "pronunciation": "/əˈkweɪntəns/",
+      "example": "She has many acquaintances but only a few close friends.",
+      "deckId": "deck-spk-ezfx-005",
+      "id": "card-spk-ezfx-005-10",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "eZfx0_P3YIU"
+    },
+    {
+      "word": "Biodegradable",
+      "meaning": "Phân hủy sinh học",
+      "pronunciation": "/ˌbaɪəʊdɪˈɡreɪdəbl/",
+      "example": "Paper bags are biodegradable, unlike plastic bags.",
+      "deckId": "deck-spk-c004-001",
+      "id": "card-spk-c004-001-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Carbon footprint",
+      "meaning": "Dấu chân carbon",
+      "pronunciation": "/ˈdápn ˈfʊtprɪnt/",
+      "example": "Using public transit helps reduce your carbon footprint.",
+      "deckId": "deck-spk-c004-001",
+      "id": "card-spk-c004-001-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Ecosystem",
+      "meaning": "Hệ sinh thái",
+      "pronunciation": "/ˈiːkəʊsɪstəm/",
+      "example": "Pollution has severely damaged the local marine ecosystem.",
+      "deckId": "deck-spk-c004-001",
+      "id": "card-spk-c004-001-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Preservation",
+      "meaning": "Sự bảo tồn",
+      "pronunciation": "/ˌprezəˈveɪʃn/",
+      "example": "Forest preservation is crucial for protecting wildlife.",
+      "deckId": "deck-spk-c004-001",
+      "id": "card-spk-c004-001-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Depletion",
+      "meaning": "Sự cạn kiệt tài nguyên",
+      "pronunciation": "/dɪˈpliːʃn/",
+      "example": "The rapid depletion of natural resources threatens future generations.",
+      "deckId": "deck-spk-c004-001",
+      "id": "card-spk-c004-001-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Renewable energy",
+      "meaning": "Năng lượng tái tạo",
+      "pronunciation": "/rɪˈnjuːəbl ˈenədʒi/",
+      "example": "Solar and wind power are major sources of renewable energy.",
+      "deckId": "deck-spk-c004-001",
+      "id": "card-spk-c004-001-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Eco-friendly",
+      "meaning": "Thân thiện với môi trường",
+      "pronunciation": "/ˈiːkəʊ ˈfrendli/",
+      "example": "Many consumers now prefer eco-friendly products.",
+      "deckId": "deck-spk-c004-001",
+      "id": "card-spk-c004-001-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Devastating",
+      "meaning": "Tàn phá, hủy hoại",
+      "pronunciation": "/ˈdevəsteɪtɪŋ/",
+      "example": "Acid rain has a devastating impact on forest growth.",
+      "deckId": "deck-spk-c004-001",
+      "id": "card-spk-c004-001-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Habitat loss",
+      "meaning": "Mấy môi trường sống",
+      "pronunciation": "/ˈhæbɪtæt lɒs/",
+      "example": "Urban expansion has accelerated habitat loss for wild birds.",
+      "deckId": "deck-spk-c004-001",
+      "id": "card-spk-c004-001-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Mitigate",
+      "meaning": "Giảm thiểu, làm nhẹ đi",
+      "pronunciation": "/ˈmɪtɪɡeɪt/",
+      "example": "Planting trees can help mitigate the effects of global warming.",
+      "deckId": "deck-spk-c004-001",
+      "id": "card-spk-c004-001-10",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Aesthetic value",
+      "meaning": "Giá trị thẩm mỹ",
+      "pronunciation": "/iːsˈθetɪk ˈvæljuː/",
+      "example": "The building was preserved for its historical and aesthetic value.",
+      "deckId": "deck-spk-c004-002",
+      "id": "card-spk-c004-002-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Masterpiece",
+      "meaning": "Kiệt tác",
+      "pronunciation": "/ˈmɑːstəpiːs/",
+      "example": "Mona Lisa is Leonardo da Vinci's greatest masterpiece.",
+      "deckId": "deck-spk-c004-002",
+      "id": "card-spk-c004-002-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Heritage",
+      "meaning": "Di sản",
+      "pronunciation": "/ˈherɪtɪdʒ/",
+      "example": "We must preserve our national heritage for future generations.",
+      "deckId": "deck-spk-c004-002",
+      "id": "card-spk-c004-002-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Evoke",
+      "meaning": "Gợi lên cảm xúc, ký ức",
+      "pronunciation": "/ɪˈvəʊk/",
+      "example": "The photograph evoked strong memories of my childhood.",
+      "deckId": "deck-spk-c004-002",
+      "id": "card-spk-c004-002-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Avant-garde",
+      "meaning": "Tiên phong, phá cách",
+      "pronunciation": "/ˌævɒ̃ ˈɡɑːd/",
+      "example": "She is known for her avant-garde fashion designs.",
+      "deckId": "deck-spk-c004-002",
+      "id": "card-spk-c004-002-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Preserve traditions",
+      "meaning": "Gìn giữ truyền thống",
+      "pronunciation": "/prɪˈzɜːv trəˈdɪʃnz/",
+      "example": "Many festivals help ethnic minorities preserve their traditions.",
+      "deckId": "deck-spk-c004-002",
+      "id": "card-spk-c004-002-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Expressive",
+      "meaning": "Đầy biểu cảm",
+      "pronunciation": "/ɪkˈspresɪv/",
+      "example": "The dancer's movements were incredibly expressive and moving.",
+      "deckId": "deck-spk-c004-002",
+      "id": "card-spk-c004-002-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Cultural diversity",
+      "meaning": "Đa dạng văn hóa",
+      "pronunciation": "/ˈkʌltʃərəl daɪˈvɜːsəti/",
+      "example": "Globalization has enriched the cultural diversity of major cities.",
+      "deckId": "deck-spk-c004-002",
+      "id": "card-spk-c004-002-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Immersive",
+      "meaning": "Đắm chìm, nhập vai",
+      "pronunciation": "/ɪˈmɜːsɪv/",
+      "example": "The gallery featured an immersive virtual reality art exhibit.",
+      "deckId": "deck-spk-c004-002",
+      "id": "card-spk-c004-002-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Intangible",
+      "meaning": "Phi vật thể",
+      "pronunciation": "/ɪnˈtændʒəbl/",
+      "example": "Folk music is a form of intangible cultural heritage.",
+      "deckId": "deck-spk-c004-002",
+      "id": "card-spk-c004-002-10",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Sensationalism",
+      "meaning": "Xu hướng giật gân",
+      "pronunciation": "/senˈseɪʃənəlɪzəm/",
+      "example": "The newspaper was criticized for using sensationalism to sell copies.",
+      "deckId": "deck-spk-c004-003",
+      "id": "card-spk-c004-003-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Information overload",
+      "meaning": "Quá tải thông tin",
+      "pronunciation": "/ˌɪnfəˈmeɪʃn ˈəʊvələʊd/",
+      "example": "Modern internet users often suffer from information overload.",
+      "deckId": "deck-spk-c004-003",
+      "id": "card-spk-c004-003-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Misinformation",
+      "meaning": "Thông tin sai lệch",
+      "pronunciation": "/ˌmɪsɪnfəˈmeɪʃn/",
+      "example": "The platform took steps to block the spread of misinformation.",
+      "deckId": "deck-spk-c004-003",
+      "id": "card-spk-c004-003-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Targeted advertising",
+      "meaning": "Quảng cáo nhắm mục tiêu",
+      "pronunciation": "/ˈtɑːɡɪtɪd ˈædvətaɪzɪŋ/",
+      "example": "Social networks use targeted advertising based on browser history.",
+      "deckId": "deck-spk-c004-003",
+      "id": "card-spk-c004-003-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Influential",
+      "meaning": "Có tầm ảnh hưởng lớn",
+      "pronunciation": "/ˌɪnfluˈenʃl/",
+      "example": "She is one of the most influential political bloggers today.",
+      "deckId": "deck-spk-c004-003",
+      "id": "card-spk-c004-003-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Censorship",
+      "meaning": "Sự kiểm duyệt",
+      "pronunciation": "/ˈsensəʃɪp/",
+      "example": "Free press advocates strongly argue against internet censorship.",
+      "deckId": "deck-spk-c004-003",
+      "id": "card-spk-c004-003-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Viral",
+      "meaning": "Lan truyền nhanh chóng",
+      "pronunciation": "/ˈvaɪrəl/",
+      "example": "The funny video of the cat went viral within a few hours.",
+      "deckId": "deck-spk-c004-003",
+      "id": "card-spk-c004-003-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Credible source",
+      "meaning": "Nguồn tin đáng tin cậy",
+      "pronunciation": "/ˈkredəbl sɔːs/",
+      "example": "Always cross-check news with a credible source before sharing.",
+      "deckId": "deck-spk-c004-003",
+      "id": "card-spk-c004-003-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Digital footprint",
+      "meaning": "Dấu chân kỹ thuật số",
+      "pronunciation": "/ˈdɪdʒɪtl ˈfʊtprɪnt/",
+      "example": "Be careful what you post online as it forms your digital footprint.",
+      "deckId": "deck-spk-c004-003",
+      "id": "card-spk-c004-003-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Exaggerate",
+      "meaning": "Phóng đại, thổi phồng",
+      "pronunciation": "/ɪɡˈzædʒəreɪt/",
+      "example": "The media tended to exaggerate the severity of the storm.",
+      "deckId": "deck-spk-c004-003",
+      "id": "card-spk-c004-003-10",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Curriculum",
+      "meaning": "Chương trình học",
+      "pronunciation": "/kəˈrɪkjələm/",
+      "example": "The school decided to add coding to the basic science curriculum.",
+      "deckId": "deck-spk-c004-004",
+      "id": "card-spk-c004-004-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Rote learning",
+      "meaning": "Học vẹt",
+      "pronunciation": "/rəʊt ˈlɜːnɪŋ/",
+      "example": "Rote learning is less effective than active problem-solving.",
+      "deckId": "deck-spk-c004-004",
+      "id": "card-spk-c004-004-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Critical thinking",
+      "meaning": "Tư duy phản biện",
+      "pronunciation": "/ˈkrɪtɪkl ˈθɪŋkɪŋ/",
+      "example": "University studies should encourage independent critical thinking.",
+      "deckId": "deck-spk-c004-004",
+      "id": "card-spk-c004-004-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Pedagogy",
+      "meaning": "Phương pháp giảng dạy",
+      "pronunciation": "/ˈpedəɡɒdʒi/",
+      "example": "Modern pedagogy emphasizes student-centered learning.",
+      "deckId": "deck-spk-c004-004",
+      "id": "card-spk-c004-004-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Autonomy",
+      "meaning": "Sự tự chủ, tự học",
+      "pronunciation": "/ɔːˈtɒnəmi/",
+      "example": "Giving students autonomy over their projects increases engagement.",
+      "deckId": "deck-spk-c004-004",
+      "id": "card-spk-c004-004-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Interactive",
+      "meaning": "Tương tác",
+      "pronunciation": "/ˌɪntərˈæktɪv/",
+      "example": "The website offers interactive grammar games for language learners.",
+      "deckId": "deck-spk-c004-004",
+      "id": "card-spk-c004-004-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Cognitive ability",
+      "meaning": "Khã năng nhận thức",
+      "pronunciation": "/ˈkɒɡnətɪv əˈbɪləti/",
+      "example": "Puzzles are excellent for improving children's cognitive ability.",
+      "deckId": "deck-spk-c004-004",
+      "id": "card-spk-c004-004-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Acquisition",
+      "meaning": "Sự tiếp thu, tích lũy",
+      "pronunciation": "/ˌækwɪˈzɪʃn/",
+      "example": "Language acquisition is much faster during early childhood.",
+      "deckId": "deck-spk-c004-004",
+      "id": "card-spk-c004-004-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Well-rounded",
+      "meaning": "Toàn diện",
+      "pronunciation": "/ˌwel ˈraʊndɪd/",
+      "example": "The university aims to produce well-rounded graduates.",
+      "deckId": "deck-spk-c004-004",
+      "id": "card-spk-c004-004-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Vocational training",
+      "meaning": "Đào tạo nghề",
+      "pronunciation": "/vəʊˈkeɪʃənl ˈtreɪnɪŋ/",
+      "example": "He opted for vocational training in electronics rather than college.",
+      "deckId": "deck-spk-c004-004",
+      "id": "card-spk-c004-004-10",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Work-life balance",
+      "meaning": "Cân bằng công việc - cuộc sống",
+      "pronunciation": "/wɜːk laɪf ˈbæləns/",
+      "example": "Flexible working hours contribute to a better work-life balance.",
+      "deckId": "deck-spk-c004-005",
+      "id": "card-spk-c004-005-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Automation",
+      "meaning": "Sự tự động hóa",
+      "pronunciation": "/ˌɔːtəˈmeɪʃn/",
+      "example": "Factory automation has drastically reduced the need for manual labor.",
+      "deckId": "deck-spk-c004-005",
+      "id": "card-spk-c004-005-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Job satisfaction",
+      "meaning": "Sự hài lòng công việc",
+      "pronunciation": "/dʒɒb ˌsætɪsˈfækʃn/",
+      "example": "High job satisfaction leads to lower staff turnover rates.",
+      "deckId": "deck-spk-c004-005",
+      "id": "card-spk-c004-005-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Collaborative",
+      "meaning": "Hợp tác",
+      "pronunciation": "/kəˈlæbərətɪv/",
+      "example": "Working in a collaborative team helps brainstorm better solutions.",
+      "deckId": "deck-spk-c004-005",
+      "id": "card-spk-c004-005-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Career path",
+      "meaning": "Lộ trình sự nghiệp",
+      "pronunciation": "/kəˈrɪə pɑːθ/",
+      "example": "It is useful to map out a clear career path early on.",
+      "deckId": "deck-spk-c004-005",
+      "id": "card-spk-c004-005-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Lucrative",
+      "meaning": "Siêu lợi nhuận, lương cao",
+      "pronunciation": "/ˈluːkrətɪv/",
+      "example": "She left teaching to pursue a more lucrative career in software sales.",
+      "deckId": "deck-spk-c004-005",
+      "id": "card-spk-c004-005-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Redundant",
+      "meaning": "Dư thừa, bị sa thải",
+      "pronunciation": "/rɪˈdʌndənt/",
+      "example": "Many administrative workers were made redundant by new software.",
+      "deckId": "deck-spk-c004-005",
+      "id": "card-spk-c004-005-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Corporate culture",
+      "meaning": "Văn hóa doanh nghiệp",
+      "pronunciation": "/ˈkɔːpərət ˈkʌltʃə/",
+      "example": "The company is known for its collaborative and supportive corporate culture.",
+      "deckId": "deck-spk-c004-005",
+      "id": "card-spk-c004-005-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Telecommuting",
+      "meaning": "Làm việc từ xa",
+      "pronunciation": "/ˌtelikəˈmjuːtɪŋ/",
+      "example": "Telecommuting allows employees to work from home via the internet.",
+      "deckId": "deck-spk-c004-005",
+      "id": "card-spk-c004-005-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
+    },
+    {
+      "word": "Entrepreneur",
+      "meaning": "Nhà khởi nghiệp",
+      "pronunciation": "/ˌɒntrəprəˈnɜː/",
+      "example": "The young entrepreneur started his business in a college dorm.",
+      "deckId": "deck-spk-c004-005",
+      "id": "card-spk-c004-005-10",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": "",
+      "courseId": "course-004"
     }
   ],
   "flashcardProgress": [
@@ -7750,6 +10044,37 @@
       "status": "in-progress",
       "startTime": "2026-07-20T13:04:46.235Z",
       "createdAt": "2026-07-20T13:04:46.239Z"
+    },
+    {
+      "id": "ta-014",
+      "userId": "u-student-004",
+      "guestId": null,
+      "testId": "test-spk-c004-001",
+      "skill": "Speaking",
+      "status": "completed",
+      "startTime": "2026-07-20T17:09:11.382Z",
+      "createdAt": "2026-07-20T17:09:11.391Z",
+      "completedAt": "2026-07-20T17:09:32.405Z",
+      "answers": {
+        "part1": {
+          "test-spk-c004-001-q1": {
+            "type": "text",
+            "value": "http://localhost:9999/uploads/speaking-test-spk-c004-001-q1-1784567366223-1784567366245-296496794.webm"
+          }
+        }
+      },
+      "submittedAt": "2026-07-20T17:09:32.405Z",
+      "gradingStatus": "graded",
+      "score": 9,
+      "overallBandScore": 9,
+      "criteriaScores": {
+        "C1": 9,
+        "C2": 9,
+        "C3": 9,
+        "C4": 9
+      },
+      "feedback": "tốt",
+      "gradedAt": "2026-07-20T17:10:24.012Z"
     }
   ],
   "flashcardDecks": [
@@ -7925,6 +10250,116 @@
       "status": "published",
       "createdAt": "2026-07-06T06:53:41.125Z",
       "updatedAt": "2026-07-06T06:53:41.125Z"
+    },
+    {
+      "id": "deck-spk-ezfx-001",
+      "title": "Hometown & Accommodation Vocabulary",
+      "description": "Essential vocabulary for describing cities, houses, and living spaces.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "premium",
+      "courseId": "eZfx0_P3YIU",
+      "status": "published",
+      "createdAt": "2026-07-20T16:00:00Z",
+      "updatedAt": "2026-07-20T16:00:00Z"
+    },
+    {
+      "id": "deck-spk-ezfx-002",
+      "title": "Travel & Leisure Vocabulary",
+      "description": "Vocabulary for trips, holidays, hobbies, and relaxation.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "premium",
+      "courseId": "eZfx0_P3YIU",
+      "status": "published",
+      "createdAt": "2026-07-20T16:00:00Z",
+      "updatedAt": "2026-07-20T16:53:47.503Z"
+    },
+    {
+      "id": "deck-spk-ezfx-003",
+      "title": "Food & Dining Vocabulary",
+      "description": "Useful words to describe food tastes, cooking, and restaurants.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "premium",
+      "courseId": "eZfx0_P3YIU",
+      "status": "published",
+      "createdAt": "2026-07-20T16:00:00Z",
+      "updatedAt": "2026-07-20T16:00:00Z"
+    },
+    {
+      "id": "deck-spk-ezfx-004",
+      "title": "Sports & Fitness Vocabulary",
+      "description": "Talk about active lifestyles, exercises, and health.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "premium",
+      "courseId": "eZfx0_P3YIU",
+      "status": "published",
+      "createdAt": "2026-07-20T16:00:00Z",
+      "updatedAt": "2026-07-20T16:00:00Z"
+    },
+    {
+      "id": "deck-spk-ezfx-005",
+      "title": "Friendship & Social Bonds",
+      "description": "Vocabulary for discussing friends, social groups, and interpersonal skills.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "premium",
+      "courseId": "eZfx0_P3YIU",
+      "status": "published",
+      "createdAt": "2026-07-20T16:00:00Z",
+      "updatedAt": "2026-07-20T16:00:00Z"
+    },
+    {
+      "id": "deck-spk-c004-001",
+      "title": "Environment & Sustainability",
+      "description": "Advanced collocations and phrases for environmental issues and nature.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "free",
+      "courseId": "course-004",
+      "status": "published",
+      "createdAt": "2026-07-20T16:00:00Z",
+      "updatedAt": "2026-07-20T16:00:00Z"
+    },
+    {
+      "id": "deck-spk-c004-002",
+      "title": "Art & Cultural Heritage",
+      "description": "Sophisticated vocabulary for discussing history, art forms, and traditions.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "free",
+      "courseId": "course-004",
+      "status": "published",
+      "createdAt": "2026-07-20T16:00:00Z",
+      "updatedAt": "2026-07-20T16:00:00Z"
+    },
+    {
+      "id": "deck-spk-c004-003",
+      "title": "Media & Digital Age",
+      "description": "Vocabulary for discussing social networks, news validity, and advertising.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "free",
+      "courseId": "course-004",
+      "status": "published",
+      "createdAt": "2026-07-20T16:00:00Z",
+      "updatedAt": "2026-07-20T16:00:00Z"
+    },
+    {
+      "id": "deck-spk-c004-004",
+      "title": "Education & Cognitive Growth",
+      "description": "Discuss systems, teaching methods, and self-learning.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "free",
+      "courseId": "course-004",
+      "status": "published",
+      "createdAt": "2026-07-20T16:00:00Z",
+      "updatedAt": "2026-07-20T16:00:00Z"
+    },
+    {
+      "id": "deck-spk-c004-005",
+      "title": "Careers & Future Work",
+      "description": "Advanced vocabulary for discussing jobs, technologies, and work-life balance.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "free",
+      "courseId": "course-004",
+      "status": "published",
+      "createdAt": "2026-07-20T16:00:00Z",
+      "updatedAt": "2026-07-20T16:00:00Z"
     }
   ],
   "library_resources": [
