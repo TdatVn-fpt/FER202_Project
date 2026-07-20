@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import {
-  Container, Row, Col, Card, Table, Badge, Button, Form,
-  Spinner, Alert, Modal, InputGroup, Tabs, Tab
+  Container, Row, Col, Card, Table, Button, Form,
+  Spinner, Alert, Modal, InputGroup
 } from 'react-bootstrap';
 import api from '../../services/api';
 import {
@@ -49,13 +49,13 @@ export default function PaymentManagement() {
     try {
       const [pays, usersRes, coursesRes] = await Promise.all([
         getAllPayments(),
-        api.get('/users').catch(() => ({ data: [] })),
+        api.get('/admin/users/summary').catch(() => ({ data: { data: [] } })),
         api.get('/courses').catch(() => ({ data: [] })),
       ]);
       setPayments(pays);
 
       const uMap = {};
-      (usersRes.data || []).forEach((u) => { uMap[u.id] = u; });
+      (usersRes.data?.data || []).forEach((u) => { uMap[u.id] = u; });
       setUsersMap(uMap);
 
       const cMap = {};
