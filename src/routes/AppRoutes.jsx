@@ -1,10 +1,14 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Navigate, Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 
 import Home from '../pages/guest/Home';
 import Login from '../pages/guest/Login';
 import Register from '../pages/guest/Register';
+import VerifyEmail from '../pages/guest/VerifyEmail';
+import ForgotPassword from '../pages/guest/ForgotPassword';
+import ResetPassword from '../pages/guest/ResetPassword';
+import AccessDenied from '../pages/guest/AccessDenied';
 import CourseList from '../pages/guest/CourseList';
 import CourseDetail from '../pages/guest/CourseDetail';
 import OnlineCourses from '../pages/guest/OnlineCourses';
@@ -70,6 +74,10 @@ export default function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/verify-email" element={<VerifyEmail />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/403" element={<AccessDenied />} />
         <Route path="/courses" element={<CourseList />} />
         <Route path="/resources/:id" element={<ResourceDetail />} />
         <Route path="/skills" element={<SkillPractice />} />
@@ -81,9 +89,12 @@ export default function AppRoutes() {
         <Route path="/free-tests/:id" element={<TestDetailPage />} />
         <Route path="/free-tests/attempt/:attemptId" element={<TestSessionPage />} />
         <Route path="/free-tests/review/:attemptId" element={<TestReviewPage />} />
+        <Route element={<ProtectedRoute allowedRoles={['student', 'teacher', 'admin']} />}>
+          <Route path="/profile" element={<StudentProfile />} />
+        </Route>
       </Route>
 
-      <Route element={<ProtectedRoute allowedRoles={['student', 'teacher', 'admin']} />}>
+      <Route element={<ProtectedRoute allowedRoles={['student']} />}>
         <Route element={<StudentLayout />}>
           <Route path="/learning" element={<StudentHomePage />} />
           <Route path="/learning/dashboard" element={<StudentDashboard />} />
@@ -98,7 +109,7 @@ export default function AppRoutes() {
           <Route path="/learning/tests/:id" element={<TestDetailPage />} />
           <Route path="/learning/tests/attempt/:attemptId" element={<TestSessionPage />} />
           <Route path="/learning/tests/review/:attemptId" element={<TestReviewPage />} />
-          <Route path="/learning/profile" element={<StudentProfile />} />
+          <Route path="/learning/profile" element={<Navigate to="/profile" replace />} />
           <Route path="/learning/flashcards" element={<FlashcardListPage />} />
           <Route path="/learning/flashcards/:deckId" element={<FlashcardStudyPage />} />
         </Route>
