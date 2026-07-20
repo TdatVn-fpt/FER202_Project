@@ -77,6 +77,9 @@ const ProfileRedirect = () => {
 export default function AppRoutes() {
   return (
     <Routes>
+      <Route element={<ProtectedRoute allowedRoles={['student', 'teacher', 'admin']} />}>
+        <Route path="/profile" element={<ProfileRedirect />} />
+      </Route>
 
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
@@ -97,9 +100,6 @@ export default function AppRoutes() {
         <Route path="/free-tests/:id" element={<TestDetailPage />} />
         <Route path="/free-tests/attempt/:attemptId" element={<TestSessionPage />} />
         <Route path="/free-tests/review/:attemptId" element={<TestReviewPage />} />
-        <Route element={<ProtectedRoute allowedRoles={['student', 'teacher', 'admin']} />}>
-          <Route path="/profile" element={<ProfileRedirect />} />
-        </Route>
         <Route element={<ProtectedRoute allowedRoles={['student']} />}>
           <Route path="/payment/success" element={<PaymentResult />} />
           <Route path="/payment/cancel" element={<PaymentResult cancelled />} />
