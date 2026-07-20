@@ -121,7 +121,7 @@ export default function AppRoutes() {
           <Route path="/learning/tests/:id" element={<TestDetailPage />} />
           <Route path="/learning/tests/attempt/:attemptId" element={<TestSessionPage />} />
           <Route path="/learning/tests/review/:attemptId" element={<TestReviewPage />} />
-          <Route path="/learning/profile" element={<StudentProfile />} />
+          <Route path="/learning/profile" element={<Navigate to="/profile" replace />} />
           <Route path="/learning/flashcards" element={<FlashcardListPage />} />
           <Route path="/learning/flashcards/:deckId" element={<FlashcardStudyPage />} />
         </Route>

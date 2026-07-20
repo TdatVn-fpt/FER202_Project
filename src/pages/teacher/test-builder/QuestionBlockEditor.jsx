@@ -24,6 +24,7 @@ export default function QuestionBlockEditor({
   blocks = [],
   onChange,
   variant = 'primary',
+  defaultSampleText,
 }) {
   const [rawText, setRawText] = useState('');
   const [parsedBlocks, setParsedBlocks] = useState([]);
@@ -122,7 +123,7 @@ export default function QuestionBlockEditor({
               <Button
                 type="button"
                 variant={`outline-${variant}`}
-                onClick={() => setRawText((value) => value || SAMPLE_TEXT)}
+                onClick={() => setRawText((value) => value || defaultSampleText || SAMPLE_TEXT)}
               >
                 <i className="bi bi-stars me-1" />
                 Sample
