@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Navbar as BsNavbar, Nav, NavDropdown, Container, Button } from 'react-bootstrap';
-import { getCurrentUser, getDashboardPathByRole, logout } from '../../services/authService';
+import { getDashboardPathByRole } from '../../services/authService';
+import { useAuth } from '../../contexts/AuthContext';
 import { getCartItems, subscribeCartChanges } from '../../services/cartService';
 import { getWishlistItems, subscribeWishlistChanges } from '../../services/wishlistService';
 import './Navbar.css';
 
 export default function Navbar({ variant = 'default' }) {
   const [expanded, setExpanded] = useState(false);
-  const [currentUser, setCurrentUser] = useState(() => getCurrentUser());
+  const { user: currentUser, logout } = useAuth();
   const navigate = useNavigate();
 
   const closeMenu = () => setExpanded(false);
@@ -16,16 +17,6 @@ export default function Navbar({ variant = 'default' }) {
   const effectiveVariant = currentUser?.role === 'student' ? 'student' : variant;
   const [cartCount, setCartCount] = useState(() => getCartItems().length);
   const [wishlistCount, setWishlistCount] = useState(() => getWishlistItems().length);
-
-  useEffect(() => {
-    const syncUser = () => setCurrentUser(getCurrentUser());
-    window.addEventListener('auth:user-changed', syncUser);
-    window.addEventListener('storage', syncUser);
-    return () => {
-      window.removeEventListener('auth:user-changed', syncUser);
-      window.removeEventListener('storage', syncUser);
-    };
-  }, []);
 
   useEffect(() => {
     const handleCart = () => setCartCount(getCartItems().length);
@@ -144,7 +135,7 @@ export default function Navbar({ variant = 'default' }) {
                     My Dashboard
                   </NavDropdown.Item>
                 )}
-                <NavDropdown.Item as={Link} to="/learning/profile" onClick={closeMenu}>
+                <NavDropdown.Item as={Link} to="/profile" onClick={closeMenu}>
                   My Profile
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
