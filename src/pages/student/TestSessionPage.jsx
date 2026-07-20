@@ -94,62 +94,16 @@ function QuestionMapItem({ number, isCurrent, isAnswered, isFlagged, onClick }) 
 }
 
 function AudioPlayer({ audioUrl, audioPolicy = 'allow-replay' }) {
-  const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(1);
-  const [hasStarted, setHasStarted] = useState(false);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.play()
-        .then(() => {
-          setIsPlaying(true);
-          setHasStarted(true);
-        })
-        .catch(e => {
-          console.warn("Autoplay blocked.", e);
-          setIsPlaying(false);
-        });
-    }
-  }, [audioUrl]);
-
   return (
-    <div className="d-flex justify-content-end align-items-center py-1 px-3" style={{ background: '#fff' }}>
+    <div className="d-flex justify-content-center align-items-center py-2 px-3 w-100" style={{ background: '#fff' }}>
       <audio
-        ref={audioRef}
+        controls
+        className="w-100"
         src={audioUrl}
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-        style={{ display: 'none' }}
-      />
-      {!isPlaying && !hasStarted && (
-        <button 
-          className="btn btn-sm btn-dark rounded-0 fw-bold shadow-sm" 
-          onClick={() => {
-            audioRef.current?.play();
-            setHasStarted(true);
-          }}
-        >
-          <i className="bi bi-play-fill me-1"></i> BẮT ĐẦU NGHE
-        </button>
-      )}
-      {(isPlaying || hasStarted) && (
-        <div className="d-flex align-items-center gap-2">
-          <i className="bi bi-volume-up-fill text-dark" style={{ fontSize: '1.2rem' }}></i>
-          <input 
-            type="range" 
-            min="0" max="1" step="0.1" 
-            value={volume}
-            onChange={(e) => {
-              const v = parseFloat(e.target.value);
-              setVolume(v);
-              if (audioRef.current) audioRef.current.volume = v;
-            }}
-            style={{ width: '80px', cursor: 'pointer', accentColor: '#000' }}
-            title="Điều chỉnh âm lượng"
-          />
-        </div>
-      )}
+        controlsList={audioPolicy === 'once-only' ? 'nodownload noplaybackrate' : 'nodownload'}
+      >
+        Your browser does not support the audio element.
+      </audio>
     </div>
   );
 }
@@ -199,10 +153,10 @@ function WritingAnswerPanel({ question, answer, onAnswer }) {
           value={answer || ''}
           onChange={(event) => onAnswer(question.id, event.target.value)}
           placeholder="Type your answer here..."
-          style={{ 
-            boxShadow: 'none', 
-            resize: 'none', 
-            fontSize: '15px', 
+          style={{
+            boxShadow: 'none',
+            resize: 'none',
+            fontSize: '15px',
             lineHeight: '1.8',
             color: '#1e293b'
           }}
