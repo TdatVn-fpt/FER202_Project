@@ -1,13 +1,13 @@
 import React from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import { logout, getCurrentUser } from '../services/authService';
+import { useAuth } from '../contexts/AuthContext';
 import '../styles/teacher-portal.css';
 import './TeacherLayout.css'; // Reusing the sidebar CSS for unified look
 
 export default function AdminLayout() {
   const navigate = useNavigate();
-  const currentUser = getCurrentUser();
+  const { user: currentUser, logout } = useAuth();
 
   const handleLogout = () => {
     logout();
@@ -54,6 +54,9 @@ export default function AdminLayout() {
           <div className="text-uppercase text-muted small fw-bold mt-3 mb-2 px-3" style={{ fontSize: '0.7rem' }}>Hệ thống</div>
           <NavLink to="/admin/users" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
             <i className="bi bi-people"></i> Quản lý Người dùng
+          </NavLink>
+          <NavLink to="/profile" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
+            <i className="bi bi-person-circle"></i> Hồ sơ cá nhân
           </NavLink>
           <NavLink to="/admin/courses" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
             <i className="bi bi-journal-bookmark"></i> Quản lý Khóa học

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import { logout, getCurrentUser } from '../services/authService';
+import { useAuth } from '../contexts/AuthContext';
 import '../styles/teacher-portal.css';
 import './TeacherLayout.css';
 
 export default function TeacherLayout() {
   const navigate = useNavigate();
-  const currentUser = getCurrentUser();
+  const { user: currentUser, logout } = useAuth();
 
   const handleLogout = () => {
     logout();
@@ -56,6 +56,9 @@ export default function TeacherLayout() {
           </NavLink>
           <NavLink to="/teacher/students" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
             <i className="bi bi-people"></i> Quản lý Học viên
+          </NavLink>
+          <NavLink to="/profile" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
+            <i className="bi bi-person-circle"></i> Hồ sơ cá nhân
           </NavLink>
           <NavLink to="/teacher/flashcards" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
             <i className="bi bi-layers"></i> Quản lý Flashcard
