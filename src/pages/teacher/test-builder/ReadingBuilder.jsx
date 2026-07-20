@@ -117,6 +117,8 @@ export default function ReadingBuilder({ value, onChange }) {
                     variant="primary"
                     blocks={passage.blocks || []}
                     onChange={(newBlocks) => updatePassage(passage.id, { blocks: newBlocks })}
+                    skill="Reading"
+                    referenceIndex={index}
                   />
                 </div>
               )}

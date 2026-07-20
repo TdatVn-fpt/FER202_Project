@@ -204,6 +204,8 @@ export default function ListeningBuilder({ value, onChange }) {
                   variant="warning"
                   blocks={section.blocks || []}
                   onChange={(newBlocks) => updateSection(section.id, { blocks: newBlocks })}
+                  skill="Listening"
+                  referenceIndex={index}
                 />
               </div>
             )}
