@@ -146,30 +146,6 @@ export default function UserManagement() {
     : `Chuyển ${confirm.user?.fullName || confirm.user?.email} sang trạng thái ${confirm.status}?`;
 
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/main
-    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
-      <div className="tp-page-header"><div className="tp-page-header-inner d-flex justify-content-between align-items-center"><div><div className="tp-page-badge"><i className="bi bi-people-fill" /> Quản lý</div><h1 className="tp-page-title">Người dùng</h1><p className="tp-page-sub">CRUD tài khoản, role và trạng thái với audit log phía server.</p></div><Button variant="light" className="rounded-pill px-4" onClick={openCreate}><i className="bi bi-person-plus me-2" />Add User</Button></div></div>
-      <div className="tp-main-content"><Container fluid="xxl" className="px-4">
-        {error && <Alert variant="danger" dismissible onClose={() => setError('')}>{error}</Alert>}
-        <Card className="studio-filter-card mb-4"><Form className="row g-3" onSubmit={(event) => event.preventDefault()}>
-          <div className="col-md-5"><Form.Control aria-label="Tìm theo tên hoặc email" name="q" placeholder="Search by name or email..." value={filters.q} onChange={updateFilter} className="tp-input" /></div>
-          <div className="col-md-3"><Form.Select aria-label="Lọc theo role" name="role" value={filters.role} onChange={updateFilter} className="tp-input"><option value="">All Roles</option><option value="student">Student</option><option value="teacher">Teacher</option><option value="admin">Admin</option></Form.Select></div>
-          <div className="col-md-3"><Form.Select aria-label="Lọc theo status" name="status" value={filters.status} onChange={updateFilter} className="tp-input"><option value="">All Statuses</option><option value="active">Active</option><option value="locked">Locked</option><option value="banned">Banned</option></Form.Select></div>
-          <div className="col-md-1"><Button aria-label="Xóa bộ lọc" variant="outline-secondary" className="w-100" onClick={() => { setFilters({ q: '', role: '', status: '' }); setPage(1); }}><i className="bi bi-x-lg" /></Button></div>
-        </Form></Card>
-        <Card className="studio-table-card">
-          <div className="d-flex justify-content-between px-4 py-3 border-bottom"><strong>Tổng số: {meta.total}</strong><span className="text-muted">Trang {page}/{meta.totalPages}</span></div>
-          <div className="table-responsive"><Table hover responsive className="align-middle mb-0"><thead><tr><th className="ps-4">Name</th><th>Email</th><th>Role</th><th>Status</th><th>Created At</th><th className="text-end pe-4">Actions</th></tr></thead><tbody>
-            {loading ? <tr><td colSpan="6" className="text-center py-5"><Spinner animation="border" /><div>Đang tải người dùng...</div></td></tr>
-              : users.length === 0 ? <tr><td colSpan="6" className="text-center py-5 text-muted">Không có người dùng phù hợp.</td></tr>
-                : users.map((item) => <tr key={item.id}><td className="ps-4 fw-medium">{item.fullName || item.name}</td><td>{item.email}</td><td className="text-capitalize">{item.role}</td><td><StatusBadge status={item.status} /></td><td>{item.createdAt ? new Date(item.createdAt).toLocaleDateString('vi-VN') : 'N/A'}</td><td className="text-end pe-4"><Button size="sm" variant="outline-primary" className="me-2" onClick={() => openEdit(item)}>Edit</Button><Dropdown className="d-inline" align="end"><Dropdown.Toggle size="sm" variant="light" disabled={item.id === admin?.id}>Status</Dropdown.Toggle><Dropdown.Menu>{item.status !== 'active' && <Dropdown.Item onClick={() => askAction('status', item, 'active')}>Unlock / Set Active</Dropdown.Item>}{item.status !== 'locked' && <Dropdown.Item onClick={() => askAction('status', item, 'locked')}>Lock 24 hours</Dropdown.Item>}{item.status !== 'banned' && <Dropdown.Item className="text-danger" onClick={() => askAction('status', item, 'banned')}>Ban</Dropdown.Item>}<Dropdown.Divider /><Dropdown.Item className="text-danger" onClick={() => askAction('delete', item)}>Delete</Dropdown.Item></Dropdown.Menu></Dropdown></td></tr>)}
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/main
     <div style={{ background: 'var(--tp-page-bg)', minHeight: '100vh', paddingBottom: '40px' }}>
       <div className="tp-page-header" style={{ margin: '-24px -24px 24px', padding: '40px 32px' }}>
         <div className="tp-page-header-inner d-flex justify-content-between align-items-center">
