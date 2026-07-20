@@ -23,7 +23,7 @@ describe('AdminLayout with AuthContext', () => {
     expect(screen.getByText('System Admin')).toBeInTheDocument();
     expect(document.querySelector('a[href="/admin/dashboard"]')).toBeInTheDocument();
     expect(document.querySelector('a[href="/admin/users"]')).toBeInTheDocument();
-    expect(document.querySelector('a[href="/profile"]')).toBeInTheDocument();
+    expect(document.querySelector('a[href="/admin/profile"]')).toBeInTheDocument();
     expect(screen.getByTestId('router-outlet')).toBeInTheDocument();
   });
 

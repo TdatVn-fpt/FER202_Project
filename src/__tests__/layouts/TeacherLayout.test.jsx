@@ -22,7 +22,7 @@ describe('TeacherLayout with AuthContext', () => {
     render(<TeacherLayout />);
     expect(screen.getByText('IELTS Mentor')).toBeInTheDocument();
     expect(document.querySelector('a[href="/teacher/students"]')).toBeInTheDocument();
-    expect(document.querySelector('a[href="/profile"]')).toBeInTheDocument();
+    expect(document.querySelector('a[href="/teacher/profile"]')).toBeInTheDocument();
     expect(screen.getByTestId('router-outlet')).toBeInTheDocument();
   });
 

@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/teacher-portal.css';
 import './TeacherLayout.css'; // Reusing the sidebar CSS for unified look
+import './AdminLayout.css';
 
 export default function AdminLayout() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function AdminLayout() {
   };
 
   return (
-    <div className="teacher-layout">
+    <div className="teacher-layout admin-layout">
 
       {/* Sidebar */}
       <div className="teacher-sidebar p-3 shadow-sm">
@@ -59,7 +60,7 @@ export default function AdminLayout() {
           <NavLink to="/admin/users" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
             <i className="bi bi-people"></i> Quản lý Người dùng
           </NavLink>
-          <NavLink to="/profile" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
+          <NavLink to="/admin/profile" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
             <i className="bi bi-person-circle"></i> Hồ sơ cá nhân
           </NavLink>
           <NavLink to="/admin/courses" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
@@ -73,9 +74,6 @@ export default function AdminLayout() {
           </NavLink>
           <NavLink to="/admin/flashcards" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
             <i className="bi bi-layers"></i> Quản lý Flashcards
-          </NavLink>
-          <NavLink to="/admin/payments" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
-            <i className="bi bi-credit-card"></i> Quản lý Thanh toán
           </NavLink>
           <NavLink to="/admin/transactions" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
             <i className="bi bi-receipt"></i> Lịch sử Giao dịch
@@ -98,9 +96,9 @@ export default function AdminLayout() {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-grow-1 d-flex flex-column overflow-auto bg-light">
+      <div className="admin-main-shell flex-grow-1 d-flex flex-column overflow-auto bg-light">
 
-        <main className="flex-grow-1 p-0">
+        <main className="admin-main flex-grow-1">
           <Outlet />
         </main>
       </div>

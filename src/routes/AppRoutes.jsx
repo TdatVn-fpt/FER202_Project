@@ -17,6 +17,7 @@ import ResourceDetail from '../pages/guest/ResourceDetail';
 import SkillPractice from '../pages/guest/SkillPractice';
 import Checkout from '../pages/guest/Checkout';
 import CartCheckout from '../pages/guest/CartCheckout';
+import PaymentResult from '../pages/guest/PaymentResult';
 import WishlistPage from '../pages/guest/WishlistPage';
 
 import StudentDashboard from '../pages/student/DashboardPage';
@@ -57,7 +58,6 @@ import UserManagement from '../pages/admin/UserManagement';
 import AdminCourseManagement from '../pages/admin/CourseManagement';
 import LessonManagement from '../pages/admin/LessonManagement';
 import TestManagement from '../pages/admin/TestManagement';
-import PaymentManagement from '../pages/admin/PaymentManagement';
 import AuditLogs from '../pages/admin/AuditLogs';
 import AdminFlashcardManagement from '../pages/admin/FlashcardManagement';
 import TransactionList from '../pages/admin/TransactionList';
@@ -77,6 +77,9 @@ const ProfileRedirect = () => {
 export default function AppRoutes() {
   return (
     <Routes>
+      <Route element={<ProtectedRoute allowedRoles={['student', 'teacher', 'admin']} />}>
+        <Route path="/profile" element={<ProfileRedirect />} />
+      </Route>
 
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
@@ -98,11 +101,11 @@ export default function AppRoutes() {
         <Route path="/free-tests/attempt/:attemptId" element={<TestSessionPage />} />
         <Route path="/free-tests/review/:attemptId" element={<TestReviewPage />} />
         <Route element={<ProtectedRoute allowedRoles={['student', 'teacher', 'admin']} />}>
-<<<<<<< HEAD
-=======
-          <Route path="/profile" element={<StudentProfile />} />
->>>>>>> origin/main
           <Route path="/profile" element={<ProfileRedirect />} />
+        </Route>
+        <Route element={<ProtectedRoute allowedRoles={['student']} />}>
+          <Route path="/payment/success" element={<PaymentResult />} />
+          <Route path="/payment/cancel" element={<PaymentResult cancelled />} />
         </Route>
       </Route>
 
@@ -164,7 +167,6 @@ export default function AppRoutes() {
           <Route path="/admin/lessons" element={<LessonManagement />} />
           <Route path="/admin/tests" element={<TestManagement />} />
           <Route path="/admin/flashcards" element={<AdminFlashcardManagement />} />
-          <Route path="/admin/payments" element={<PaymentManagement />} />
           <Route path="/admin/transactions" element={<TransactionList />} />
           <Route path="/admin/revenue" element={<RevenueStatistics />} />
           <Route path="/admin/profile" element={<StudentProfile />} />
