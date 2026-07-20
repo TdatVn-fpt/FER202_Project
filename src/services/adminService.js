@@ -201,9 +201,18 @@ export const getAuditLogs = async (params) => {
 
 export const getTransactions = async (params) => {
   try {
-    const response = await api.get('/transactions', { params });
+    const response = await api.get('/admin/transactions', { params });
     return response.data;
   } catch (error) {
-    return [];
+    throw getApiError(error, 'Không thể tải lịch sử giao dịch.');
+  }
+};
+
+export const getRevenueStatistics = async () => {
+  try {
+    const response = await api.get('/admin/revenue');
+    return response.data?.data || { summary: {}, byCourse: [], byMonth: [] };
+  } catch (error) {
+    throw getApiError(error, 'Không thể tải thống kê doanh thu.');
   }
 };
