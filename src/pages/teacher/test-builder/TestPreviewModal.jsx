@@ -39,7 +39,7 @@ export default function TestPreviewModal({ show, onHide, draft }) {
                       {(block.questions || []).map((q, qIdx) => (
                         <div key={q.id || qIdx} className="mb-4 p-3 border rounded">
                            <QuestionRenderer 
-                             question={{ ...q, prompt: q.text }} 
+                             question={{ ...q, prompt: q.text, type: block.rendererType || block.type }} 
                              currentAnswer={''} 
                              onAnswer={() => {}} 
                            />
@@ -52,11 +52,78 @@ export default function TestPreviewModal({ show, onHide, draft }) {
             </Row>
           </div>
         ))}
-        {draft.skill !== 'Reading' && (
+        {draft.skill === 'Listening' && (
+          <div className="p-4">
+            {config.audioUrl && (
+              <div className="mb-4 p-3 bg-white border rounded shadow-sm">
+                <h5 className="fw-bold mb-3 text-dark"><i className="bi bi-headphones me-2 text-primary"></i> Global Audio Preview</h5>
+                <audio controls className="w-100">
+                  <source src={config.audioUrl} />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            )}
+            
+            {(config.sections || []).map((sec, sIdx) => (
+              <div key={sec.id || sIdx} className="bg-white mb-4 p-4 border rounded shadow-sm">
+                <h4 className="fw-bold mb-3 text-dark">{sec.title || `Section ${sec.order || sIdx + 1}`}</h4>
+                
+                {sec.audioUrl && (
+                  <div className="mb-4 p-3 bg-light border rounded">
+                     <h6 className="fw-bold mb-2 text-secondary"><i className="bi bi-play-circle me-2"></i> Section Audio</h6>
+                     <audio controls className="w-100">
+                        <source src={sec.audioUrl} />
+                     </audio>
+                  </div>
+                )}
+
+                <Row className="g-4">
+                  {sec.transcript && sec.showTranscript && (
+                    <Col lg={6}>
+                      <div className="p-4 bg-light rounded-3 border" style={{ maxHeight: '600px', overflowY: 'auto' }}>
+                        <h5 className="fw-bold mb-3 border-bottom pb-2">Transcript</h5>
+                        <div style={{ whiteSpace: 'pre-wrap', lineHeight: '1.8', fontSize: '15px' }} className="text-dark">
+                          {sec.transcript}
+                        </div>
+                      </div>
+                    </Col>
+                  )}
+                  <Col lg={sec.transcript && sec.showTranscript ? 6 : 12}>
+                    <div className="p-3 bg-white rounded-3 border shadow-sm" style={{ maxHeight: '600px', overflowY: 'auto' }}>
+                      <h5 className="fw-bold mb-4 border-bottom pb-2">Questions</h5>
+                      {sec.instruction && (
+                        <div className="fw-semibold fst-italic text-secondary mb-4 p-2 bg-light rounded border-start border-4 border-info">
+                          {sec.instruction}
+                        </div>
+                      )}
+                      {(sec.blocks || []).map((block, bIdx) => (
+                        <div key={bIdx} className="mb-4">
+                          {block.type && <span className="badge bg-secondary mb-3">{block.type}</span>}
+                          {block.instruction && <div className="mb-3 fst-italic text-muted">{block.instruction}</div>}
+                          {(block.questions || []).map((q, qIdx) => (
+                            <div key={q.id || qIdx} className="mb-4 p-3 border rounded">
+                               <QuestionRenderer 
+                                 question={{ ...q, prompt: q.text, type: block.rendererType || block.type }} 
+                                 currentAnswer={''} 
+                                 onAnswer={() => {}} 
+                               />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </Col>
+                </Row>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {draft.skill !== 'Reading' && draft.skill !== 'Listening' && (
           <div className="p-5 text-center text-muted">
             <i className="bi bi-tools fs-1 mb-3 d-block text-secondary"></i>
             <h5>Chức năng Preview Modal cho {draft.skill} đang được cập nhật.</h5>
-            <p>Hiện tại hỗ trợ tốt nhất cho Reading Test.</p>
+            <p>Hiện tại hỗ trợ tốt nhất cho Reading và Listening Test.</p>
           </div>
         )}
       </Modal.Body>
