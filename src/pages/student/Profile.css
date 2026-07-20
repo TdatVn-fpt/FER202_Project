@@ -1,5 +1,9 @@
 /* Profile.css — Premium */
-.prf-page { background: #f0f4f8; min-height: 100vh; }
+.prf-page {
+  background: #f0f4f8;
+  min-height: 100vh;
+  isolation: isolate;
+}
 
 /* HERO */
 .prf-hero {
