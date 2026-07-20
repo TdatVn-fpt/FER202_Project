@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate, Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
+import { useAuth } from '../contexts/AuthContext';
 
 import Home from '../pages/guest/Home';
 import Login from '../pages/guest/Login';
@@ -66,6 +67,13 @@ import StudentLayout from '../layouts/StudentLayout';
 import TeacherLayout from '../layouts/TeacherLayout';
 import AdminLayout from '../layouts/AdminLayout';
 
+const ProfileRedirect = () => {
+  const { user } = useAuth();
+  if (user?.role === 'admin') return <Navigate to="/admin/profile" replace />;
+  if (user?.role === 'teacher') return <Navigate to="/teacher/profile" replace />;
+  return <Navigate to="/learning/profile" replace />;
+};
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -90,7 +98,7 @@ export default function AppRoutes() {
         <Route path="/free-tests/attempt/:attemptId" element={<TestSessionPage />} />
         <Route path="/free-tests/review/:attemptId" element={<TestReviewPage />} />
         <Route element={<ProtectedRoute allowedRoles={['student', 'teacher', 'admin']} />}>
-          <Route path="/profile" element={<StudentProfile />} />
+          <Route path="/profile" element={<ProfileRedirect />} />
         </Route>
       </Route>
 
@@ -138,6 +146,7 @@ export default function AppRoutes() {
           <Route path="/teacher/library" element={<LibraryResourceListPage />} />
           <Route path="/teacher/library/create" element={<LibraryResourceCreatePage />} />
           <Route path="/teacher/library/edit/:id" element={<LibraryResourceEditPage />} />
+          <Route path="/teacher/profile" element={<StudentProfile />} />
         </Route>
       </Route>
 
@@ -154,6 +163,7 @@ export default function AppRoutes() {
           <Route path="/admin/payments" element={<PaymentManagement />} />
           <Route path="/admin/transactions" element={<TransactionList />} />
           <Route path="/admin/revenue" element={<RevenueStatistics />} />
+          <Route path="/admin/profile" element={<StudentProfile />} />
         </Route>
       </Route>
     </Routes>

@@ -146,6 +146,7 @@ export default function UserManagement() {
     : `Chuyển ${confirm.user?.fullName || confirm.user?.email} sang trạng thái ${confirm.status}?`;
 
   return (
+<<<<<<< HEAD
     <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
       <div className="tp-page-header"><div className="tp-page-header-inner d-flex justify-content-between align-items-center"><div><div className="tp-page-badge"><i className="bi bi-people-fill" /> Quản lý</div><h1 className="tp-page-title">Người dùng</h1><p className="tp-page-sub">CRUD tài khoản, role và trạng thái với audit log phía server.</p></div><Button variant="light" className="rounded-pill px-4" onClick={openCreate}><i className="bi bi-person-plus me-2" />Add User</Button></div></div>
       <div className="tp-main-content"><Container fluid="xxl" className="px-4">
@@ -162,6 +163,61 @@ export default function UserManagement() {
             {loading ? <tr><td colSpan="6" className="text-center py-5"><Spinner animation="border" /><div>Đang tải người dùng...</div></td></tr>
               : users.length === 0 ? <tr><td colSpan="6" className="text-center py-5 text-muted">Không có người dùng phù hợp.</td></tr>
                 : users.map((item) => <tr key={item.id}><td className="ps-4 fw-medium">{item.fullName || item.name}</td><td>{item.email}</td><td className="text-capitalize">{item.role}</td><td><StatusBadge status={item.status} /></td><td>{item.createdAt ? new Date(item.createdAt).toLocaleDateString('vi-VN') : 'N/A'}</td><td className="text-end pe-4"><Button size="sm" variant="outline-primary" className="me-2" onClick={() => openEdit(item)}>Edit</Button><Dropdown className="d-inline" align="end"><Dropdown.Toggle size="sm" variant="light" disabled={item.id === admin?.id}>Status</Dropdown.Toggle><Dropdown.Menu>{item.status !== 'active' && <Dropdown.Item onClick={() => askAction('status', item, 'active')}>Unlock / Set Active</Dropdown.Item>}{item.status !== 'locked' && <Dropdown.Item onClick={() => askAction('status', item, 'locked')}>Lock 24 hours</Dropdown.Item>}{item.status !== 'banned' && <Dropdown.Item className="text-danger" onClick={() => askAction('status', item, 'banned')}>Ban</Dropdown.Item>}<Dropdown.Divider /><Dropdown.Item className="text-danger" onClick={() => askAction('delete', item)}>Delete</Dropdown.Item></Dropdown.Menu></Dropdown></td></tr>)}
+=======
+    <div style={{ background: 'var(--tp-page-bg)', minHeight: '100vh', paddingBottom: '40px' }}>
+      <div className="tp-page-header" style={{ margin: '-24px -24px 24px', padding: '40px 32px' }}>
+        <div className="tp-page-header-inner d-flex justify-content-between align-items-center">
+          <div>
+            <div className="tp-page-badge"><i className="bi bi-people-fill" /> Quản lý hệ thống</div>
+            <h1 className="tp-page-title mt-2">Người dùng</h1>
+            <p className="tp-page-sub mt-2 opacity-75">Quản lý tài khoản, phân quyền và theo dõi hoạt động người dùng toàn hệ thống.</p>
+          </div>
+          <Button variant="light" className="rounded-pill px-4 fw-bold shadow-sm" onClick={openCreate} style={{ height: '48px' }}>
+            <i className="bi bi-person-plus-fill me-2 text-primary" />Thêm tài khoản
+          </Button>
+        </div>
+      </div>
+      <div className="tp-main-content"><Container fluid="xxl" className="px-0">
+        {error && <Alert variant="danger" dismissible onClose={() => setError('')}>{error}</Alert>}
+        <Card className="border-0 shadow-sm rounded-4 mb-4">
+          <Card.Body className="p-4">
+            <Form className="row g-3" onSubmit={(event) => event.preventDefault()}>
+              <div className="col-12 col-md-5">
+                <div className="position-relative">
+                  <i className="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                  <Form.Control aria-label="Tìm kiếm theo tên hoặc email" name="q" placeholder="Tìm kiếm theo tên, email..." value={filters.q} onChange={updateFilter} className="ps-5 bg-light border-0 rounded-3 py-2" />
+                </div>
+              </div>
+              <div className="col-6 col-md-3">
+                <Form.Select aria-label="Lọc theo role" name="role" value={filters.role} onChange={updateFilter} className="bg-light border-0 rounded-3 py-2 text-muted fw-medium">
+                  <option value="">Tất cả Role</option>
+                  <option value="student">Student</option>
+                  <option value="teacher">Teacher</option>
+                  <option value="admin">Admin</option>
+                </Form.Select>
+              </div>
+              <div className="col-6 col-md-3">
+                <Form.Select aria-label="Lọc theo status" name="status" value={filters.status} onChange={updateFilter} className="bg-light border-0 rounded-3 py-2 text-muted fw-medium">
+                  <option value="">Tất cả Trạng thái</option>
+                  <option value="active">Active</option>
+                  <option value="locked">Locked</option>
+                  <option value="banned">Banned</option>
+                </Form.Select>
+              </div>
+              <div className="col-12 col-md-1">
+                <Button aria-label="Xóa bộ lọc" variant="light" className="w-100 border-0 rounded-3 py-2 text-danger fw-bold bg-danger bg-opacity-10" onClick={() => { setFilters({ q: '', role: '', status: '' }); setPage(1); }} title="Xóa bộ lọc">
+                  <i className="bi bi-eraser-fill" />
+                </Button>
+              </div>
+            </Form>
+          </Card.Body>
+        </Card>
+        <Card className="studio-table-card">
+          <div className="d-flex justify-content-between px-4 py-3 border-bottom"><strong>Tổng số: {meta.total}</strong><span className="text-muted">Trang {page}/{meta.totalPages}</span></div>
+          <div className="table-responsive"><Table hover responsive className="align-middle mb-0"><thead><tr><th className="ps-4">Name</th><th className="d-none d-md-table-cell">Email</th><th>Role</th><th>Status</th><th>Created At</th><th className="text-end pe-4">Actions</th></tr></thead><tbody>
+            {loading ? <tr><td colSpan="6" className="text-center py-5"><Spinner animation="border" /><div>Đang tải người dùng...</div></td></tr>
+              : users.length === 0 ? <tr><td colSpan="6" className="text-center py-5 text-muted">Không có người dùng phù hợp.</td></tr>
+                : users.map((item) => <tr key={item.id}><td className="ps-4 fw-medium"><div className="d-flex align-items-center gap-3"><div className="bg-primary bg-opacity-10 text-primary fw-bold rounded-circle d-flex justify-content-center align-items-center" style={{ width: '40px', height: '40px', minWidth: '40px', overflow: 'hidden' }}>{item.avatar && /^(https?:\/\/|data:image\/)/i.test(item.avatar) ? <img src={item.avatar} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : (item.fullName || item.name || 'U').charAt(0).toUpperCase()}</div><div><div className="text-dark">{item.fullName || item.name}</div><div className="small text-muted d-block d-md-none">{item.email}</div></div></div></td><td className="d-none d-md-table-cell">{item.email}</td><td className="text-capitalize">{item.role}</td><td><StatusBadge status={item.status} /></td><td>{item.createdAt ? new Date(item.createdAt).toLocaleDateString('vi-VN') : 'N/A'}</td><td className="text-end pe-4"><Button size="sm" variant="outline-primary" className="me-2 rounded-pill shadow-sm px-3" onClick={() => openEdit(item)}>Edit</Button><Dropdown className="d-inline" align="end"><Dropdown.Toggle size="sm" variant="light" className="rounded-pill shadow-sm px-3" disabled={item.id === admin?.id}>Status</Dropdown.Toggle><Dropdown.Menu className="border-0 shadow-sm rounded-4">{item.status !== 'active' && <Dropdown.Item onClick={() => askAction('status', item, 'active')}><i className="bi bi-unlock text-success me-2"/>Unlock / Set Active</Dropdown.Item>}{item.status !== 'locked' && <Dropdown.Item onClick={() => askAction('status', item, 'locked')}><i className="bi bi-lock text-warning me-2"/>Lock 24 hours</Dropdown.Item>}{item.status !== 'banned' && <Dropdown.Item className="text-danger" onClick={() => askAction('status', item, 'banned')}><i className="bi bi-slash-circle me-2"/>Ban</Dropdown.Item>}<Dropdown.Divider /><Dropdown.Item className="text-danger" onClick={() => askAction('delete', item)}><i className="bi bi-trash me-2"/>Delete</Dropdown.Item></Dropdown.Menu></Dropdown></td></tr>)}
           </tbody></Table></div>
           {meta.totalPages > 1 && <Pagination className="justify-content-center p-3 mb-0"><Pagination.Prev aria-label="Trang trước" disabled={page === 1} onClick={() => setPage((old) => old - 1)} />{Array.from({ length: meta.totalPages }, (_, index) => index + 1).map((number) => <Pagination.Item key={number} active={number === page} onClick={() => setPage(number)}>{number}</Pagination.Item>)}<Pagination.Next aria-label="Trang sau" disabled={page === meta.totalPages} onClick={() => setPage((old) => old + 1)} /></Pagination>}
         </Card>
