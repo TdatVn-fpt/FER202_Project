@@ -1,382 +1,385 @@
 export const READING_SAMPLES = [
-  // Passage 1: 13 questions (1-13)
   `[T/F/NG]
-1. The study found that urban noise pollution is decreasing.
-*FALSE
-Explanation: The passage states that urban noise pollution is steadily increasing year by year.
+1. The first urban farms were built in the 19th century.
+*False
+Explanation: The passage mentions that modern urban farming started much later.
 
-2. Animals use specific frequencies to communicate.
-*TRUE
-Explanation: The passage explicitly mentions certain birds use a precise frequency band.
+2. Rooftop gardens can help reduce city temperatures.
+*True
+Explanation: The text states they have a cooling effect on buildings.
 
-3. The research was funded by a local government grant.
-*NOT GIVEN
-Explanation: There is no mention of who funded the research in the text.
+3. All urban farms use hydroponic systems.
+*False
+Explanation: Many use soil, not just hydroponics.
 
-4. Most mammals adapt quickly to loud environments.
-*FALSE
-Explanation: The text notes that mammals struggle significantly and take a long time to adapt.
+4. The cost of urban farming is lower than traditional farming.
+*Not Given
+Explanation: Cost comparisons are not discussed in the text.
 
-5. Sound waves travel faster in water than in air.
-*NOT GIVEN
-Explanation: The speed of sound in water is not discussed in this passage.
+5. Tomatoes are the most common crop in urban farms.
+*Not Given
+Explanation: The text does not specify which crop is most common.
 
-6. The experiment involved 500 different bird species.
-*TRUE
-Explanation: The text states that "five hundred distinct species of birds were examined."
+6. Urban farming can provide jobs for local residents.
+*True
+Explanation: The passage mentions employment opportunities for locals.
 
-7. Noise pollution affects plant growth.
-*FALSE
-Explanation: Studies proved no correlation between noise and plant growth.
+7. Indoor farming requires artificial lighting.
+*True
+Explanation: Without sunlight, artificial lighting is necessary.
 
 [NOTE COMPLETION]
-8. Researchers used ____ to measure decibel levels.
-*specialized microphones
-Explanation: The text mentions specialized microphones were deployed in the forest.
+8. Location of largest rooftop farm: ____
+*New York
+Explanation: Stated in paragraph 3.
 
-9. The main source of low-frequency noise is ____.
-*highway traffic
-Explanation: Highway traffic is identified as the primary contributor to low-frequency noise.
+9. Main type of fertilizer used: ____
+*compost
+Explanation: Mentioned in the section on nutrients.
 
-10. Animals often change their ____ pattern to avoid noise.
-*migration
-Explanation: The text states that migration patterns shift to avoid high-noise areas.
+10. Main benefit to environment: reduction of ____
+*emissions
+Explanation: The text refers to lowering transport emissions.
 
-11. The loudest noise recorded was near a ____.
-*construction site
-Explanation: The peak decibel level was found adjacent to a large construction site.
+11. Problem faced by farmers: lack of ____
+*space
+Explanation: Space is cited as the primary constraint.
 
-12. ____ is the most affected sense in urban wildlife.
-*Hearing
-Explanation: Hearing capabilities are most degraded by constant exposure.
+12. The initiative is supported by local ____
+*councils
+Explanation: The passage states local councils provide funding.
 
-13. The study will continue for another ____.
-*decade
-Explanation: The passage mentions the research is part of a decade-long initiative.`,
+13. First commercial crop harvested in ____
+*2015
+Explanation: The timeline specifies 2015 as the first harvest year.`,
 
-  // Passage 2: 13 questions (14-26)
-  `[MATCHING HEADINGS]
-14. Section A:
-*v
-Explanation: The section discusses historical perspectives.
+  `[MCQ]
+14. What is the main topic of the second passage?
+A. The history of agriculture
+*B. Innovative water management
+C. Pest control methods
+D. Government policies
+Explanation: The focus is entirely on managing water.
 
-15. Section B:
-*ii
-Explanation: Focuses on modern technological solutions.
+15. According to the text, why is drip irrigation effective?
+*A. It minimizes water waste
+B. It is very cheap to install
+C. It requires no maintenance
+D. It works well in cold climates
+Explanation: The text emphasizes efficiency and less waste.
 
-16. Section C:
-*vii
-Explanation: Highlights economic impacts of the phenomenon.
+16. Which region has adopted this technology the most?
+A. North America
+B. Europe
+*C. Middle East
+D. Asia
+Explanation: The Middle East is highlighted as the top adopter.
 
-17. Section D:
-*i
-Explanation: Explains the physiological consequences.
+17. The author's attitude towards the technology is:
+A. Skeptical
+*B. Optimistic
+C. Indifferent
+D. Critical
+Explanation: The author highlights numerous benefits and future potential.
 
-18. Section E:
-*ix
-Explanation: Concludes with future predictions.
+18. What is the expected outcome in the next decade?
+A. Costs will double
+*B. Usage will increase globally
+C. The technology will become obsolete
+D. Only large farms will use it
+Explanation: Global expansion is predicted.
 
-19. Section F:
-*iii
-Explanation: Discusses government policies and regulations.
+19. Which crop benefits most from this system?
+A. Wheat
+B. Corn
+*C. Strawberries
+D. Rice
+Explanation: Strawberries are given as the prime example.
 
-[MCQ]
-20. What is the primary cause of the issue described in Section C?
-A. Lack of funding
-*B. Rapid industrialization
-C. Poor education
-D. Climate change
-Explanation: Section C directly points to rapid industrialization as the root cause.
+[SENTENCE COMPLETION]
+20. The primary source of water for these systems is ____.
+*rainwater
+Explanation: Stated in the opening paragraph.
 
-21. According to the author, the new policy is:
-A. Highly effective
-B. Too expensive
-*C. Currently inadequate
-D. Universally accepted
-Explanation: The text states the policy falls short of addressing core issues.
+21. Filters are used to remove ____ from the water.
+*impurities
+Explanation: The text explains the filtration process removes impurities.
 
-22. What solution does Dr. Smith propose?
-*A. Increased public awareness
-B. Higher taxes
-C. Stricter laws
-D. Reduced consumption
-Explanation: Dr. Smith emphasizes educating the public as the first step.
+22. The system is powered by ____ energy.
+*solar
+Explanation: Solar panels are mentioned as the power source.
 
-[Y/N/NG]
-23. The public generally supports the new regulations.
-*NO
-Explanation: The passage notes widespread public opposition to the rules.
+23. Farmers monitor the system using a ____.
+*smartphone app
+Explanation: An app is used for remote monitoring.
 
-24. The implementation cost is estimated at 5 million dollars.
-*NOT GIVEN
-Explanation: No specific figures regarding cost are provided.
+24. The average cost reduction for farmers is ____ percent.
+*thirty
+Explanation: A 30% saving is reported.
 
-25. The technological approach has never been tested before.
-*YES
-Explanation: The text explicitly describes it as an entirely unprecedented method.
+25. The initial installation requires skilled ____.
+*technicians
+Explanation: Only trained technicians can set it up initially.
 
-26. International cooperation is essential for success.
-*YES
-Explanation: The author asserts that without global collaboration, the initiative will fail.`,
+26. The most common maintenance issue is ____.
+*blockages
+Explanation: Blockages in the pipes are frequently mentioned.`,
 
-  // Passage 3: 14 questions (27-40)
-  `[SUMMARY COMPLETION]
-27. The concept of deep sleep is often associated with ____.
-*memory consolidation
-Explanation: The text connects deep sleep phases directly to memory consolidation.
+  `[Y/N/NG]
+27. The theory of climate change was widely accepted in the 1980s.
+*No
+Explanation: The text states it was highly controversial at the time.
 
-28. During this phase, the brain clears ____.
-*toxins
-Explanation: Toxins accumulated during the day are flushed out.
+28. The new study contradicts previous findings.
+*Yes
+Explanation: It directly challenges older studies.
 
-29. Lack of deep sleep can lead to ____.
-*cognitive decline
-Explanation: Chronic deprivation is linked to early onset of cognitive decline.
+29. The researchers spent over five years on this project.
+*Not Given
+Explanation: The exact duration is not specified.
 
-30. The most critical time for this process is ____.
-*early morning
-Explanation: The highest activity occurs in the hours just before dawn.
+30. Global temperatures have risen faster than expected.
+*Yes
+Explanation: The rate of increase exceeded all models.
 
-31. To improve sleep quality, one should avoid ____.
-*caffeine
-Explanation: The passage recommends cutting out caffeine in the evening.
+31. Ocean currents play a major role in regulating climate.
+*Yes
+Explanation: They are described as the main regulatory mechanism.
 
-32. Engaging in ____ can also help regulate cycles.
-*regular exercise
-Explanation: Regular exercise is shown to stabilize sleep patterns.
+32. The impact on marine life will be negligible.
+*No
+Explanation: A severe impact on marine ecosystems is predicted.
 
-33. Creating a ____ environment is essential.
-*dark and quiet
-Explanation: A dark and quiet room is fundamental for uninterrupted sleep.
+33. Politicians have reacted quickly to the new data.
+*Not Given
+Explanation: Political reactions are not mentioned.
 
-[MATCHING FEATURES]
-34. Dr. Allen's study found that:
-*C. Sleep quality trumps sleep duration
-Explanation: Allen's research concluded that how well you sleep matters more than how long.
+[SAQ]
+34. What is the primary gas responsible for the greenhouse effect?
+*Carbon dioxide
+Explanation: Stated clearly in the introduction.
 
-35. The National Sleep Foundation recommends:
-*A. 7 to 9 hours of sleep
-Explanation: The foundation standard recommendation is 7-9 hours.
+35. Which industry contributes most to this issue?
+*Agriculture
+Explanation: Mentioned as the leading contributor.
 
-36. Prof. Carter's experiment demonstrated:
-*E. Blue light suppresses melatonin
-Explanation: Carter's paper specifically targeted blue light from screens.
+36. Name one alternative energy source mentioned.
+*Wind power
+Explanation: Wind and solar are listed.
 
-37. The European Health Council emphasizes:
-*B. Consistent bedtime routines
-Explanation: The council's guidelines stress going to bed at the same time daily.
+37. What year did the international agreement take place?
+*2015
+Explanation: The Paris Agreement of 2015 is referenced.
 
-[MCQ]
-38. What is the main idea of the final paragraph?
-A. Sleep disorders are incurable
-*B. Lifestyle changes can significantly improve sleep
-C. Medication is the best solution
-D. Genetics determine sleep patterns
-Explanation: The conclusion focuses on actionable lifestyle modifications.
+38. What is the target limit for temperature increase in degrees Celsius?
+*1.5
+Explanation: The goal is to keep it below 1.5 degrees.
 
-39. The author's tone throughout the passage is best described as:
-A. Pessimistic
-B. Humorous
-*C. Informative and objective
-D. Critical and demanding
-Explanation: The text presents facts and research neutrally.
+39. Which country was the first to implement the new policy?
+*Sweden
+Explanation: Sweden is cited as the pioneer.
 
-40. Which of the following is NOT mentioned as a benefit of good sleep?
-A. Enhanced mood
-B. Better immune function
-C. Increased focus
-*D. Higher intelligence
-Explanation: Intelligence improvement is never stated in the text.`
+40. What is the main obstacle to global adoption?
+*Funding
+Explanation: Lack of funding is highlighted as the main barrier.`
 ];
 
 export const LISTENING_SAMPLES = [
-  // Section 1: 10 questions (1-10)
   `[NOTE COMPLETION]
-1. Customer Name: ____.
-*Sarah Jenkins
-Explanation: She spells her surname J-E-N-K-I-N-S.
+1. Name of the customer: ____
+*John Smith
+Explanation: The agent confirms the name as John Smith.
 
-2. Contact Number: ____.
-*078954321
-Explanation: The agent confirms the number ending in 321.
+2. Date of birth: ____
+*14th July
+Explanation: He states his birthday is July 14.
 
-3. Type of membership required: ____.
-*Family
-Explanation: She asks for a membership covering two adults and two children.
+3. Type of accommodation requested: ____
+*apartment
+Explanation: He specifically asks for an apartment.
 
-4. Start date: ____.
-*15th August
-Explanation: They agree the membership will begin on the 15th of August.
+4. Maximum budget per month: £____
+*800
+Explanation: He says his absolute limit is 800 pounds.
 
-5. Payment method: ____.
-*Credit card
-Explanation: She prefers to pay via credit card rather than direct debit.
+5. Preferred location: near the ____
+*station
+Explanation: He wants to be within walking distance of the station.
 
-6. Membership includes free access to the ____.
-*swimming pool
-Explanation: The agent mentions the pool is free for family members.
+6. Number of bedrooms: ____
+*two
+Explanation: He needs a spare room for guests.
 
-7. Orientation session is scheduled for ____.
-*Saturday morning
-Explanation: She chooses Saturday morning for her gym induction.
+7. Move-in date: ____
+*1st September
+Explanation: He wants to move in at the start of September.
 
-8. Must bring ____ to the first session.
-*photo ID
-Explanation: The receptionist reminds her to carry a photo ID for registration.
+8. Does he have any pets? ____
+*no
+Explanation: He confirms he doesn't own any animals.
 
-9. Discount code applied: ____.
-*SUMMER20
-Explanation: She provides the code SUMMER20 to get 20% off.
+9. Contact phone number: ____
+*0778943211
+Explanation: He spells out his number.
 
-10. Welcome pack will be sent via ____.
-*email
-Explanation: The pack is entirely digital and sent to her inbox.`,
+10. Best time to call: ____
+*evenings
+Explanation: He says he works during the day, so evenings are best.`,
 
-  // Section 2: 10 questions (11-20)
   `[MCQ]
-11. The local museum was recently renovated to:
-A. Increase ticket prices
-*B. Add a new exhibition wing
-C. Repair the roof
-Explanation: The director mentions the new wing was the primary reason for the closure.
+11. The main purpose of the community center is to:
+A. Make a profit
+*B. Provide local services
+C. Host international events
+Explanation: It was built to serve the local community.
 
-12. Visitors are advised to park:
-*A. Behind the town hall
-B. In front of the museum
-C. At the train station
-Explanation: The museum parking is closed, so the town hall is recommended.
+12. The fitness classes are held on:
+*A. Tuesday and Thursday
+B. Monday and Wednesday
+C. Weekends only
+Explanation: The schedule clearly states Tuesday and Thursday.
 
-13. The new dinosaur exhibit features:
-A. Real fossils
-B. An interactive VR experience
-*C. Life-size robotic models
-Explanation: The speaker highlights the animatronic, life-size models.
+13. Who can attend the art workshops?
+A. Only children
+B. Only seniors
+*C. Anyone over 16
+Explanation: The minimum age is 16.
 
-14. The cafe is currently located:
-A. On the ground floor
-*B. Next to the gift shop
-C. On the rooftop
-Explanation: Following the renovation, the cafe moved adjacent to the shop.
+14. The center was funded primarily by:
+A. The local council
+*B. Private donations
+C. A national grant
+Explanation: Local businesses and individuals provided the money.
 
-15. Guided tours start every:
-A. 15 minutes
-B. 30 minutes
-*C. Hour
-Explanation: Tours run precisely on the hour, every hour.
+15. What is planned for the outdoor area next year?
+A. A swimming pool
+B. A tennis court
+*C. A community garden
+Explanation: They are preparing land for a garden.
 
-[MAP LABELING]
-16. Entrance Desk:
-*C
-Explanation: It is directly in front as you walk through the main doors.
+[SENTENCE COMPLETION]
+16. The new library will open in ____.
+*October
+Explanation: The opening is scheduled for October.
 
-17. Cloakroom:
-*A
-Explanation: Turn left immediately after the entrance.
+17. Members can borrow up to ____ books at a time.
+*six
+Explanation: The limit is six items.
 
-18. Ancient History Gallery:
-*D
-Explanation: Located at the far end of the right corridor.
+18. There is a special section for ____.
+*teenagers
+Explanation: A dedicated youth area has been created.
 
-19. Interactive Science Lab:
-*F
-Explanation: The circular room in the center of the building.
+19. The cafe serves mainly ____ food.
+*vegetarian
+Explanation: The menu is mostly plant-based.
 
-20. Exit to Botanical Gardens:
-*G
-Explanation: Located at the very back, past the science lab.`,
+20. Volunteers are needed to help with ____.
+*cleaning
+Explanation: They are asking for help keeping the place tidy.`,
 
-  // Section 3: 10 questions (21-30)
   `[MCQ]
-21. What did John find most difficult about his research?
-*A. Finding reliable sources
-B. Writing the methodology
-C. Analyzing the data
-Explanation: John complains about the lack of peer-reviewed articles on his topic.
+21. The students are discussing their project on:
+A. Local history
+*B. Urban planning
+C. Modern architecture
+Explanation: They mention their urban planning assignment multiple times.
 
-22. Maria suggests that John should:
-A. Change his topic entirely
-B. Ask the professor for an extension
-*C. Narrow down his research question
-Explanation: Maria thinks his scope is too broad and needs narrowing.
+22. They decided to focus on which city?
+A. London
+B. Paris
+*C. Barcelona
+Explanation: They chose Barcelona because of its grid system.
 
-23. Both students agree that the previous lecture was:
-A. Boring
-*B. Confusing
-C. Highly informative
-Explanation: They both felt the professor jumped between topics too quickly.
+23. What aspect of the city did they find most interesting?
+*A. Public transport
+B. Green spaces
+C. Historical monuments
+Explanation: The transport network impressed them most.
 
-24. For their joint presentation, they decide to focus on:
-*A. Renewable energy adoption
-B. Economic impacts of fossil fuels
-C. Policy changes in Europe
-Explanation: They settle on renewable energy as it has the most recent data.
+24. They plan to interview:
+A. A local politician
+*B. A university professor
+C. A resident
+Explanation: They have a meeting with Professor Jones.
 
-25. The presentation must not exceed:
-A. 10 minutes
-*B. 15 minutes
-C. 20 minutes
-Explanation: The strict time limit set by the tutor is 15 minutes.
+25. The presentation must be completed by:
+A. Next Monday
+B. Next Wednesday
+*C. Next Friday
+Explanation: The deadline is Friday afternoon.
 
-[MATCHING]
-26. Introduction (John):
-*B. Historical context
-Explanation: John will cover the background history first.
+[T/F/NG]
+26. Both students agree on the structure of the presentation.
+*True
+Explanation: They reach a consensus on how to organize it.
 
-27. Methodology (Maria):
-*E. Data collection methods
-Explanation: Maria is handling how the surveys were conducted.
+27. They will use a PowerPoint presentation.
+*True
+Explanation: They mention creating slides.
 
-28. Case Studies (John):
-*A. European countries
-Explanation: John researched specific examples from Europe.
+28. The professor has already approved their topic.
+*False
+Explanation: They still need to get his formal approval.
 
-29. Statistical Analysis (Maria):
-*F. Creating graphs and charts
-Explanation: Maria is responsible for visual data representation.
+29. They found all the information they needed in the library.
+*Not Given
+Explanation: They don't mention where they got their sources.
 
-30. Conclusion (Both):
-*C. Future recommendations
-Explanation: They will jointly present recommendations for future policy.`,
+30. They will practice their presentation on Thursday.
+*True
+Explanation: They agree to do a dry run on Thursday.`,
 
-  // Section 4: 10 questions (31-40)
-  `[SENTENCE COMPLETION]
-31. The ancient civilization was primarily based around the ____ river.
-*Nile
-Explanation: The lecturer states the Nile was the lifeblood of their society.
+  `[NOTE COMPLETION]
+31. The lecture is about the history of ____.
+*chocolate
+Explanation: The professor introduces the topic of chocolate.
 
-32. Their agricultural success relied heavily on predictable ____.
-*floods
-Explanation: Annual flooding deposited nutrient-rich silt.
+32. The cacao tree is native to ____.
+*South America
+Explanation: It originated in the Amazon basin.
 
-33. Farmers developed a complex system of ____ to manage water.
-*canals
-Explanation: Irrigation canals were dug to distribute water inland.
+33. The Maya civilization used cacao beans as ____.
+*currency
+Explanation: They were used to trade goods.
 
-34. The main crop grown for food was ____.
-*wheat
-Explanation: Wheat was the staple grain of their diet.
+34. The drink was typically flavored with ____.
+*chili
+Explanation: It was a spicy drink, not sweet.
 
-35. Papyrus was crucial for keeping ____.
-*records
-Explanation: They needed papyrus to document taxes and laws.
+35. Chocolate was introduced to Europe in the ____ century.
+*16th
+Explanation: Spanish explorers brought it back in the 1500s.
 
-36. The society was highly hierarchical, with the ____ at the top.
-*Pharaoh
-Explanation: The Pharaoh was considered both a king and a god.
+36. It quickly became popular among the ____.
+*wealthy
+Explanation: Only the elite could afford it initially.
 
-37. Most of the labor for building monuments was provided by ____.
-*farmers
-Explanation: During the flood season, farmers were drafted for construction.
+37. The invention of the chocolate press occurred in ____.
+*1828
+Explanation: Coenraad van Houten invented it in 1828.
 
-38. Trade routes were established to acquire rare materials like ____.
-*timber
-Explanation: Wood was scarce, so timber was imported from Lebanon.
+38. This led to the mass production of ____ chocolate.
+*solid
+Explanation: It allowed for the creation of chocolate bars.
 
-39. The decline of the empire was partially due to severe ____.
-*droughts
-Explanation: A series of prolonged droughts weakened the agricultural base.
+39. Milk chocolate was invented in ____.
+*Switzerland
+Explanation: Daniel Peter created it in Switzerland.
 
-40. However, their advancements in ____ continue to influence modern science.
-*medicine
-Explanation: Their medical texts laid the groundwork for future physicians.`
+40. Today, the largest producer of cacao is ____.
+*Ivory Coast
+Explanation: The Ivory Coast produces the most globally.`
 ];
+
+export const DEFAULT_SAMPLE = `[MCQ]
+1. Why does the speaker call the office?
+A. To cancel a booking
+*B. To change a reservation
+C. To ask for directions
+Explanation: The speaker says she needs another date.
+
+[NOTE COMPLETION]
+2. Customer name: ____.
+*Martin Hale
+Explanation: The receptionist repeats the name.`;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Button, Row, Col } from 'react-bootstrap';
 import QuestionRenderer from '../../../components/feature/quiz/QuestionRenderer';
+import { getQuestionType } from '../../../utils/ieltsQuestionBlocks';
 
 export default function TestPreviewModal({ show, onHide, draft }) {
   if (!draft) return null;
@@ -39,7 +40,7 @@ export default function TestPreviewModal({ show, onHide, draft }) {
                       {(block.questions || []).map((q, qIdx) => (
                         <div key={q.id || qIdx} className="mb-4 p-3 border rounded">
                            <QuestionRenderer 
-                             question={{ ...q, prompt: q.text, type: block.rendererType || block.type }} 
+                             question={{ ...q, prompt: q.text, type: block.rendererType || getQuestionType(block.type) }} 
                              currentAnswer={''} 
                              onAnswer={() => {}} 
                            />
@@ -103,7 +104,7 @@ export default function TestPreviewModal({ show, onHide, draft }) {
                           {(block.questions || []).map((q, qIdx) => (
                             <div key={q.id || qIdx} className="mb-4 p-3 border rounded">
                                <QuestionRenderer 
-                                 question={{ ...q, prompt: q.text, type: block.rendererType || block.type }} 
+                                 question={{ ...q, prompt: q.text, type: block.rendererType || getQuestionType(block.type) }} 
                                  currentAnswer={''} 
                                  onAnswer={() => {}} 
                                />
