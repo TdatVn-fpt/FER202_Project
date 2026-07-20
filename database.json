@@ -247,8 +247,8 @@
       ],
       "skill": "Writing",
       "level": "Advanced",
-      "price": 499000,
-      "isPremium": true,
+      "price": 0,
+      "isPremium": false,
       "thumbnail": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
       "status": "approved",
@@ -257,21 +257,6 @@
       "rating": 0,
       "durationWeeks": 10,
       "createdAt": "2026-06-10T08:00:00Z"
-    },
-    {
-      "title": "Master IELTS Writing Task 2 - Band 7.0+",
-      "description": "Khóa học nâng cao cung cấp bộ template cấu trúc bài viết, cách triển khai ý tưởng (brainstorming) và từ vựng học thuật ăn điểm cho phần thi Writing Task 2. Chấm chữa 5 bài Essay.",
-      "skill": "Writing",
-      "level": "Advanced",
-      "price": 1500000,
-      "durationWeeks": 8,
-      "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead27d8?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "status": "approved",
-      "enrolledCount": 0,
-      "isPremium": true,
-      "createdAt": "2026-06-25T11:39:43.263Z",
-      "id": "6juKyo6dXkU"
     },
     {
       "title": "IELTS Reading: Skimming & Scanning Techniques",
@@ -438,22 +423,6 @@
       "createdAt": "2026-07-12T14:36:05.200Z"
     },
     {
-      "id": "course-026",
-      "title": "IELTS Writing Advanced Course TC002",
-      "description": "Improve your IELTS writing skills with expert guidance and practice tasks",
-      "syllabus": [],
-      "skill": "Writing",
-      "level": "Advanced",
-      "price": 500000,
-      "isPremium": true,
-      "thumbnail": "https://example.com/img.jpg",
-      "teacherId": "u-teacher-001",
-      "status": "draft",
-      "enrolledCount": 0,
-      "durationWeeks": 8,
-      "createdAt": "2026-07-12T14:37:09.112Z"
-    },
-    {
       "id": "course-027",
       "title": "HTTP Thumbnail Course TC003",
       "description": "This course helps students improve IELTS reading skills",
@@ -570,17 +539,6 @@
       "teacherId": "u-student-004"
     },
     {
-      "id": "lesson-004",
-      "courseId": "course-003",
-      "title": "Writing Task 2: Introduction Paragraphs",
-      "order": 1,
-      "durationMinutes": 60,
-      "contentUrl": "/lessons/writing-intro",
-      "status": "published",
-      "createdAt": "2026-06-10T09:00:00Z",
-      "teacherId": "u-student-004"
-    },
-    {
       "id": "lesson-008",
       "courseId": "course-007",
       "title": "Reading lesson 1",
@@ -603,18 +561,6 @@
       "teacherId": "u-student-004",
       "status": "published",
       "createdAt": "2026-06-25T09:00:00Z"
-    },
-    {
-      "id": "lesson-010",
-      "courseId": "course-009",
-      "title": "Writing Lesson 1: Writing a High-Scoring Overview",
-      "order": 1,
-      "durationMinutes": 50,
-      "contentUrl": "https://www.youtube.com/watch?v=P_7ZfVfJgq8",
-      "audioUrl": "",
-      "teacherId": "u-student-004",
-      "status": "published",
-      "createdAt": "2026-06-26T09:00:00Z"
     },
     {
       "id": "lesson-011",
@@ -729,6 +675,90 @@
       "teacherId": "u-teacher-001",
       "status": "published",
       "createdAt": "2026-07-20T16:27:45.568Z"
+    },
+    {
+      "id": "lesson-019",
+      "courseId": "course-003",
+      "title": "Writting Lesson 1",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=urkCu0F7XCc",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-20T17:17:40.785Z"
+    },
+    {
+      "id": "lesson-020",
+      "courseId": "course-003",
+      "title": "Writting Lesson 2",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=4PqGPZtyFtw",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-20T17:18:16.620Z"
+    },
+    {
+      "id": "lesson-021",
+      "courseId": "course-009",
+      "title": "Writting Lesson 1",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=5PCwca1a3uw",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-20T17:18:56.272Z"
+    },
+    {
+      "id": "lesson-022",
+      "courseId": "course-009",
+      "title": "Writting Lesson 2",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=RSoRzTtwgP4",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-20T17:19:18.904Z"
+    },
+    {
+      "id": "lesson-023",
+      "courseId": "course-009",
+      "title": "Writting Lesson 3",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=pHdzv1NfZRM",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-20T17:19:42.392Z"
+    },
+    {
+      "id": "lesson-024",
+      "courseId": "course-009",
+      "title": "Writting Lesson 4",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=jTEATmzxdro",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-20T17:20:17.483Z"
+    },
+    {
+      "id": "lesson-025",
+      "courseId": "course-009",
+      "title": "Writting Lesson 5",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=4XmcNcCkp_Y",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-20T17:20:58.499Z"
     }
   ],
   "tests": [
@@ -1315,7 +1345,7 @@
       "id": "tutor-listening-approved-001",
       "title": "Tutor IELTS Listening Full Mock - Campus and City",
       "description": "A 40-question Listening mock with local playable audio and four IELTS sections.",
-      "courseId": "6juKyo6dXkU",
+      "courseId": null,
       "skill": "Listening",
       "testMode": "course",
       "isFreePreview": true,
@@ -1778,40 +1808,6 @@
             ]
           }
         ]
-      },
-      "createdBy": "u-teacher-001"
-    },
-    {
-      "id": "tutor-writing-approved-001",
-      "title": "Tutor IELTS Writing Full Mock - Process and Opinion",
-      "description": "Academic Writing Task 1 with image link and Task 2 opinion essay.",
-      "courseId": "course-003",
-      "skill": "Writing",
-      "testMode": "course",
-      "isFreePreview": true,
-      "status": "published",
-      "approvalStatus": "approved",
-      "teacherId": "u-teacher-001",
-      "durationMinutes": 60,
-      "totalQuestions": 2,
-      "attemptLimit": 3,
-      "bandScale": "IELTS 0-9",
-      "practiceMode": "exam",
-      "createdAt": "2026-06-30T12:00:00.000Z",
-      "updatedAt": "2026-06-30T17:24:11.157Z",
-      "testConfig": {
-        "task1": {
-          "id": "writing-task-1",
-          "prompt": "The diagram below shows the process used to recycle plastic bottles. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
-          "imageUrl": "https://quickchart.io/chart?width=700&height=420&c={type:%27bar%27,data:{labels:[%27Collection%27,%27Sorting%27,%27Cleaning%27,%27Pellets%27,%27Products%27],datasets:[{label:%27Process%20stages%27,data:[20,35,50,70,90]}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:100}}}}",
-          "minimumWords": 150
-        },
-        "task2": {
-          "id": "writing-task-2",
-          "prompt": "Some people think that governments should invest more money in public transport, while others believe roads and private vehicles should receive more support. Discuss both views and give your own opinion.",
-          "minimumWords": 250
-        },
-        "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
       },
       "createdBy": "u-teacher-001"
     },
@@ -3432,40 +3428,6 @@
             ]
           }
         ]
-      },
-      "createdBy": "u-teacher-001"
-    },
-    {
-      "id": "test-writing-free-1",
-      "title": "Writing Mock Test 1 - Line Graphs and Technology",
-      "description": "Task 1 Line Graph description and Task 2 Essay on digital communication.",
-      "courseId": "course-writing-free-3s78asfg5",
-      "skill": "Writing",
-      "testMode": "free",
-      "isFreePreview": true,
-      "status": "published",
-      "approvalStatus": "approved",
-      "teacherId": "u-teacher-001",
-      "durationMinutes": 60,
-      "totalQuestions": 2,
-      "attemptLimit": 3,
-      "bandScale": "IELTS 0-9",
-      "practiceMode": "exam",
-      "createdAt": "2026-07-06T16:30:00.000Z",
-      "updatedAt": "2026-07-06T16:30:00.000Z",
-      "testConfig": {
-        "task1": {
-          "id": "writing-task-1",
-          "prompt": "The line graph below shows the percentage of people using the internet in three countries from 1999 to 2009. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
-          "imageUrl": "https://quickchart.io/chart?width=700&height=420&c={type:%27line%27,data:{labels:[%271999%27,%272004%27,%272009%27],datasets:[{label:%27USA%27,data:[40,65,80]},{label:%27Canada%27,data:[30,60,85]},{label:%27Mexico%27,data:[5,15,40]}]}}",
-          "minimumWords": 150
-        },
-        "task2": {
-          "id": "writing-task-2",
-          "prompt": "Many people believe that social media has brought people closer together, while others argue it has made us more isolated. Discuss both views and give your opinion.",
-          "minimumWords": 250
-        },
-        "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
       },
       "createdBy": "u-teacher-001"
     },
@@ -6785,6 +6747,244 @@
           }
         ]
       }
+    },
+    {
+      "id": "gen-test-writing-003-1",
+      "title": "Writing Mock Test 1 - Task 2 Masterclass",
+      "description": "Task 1 Bar Chart comparison and Task 2 Essay on environmental responsibilities.",
+      "courseId": "course-003",
+      "skill": "Writing",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 60,
+      "totalQuestions": 2,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T17:19:22.171Z",
+      "updatedAt": "2026-07-20T17:19:22.173Z",
+      "testConfig": {
+        "task1": {
+          "id": "writing-task-1",
+          "prompt": "The bar chart below shows the energy consumption by source in a specific country between 2000 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+          "imageUrl": "https://quickchart.io/chart?width=700&height=420&c={type:%27bar%27,data:{labels:[%27Coal%27,%27Gas%27,%27Solar%27],datasets:[{label:%272000%27,data:[50,30,5]},{label:%272020%27,data:[20,40,30]}]}}",
+          "minimumWords": 150
+        },
+        "task2": {
+          "id": "writing-task-2",
+          "prompt": "Some people think that individuals can do nothing to improve the environment, and only governments and large companies can make a difference. To what extent do you agree or disagree?",
+          "minimumWords": 250
+        },
+        "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "gen-test-writing-003-2",
+      "title": "Writing Mock Test 2 - Task 2 Masterclass",
+      "description": "Task 1 Bar Chart comparison and Task 2 Essay on environmental responsibilities.",
+      "courseId": "course-003",
+      "skill": "Writing",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 60,
+      "totalQuestions": 2,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T17:19:22.173Z",
+      "updatedAt": "2026-07-20T17:19:22.173Z",
+      "testConfig": {
+        "task1": {
+          "id": "writing-task-1",
+          "prompt": "The bar chart below shows the energy consumption by source in a specific country between 2000 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+          "imageUrl": "https://quickchart.io/chart?width=700&height=420&c={type:%27bar%27,data:{labels:[%27Coal%27,%27Gas%27,%27Solar%27],datasets:[{label:%272000%27,data:[50,30,5]},{label:%272020%27,data:[20,40,30]}]}}",
+          "minimumWords": 150
+        },
+        "task2": {
+          "id": "writing-task-2",
+          "prompt": "Some people think that individuals can do nothing to improve the environment, and only governments and large companies can make a difference. To what extent do you agree or disagree?",
+          "minimumWords": 250
+        },
+        "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "gen-test-writing-009-1",
+      "title": "Writing Mock Test 1 - Task 1 Academic Report",
+      "description": "Task 1 Bar Chart comparison and Task 2 Essay on environmental responsibilities.",
+      "courseId": "course-009",
+      "skill": "Writing",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 60,
+      "totalQuestions": 2,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T17:19:22.173Z",
+      "updatedAt": "2026-07-20T17:19:22.173Z",
+      "testConfig": {
+        "task1": {
+          "id": "writing-task-1",
+          "prompt": "The bar chart below shows the energy consumption by source in a specific country between 2000 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+          "imageUrl": "https://quickchart.io/chart?width=700&height=420&c={type:%27bar%27,data:{labels:[%27Coal%27,%27Gas%27,%27Solar%27],datasets:[{label:%272000%27,data:[50,30,5]},{label:%272020%27,data:[20,40,30]}]}}",
+          "minimumWords": 150
+        },
+        "task2": {
+          "id": "writing-task-2",
+          "prompt": "Some people think that individuals can do nothing to improve the environment, and only governments and large companies can make a difference. To what extent do you agree or disagree?",
+          "minimumWords": 250
+        },
+        "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "gen-test-writing-009-2",
+      "title": "Writing Mock Test 2 - Task 1 Academic Report",
+      "description": "Task 1 Bar Chart comparison and Task 2 Essay on environmental responsibilities.",
+      "courseId": "course-009",
+      "skill": "Writing",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 60,
+      "totalQuestions": 2,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T17:19:22.173Z",
+      "updatedAt": "2026-07-20T17:19:22.173Z",
+      "testConfig": {
+        "task1": {
+          "id": "writing-task-1",
+          "prompt": "The bar chart below shows the energy consumption by source in a specific country between 2000 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+          "imageUrl": "https://quickchart.io/chart?width=700&height=420&c={type:%27bar%27,data:{labels:[%27Coal%27,%27Gas%27,%27Solar%27],datasets:[{label:%272000%27,data:[50,30,5]},{label:%272020%27,data:[20,40,30]}]}}",
+          "minimumWords": 150
+        },
+        "task2": {
+          "id": "writing-task-2",
+          "prompt": "Some people think that individuals can do nothing to improve the environment, and only governments and large companies can make a difference. To what extent do you agree or disagree?",
+          "minimumWords": 250
+        },
+        "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "gen-test-writing-009-3",
+      "title": "Writing Mock Test 3 - Task 1 Academic Report",
+      "description": "Task 1 Bar Chart comparison and Task 2 Essay on environmental responsibilities.",
+      "courseId": "course-009",
+      "skill": "Writing",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 60,
+      "totalQuestions": 2,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T17:19:22.173Z",
+      "updatedAt": "2026-07-20T17:19:22.173Z",
+      "testConfig": {
+        "task1": {
+          "id": "writing-task-1",
+          "prompt": "The bar chart below shows the energy consumption by source in a specific country between 2000 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+          "imageUrl": "https://quickchart.io/chart?width=700&height=420&c={type:%27bar%27,data:{labels:[%27Coal%27,%27Gas%27,%27Solar%27],datasets:[{label:%272000%27,data:[50,30,5]},{label:%272020%27,data:[20,40,30]}]}}",
+          "minimumWords": 150
+        },
+        "task2": {
+          "id": "writing-task-2",
+          "prompt": "Some people think that individuals can do nothing to improve the environment, and only governments and large companies can make a difference. To what extent do you agree or disagree?",
+          "minimumWords": 250
+        },
+        "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "gen-test-writing-009-4",
+      "title": "Writing Mock Test 4 - Task 1 Academic Report",
+      "description": "Task 1 Bar Chart comparison and Task 2 Essay on environmental responsibilities.",
+      "courseId": "course-009",
+      "skill": "Writing",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 60,
+      "totalQuestions": 2,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T17:19:22.173Z",
+      "updatedAt": "2026-07-20T17:19:22.173Z",
+      "testConfig": {
+        "task1": {
+          "id": "writing-task-1",
+          "prompt": "The bar chart below shows the energy consumption by source in a specific country between 2000 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+          "imageUrl": "https://quickchart.io/chart?width=700&height=420&c={type:%27bar%27,data:{labels:[%27Coal%27,%27Gas%27,%27Solar%27],datasets:[{label:%272000%27,data:[50,30,5]},{label:%272020%27,data:[20,40,30]}]}}",
+          "minimumWords": 150
+        },
+        "task2": {
+          "id": "writing-task-2",
+          "prompt": "Some people think that individuals can do nothing to improve the environment, and only governments and large companies can make a difference. To what extent do you agree or disagree?",
+          "minimumWords": 250
+        },
+        "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
+      },
+      "createdBy": "u-teacher-001"
+    },
+    {
+      "id": "gen-test-writing-009-5",
+      "title": "Writing Mock Test 5 - Task 1 Academic Report",
+      "description": "Task 1 Bar Chart comparison and Task 2 Essay on environmental responsibilities.",
+      "courseId": "course-009",
+      "skill": "Writing",
+      "testMode": "course",
+      "isFreePreview": false,
+      "status": "published",
+      "approvalStatus": "approved",
+      "teacherId": "u-teacher-001",
+      "durationMinutes": 60,
+      "totalQuestions": 2,
+      "attemptLimit": 3,
+      "bandScale": "IELTS 0-9",
+      "practiceMode": "exam",
+      "createdAt": "2026-07-20T17:19:22.173Z",
+      "updatedAt": "2026-07-20T17:19:22.173Z",
+      "testConfig": {
+        "task1": {
+          "id": "writing-task-1",
+          "prompt": "The bar chart below shows the energy consumption by source in a specific country between 2000 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+          "imageUrl": "https://quickchart.io/chart?width=700&height=420&c={type:%27bar%27,data:{labels:[%27Coal%27,%27Gas%27,%27Solar%27],datasets:[{label:%272000%27,data:[50,30,5]},{label:%272020%27,data:[20,40,30]}]}}",
+          "minimumWords": 150
+        },
+        "task2": {
+          "id": "writing-task-2",
+          "prompt": "Some people think that individuals can do nothing to improve the environment, and only governments and large companies can make a difference. To what extent do you agree or disagree?",
+          "minimumWords": 250
+        },
+        "bandCriteria": "Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy"
+      },
+      "createdBy": "u-teacher-001"
     }
   ],
   "questions": [],
@@ -6896,7 +7096,7 @@
     },
     {
       "userId": "u-001",
-      "courseId": "6juKyo6dXkU",
+      "courseId": null,
       "amount": 1500000,
       "currency": "VND",
       "method": "vietqr",
@@ -8032,6 +8232,220 @@
         "courseId": "course-002"
       },
       "createdAt": "2026-07-20T16:28:15.646Z"
+    },
+    {
+      "id": "log-065",
+      "actorId": "u-teacher-001",
+      "action": "DELETE_TEST",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "testId": "test-writing-free-1",
+        "title": "Writing Mock Test 1 - Line Graphs and Technology",
+        "courseId": "course-writing-free-3s78asfg5"
+      },
+      "createdAt": "2026-07-20T17:06:53.710Z"
+    },
+    {
+      "id": "log-066",
+      "actorId": "u-teacher-001",
+      "action": "DELETE_TEST",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "testId": "tutor-writing-approved-001",
+        "title": "Tutor IELTS Writing Full Mock - Process and Opinion",
+        "courseId": "course-003"
+      },
+      "createdAt": "2026-07-20T17:06:56.259Z"
+    },
+    {
+      "id": "log-067",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_COURSE",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "courseId": "course-003",
+        "changes": {
+          "title": "IELTS Writing Task 2 Masterclass",
+          "description": "Chinh phục Writing Task 2 với chiến lược bài bản.",
+          "skill": "Writing",
+          "level": "Advanced",
+          "price": 0,
+          "durationWeeks": 10,
+          "thumbnail": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80",
+          "status": "rejected",
+          "isPremium": false
+        }
+      },
+      "createdAt": "2026-07-20T17:07:29.014Z"
+    },
+    {
+      "id": "log-068",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_COURSE",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "courseId": "course-003",
+        "changes": {
+          "title": "IELTS Writing Task 2 Masterclass",
+          "description": "Chinh phục Writing Task 2 với chiến lược bài bản.",
+          "skill": "Writing",
+          "level": "Advanced",
+          "price": 0,
+          "durationWeeks": 10,
+          "thumbnail": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80",
+          "status": "rejected",
+          "isPremium": false
+        }
+      },
+      "createdAt": "2026-07-20T17:15:58.725Z"
+    },
+    {
+      "id": "log-069",
+      "actorId": "u-teacher-001",
+      "action": "DELETE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-004",
+        "title": "Writing Task 2: Introduction Paragraphs",
+        "courseId": "course-003"
+      },
+      "createdAt": "2026-07-20T17:16:26.199Z"
+    },
+    {
+      "id": "log-070",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-019",
+        "title": "Writting Lesson 1",
+        "courseId": "course-003"
+      },
+      "createdAt": "2026-07-20T17:17:40.822Z"
+    },
+    {
+      "id": "log-071",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-020",
+        "title": "Writting Lesson 2",
+        "courseId": "course-003"
+      },
+      "createdAt": "2026-07-20T17:18:16.644Z"
+    },
+    {
+      "id": "log-072",
+      "actorId": "u-teacher-001",
+      "action": "DELETE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-010",
+        "title": "Writing Lesson 1: Writing a High-Scoring Overview",
+        "courseId": "course-009"
+      },
+      "createdAt": "2026-07-20T17:18:30.932Z"
+    },
+    {
+      "id": "log-073",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-021",
+        "title": "Writting Lesson 1",
+        "courseId": "course-009"
+      },
+      "createdAt": "2026-07-20T17:18:56.298Z"
+    },
+    {
+      "id": "log-074",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-022",
+        "title": "Writting Lesson 2",
+        "courseId": "course-009"
+      },
+      "createdAt": "2026-07-20T17:19:18.934Z"
+    },
+    {
+      "id": "log-075",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-023",
+        "title": "Writting Lesson 3",
+        "courseId": "course-009"
+      },
+      "createdAt": "2026-07-20T17:19:42.419Z"
+    },
+    {
+      "id": "log-076",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-024",
+        "title": "Writting Lesson 4",
+        "courseId": "course-009"
+      },
+      "createdAt": "2026-07-20T17:20:17.516Z"
+    },
+    {
+      "id": "log-077",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-025",
+        "title": "Writting Lesson 4",
+        "courseId": "course-009"
+      },
+      "createdAt": "2026-07-20T17:20:58.531Z"
+    },
+    {
+      "id": "log-078",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-025",
+        "title": "Writting Lesson 5",
+        "courseId": "course-009"
+      },
+      "createdAt": "2026-07-20T17:21:10.756Z"
     }
   ],
   "approvalRequests": [
@@ -11451,6 +11865,776 @@
       "imageUrl": "",
       "audioUrl": "",
       "courseId": "course-002"
+    },
+    {
+      "deckId": "gen-deck-003-1",
+      "word": "Furthermore",
+      "meaning": "Hơn nữa, ngoài ra",
+      "pronunciation": "/ˌfɜːr.ðɚˈmɔːr/",
+      "example": "Furthermore, the government should invest in public transport.",
+      "id": "gen-card-gen-deck-003-1-0",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-1",
+      "word": "Consequently",
+      "meaning": "Hậu quả là, do đó",
+      "pronunciation": "/ˈkɑːn.sə.kwənt.li/",
+      "example": "Consequently, the pollution levels have decreased.",
+      "id": "gen-card-gen-deck-003-1-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-1",
+      "word": "Moreover",
+      "meaning": "Thêm vào đó",
+      "pronunciation": "/mɔːrˈoʊ.vɚ/",
+      "example": "Moreover, this approach saves money.",
+      "id": "gen-card-gen-deck-003-1-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-1",
+      "word": "Nevertheless",
+      "meaning": "Tuy nhiên",
+      "pronunciation": "/ˌnev.ɚ.ðəˈles/",
+      "example": "Nevertheless, the problem remains.",
+      "id": "gen-card-gen-deck-003-1-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-1",
+      "word": "In addition",
+      "meaning": "Thêm vào",
+      "pronunciation": "/ɪn əˈdɪʃ.ən/",
+      "example": "In addition to this, we must consider the cost.",
+      "id": "gen-card-gen-deck-003-1-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-1",
+      "word": "To illustrate",
+      "meaning": "Để minh họa",
+      "pronunciation": "/tə ˈɪl.ə.streɪt/",
+      "example": "To illustrate, consider the case of modern cities.",
+      "id": "gen-card-gen-deck-003-1-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-1",
+      "word": "In conclusion",
+      "meaning": "Kết luận lại",
+      "pronunciation": "/ɪn kənˈkluː.ʒən/",
+      "example": "In conclusion, both sides have valid points.",
+      "id": "gen-card-gen-deck-003-1-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-1",
+      "word": "Whereas",
+      "meaning": "Trong khi đó",
+      "pronunciation": "/werˈæz/",
+      "example": "Whereas the former is cheap, the latter is expensive.",
+      "id": "gen-card-gen-deck-003-1-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-1",
+      "word": "Therefore",
+      "meaning": "Vì vậy",
+      "pronunciation": "/ˈðer.fɔːr/",
+      "example": "Therefore, action must be taken immediately.",
+      "id": "gen-card-gen-deck-003-1-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-1",
+      "word": "Conversely",
+      "meaning": "Ngược lại",
+      "pronunciation": "/ˈkɑːn.vɝːs.li/",
+      "example": "Conversely, poor countries suffer more.",
+      "id": "gen-card-gen-deck-003-1-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-2",
+      "word": "Detrimental",
+      "meaning": "Có hại",
+      "pronunciation": "/ˌdet.rəˈmen.t̬əl/",
+      "example": "Smoking is detrimental to health.",
+      "id": "gen-card-gen-deck-003-2-0",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-2",
+      "word": "Mitigate",
+      "meaning": "Làm giảm nhẹ",
+      "pronunciation": "/ˈmɪt̬.ə.ɡeɪt/",
+      "example": "We must mitigate the effects of climate change.",
+      "id": "gen-card-gen-deck-003-2-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-2",
+      "word": "Exacerbate",
+      "meaning": "Làm trầm trọng thêm",
+      "pronunciation": "/ɪɡˈzæs.ɚ.beɪt/",
+      "example": "The new law will exacerbate the problem.",
+      "id": "gen-card-gen-deck-003-2-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-2",
+      "word": "Indispensable",
+      "meaning": "Không thể thiếu",
+      "pronunciation": "/ˌɪn.dɪˈspen.sə.bəl/",
+      "example": "Technology is indispensable in modern life.",
+      "id": "gen-card-gen-deck-003-2-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-2",
+      "word": "Prevalent",
+      "meaning": "Phổ biến",
+      "pronunciation": "/ˈprev.əl.ənt/",
+      "example": "This issue is prevalent in developing nations.",
+      "id": "gen-card-gen-deck-003-2-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-2",
+      "word": "Advocate",
+      "meaning": "Ủng hộ, biện hộ",
+      "pronunciation": "/ˈæd.və.keɪt/",
+      "example": "Many people advocate for stricter laws.",
+      "id": "gen-card-gen-deck-003-2-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-2",
+      "word": "Feasible",
+      "meaning": "Khả thi",
+      "pronunciation": "/ˈfiː.zə.bəl/",
+      "example": "It is not a feasible solution.",
+      "id": "gen-card-gen-deck-003-2-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-2",
+      "word": "Inevitable",
+      "meaning": "Không thể tránh khỏi",
+      "pronunciation": "/ˌɪnˈev.ə.t̬ə.bəl/",
+      "example": "Change is inevitable.",
+      "id": "gen-card-gen-deck-003-2-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-2",
+      "word": "Substantial",
+      "meaning": "Đáng kể",
+      "pronunciation": "/səbˈstæn.ʃəl/",
+      "example": "A substantial amount of money was spent.",
+      "id": "gen-card-gen-deck-003-2-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-003-2",
+      "word": "Imperative",
+      "meaning": "Cấp bách, bắt buộc",
+      "pronunciation": "/ɪmˈper.ə.t̬ɪv/",
+      "example": "It is imperative that we act now.",
+      "id": "gen-card-gen-deck-003-2-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-1",
+      "word": "Skyrocket",
+      "meaning": "Tăng vọt",
+      "pronunciation": "/ˈskaɪˌrɑː.kɪt/",
+      "example": "Prices skyrocketed in the second quarter.",
+      "id": "gen-card-gen-deck-009-1-0",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-1",
+      "word": "Plummet",
+      "meaning": "Giảm mạnh",
+      "pronunciation": "/ˈplʌm.ɪt/",
+      "example": "Sales plummeted to an all-time low.",
+      "id": "gen-card-gen-deck-009-1-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-1",
+      "word": "Fluctuate",
+      "meaning": "Dao động",
+      "pronunciation": "/ˈflʌk.tʃu.eɪt/",
+      "example": "The numbers fluctuated wildly over the year.",
+      "id": "gen-card-gen-deck-009-1-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-1",
+      "word": "Plateau",
+      "meaning": "Đạt mức ổn định",
+      "pronunciation": "/plæˈtoʊ/",
+      "example": "The population plateaued after 2010.",
+      "id": "gen-card-gen-deck-009-1-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-1",
+      "word": "Soar",
+      "meaning": "Tăng mạnh",
+      "pronunciation": "/sɔːr/",
+      "example": "Profits soared by 50%.",
+      "id": "gen-card-gen-deck-009-1-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-1",
+      "word": "Plunge",
+      "meaning": "Lao dốc",
+      "pronunciation": "/plʌndʒ/",
+      "example": "The temperature plunged overnight.",
+      "id": "gen-card-gen-deck-009-1-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-1",
+      "word": "Level off",
+      "meaning": "Chững lại, đi ngang",
+      "pronunciation": "/ˈlev.əl ɑːf/",
+      "example": "The growth leveled off eventually.",
+      "id": "gen-card-gen-deck-009-1-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-1",
+      "word": "Dip",
+      "meaning": "Giảm nhẹ",
+      "pronunciation": "/dɪp/",
+      "example": "There was a slight dip in attendance.",
+      "id": "gen-card-gen-deck-009-1-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-1",
+      "word": "Peak",
+      "meaning": "Đạt đỉnh",
+      "pronunciation": "/piːk/",
+      "example": "Production peaked in 2015.",
+      "id": "gen-card-gen-deck-009-1-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-1",
+      "word": "Surge",
+      "meaning": "Tăng đột ngột",
+      "pronunciation": "/sɝːdʒ/",
+      "example": "A sudden surge in demand was recorded.",
+      "id": "gen-card-gen-deck-009-1-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-2",
+      "word": "Respectively",
+      "meaning": "Theo thứ tự tương ứng",
+      "pronunciation": "/rɪˈspek.tɪv.li/",
+      "example": "The shares for A and B were 10% and 20% respectively.",
+      "id": "gen-card-gen-deck-009-2-0",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-2",
+      "word": "In contrast",
+      "meaning": "Ngược lại",
+      "pronunciation": "/ɪn ˈkɑːn.træst/",
+      "example": "In contrast, the second group showed a decline.",
+      "id": "gen-card-gen-deck-009-2-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-2",
+      "word": "Similarly",
+      "meaning": "Tương tự",
+      "pronunciation": "/ˈsɪm.ə.lɚ.li/",
+      "example": "Similarly, the figures for women increased.",
+      "id": "gen-card-gen-deck-009-2-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-2",
+      "word": "A striking feature",
+      "meaning": "Một đặc điểm nổi bật",
+      "pronunciation": "/ə ˈstraɪ.kɪŋ ˈfiː.tʃɚ/",
+      "example": "A striking feature is the sudden drop in 2005.",
+      "id": "gen-card-gen-deck-009-2-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-2",
+      "word": "Outnumber",
+      "meaning": "Vượt trội về số lượng",
+      "pronunciation": "/ˌaʊtˈnʌm.bɚ/",
+      "example": "Men outnumbered women in this sector.",
+      "id": "gen-card-gen-deck-009-2-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-2",
+      "word": "Account for",
+      "meaning": "Chiếm (tỷ lệ)",
+      "pronunciation": "/əˈkaʊnt fɔːr/",
+      "example": "Coal accounted for 50% of the total energy.",
+      "id": "gen-card-gen-deck-009-2-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-2",
+      "word": "Conversely",
+      "meaning": "Ngược lại",
+      "pronunciation": "/ˈkɑːn.vɝːs.li/",
+      "example": "Conversely, gas consumption fell.",
+      "id": "gen-card-gen-deck-009-2-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-2",
+      "word": "The majority",
+      "meaning": "Đa số",
+      "pronunciation": "/ðə məˈdʒɑː.rə.t̬i/",
+      "example": "The majority of users preferred mobile phones.",
+      "id": "gen-card-gen-deck-009-2-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-2",
+      "word": "Comparable",
+      "meaning": "Tương đương",
+      "pronunciation": "/ˈkɑːm.pɚ.ə.bəl/",
+      "example": "The numbers were comparable in both years.",
+      "id": "gen-card-gen-deck-009-2-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-2",
+      "word": "Differ",
+      "meaning": "Khác biệt",
+      "pronunciation": "/ˈdɪf.ɚ/",
+      "example": "The two countries differ significantly in size.",
+      "id": "gen-card-gen-deck-009-2-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-3",
+      "word": "Demolish",
+      "meaning": "Phá hủy",
+      "pronunciation": "/dɪˈmɑː.lɪʃ/",
+      "example": "The old buildings were demolished.",
+      "id": "gen-card-gen-deck-009-3-0",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-3",
+      "word": "Construct",
+      "meaning": "Xây dựng",
+      "pronunciation": "/kənˈstrʌkt/",
+      "example": "A new bridge was constructed.",
+      "id": "gen-card-gen-deck-009-3-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-3",
+      "word": "Replace",
+      "meaning": "Thay thế",
+      "pronunciation": "/rɪˈpleɪs/",
+      "example": "The park was replaced by a car park.",
+      "id": "gen-card-gen-deck-009-3-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-3",
+      "word": "Adjacent to",
+      "meaning": "Kế bên, sát cạnh",
+      "pronunciation": "/əˈdʒeɪ.sənt tuː/",
+      "example": "The shop is adjacent to the station.",
+      "id": "gen-card-gen-deck-009-3-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-3",
+      "word": "Expand",
+      "meaning": "Mở rộng",
+      "pronunciation": "/ɪkˈspænd/",
+      "example": "The residential area expanded.",
+      "id": "gen-card-gen-deck-009-3-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-3",
+      "word": "Relocate",
+      "meaning": "Di dời",
+      "pronunciation": "/ˌriːˈloʊ.keɪt/",
+      "example": "The factory was relocated to the north.",
+      "id": "gen-card-gen-deck-009-3-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-3",
+      "word": "Undergo",
+      "meaning": "Trải qua",
+      "pronunciation": "/ˌʌn.dɚˈɡoʊ/",
+      "example": "The town underwent significant changes.",
+      "id": "gen-card-gen-deck-009-3-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-3",
+      "word": "Convert into",
+      "meaning": "Chuyển đổi thành",
+      "pronunciation": "/kənˈvɝːt ˈɪn.tuː/",
+      "example": "The warehouse was converted into a gym.",
+      "id": "gen-card-gen-deck-009-3-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-3",
+      "word": "Erect",
+      "meaning": "Dựng lên",
+      "pronunciation": "/ɪˈrekt/",
+      "example": "A new monument was erected.",
+      "id": "gen-card-gen-deck-009-3-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-3",
+      "word": "Initially",
+      "meaning": "Ban đầu",
+      "pronunciation": "/ɪˈnɪʃ.əl.i/",
+      "example": "Initially, the process begins with...",
+      "id": "gen-card-gen-deck-009-3-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-4",
+      "word": "Proportion",
+      "meaning": "Tỷ lệ",
+      "pronunciation": "/prəˈpɔːr.ʃən/",
+      "example": "The proportion of students rose.",
+      "id": "gen-card-gen-deck-009-4-0",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-4",
+      "word": "Percentage",
+      "meaning": "Phần trăm",
+      "pronunciation": "/pɚˈsen.t̬ɪdʒ/",
+      "example": "A large percentage of the budget.",
+      "id": "gen-card-gen-deck-009-4-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-4",
+      "word": "A quarter",
+      "meaning": "Một phần tư (25%)",
+      "pronunciation": "/ə ˈkwɔːr.t̬ɚ/",
+      "example": "Exactly a quarter of the group.",
+      "id": "gen-card-gen-deck-009-4-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-4",
+      "word": "A third",
+      "meaning": "Một phần ba (33%)",
+      "pronunciation": "/ə θɝːd/",
+      "example": "Almost a third of participants.",
+      "id": "gen-card-gen-deck-009-4-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-4",
+      "word": "Two-fifths",
+      "meaning": "Hai phần năm (40%)",
+      "pronunciation": "/tuː fɪfθs/",
+      "example": "Two-fifths of the energy.",
+      "id": "gen-card-gen-deck-009-4-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-4",
+      "word": "Double",
+      "meaning": "Tăng gấp đôi",
+      "pronunciation": "/ˈdʌb.əl/",
+      "example": "The figure doubled in ten years.",
+      "id": "gen-card-gen-deck-009-4-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-4",
+      "word": "Triple",
+      "meaning": "Tăng gấp ba",
+      "pronunciation": "/ˈtrɪp.əl/",
+      "example": "Sales tripled over the period.",
+      "id": "gen-card-gen-deck-009-4-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-4",
+      "word": "Halve",
+      "meaning": "Giảm một nửa",
+      "pronunciation": "/hæv/",
+      "example": "The number of incidents halved.",
+      "id": "gen-card-gen-deck-009-4-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-4",
+      "word": "A fraction",
+      "meaning": "Một phần nhỏ",
+      "pronunciation": "/ə ˈfræk.ʃən/",
+      "example": "Only a fraction of the cost.",
+      "id": "gen-card-gen-deck-009-4-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-4",
+      "word": "Ratio",
+      "meaning": "Tỷ số",
+      "pronunciation": "/ˈreɪ.ʃi.oʊ/",
+      "example": "The ratio of men to women was 2:1.",
+      "id": "gen-card-gen-deck-009-4-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-5",
+      "word": "Illustrate",
+      "meaning": "Minh họa",
+      "pronunciation": "/ˈɪl.ə.streɪt/",
+      "example": "The graph illustrates the changes.",
+      "id": "gen-card-gen-deck-009-5-0",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-5",
+      "word": "Depict",
+      "meaning": "Mô tả",
+      "pronunciation": "/dɪˈpɪkt/",
+      "example": "The chart depicts energy use.",
+      "id": "gen-card-gen-deck-009-5-1",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-5",
+      "word": "Demonstrate",
+      "meaning": "Chứng minh, thể hiện",
+      "pronunciation": "/ˈdem.ən.streɪt/",
+      "example": "The data demonstrates a clear trend.",
+      "id": "gen-card-gen-deck-009-5-2",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-5",
+      "word": "Breakdown",
+      "meaning": "Sự phân tích chi tiết",
+      "pronunciation": "/ˈbreɪk.daʊn/",
+      "example": "A breakdown of the budget is shown.",
+      "id": "gen-card-gen-deck-009-5-3",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-5",
+      "word": "Comprise",
+      "meaning": "Bao gồm",
+      "pronunciation": "/kəmˈpraɪz/",
+      "example": "The pie chart comprises four sections.",
+      "id": "gen-card-gen-deck-009-5-4",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-5",
+      "word": "Constituent",
+      "meaning": "Thành phần",
+      "pronunciation": "/kənˈstɪtʃ.u.ənt/",
+      "example": "The main constituent was coal.",
+      "id": "gen-card-gen-deck-009-5-5",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-5",
+      "word": "Expenditure",
+      "meaning": "Sự chi tiêu",
+      "pronunciation": "/ɪkˈspen.də.tʃɚ/",
+      "example": "Expenditure on health increased.",
+      "id": "gen-card-gen-deck-009-5-6",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-5",
+      "word": "Revenue",
+      "meaning": "Doanh thu",
+      "pronunciation": "/ˈrev.ə.nuː/",
+      "example": "The company generated high revenue.",
+      "id": "gen-card-gen-deck-009-5-7",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-5",
+      "word": "Category",
+      "meaning": "Hạng mục, loại",
+      "pronunciation": "/ˈkæt̬.ə.ɡri/",
+      "example": "The largest category was food.",
+      "id": "gen-card-gen-deck-009-5-8",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
+    },
+    {
+      "deckId": "gen-deck-009-5",
+      "word": "Underlying",
+      "meaning": "Cơ bản, nằm dưới",
+      "pronunciation": "/ˌʌn.dɚˈlaɪ.ɪŋ/",
+      "example": "The underlying trend was upward.",
+      "id": "gen-card-gen-deck-009-5-9",
+      "status": "active",
+      "imageUrl": "",
+      "audioUrl": ""
     }
   ],
   "flashcardProgress": [
@@ -11623,7 +12807,7 @@
       "id": "ta-002",
       "userId": "u-student-004",
       "guestId": null,
-      "testId": "tutor-writing-approved-001",
+      "testId": null,
       "skill": "Writing",
       "status": "in-progress",
       "startTime": "2026-06-30T17:24:25.220Z",
@@ -11709,6 +12893,16 @@
       "status": "in-progress",
       "startTime": "2026-07-20T16:45:01.476Z",
       "createdAt": "2026-07-20T16:45:01.488Z"
+    },
+    {
+      "id": "ta-017",
+      "userId": "u-001",
+      "guestId": null,
+      "testId": "gen-test-writing-003-1",
+      "skill": "Writing",
+      "status": "in-progress",
+      "startTime": "2026-07-20T17:31:38.171Z",
+      "createdAt": "2026-07-20T17:31:38.179Z"
     }
   ],
   "flashcardDecks": [
@@ -11961,6 +13155,83 @@
       "status": "published",
       "createdAt": "2026-07-20T16:11:10.906Z",
       "updatedAt": "2026-07-20T16:11:10.906Z"
+    },
+    {
+      "id": "gen-deck-003-1",
+      "title": "Task 2 Vocabulary: Essay Structure & Linking Words",
+      "description": "10 essential vocabulary words carefully curated for this course.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "course",
+      "courseId": "course-003",
+      "status": "published",
+      "createdAt": "2026-07-20T17:19:22.173Z",
+      "updatedAt": "2026-07-20T17:19:22.173Z"
+    },
+    {
+      "id": "gen-deck-003-2",
+      "title": "Task 2 Vocabulary: Advanced Arguments & Opinions",
+      "description": "10 essential vocabulary words carefully curated for this course.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "course",
+      "courseId": "course-003",
+      "status": "published",
+      "createdAt": "2026-07-20T17:19:22.173Z",
+      "updatedAt": "2026-07-20T17:19:22.173Z"
+    },
+    {
+      "id": "gen-deck-009-1",
+      "title": "Task 1 Vocabulary: Describing Trends & Changes",
+      "description": "10 essential vocabulary words carefully curated for this course.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "course",
+      "courseId": "course-009",
+      "status": "published",
+      "createdAt": "2026-07-20T17:19:22.173Z",
+      "updatedAt": "2026-07-20T17:19:22.173Z"
+    },
+    {
+      "id": "gen-deck-009-2",
+      "title": "Task 1 Vocabulary: Comparing & Contrasting",
+      "description": "10 essential vocabulary words carefully curated for this course.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "course",
+      "courseId": "course-009",
+      "status": "published",
+      "createdAt": "2026-07-20T17:19:22.173Z",
+      "updatedAt": "2026-07-20T17:19:22.173Z"
+    },
+    {
+      "id": "gen-deck-009-3",
+      "title": "Task 1 Vocabulary: Map & Process Descriptions",
+      "description": "10 essential vocabulary words carefully curated for this course.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "course",
+      "courseId": "course-009",
+      "status": "published",
+      "createdAt": "2026-07-20T17:19:22.173Z",
+      "updatedAt": "2026-07-20T17:19:22.173Z"
+    },
+    {
+      "id": "gen-deck-009-4",
+      "title": "Task 1 Vocabulary: Data & Statistics",
+      "description": "10 essential vocabulary words carefully curated for this course.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "course",
+      "courseId": "course-009",
+      "status": "published",
+      "createdAt": "2026-07-20T17:19:22.173Z",
+      "updatedAt": "2026-07-20T17:19:22.173Z"
+    },
+    {
+      "id": "gen-deck-009-5",
+      "title": "Task 1 Vocabulary: Advanced Synonyms for Charts",
+      "description": "10 essential vocabulary words carefully curated for this course.",
+      "teacherId": "u-teacher-001",
+      "deckMode": "course",
+      "courseId": "course-009",
+      "status": "published",
+      "createdAt": "2026-07-20T17:19:22.173Z",
+      "updatedAt": "2026-07-20T17:19:22.173Z"
     }
   ],
   "library_resources": [

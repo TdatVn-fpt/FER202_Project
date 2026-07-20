@@ -119,11 +119,84 @@ export default function TestPreviewModal({ show, onHide, draft }) {
           </div>
         )}
 
-        {draft.skill !== 'Reading' && draft.skill !== 'Listening' && (
+        {draft.skill === 'Writing' && (
+          <div className="p-4">
+            {config.task1 && (
+              <div className="bg-white mb-4 p-4 border rounded shadow-sm">
+                <h4 className="fw-bold mb-3 text-dark border-bottom pb-2">Task 1</h4>
+                <div className="mb-4">
+                  <div style={{ whiteSpace: 'pre-wrap', lineHeight: '1.8', fontSize: '15px' }} className="text-dark mb-4">
+                    {config.task1.prompt}
+                  </div>
+                  {config.task1.imageUrl && (
+                    <div className="text-center mb-4">
+                      <img src={config.task1.imageUrl} alt="Task 1 Diagram" className="img-fluid border rounded shadow-sm" style={{ maxHeight: '400px' }} />
+                    </div>
+                  )}
+                  {config.task1.minimumWords && (
+                    <div className="text-muted fst-italic">
+                      <i className="bi bi-info-circle me-1"></i>
+                      Minimum words: {config.task1.minimumWords}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+            
+            {config.task2 && (
+              <div className="bg-white mb-4 p-4 border rounded shadow-sm">
+                <h4 className="fw-bold mb-3 text-dark border-bottom pb-2">Task 2</h4>
+                <div className="mb-4">
+                  <div style={{ whiteSpace: 'pre-wrap', lineHeight: '1.8', fontSize: '15px' }} className="text-dark mb-4">
+                    {config.task2.prompt}
+                  </div>
+                  {config.task2.minimumWords && (
+                    <div className="text-muted fst-italic">
+                      <i className="bi bi-info-circle me-1"></i>
+                      Minimum words: {config.task2.minimumWords}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {config.bandCriteria && (
+              <div className="bg-light p-3 border rounded">
+                <h6 className="fw-bold mb-2 text-secondary">Band Criteria / Grading Notes</h6>
+                <div className="text-muted small">{config.bandCriteria}</div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {draft.skill === 'Speaking' && (
+          <div className="p-4">
+            {(config.parts || []).map((part, pIdx) => (
+              <div key={part.id || pIdx} className="bg-white mb-4 p-4 border rounded shadow-sm">
+                <h4 className="fw-bold mb-3 text-dark border-bottom pb-2">
+                  Part {part.partNumber || pIdx + 1}: {part.title || 'Untitled Part'}
+                </h4>
+                
+                <div className="ps-3 border-start border-3 border-primary">
+                  {(part.questions || []).map((q, qIdx) => (
+                    <div key={q.id || qIdx} className="mb-3">
+                      <div className="fw-semibold text-dark">
+                        <span className="me-2 text-primary">{qIdx + 1}.</span>
+                        {q.text}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {draft.skill !== 'Reading' && draft.skill !== 'Listening' && draft.skill !== 'Writing' && draft.skill !== 'Speaking' && (
           <div className="p-5 text-center text-muted">
             <i className="bi bi-tools fs-1 mb-3 d-block text-secondary"></i>
             <h5>Chức năng Preview Modal cho {draft.skill} đang được cập nhật.</h5>
-            <p>Hiện tại hỗ trợ tốt nhất cho Reading và Listening Test.</p>
+            <p>Hiện tại hệ thống đã hỗ trợ đầy đủ 4 kỹ năng.</p>
           </div>
         )}
       </Modal.Body>
