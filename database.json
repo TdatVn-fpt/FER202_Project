@@ -48,12 +48,14 @@
       "name": "Nguyen Tien Dat",
       "email": "ntiendat2108@gmail.com",
       "role": "admin",
-      "avatar": "https://www.gravatar.com/avatar/?d=mp",
+      "avatar": "https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-6/519423241_1532583371481775_1460153108882887398_n.jpg?stp=dst-jpg_tt6&cstp=mx1920x1920&ctp=s1920x1920&_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEI_fbwzQF22jUF7KyqXy9i0eOatIB_1vbR45q0gH_W9vVCwEy8hd5mSbthMnJDqnMkm1VAKfpY7FnYrSZc7QeX&_nc_ohc=R6F3LZ3mfOkQ7kNvwHx-UnA&_nc_oc=AdrLLEBJOLHf6NzBgjhm3CI2sKQd2rgtDFRGObAdOWt90u6RSh6hRlfMQzKTmw6S36Y&_nc_zt=23&_nc_ht=scontent.fhan18-1.fna&_nc_gid=ZR-aKHXkIeTssY8xgNJW_Q&_nc_ss=7a2a8&oh=00_AQAHhePauoRmEHzTFFmd7soMa4pAwmu8RZZSJD6PuP4jOg&oe=6A63DF18",
       "status": "active",
       "targetBand": 7,
       "currentBand": 5.5,
       "createdAt": "2026-06-01T08:00:00Z",
-      "passwordHash": "$2b$10$peFW66ULi4fclViLUPGyTOSMUUGQXIQW4xb5giBY9bKQ5DyglgMEG"
+      "passwordHash": "$2b$10$peFW66ULi4fclViLUPGyTOSMUUGQXIQW4xb5giBY9bKQ5DyglgMEG",
+      "dateOfBirth": "2005-12-01",
+      "updatedAt": "2026-07-20T12:33:51.656Z"
     },
     {
       "id": "u-student-004",
@@ -82,7 +84,8 @@
       "currentBand": 5,
       "createdAt": "2026-06-02T08:00:00Z",
       "dateOfBirth": "",
-      "passwordHash": "$2b$10$VWVreLPDHhKzFK/dpFKmMuYyCHMN8/oNmVQZ8GTLEW7ubGrvwgDQi"
+      "passwordHash": "$2b$10$VWVreLPDHhKzFK/dpFKmMuYyCHMN8/oNmVQZ8GTLEW7ubGrvwgDQi",
+      "updatedAt": "2026-07-20T12:52:43.344Z"
     },
     {
       "id": "u-teacher-001",
@@ -108,15 +111,16 @@
     },
     {
       "email": "kien030405@gmail.com",
-      "fullName": "",
-      "name": "",
+      "fullName": "Kiên trần",
+      "name": "Kiên trần",
       "dateOfBirth": "2007-12-20",
       "id": "ydj-RqSNOgY",
       "role": "admin",
       "status": "active",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "createdAt": "2026-06-11T03:17:42.250Z",
-      "passwordHash": "$2b$10$WarXHPcckclgRf29q2rmn.zNM3t7.GzVeqUmuXVT/392SKm/BEh/y"
+      "passwordHash": "$2b$10$WarXHPcckclgRf29q2rmn.zNM3t7.GzVeqUmuXVT/392SKm/BEh/y",
+      "updatedAt": "2026-07-20T12:51:22.801Z"
     },
     {
       "email": "thaikhachuuduc@gmail.com",
@@ -151,14 +155,14 @@
       "name": "Nguyễn Văn Khá",
       "email": "fer202studenttest@ntdservice.store",
       "passwordHash": "$2b$10$8vM5ni5Qr.Wrx8gLTh4K3evctNvV0QW89xFNcaJfGZTTnOTn98Nxu",
-      "role": "student",
+      "role": "teacher",
       "status": "active",
-      "avatar": "",
+      "avatar": "https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-6/519423241_1532583371481775_1460153108882887398_n.jpg?stp=dst-jpg_tt6&cstp=mx1920x1920&ctp=s1920x1920&_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEI_fbwzQF22jUF7KyqXy9i0eOatIB_1vbR45q0gH_W9vVCwEy8hd5mSbthMnJDqnMkm1VAKfpY7FnYrSZc7QeX&_nc_ohc=R6F3LZ3mfOkQ7kNvwHx-UnA&_nc_oc=AdrLLEBJOLHf6NzBgjhm3CI2sKQd2rgtDFRGObAdOWt90u6RSh6hRlfMQzKTmw6S36Y&_nc_zt=23&_nc_ht=scontent.fhan18-1.fna&_nc_gid=ZR-aKHXkIeTssY8xgNJW_Q&_nc_ss=7a2a8&oh=00_AQAHhePauoRmEHzTFFmd7soMa4pAwmu8RZZSJD6PuP4jOg&oe=6A63DF18",
       "dateOfBirth": "2001-12-09",
       "currentBand": 0,
       "targetBand": 0,
       "createdAt": "2026-07-20T10:43:08.520Z",
-      "updatedAt": "2026-07-20T10:43:08.520Z"
+      "updatedAt": "2026-07-20T12:34:52.316Z"
     },
     {
       "id": "u-student-006",
@@ -168,12 +172,12 @@
       "passwordHash": "$2b$10$5xgBVoE006G0xDdrGJq8C.fUplFCNQQARRnKHEk5LvYciqMd3olry",
       "role": "student",
       "status": "active",
-      "avatar": "",
+      "avatar": "https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-6/519423241_1532583371481775_1460153108882887398_n.jpg?stp=dst-jpg_tt6&cstp=mx1920x1920&ctp=s1920x1920&_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEI_fbwzQF22jUF7KyqXy9i0eOatIB_1vbR45q0gH_W9vVCwEy8hd5mSbthMnJDqnMkm1VAKfpY7FnYrSZc7QeX&_nc_ohc=R6F3LZ3mfOkQ7kNvwHx-UnA&_nc_oc=AdrLLEBJOLHf6NzBgjhm3CI2sKQd2rgtDFRGObAdOWt90u6RSh6hRlfMQzKTmw6S36Y&_nc_zt=23&_nc_ht=scontent.fhan18-1.fna&_nc_gid=ZR-aKHXkIeTssY8xgNJW_Q&_nc_ss=7a2a8&oh=00_AQAHhePauoRmEHzTFFmd7soMa4pAwmu8RZZSJD6PuP4jOg&oe=6A63DF18",
       "dateOfBirth": "2006-05-17",
-      "currentBand": 0,
-      "targetBand": 0,
+      "currentBand": 5,
+      "targetBand": 7.5,
       "createdAt": "2026-07-20T11:55:08.771Z",
-      "updatedAt": "2026-07-20T11:56:40.162Z"
+      "updatedAt": "2026-07-20T12:53:50.229Z"
     }
   ],
   "courses": [
@@ -5027,6 +5031,259 @@
         "role": "student"
       },
       "createdAt": "2026-07-20T10:19:31.077Z"
+    },
+    {
+      "id": "log-050",
+      "actorId": "u-student-001",
+      "action": "UPDATE_USER",
+      "targetType": "user",
+      "targetId": "u-student-005",
+      "oldValue": {
+        "id": "u-student-005",
+        "fullName": "Nguyễn Văn Khá",
+        "name": "Nguyễn Văn Khá",
+        "email": "fer202studenttest@ntdservice.store",
+        "role": "student",
+        "status": "active",
+        "avatar": "",
+        "dateOfBirth": "2001-12-09",
+        "currentBand": 0,
+        "targetBand": 0,
+        "createdAt": "2026-07-20T10:43:08.520Z",
+        "updatedAt": "2026-07-20T10:43:08.520Z"
+      },
+      "newValue": {
+        "id": "u-student-005",
+        "fullName": "Nguyễn Văn Khá",
+        "name": "Nguyễn Văn Khá",
+        "email": "fer202studenttest@ntdservice.store",
+        "role": "teacher",
+        "status": "active",
+        "avatar": "",
+        "dateOfBirth": "2001-12-09",
+        "currentBand": 0,
+        "targetBand": 0,
+        "createdAt": "2026-07-20T10:43:08.520Z",
+        "updatedAt": "2026-07-20T12:34:27.318Z"
+      },
+      "createdAt": "2026-07-20T12:34:27.318Z"
+    },
+    {
+      "id": "log-051",
+      "actorId": "u-student-001",
+      "action": "CHANGE_USER_ROLE",
+      "targetType": "user",
+      "targetId": "u-student-005",
+      "oldValue": {
+        "role": "student"
+      },
+      "newValue": {
+        "role": "teacher"
+      },
+      "createdAt": "2026-07-20T12:34:27.319Z"
+    },
+    {
+      "id": "log-052",
+      "actorId": "u-student-001",
+      "action": "UPDATE_USER",
+      "targetType": "user",
+      "targetId": "ydj-RqSNOgY",
+      "oldValue": {
+        "email": "kien030405@gmail.com",
+        "fullName": "",
+        "name": "",
+        "dateOfBirth": "2007-12-20",
+        "id": "ydj-RqSNOgY",
+        "role": "admin",
+        "status": "active",
+        "avatar": "https://www.gravatar.com/avatar/?d=mp",
+        "createdAt": "2026-06-11T03:17:42.250Z"
+      },
+      "newValue": {
+        "email": "kien030405@gmail.com",
+        "fullName": "Kiên trần",
+        "name": "Kiên trần",
+        "dateOfBirth": "2007-12-20",
+        "id": "ydj-RqSNOgY",
+        "role": "admin",
+        "status": "active",
+        "avatar": "https://www.gravatar.com/avatar/?d=mp",
+        "createdAt": "2026-06-11T03:17:42.250Z",
+        "updatedAt": "2026-07-20T12:51:22.801Z"
+      },
+      "createdAt": "2026-07-20T12:51:22.801Z"
+    },
+    {
+      "id": "log-053",
+      "actorId": "u-student-001",
+      "action": "CHANGE_USER_STATUS",
+      "targetType": "user",
+      "targetId": "u-001",
+      "oldValue": {
+        "status": "active",
+        "lockedUntil": null
+      },
+      "newValue": {
+        "status": "banned",
+        "lockedUntil": null
+      },
+      "createdAt": "2026-07-20T12:52:07.108Z"
+    },
+    {
+      "id": "log-054",
+      "actorId": "u-student-001",
+      "action": "UPDATE_USER",
+      "targetType": "user",
+      "targetId": "u-001",
+      "oldValue": {
+        "id": "u-001",
+        "fullName": "Nguyen Duy Manh",
+        "name": "Nguyen Duy Manh",
+        "email": "manhnd@student.com",
+        "role": "student",
+        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB61G-dq7NqM8aauLy9sA6jizp_6495Vgmxw&s",
+        "status": "banned",
+        "targetBand": 7.5,
+        "currentBand": 5,
+        "createdAt": "2026-06-02T08:00:00Z",
+        "dateOfBirth": "",
+        "updatedAt": "2026-07-20T12:52:07.108Z"
+      },
+      "newValue": {
+        "id": "u-001",
+        "fullName": "Nguyen Duy Manh",
+        "name": "Nguyen Duy Manh",
+        "email": "manhnd@student.com",
+        "role": "student",
+        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB61G-dq7NqM8aauLy9sA6jizp_6495Vgmxw&s",
+        "status": "banned",
+        "targetBand": 7.5,
+        "currentBand": 5,
+        "createdAt": "2026-06-02T08:00:00Z",
+        "dateOfBirth": "",
+        "updatedAt": "2026-07-20T12:52:21.882Z"
+      },
+      "createdAt": "2026-07-20T12:52:21.882Z"
+    },
+    {
+      "id": "log-055",
+      "actorId": "u-student-001",
+      "action": "UPDATE_USER",
+      "targetType": "user",
+      "targetId": "u-001",
+      "oldValue": {
+        "id": "u-001",
+        "fullName": "Nguyen Duy Manh",
+        "name": "Nguyen Duy Manh",
+        "email": "manhnd@student.com",
+        "role": "student",
+        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB61G-dq7NqM8aauLy9sA6jizp_6495Vgmxw&s",
+        "status": "banned",
+        "targetBand": 7.5,
+        "currentBand": 5,
+        "createdAt": "2026-06-02T08:00:00Z",
+        "dateOfBirth": "",
+        "updatedAt": "2026-07-20T12:52:21.882Z"
+      },
+      "newValue": {
+        "id": "u-001",
+        "fullName": "Nguyen Duy Manh",
+        "name": "Nguyen Duy Manh",
+        "email": "manhnd@student.com",
+        "role": "student",
+        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB61G-dq7NqM8aauLy9sA6jizp_6495Vgmxw&s",
+        "status": "banned",
+        "targetBand": 7.5,
+        "currentBand": 5,
+        "createdAt": "2026-06-02T08:00:00Z",
+        "dateOfBirth": "",
+        "updatedAt": "2026-07-20T12:52:43.320Z"
+      },
+      "createdAt": "2026-07-20T12:52:43.321Z"
+    },
+    {
+      "id": "log-056",
+      "actorId": "u-student-001",
+      "action": "CHANGE_USER_STATUS",
+      "targetType": "user",
+      "targetId": "u-001",
+      "oldValue": {
+        "status": "banned",
+        "lockedUntil": null
+      },
+      "newValue": {
+        "status": "active",
+        "lockedUntil": null
+      },
+      "createdAt": "2026-07-20T12:52:43.344Z"
+    },
+    {
+      "id": "log-057",
+      "actorId": "u-student-001",
+      "action": "CHANGE_USER_STATUS",
+      "targetType": "user",
+      "targetId": "u-student-006",
+      "oldValue": {
+        "status": "active",
+        "lockedUntil": null
+      },
+      "newValue": {
+        "status": "banned",
+        "lockedUntil": null
+      },
+      "createdAt": "2026-07-20T12:52:59.979Z"
+    },
+    {
+      "id": "log-058",
+      "actorId": "u-student-001",
+      "action": "UPDATE_USER",
+      "targetType": "user",
+      "targetId": "u-student-006",
+      "oldValue": {
+        "id": "u-student-006",
+        "fullName": "tien dat nguyen",
+        "name": "tien dat nguyen",
+        "email": "fer202studenttest2@ntdservice.store",
+        "role": "student",
+        "status": "banned",
+        "avatar": "https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-6/519423241_1532583371481775_1460153108882887398_n.jpg?stp=dst-jpg_tt6&cstp=mx1920x1920&ctp=s1920x1920&_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEI_fbwzQF22jUF7KyqXy9i0eOatIB_1vbR45q0gH_W9vVCwEy8hd5mSbthMnJDqnMkm1VAKfpY7FnYrSZc7QeX&_nc_ohc=R6F3LZ3mfOkQ7kNvwHx-UnA&_nc_oc=AdrLLEBJOLHf6NzBgjhm3CI2sKQd2rgtDFRGObAdOWt90u6RSh6hRlfMQzKTmw6S36Y&_nc_zt=23&_nc_ht=scontent.fhan18-1.fna&_nc_gid=ZR-aKHXkIeTssY8xgNJW_Q&_nc_ss=7a2a8&oh=00_AQAHhePauoRmEHzTFFmd7soMa4pAwmu8RZZSJD6PuP4jOg&oe=6A63DF18",
+        "dateOfBirth": "2006-05-17",
+        "currentBand": 5,
+        "targetBand": 7.5,
+        "createdAt": "2026-07-20T11:55:08.771Z",
+        "updatedAt": "2026-07-20T12:52:59.979Z"
+      },
+      "newValue": {
+        "id": "u-student-006",
+        "fullName": "tien dat nguyen",
+        "name": "tien dat nguyen",
+        "email": "fer202studenttest2@ntdservice.store",
+        "role": "student",
+        "status": "banned",
+        "avatar": "https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-6/519423241_1532583371481775_1460153108882887398_n.jpg?stp=dst-jpg_tt6&cstp=mx1920x1920&ctp=s1920x1920&_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEI_fbwzQF22jUF7KyqXy9i0eOatIB_1vbR45q0gH_W9vVCwEy8hd5mSbthMnJDqnMkm1VAKfpY7FnYrSZc7QeX&_nc_ohc=R6F3LZ3mfOkQ7kNvwHx-UnA&_nc_oc=AdrLLEBJOLHf6NzBgjhm3CI2sKQd2rgtDFRGObAdOWt90u6RSh6hRlfMQzKTmw6S36Y&_nc_zt=23&_nc_ht=scontent.fhan18-1.fna&_nc_gid=ZR-aKHXkIeTssY8xgNJW_Q&_nc_ss=7a2a8&oh=00_AQAHhePauoRmEHzTFFmd7soMa4pAwmu8RZZSJD6PuP4jOg&oe=6A63DF18",
+        "dateOfBirth": "2006-05-17",
+        "currentBand": 5,
+        "targetBand": 7.5,
+        "createdAt": "2026-07-20T11:55:08.771Z",
+        "updatedAt": "2026-07-20T12:53:50.194Z"
+      },
+      "createdAt": "2026-07-20T12:53:50.194Z"
+    },
+    {
+      "id": "log-059",
+      "actorId": "u-student-001",
+      "action": "CHANGE_USER_STATUS",
+      "targetType": "user",
+      "targetId": "u-student-006",
+      "oldValue": {
+        "status": "banned",
+        "lockedUntil": null
+      },
+      "newValue": {
+        "status": "active",
+        "lockedUntil": null
+      },
+      "createdAt": "2026-07-20T12:53:50.229Z"
     }
   ],
   "approvalRequests": [
