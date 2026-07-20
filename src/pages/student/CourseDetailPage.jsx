@@ -37,7 +37,6 @@ const CourseDetailPage = () => {
   const navigate = useNavigate();
   const storedUser = getCurrentUser();
   const storedUserId = storedUser?.id;
-  const storedUserEmail = storedUser?.email;
 
   const [course, setCourse] = useState(null);
   const [enrollment, setEnrollment] = useState(null);
@@ -55,15 +54,8 @@ const CourseDetailPage = () => {
       setIsLoading(true);
       setError(null);
       try {
-        // Re-fetch user id from server to avoid stale localStorage
-        let currentUserId = storedUserId || 'u-001';
-        if (storedUserEmail) {
-          try {
-            const res = await fetch(`http://localhost:9999/users?email=${encodeURIComponent(storedUserEmail)}`);
-            const data = await res.json();
-            if (data?.length > 0) currentUserId = data[0].id;
-          } catch (_) {}
-        }
+        const currentUserId = storedUserId;
+        if (!currentUserId) throw new Error('Phiên đăng nhập không hợp lệ.');
 
         const [courseData, testsData] = await Promise.all([
           getCourseById(courseId),
@@ -96,7 +88,7 @@ const CourseDetailPage = () => {
       }
     };
     if (courseId) fetchCourseData();
-  }, [courseId, storedUserEmail, storedUserId]);
+  }, [courseId, storedUserId]);
 
   useEffect(() => {
     const handleCart = () => setInCart(isInCart(courseId));
@@ -117,15 +109,8 @@ const CourseDetailPage = () => {
 
     setIsEnrolling(true);
     try {
-      let currentUserId = storedUserId || 'u-001';
-      if (storedUserEmail) {
-        try {
-          const res = await fetch(`http://localhost:9999/users?email=${encodeURIComponent(storedUserEmail)}`);
-          const data = await res.json();
-          if (data?.length > 0) currentUserId = data[0].id;
-        } catch (_) {}
-      }
-      const newEnrollment = await createEnrollment(currentUserId, courseId);
+      if (!storedUserId) throw new Error('Phiên đăng nhập không hợp lệ.');
+      const newEnrollment = await createEnrollment(storedUserId, courseId);
       setEnrollment(newEnrollment);
     } catch (err) {
       setError(err.message || 'Failed to enroll in the course.');
