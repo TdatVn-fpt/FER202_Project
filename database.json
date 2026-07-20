@@ -47,66 +47,67 @@
       "fullName": "Nguyen Tien Dat",
       "name": "Nguyen Tien Dat",
       "email": "ntiendat2108@gmail.com",
-      "password": "12345678",
       "role": "admin",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "status": "active",
       "targetBand": 7,
       "currentBand": 5.5,
-      "createdAt": "2026-06-01T08:00:00Z"
+      "createdAt": "2026-06-01T08:00:00Z",
+      "passwordHash": "$2b$10$peFW66ULi4fclViLUPGyTOSMUUGQXIQW4xb5giBY9bKQ5DyglgMEG"
     },
     {
       "id": "u-student-004",
       "fullName": "Nguyen Tien Dat",
       "name": "Nguyen Tien Dat",
       "email": "tiendatwork1.12@gmail.com",
-      "password": "12345678",
-      "role": "teacher",
+      "role": "student",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "status": "active",
       "targetBand": 7,
       "currentBand": 5.5,
-      "createdAt": "2026-06-01T08:00:00Z"
+      "createdAt": "2026-06-01T08:00:00Z",
+      "passwordHash": "$2b$10$rmJlLGHoQMQmRxVs1jUn9O4lP5rbfuNqoO6YmngIY13aAXpa7qBqS",
+      "dateOfBirth": "",
+      "updatedAt": "2026-07-20T10:19:31.077Z"
     },
     {
       "id": "u-001",
       "fullName": "Nguyen Duy Manh",
       "name": "Nguyen Duy Manh",
       "email": "manhnd@student.com",
-      "password": "12345678",
       "role": "student",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB61G-dq7NqM8aauLy9sA6jizp_6495Vgmxw&s",
       "status": "active",
       "targetBand": 7.5,
       "currentBand": 5,
       "createdAt": "2026-06-02T08:00:00Z",
-      "dateOfBirth": ""
+      "dateOfBirth": "",
+      "passwordHash": "$2b$10$VWVreLPDHhKzFK/dpFKmMuYyCHMN8/oNmVQZ8GTLEW7ubGrvwgDQi"
     },
     {
       "id": "u-teacher-001",
       "fullName": "IELTS Mentor",
       "name": "IELTS Mentor",
       "email": "teacher@ieltslearning.com",
-      "password": "12345678",
       "role": "teacher",
       "specialty": "Reading and Writing",
       "status": "active",
-      "avatar": "https://www.gravatar.com/avatar/?d=mp"
+      "avatar": "https://www.gravatar.com/avatar/?d=mp",
+      "passwordHash": "$2b$10$NmT79Fli..fSqqJD2xWIFemsWqOHcGSmp/nLMLLLadCHgKNLG7.XW"
     },
     {
       "id": "u-admin-001",
       "fullName": "System Admin",
       "name": "System Admin",
       "email": "admin@ieltslearning.com",
-      "password": "12345678",
       "role": "admin",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
       "status": "active",
-      "createdAt": "2026-05-15T08:00:00Z"
+      "createdAt": "2026-05-15T08:00:00Z",
+      "passwordHash": "$2b$10$3u/KiYL7GqdRqXHawXlbgu3FQkLnDUQQOqLUg8oz.qipfzCaMBM5."
     },
     {
       "email": "kien030405@gmail.com",
-      "password": "12345678",
       "fullName": "",
       "name": "",
       "dateOfBirth": "2007-12-20",
@@ -114,41 +115,11 @@
       "role": "admin",
       "status": "active",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
-      "createdAt": "2026-06-11T03:17:42.250Z"
-    },
-    {
-      "id": "google-teacher-1",
-      "fullName": "IELTS Mentor",
-      "name": "IELTS Mentor",
-      "email": "teacher@ieltslearning.com",
-      "password": "12345678",
-      "role": "teacher",
-      "status": "active",
-      "avatar": "https://www.gravatar.com/avatar/?d=mp"
-    },
-    {
-      "id": "google-student-1",
-      "fullName": "Tien Dat",
-      "name": "Tien Dat",
-      "email": "ntiendat2108@gmail.com",
-      "password": "12345678",
-      "role": "student",
-      "status": "active",
-      "avatar": "https://www.gravatar.com/avatar/?d=mp"
-    },
-    {
-      "id": "google-admin-1",
-      "fullName": "System Admin",
-      "name": "System Admin",
-      "email": "admin@ieltslearning.com",
-      "password": "12345678",
-      "role": "admin",
-      "status": "active",
-      "avatar": "https://www.gravatar.com/avatar/?d=mp"
+      "createdAt": "2026-06-11T03:17:42.250Z",
+      "passwordHash": "$2b$10$WarXHPcckclgRf29q2rmn.zNM3t7.GzVeqUmuXVT/392SKm/BEh/y"
     },
     {
       "email": "thaikhachuuduc@gmail.com",
-      "password": "123456789",
       "fullName": "Thái Khắc Hữu Đức",
       "name": "Thái Khắc Hữu Đức",
       "dateOfBirth": "2006-1-3",
@@ -156,7 +127,53 @@
       "role": "student",
       "status": "active",
       "avatar": "https://www.gravatar.com/avatar/?d=mp",
-      "createdAt": "2026-07-05T11:48:40.322Z"
+      "createdAt": "2026-07-05T11:48:40.322Z",
+      "passwordHash": "$2b$10$U1DXcl6K1gQPIvV/WKWKIOzyUtWtFtGfTUVDHu/gFWqwUfWnX97Im"
+    },
+    {
+      "id": "u-student-locked-demo",
+      "fullName": "Locked Demo Student",
+      "name": "Locked Demo Student",
+      "email": "locked.student@ieltslearning.com",
+      "role": "student",
+      "status": "locked",
+      "avatar": "",
+      "dateOfBirth": "2000-01-01",
+      "currentBand": 5,
+      "targetBand": 7,
+      "createdAt": "2026-07-20T00:00:00.000Z",
+      "updatedAt": "2026-07-20T00:00:00.000Z",
+      "passwordHash": "$2b$10$qkNoRIz.pNOpETO.DiEOP.OKZeELWg2rJibgcOZun1kHqDcPDz9nK"
+    },
+    {
+      "id": "u-student-005",
+      "fullName": "Nguyễn Văn Khá",
+      "name": "Nguyễn Văn Khá",
+      "email": "fer202studenttest@ntdservice.store",
+      "passwordHash": "$2b$10$8vM5ni5Qr.Wrx8gLTh4K3evctNvV0QW89xFNcaJfGZTTnOTn98Nxu",
+      "role": "student",
+      "status": "active",
+      "avatar": "",
+      "dateOfBirth": "2001-12-09",
+      "currentBand": 0,
+      "targetBand": 0,
+      "createdAt": "2026-07-20T10:43:08.520Z",
+      "updatedAt": "2026-07-20T10:43:08.520Z"
+    },
+    {
+      "id": "u-student-006",
+      "fullName": "tien dat nguyen",
+      "name": "tien dat nguyen",
+      "email": "fer202studenttest2@ntdservice.store",
+      "passwordHash": "$2b$10$5xgBVoE006G0xDdrGJq8C.fUplFCNQQARRnKHEk5LvYciqMd3olry",
+      "role": "student",
+      "status": "active",
+      "avatar": "",
+      "dateOfBirth": "2006-05-17",
+      "currentBand": 0,
+      "targetBand": 0,
+      "createdAt": "2026-07-20T11:55:08.771Z",
+      "updatedAt": "2026-07-20T11:56:40.162Z"
     }
   ],
   "courses": [
@@ -4962,6 +4979,54 @@
       "targetType": "course",
       "targetId": "9w8htVkjNaI",
       "createdAt": "2026-06-30T17:24:11.172Z"
+    },
+    {
+      "id": "log-048",
+      "actorId": "u-student-001",
+      "action": "UPDATE_USER",
+      "targetType": "user",
+      "targetId": "u-student-004",
+      "oldValue": {
+        "id": "u-student-004",
+        "fullName": "Nguyen Tien Dat",
+        "name": "Nguyen Tien Dat",
+        "email": "tiendatwork1.12@gmail.com",
+        "role": "teacher",
+        "avatar": "https://www.gravatar.com/avatar/?d=mp",
+        "status": "active",
+        "targetBand": 7,
+        "currentBand": 5.5,
+        "createdAt": "2026-06-01T08:00:00Z"
+      },
+      "newValue": {
+        "id": "u-student-004",
+        "fullName": "Nguyen Tien Dat",
+        "name": "Nguyen Tien Dat",
+        "email": "tiendatwork1.12@gmail.com",
+        "role": "student",
+        "avatar": "https://www.gravatar.com/avatar/?d=mp",
+        "status": "active",
+        "targetBand": 7,
+        "currentBand": 5.5,
+        "createdAt": "2026-06-01T08:00:00Z",
+        "dateOfBirth": "",
+        "updatedAt": "2026-07-20T10:19:31.077Z"
+      },
+      "createdAt": "2026-07-20T10:19:31.077Z"
+    },
+    {
+      "id": "log-049",
+      "actorId": "u-student-001",
+      "action": "CHANGE_USER_ROLE",
+      "targetType": "user",
+      "targetId": "u-student-004",
+      "oldValue": {
+        "role": "teacher"
+      },
+      "newValue": {
+        "role": "student"
+      },
+      "createdAt": "2026-07-20T10:19:31.077Z"
     }
   ],
   "approvalRequests": [
@@ -7702,6 +7767,17 @@
       "status": "in-progress",
       "startTime": "2026-06-30T17:24:25.220Z",
       "createdAt": "2026-06-30T17:24:25.223Z"
+    },
+    {
+      "userId": null,
+      "guestId": "guest-1782224533119-sm0alj",
+      "testId": "tutor-reading-approved-001",
+      "skill": "Reading",
+      "startTime": "2026-07-20T04:06:22.632Z",
+      "expiredAt": "2026-07-20T05:06:22.632Z",
+      "status": "in-progress",
+      "answers": {},
+      "id": "WfnpFzvmB7c"
     }
   ],
   "flashcardDecks": [
@@ -7879,7 +7955,6 @@
       "updatedAt": "2026-07-06T06:53:41.125Z"
     }
   ],
-  "$schema": "./node_modules/json-server/schema.json",
   "library_resources": [
     {
       "id": "lib-861c16a1",
@@ -7978,6 +8053,67 @@
       "downloadCount": 0,
       "createdAt": "2026-07-01T06:30:13.386Z",
       "id": "JPt6lSikiXM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json",
+  "passwordResetTokens": [
+    {
+      "id": "prt-001",
+      "userId": "u-student-001",
+      "tokenHash": "4db124b0cf14c50f885ccf9129bfaba7db4f351b49246c56a3e0a8c95125839f",
+      "expiresAt": "2026-07-20T10:55:32.595Z",
+      "usedAt": "2026-07-20T10:40:55.074Z",
+      "createdAt": "2026-07-20T10:40:32.595Z"
+    },
+    {
+      "id": "prt-002",
+      "userId": "u-student-001",
+      "tokenHash": "9f0720b5d47c10df69644d8bfc356cd8a67cb490cb2b9acc5731b071b32feb04",
+      "expiresAt": "2026-07-20T10:55:55.074Z",
+      "usedAt": null,
+      "createdAt": "2026-07-20T10:40:55.074Z"
+    },
+    {
+      "id": "prt-003",
+      "userId": "u-student-005",
+      "tokenHash": "33e368e5ed438f2031d3ddb242a80013d1fbebe1c86c632bcb71a98b4cac92f0",
+      "expiresAt": "2026-07-20T11:06:23.722Z",
+      "usedAt": "2026-07-20T11:13:45.599Z",
+      "createdAt": "2026-07-20T10:51:23.722Z"
+    },
+    {
+      "id": "prt-004",
+      "userId": "u-student-005",
+      "tokenHash": "528bafc8854737cc42a51f029443d94a620f765d6475ed2d4ceacf30849ee4a4",
+      "expiresAt": "2026-07-20T11:28:45.599Z",
+      "usedAt": "2026-07-20T11:24:01.372Z",
+      "createdAt": "2026-07-20T11:13:45.599Z"
+    },
+    {
+      "id": "prt-005",
+      "userId": "u-student-005",
+      "tokenHash": "dd458c60abb0bb14edb9f437abbe459be9af0bdd760e7fdb80f83834ee532d19",
+      "expiresAt": "2026-07-20T11:39:01.372Z",
+      "usedAt": null,
+      "createdAt": "2026-07-20T11:24:01.372Z"
+    },
+    {
+      "id": "prt-006",
+      "userId": "u-student-006",
+      "tokenHash": "2bd90c1f63291ccb0609c1c4cdc73691374cdcfd0373f5a2d9288f20d4a01306",
+      "expiresAt": "2026-07-20T12:10:49.976Z",
+      "usedAt": "2026-07-20T11:56:40.162Z",
+      "createdAt": "2026-07-20T11:55:49.976Z"
+    }
+  ],
+  "verificationTokens": [
+    {
+      "id": "vt-001",
+      "userId": "u-student-006",
+      "tokenHash": "c251933b8a95b0833df9b789f5cb1e3b6ad588683c977cdeb2437fd4dad4cbfb",
+      "expiresAt": "2026-07-21T11:55:08.890Z",
+      "usedAt": "2026-07-20T11:55:38.306Z",
+      "createdAt": "2026-07-20T11:55:08.771Z"
     }
   ]
 }
