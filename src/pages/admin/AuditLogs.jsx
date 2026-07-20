@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Table, Badge, Spinner, Alert, Container, Form, Row, Col, Pagination, Card } from 'react-bootstrap';
+import { Table, Spinner, Alert, Container, Form, Row, Col, Pagination, Card } from 'react-bootstrap';
 import { getAuditLogs } from '../../services/adminService';
 
 export default function AuditLogs() {
@@ -67,6 +67,12 @@ export default function AuditLogs() {
     switch (action) {
       case 'CHANGE_USER_ROLE':
         return <span className="tp-badge badge-info px-3">Role Change</span>;
+      case 'CREATE_USER':
+        return <span className="tp-badge badge-success px-3">User Created</span>;
+      case 'UPDATE_USER':
+        return <span className="tp-badge badge-info px-3">User Updated</span>;
+      case 'UNLOCK_USER':
+        return <span className="tp-badge badge-success px-3">User Unlocked</span>;
       case 'CHANGE_USER_STATUS':
         return <span className="tp-badge badge-warning px-3">Status Change</span>;
       case 'DELETE_USER':
@@ -96,6 +102,12 @@ export default function AuditLogs() {
     switch (action) {
       case 'CHANGE_USER_ROLE':
         return `Changed role of user ${targetId} from "${oldValue?.role || 'N/A'}" to "${newValue?.role || 'N/A'}"`;
+      case 'CREATE_USER':
+        return `Created user ${targetId}`;
+      case 'UPDATE_USER':
+        return `Updated user ${targetId}`;
+      case 'UNLOCK_USER':
+        return `Unlocked user ${targetId}`;
       case 'CHANGE_USER_STATUS':
         return `Changed status of user ${targetId} from "${oldValue?.status || 'N/A'}" to "${newValue?.status || 'N/A'}"`;
       case 'DELETE_USER':
@@ -130,6 +142,9 @@ export default function AuditLogs() {
                 <Form.Select value={filterAction} onChange={handleFilterActionChange} className="tp-input">
                   <option value="all">Tất cả hành động</option>
                   <option value="CHANGE_USER_ROLE">Change Role</option>
+                  <option value="CREATE_USER">Create User</option>
+                  <option value="UPDATE_USER">Update User</option>
+                  <option value="UNLOCK_USER">Unlock User</option>
                   <option value="CHANGE_USER_STATUS">Change Status</option>
                   <option value="DELETE_USER">Delete User</option>
                   <option value="APPROVE_CONTENT">Approve Content</option>
