@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Table, Spinner, Alert, Container, Form, Row, Col, Pagination, Card } from 'react-bootstrap';
 import { Table, Spinner, Alert, Container, Form, Row, Col, Pagination, Card, Button } from 'react-bootstrap';
 import { getAuditLogs } from '../../services/adminService';
 
@@ -137,40 +136,6 @@ export default function AuditLogs() {
       <div className="tp-main-content">
         <Container fluid="xxl" className="px-4">
           {/* Lọc Logs */}
-          <Card className="studio-filter-card mb-4">
-            <Row className="g-3">
-              <Col md={4}>
-                <Form.Select value={filterAction} onChange={handleFilterActionChange} className="tp-input">
-                  <option value="all">Tất cả hành động</option>
-                  <option value="CHANGE_USER_ROLE">Change Role</option>
-                  <option value="CREATE_USER">Create User</option>
-                  <option value="UPDATE_USER">Update User</option>
-                  <option value="UNLOCK_USER">Unlock User</option>
-                  <option value="CHANGE_USER_STATUS">Change Status</option>
-                  <option value="DELETE_USER">Delete User</option>
-                  <option value="APPROVE_CONTENT">Approve Content</option>
-                  <option value="REJECT_CONTENT">Reject Content</option>
-                </Form.Select>
-              </Col>
-              <Col md={4}>
-                <Form.Select value={filterTargetType} onChange={handleFilterTargetChange} className="tp-input">
-                  <option value="all">Tất cả đối tượng</option>
-                  <option value="user">User</option>
-                  <option value="course">Course</option>
-                  <option value="lesson">Lesson</option>
-                  <option value="test">Test</option>
-                </Form.Select>
-              </Col>
-              <Col md={4}>
-                <Form.Control
-                  type="text"
-                  placeholder="Tìm theo Actor ID..."
-                  value={filterActorId}
-                  onChange={handleFilterActorChange}
-                  className="tp-input"
-                />
-              </Col>
-            </Row>
           <Card className="border-0 shadow-sm rounded-4 mb-4">
             <Card.Body className="p-4">
               <Row className="g-3">
