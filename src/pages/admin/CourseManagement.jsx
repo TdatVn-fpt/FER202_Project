@@ -9,7 +9,7 @@
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Table, Form, Button, Badge, Spinner, Alert, Dropdown, Card, Container } from 'react-bootstrap';
+import { Table, Form, Button, Badge, Spinner, Alert, Dropdown, Card, Container, Modal } from 'react-bootstrap';
 import ConfirmModal from '../../components/common/ConfirmModal';
 import { getCourses, updateCourse, deleteCourse } from '../../services/adminService';
 
@@ -28,6 +28,34 @@ const CourseManagement = () => {
     actionData: null,
     actionType: '',
   });
+
+  const [priceModal, setPriceModal] = useState({
+    isOpen: false,
+    courseId: null,
+    currentPrice: 0,
+    newPrice: 0
+  });
+
+  const openPriceModal = (course) => {
+    setPriceModal({
+      isOpen: true,
+      courseId: course.id,
+      currentPrice: course.price || 0,
+      newPrice: course.price || 0
+    });
+  };
+
+  const handleSavePrice = async () => {
+    try {
+      setPriceModal(prev => ({ ...prev, isOpen: false }));
+      setLoading(true);
+      await updateCourse(priceModal.courseId, { price: Number(priceModal.newPrice) });
+      fetchCourses();
+    } catch (err) {
+      setError(`Lỗi khi sửa giá: ${err.message}`);
+      setLoading(false);
+    }
+  };
 
   // EARS[Event]: WHEN Admin loads CourseManagement, THE system SHALL fetch all courses
   const fetchCourses = useCallback(async () => {
@@ -112,7 +140,7 @@ const CourseManagement = () => {
   };
 
   return (
-    <div style={{ margin: '-16px -24px 0', background: 'var(--tp-page-bg)', minHeight: '100vh' }}>
+    <div className="admin-page-shell">
       <div className="tp-page-header">
         <div className="tp-page-header-inner">
           <div>
@@ -255,6 +283,30 @@ const CourseManagement = () => {
           </Card>
         </Container>
       </div>
+
+      <Modal show={priceModal.isOpen} onHide={() => setPriceModal(prev => ({ ...prev, isOpen: false }))} centered>
+        <Modal.Header closeButton className="border-bottom-0">
+          <Modal.Title className="fw-bold">Sửa giá khóa học</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form.Group>
+            <Form.Label>Giá mới (VNĐ)</Form.Label>
+            <Form.Control
+              type="number"
+              value={priceModal.newPrice}
+              onChange={(e) => setPriceModal(prev => ({ ...prev, newPrice: e.target.value }))}
+            />
+          </Form.Group>
+        </Modal.Body>
+        <Modal.Footer className="border-top-0">
+          <Button variant="light" onClick={() => setPriceModal(prev => ({ ...prev, isOpen: false }))} className="rounded-pill px-4">
+            Hủy
+          </Button>
+          <Button variant="primary" onClick={handleSavePrice} className="rounded-pill px-4">
+            Lưu
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       <ConfirmModal
         isOpen={confirmModal.isOpen}
