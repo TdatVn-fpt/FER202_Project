@@ -13,6 +13,27 @@ const validDate = (value) => {
     && !Number.isNaN(parsed.getTime())
     && parsed.toISOString().slice(0, 10) === value
     && parsed <= new Date();
+const validateDob = (value) => {
+  if (!value) return { isValid: true };
+  const parsedDate = new Date(`${value}T00:00:00Z`);
+  const isValidDate = /^\d{4}-\d{2}-\d{2}$/.test(value)
+    && !Number.isNaN(parsedDate.getTime())
+    && parsedDate.toISOString().slice(0, 10) === value;
+
+  if (!isValidDate) return { isValid: false, error: 'Ngày sinh không hợp lệ.' };
+
+  const today = new Date();
+  let age = today.getFullYear() - parsedDate.getUTCFullYear();
+  const m = today.getMonth() - parsedDate.getUTCMonth();
+  if (m < 0 || (m === 0 && today.getDate() < parsedDate.getUTCDate())) {
+    age--;
+  }
+
+  if (parsedDate > today) return { isValid: false, error: 'Ngày sinh không thể nằm trong tương lai.' };
+  if (age < 6) return { isValid: false, error: 'Bạn phải đủ 6 tuổi trở lên.' };
+  if (age > 100) return { isValid: false, error: 'Tuổi không hợp lệ (lớn hơn 100 tuổi).' };
+
+  return { isValid: true };
 };
 
 export default function Profile() {
@@ -50,6 +71,8 @@ export default function Profile() {
     const fullName = profile.fullName.trim().replace(/\s+/g, ' ');
     if (fullName.length < 2 || fullName.length > 100) errors.fullName = 'Họ tên phải có từ 2 đến 100 ký tự.';
     if (!validDate(profile.dateOfBirth)) errors.dateOfBirth = 'Ngày sinh không hợp lệ hoặc nằm trong tương lai.';
+    const dobValidation = validateDob(profile.dateOfBirth);
+    if (!dobValidation.isValid) errors.dateOfBirth = dobValidation.error;
     if (profile.avatar && !/^(https?:\/\/|data:image\/)/i.test(profile.avatar)) errors.avatar = 'Avatar phải là URL http(s) hoặc data image.';
     if (isStudent && Number(profile.targetBand) < Number(profile.currentBand)) errors.targetBand = 'Band mục tiêu phải lớn hơn hoặc bằng band hiện tại.';
     setProfileErrors(errors);
@@ -83,6 +106,21 @@ export default function Profile() {
     if (password.newPassword !== password.confirmPassword) errors.confirmPassword = 'Mật khẩu xác nhận không khớp.';
     setPasswordErrors(errors);
     if (Object.keys(errors).length) return;
+
+    setSavingPassword(true);
+    try {
+      const result = await changeCurrentUserPassword(password);
+      setPassword({ currentPassword: '', newPassword: '', confirmPassword: '' });
+      toast.success(result.message || 'Đổi mật khẩu thành công!');
+    } catch (error) {
+      const field = error.code === 'CURRENT_PASSWORD_INVALID' ? { currentPassword: error.message } : {};
+      setPasswordErrors(field);
+      toast.error(error.message || 'Đổi mật khẩu thất bại.');
+    } finally {
+      setSavingPassword(false);
+    }
+  };
+
 
     setSavingPassword(true);
     try {
@@ -155,6 +193,21 @@ export default function Profile() {
                   <div className="col-md-6">
                     <label className="prf-label" htmlFor="profileEmail">Email</label>
                     <input id="profileEmail" className="prf-input" value={user.email} readOnly />
+                  </div>
+                  <div className="col-md-6">
+                    <label className="prf-label" htmlFor="profileDateOfBirth">Ngày sinh</label>
+                    <input id="profileDateOfBirth" type="date" className={`prf-input ${profileErrors.dateOfBirth ? 'is-invalid' : ''}`} value={profile.dateOfBirth} onChange={(event) => setProfile((old) => ({ ...old, dateOfBirth: event.target.value }))} />
+                    {profileErrors.dateOfBirth && <div className="prf-error">{profileErrors.dateOfBirth}</div>}
+                  </div>
+                  <div className="col-md-6">
+                    <label className="prf-label" htmlFor="profileAvatar">Avatar URL</label>
+                    <input id="profileAvatar" className={`prf-input ${profileErrors.avatar ? 'is-invalid' : ''}`} value={profile.avatar} onChange={(event) => setProfile((old) => ({ ...old, avatar: event.target.value }))} />
+                    {profileErrors.avatar && <div className="prf-error">{profileErrors.avatar}</div>}
+                  </div>
+                    <input id="profileEmail" className="prf-input text-muted" value={user.email} readOnly style={{ backgroundColor: '#f8fafc', cursor: 'not-allowed' }} />
+                    <div className="mt-1 fw-medium" style={{ fontSize: '0.75rem', color: '#ef4444' }}>
+                      * Không thể thay đổi do chính sách bảo mật.
+                    </div>
                   </div>
                   <div className="col-md-6">
                     <label className="prf-label" htmlFor="profileDateOfBirth">Ngày sinh</label>

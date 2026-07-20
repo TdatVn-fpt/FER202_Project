@@ -119,10 +119,14 @@ export default function Navbar({ variant = 'default' }) {
               <NavDropdown 
                 title={
                   <span className="d-inline-flex align-items-center gap-2 m-0 p-0">
-                    <span className="navbar-user-avatar d-flex align-items-center justify-content-center">
-                      {currentUser?.name?.charAt(0)?.toUpperCase() || 'U'}
+                    <span className="navbar-user-avatar d-flex align-items-center justify-content-center" style={{ overflow: 'hidden' }}>
+                      {currentUser?.avatar && /^(https?:\/\/|data:image\/)/i.test(currentUser.avatar) ? (
+                        <img src={currentUser.avatar} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        currentUser?.name?.charAt(0)?.toUpperCase() || currentUser?.fullName?.charAt(0)?.toUpperCase() || 'U'
+                      )}
                     </span>
-                    <span className="fw-semibold d-none d-lg-inline text-dark m-0 p-0 lh-1">{currentUser?.name || 'User'}</span>
+                    <span className="fw-semibold d-none d-lg-inline text-dark m-0 p-0 lh-1">{currentUser?.fullName || currentUser?.name || 'User'}</span>
                     <i className="bi bi-chevron-down ms-1 d-flex align-items-center" style={{ fontSize: '12px', color: '#475569' }}></i>
                   </span>
                 }
