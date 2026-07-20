@@ -11,6 +11,7 @@ require('dotenv').config({ quiet: true });
   const path = await import('path');
   const fs = await import('fs');
   const { registerAuthRoutes } = require('./server/authRoutes');
+  const { registerPaymentRoutes } = require('./server/paymentRoutes');
 
   const PORT = process.env.PORT || 9999;
 
@@ -50,6 +51,8 @@ require('dotenv').config({ quiet: true });
   db.data.approvalRequests = db.data.approvalRequests || [];
   db.data.library_resources = db.data.library_resources || [];
   db.data.enrollments = db.data.enrollments || [];
+  db.data.payments = db.data.payments || [];
+  db.data.transactions = db.data.transactions || [];
   db.data.passwordResetTokens = db.data.passwordResetTokens || [];
 
   // Sequential ID Generator
@@ -88,7 +91,8 @@ require('dotenv').config({ quiet: true });
 
   // Auth and user-management routes are registered before the raw JSON Server
   // router so sensitive collections can never be accessed directly.
-  registerAuthRoutes({ server, db, bodyParser });
+  const { authenticate, requireRole } = registerAuthRoutes({ server, db, bodyParser });
+  registerPaymentRoutes({ server, db, bodyParser, authenticate, requireRole });
 
   // --- 0. POST /upload (Real File Upload) ---
   server.post('/upload', upload.single('file'), (req, res) => {

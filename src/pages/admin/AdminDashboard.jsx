@@ -116,7 +116,7 @@ export default function AdminDashboard() {
               <Link to="/admin/users" className="tp-btn-primary">
                 <i className="bi bi-people-fill"></i> Quản lý Người dùng
               </Link>
-              <Link to="/admin/payments" className="tp-btn-ghost">
+              <Link to="/admin/transactions" className="tp-btn-ghost">
                 <i className="bi bi-credit-card-fill"></i> Lịch sử Giao dịch
               </Link>
             </div>

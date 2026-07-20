@@ -61,7 +61,7 @@ export default function TeacherLayout() {
           <NavLink to="/teacher/students" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
             <i className="bi bi-people"></i> Quản lý Học viên
           </NavLink>
-          <NavLink to="/profile" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
+          <NavLink to="/teacher/profile" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
             <i className="bi bi-person-circle"></i> Hồ sơ cá nhân
           </NavLink>
           <NavLink to="/teacher/flashcards" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
