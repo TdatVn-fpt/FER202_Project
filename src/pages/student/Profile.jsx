@@ -6,6 +6,14 @@ import './Profile.css';
 
 const BAND_OPTIONS = ['0', '4', '4.5', '5', '5.5', '6', '6.5', '7', '7.5', '8', '8.5', '9'];
 
+const validDate = (value) => {
+  if (!value) return true;
+  const parsed = new Date(`${value}T00:00:00Z`);
+  return /^\d{4}-\d{2}-\d{2}$/.test(value)
+    && !Number.isNaN(parsed.getTime())
+    && parsed.toISOString().slice(0, 10) === value
+    && parsed <= new Date();
+};
 const validateDob = (value) => {
   if (!value) return { isValid: true };
   const parsedDate = new Date(`${value}T00:00:00Z`);
@@ -63,6 +71,7 @@ export default function Profile() {
     const errors = {};
     const fullName = profile.fullName.trim().replace(/\s+/g, ' ');
     if (fullName.length < 2 || fullName.length > 100) errors.fullName = 'Họ tên phải có từ 2 đến 100 ký tự.';
+    if (!validDate(profile.dateOfBirth)) errors.dateOfBirth = 'Ngày sinh không hợp lệ hoặc nằm trong tương lai.';
     const dobValidation = validateDob(profile.dateOfBirth);
     if (!dobValidation.isValid) errors.dateOfBirth = dobValidation.error;
     if (profile.avatar && !/^(https?:\/\/|data:image\/)/i.test(profile.avatar)) errors.avatar = 'Avatar phải là URL http(s) hoặc data image.';
@@ -112,7 +121,6 @@ export default function Profile() {
       setSavingPassword(false);
     }
   };
-
 
   if (!user) return <div className="container py-5 text-center">Không tìm thấy phiên người dùng.</div>;
 
@@ -170,7 +178,10 @@ export default function Profile() {
                   </div>
                   <div className="col-md-6">
                     <label className="prf-label" htmlFor="profileEmail">Email</label>
-                    <input id="profileEmail" className="prf-input" value={user.email} readOnly />
+                    <input id="profileEmail" className="prf-input text-muted" value={user.email} readOnly style={{ backgroundColor: '#f8fafc', cursor: 'not-allowed' }} />
+                    <div className="mt-1 fw-medium" style={{ fontSize: '0.75rem', color: '#ef4444' }}>
+                      * Không thể thay đổi do chính sách bảo mật.
+                    </div>
                   </div>
                   <div className="col-md-6">
                     <label className="prf-label" htmlFor="profileDateOfBirth">Ngày sinh</label>
