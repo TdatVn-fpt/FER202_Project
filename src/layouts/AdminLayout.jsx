@@ -74,9 +74,6 @@ export default function AdminLayout() {
           <NavLink to="/admin/flashcards" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
             <i className="bi bi-layers"></i> Quản lý Flashcards
           </NavLink>
-          <NavLink to="/admin/payments" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
-            <i className="bi bi-credit-card"></i> Quản lý Thanh toán
-          </NavLink>
           <NavLink to="/admin/transactions" className={({ isActive }) => `teacher-nav-link ${isActive ? 'active' : ''}`}>
             <i className="bi bi-receipt"></i> Lịch sử Giao dịch
           </NavLink>
