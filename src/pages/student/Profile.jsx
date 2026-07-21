@@ -45,6 +45,7 @@ export default function Profile() {
   const [passwordErrors, setPasswordErrors] = useState({});
   const [savingProfile, setSavingProfile] = useState(false);
   const [savingPassword, setSavingPassword] = useState(false);
+  const [avatarError, setAvatarError] = useState(false);
 
   const isStudent = user?.role === 'student';
 
@@ -57,6 +58,7 @@ export default function Profile() {
       currentBand: Number(user.currentBand || 0),
       targetBand: Number(user.targetBand || 0),
     });
+    setAvatarError(false);
   }, [user]);
 
   const initials = useMemo(() => (user?.fullName || user?.name || user?.email || 'U')
@@ -142,8 +144,8 @@ export default function Profile() {
             <div className="prf-overview sticky-top" style={{ top: '100px' }}>
               <div className="prf-avatar-wrap">
                 <div className="prf-avatar">
-                  {user.avatar && /^(https?:\/\/|data:image\/)/i.test(user.avatar)
-                    ? <img src={user.avatar} alt="Avatar" className="prf-avatar-img" />
+                  {user.avatar && /^(https?:\/\/|data:image\/)/i.test(user.avatar) && !avatarError
+                    ? <img src={user.avatar} alt="Avatar" className="prf-avatar-img" onError={() => setAvatarError(true)} />
                     : <span>{initials}</span>}
                 </div>
                 <div className="prf-avatar-ring" />
