@@ -48,12 +48,14 @@
       "name": "Nguyen Tien Dat",
       "email": "ntiendat2108@gmail.com",
       "role": "admin",
-      "avatar": "https://www.gravatar.com/avatar/?d=mp",
+      "avatar": "https://scontent.fsgn2-3.fna.fbcdn.net/v/t39.30808-1/518339480_1533187951421317_7478396827314828163_n.jpg?stp=dst-jpg_tt6&cstp=mx1846x1846&ctp=s480x480&_nc_cat=110&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeEnmDPPeC-GSCxsRDA0OJLSr6gxDFLNGRWvqDEMUs0ZFTEPIN3FIAznhnH8PevjwjXFp1RyWYJ32gh0O02cKgNP&_nc_ohc=52Ac8-ipSFUQ7kNvwGWgRdr&_nc_oc=Adq7rr0vxyuMAER5hMUZF1rFilD_qL_JHzcpfoenGs9ZYSzCjSv-bZAPm7pTC1JSRJw&_nc_zt=24&_nc_ht=scontent.fsgn2-3.fna&_nc_gid=ym6Cp-F1Oez4A-hcRZ5huw&_nc_ss=7a2a8&oh=00_AQDtaGq_fbZBqcQKSZEU_a-7csNjrMKB_IqWTJz_lzuAog&oe=6A64B5F1",
       "status": "active",
       "targetBand": 7,
       "currentBand": 5.5,
       "createdAt": "2026-06-01T08:00:00Z",
-      "passwordHash": "$2b$10$peFW66ULi4fclViLUPGyTOSMUUGQXIQW4xb5giBY9bKQ5DyglgMEG"
+      "passwordHash": "$2b$10$peFW66ULi4fclViLUPGyTOSMUUGQXIQW4xb5giBY9bKQ5DyglgMEG",
+      "dateOfBirth": "",
+      "updatedAt": "2026-07-21T03:29:01.543Z"
     },
     {
       "id": "u-student-004",
@@ -8354,108 +8356,72 @@
   ],
   "payments": [
     {
-      "id": "log-048",
-      "actorId": "u-teacher-001",
-      "action": "CREATE_TEST",
-      "targetType": "course",
-      "targetId": "course-007",
-      "createdAt": "2026-07-04T13:38:40.732Z"
-    },
-    {
-      "id": "log-049",
-      "actorId": "u-teacher-001",
-      "action": "REVERT_COURSE_STATUS",
-      "targetType": "course",
-      "targetId": "course-007",
-      "createdAt": "2026-07-04T13:38:40.757Z"
-    },
-    {
-      "id": "log-050",
-      "actorId": "u-teacher-001",
-      "action": "SUBMIT_TEST",
-      "targetType": "unknown",
-      "targetId": "unknown",
-      "createdAt": "2026-07-05T05:40:21.946Z"
-    },
-    {
-      "id": "log-051",
-      "actorId": "u-student-004",
-      "action": "CREATE_COURSE",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T06:19:41.557Z"
-    },
-    {
-      "id": "log-052",
-      "actorId": "u-student-004",
-      "action": "CREATE_COURSE",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T06:38:46.984Z"
-    },
-    {
-      "id": "log-053",
-      "actorId": "u-student-004",
-      "action": "CREATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T06:41:19.843Z"
-    },
-    {
-      "id": "log-054",
-      "actorId": "u-student-004",
-      "action": "CREATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-012",
-      "createdAt": "2026-07-06T06:42:30.122Z"
-    },
-    {
-      "id": "log-055",
-      "actorId": "u-student-004",
-      "action": "REVERT_COURSE_STATUS",
-      "targetType": "course",
-      "targetId": "course-reading-free-8s28fpfl7",
-      "createdAt": "2026-07-06T07:27:02.002Z"
-    },
-    {
-      "id": "log-056",
-      "actorId": "u-student-004",
-      "action": "UPDATE_LESSON",
-      "targetType": "course",
-      "targetId": "course-reading-free-8s28fpfl7",
-      "createdAt": "2026-07-06T07:27:02.012Z"
-    },
-    {
+      "id": "pay-001",
+      "orderCode": 1720152074469,
       "userId": "u-001",
       "courseId": "6juKyo6dXkU",
+      "items": [
+        {
+          "courseId": "6juKyo6dXkU",
+          "courseTitle": "Master IELTS Writing Task 2 - Band 7.0+",
+          "type": "enroll",
+          "listPrice": 1500000,
+          "amount": 1500000,
+          "discountAmount": 0
+        }
+      ],
+      "originalAmount": 1500000,
+      "discountAmount": 0,
       "amount": 1500000,
       "currency": "VND",
-      "method": "vietqr",
-      "transferContent": "IELTS 6juKyo6dXkU -001",
-      "type": "enroll",
+      "method": "payos",
+      "provider": "payos",
+      "providerStatus": "PAID",
       "status": "paid",
+      "type": "enroll",
+      "description": "IELTS 1720152074469",
+      "checkoutUrl": null,
+      "paymentLinkId": null,
+      "providerReference": null,
+      "couponCode": null,
       "createdAt": "2026-07-05T05:01:14.469Z",
       "paidAt": "2026-07-05T05:03:19.559Z",
-      "reviewedAt": "2026-07-05T05:03:19.559Z",
-      "reviewedBy": "admin",
-      "rejectReason": null,
-      "id": "0AjrCVLm3eY"
+      "cancelledAt": null,
+      "expiredAt": null
     },
     {
+      "id": "pay-002",
+      "orderCode": 1720175735490,
       "userId": "u-001",
       "courseId": "WBXqCYd2cPQ",
+      "items": [
+        {
+          "courseId": "WBXqCYd2cPQ",
+          "courseTitle": "IELTS Reading: Skimming & Scanning Techniques",
+          "type": "enroll",
+          "listPrice": 990000,
+          "amount": 990000,
+          "discountAmount": 0
+        }
+      ],
+      "originalAmount": 990000,
+      "discountAmount": 0,
       "amount": 990000,
       "currency": "VND",
-      "method": "vietqr",
-      "transferContent": "IELTS WBXqCYd2cPQ -001",
-      "type": "enroll",
+      "method": "payos",
+      "provider": "payos",
+      "providerStatus": "PAID",
       "status": "paid",
+      "type": "enroll",
+      "description": "IELTS 1720175735490",
+      "checkoutUrl": null,
+      "paymentLinkId": null,
+      "providerReference": null,
+      "couponCode": null,
       "createdAt": "2026-07-05T11:35:35.490Z",
       "paidAt": "2026-07-05T11:36:15.546Z",
-      "reviewedAt": "2026-07-05T11:36:15.546Z",
-      "reviewedBy": "admin",
-      "rejectReason": null,
-      "id": "bseQJLzQJT8"
+      "cancelledAt": null,
+      "expiredAt": null
     }
   ],
   "transactions": [
