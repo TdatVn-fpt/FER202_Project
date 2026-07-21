@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
@@ -8,6 +8,7 @@ import './TeacherLayout.css';
 export default function TeacherLayout() {
   const navigate = useNavigate();
   const { user: currentUser, logout } = useAuth();
+  const [avatarError, setAvatarError] = useState(false);
 
   const handleLogout = () => {
     logout();
@@ -32,8 +33,8 @@ export default function TeacherLayout() {
         {/* Thông tin giáo viên đăng nhập */}
         <div className="d-flex align-items-center gap-3 px-3 py-2 mb-4 bg-light rounded-3 border">
           <div className="bg-white rounded-circle d-flex align-items-center justify-content-center fw-bold text-primary shadow-sm" style={{ width: '40px', height: '40px', overflow: 'hidden' }}>
-            {currentUser?.avatar && /^(https?:\/\/|data:image\/)/i.test(currentUser.avatar) ? (
-              <img src={currentUser.avatar} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            {currentUser?.avatar && /^(https?:\/\/|data:image\/)/i.test(currentUser.avatar) && !avatarError ? (
+              <img src={currentUser.avatar} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={() => setAvatarError(true)} />
             ) : (
               currentUser?.fullName?.charAt(0) || 'T'
             )}
