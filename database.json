@@ -209,7 +209,7 @@
       "isPremium": false,
       "thumbnail": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "approved",
+      "status": "rejected",
       "enrolledCount": 120,
       "durationWeeks": 6,
       "createdAt": "2026-06-01T08:00:00Z"
@@ -229,7 +229,7 @@
       "isPremium": true,
       "thumbnail": "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "approved",
+      "status": "rejected",
       "enrolledCount": 85,
       "students": 85,
       "rating": 4.5,
@@ -247,31 +247,16 @@
       ],
       "skill": "Writing",
       "level": "Advanced",
-      "price": 499000,
-      "isPremium": true,
+      "price": 0,
+      "isPremium": false,
       "thumbnail": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "approved",
+      "status": "rejected",
       "enrolledCount": 0,
       "students": 0,
       "rating": 0,
       "durationWeeks": 10,
       "createdAt": "2026-06-10T08:00:00Z"
-    },
-    {
-      "title": "Master IELTS Writing Task 2 - Band 7.0+",
-      "description": "Khóa học nâng cao cung cấp bộ template cấu trúc bài viết, cách triển khai ý tưởng (brainstorming) và từ vựng học thuật ăn điểm cho phần thi Writing Task 2. Chấm chữa 5 bài Essay.",
-      "skill": "Writing",
-      "level": "Advanced",
-      "price": 1500000,
-      "durationWeeks": 8,
-      "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead27d8?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "status": "approved",
-      "enrolledCount": 0,
-      "isPremium": true,
-      "createdAt": "2026-06-25T11:39:43.263Z",
-      "id": "6juKyo6dXkU"
     },
     {
       "title": "IELTS Reading: Skimming & Scanning Techniques",
@@ -282,7 +267,7 @@
       "durationWeeks": 6,
       "thumbnail": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "draft",
+      "status": "rejected",
       "enrolledCount": 0,
       "isPremium": true,
       "createdAt": "2026-06-25T11:40:22.465Z",
@@ -297,65 +282,11 @@
       "durationWeeks": 5,
       "thumbnail": "https://images.unsplash.com/photo-1589149098258-3e9102ca6651?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "approved",
+      "status": "rejected",
       "enrolledCount": 0,
       "isPremium": true,
       "createdAt": "2026-06-25T11:41:03.486Z",
       "id": "eZfx0_P3YIU"
-    },
-    {
-      "id": "course-005",
-      "title": "IELTS Reading Beginner Course",
-      "description": "This course helps students improve IELTS reading skills from band 4 to 6.\nskill: Reading",
-      "syllabus": [],
-      "skill": "Reading",
-      "level": "Beginner",
-      "price": 0,
-      "premiumPrice": 99000,
-      "isPremium": false,
-      "thumbnail": "https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "status": "draft",
-      "enrolledCount": 0,
-      "durationWeeks": 4,
-      "createdAt": "2026-06-28T10:07:55.776Z"
-    },
-    {
-      "id": "course-007",
-      "title": "IELTS Reading Foundation 3.0 - 4.5",
-      "description": "Khóa học cung cấp kiến thức nền tảng cho kỹ năng IELTS Reading, phù hợp với học viên trình độ Beginner. Nội dung tập trung vào cách đọc hiểu bài IELTS, nhận diện từ khóa, skimming, scanning, xử lý câu hỏi True/False/Not Given, Matching, Multiple Choice và Gap Fill. Sau khóa học, học viên có thể nắm vững phương pháp làm bài cơ bản và cải thiện tốc độ đọc hiểu.",
-      "syllabus": [],
-      "skill": "Reading",
-      "level": "Beginner",
-      "price": 1000,
-      "isPremium": true,
-      "thumbnail": "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "status": "approved",
-      "enrolledCount": 0,
-      "durationWeeks": 4,
-      "createdAt": "2026-06-28T14:02:31.641Z"
-    },
-    {
-      "id": "course-008",
-      "title": "IELTS Speaking: Band 7.5+ Masterclass",
-      "description": "Succeed in your IELTS Speaking test with our advanced masterclass. Focuses on fluency, pronunciation, range of vocabulary, and coherent structuring of Parts 1, 2, and 3.",
-      "syllabus": [
-        "Part 1: Conversational Starters & Fluency Tips",
-        "Part 2: Structuring Your 2-Minute Talk",
-        "Part 3: Mastering Abstract Questions",
-        "Avoiding Common Vocabulary & Pronunciation Pitfalls"
-      ],
-      "skill": "Speaking",
-      "level": "Advanced",
-      "price": 590000,
-      "isPremium": true,
-      "thumbnail": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "status": "approved",
-      "enrolledCount": 42,
-      "durationWeeks": 6,
-      "createdAt": "2026-06-25T08:00:00Z"
     },
     {
       "id": "course-009",
@@ -373,7 +304,7 @@
       "isPremium": true,
       "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead27d8?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "approved",
+      "status": "rejected",
       "enrolledCount": 58,
       "durationWeeks": 4,
       "createdAt": "2026-06-26T08:00:00Z"
@@ -395,95 +326,10 @@
       "isPremium": false,
       "thumbnail": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
-      "status": "approved",
+      "status": "rejected",
       "enrolledCount": 95,
       "durationWeeks": 5,
       "createdAt": "2026-06-27T08:00:00Z"
-    },
-    {
-      "id": "course-011",
-      "title": "IELTS Reading: Speed & Accuracy Booster",
-      "description": "Tackle long academic texts with confidence. Master time management strategies, learn skimming and scanning, and avoid traps in True/False/Not Given and List of Headings.",
-      "syllabus": [
-        "Time Management & Active Reading Techniques",
-        "Deconstruct True, False, Not Given Questions",
-        "Cracking Matching Headings & Features",
-        "Completing Summaries & Sentence Completions"
-      ],
-      "skill": "Reading",
-      "level": "Advanced",
-      "price": 490000,
-      "isPremium": true,
-      "thumbnail": "https://images.unsplash.com/photo-1513475382585-d06e73926c92?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "status": "approved",
-      "enrolledCount": 71,
-      "durationWeeks": 6,
-      "createdAt": "2026-06-28T08:00:00Z"
-    },
-    {
-      "id": "course-017",
-      "title": "Fake HTTP Thumbnail TC040",
-      "description": "This course helps students improve IELTS reading skills",
-      "syllabus": [],
-      "skill": "Reading",
-      "level": "Beginner",
-      "price": 0,
-      "isPremium": false,
-      "thumbnail": "httpabc",
-      "teacherId": "u-teacher-001",
-      "status": "draft",
-      "enrolledCount": 0,
-      "durationWeeks": 4,
-      "createdAt": "2026-07-12T14:36:05.200Z"
-    },
-    {
-      "id": "course-026",
-      "title": "IELTS Writing Advanced Course TC002",
-      "description": "Improve your IELTS writing skills with expert guidance and practice tasks",
-      "syllabus": [],
-      "skill": "Writing",
-      "level": "Advanced",
-      "price": 500000,
-      "isPremium": true,
-      "thumbnail": "https://example.com/img.jpg",
-      "teacherId": "u-teacher-001",
-      "status": "draft",
-      "enrolledCount": 0,
-      "durationWeeks": 8,
-      "createdAt": "2026-07-12T14:37:09.112Z"
-    },
-    {
-      "id": "course-027",
-      "title": "HTTP Thumbnail Course TC003",
-      "description": "This course helps students improve IELTS reading skills",
-      "syllabus": [],
-      "skill": "Reading",
-      "level": "Beginner",
-      "price": 0,
-      "isPremium": false,
-      "thumbnail": "http://example.com/image.jpg",
-      "teacherId": "u-teacher-001",
-      "status": "draft",
-      "enrolledCount": 0,
-      "durationWeeks": 4,
-      "createdAt": "2026-07-12T14:37:13.679Z"
-    },
-    {
-      "id": "course-034",
-      "title": "HTTPS Thumbnail TC028",
-      "description": "This course helps students improve IELTS reading skills",
-      "syllabus": [],
-      "skill": "Reading",
-      "level": "Beginner",
-      "price": 0,
-      "isPremium": false,
-      "thumbnail": "https://example.com/img.jpg",
-      "teacherId": "u-teacher-001",
-      "status": "draft",
-      "enrolledCount": 0,
-      "durationWeeks": 4,
-      "createdAt": "2026-07-12T14:37:44.026Z"
     },
     {
       "id": "course-004",
@@ -502,50 +348,11 @@
       "thumbnail": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=600&q=80",
       "teacherId": "u-teacher-001",
       "teacherName": "IELTS Mentor",
-      "status": "approved",
+      "status": "rejected",
       "enrolledCount": 95,
       "rating": 4.6,
       "durationWeeks": 4,
       "createdAt": "2026-06-04T08:00:00Z"
-    },
-    {
-      "id": "course-006",
-      "title": "IELTS Reading: The 8.0+ Masterclass",
-      "description": "For high-achievers. Tackle the most difficult passages (Passage 3) with advanced techniques. Overcome distractors and tricky inference questions.",
-      "syllabus": [
-        "Deconstructing Complex Sentences",
-        "Identifying the Writer's Views/Claims",
-        "Advanced Multiple Choice Strategies",
-        "Time Management for Passage 3"
-      ],
-      "skill": "Reading",
-      "level": "Band 7.0 - 9.0",
-      "price": 349000,
-      "isPremium": true,
-      "thumbnail": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "teacherName": "IELTS Mentor",
-      "status": "approved",
-      "enrolledCount": 38,
-      "rating": 4.9,
-      "durationWeeks": 10,
-      "createdAt": "2026-06-06T08:00:00Z"
-    },
-    {
-      "title": " IELTS Listening Foundation (Dành cho người mới bắt đầu)",
-      "description": " Khóa học nền tảng giúp học viên làm quen với các format câu hỏi cơ bản trong bài thi IELTS Listening như Multiple Choice và Form Completion. Bao gồm 10 bài nghe thực tế tốc độ chậm.",
-      "skill": "Listening",
-      "level": "Beginner",
-      "price": 0,
-      "premiumPrice": 99000,
-      "durationWeeks": 4,
-      "thumbnail": "https://images.unsplash.com/photo-1599687267812-35c05ff70ee9?auto=format&fit=crop&w=600&q=80",
-      "teacherId": "u-teacher-001",
-      "status": "approved",
-      "enrolledCount": 0,
-      "isPremium": false,
-      "createdAt": "2026-06-25T11:38:28.004Z",
-      "id": "9w8htVkjNaI"
     }
   ],
   "freeResources": [
@@ -586,19 +393,8 @@
       "teacherId": "u-student-004"
     },
     {
-      "id": "lesson-004",
-      "courseId": "course-003",
-      "title": "Writing Task 2: Introduction Paragraphs",
-      "order": 1,
-      "durationMinutes": 60,
-      "contentUrl": "/lessons/writing-intro",
-      "status": "published",
-      "createdAt": "2026-06-10T09:00:00Z",
-      "teacherId": "u-student-004"
-    },
-    {
       "id": "lesson-008",
-      "courseId": "course-007",
+      "courseId": null,
       "title": "Reading lesson 1",
       "order": 1,
       "durationMinutes": 30,
@@ -646,7 +442,7 @@
     },
     {
       "id": "lesson-012",
-      "courseId": "course-011",
+      "courseId": null,
       "title": "Reading Lesson 1: Smart Skimming & Keyword Scanning",
       "order": 1,
       "durationMinutes": 45,
@@ -657,17 +453,8 @@
       "createdAt": "2026-06-28T09:00:00Z"
     },
     {
-      "id": "lesson-006",
-      "courseId": "course-004",
-      "title": "Part 2: The 1-Minute Prep Strategy",
-      "order": 2,
-      "durationMinutes": 45,
-      "content": "In Speaking Part 2, you are given a cue card with a topic and 3-4 bullet points. You have exactly 1 minute to prepare, and you must speak for 1 to 2 minutes.\n\n## How to Use Your 1 Minute Effectively\nMany students waste this time writing full sentences. **Don't do this.** You will end up reading from the paper, which lowers your fluency and pronunciation scores.\n\n### The 'Keyword Map' Strategy:\n1. Divide your scratch paper into 4 quadrants (one for each bullet point).\n2. Write down 2-3 **Keywords** or **Collocations** for each quadrant.\n3. Think of one specific 'Story' or memory to tie it all together.\n\n## Structuring Your 2-Minute Talk:\n- **Introduction (15 sec):** 'I'd like to talk about a time when...'\n- **Past Details (30 sec):** Discuss the background. Use Past Continuous ('I was walking...') and Past Perfect ('I had never seen...').\n- **Core Description (45 sec):** Answer the main part of the prompt. Use descriptive adjectives.\n- **Conclusion / Feelings (30 sec):** 'Looking back, I felt incredibly...' This directly answers the final bullet point usually asking about your feelings.\n\n### Emergency Tactic:\nIf you run out of things to say at 1 minute 30 seconds, shift to the future or a hypothetical: *'If I had the chance to do it again, I would...'* or *'I hope to experience something similar in the future because...'*.",
-      "teacherId": "u-teacher-001"
-    },
-    {
       "id": "lesson-007",
-      "courseId": "course-005",
+      "courseId": null,
       "title": "Line Graphs: Describing Trends",
       "order": 1,
       "durationMinutes": 50,
@@ -848,6 +635,30 @@
       "teacherId": "u-teacher-001",
       "status": "published",
       "createdAt": "2026-07-20T17:20:58.499Z"
+    },
+    {
+      "id": "lesson-026",
+      "courseId": "course-003",
+      "title": "Writting Ielts Lesson 1",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=yvt8RzGNhBc&t=32s",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-21T02:21:03.118Z"
+    },
+    {
+      "id": "lesson-027",
+      "courseId": "course-003",
+      "title": "Writting Ielts Lesson 2",
+      "order": 1,
+      "durationMinutes": 30,
+      "contentUrl": "https://www.youtube.com/watch?v=NZkkd7V2Gek",
+      "audioUrl": "",
+      "teacherId": "u-teacher-001",
+      "status": "published",
+      "createdAt": "2026-07-21T02:21:34.321Z"
     }
   ],
   "tests": [
@@ -1434,7 +1245,7 @@
       "id": "tutor-listening-approved-001",
       "title": "Tutor IELTS Listening Full Mock - Campus and City",
       "description": "A 40-question Listening mock with local playable audio and four IELTS sections.",
-      "courseId": "6juKyo6dXkU",
+      "courseId": null,
       "skill": "Listening",
       "testMode": "course",
       "isFreePreview": true,
@@ -2011,7 +1822,7 @@
       "description": "bài test cải thiện kĩ năng reading cho student",
       "skill": "Reading",
       "testMode": "course",
-      "courseId": "course-007",
+      "courseId": null,
       "isFreePreview": false,
       "status": "published",
       "practiceMode": "exam",
@@ -8083,7 +7894,7 @@
       "id": "gen-test-writing-003-1",
       "title": "Writing Mock Test 1 - Task 2 Masterclass",
       "description": "Task 1 Bar Chart comparison and Task 2 Essay on environmental responsibilities.",
-      "courseId": "course-003",
+      "courseId": "",
       "skill": "Writing",
       "testMode": "course",
       "isFreePreview": false,
@@ -8346,7 +8157,7 @@
     },
     {
       "userId": "u-001",
-      "courseId": "course-007",
+      "courseId": null,
       "progress": 0,
       "enrolledAt": "2026-06-29T04:48:52.259Z",
       "id": "WHA_Q9JK1Xc"
@@ -8427,7 +8238,7 @@
     },
     {
       "userId": "u-001",
-      "courseId": "6juKyo6dXkU",
+      "courseId": null,
       "amount": 1500000,
       "currency": "VND",
       "method": "vietqr",
@@ -9699,6 +9510,150 @@
         "courseId": "course-009"
       },
       "createdAt": "2026-07-20T17:21:10.756Z"
+    },
+    {
+      "id": "log-079",
+      "actorId": "u-teacher-001",
+      "action": "DELETE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-006",
+        "title": "Part 2: The 1-Minute Prep Strategy",
+        "courseId": "course-004"
+      },
+      "createdAt": "2026-07-21T02:17:16.906Z"
+    },
+    {
+      "id": "log-080",
+      "actorId": "u-teacher-001",
+      "action": "REVERT_COURSE_STATUS",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "courseId": "course-004",
+        "reason": "Course structure edited"
+      },
+      "createdAt": "2026-07-21T02:17:16.985Z"
+    },
+    {
+      "id": "log-081",
+      "actorId": "u-teacher-001",
+      "action": "UNLINK_DECK_FROM_COURSE",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "deckId": "deck-spk-c004-005",
+        "courseId": "course-004"
+      },
+      "createdAt": "2026-07-21T02:19:02.656Z"
+    },
+    {
+      "id": "log-082",
+      "actorId": "u-teacher-001",
+      "action": "UNLINK_DECK_FROM_COURSE",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "deckId": "deck-spk-c004-004",
+        "courseId": "course-004"
+      },
+      "createdAt": "2026-07-21T02:19:06.611Z"
+    },
+    {
+      "id": "log-083",
+      "actorId": "u-teacher-001",
+      "action": "UNLINK_DECK_FROM_COURSE",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "deckId": "deck-spk-c004-003",
+        "courseId": "course-004"
+      },
+      "createdAt": "2026-07-21T02:19:09.949Z"
+    },
+    {
+      "id": "log-084",
+      "actorId": "u-teacher-001",
+      "action": "UPDATE_COURSE",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "courseId": "course-003",
+        "changes": {
+          "title": "IELTS Writing Task 2 Masterclass",
+          "description": "Chinh phục Writing Task 2 với chiến lược bài bản.",
+          "skill": "Writing",
+          "level": "Advanced",
+          "price": 0,
+          "durationWeeks": 10,
+          "thumbnail": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80",
+          "status": "rejected",
+          "isPremium": false
+        }
+      },
+      "createdAt": "2026-07-21T02:19:45.747Z"
+    },
+    {
+      "id": "log-085",
+      "actorId": "u-teacher-001",
+      "action": "UNLINK_TEST_FROM_COURSE",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "testId": "gen-test-writing-003-1",
+        "courseId": "course-003"
+      },
+      "createdAt": "2026-07-21T02:20:23.799Z"
+    },
+    {
+      "id": "log-086",
+      "actorId": "u-teacher-001",
+      "action": "DELETE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-004",
+        "title": "Writing Task 2: Introduction Paragraphs",
+        "courseId": "course-003"
+      },
+      "createdAt": "2026-07-21T02:20:31.378Z"
+    },
+    {
+      "id": "log-087",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-026",
+        "title": "Writting Ielts Lesson 1",
+        "courseId": "course-003"
+      },
+      "createdAt": "2026-07-21T02:21:03.167Z"
+    },
+    {
+      "id": "log-088",
+      "actorId": "u-teacher-001",
+      "action": "CREATE_LESSON",
+      "targetType": "activity",
+      "targetId": "unknown",
+      "oldValue": null,
+      "newValue": {
+        "lessonId": "lesson-027",
+        "title": "Writting Ielts Lesson 2",
+        "courseId": "course-003"
+      },
+      "createdAt": "2026-07-21T02:21:34.370Z"
     }
   ],
   "approvalRequests": [
@@ -9767,6 +9722,14 @@
       "teacherId": "u-teacher-001",
       "status": "pending",
       "createdAt": "2026-07-20T15:22:51.863Z"
+    },
+    {
+      "id": "req-003",
+      "targetType": "course",
+      "targetId": "course-004",
+      "teacherId": "u-teacher-001",
+      "status": "pending",
+      "createdAt": "2026-07-21T02:17:16.855Z"
     }
   ],
   "categories": [
@@ -9972,7 +9935,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-4",
@@ -9984,7 +9947,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-4",
@@ -9996,7 +9959,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-4",
@@ -10008,7 +9971,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-4",
@@ -10020,7 +9983,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-5",
@@ -10442,7 +10405,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-4",
@@ -10454,7 +10417,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-4",
@@ -10466,7 +10429,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-4",
@@ -10478,7 +10441,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-4",
@@ -10490,7 +10453,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-4",
@@ -10502,7 +10465,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-4",
@@ -10514,7 +10477,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-4",
@@ -10526,7 +10489,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-4",
@@ -10538,7 +10501,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-4",
@@ -10550,7 +10513,7 @@
       "status": "active",
       "imageUrl": "",
       "audioUrl": "",
-      "courseId": "course-007"
+      "courseId": null
     },
     {
       "deckId": "deck-5",
@@ -15419,7 +15382,7 @@
       "description": "10 Phrasal Verbs thông dụng nhất giúp ăn điểm từ vựng trong bài Speaking.",
       "teacherId": "u-student-004",
       "deckMode": "course",
-      "courseId": "course-007",
+      "courseId": null,
       "status": "published",
       "createdAt": "2026-06-25T10:00:00Z"
     },
@@ -15713,7 +15676,7 @@
       "description": "Vocabulary for discussing social networks, news validity, and advertising.",
       "teacherId": "u-teacher-001",
       "deckMode": "free",
-      "courseId": "course-004",
+      "courseId": "",
       "status": "published",
       "createdAt": "2026-07-20T16:00:00Z",
       "updatedAt": "2026-07-20T16:00:00Z"
@@ -15724,7 +15687,7 @@
       "description": "Discuss systems, teaching methods, and self-learning.",
       "teacherId": "u-teacher-001",
       "deckMode": "free",
-      "courseId": "course-004",
+      "courseId": "",
       "status": "published",
       "createdAt": "2026-07-20T16:00:00Z",
       "updatedAt": "2026-07-20T16:00:00Z"
@@ -15735,7 +15698,7 @@
       "description": "Advanced vocabulary for discussing jobs, technologies, and work-life balance.",
       "teacherId": "u-teacher-001",
       "deckMode": "free",
-      "courseId": "course-004",
+      "courseId": "",
       "status": "published",
       "createdAt": "2026-07-20T16:00:00Z",
       "updatedAt": "2026-07-20T16:00:00Z"
